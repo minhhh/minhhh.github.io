@@ -33,11 +33,12 @@ DEFAULT_CATEGORY = ('Articles')
 MD_EXTENSIONS = ['codehilite','extra']
 MARKUP = ('rst', 'md')
 ARTICLE_EXCLUDES = ('pages',)
+ARTICLE_PERMALINK_STRUCTURE = '/%Y/%m/'
 
 THEME = "themes/gum"
 STATIC_PATHS = ['images', 'js', 'css']
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 DELETE_OUTPUT_DIRECTORY = False
