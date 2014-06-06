@@ -6,15 +6,15 @@ Tags: pelican, blog, github
 
 When creating this blog, I used the following references:
 
-1. [pelican plan]
-2. [Pelican Guide]
-3. [Migrating github]
-4. [Pelican and github]
+1. [Setup github page with pelican]
+2. [Migrating to github pages]
+3. [Pelican Guide initial setup]
+4. [Moving to Pelican planning]
 
-[pelican plan](http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html)
+[Moving to Pelican planning]: http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html
 
-[Pelican Guide](http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html)
+[Pelican Guide initial setup]: http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html
 
-[Migrating github](http://mathamy.com/migrating-to-github-pages-using-pelican.html)
+[Migrating to github pages]: http://mathamy.com/migrating-to-github-pages-using-pelican.html
 
-[Pelican and github](http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican)
+[Setup github page with pelican]: http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican
