@@ -28,16 +28,16 @@ SOCIAL =  (('Pelican', 'http://getpelican.com/'),
           ('Python.org', 'http://python.org/'),
           )
 
-GITHUB_URL = ''
+GITHUB_URL = 'https://github.com/minhhh'
 TWITTER_URL = 'https://twitter.com/utsace'
-FACEBOOK_URL = ''
-GOOGLEPLUS_URL = ''
+FACEBOOK_URL = 'https://www.facebook.com/minh.ha.hanoi'
+GOOGLEPLUS_URL = 'https://plus.google.com/u/0/104727235342101204530/about/p/pub'
 
 # Pages
 DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = True
-DEFAULT_CATEGORY = ('Articles')
+DEFAULT_CATEGORY = ('Programming')
 MD_EXTENSIONS = ['codehilite','extra']
 MARKUP = ('rst', 'md')
 ARTICLE_EXCLUDES = ('pages',)
@@ -52,8 +52,12 @@ ARTICLE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
 PAGE_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}.html'
 PAGE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}-{lang}.html'
 
+# Archive
+YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+
 # Themes
-THEME = "themes/gum"
+THEME = "pelican-themes/gum"
 STATIC_PATHS = ['images', 'js', 'css']
 
 # Uncomment following line if you want document-relative URLs when developing

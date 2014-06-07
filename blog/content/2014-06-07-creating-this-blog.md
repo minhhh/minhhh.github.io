@@ -1,7 +1,7 @@
 Title: Creating this blog
 Date: 2014-06-07 00:00
-Author: Ha Minh
-Category: Blog
+Author: Ha.Minh
+Category: Programming
 Tags: pelican, blog, github
 
 When creating this blog, I used the following references:
