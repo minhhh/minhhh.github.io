@@ -21,20 +21,38 @@ LINKS =  (('Pelican', 'http://getpelican.com/'),
           )
 
 # Social widget
-SOCIAL = (
-          ('Twitter', 'https://twitter.com/utsace'),
+# SOCIAL = (
+#           # ('Twitter', 'https://twitter.com/utsace'),
+#           )
+SOCIAL =  (('Pelican', 'http://getpelican.com/'),
+          ('Python.org', 'http://python.org/'),
           )
 
-DEFAULT_PAGINATION = 10
+GITHUB_URL = ''
+TWITTER_URL = 'https://twitter.com/utsace'
+FACEBOOK_URL = ''
+GOOGLEPLUS_URL = ''
 
+# Pages
+DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = True
 DEFAULT_CATEGORY = ('Articles')
 MD_EXTENSIONS = ['codehilite','extra']
 MARKUP = ('rst', 'md')
 ARTICLE_EXCLUDES = ('pages',)
-ARTICLE_PERMALINK_STRUCTURE = '/%Y/%m/'
 
+# Url
+ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_LANG_URL = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
+PAGE_URL = 'pages/{slug}.html'
+PAGE_LANG_URL = '{pages/{slug}-{lang}.html'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
+PAGE_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}.html'
+PAGE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}-{lang}.html'
+
+# Themes
 THEME = "themes/gum"
 STATIC_PATHS = ['images', 'js', 'css']
 
