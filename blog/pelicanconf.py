@@ -49,8 +49,8 @@ PAGE_URL = 'pages/{slug}.html'
 PAGE_LANG_URL = '{pages/{slug}-{lang}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
 ARTICLE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
-PAGE_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}.html'
-PAGE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/pages/{slug}-{lang}.html'
+PAGE_SAVE_AS = 'pages/{slug}.html'
+PAGE_LANG_SAVE_AS = 'pages/{slug}-{lang}.html'
 
 # Archive
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'

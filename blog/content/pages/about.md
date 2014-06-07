@@ -10,7 +10,7 @@ I used to use Windows, then I moved to Arch/Ubuntu. Using command line is cool, 
 For a while, I didn't blog, first because I didn't have anything significant to blog about, and second because all the blogging platform require login, online editor and whatnot, which I found very cumbersome. Recently, I discover the rise of static blog, where you can write blog in Markdown format, which I love, hence this blog.
 
 # About the site
-This site is running on [Pelican]. Themes are taken from [Pelican Themes]
+This site is running on [Pelican]. Themes are taken from [Pelican Themes].
 
 [Pelican]: http://pelican.notmyidea.org/en/latest/index.html
 [Pelican Themes]: https://github.com/getpelican/pelican-themes
