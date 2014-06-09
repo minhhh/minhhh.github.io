@@ -60,6 +60,9 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 THEME = "pelican-themes/gum"
 STATIC_PATHS = ['images', 'js', 'css']
 
+# Analytics
+GOOGLE_ANALYTICS = 'UA-50796592-2'
+
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
