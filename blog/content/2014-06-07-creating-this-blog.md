@@ -10,6 +10,7 @@ When creating this blog, I used the following references:
 2. [Migrating to github pages]
 3. [Pelican Guide initial setup]
 4. [Moving to Pelican planning]
+5. [pelican-gist]
 
 [Moving to Pelican planning]: http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html
 
@@ -18,3 +19,6 @@ When creating this blog, I used the following references:
 [Migrating to github pages]: http://mathamy.com/migrating-to-github-pages-using-pelican.html
 
 [Setup github page with pelican]: http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican
+
+[pelican-gist]: https://github.com/streeter/pelican-gist
+
