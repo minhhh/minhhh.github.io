@@ -1,4 +1,6 @@
 .DS_Store
 *.pyc
+*.pid
 venv
 output
+cache

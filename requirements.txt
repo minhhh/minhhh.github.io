@@ -1,3 +1,4 @@
-pelican
+pelican==3.4.0
+pelican-gist
 Markdown
 ghp-import
