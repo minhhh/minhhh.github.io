@@ -1,4 +1,5 @@
 pelican==3.4.0
 pelican-gist
+pelican-minification
 Markdown
 ghp-import

@@ -14,10 +14,10 @@ install: clean # install
 	virtualenv venv
 	. venv/bin/activate && pip install -r requirements.txt
 
-run:
+run: run # run
 	. venv/bin/activate && cd blog && make devserver && make regenerate && make stopserver
 
-stop:
+stop: stop # stop
 	. venv/bin/activate && cd blog && make stopserver
 
 publish: # publish to master

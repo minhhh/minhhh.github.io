@@ -57,8 +57,8 @@ PAGE_SAVE_AS = 'pages/{slug}.html'
 PAGE_LANG_SAVE_AS = 'pages/{slug}-{lang}.html'
 
 # Archive
-YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+YEAR_ARCHIVE_SAVE_AS = '{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%m}/index.html'
 
 # Themes
 THEME = "pelican-themes/gum"
