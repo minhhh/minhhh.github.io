@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 05 Sep 2014 00:00:00 -0400</lastBuildDate><item><title>Git cheat sheet</title><link>http://minhhh.github.io/2014/09/git-cheat-sheet.html</link><description>&lt;div class="gist"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 09 Sep 2014 00:00:00 -0400</lastBuildDate><item><title>How to rebase in Git</title><link>http://minhhh.github.io/2014/09/how-to-rebase-in-git.html</link><description>&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/fb5c5cb7a4a18559b25a.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;Rebase feature branch into develop branch&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:2014/09/how-to-rebase-in-git.html</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/2014/09/git-cheat-sheet.html</link><description>&lt;div class="gist"&gt;
     &lt;script src='https://gist.github.com/9908022.js'&gt;&lt;/script&gt;
     &lt;noscript&gt;
         &lt;pre&gt;&lt;code&gt;# Git Cheat Sheet

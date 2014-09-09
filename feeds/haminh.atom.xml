@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2014-09-05T00:00:00-04:00</updated><entry><title>Git cheat sheet</title><link href="http://minhhh.github.io/2014/09/git-cheat-sheet.html" rel="alternate"></link><updated>2014-09-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-05:2014/09/git-cheat-sheet.html</id><summary type="html">&lt;div class="gist"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2014-09-09T00:00:00-04:00</updated><entry><title>How to rebase in Git</title><link href="http://minhhh.github.io/2014/09/how-to-rebase-in-git.html" rel="alternate"></link><updated>2014-09-09T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-09:2014/09/how-to-rebase-in-git.html</id><summary type="html">&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/fb5c5cb7a4a18559b25a.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;Rebase feature branch into develop branch&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+</summary><category term="git"></category><category term="rebase"></category></entry><entry><title>Git cheat sheet</title><link href="http://minhhh.github.io/2014/09/git-cheat-sheet.html" rel="alternate"></link><updated>2014-09-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-05:2014/09/git-cheat-sheet.html</id><summary type="html">&lt;div class="gist"&gt;
     &lt;script src='https://gist.github.com/9908022.js'&gt;&lt;/script&gt;
     &lt;noscript&gt;
         &lt;pre&gt;&lt;code&gt;# Git Cheat Sheet
