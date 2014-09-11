@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-        <title>Creating this blog</title>
+        <title>Embed git file to pelican</title>
         <meta charset="utf-8" />
 
 
@@ -54,28 +54,38 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../posts/creating-this-blog" rel="bookmark"
-                   title="Permalink to Creating this blog">Creating this blog</a></h2>
+                <a href="../posts/embed-git-file-to-pelican" rel="bookmark"
+                   title="Permalink to Embed git file to pelican">Embed git file to pelican</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2014-06-07T00:00:00">
-                Sat 07 June 2014
+              <abbr class="published" title="2014-09-11T00:00:00">
+                Thu 11 September 2014
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../author/haminh.html">Ha.Minh</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>When creating this blog, I used the following references:</p>
-<ol>
-<li><a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican">Setup github page with pelican</a></li>
-<li><a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">Migrating to github pages</a></li>
-<li><a href="http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html">Pelican Guide initial setup</a></li>
-<li><a href="http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html">Moving to Pelican planning</a></li>
-<li><a href="https://github.com/streeter/pelican-gist">pelican-gist</a></li>
-<li><a href="https://github.com/minhhh/gist-it">gist-it</a></li>
-</ol>
+              <p>Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate <code>git</code> repository.</p>
+<p>I have several solutions for this problem:</p>
+<ul>
+<li>
+<p>I could duplicate the article. But I won't do this.</p>
+</li>
+<li>
+<p>I could store the articles as <code>gist</code> like this:</p>
+</li>
+</ul>
+<p>[gist:id=dc8b7c536d0fe9c7003f]</p>
+<p>But I can't store a lot of related things in gist because that's the role of a real git repo.</p>
+<ul>
+<li>I could store the articles in the normal <code>git</code> repo, and embed it into the article in github page. I chose this approach for long articles. Like this:</li>
+</ul>
+<script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>
+
+<p>There's already a nice tool to do this: <a href="https://github.com/minhhh/gist-it">gist-it</a>. Using it is really simple, just clone the repo and deploy it to an AppEngine instance.
+The downside of this is it does not generate <code>html</code> code for <code>Markdown</code>. I'll fix this in the future.</p>
             </div><!-- /.entry-content -->
 
 
