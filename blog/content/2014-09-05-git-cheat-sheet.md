@@ -6,3 +6,5 @@ Tags: pelican, blog, git
 Summary: Git cheat sheet
 
 [gist:id=9908022]
+
+<script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>

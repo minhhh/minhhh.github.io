@@ -8,5 +8,3 @@ How to rebase in Git
 :summary: How to rebase in git
 
 [gist:id=fb5c5cb7a4a18559b25a]
-
-<script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>
