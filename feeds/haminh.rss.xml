@@ -5,6 +5,7 @@
         &lt;pre&gt;&lt;code&gt;Rebase feature branch into develop branch&lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
+&lt;p&gt;&amp;lt;script src=&amp;quot;&lt;a class="reference external" href="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"&gt;http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js&lt;/a&gt;&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/posts/git-cheat-sheet</link><description>&lt;div class="gist"&gt;
     &lt;script src='https://gist.github.com/9908022.js'&gt;&lt;/script&gt;
     &lt;noscript&gt;
