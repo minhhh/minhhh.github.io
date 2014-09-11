@@ -47,10 +47,12 @@ MARKUP = ('rst', 'md')
 ARTICLE_EXCLUDES = ('pages',)
 
 # Url
-ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}.html'
-ARTICLE_LANG_URL = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
-PAGE_URL = 'pages/{slug}.html'
-PAGE_LANG_URL = '{pages/{slug}-{lang}.html'
+# ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}.html'
+# ARTICLE_LANG_URL = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
+ARTICLE_URL = 'posts/{slug}/'
+ARTICLE_LANG_URL = 'posts/{slug}-{lang}/'
+PAGE_URL = 'pages/{slug}'
+PAGE_LANG_URL = '{pages/{slug}-{lang}'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
 ARTICLE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/{slug}-{lang}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
