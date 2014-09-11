@@ -70,6 +70,8 @@ STATIC_PATHS = ['images', 'js', 'css']
 
 # Analytics
 GOOGLE_ANALYTICS = 'UA-50796592-2'
+GOOGLE_ANALYTICS_ID = 'UA-50796592-2'
+GOOGLE_ANALYTICS_SITENAME = 'minhhh'
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
