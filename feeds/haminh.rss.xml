@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 09 Sep 2014 00:00:00 -0400</lastBuildDate><item><title>How to rebase in Git</title><link>http://minhhh.github.io/2014/09/how-to-rebase-in-git.html</link><description>&lt;div class="gist"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 09 Sep 2014 00:00:00 -0400</lastBuildDate><item><title>How to rebase in Git</title><link>http://minhhh.github.io/how-to-rebase-in-git</link><description>&lt;div class="gist"&gt;
     &lt;script src='https://gist.github.com/fb5c5cb7a4a18559b25a.js'&gt;&lt;/script&gt;
     &lt;noscript&gt;
         &lt;pre&gt;&lt;code&gt;Rebase feature branch into develop branch&lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:2014/09/how-to-rebase-in-git.html</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/2014/09/git-cheat-sheet.html</link><description>&lt;div class="gist"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/git-cheat-sheet</link><description>&lt;div class="gist"&gt;
     &lt;script src='https://gist.github.com/9908022.js'&gt;&lt;/script&gt;
     &lt;noscript&gt;
         &lt;pre&gt;&lt;code&gt;# Git Cheat Sheet
@@ -264,11 +264,11 @@ By saying `git push origin branchname` you're saying to push to the origin repos
 
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-05:2014/09/git-cheat-sheet.html</guid><category>pelican</category><category>blog</category><category>git</category></item><item><title>Creating this blog</title><link>http://minhhh.github.io/2014/06/creating-this-blog.html</link><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-05:git-cheat-sheet</guid><category>pelican</category><category>blog</category><category>git</category></item><item><title>Creating this blog</title><link>http://minhhh.github.io/creating-this-blog</link><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html"&gt;Pelican Guide initial setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html"&gt;Moving to Pelican planning&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/streeter/pelican-gist"&gt;pelican-gist&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 07 Jun 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-06-07:2014/06/creating-this-blog.html</guid><category>pelican</category><category>blog</category><category>github</category></item></channel></rss>
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 07 Jun 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-06-07:creating-this-blog</guid><category>pelican</category><category>blog</category><category>github</category></item></channel></rss>
