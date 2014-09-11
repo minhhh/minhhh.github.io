@@ -1,7 +1,7 @@
 Title: Creating this blog
 Date: 2014-06-07 00:00
 Author: Ha.Minh
-Category: Programming
+Category: Blog
 Tags: pelican, blog, github
 
 When creating this blog, I used the following references:
@@ -11,6 +11,7 @@ When creating this blog, I used the following references:
 3. [Pelican Guide initial setup]
 4. [Moving to Pelican planning]
 5. [pelican-gist]
+6. [gist-it]
 
 [Moving to Pelican planning]: http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html
 
@@ -21,4 +22,6 @@ When creating this blog, I used the following references:
 [Setup github page with pelican]: http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican
 
 [pelican-gist]: https://github.com/streeter/pelican-gist
+
+[gist-it]: https://github.com/minhhh/gist-it
 
