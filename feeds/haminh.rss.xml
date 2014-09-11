@@ -9,7 +9,14 @@
 &lt;p&gt;I could store the articles as &lt;code&gt;gist&lt;/code&gt; like this:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;[gist:id=dc8b7c536d0fe9c7003f]&lt;/p&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/dc8b7c536d0fe9c7003f.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;# First
+## Second
+Third&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
 &lt;p&gt;But I can't store a lot of related things in gist because that's the role of a real git repo.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I could store the articles in the normal &lt;code&gt;git&lt;/code&gt; repo, and embed it into the article in github page. I chose this approach for long articles. Like this:&lt;/li&gt;
