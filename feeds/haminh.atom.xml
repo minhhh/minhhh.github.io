@@ -5,7 +5,6 @@
         &lt;pre&gt;&lt;code&gt;Rebase feature branch into develop branch&lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
 &lt;/div&gt;
-&lt;p&gt;&amp;lt;script src=&amp;quot;&lt;a class="reference external" href="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"&gt;http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js&lt;/a&gt;&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
 </summary><category term="git"></category><category term="rebase"></category></entry><entry><title>Git cheat sheet</title><link href="http://minhhh.github.io/posts/git-cheat-sheet" rel="alternate"></link><updated>2014-09-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</id><summary type="html">&lt;div class="gist"&gt;
     &lt;script src='https://gist.github.com/9908022.js'&gt;&lt;/script&gt;
     &lt;noscript&gt;
@@ -265,7 +264,8 @@ By saying `git push origin branchname` you're saying to push to the origin repos
 
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/noscript&gt;
-&lt;/div&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="git"></category></entry><entry><title>Creating this blog</title><link href="http://minhhh.github.io/posts/creating-this-blog" rel="alternate"></link><updated>2014-06-07T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</id><summary type="html">&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;/div&gt;
+&lt;script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"&gt;&lt;/script&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="git"></category></entry><entry><title>Creating this blog</title><link href="http://minhhh.github.io/posts/creating-this-blog" rel="alternate"></link><updated>2014-06-07T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</id><summary type="html">&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
