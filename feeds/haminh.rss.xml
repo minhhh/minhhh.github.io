@@ -21,10 +21,933 @@ Third&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;I could store the articles in the normal &lt;code&gt;git&lt;/code&gt; repo, and embed it into the article in github page. I chose this approach for long articles. Like this:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"&gt;&lt;/script&gt;
+&lt;!-- &lt;script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"&gt;&lt;/script&gt; --&gt;
 
-&lt;p&gt;There's already a nice tool to do this: &lt;a href="https://github.com/minhhh/gist-it"&gt;gist-it&lt;/a&gt;. Using it is really simple, just clone the repo and deploy it to an AppEngine instance.
-The downside of this is it does not generate &lt;code&gt;html&lt;/code&gt; code for &lt;code&gt;Markdown&lt;/code&gt;. I'll fix this in the future.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 11 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</guid><category>git</category><category>pelican</category><category>github</category></item><item><title>How to rebase in Git</title><link>http://minhhh.github.io/posts/how-to-rebase-in-git</link><description>&lt;script src="http://gistit-minhhh.appspot.com/github/minhhh/git/blob/master/rebase.md"&gt;&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/posts/git-cheat-sheet</link><description>&lt;script src="http://gistit-minhhh.appspot.com/github/minhhh/git/blob/master/cheatsheet.md"&gt;&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</guid><category>git</category></item><item><title>Creating this blog</title><link>http://minhhh.github.io/posts/creating-this-blog</link><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;p&gt;There's already a nice tool to do this: &lt;a href="https://github.com/minhhh/gist-it"&gt;gist-it&lt;/a&gt;. Using it is really simple, just clone the repo and deploy it to an AppEngine instance. The downside of this is it does not generate &lt;code&gt;html&lt;/code&gt; code for &lt;code&gt;Markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The best solution for me is to use a plugin for embedding git file into &lt;code&gt;pelican&lt;/code&gt; like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.gist-it-gist div {
+    padding: 0;
+    margin: 0;
+}
+
+.gist-it-gist .gist-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.gist-it-gist .gist-file .gist-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.gist-it-gist .gist-file .gist-meta a {
+    color: #336699;
+}
+
+.gist-it-gist .gist-file .gist-meta a:visited {
+    color: #773377;
+}
+
+.gist-it-gist .gist-file .gist-data {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.gist-it-gist .gist-file .gist-data pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="gist-it-gist"&gt;
+        &lt;div class="gist-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#first-level-title" name="user-content-first-level-title"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    First level title
+   &lt;/h1&gt;
+   &lt;p&gt;
+    Notes from
+    &lt;a href="https://github.com/minhhh/wiki"&gt;
+     link
+    &lt;/a&gt;
+    .
+   &lt;/p&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#second-level-title" name="user-content-second-level-title"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Second level title
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Quote some code with correct syntax highlight
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-python"&gt;
+    &lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#third-level-title" name="user-content-third-level-title"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Third level title
+   &lt;/h3&gt;
+   &lt;div class="highlight highlight-python"&gt;
+    &lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="gist-meta"&gt;
+                
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/sample.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/sample.md"&gt;sample.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 11 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</guid><category>git</category><category>pelican</category><category>github</category></item><item><title>How to rebase in Git</title><link>http://minhhh.github.io/posts/how-to-rebase-in-git</link><description>&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.gist-it-gist div {
+    padding: 0;
+    margin: 0;
+}
+
+.gist-it-gist .gist-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.gist-it-gist .gist-file .gist-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.gist-it-gist .gist-file .gist-meta a {
+    color: #336699;
+}
+
+.gist-it-gist .gist-file .gist-meta a:visited {
+    color: #773377;
+}
+
+.gist-it-gist .gist-file .gist-data {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.gist-it-gist .gist-file .gist-data pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="gist-it-gist"&gt;
+        &lt;div class="gist-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#rebase-feature-branch-into-develop-branch" name="user-content-rebase-feature-branch-into-develop-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Rebase feature branch into develop branch
+   &lt;/h1&gt;
+   &lt;p&gt;
+    If you follow
+    &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
+     A successful Git branching model
+    &lt;/a&gt;
+    , you will have to merge feature branches into develop from time to time. To make a beautiful linear tree in the develop branch, you would rebase instead of just merging. The following guide will outline the rebase process from beginning to end.
+   &lt;/p&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#rebasing-one-branch-into-develop" name="user-content-rebasing-one-branch-into-develop"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Rebasing one branch into develop
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Suppose your feature branch is
+    &lt;code&gt;
+     feature/add_css
+    &lt;/code&gt;
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;# This will merge the latest develop to feature/css
+git checkout develop
+git pull
+git checkout feature/add_css
+git pull
+git merge develop
+git push
+
+# Create a temporary rebase branch
+git checkout develop
+git checkout -b temp
+
+# Merge feature branch and resolve a lot of conflicts
+git merge feature/add_css
+
+# Perform the rebase, you may have to resolve the conflict again
+git rebase develop
+
+# NOTE: Do not use git checkout (--theirs|–ours) path/to/file
+# as it will cause trouble when you resolved a bad conflict then
+# the subsequent merge may not be correct.
+
+# This will merge the rebased item to develop.
+git checkout develop
+git merge feature/something_rebase
+
+# (Important) Checks that there are no difference. This should resolve in no difference in the ideal case
+git diff develop..feature/something
+
+# (Important) Checks that the logs have been correctly integrated.
+git log --graph
+
+# Push once all checks have been completed.
+git push
+
+# Delete the temporary merge branch
+git branch -D temp
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#rebasing-multiple-branches-into-develop" name="user-content-rebasing-multiple-branches-into-develop"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Rebasing multiple branches into develop
+   &lt;/h2&gt;
+   &lt;p&gt;
+    The correct way to do this is to rebase each branch one by one, but the next one will have to rebase based on the result of the last rebase. Suppose you're going to merge these 2 branches:
+    &lt;code&gt;
+     feature/add_css
+    &lt;/code&gt;
+    and
+    &lt;code&gt;
+     feature/add_html
+    &lt;/code&gt;
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;# This will merge the latest develop to feature/css
+git checkout develop
+git pull
+git checkout feature/add_css
+git pull
+git merge develop
+git push
+
+# Create a temporary rebase branch
+git checkout develop
+git checkout -b main_rebase
+
+# Merge feature branch and resolve a lot of conflicts
+git merge feature/add_css
+
+# Perform the rebase, you may have to resolve the conflict again
+git rebase develop
+
+# Push this branch to remote so we can rebase other branch based on it
+git push
+
+# Now checkout another temporary branch
+git checkout -b temp
+
+# Merge feature branch and resolve a lot of conflicts
+git merge feature/add_css
+
+# (Important) Perform the rebase based on the main rebase branch
+git rebase main_rebase
+
+# Merge the rebase items into main rebase branch
+git checkout main_rebase
+git merge temp
+
+# (Important) Checks that the logs have been correctly integrated.
+git log --graph
+
+# (Important) Push main rebase branch to remote
+git push
+
+# Delete the temporary merge branch
+git branch -D temp
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    Then repeat this process with the next branches one by one.
+   &lt;/p&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="gist-meta"&gt;
+                
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git/blob/master/rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/git/blob/master/rebase.md"&gt;rebase.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/posts/git-cheat-sheet</link><description>&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.gist-it-gist div {
+    padding: 0;
+    margin: 0;
+}
+
+.gist-it-gist .gist-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.gist-it-gist .gist-file .gist-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.gist-it-gist .gist-file .gist-meta a {
+    color: #336699;
+}
+
+.gist-it-gist .gist-file .gist-meta a:visited {
+    color: #773377;
+}
+
+.gist-it-gist .gist-file .gist-data {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.gist-it-gist .gist-file .gist-data pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="gist-it-gist"&gt;
+        &lt;div class="gist-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#git-cheat-sheet" name="user-content-git-cheat-sheet"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Git Cheat Sheet
+   &lt;/h1&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#toc" name="user-content-toc"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    TOC
+   &lt;/h2&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="#installation"&gt;
+      Installation
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#basics"&gt;
+      Basics
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#info"&gt;
+      Info
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#exports"&gt;
+      Exports
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#branching"&gt;
+      Branching
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#undoing"&gt;
+      Undoing
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#remotes"&gt;
+      Remotes
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#submodules"&gt;
+      Submodules
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="#additional-resources"&gt;
+      Additional resources
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#installation" name="user-content-installation"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Installation
+   &lt;/h3&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://git-scm.com/book"&gt;
+      Pro Git
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://serverfault.com/questions/194567/how-to-i-tell-git-for-windows-where-to-find-my-private-rsa-key"&gt;
+      Set tortoisegit with SSH private key
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#branching-model" name="user-content-branching-model"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Branching model
+   &lt;/h3&gt;
+   &lt;p&gt;
+    &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
+     Successful git branching model
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;origin/feature/update_layout
+origin/hotfix/r20130305-1.1
+origin/master
+origin/release/r20130305
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#basics" name="user-content-basics"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Basics
+   &lt;/h3&gt;
+   &lt;p&gt;
+    &lt;a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C"&gt;
+     10 commands
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+    &lt;a href="http://git.or.cz/course/svn.html"&gt;
+     Git SVN crash course
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;# pull rebase create nicer merge tree, but be careful with it
+git stash # stash any change
+git pull --rebase
+git stash pop # stash pop any change
+
+git fetch -p # Bring the repository up to date without executing merge on the current branch
+
+git add -u # add modified files but not new files
+git add -A # add all untracked files
+
+# Diff with remote
+git diff master origin/master
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#info" name="user-content-info"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Info
+   &lt;/h3&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#find-commits-where-files-were-deleted" name="user-content-find-commits-where-files-were-deleted"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Find commits where files were deleted
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git log --diff-filter=D --summary
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#checkout-deleted-file-in-the-working-tree" name="user-content-checkout-deleted-file-in-the-working-tree"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Checkout deleted file in the working tree
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git checkout &amp;lt;sha1&amp;gt;^ &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#only-show-the-content-of-a-file-from-a-specific-revision" name="user-content-only-show-the-content-of-a-file-from-a-specific-revision"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Only show the content of a file from a specific revision
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git show &amp;lt;sha1&amp;gt;^:&amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#show-files-history" name="user-content-show-files-history"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Show file's history
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git log -p &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#show-changes-on-a-branch-that-is-not-merged-upstream" name="user-content-show-changes-on-a-branch-that-is-not-merged-upstream"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Show changes on a branch that is not merged upstream
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git cherry &amp;lt;upstream_branch&amp;gt; &amp;lt;new_branch&amp;gt;
+git log &amp;lt;upstream_branch&amp;gt;..&amp;lt;new_branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#show-log-with-changed-files" name="user-content-show-log-with-changed-files"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Show log with changed files
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git log --name-only
+git log --name-status
+git log --stat
+git log --decorate --graph --oneline --date-order # better visual
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#get-latest-tag-in-the-current-branch" name="user-content-get-latest-tag-in-the-current-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Get latest tag in the current branch
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git describe --exact-match --abbrev=0
+git describe --abbrev=0 --tags
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#show-log-graph" name="user-content-show-log-graph"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Show log graph
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git log origin master # Show log of a specific branch on remote
+git log origin master --graph --decorate # to show colorful text and graph and the branch name of each log.
+
+# A beautiful version
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset' --abbrev-commit
+
+# Show git log then exit
+git log | cat -
+
+# Show log of a particular hash
+git show &amp;lt;hash&amp;gt;
+git show &amp;lt;hash&amp;gt; --stat # show only oneline for each change
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#get-current-url" name="user-content-get-current-url"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Get current URL
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git remote show origin
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#get-brief-info-about-branches" name="user-content-get-brief-info-about-branches"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Get brief info about branches
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git branch -lvv
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#exports" name="user-content-exports"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Exports
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;# From a repository
+git checkout-index -a -f --prefix=/destination/path/
+
+# Export remote
+git archive --format=tar --remote=ssh://remote_server/remote_repository master | tar -xf -
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;a href="#toc"&gt;
+     TOC
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#branching" name="user-content-branching"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Branching
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;# branch and create new branch
+git checkout -b experimental
+
+# delete unused branch
+git branch -d experimental
+
+# also delete on remote
+git push origin --delete newfeature
+
+# Rename a local branch
+git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;a href="#toc"&gt;
+     TOC
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#undoing" name="user-content-undoing"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Undoing
+   &lt;/h3&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#undo-a-merge-or-pull" name="user-content-undo-a-merge-or-pull"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Undo a merge or pull
+   &lt;/h4&gt;
+   &lt;p&gt;
+    Check out
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html"&gt;
+     git reset
+    &lt;/a&gt;
+    for great explanation and
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html#_examples"&gt;
+     examples
+    &lt;/a&gt;
+    .
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;git reset --hard
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#undo-a-merge-or-pull-inside-a-dirty-work-tree" name="user-content-undo-a-merge-or-pull-inside-a-dirty-work-tree"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Undo a merge or pull inside a dirty work tree
+   &lt;/h4&gt;
+   &lt;p&gt;
+    Check out
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html"&gt;
+     git reset
+    &lt;/a&gt;
+    for great explanation and
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html#_examples"&gt;
+     examples
+    &lt;/a&gt;
+    .
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;git reset --merge ORIG_HEAD
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#revert-a-bad-commit" name="user-content-revert-a-bad-commit"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Revert a bad commit
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git revert &amp;lt;sha1&amp;gt;
+
+# Revert single file
+git checkout -- filename
+
+# Revert all files in current folder
+git checkout .
+
+# Remove all new files or folder
+git clean -df
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#checkout-a-deleted-file-into-the-work-tree" name="user-content-checkout-a-deleted-file-into-the-work-tree"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Checkout a deleted file into the work tree
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git checkout &amp;lt;sha1&amp;gt;^ -- &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;a href="#toc"&gt;
+     TOC
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#remotes" name="user-content-remotes"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Remotes
+   &lt;/h3&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#create-local-branch-then-push-to-the-remote-without-tracking-" name="user-content-create-local-branch-then-push-to-the-remote-without-tracking-"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Create local branch then push to the remote (without tracking !!!)
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git checkout -b &amp;lt;branch_name&amp;gt;
+git push origin &amp;lt;branch_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#crete-a-new-local-branch-by-pulling-a-remote-branch" name="user-content-crete-a-new-local-branch-by-pulling-a-remote-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Crete a new local branch by pulling a remote branch
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git pull origin &amp;lt;branch_name&amp;gt;                                 # without tracking
+git checkout --track -b &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&amp;gt;    # with tracking
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#track-a-remote-branch-with-an-existing-local" name="user-content-track-a-remote-branch-with-an-existing-local"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Track a remote branch with an existing local
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git branch --set-upstream &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#delete-remote-branch" name="user-content-delete-remote-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Delete remote branch
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git push origin :heads/&amp;lt;branch_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    or
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;git push origin :&amp;lt;branch_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#prune-remote-tracking-branches-that-are-deleted-from-a-remote-repo" name="user-content-prune-remote-tracking-branches-that-are-deleted-from-a-remote-repo"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Prune remote-tracking branches that are deleted from a remote repo
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git remote prune origin
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#change-remote-url" name="user-content-change-remote-url"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Change remote URL
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git remote set-url origin http://new-example.com/repo.git
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;a href="#toc"&gt;
+     TOC
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#submodules" name="user-content-submodules"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Submodules
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;# Add submodule to subdirectory
+git submodule add &amp;lt;git@github ...&amp;gt; snipmate-snippets/snippets/
+
+# update submodule
+git submodule update --recursive
+
+# Update submodules
+
+git submodule foreach 'git checkout master &amp;amp;&amp;amp; git pull origin master'
+
+# Update submodule's URL
+#Edit the *.gitmodules* file, then run:
+git submodule sync
+
+# Delete submodule
+git submodule deinit asubmodule
+git rm asubmodule
+
+# Note: asubmodule (no trailing slash)
+# or, if you want to leave it in your working tree
+git rm --cached asubmodule
+
+#Get submodule hash
+git ls-tree a9a796a [submodule_dir]
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;a href="#toc"&gt;
+     TOC
+    &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#move-from-bitbucket-to-github" name="user-content-move-from-bitbucket-to-github"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Move from bitbucket to github
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;cd $HOME/dev/Pipelines
+git remote rename origin bitbucket
+git remote add origin https://github.com/edwardaux/Pipelines.git
+git push -u origin --all # pushes up the repo and its refs for the first time
+git push -u origin --tags # pushes up any tags
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#additional-resources" name="user-content-additional-resources"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Additional resources
+   &lt;/h3&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
+      What is origin in GIT
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;p&gt;
+    By saying
+    &lt;code&gt;
+     git push origin branchname
+    &lt;/code&gt;
+    you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
+      Fetch and Merge
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757"&gt;
+      Distributed Version Control Systems and the Enterprise
+     &lt;/a&gt;
+     &lt;ul class="task-list"&gt;
+      &lt;li&gt;
+       Explain how git fits into the enterprise environment
+      &lt;/li&gt;
+      &lt;li&gt;
+       It seems that the only way to have fine-grained access control in git is to add another layer, such as
+       &lt;code&gt;
+        gitolite
+       &lt;/code&gt;
+      &lt;/li&gt;
+     &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/1662205/how-to-make-a-git-repository-read-only"&gt;
+      How to make a git repository read-only?
+     &lt;/a&gt;
+     &lt;ul class="task-list"&gt;
+      &lt;li&gt;
+       Seems that there's no way to limit read access at folder level.
+      &lt;/li&gt;
+     &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/2602546/how-do-i-git-fetch-and-git-merge-from-a-remote-tracking-branch-like-git-pu"&gt;
+      Difference between git pull and fetch
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://scottchacon.com/2011/08/31/github-flow.html"&gt;
+      Github flow
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;p&gt;
+    &lt;a href="#toc"&gt;
+     TOC
+    &lt;/a&gt;
+   &lt;/p&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="gist-meta"&gt;
+                
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git/blob/master/cheatsheet.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/git/blob/master/cheatsheet.md"&gt;cheatsheet.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</guid><category>git</category></item><item><title>Creating this blog</title><link>http://minhhh.github.io/posts/creating-this-blog</link><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
