@@ -29,18 +29,18 @@ Third&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
-.gist-it-gist div {
+.git-content div {
     padding: 0;
     margin: 0;
 }
 
-.gist-it-gist .gist-file {
+.git-content .git-file {
     border: 1px solid #DEDEDE;
     font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
-.gist-it-gist .gist-file .gist-meta {
+.git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
     font-family: Helvetica,arial,freesans,clean,sans-serif;
@@ -49,15 +49,15 @@ Third&lt;/code&gt;&lt;/pre&gt;
     padding: 0.5em;
 }
 
-.gist-it-gist .gist-file .gist-meta a {
+.git-content .git-file .git-meta a {
     color: #336699;
 }
 
-.gist-it-gist .gist-file .gist-meta a:visited {
+.git-content .git-file .git-meta a:visited {
     color: #773377;
 }
 
-.gist-it-gist .gist-file .gist-data {
+.git-content .git-file {
     background-color: #F8F8FF;
     border-bottom: 1px solid #DDDDDD;
     font-size: 100%;
@@ -65,7 +65,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     word-wrap: normal;
 }
 
-.gist-it-gist .gist-file .gist-data pre {
+.git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
     font-family: Consolas,"Liberation Mono",Courier,monospace;
@@ -73,8 +73,8 @@ Third&lt;/code&gt;&lt;/pre&gt;
     padding: 0 !important;
 }
     &lt;/style&gt;
-    &lt;div class="gist-it-gist"&gt;
-        &lt;div class="gist-file"&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
  &lt;div class="blob instapaper_body" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
@@ -126,7 +126,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 
-            &lt;div class="gist-meta"&gt;
+            &lt;div class="git-meta"&gt;
                 
                 &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
@@ -138,18 +138,18 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 11 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</guid><category>git</category><category>pelican</category><category>github</category></item><item><title>How to rebase in Git</title><link>http://minhhh.github.io/posts/how-to-rebase-in-git</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
-.gist-it-gist div {
+.git-content div {
     padding: 0;
     margin: 0;
 }
 
-.gist-it-gist .gist-file {
+.git-content .git-file {
     border: 1px solid #DEDEDE;
     font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
-.gist-it-gist .gist-file .gist-meta {
+.git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
     font-family: Helvetica,arial,freesans,clean,sans-serif;
@@ -158,15 +158,15 @@ Third&lt;/code&gt;&lt;/pre&gt;
     padding: 0.5em;
 }
 
-.gist-it-gist .gist-file .gist-meta a {
+.git-content .git-file .git-meta a {
     color: #336699;
 }
 
-.gist-it-gist .gist-file .gist-meta a:visited {
+.git-content .git-file .git-meta a:visited {
     color: #773377;
 }
 
-.gist-it-gist .gist-file .gist-data {
+.git-content .git-file {
     background-color: #F8F8FF;
     border-bottom: 1px solid #DDDDDD;
     font-size: 100%;
@@ -174,7 +174,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     word-wrap: normal;
 }
 
-.gist-it-gist .gist-file .gist-data pre {
+.git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
     font-family: Consolas,"Liberation Mono",Courier,monospace;
@@ -182,8 +182,8 @@ Third&lt;/code&gt;&lt;/pre&gt;
     padding: 0 !important;
 }
     &lt;/style&gt;
-    &lt;div class="gist-it-gist"&gt;
-        &lt;div class="gist-file"&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
  &lt;div class="blob instapaper_body" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
@@ -319,7 +319,7 @@ git branch -D temp
  &lt;/div&gt;
 &lt;/div&gt;
 
-            &lt;div class="gist-meta"&gt;
+            &lt;div class="git-meta"&gt;
                 
                 &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
@@ -331,18 +331,18 @@ git branch -D temp
     &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/posts/git-cheat-sheet</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
-.gist-it-gist div {
+.git-content div {
     padding: 0;
     margin: 0;
 }
 
-.gist-it-gist .gist-file {
+.git-content .git-file {
     border: 1px solid #DEDEDE;
     font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
-.gist-it-gist .gist-file .gist-meta {
+.git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
     font-family: Helvetica,arial,freesans,clean,sans-serif;
@@ -351,15 +351,15 @@ git branch -D temp
     padding: 0.5em;
 }
 
-.gist-it-gist .gist-file .gist-meta a {
+.git-content .git-file .git-meta a {
     color: #336699;
 }
 
-.gist-it-gist .gist-file .gist-meta a:visited {
+.git-content .git-file .git-meta a:visited {
     color: #773377;
 }
 
-.gist-it-gist .gist-file .gist-data {
+.git-content .git-file {
     background-color: #F8F8FF;
     border-bottom: 1px solid #DDDDDD;
     font-size: 100%;
@@ -367,7 +367,7 @@ git branch -D temp
     word-wrap: normal;
 }
 
-.gist-it-gist .gist-file .gist-data pre {
+.git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
     font-family: Consolas,"Liberation Mono",Courier,monospace;
@@ -375,8 +375,8 @@ git branch -D temp
     padding: 0 !important;
 }
     &lt;/style&gt;
-    &lt;div class="gist-it-gist"&gt;
-        &lt;div class="gist-file"&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
  &lt;div class="blob instapaper_body" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
@@ -937,7 +937,7 @@ git push -u origin --tags # pushes up any tags
  &lt;/div&gt;
 &lt;/div&gt;
 
-            &lt;div class="gist-meta"&gt;
+            &lt;div class="git-meta"&gt;
                 
                 &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
