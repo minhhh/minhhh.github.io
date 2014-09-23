@@ -10,7 +10,7 @@ help: # show help
 clean: # clean
 	rm -fr venv
 
-install: clean # install
+install: # install
 	virtualenv venv
 	. venv/bin/activate && pip install -r requirements.txt
 

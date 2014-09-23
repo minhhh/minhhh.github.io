@@ -5,4 +5,4 @@ Category: Programming
 Tags: git
 Summary: Git cheat sheet
 
-<script src="http://gistit-minhhh.appspot.com/github/minhhh/git/blob/master/cheatsheet.md"></script>
+[git:repo=minhhh/git,file=cheatsheet.md]

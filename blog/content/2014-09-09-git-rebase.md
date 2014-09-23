@@ -5,4 +5,4 @@ Category: Programming
 Tags: git, rebase
 Summary: How to rebase in git
 
-<script src="http://gistit-minhhh.appspot.com/github/minhhh/git/blob/master/rebase.md"></script>
+[git:repo=minhhh/git,file=rebase.md]

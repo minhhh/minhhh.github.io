@@ -19,7 +19,10 @@ But I can't store a lot of related things in gist because that's the role of a r
 
 * I could store the articles in the normal `git` repo, and embed it into the article in github page. I chose this approach for long articles. Like this:
 
-<script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>
+<!-- <script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script> -->
 
-There's already a nice tool to do this: [gist-it](https://github.com/minhhh/gist-it). Using it is really simple, just clone the repo and deploy it to an AppEngine instance.
-The downside of this is it does not generate `html` code for `Markdown`. I'll fix this in the future.
+There's already a nice tool to do this: [gist-it](https://github.com/minhhh/gist-it). Using it is really simple, just clone the repo and deploy it to an AppEngine instance. The downside of this is it does not generate `html` code for `Markdown`.
+
+* The best solution for me is to use a plugin for embedding git file into `pelican` like this:
+
+[git:repo=minhhh/wiki,file=sample.md]

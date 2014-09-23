@@ -11,7 +11,8 @@ TIMEZONE = 'America/New_York'
 DEFAULT_LANG = u'en'
 
 PLUGINS = [
-    'pelican_gist'
+    'pelican_gist',
+    'pelican_git',
 ]
 
 # Feed generation is usually not desired when developing
