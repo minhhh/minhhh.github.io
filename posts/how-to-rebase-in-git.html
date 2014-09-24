@@ -125,141 +125,7 @@
     </style>
     <div class="git-content">
         <div class="git-file">
-            <div class="file">
- <div class="blob instapaper_body" id="readme">
-  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#rebase-feature-branch-into-develop-branch" name="user-content-rebase-feature-branch-into-develop-branch">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Rebase feature branch into develop branch
-   </h1>
-   <p>
-    If you follow
-    <a href="http://nvie.com/posts/a-successful-git-branching-model/">
-     A successful Git branching model
-    </a>
-    , you will have to merge feature branches into develop from time to time. To make a beautiful linear tree in the develop branch, you would rebase instead of just merging. The following guide will outline the rebase process from beginning to end.
-   </p>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#rebasing-one-branch-into-develop" name="user-content-rebasing-one-branch-into-develop">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Rebasing one branch into develop
-   </h2>
-   <p>
-    Suppose your feature branch is
-    <code>
-     feature/add_css
-    </code>
-   </p>
-   <pre><code># This will merge the latest develop to feature/css
-git checkout develop
-git pull
-git checkout feature/add_css
-git pull
-git merge develop
-git push
-
-# Create a temporary rebase branch
-git checkout develop
-git checkout -b temp
-
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
-
-# Perform the rebase, you may have to resolve the conflict again
-git rebase develop
-
-# NOTE: Do not use git checkout (--theirs|–ours) path/to/file
-# as it will cause trouble when you resolved a bad conflict then
-# the subsequent merge may not be correct.
-
-# This will merge the rebased item to develop.
-git checkout develop
-git merge feature/something_rebase
-
-# (Important) Checks that there are no difference. This should resolve in no difference in the ideal case
-git diff develop..feature/something
-
-# (Important) Checks that the logs have been correctly integrated.
-git log --graph
-
-# Push once all checks have been completed.
-git push
-
-# Delete the temporary merge branch
-git branch -D temp
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#rebasing-multiple-branches-into-develop" name="user-content-rebasing-multiple-branches-into-develop">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Rebasing multiple branches into develop
-   </h2>
-   <p>
-    The correct way to do this is to rebase each branch one by one, but the next one will have to rebase based on the result of the last rebase. Suppose you're going to merge these 2 branches:
-    <code>
-     feature/add_css
-    </code>
-    and
-    <code>
-     feature/add_html
-    </code>
-   </p>
-   <pre><code># This will merge the latest develop to feature/css
-git checkout develop
-git pull
-git checkout feature/add_css
-git pull
-git merge develop
-git push
-
-# Create a temporary rebase branch
-git checkout develop
-git checkout -b main_rebase
-
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
-
-# Perform the rebase, you may have to resolve the conflict again
-git rebase develop
-
-# Push this branch to remote so we can rebase other branch based on it
-git push
-
-# Now checkout another temporary branch
-git checkout -b temp
-
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
-
-# (Important) Perform the rebase based on the main rebase branch
-git rebase main_rebase
-
-# Merge the rebase items into main rebase branch
-git checkout main_rebase
-git merge temp
-
-# (Important) Checks that the logs have been correctly integrated.
-git log --graph
-
-# (Important) Push main rebase branch to remote
-git push
-
-# Delete the temporary merge branch
-git branch -D temp
-</code></pre>
-   <p>
-    Then repeat this process with the next branches one by one.
-   </p>
-  </article>
- </div>
-</div>
-
+            None
             <div class="git-meta">
                 
                 <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
@@ -294,11 +160,11 @@ git branch -D temp
 
 <h4>Tags</h4>
 	<ul>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
 	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
 </ul>
 
 
