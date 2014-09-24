@@ -323,9 +323,9 @@ git branch -D temp
                 
                 &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
-                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git/blob/master/rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/git_rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
-                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/git/blob/master/rebase.md"&gt;rebase.md&lt;/a&gt;&lt;/span&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/git_rebase.md"&gt;git_rebase.md&lt;/a&gt;&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -941,9 +941,9 @@ git push -u origin --tags # pushes up any tags
                 
                 &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
-                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git/blob/master/cheatsheet.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/git_cheatsheet.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
-                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/git/blob/master/cheatsheet.md"&gt;cheatsheet.md&lt;/a&gt;&lt;/span&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/git_cheatsheet.md"&gt;git_cheatsheet.md&lt;/a&gt;&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
