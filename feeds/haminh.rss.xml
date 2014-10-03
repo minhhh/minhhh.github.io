@@ -1,5 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 11 Sep 2014 00:00:00 -0400</lastBuildDate><item><title>Embed git file to pelican</title><link>http://minhhh.github.io/posts/embed-git-file-to-pelican</link><description>&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 03 Oct 2014 00:00:00 -0400</lastBuildDate><item><title>Android CLI tool cheatsheet</title><link>http://minhhh.github.io/posts/android-cli-tool-cheatsheet</link><description>&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" name="user-content-android-cli-cheatsheet"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    ANDROID CLI CHEATSHEET
+   &lt;/h1&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#read-log" name="user-content-read-log"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Read log
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;adb logcat
+adb logcat -v time
+
+adb logcat *:V # Get all message in verbose mode
+adb logcat xxxxxxx:V *:S # Get all message starts with xxxxx
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#list-package" name="user-content-list-package"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    List package
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;adb shell pm list package
+adb shell pm path com.example.someapp
+adb pull /data/app/com.example.someapp-2.apk
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#run-a-particular-intent" name="user-content-run-a-particular-intent"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Run a particular intent
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;arun-us: # Launch the game for US on the Android device.
+    adb shell 'am start -a $(MYPACKAGEID).RUN -e server http://$(MYIP):$(MYPORT) -e game $(game) -e nativeLog $(MYNATIVELOG)'
+astop-us: # Launch the game for US on the Android device.
+    adb shell 'am broadcast -a $(MYPACKAGEID).STOP'
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#install--uninstall" name="user-content-install--uninstall"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Install / Uninstall
+   &lt;/h3&gt;
+   &lt;pre&gt;&lt;code&gt;adb install file.apk
+adb install -r file.apk # replace
+
+adb shell am start -a android.intent.action.DELETE -d package:&amp;lt;your app package&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#extracting-apk-file" name="user-content-extracting-apk-file"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Extracting APK file
+   &lt;/h3&gt;
+   &lt;p&gt;
+    Use
+    &lt;code&gt;
+     apktool
+    &lt;/code&gt;
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;apk d /path/to/apk
+open res/values/strings.xml
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#references" name="user-content-references"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    References
+   &lt;/h2&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file"&gt;
+      View android manifset from APK
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device"&gt;
+      Get apk from Android device
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear"&gt;
+      Adb shell to uninstall package
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat"&gt;
+      Debugging with logcat
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/android_cli.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/android_cli.md"&gt;android_cli.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 03 Oct 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-10-03:posts/android-cli-tool-cheatsheet</guid><category>android</category><category>adb</category></item><item><title>Embed git file to pelican</title><link>http://minhhh.github.io/posts/embed-git-file-to-pelican</link><description>&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
 &lt;p&gt;I have several solutions for this problem:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -296,17 +461,17 @@ git checkout -b temp
 # Merge feature branch and resolve a lot of conflicts
 git merge feature/add_css
 
-# (Important) Perform the rebase based on the main rebase branch
+# (IMPORTANT) Perform the rebase based on the main rebase branch
 git rebase main_rebase
 
 # Merge the rebase items into main rebase branch
 git checkout main_rebase
 git merge temp
 
-# (Important) Checks that the logs have been correctly integrated.
+# (IMPORTANT) Checks that the logs have been correctly integrated.
 git log --graph
 
-# (Important) Push main rebase branch to remote
+# (IMPORTANT) Push main rebase branch to remote
 git push
 
 # Delete the temporary merge branch
@@ -542,13 +707,13 @@ git diff master origin/master
    &lt;pre&gt;&lt;code&gt;git show &amp;lt;sha1&amp;gt;^:&amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
    &lt;h4&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#show-files-history" name="user-content-show-files-history"&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#diff-2-files-at-specific-revision" name="user-content-diff-2-files-at-specific-revision"&gt;
      &lt;span class="octicon octicon-link"&gt;
      &lt;/span&gt;
     &lt;/a&gt;
-    Show file's history
+    Diff 2 files at specific revision
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;git log -p &amp;lt;file&amp;gt;
+   &lt;pre&gt;&lt;code&gt;git diff &amp;lt;revision_1&amp;gt;:&amp;lt;file_1&amp;gt; &amp;lt;revision_2&amp;gt;:&amp;lt;file_2&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#show-changes-on-a-branch-that-is-not-merged-upstream" name="user-content-show-changes-on-a-branch-that-is-not-merged-upstream"&gt;
