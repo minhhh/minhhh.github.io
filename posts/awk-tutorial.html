@@ -77,7 +77,934 @@
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>[git:repo=minhhh/wiki,file=awk.md]</p>
+              <p><div>
+    <style type = "text/css" scoped>
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    </style>
+    <div class="git-content">
+        <div class="git-file">
+            <div class="file">
+ <div class="blob instapaper_body" id="readme">
+  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#awk-cheatsheet" name="user-content-awk-cheatsheet">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    AWK CHEATSHEET
+   </h1>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#run" name="user-content-run">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Run
+   </h2>
+   <p>
+    Call from command line
+   </p>
+   <pre><code>awk 'pattern1 {action1}
+pattern2 {action2} ...' file1 file2 ..
+</code></pre>
+   <p>
+    Call a script
+   </p>
+   <pre><code>awk -f script file1 file2 ...
+</code></pre>
+   <p>
+    Call without input files
+   </p>
+   <pre><code>awk 'program'
+</code></pre>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#regular-expression" name="user-content-regular-expression">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Regular expression
+   </h2>
+   <p>
+    Awk can use regular exrepssion as conditions
+   </p>
+   <pre><code>awk '/foo/ {program}' file
+</code></pre>
+   <p>
+    Awk supports Character class in POSIX standard such as [:alpha], [:alnum:]
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#case-sensitivity" name="user-content-case-sensitivity">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Case sensitivity
+   </h3>
+   <p>
+    Either use function
+    <code>
+     tolower
+    </code>
+   </p>
+   <pre><code>tolower($1) ~ /foo/ {...}
+</code></pre>
+   <p>
+    Or set variable
+    <code>
+     IGNORECASE
+    </code>
+    to non-zero
+   </p>
+   <pre><code>IGNORECASE = 1
+</code></pre>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#dynamic-regex" name="user-content-dynamic-regex">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Dynamic regex
+   </h3>
+   <p>
+    Awk provides facility to define dynamic regular expressions
+   </p>
+   <pre><code>BEGIN { digits_regexp = "[[:digit:]]+" }
+</code></pre>
+   <p>
+    You shouldn't use string constants for regex because it needs to be processed twice and hard to read.
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#startup-and-cleanup-actions" name="user-content-startup-and-cleanup-actions">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Startup and cleanup actions
+   </h3>
+   <p>
+    In other words, do something even if there are no line to process
+   </p>
+   <pre><code>awk 'BEGIN {do something}'
+</code></pre>
+   <p>
+    <code>
+     END
+    </code>
+    specifies command to do at the end of loop.
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#change-field-seperator" name="user-content-change-field-seperator">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Change field seperator
+   </h3>
+   <p>
+    <code>
+     awk -F:
+    </code>
+    changes the field separator to colon.
+   </p>
+   <p>
+    Or it can be set in the BEGIN condition like this
+   </p>
+   <pre><code>BEGIN {FS = "/"}
+</code></pre>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#quote-and-quoting" name="user-content-quote-and-quoting">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Quote and quoting
+   </h3>
+   <p>
+    Awk support many standard escape sequence that can be use inside strings or regular expression
+   </p>
+   <p>
+    There are various way to escape single quote and double quotes.
+   </p>
+   <p>
+    Once nice way is to use octal escape:
+    <code>
+     \42
+    </code>
+    is double quote and
+    <code>
+     \47
+    </code>
+    is single quote.
+   </p>
+   <p>
+    <code>
+     \xhh
+    </code>
+    produces hexadecimal escape sequence
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#special-variables" name="user-content-special-variables">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Special Variables
+   </h3>
+   <ul class="task-list">
+    <li>
+     <code>
+      $0
+     </code>
+     is the current line. $1 is the first field, $2 is the second field and so on
+    </li>
+    <li>
+     Note that $NR is the first field in the first record, second in the second one, and so on
+    </li>
+    <li>
+     $(2x2) is equivalent to $4
+    </li>
+    <li>
+     $5 = something when the line has fewer than 5 fields will create the 5th field and change both $0 and NF
+    </li>
+    <li>
+     you get the idea
+    </li>
+    <li>
+     <p>
+      To force awk to rebuild the record,
+     </p>
+     <pre><code>$1 = $1; # force record to be rebuilt
+</code></pre>
+    </li>
+    <li>
+     <p>
+      NF is the number of fields
+     </p>
+    </li>
+    <li>
+     $NF is the last field.
+    </li>
+    <li>
+     NR is the total of records read so far in all files.
+    </li>
+    <li>
+     FNR is the number of records read so far in the current input files. This should be used instead of NR.
+    </li>
+    <li>
+     RS is the record separator. It can be changed at BEGIN
+    </li>
+    <li>
+     ORS is the output record separator.
+    </li>
+    <li>
+     RT contains the actual text that match RS if RS is a regular expression. If RS is just a normal character, then RT and RS are the same.
+    </li>
+    <li>
+     FS is the field separator
+     <ul class="task-list">
+      <li>
+       FS can be specified at the beginning as well
+      </li>
+     </ul>
+    </li>
+    <li>
+     OFS is output field separator
+    </li>
+    <li>
+     FIELDWIDTHS is a string that specifies field widths separated by spaces.
+     <ul class="task-list">
+      <li>
+       For instance
+       <code>
+        9 10 6 3 4 ...
+       </code>
+      </li>
+      <li>
+       If PROCINFO["FS"] "FS" then FS is being used, otherwise fixed width method is being used.
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#operators" name="user-content-operators">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Operators
+   </h4>
+   <ul class="task-list">
+    <li>
+     <p>
+      <code>
+       ~
+      </code>
+      (tilde) used to match a string with a regular expression
+     </p>
+     <pre><code>$ awk '$1 ~ /J/' file
+# matches line where the first field start with J
+</code></pre>
+    </li>
+    <li>
+     <p>
+      <code>
+       !~
+      </code>
+      not match regular expression
+     </p>
+    </li>
+    <li>
+     <code>
+      ==
+     </code>
+     is the equal operator
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#useful-functions" name="user-content-useful-functions">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Useful functions
+   </h3>
+   <ul class="task-list">
+    <li>
+     length() returns the string length.
+    </li>
+    <li>
+     substr(s, m, n) produces substring of s beginning at position m and with length n
+    </li>
+    <li>
+     tolower(s) , toupper(s) transform text s to all lower or upper cases
+    </li>
+    <li>
+     sub("something", "withsomething")
+    </li>
+    <li>
+     <code>
+      getline
+     </code>
+     read the next line from input, returns 1 if it finds a record, 0 if end of file and -1 if there are any errors.
+    </li>
+    <li>
+     <code>
+      getline tmp
+     </code>
+     reads the next line from input to a variable named
+     <code>
+      tmp
+     </code>
+     , the variable
+     <code>
+      $0
+     </code>
+     is not affected by this getline. This function allows to skip one line ahead.
+    </li>
+    <li>
+     <p>
+      <code>
+       getlines var &lt; 'file'
+      </code>
+      reads the next line from file to a variable named
+      <code>
+       var
+      </code>
+     </p>
+     <pre><code># The following code copies all input files to the output, except for records that say @include filename
+# in this case it will replace such records with the content of the file `filename`
+if (NF 2 &amp;&amp; $1 "@include") {
+    while ((getline line &lt; $2) &gt; 0)
+        print line
+    close($2)
+} else
+    print
+</code></pre>
+    </li>
+    <li>
+     <p>
+      <code>
+       command | getline
+      </code>
+      . In this case the string
+      <code>
+       command
+      </code>
+      is run as a shell command and its output is piped to getline
+     </p>
+     <pre><code># line begins with @execute is replaced by the output of the command after that
+{
+    if ($1 "@execute") {
+        tmp = substr($0, 10)
+        while ((tmp | getline) &gt; 0)
+            print
+        close(tmp)
+    } else
+        print
+}
+</code></pre>
+    </li>
+    <li>
+     <p>
+      <code>
+       command | getline var
+      </code>
+      , the output of
+      <code>
+       commands
+      </code>
+      is sent through a pipe to getline and into variable
+      <code>
+       var
+      </code>
+      .
+     </p>
+    </li>
+    <li>
+     <code>
+      print "some query" |&amp; "db_server"
+     </code>
+     sends a query to a process. (This maybe useful but we don't use it yet)
+    </li>
+    <li>
+     Mathematical functions such as: sqrt(), atan2(), rand(). TODO
+     <ul class="task-list">
+      <li>
+       DO NOT put a space between the function name and the parentheses. It can be confused with string concatenation
+      </li>
+      <li>
+       Operator precedence. TODO
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#printing-and-output" name="user-content-printing-and-output">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Printing and output
+   </h3>
+   <ul class="task-list">
+    <li>
+     print something, something, ...
+    </li>
+    <li>
+     printf "format string", something, something .... Similar to C printf function
+    </li>
+    <li>
+     OMFT contains the default format specification when print converts a number to a string
+    </li>
+    <li>
+     OFS and ORS do not have any effects on printf
+    </li>
+    <li>
+     The print and printf function can be redirected just as in the shell
+     <ul class="task-list">
+      <li>
+       print items &gt; file
+      </li>
+      <li>
+       print items &gt;&gt; file
+      </li>
+      <li>
+       print items | command
+      </li>
+      <li>
+       print items |&amp; command: the output from command can be read with
+       <code>
+        getline
+       </code>
+      </li>
+      <li>
+       Some version of awk only allows one open pipe , so we can call print items &gt; file multiple times to append more items to the file, unlike in the shell where we have to use &gt;&gt; the second time onwards.
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#standard-descriptors" name="user-content-standard-descriptors">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Standard descriptors
+   </h3>
+   <ul class="task-list">
+    <li>
+     <p>
+      Gawk supports special filenames for standard input, output and error streams
+     </p>
+     <ul class="task-list">
+      <li>
+       /dev/stdin
+      </li>
+      <li>
+       /dev/stdout
+      </li>
+      <li>
+       /dev/stderr
+      </li>
+      <li>
+       <p>
+        /dev/fd/N : file associated with descriptor N.
+       </p>
+       <p>
+        print "serious error detected " &gt; "/dev/stderr"
+       </p>
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" name="user-content-special-files-for-process-related-information">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Special files for process-related information
+   </h3>
+   <ul class="task-list">
+    <li>
+     Gwak supports special file for accessing information about the running gawk process. TODO
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#special-files-for-network-communication" name="user-content-special-files-for-network-communication">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Special files for network communication
+   </h3>
+   <ul class="task-list">
+    <li>
+     Gawk, awk can open two-way TCP-IP connection. TODO
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#close-input-and-output-redirection" name="user-content-close-input-and-output-redirection">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Close input and output redirection
+   </h3>
+   <ul class="task-list">
+    <li>
+     <code>
+      close(filename)
+     </code>
+     or
+     <code>
+      close(command)
+     </code>
+     close the input or output redirection pipe
+    </li>
+    <li>
+     <code>
+      filename
+     </code>
+     or
+     <code>
+      command
+     </code>
+     must
+     <code>
+      exactly match
+     </code>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#piping-to-sh" name="user-content-piping-to-sh">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Piping to sh
+   </h3>
+   <p>
+    A good way to build command line and execute them in the shell is to pipe them to
+    <code>
+     sh
+    </code>
+   </p>
+   <pre><code>{ printf("mv %s %s\n", $0, tolower($0)) | "sh" }
+END {close("sh")}
+</code></pre>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" name="user-content-change-the-content-of-a-field">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Change the content of a field
+   </h3>
+   <ul class="task-list">
+    <li>
+     <p>
+      The content of a field can be change during processing , like this
+     </p>
+     <pre><code>awk '{$2=$2-10; print $0}'
+# will subtract 10 from the second field, and the second field should be
+# a number for this to work.
+</code></pre>
+    </li>
+   </ul>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#variables" name="user-content-variables">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Variables
+   </h4>
+   <ul class="task-list">
+    <li>
+     <p>
+      Custom variables can be created and default to zero
+     </p>
+     <pre><code>{
+    str = "hello";
+}
+</code></pre>
+    </li>
+    <li>
+     <p>
+      Variables can be assigned in the command line. TODO:
+     </p>
+    </li>
+    <li>
+     Strings and number conversions. TODO
+    </li>
+    <li>
+     Arithmetic Operators. TODO
+    </li>
+    <li>
+     String concatenation is done by placing the operands next to each other
+     <ul class="task-list">
+      <li>
+       <code>
+        ()
+       </code>
+       should be used around concatenation in all but the most common context
+      </li>
+     </ul>
+    </li>
+    <li>
+     True and false in awk. Zero and null string is false, other values are true.
+    </li>
+    <li>
+     Boolean expressions:
+     <code>
+      !
+     </code>
+     ,
+     <code>
+      &amp;&amp;
+     </code>
+     and
+     <code>
+      ||
+     </code>
+     . Tenary operator
+     <code>
+      condition?expression1:expression2
+     </code>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#patterns" name="user-content-patterns">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Patterns
+   </h3>
+   <ul class="task-list">
+    <li>
+     Patterns control the execution of rules, a rule is executed when its pattern matches the current input record (line).
+    </li>
+    <li>
+     <code>
+      Record range
+     </code>
+     is specified in the form
+     <code>
+      beginpatter, endpattern
+     </code>
+     . Every record between inclusive is processed.
+     <ul class="task-list">
+      <li>
+       The range pattern can be turned on and off by the same record.
+      </li>
+      <li>
+       Range pattern cannot be combined with other patterns.
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#control-statements" name="user-content-control-statements">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Control Statements
+   </h3>
+   <p>
+    if-else
+   </p>
+   <pre><code>if (x % 2 0)
+    print "x is even"
+else
+    print "x is odd"
+</code></pre>
+   <p>
+    while
+   </p>
+   <pre><code>while (i &lt;= 3) {
+    print $i
+    i++
+}
+</code></pre>
+   <p>
+    do while
+   </p>
+   <pre><code>do {
+    print $0
+    i++
+} while (i &lt;= 10)
+</code></pre>
+   <p>
+    for
+   </p>
+   <pre><code>for (i = 1; i &lt;= 3; i++)
+    print $i
+</code></pre>
+   <p>
+    switch: break
+   </p>
+   <pre><code>switch (NR * 2 + 1) {
+case 3:
+    break
+case "11":
+    print NR - 1
+    break
+case /2[[:digit:]]+/:
+    print NR
+    break
+default:
+    print NR + 1
+    break
+case -1:
+    print NR * -1
+    break
+}
+</code></pre>
+   <p>
+    switch: continue
+   </p>
+   <pre><code>BEGIN {
+    for (x = 0; x &lt;= 20; x++) {
+        if (x 5)
+            continue
+        printf "%d ", x
+    }
+    print ""
+}
+</code></pre>
+   <ul class="task-list">
+    <li>
+     next: stop processing the current record and go on to the next record
+    </li>
+    <li>
+     nextfile : stop processing the current file and go on to the next file
+    </li>
+    <li>
+     <p>
+      exit n: stops execution for the current rule and execute the END rule if any.
+     </p>
+     <pre><code>BEGIN {
+if (("date" | getline date_now) &lt;= 0) {
+print "Can’t get system date" &gt; "/dev/stderr"
+exit 1
+}
+print "current date is", date_now
+close("date")
+}
+</code></pre>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#functions" name="user-content-functions">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Functions
+   </h3>
+   <ul class="task-list">
+    <li>
+     Controlling output buffering with
+     <code>
+      system
+     </code>
+     <ul class="task-list">
+      <li>
+       Use
+       <code>
+        system("")
+       </code>
+       to fflush output buffering instead of
+       <code>
+        fflush
+       </code>
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#howtos" name="user-content-howtos">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    HOWTOS
+   </h1>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#how-to-remove-special-characters-from-files" name="user-content-how-to-remove-special-characters-from-files">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    How to remove special characters from files
+   </h2>
+   <ul class="task-list">
+    <li>
+     Suppose you have a list of files starting with a certain number of special character that you want to remove
+    </li>
+    <li>
+     The idea is to generate the new file name for each of the files then use the
+     <code>
+      mv
+     </code>
+     or
+     <code>
+      rename
+     </code>
+     command to change the orginal file name
+    </li>
+    <li>
+     <p>
+      First, export the list of filenames to a first file test1
+     </p>
+     <pre><code># Suppose that the original files are in folder original_files and we want to copy them to
+# folder new_files
+ls original_files &gt; list1 # generate list of files
+awk '{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}' list1 &gt; list2 # removes all special characters and generate a second list
+
+# combine list1 and list2 to a list of shell command in list3
+# We will use strong quoting
+awk '{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}' list1
+
+sh list3 # run the list of commands in list3
+rm -frv list1 list2 list3 # remove all temporary files
+</code></pre>
+    </li>
+   </ul>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" name="user-content-make-each-character-a-separate-field">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Make each character a separate field
+   </h2>
+   <ul class="task-list">
+    <li>
+     <p>
+      By changing the field separtor to null string
+     </p>
+     <pre><code>BEGIN {FS=""}
+</code></pre>
+    </li>
+   </ul>
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#books" name="user-content-books">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    BOOKS
+   </h1>
+   <ul class="task-list">
+    <li>
+     <a href="http://www.gnu.org/software/gawk/manual/gawk.pdf">
+      Gwak Effective awk programming
+     </a>
+     - Free book, great for understanding details about awk and gawk programming.
+    </li>
+    <li>
+     <a href="http://gregable.com/2010/09/why-you-should-know-just-little-awk.html">
+      Why you should learn just a little Awk - An Awk Tutorial by Example
+     </a>
+    </li>
+   </ul>
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#articles" name="user-content-articles">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    ARTICLES
+   </h1>
+   <ul class="task-list">
+    <li>
+     <a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/">
+      Differences between different versions of awk
+     </a>
+    </li>
+    <li>
+     <a href="http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/">
+      http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/
+     </a>
+     .
+    </li>
+   </ul>
+  </article>
+ </div>
+</div>
+
+            <div class="git-meta">
+                
+                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                
+                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/awk.md">view original</a></span>
+                <span style="float: right; margin-right: 8px;">
+                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/awk.md">awk.md</a></span>
+            </div>
+        </div>
+    </div>
+</div></p>
             </div><!-- /.entry-content -->
 
 
@@ -101,14 +1028,14 @@
 
 <h4>Tags</h4>
 	<ul>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
 	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
 </ul>
 
