@@ -77,7 +77,467 @@
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>[git:repo=minhhh/wiki,file=py_decorators.md]</p>
+              <p><div>
+    <style type = "text/css" scoped>
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    </style>
+    <div class="git-content">
+        <div class="git-file">
+            <div class="file">
+ <div class="blob instapaper_body" id="readme">
+  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#python-decorator-tutorial" name="user-content-python-decorator-tutorial">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    PYTHON DECORATOR TUTORIAL
+   </h1>
+   <p>
+    Decorators are a powerful tool for getting rid of code duplication, aka following DRY principle. It also helps with standardization of code in a project without forcing developers to remember predefined snippets or patters. In this tutorial, we'll discover how to create and use them.
+   </p>
+   <p>
+    Another important point to note is I'm aiming for practical value of the decorators so there will be no
+    <code>
+     foo
+    </code>
+    ,
+    <code>
+     bar
+    </code>
+    examples, all examples must solve real world problem and/or taken from good source.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#first-level" name="user-content-first-level">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    First level
+   </h2>
+   <p>
+    We all know memoization and probably implement it as a function that takes an arbitrary function and return a memoized function:
+   </p>
+   <pre><code>memoized_factorial = construct_memoize(factorial)
+</code></pre>
+   <p>
+    This is extremely cumbersome if
+    <code>
+     factorial
+    </code>
+    is a method of some class because then we have to use temporary variable to store the memoized function and somehow reassign it to the method. We want some way to elegantly do all the manual things to make a memoized version of a function, this is where
+    <code>
+     decorator
+    </code>
+    comes in.
+   </p>
+   <p>
+    In its simplest form, a decorator is a function that takes the original function and returns a
+    <code>
+     decorated function
+    </code>
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="n">cache_obj</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">cache</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">global</span> <span class="n">cache_obj</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache_obj</span><span class="p">:</span>
+                <span class="n">cache_obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">"Get from cache {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cache_obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">inner</span>
+
+    <span class="nd">@cache</span>
+    <span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">"""Sum 2 numbers</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre>
+   </div>
+   <p>
+    The
+    <code>
+     @
+    </code>
+    is a special syntax that applies the decorator function to the underneath function or class. Here,
+    <code>
+     cache(func)
+    </code>
+    is called, passing original
+    <code>
+     func
+    </code>
+    to the decorator, then replace
+    <code>
+     func
+    </code>
+    with whatever function is returned from
+    <code>
+     cache(func)
+    </code>
+    .
+   </p>
+   <p>
+    Using global cache object
+    <code>
+     cache_obj
+    </code>
+    is not a great idea, because different functions can have the same arguments, then your cache is overwritten. It's better to assign the cache object directly to the original function
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="k">def</span> <span class="nf">memoize_2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s">'cache'</span><span class="p">):</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">func</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">"Get from cache {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">inner</span>
+
+    <span class="nd">@memoize_2</span>
+    <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">"""Multiply 2 numbers</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+    <span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+   </div>
+   <p>
+    This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="k">print</span> <span class="n">multiply</span><span class="o">.</span><span class="n">__doc__</span> <span class="c"># None</span>
+</pre>
+   </div>
+   <p>
+    To keep these information, we use
+    <code>
+     functools.wrapper
+    </code>
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="kn">import</span> <span class="nn">functools</span>
+    <span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s">'cache'</span><span class="p">):</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">func</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">"Get from cache {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">inner</span>
+
+    <span class="k">print</span> <span class="n">multiply</span><span class="o">.</span><span class="n">__doc__</span> <span class="c"># Multiply 2 numbers</span>
+</pre>
+   </div>
+   <p>
+    Now the decorated function also retain important information from the original functions, that's neat!
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#higher-level" name="user-content-higher-level">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Higher level
+   </h2>
+   <p>
+    The
+    <code>
+     memoize
+    </code>
+    decorator doesn't need any customization, but there are a lot of pattern that requires some kind of customization. For instance, we want to apply a retry pattern to a function that follows special protocol. Obviously, we have to specify the number of retries, the delay between retry, and maybe a backoff factor to scale up the delay between failed attempts. This is how we do it:
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">math</span>
+
+    <span class="k">def</span> <span class="nf">retry</span><span class="p">(</span><span class="n">tries</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">backoff</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="sd">'''Retries a function or method until it returns True.</span>
+<span class="sd">        delay sets the initial delay in seconds, and backoff sets the factor by which</span>
+<span class="sd">        the delay should lengthen after each failure. backoff must be greater than 1,</span>
+<span class="sd">        or else it isn't really a backoff. tries must be at least 0, and delay</span>
+<span class="sd">        greater than 0.'''</span>
+
+        <span class="k">if</span> <span class="n">backoff</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">"backoff must be greater than 1"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">"tries must be 0 or greater"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">delay</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">"delay must be greater than 0"</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">deco_retry</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">f_retry</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">mtries</span><span class="p">,</span> <span class="n">mdelay</span> <span class="o">=</span> <span class="n">tries</span><span class="p">,</span> <span class="n">delay</span>
+
+                <span class="n">rv</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="k">while</span> <span class="n">mtries</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">rv</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="bp">True</span>
+
+                    <span class="n">mtries</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">mdelay</span><span class="p">)</span>
+                    <span class="n">mdelay</span> <span class="o">*=</span> <span class="n">backoff</span>
+
+                    <span class="n">rv</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="n">f_retry</span>
+        <span class="k">return</span> <span class="n">deco_retry</span>
+
+    <span class="nd">@retry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">backoff</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</pre>
+   </div>
+   <p>
+    Here, we define
+    <code>
+     retry
+    </code>
+    as a function that returns a
+    <code>
+     decorator
+    </code>
+    which will do the actual decoration of our original function with the parameters provided by
+    <code>
+     retry
+    </code>
+    . We consider that
+    <code>
+     retry(1, delay=1, backoff=2)
+    </code>
+    is called first, returning a function, then the decorator syntax
+    <code>
+     @
+    </code>
+    is applied. This is just an addition of another layer on the decoration stack. In theory, you can have unlimited number of nested layer, but in practice, most of the time you only use 2.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#decorator-class" name="user-content-decorator-class">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Decorator class
+   </h2>
+   <p>
+    Using function as decorators is straight forward, and for storing persistent information we use closures over temporary variables. It'd be nice if the persistent information are class members.
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="kn">import</span> <span class="nn">collections</span>
+    <span class="k">class</span> <span class="nc">memoized</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="sd">'''Decorator. Caches a function's return value each time it is called.</span>
+<span class="sd">        If called later with the same arguments, the cached value is returned</span>
+<span class="sd">        (not reevaluated).</span>
+<span class="sd">        '''</span>
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">__doc__</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Hashable</span><span class="p">):</span>
+                <span class="c"># uncacheable. a list, for instance.</span>
+                <span class="c"># better to not cache than blow up.</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">args</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">value</span>
+        <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">'''Return the function's docstring.'''</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">__doc__</span>
+        <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">objtype</span><span class="p">):</span>
+            <span class="sd">'''Support instance methods.'''</span>
+            <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__call__</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+</pre>
+   </div>
+   <p>
+    Here, the decorator is an object of class
+    <code>
+     memoized
+    </code>
+    and you can store all sort of information like you would a normal object.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#class-decorator" name="user-content-class-decorator">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Class decorator
+   </h2>
+   <p>
+    Up to now we're working with function decorator, what if we want to operate at class level? It's actually quite simple, we only have to define a function that takes a class instead of a function as the parameter.
+   </p>
+   <p>
+    Let's have a look at
+    <a href="https://hg.python.org/cpython/file/8e838598eed1/Lib/functools.py">
+     functool.total_ordering
+    </a>
+    . This decorator makes it so that you only have to define one of the four functions
+    <code>
+     __lt__
+    </code>
+    ,
+    <code>
+     __le__
+    </code>
+    ,
+    <code>
+     __gt__
+    </code>
+    ,
+    <code>
+     __ge__
+    </code>
+    , and the other three will be defined based on the provided function.
+   </p>
+   <div class="highlight highlight-python">
+    <pre>    <span class="k">def</span> <span class="nf">total_ordering</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="sd">"""Class decorator that fills in missing ordering methods"""</span>
+        <span class="n">convert</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'__lt__'</span><span class="p">:</span> <span class="p">[(</span><span class="s">'__gt__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span> <span class="o">&lt;</span> <span class="n">other</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">)),</span>
+                    <span class="p">(</span><span class="s">'__le__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="bp">self</span> <span class="o">&lt;</span> <span class="n">other</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s">'__ge__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&lt;</span> <span class="n">other</span><span class="p">)],</span>
+            <span class="s">'__le__'</span><span class="p">:</span> <span class="p">[(</span><span class="s">'__ge__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&lt;=</span> <span class="n">other</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s">'__lt__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="bp">self</span> <span class="o">&lt;=</span> <span class="n">other</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s">'__gt__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="p">)],</span>
+            <span class="s">'__gt__'</span><span class="p">:</span> <span class="p">[(</span><span class="s">'__lt__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span> <span class="o">&gt;</span> <span class="n">other</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">)),</span>
+                    <span class="p">(</span><span class="s">'__ge__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="bp">self</span> <span class="o">&gt;</span> <span class="n">other</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s">'__le__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&gt;</span> <span class="n">other</span><span class="p">)],</span>
+            <span class="s">'__ge__'</span><span class="p">:</span> <span class="p">[(</span><span class="s">'__le__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s">'__gt__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="bp">self</span> <span class="o">&gt;=</span> <span class="n">other</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s">'__lt__'</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="p">)]</span>
+        <span class="p">}</span>
+        <span class="c"># Find user-defined comparisons (not those inherited from object).</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">op</span> <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">convert</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">roots</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">'must define at least one ordering operation: &lt; &gt; &lt;= &gt;='</span><span class="p">)</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>       <span class="c"># prefer __lt__ to __le__ to __gt__ to __ge__</span>
+        <span class="k">for</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span> <span class="ow">in</span> <span class="n">convert</span><span class="p">[</span><span class="n">root</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">opname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+                <span class="n">opfunc</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="n">opname</span>
+                <span class="n">opfunc</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">opname</span><span class="p">)</span><span class="o">.</span><span class="n">__doc__</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cls</span>
+</pre>
+   </div>
+   <p>
+    This code is pretty simple. It defines 3 other operators based on 2 operators:
+    <code>
+     __eq__
+    </code>
+    and one of the four functions
+    <code>
+     __lt__
+    </code>
+    ,
+    <code>
+     __le__
+    </code>
+    ,
+    <code>
+     __gt__
+    </code>
+    ,
+    <code>
+     __ge__
+    </code>
+    .
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#useful-decorators" name="user-content-useful-decorators">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Useful decorators
+   </h2>
+   <ul class="task-list">
+    <li>
+     property - used to quickly create a field from appropriate getter, setter and deleter.
+    </li>
+   </ul>
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#references" name="user-content-references">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    REFERENCES
+   </h1>
+   <p>
+    <a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library">
+     Python Decorator Library
+    </a>
+   </p>
+  </article>
+ </div>
+</div>
+
+            <div class="git-meta">
+                
+                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                
+                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/py_decorators.md">view original</a></span>
+                <span style="float: right; margin-right: 8px;">
+                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/py_decorators.md">py_decorators.md</a></span>
+            </div>
+        </div>
+    </div>
+</div></p>
             </div><!-- /.entry-content -->
 
 
@@ -101,14 +561,14 @@
 
 <h4>Tags</h4>
 	<ul>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
 	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
 </ul>
 

@@ -105,7 +105,116 @@ Third</code></pre>
 <ul>
 <li>The best solution for me is to use a plugin for embedding git file into <code>pelican</code> like this:</li>
 </ul>
-<p>[git:repo=minhhh/wiki,file=sample.md]</p>
+<p><div>
+    <style type = "text/css" scoped>
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    </style>
+    <div class="git-content">
+        <div class="git-file">
+            <div class="file">
+ <div class="blob instapaper_body" id="readme">
+  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#first-level-title" name="user-content-first-level-title">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    First level title
+   </h1>
+   <p>
+    Notes from
+    <a href="https://github.com/minhhh/wiki">
+     link
+    </a>
+    .
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#second-level-title" name="user-content-second-level-title">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Second level title
+   </h2>
+   <p>
+    Quote some code with correct syntax highlight
+   </p>
+   <div class="highlight highlight-python">
+    <pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
+</pre>
+   </div>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#third-level-title" name="user-content-third-level-title">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Third level title
+   </h3>
+   <div class="highlight highlight-python">
+    <pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
+</pre>
+   </div>
+  </article>
+ </div>
+</div>
+
+            <div class="git-meta">
+                
+                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                
+                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/sample.md">view original</a></span>
+                <span style="float: right; margin-right: 8px;">
+                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/sample.md">sample.md</a></span>
+            </div>
+        </div>
+    </div>
+</div></p>
             </div><!-- /.entry-content -->
 
 
@@ -129,14 +238,14 @@ Third</code></pre>
 
 <h4>Tags</h4>
 	<ul>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
 	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
 </ul>
 
