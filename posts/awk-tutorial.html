@@ -145,19 +145,34 @@
    <p>
     Call from command line
    </p>
-   <pre><code>awk 'pattern1 {action1}
-pattern2 {action2} ...' file1 file2 ..
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    awk <span class="s1">'pattern1 {action1}</span>
+<span class="s1">    pattern2 {action2} ...'</span> file1 file2 ..
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     Call a script
    </p>
-   <pre><code>awk -f script file1 file2 ...
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    awk -f script file1 file2 ...
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     Call without input files
    </p>
-   <pre><code>awk 'program'
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    awk <span class="s1">'program'</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h2>
     <a aria-hidden="true" class="anchor" href="#regular-expression" name="user-content-regular-expression">
      <span class="octicon octicon-link">
@@ -168,8 +183,13 @@ pattern2 {action2} ...' file1 file2 ..
    <p>
     Awk can use regular exrepssion as conditions
    </p>
-   <pre><code>awk '/foo/ {program}' file
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    awk <span class="s1">'/foo/ {program}'</span> file
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     Awk supports Character class in POSIX standard such as [:alpha], [:alnum:]
    </p>
@@ -186,8 +206,13 @@ pattern2 {action2} ...' file1 file2 ..
      tolower
     </code>
    </p>
-   <pre><code>tolower($1) ~ /foo/ {...}
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    tolower<span class="o">(</span><span class="nv">$1</span><span class="o">)</span> ~ /foo/ <span class="o">{</span>...<span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     Or set variable
     <code>
@@ -195,8 +220,13 @@ pattern2 {action2} ...' file1 file2 ..
     </code>
     to non-zero
    </p>
-   <pre><code>IGNORECASE = 1
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="nv">IGNORECASE</span> <span class="o">=</span> 1
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#dynamic-regex" name="user-content-dynamic-regex">
      <span class="octicon octicon-link">
@@ -207,8 +237,13 @@ pattern2 {action2} ...' file1 file2 ..
    <p>
     Awk provides facility to define dynamic regular expressions
    </p>
-   <pre><code>BEGIN { digits_regexp = "[[:digit:]]+" }
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    BEGIN <span class="o">{</span> <span class="nv">digits_regexp</span> <span class="o">=</span> <span class="s2">"[[:digit:]]+"</span> <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     You shouldn't use string constants for regex because it needs to be processed twice and hard to read.
    </p>
@@ -222,8 +257,13 @@ pattern2 {action2} ...' file1 file2 ..
    <p>
     In other words, do something even if there are no line to process
    </p>
-   <pre><code>awk 'BEGIN {do something}'
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    awk <span class="s1">'BEGIN {do something}'</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     <code>
      END
@@ -246,8 +286,13 @@ pattern2 {action2} ...' file1 file2 ..
    <p>
     Or it can be set in the BEGIN condition like this
    </p>
-   <pre><code>BEGIN {FS = "/"}
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    BEGIN <span class="o">{</span><span class="nv">FS</span> <span class="o">=</span> <span class="s2">"/"</span><span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#quote-and-quoting" name="user-content-quote-and-quoting">
      <span class="octicon octicon-link">
@@ -305,16 +350,19 @@ pattern2 {action2} ...' file1 file2 ..
      you get the idea
     </li>
     <li>
-     <p>
-      To force awk to rebuild the record,
-     </p>
-     <pre><code>$1 = $1; # force record to be rebuilt
-</code></pre>
+     To force awk to rebuild the record,
     </li>
+   </ul>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="nv">$1</span> <span class="o">=</span> <span class="nv">$1</span><span class="p">;</span> <span class="c"># force record to be rebuilt</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
+   <ul class="task-list">
     <li>
-     <p>
-      NF is the number of fields
-     </p>
+     NF is the number of fields
     </li>
     <li>
      $NF is the last field.
@@ -1028,15 +1076,15 @@ rm -frv list1 list2 list3 # remove all temporary files
 
 <h4>Tags</h4>
 	<ul>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
 	    <li class="tag-2"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
 </ul>
 
 
