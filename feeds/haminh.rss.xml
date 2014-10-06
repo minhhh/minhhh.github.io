@@ -67,19 +67,34 @@
    &lt;p&gt;
     Call from command line
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;awk 'pattern1 {action1}
-pattern2 {action2} ...' file1 file2 ..
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    awk &lt;span class="s1"&gt;'pattern1 {action1}&lt;/span&gt;
+&lt;span class="s1"&gt;    pattern2 {action2} ...'&lt;/span&gt; file1 file2 ..
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Call a script
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;awk -f script file1 file2 ...
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    awk -f script file1 file2 ...
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Call without input files
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;awk 'program'
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    awk &lt;span class="s1"&gt;'program'&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#regular-expression" name="user-content-regular-expression"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -90,8 +105,13 @@ pattern2 {action2} ...' file1 file2 ..
    &lt;p&gt;
     Awk can use regular exrepssion as conditions
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;awk '/foo/ {program}' file
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    awk &lt;span class="s1"&gt;'/foo/ {program}'&lt;/span&gt; file
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Awk supports Character class in POSIX standard such as [:alpha], [:alnum:]
    &lt;/p&gt;
@@ -108,8 +128,13 @@ pattern2 {action2} ...' file1 file2 ..
      tolower
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;tolower($1) ~ /foo/ {...}
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    tolower&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ~ /foo/ &lt;span class="o"&gt;{&lt;/span&gt;...&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Or set variable
     &lt;code&gt;
@@ -117,8 +142,13 @@ pattern2 {action2} ...' file1 file2 ..
     &lt;/code&gt;
     to non-zero
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;IGNORECASE = 1
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="nv"&gt;IGNORECASE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#dynamic-regex" name="user-content-dynamic-regex"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -129,8 +159,13 @@ pattern2 {action2} ...' file1 file2 ..
    &lt;p&gt;
     Awk provides facility to define dynamic regular expressions
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;BEGIN { digits_regexp = "[[:digit:]]+" }
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    BEGIN &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="nv"&gt;digits_regexp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"[[:digit:]]+"&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     You shouldn't use string constants for regex because it needs to be processed twice and hard to read.
    &lt;/p&gt;
@@ -144,8 +179,13 @@ pattern2 {action2} ...' file1 file2 ..
    &lt;p&gt;
     In other words, do something even if there are no line to process
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;awk 'BEGIN {do something}'
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    awk &lt;span class="s1"&gt;'BEGIN {do something}'&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     &lt;code&gt;
      END
@@ -168,8 +208,13 @@ pattern2 {action2} ...' file1 file2 ..
    &lt;p&gt;
     Or it can be set in the BEGIN condition like this
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;BEGIN {FS = "/"}
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    BEGIN &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="nv"&gt;FS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"/"&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#quote-and-quoting" name="user-content-quote-and-quoting"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -227,16 +272,19 @@ pattern2 {action2} ...' file1 file2 ..
      you get the idea
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      To force awk to rebuild the record,
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;$1 = $1; # force record to be rebuilt
-&lt;/code&gt;&lt;/pre&gt;
+     To force awk to rebuild the record,
     &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c"&gt;# force record to be rebuilt&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      NF is the number of fields
-     &lt;/p&gt;
+     NF is the number of fields
     &lt;/li&gt;
     &lt;li&gt;
      $NF is the last field.
@@ -1008,8 +1056,10 @@ rm -frv list1 list2 list3 # remove all temporary files
    &lt;p&gt;
     We all know memoization and probably implement it as a function that takes an arbitrary function and return a memoized function:
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;memoized_factorial = construct_memoize(factorial)
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-python"&gt;
+    &lt;pre&gt;    &lt;span class="n"&gt;memoized_factorial&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;construct_memoize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;factorial&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
    &lt;p&gt;
     This is extremely cumbersome if
     &lt;code&gt;
