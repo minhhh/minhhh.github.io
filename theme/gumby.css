@@ -254,7 +254,8 @@ ul, ol {
 }
 
 ul {
-  list-style: none outside;
+  list-style: disc outside;
+  margin-left: 25px;
 }
 
 ol {
@@ -273,6 +274,10 @@ ul.circle {
 }
 ul.disc {
   list-style: disc outside;
+}
+ul.none {
+  list-style: none outside;
+  margin-left: 0;
 }
 ul ul {
   margin: 4px 0 5px 25px;
