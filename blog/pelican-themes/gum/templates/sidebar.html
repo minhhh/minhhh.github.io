@@ -2,7 +2,7 @@
 
 <h4>Pages</h4>
 
- <ul>
+ <ul class="none">
   {% for title, link in MENUITEMS %}
       <li><a href="{{ link }}">{{ title }}</a></li>
   {% endfor %}
@@ -21,7 +21,7 @@
 
 <h4>Categories</h4>
 {% if categories %}
-<ul>
+<ul class="none">
 	{% for cat, null in categories %}
 		<li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
 	{% endfor %}
@@ -31,7 +31,7 @@
 
 <h4>Tags</h4>
 {% if tags %}
-	<ul>
+	<ul class="none">
 	{% for tag in tag_cloud %}
 	    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0|e }}</a></li>
 	{% endfor %}
@@ -42,7 +42,7 @@
 {% if SOCIAL %}
 <nav class="widget">
   <h4>Social</h4>
-  <ul>
+  <ul class="none">
   {% for name, url in SOCIAL %}
     <li><a href="{{ url|e }}">{{ name }}</a></li>
   {% endfor %}

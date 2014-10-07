@@ -6,12 +6,12 @@ Tags: pelican, blog, github
 
 When creating this blog, I used the following references:
 
-1. [Setup github page with pelican]
-2. [Migrating to github pages]
-3. [Pelican Guide initial setup]
-4. [Moving to Pelican planning]
-5. [pelican-gist]
-6. [gist-it]
+* [Setup github page with pelican]
+* [Migrating to github pages]
+* [Pelican Guide initial setup]
+* [Moving to Pelican planning]
+* [pelican-gist]
+* [gist-it]
 
 [Moving to Pelican planning]: http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html
 
