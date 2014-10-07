@@ -8,14 +8,12 @@
 
 .git-content .git-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
 .git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 85%;
     overflow: hidden;
     padding: 0.5em;
@@ -40,7 +38,6 @@
 .git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -983,14 +980,12 @@ rm -frv list1 list2 list3 # remove all temporary files
 
 .git-content .git-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
 .git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 85%;
     overflow: hidden;
     padding: 0.5em;
@@ -1015,7 +1010,6 @@ rm -frv list1 list2 list3 # remove all temporary files
 .git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -1445,14 +1439,12 @@ rm -frv list1 list2 list3 # remove all temporary files
 
 .git-content .git-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
 .git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 85%;
     overflow: hidden;
     padding: 0.5em;
@@ -1477,7 +1469,6 @@ rm -frv list1 list2 list3 # remove all temporary files
 .git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -1638,14 +1629,12 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
 .git-content .git-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
 .git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 85%;
     overflow: hidden;
     padding: 0.5em;
@@ -1670,7 +1659,6 @@ Third&lt;/code&gt;&lt;/pre&gt;
 .git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -1724,6 +1712,14 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;/pre&gt;
    &lt;/div&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     First item
+    &lt;/li&gt;
+    &lt;li&gt;
+     Second item
+    &lt;/li&gt;
+   &lt;/ul&gt;
   &lt;/article&gt;
  &lt;/div&gt;
 &lt;/div&gt;
@@ -1747,14 +1743,12 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
 .git-content .git-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
 .git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 85%;
     overflow: hidden;
     padding: 0.5em;
@@ -1779,7 +1773,6 @@ Third&lt;/code&gt;&lt;/pre&gt;
 .git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -1940,14 +1933,12 @@ git branch -D temp
 
 .git-content .git-file {
     border: 1px solid #DEDEDE;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin-bottom: 1em;
 }
 
 .git-content .git-file .git-meta {
     background-color: #EAEAEA;
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 85%;
     overflow: hidden;
     padding: 0.5em;
@@ -1972,7 +1963,6 @@ git branch -D temp
 .git-content .git-file pre {
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
-    font-family: Consolas,"Liberation Mono",Courier,monospace;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -2569,11 +2559,11 @@ git push -u origin --tags # pushes up any tags
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>Creating this blog</title><link href="http://minhhh.github.io/posts/creating-this-blog" rel="alternate"></link><updated>2014-06-07T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</id><summary type="html">&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html"&gt;Pelican Guide initial setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html"&gt;Moving to Pelican planning&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/streeter/pelican-gist"&gt;pelican-gist&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/minhhh/gist-it"&gt;gist-it&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="github"></category></entry></feed>
+&lt;/ul&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="github"></category></entry></feed>
