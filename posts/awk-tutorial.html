@@ -414,23 +414,26 @@
    </h4>
    <ul class="task-list">
     <li>
-     <p>
-      <code>
-       ~
-      </code>
-      (tilde) used to match a string with a regular expression
-     </p>
-     <pre><code>$ awk '$1 ~ /J/' file
-# matches line where the first field start with J
-</code></pre>
+     <code>
+      ~
+     </code>
+     (tilde) used to match a string with a regular expression
     </li>
+   </ul>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="nv">$ </span>awk <span class="s1">'$1 ~ /J/'</span> file
+    <span class="c"># matches line where the first field start with J</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
+   <ul class="task-list">
     <li>
-     <p>
-      <code>
-       !~
-      </code>
-      not match regular expression
-     </p>
+     <code>
+      !~
+     </code>
+     not match regular expression
     </li>
     <li>
      <code>
@@ -480,63 +483,71 @@
      is not affected by this getline. This function allows to skip one line ahead.
     </li>
     <li>
-     <p>
-      <code>
-       getlines var &lt; 'file'
-      </code>
-      reads the next line from file to a variable named
-      <code>
-       var
-      </code>
-     </p>
-     <pre><code># The following code copies all input files to the output, except for records that say @include filename
-# in this case it will replace such records with the content of the file `filename`
-if (NF 2 &amp;&amp; $1 "@include") {
-    while ((getline line &lt; $2) &gt; 0)
-        print line
-    close($2)
-} else
-    print
-</code></pre>
+     <code>
+      getlines var &lt; 'file'
+     </code>
+     reads the next line from file to a variable named
+     <code>
+      var
+     </code>
     </li>
-    <li>
-     <p>
-      <code>
-       command | getline
-      </code>
-      . In this case the string
-      <code>
-       command
-      </code>
-      is run as a shell command and its output is piped to getline
-     </p>
-     <pre><code># line begins with @execute is replaced by the output of the command after that
-{
-    if ($1 "@execute") {
-        tmp = substr($0, 10)
-        while ((tmp | getline) &gt; 0)
-            print
-        close(tmp)
-    } else
+   </ul>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="c"># The following code copies all input files to the output, except for records that say @include filename</span>
+    <span class="c"># in this case it will replace such records with the content of the file `filename`</span>
+    <span class="k">if</span> <span class="o">(</span>NF <span class="m">2</span> <span class="o">&amp;&amp;</span> <span class="nv">$1</span> <span class="s2">"@include"</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">((</span>getline line &lt; <span class="nv">$2</span><span class="o">)</span> &gt; 0<span class="o">)</span>
+            print line
+        close<span class="o">(</span><span class="nv">$2</span><span class="o">)</span>
+    <span class="o">}</span> <span class="k">else</span>
         print
-}
-</code></pre>
-    </li>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
+   <ul class="task-list">
     <li>
-     <p>
-      <code>
-       command | getline var
-      </code>
-      , the output of
-      <code>
-       commands
-      </code>
-      is sent through a pipe to getline and into variable
-      <code>
-       var
-      </code>
-      .
-     </p>
+     <code>
+      command | getline
+     </code>
+     . In this case the string
+     <code>
+      command
+     </code>
+     is run as a shell command and its output is piped to getline
+    </li>
+   </ul>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="c"># line begins with @execute is replaced by the output of the command after that</span>
+    <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> <span class="s2">"@execute"</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nv">tmp</span> <span class="o">=</span> substr<span class="o">(</span><span class="nv">$0</span>, 10<span class="o">)</span>
+            <span class="k">while</span> <span class="o">((</span>tmp <span class="p">|</span> getline<span class="o">)</span> &gt; 0<span class="o">)</span>
+                print
+            close<span class="o">(</span>tmp<span class="o">)</span>
+        <span class="o">}</span> <span class="k">else</span>
+            print
+    <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
+   <ul class="task-list">
+    <li>
+     <code>
+      command | getline var
+     </code>
+     , the output of
+     <code>
+      commands
+     </code>
+     is sent through a pipe to getline and into variable
+     <code>
+      var
+     </code>
+     .
     </li>
     <li>
      <code>
@@ -609,9 +620,7 @@ if (NF 2 &amp;&amp; $1 "@include") {
    </h3>
    <ul class="task-list">
     <li>
-     <p>
-      Gawk supports special filenames for standard input, output and error streams
-     </p>
+     Gawk supports special filenames for standard input, output and error streams
      <ul class="task-list">
       <li>
        /dev/stdin
@@ -623,16 +632,18 @@ if (NF 2 &amp;&amp; $1 "@include") {
        /dev/stderr
       </li>
       <li>
-       <p>
-        /dev/fd/N : file associated with descriptor N.
-       </p>
-       <p>
-        print "serious error detected " &gt; "/dev/stderr"
-       </p>
+       /dev/fd/N : file associated with descriptor N.
       </li>
      </ul>
     </li>
    </ul>
+   <div class="highlight highlight-bash">
+    <pre>    print <span class="s2">"serious error detected "</span> &gt; <span class="s2">"/dev/stderr"</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" name="user-content-special-files-for-process-related-information">
      <span class="octicon octicon-link">
@@ -702,9 +713,14 @@ if (NF 2 &amp;&amp; $1 "@include") {
      sh
     </code>
    </p>
-   <pre><code>{ printf("mv %s %s\n", $0, tolower($0)) | "sh" }
-END {close("sh")}
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="o">{</span> <span class="nb">printf</span><span class="o">(</span><span class="s2">"mv %s %s\n"</span>, <span class="nv">$0</span>, tolower<span class="o">(</span><span class="nv">$0</span><span class="o">))</span> <span class="p">|</span> <span class="s2">"sh"</span> <span class="o">}</span>
+    END <span class="o">{</span>close<span class="o">(</span><span class="s2">"sh"</span><span class="o">)}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" name="user-content-change-the-content-of-a-field">
      <span class="octicon octicon-link">
@@ -714,15 +730,18 @@ END {close("sh")}
    </h3>
    <ul class="task-list">
     <li>
-     <p>
-      The content of a field can be change during processing , like this
-     </p>
-     <pre><code>awk '{$2=$2-10; print $0}'
-# will subtract 10 from the second field, and the second field should be
-# a number for this to work.
-</code></pre>
+     The content of a field can be change during processing , like this
     </li>
    </ul>
+   <div class="highlight highlight-bash">
+    <pre>    awk <span class="s1">'{$2=$2-10; print $0}'</span>
+    <span class="c"># will subtract 10 from the second field, and the second field should be</span>
+    <span class="c"># a number for this to work.</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#variables" name="user-content-variables">
      <span class="octicon octicon-link">
@@ -732,18 +751,21 @@ END {close("sh")}
    </h4>
    <ul class="task-list">
     <li>
-     <p>
-      Custom variables can be created and default to zero
-     </p>
-     <pre><code>{
-    str = "hello";
-}
-</code></pre>
+     Custom variables can be created and default to zero
     </li>
+   </ul>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="o">{</span>
+        <span class="nv">str</span> <span class="o">=</span> <span class="s2">"hello"</span><span class="p">;</span>
+    <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
+   <ul class="task-list">
     <li>
-     <p>
-      Variables can be assigned in the command line. TODO:
-     </p>
+     Variables can be assigned in the command line. TODO:
     </li>
     <li>
      Strings and number conversions. TODO
@@ -824,65 +846,95 @@ END {close("sh")}
    <p>
     if-else
    </p>
-   <pre><code>if (x % 2 0)
-    print "x is even"
-else
-    print "x is odd"
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="k">if</span> <span class="o">(</span>x % <span class="m">2</span> 0<span class="o">)</span>
+        print <span class="s2">"x is even"</span>
+    <span class="k">else</span>
+        print <span class="s2">"x is odd"</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     while
    </p>
-   <pre><code>while (i &lt;= 3) {
-    print $i
-    i++
-}
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="k">while</span> <span class="o">(</span>i &lt;<span class="o">=</span> 3<span class="o">)</span> <span class="o">{</span>
+        print <span class="nv">$i</span>
+        i++
+    <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     do while
    </p>
-   <pre><code>do {
-    print $0
-    i++
-} while (i &lt;= 10)
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="k">do</span> <span class="o">{</span>
+        print <span class="nv">$0</span>
+        i++
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span>i &lt;<span class="o">=</span> 10<span class="o">)</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     for
    </p>
-   <pre><code>for (i = 1; i &lt;= 3; i++)
-    print $i
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="k">for</span> <span class="o">(</span><span class="nv">i</span> <span class="o">=</span> 1<span class="p">;</span> i &lt;<span class="o">=</span> 3<span class="p">;</span> i++<span class="o">)</span>
+        print <span class="nv">$i</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     switch: break
    </p>
-   <pre><code>switch (NR * 2 + 1) {
-case 3:
-    break
-case "11":
-    print NR - 1
-    break
-case /2[[:digit:]]+/:
-    print NR
-    break
-default:
-    print NR + 1
-    break
-case -1:
-    print NR * -1
-    break
-}
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    switch <span class="o">(</span>NR * <span class="m">2</span> + 1<span class="o">)</span> <span class="o">{</span>
+    <span class="k">case</span> 3:
+        <span class="nb">break</span>
+<span class="nb">    </span><span class="k">case</span> <span class="s2">"11"</span>:
+        print NR - 1
+        <span class="nb">break</span>
+<span class="nb">    </span><span class="k">case</span> /2<span class="o">[[</span>:digit:<span class="o">]]</span>+/:
+        print NR
+        <span class="nb">break</span>
+<span class="nb">    </span>default:
+        print NR + 1
+        <span class="nb">break</span>
+<span class="nb">    </span><span class="k">case</span> -1:
+        print NR * -1
+        <span class="nb">break</span>
+    <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     switch: continue
    </p>
-   <pre><code>BEGIN {
-    for (x = 0; x &lt;= 20; x++) {
-        if (x 5)
-            continue
-        printf "%d ", x
-    }
-    print ""
-}
-</code></pre>
+   <div class="highlight highlight-bash">
+    <pre>    BEGIN <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nv">x</span> <span class="o">=</span> 0<span class="p">;</span> x &lt;<span class="o">=</span> 20<span class="p">;</span> x++<span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span>x 5<span class="o">)</span>
+                <span class="k">continue</span>
+            <span class="nb">printf</span> <span class="s2">"%d "</span>, x
+        <span class="o">}</span>
+        print <span class="s2">""</span>
+    <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <ul class="task-list">
     <li>
      next: stop processing the current record and go on to the next record
@@ -891,20 +943,23 @@ case -1:
      nextfile : stop processing the current file and go on to the next file
     </li>
     <li>
-     <p>
-      exit n: stops execution for the current rule and execute the END rule if any.
-     </p>
-     <pre><code>BEGIN {
-if (("date" | getline date_now) &lt;= 0) {
-print "Can’t get system date" &gt; "/dev/stderr"
-exit 1
-}
-print "current date is", date_now
-close("date")
-}
-</code></pre>
+     exit n: stops execution for the current rule and execute the END rule if any.
     </li>
    </ul>
+   <div class="highlight highlight-bash">
+    <pre>    BEGIN <span class="o">{</span>
+    <span class="k">if</span> <span class="o">((</span><span class="s2">"date"</span> <span class="p">|</span> getline date_now<span class="o">)</span> &lt;<span class="o">=</span> 0<span class="o">)</span> <span class="o">{</span>
+    print <span class="s2">"Can’t get system date"</span> &gt; <span class="s2">"/dev/stderr"</span>
+    <span class="nb">exit </span>1
+    <span class="o">}</span>
+    print <span class="s2">"current date is"</span>, date_now
+    close<span class="o">(</span><span class="s2">"date"</span><span class="o">)</span>
+    <span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#functions" name="user-content-functions">
      <span class="octicon octicon-link">
@@ -962,23 +1017,26 @@ close("date")
      command to change the orginal file name
     </li>
     <li>
-     <p>
-      First, export the list of filenames to a first file test1
-     </p>
-     <pre><code># Suppose that the original files are in folder original_files and we want to copy them to
-# folder new_files
-ls original_files &gt; list1 # generate list of files
-awk '{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}' list1 &gt; list2 # removes all special characters and generate a second list
-
-# combine list1 and list2 to a list of shell command in list3
-# We will use strong quoting
-awk '{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}' list1
-
-sh list3 # run the list of commands in list3
-rm -frv list1 list2 list3 # remove all temporary files
-</code></pre>
+     First, export the list of filenames to a first file test1
     </li>
    </ul>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="c"># Suppose that the original files are in folder original_files and we want to copy them to</span>
+    <span class="c"># folder new_files</span>
+    ls original_files &gt; list1 <span class="c"># generate list of files</span>
+    awk <span class="s1">'{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}'</span> list1 &gt; list2 <span class="c"># removes all special characters and generate a second list</span>
+
+    <span class="c"># combine list1 and list2 to a list of shell command in list3</span>
+    <span class="c"># We will use strong quoting</span>
+    awk <span class="s1">'{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}'</span> list1
+
+    sh list3 <span class="c"># run the list of commands in list3</span>
+    rm -frv list1 list2 list3 <span class="c"># remove all temporary files</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h2>
     <a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" name="user-content-make-each-character-a-separate-field">
      <span class="octicon octicon-link">
@@ -988,13 +1046,16 @@ rm -frv list1 list2 list3 # remove all temporary files
    </h2>
    <ul class="task-list">
     <li>
-     <p>
-      By changing the field separtor to null string
-     </p>
-     <pre><code>BEGIN {FS=""}
-</code></pre>
+     By changing the field separtor to null string
     </li>
    </ul>
+   <div class="highlight highlight-bash">
+    <pre>    BEGIN <span class="o">{</span><span class="nv">FS</span><span class="o">=</span><span class="s2">""</span><span class="o">}</span>
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h1>
     <a aria-hidden="true" class="anchor" href="#books" name="user-content-books">
      <span class="octicon octicon-link">
@@ -1073,17 +1134,17 @@ rm -frv list1 list2 list3 # remove all temporary files
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
 	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
 	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
 </ul>
 
 

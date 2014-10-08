@@ -336,23 +336,26 @@
    &lt;/h4&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      &lt;code&gt;
-       ~
-      &lt;/code&gt;
-      (tilde) used to match a string with a regular expression
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;$ awk '$1 ~ /J/' file
-# matches line where the first field start with J
-&lt;/code&gt;&lt;/pre&gt;
+     &lt;code&gt;
+      ~
+     &lt;/code&gt;
+     (tilde) used to match a string with a regular expression
     &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="nv"&gt;$ &lt;/span&gt;awk &lt;span class="s1"&gt;'$1 ~ /J/'&lt;/span&gt; file
+    &lt;span class="c"&gt;# matches line where the first field start with J&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      &lt;code&gt;
-       !~
-      &lt;/code&gt;
-      not match regular expression
-     &lt;/p&gt;
+     &lt;code&gt;
+      !~
+     &lt;/code&gt;
+     not match regular expression
     &lt;/li&gt;
     &lt;li&gt;
      &lt;code&gt;
@@ -402,63 +405,71 @@
      is not affected by this getline. This function allows to skip one line ahead.
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      &lt;code&gt;
-       getlines var &amp;lt; 'file'
-      &lt;/code&gt;
-      reads the next line from file to a variable named
-      &lt;code&gt;
-       var
-      &lt;/code&gt;
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;# The following code copies all input files to the output, except for records that say @include filename
-# in this case it will replace such records with the content of the file `filename`
-if (NF 2 &amp;amp;&amp;amp; $1 "@include") {
-    while ((getline line &amp;lt; $2) &amp;gt; 0)
-        print line
-    close($2)
-} else
-    print
-&lt;/code&gt;&lt;/pre&gt;
+     &lt;code&gt;
+      getlines var &amp;lt; 'file'
+     &lt;/code&gt;
+     reads the next line from file to a variable named
+     &lt;code&gt;
+      var
+     &lt;/code&gt;
     &lt;/li&gt;
-    &lt;li&gt;
-     &lt;p&gt;
-      &lt;code&gt;
-       command | getline
-      &lt;/code&gt;
-      . In this case the string
-      &lt;code&gt;
-       command
-      &lt;/code&gt;
-      is run as a shell command and its output is piped to getline
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;# line begins with @execute is replaced by the output of the command after that
-{
-    if ($1 "@execute") {
-        tmp = substr($0, 10)
-        while ((tmp | getline) &amp;gt; 0)
-            print
-        close(tmp)
-    } else
+   &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="c"&gt;# The following code copies all input files to the output, except for records that say @include filename&lt;/span&gt;
+    &lt;span class="c"&gt;# in this case it will replace such records with the content of the file `filename`&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;NF &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="s2"&gt;"@include"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;((&lt;/span&gt;getline line &amp;lt; &lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; 0&lt;span class="o"&gt;)&lt;/span&gt;
+            print line
+        close&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt;
         print
-}
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/li&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      &lt;code&gt;
-       command | getline var
-      &lt;/code&gt;
-      , the output of
-      &lt;code&gt;
-       commands
-      &lt;/code&gt;
-      is sent through a pipe to getline and into variable
-      &lt;code&gt;
-       var
-      &lt;/code&gt;
-      .
-     &lt;/p&gt;
+     &lt;code&gt;
+      command | getline
+     &lt;/code&gt;
+     . In this case the string
+     &lt;code&gt;
+      command
+     &lt;/code&gt;
+     is run as a shell command and its output is piped to getline
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="c"&gt;# line begins with @execute is replaced by the output of the command after that&lt;/span&gt;
+    &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="s2"&gt;"@execute"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="nv"&gt;tmp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; substr&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;, 10&lt;span class="o"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;((&lt;/span&gt;tmp &lt;span class="p"&gt;|&lt;/span&gt; getline&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; 0&lt;span class="o"&gt;)&lt;/span&gt;
+                print
+            close&lt;span class="o"&gt;(&lt;/span&gt;tmp&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt;
+            print
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;code&gt;
+      command | getline var
+     &lt;/code&gt;
+     , the output of
+     &lt;code&gt;
+      commands
+     &lt;/code&gt;
+     is sent through a pipe to getline and into variable
+     &lt;code&gt;
+      var
+     &lt;/code&gt;
+     .
     &lt;/li&gt;
     &lt;li&gt;
      &lt;code&gt;
@@ -531,9 +542,7 @@ if (NF 2 &amp;amp;&amp;amp; $1 "@include") {
    &lt;/h3&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      Gawk supports special filenames for standard input, output and error streams
-     &lt;/p&gt;
+     Gawk supports special filenames for standard input, output and error streams
      &lt;ul class="task-list"&gt;
       &lt;li&gt;
        /dev/stdin
@@ -545,16 +554,18 @@ if (NF 2 &amp;amp;&amp;amp; $1 "@include") {
        /dev/stderr
       &lt;/li&gt;
       &lt;li&gt;
-       &lt;p&gt;
-        /dev/fd/N : file associated with descriptor N.
-       &lt;/p&gt;
-       &lt;p&gt;
-        print "serious error detected " &amp;gt; "/dev/stderr"
-       &lt;/p&gt;
+       /dev/fd/N : file associated with descriptor N.
       &lt;/li&gt;
      &lt;/ul&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    print &lt;span class="s2"&gt;"serious error detected "&lt;/span&gt; &amp;gt; &lt;span class="s2"&gt;"/dev/stderr"&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" name="user-content-special-files-for-process-related-information"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -624,9 +635,14 @@ if (NF 2 &amp;amp;&amp;amp; $1 "@include") {
      sh
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;{ printf("mv %s %s\n", $0, tolower($0)) | "sh" }
-END {close("sh")}
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="nb"&gt;printf&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"mv %s %s\n"&lt;/span&gt;, &lt;span class="nv"&gt;$0&lt;/span&gt;, tolower&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="s2"&gt;"sh"&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
+    END &lt;span class="o"&gt;{&lt;/span&gt;close&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"sh"&lt;/span&gt;&lt;span class="o"&gt;)}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" name="user-content-change-the-content-of-a-field"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -636,15 +652,18 @@ END {close("sh")}
    &lt;/h3&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      The content of a field can be change during processing , like this
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;awk '{$2=$2-10; print $0}'
-# will subtract 10 from the second field, and the second field should be
-# a number for this to work.
-&lt;/code&gt;&lt;/pre&gt;
+     The content of a field can be change during processing , like this
     &lt;/li&gt;
    &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    awk &lt;span class="s1"&gt;'{$2=$2-10; print $0}'&lt;/span&gt;
+    &lt;span class="c"&gt;# will subtract 10 from the second field, and the second field should be&lt;/span&gt;
+    &lt;span class="c"&gt;# a number for this to work.&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#variables" name="user-content-variables"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -654,18 +673,21 @@ END {close("sh")}
    &lt;/h4&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      Custom variables can be created and default to zero
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;{
-    str = "hello";
-}
-&lt;/code&gt;&lt;/pre&gt;
+     Custom variables can be created and default to zero
     &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="nv"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      Variables can be assigned in the command line. TODO:
-     &lt;/p&gt;
+     Variables can be assigned in the command line. TODO:
     &lt;/li&gt;
     &lt;li&gt;
      Strings and number conversions. TODO
@@ -746,65 +768,95 @@ END {close("sh")}
    &lt;p&gt;
     if-else
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;if (x % 2 0)
-    print "x is even"
-else
-    print "x is odd"
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;x % &lt;span class="m"&gt;2&lt;/span&gt; 0&lt;span class="o"&gt;)&lt;/span&gt;
+        print &lt;span class="s2"&gt;"x is even"&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+        print &lt;span class="s2"&gt;"x is odd"&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     while
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;while (i &amp;lt;= 3) {
-    print $i
-    i++
-}
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;i &amp;lt;&lt;span class="o"&gt;=&lt;/span&gt; 3&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        print &lt;span class="nv"&gt;$i&lt;/span&gt;
+        i++
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     do while
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;do {
-    print $0
-    i++
-} while (i &amp;lt;= 10)
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        print &lt;span class="nv"&gt;$0&lt;/span&gt;
+        i++
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;i &amp;lt;&lt;span class="o"&gt;=&lt;/span&gt; 10&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     for
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;for (i = 1; i &amp;lt;= 3; i++)
-    print $i
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1&lt;span class="p"&gt;;&lt;/span&gt; i &amp;lt;&lt;span class="o"&gt;=&lt;/span&gt; 3&lt;span class="p"&gt;;&lt;/span&gt; i++&lt;span class="o"&gt;)&lt;/span&gt;
+        print &lt;span class="nv"&gt;$i&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     switch: break
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;switch (NR * 2 + 1) {
-case 3:
-    break
-case "11":
-    print NR - 1
-    break
-case /2[[:digit:]]+/:
-    print NR
-    break
-default:
-    print NR + 1
-    break
-case -1:
-    print NR * -1
-    break
-}
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    switch &lt;span class="o"&gt;(&lt;/span&gt;NR * &lt;span class="m"&gt;2&lt;/span&gt; + 1&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; 3:
+        &lt;span class="nb"&gt;break&lt;/span&gt;
+&lt;span class="nb"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="s2"&gt;"11"&lt;/span&gt;:
+        print NR - 1
+        &lt;span class="nb"&gt;break&lt;/span&gt;
+&lt;span class="nb"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt; /2&lt;span class="o"&gt;[[&lt;/span&gt;:digit:&lt;span class="o"&gt;]]&lt;/span&gt;+/:
+        print NR
+        &lt;span class="nb"&gt;break&lt;/span&gt;
+&lt;span class="nb"&gt;    &lt;/span&gt;default:
+        print NR + 1
+        &lt;span class="nb"&gt;break&lt;/span&gt;
+&lt;span class="nb"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt; -1:
+        print NR * -1
+        &lt;span class="nb"&gt;break&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     switch: continue
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;BEGIN {
-    for (x = 0; x &amp;lt;= 20; x++) {
-        if (x 5)
-            continue
-        printf "%d ", x
-    }
-    print ""
-}
-&lt;/code&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    BEGIN &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 0&lt;span class="p"&gt;;&lt;/span&gt; x &amp;lt;&lt;span class="o"&gt;=&lt;/span&gt; 20&lt;span class="p"&gt;;&lt;/span&gt; x++&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;x 5&lt;span class="o"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;continue&lt;/span&gt;
+            &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s2"&gt;"%d "&lt;/span&gt;, x
+        &lt;span class="o"&gt;}&lt;/span&gt;
+        print &lt;span class="s2"&gt;""&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
      next: stop processing the current record and go on to the next record
@@ -813,20 +865,23 @@ case -1:
      nextfile : stop processing the current file and go on to the next file
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      exit n: stops execution for the current rule and execute the END rule if any.
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;BEGIN {
-if (("date" | getline date_now) &amp;lt;= 0) {
-print "Can’t get system date" &amp;gt; "/dev/stderr"
-exit 1
-}
-print "current date is", date_now
-close("date")
-}
-&lt;/code&gt;&lt;/pre&gt;
+     exit n: stops execution for the current rule and execute the END rule if any.
     &lt;/li&gt;
    &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    BEGIN &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="s2"&gt;"date"&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; getline date_now&lt;span class="o"&gt;)&lt;/span&gt; &amp;lt;&lt;span class="o"&gt;=&lt;/span&gt; 0&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    print &lt;span class="s2"&gt;"Can’t get system date"&lt;/span&gt; &amp;gt; &lt;span class="s2"&gt;"/dev/stderr"&lt;/span&gt;
+    &lt;span class="nb"&gt;exit &lt;/span&gt;1
+    &lt;span class="o"&gt;}&lt;/span&gt;
+    print &lt;span class="s2"&gt;"current date is"&lt;/span&gt;, date_now
+    close&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"date"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#functions" name="user-content-functions"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -884,23 +939,26 @@ close("date")
      command to change the orginal file name
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      First, export the list of filenames to a first file test1
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;# Suppose that the original files are in folder original_files and we want to copy them to
-# folder new_files
-ls original_files &amp;gt; list1 # generate list of files
-awk '{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}' list1 &amp;gt; list2 # removes all special characters and generate a second list
-
-# combine list1 and list2 to a list of shell command in list3
-# We will use strong quoting
-awk '{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &amp;lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &amp;gt; "list3";}' list1
-
-sh list3 # run the list of commands in list3
-rm -frv list1 list2 list3 # remove all temporary files
-&lt;/code&gt;&lt;/pre&gt;
+     First, export the list of filenames to a first file test1
     &lt;/li&gt;
    &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="c"&gt;# Suppose that the original files are in folder original_files and we want to copy them to&lt;/span&gt;
+    &lt;span class="c"&gt;# folder new_files&lt;/span&gt;
+    ls original_files &amp;gt; list1 &lt;span class="c"&gt;# generate list of files&lt;/span&gt;
+    awk &lt;span class="s1"&gt;'{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}'&lt;/span&gt; list1 &amp;gt; list2 &lt;span class="c"&gt;# removes all special characters and generate a second list&lt;/span&gt;
+
+    &lt;span class="c"&gt;# combine list1 and list2 to a list of shell command in list3&lt;/span&gt;
+    &lt;span class="c"&gt;# We will use strong quoting&lt;/span&gt;
+    awk &lt;span class="s1"&gt;'{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &amp;lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &amp;gt; "list3";}'&lt;/span&gt; list1
+
+    sh list3 &lt;span class="c"&gt;# run the list of commands in list3&lt;/span&gt;
+    rm -frv list1 list2 list3 &lt;span class="c"&gt;# remove all temporary files&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" name="user-content-make-each-character-a-separate-field"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -910,13 +968,16 @@ rm -frv list1 list2 list3 # remove all temporary files
    &lt;/h2&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;p&gt;
-      By changing the field separtor to null string
-     &lt;/p&gt;
-     &lt;pre&gt;&lt;code&gt;BEGIN {FS=""}
-&lt;/code&gt;&lt;/pre&gt;
+     By changing the field separtor to null string
     &lt;/li&gt;
    &lt;/ul&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    BEGIN &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="nv"&gt;FS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#books" name="user-content-books"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -1055,6 +1116,9 @@ rm -frv list1 list2 list3 # remove all temporary files
 &lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
     This is extremely cumbersome if
     &lt;code&gt;
      factorial
@@ -1092,6 +1156,9 @@ rm -frv list1 list2 list3 # remove all temporary files
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
 &lt;/pre&gt;
    &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     The
     &lt;code&gt;
@@ -1146,12 +1213,18 @@ rm -frv list1 list2 list3 # remove all temporary files
 &lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
     This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
    &lt;/p&gt;
    &lt;div class="highlight highlight-python"&gt;
     &lt;pre&gt;    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;multiply&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="c"&gt;# None&lt;/span&gt;
 &lt;/pre&gt;
    &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     To keep these information, we use
     &lt;code&gt;
@@ -1176,6 +1249,9 @@ rm -frv list1 list2 list3 # remove all temporary files
     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;multiply&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="c"&gt;# Multiply 2 numbers&lt;/span&gt;
 &lt;/pre&gt;
    &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Now the decorated function also retain important information from the original functions, that's neat!
    &lt;/p&gt;
@@ -1236,6 +1312,9 @@ rm -frv list1 list2 list3 # remove all temporary files
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
 &lt;/pre&gt;
    &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Here, we define
     &lt;code&gt;
@@ -1370,6 +1449,9 @@ rm -frv list1 list2 list3 # remove all temporary files
 &lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
     This code is pretty simple. It defines 3 other operators based on 2 operators:
     &lt;code&gt;
      __eq__
@@ -1411,11 +1493,13 @@ rm -frv list1 list2 list3 # remove all temporary files
     &lt;/a&gt;
     REFERENCES
    &lt;/h1&gt;
-   &lt;p&gt;
-    &lt;a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library"&gt;
-     Python Decorator Library
-    &lt;/a&gt;
-   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library"&gt;
+      Python Decorator Library
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
   &lt;/article&gt;
  &lt;/div&gt;
 &lt;/div&gt;
