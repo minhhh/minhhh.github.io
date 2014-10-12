@@ -219,10 +219,10 @@
      </a>
     </li>
    </ul>
-   <pre><code>origin/feature/update_layout
-origin/hotfix/r20130305-1.1
-origin/master
-origin/develop
+   <pre><code>    origin/feature/update_layout
+    origin/hotfix/r20130305-1.1
+    origin/master
+    origin/develop
 </code></pre>
    <p>
     <br/>
@@ -246,18 +246,18 @@ origin/develop
      </a>
     </li>
    </ul>
-   <pre><code># pull rebase create nicer merge tree, but be careful with it
-git stash # stash any change
-git pull --rebase
-git stash pop # stash pop any change
+   <pre><code>    # pull rebase create nicer merge tree, but be careful with it
+    git stash # stash any change
+    git pull --rebase
+    git stash pop # stash pop any change
 
-git fetch -p # Bring the repository up to date without executing merge on the current branch
+    git fetch -p # Bring the repository up to date without executing merge on the current branch
 
-git add -u # add modified files but not new files
-git add -A # add all untracked files
+    git add -u # add modified files but not new files
+    git add -A # add all untracked files
 
-# Diff with remote
-git diff master origin/master
+    # Diff with remote
+    git diff master origin/master
 </code></pre>
    <p>
     <br/>
@@ -276,7 +276,7 @@ git diff master origin/master
     </a>
     Find commits where files were deleted
    </h4>
-   <pre><code>git log --diff-filter=D --summary --stat
+   <pre><code>    git log --diff-filter=D --summary --stat
 </code></pre>
    <p>
     <br/>
@@ -288,7 +288,7 @@ git diff master origin/master
     </a>
     Checkout deleted file in the working tree
    </h4>
-   <pre><code>git checkout &lt;sha1&gt;^ &lt;file&gt;
+   <pre><code>    git checkout &lt;sha1&gt;^ &lt;file&gt;
 </code></pre>
    <p>
     <br/>
@@ -300,7 +300,7 @@ git diff master origin/master
     </a>
     Only show the content of a file from a specific revision
    </h4>
-   <pre><code>git show &lt;sha1&gt;^:&lt;file&gt;
+   <pre><code>    git show &lt;sha1&gt;^:&lt;file&gt;
 </code></pre>
    <p>
     <br/>
@@ -312,7 +312,7 @@ git diff master origin/master
     </a>
     Diff 2 files at specific revision
    </h4>
-   <pre><code>git diff &lt;revision_1&gt;..&lt;revision_2&gt; -- &lt;file&gt;
+   <pre><code>    git diff &lt;revision_1&gt;..&lt;revision_2&gt; -- &lt;file&gt;
 </code></pre>
    <p>
     <br/>
@@ -324,8 +324,8 @@ git diff master origin/master
     </a>
     Show changes on a branch that is not merged upstream
    </h4>
-   <pre><code>git cherry &lt;upstream_branch&gt; &lt;new_branch&gt;
-git log &lt;upstream_branch&gt;..&lt;new_branch&gt;
+   <pre><code>    git cherry &lt;upstream_branch&gt; &lt;new_branch&gt;
+    git log &lt;upstream_branch&gt;..&lt;new_branch&gt;
 </code></pre>
    <p>
     <br/>
@@ -337,10 +337,10 @@ git log &lt;upstream_branch&gt;..&lt;new_branch&gt;
     </a>
     Show log with changed files
    </h4>
-   <pre><code>git log --name-only
-git log --name-status
-git log --stat
-git log --decorate --graph --oneline --date-order # better visual
+   <pre><code>    git log --name-only
+    git log --name-status
+    git log --stat
+    git log --decorate --graph --oneline --date-order # better visual
 </code></pre>
    <p>
     <br/>
@@ -352,8 +352,8 @@ git log --decorate --graph --oneline --date-order # better visual
     </a>
     Get latest tag in the current branch
    </h4>
-   <pre><code>git describe --exact-match --abbrev=0
-git describe --abbrev=0 --tags
+   <pre><code>    git describe --exact-match --abbrev=0
+    git describe --abbrev=0 --tags
 </code></pre>
    <p>
     <br/>
@@ -365,18 +365,18 @@ git describe --abbrev=0 --tags
     </a>
     Show log graph
    </h4>
-   <pre><code>git log origin master # Show log of a specific branch on remote
-git log origin master --graph --decorate # to show colorful text and graph and the branch name of each log.
+   <pre><code>    git log origin master # Show log of a specific branch on remote
+    git log origin master --graph --decorate # to show colorful text and graph and the branch name of each log.
 
-# A beautiful version
-git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit
+    # A beautiful version
+    git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit
 
-# Show git log then exit
-git log | cat -
+    # Show git log then exit
+    git log | cat -
 
-# Show log of a particular hash
-git show &lt;hash&gt;
-git show &lt;hash&gt; --stat # show only oneline for each change
+    # Show log of a particular hash
+    git show &lt;hash&gt;
+    git show &lt;hash&gt; --stat # show only oneline for each change
 </code></pre>
    <p>
     <br/>
@@ -388,7 +388,7 @@ git show &lt;hash&gt; --stat # show only oneline for each change
     </a>
     Get current URL
    </h4>
-   <pre><code>git remote show origin
+   <pre><code>    git remote show origin
 </code></pre>
    <p>
     <br/>
@@ -400,7 +400,7 @@ git show &lt;hash&gt; --stat # show only oneline for each change
     </a>
     Get brief info about branches
    </h4>
-   <pre><code>git branch -lvv
+   <pre><code>    git branch -lvv
 </code></pre>
    <p>
     <br/>
@@ -412,7 +412,7 @@ git show &lt;hash&gt; --stat # show only oneline for each change
     </a>
     Finding what branch a commit came from
    </h4>
-   <pre><code>git branch --contains &lt;commit&gt;
+   <pre><code>    git branch --contains &lt;commit&gt;
 </code></pre>
    <p>
     <br/>
@@ -424,11 +424,11 @@ git show &lt;hash&gt; --stat # show only oneline for each change
     </a>
     Exports
    </h3>
-   <pre><code># From a repository
-git checkout-index -a -f --prefix=/destination/path/
+   <pre><code>    # From a repository
+    git checkout-index -a -f --prefix=/destination/path/
 
-# Export remote
-git archive --format=tar --remote=ssh://remote_server/remote_repository master | tar -xf -
+    # Export remote
+    git archive --format=tar --remote=ssh://remote_server/remote_repository master | tar -xf -
 </code></pre>
    <p>
     <br/>
@@ -452,7 +452,7 @@ git archive --format=tar --remote=ssh://remote_server/remote_repository master |
     </a>
     Branch and Create new branch
    </h4>
-   <pre><code>git checkout -b experimental
+   <pre><code>    git checkout -b experimental
 </code></pre>
    <p>
     <br/>
@@ -464,8 +464,8 @@ git archive --format=tar --remote=ssh://remote_server/remote_repository master |
     </a>
     Delete unused branch
    </h4>
-   <pre><code>git branch -d experimental
-git push origin --delete newfeature
+   <pre><code>    git branch -d experimental
+    git push origin --delete newfeature
 </code></pre>
    <p>
     <br/>
@@ -477,7 +477,7 @@ git push origin --delete newfeature
     </a>
     Rename a local branch
    </h4>
-   <pre><code>git branch -m &lt;oldname&gt; &lt;newname&gt;
+   <pre><code>    git branch -m &lt;oldname&gt; &lt;newname&gt;
 </code></pre>
    <p>
     <br/>
@@ -512,7 +512,7 @@ git push origin --delete newfeature
     </a>
     .
    </p>
-   <pre><code>git reset --hard
+   <pre><code>    git reset --hard
 </code></pre>
    <p>
     <br/>
@@ -535,7 +535,7 @@ git push origin --delete newfeature
     </a>
     .
    </p>
-   <pre><code>git reset --merge ORIG_HEAD
+   <pre><code>    git reset --merge ORIG_HEAD
 </code></pre>
    <p>
     <br/>
@@ -547,16 +547,16 @@ git push origin --delete newfeature
     </a>
     Revert a bad commit
    </h4>
-   <pre><code>git revert &lt;sha1&gt;
+   <pre><code>    git revert &lt;sha1&gt;
 
-# Revert single file
-git checkout -- filename
+    # Revert single file
+    git checkout -- filename
 
-# Revert all files in current folder
-git checkout .
+    # Revert all files in current folder
+    git checkout .
 
-# Remove all new files or folder
-git clean -df
+    # Remove all new files or folder
+    git clean -df
 </code></pre>
    <p>
     <br/>
@@ -568,7 +568,7 @@ git clean -df
     </a>
     Checkout a deleted file into the work tree
    </h4>
-   <pre><code>git checkout &lt;sha1&gt;^ -- &lt;file&gt;
+   <pre><code>    git checkout &lt;sha1&gt;^ -- &lt;file&gt;
 </code></pre>
    <p>
     <br/>
@@ -580,17 +580,17 @@ git clean -df
     </a>
     Rewrite author/commiter name and email
    </h4>
-   <pre><code>git filter-branch --commit-filter '
-        if [ "$GIT_COMMITTER_NAME" = "Ha.Minh" ];
-        then
-                GIT_COMMITTER_NAME="Ha.Minh";
-                GIT_AUTHOR_NAME="Ha.Minh";
-                GIT_COMMITTER_EMAIL="minhhh@minhhuyha.info";
-                GIT_AUTHOR_EMAIL="minhhh@minhhuyha.info";
-                git commit-tree "$@";
-        else
-                git commit-tree "$@";
-        fi' HEAD
+   <pre><code>    git filter-branch --commit-filter '
+            if [ "$GIT_COMMITTER_NAME" = "Ha.Minh" ];
+            then
+                    GIT_COMMITTER_NAME="Ha.Minh";
+                    GIT_AUTHOR_NAME="Ha.Minh";
+                    GIT_COMMITTER_EMAIL="minhhh@minhhuyha.info";
+                    GIT_AUTHOR_EMAIL="minhhh@minhhuyha.info";
+                    git commit-tree "$@";
+            else
+                    git commit-tree "$@";
+            fi' HEAD
 </code></pre>
    <p>
     <br/>
@@ -614,8 +614,8 @@ git clean -df
     </a>
     Create local branch then push to the remote (without tracking !!!)
    </h4>
-   <pre><code>git checkout -b &lt;branch_name&gt;
-git push origin &lt;branch_name&gt;
+   <pre><code>    git checkout -b &lt;branch_name&gt;
+    git push origin &lt;branch_name&gt;
 </code></pre>
    <p>
     <br/>
@@ -627,8 +627,8 @@ git push origin &lt;branch_name&gt;
     </a>
     Crete a new local branch by pulling a remote branch
    </h4>
-   <pre><code>git pull origin &lt;branch_name&gt;                                 # without tracking
-git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with tracking
+   <pre><code>    git pull origin &lt;branch_name&gt;                                 # without tracking
+    git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with tracking
 </code></pre>
    <p>
     <br/>
@@ -640,7 +640,7 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
     </a>
     Track a remote branch with an existing local
    </h4>
-   <pre><code>git branch --set-upstream &lt;branch_name&gt; origin/&lt;branch_name&gt;
+   <pre><code>    git branch --set-upstream &lt;branch_name&gt; origin/&lt;branch_name&gt;
 </code></pre>
    <p>
     <br/>
@@ -652,7 +652,7 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
     </a>
     Delete remote branch
    </h4>
-   <pre><code>git push origin :heads/&lt;branch_name&gt;
+   <pre><code>    git push origin :heads/&lt;branch_name&gt;
 </code></pre>
    <p>
     <br/>
@@ -660,7 +660,7 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
    <p>
     or
    </p>
-   <pre><code>git push origin :&lt;branch_name&gt;
+   <pre><code>    git push origin :&lt;branch_name&gt;
 </code></pre>
    <p>
     <br/>
@@ -672,7 +672,7 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
     </a>
     Prune remote-tracking branches that are deleted from a remote repo
    </h4>
-   <pre><code>git remote prune origin
+   <pre><code>    git remote prune origin
 </code></pre>
    <p>
     <br/>
@@ -684,7 +684,7 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
     </a>
     Change remote URL
    </h4>
-   <pre><code>git remote set-url origin http://new-example.com/repo.git
+   <pre><code>    git remote set-url origin http://new-example.com/repo.git
 </code></pre>
    <p>
     <br/>
@@ -701,30 +701,30 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
     </a>
     Submodules
    </h3>
-   <pre><code># Add submodule to subdirectory
-git submodule add &lt;git@github ...&gt; snipmate-snippets/snippets/
+   <pre><code>    # Add submodule to subdirectory
+    git submodule add &lt;git@github ...&gt; snipmate-snippets/snippets/
 
-# update submodule
-git submodule update --recursive
+    # update submodule
+    git submodule update --recursive
 
-# Update submodules
+    # Update submodules
 
-git submodule foreach 'git checkout master &amp;&amp; git pull origin master'
+    git submodule foreach 'git checkout master &amp;&amp; git pull origin master'
 
-# Update submodule's URL
-# Edit the *.gitmodules* file, then run:
-git submodule sync
+    # Update submodule's URL
+    # Edit the *.gitmodules* file, then run:
+    git submodule sync
 
-# Delete submodule
-git submodule deinit asubmodule
-git rm asubmodule
+    # Delete submodule
+    git submodule deinit asubmodule
+    git rm asubmodule
 
-# Note: asubmodule (no trailing slash)
-# or, if you want to leave it in your working tree
-git rm --cached asubmodule
+    # Note: asubmodule (no trailing slash)
+    # or, if you want to leave it in your working tree
+    git rm --cached asubmodule
 
-#Get submodule hash
-git ls-tree a9a796a [submodule_dir]
+    #Get submodule hash
+    git ls-tree a9a796a [submodule_dir]
 </code></pre>
    <p>
     <br/>
@@ -741,11 +741,11 @@ git ls-tree a9a796a [submodule_dir]
     </a>
     Migrate from bitbucket to github
    </h4>
-   <pre><code>cd $HOME/dev/Pipelines
-git remote rename origin bitbucket
-git remote add origin https://github.com/edwardaux/Pipelines.git
-git push -u origin --all # pushes up the repo and its refs for the first time
-git push -u origin --tags # pushes up any tags
+   <pre><code>    cd $HOME/dev/Pipelines
+    git remote rename origin bitbucket
+    git remote add origin https://github.com/edwardaux/Pipelines.git
+    git push -u origin --all # pushes up the repo and its refs for the first time
+    git push -u origin --tags # pushes up any tags
 </code></pre>
    <p>
     <br/>
@@ -857,17 +857,17 @@ git push -u origin --tags # pushes up any tags
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
 	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
 	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
 </ul>
 
 
