@@ -152,44 +152,49 @@
      feature/add_css
     </code>
    </p>
-   <pre><code># This will merge the latest develop to feature/css
-git checkout develop
-git pull
-git checkout feature/add_css
-git pull
-git merge develop
-git push
+   <div class="highlight highlight-bash">
+    <pre>    <span class="c"># This will merge the latest develop to feature/css</span>
+    git checkout develop
+    git pull
+    git checkout feature/add_css
+    git pull
+    git merge develop
+    git push
 
-# Create a temporary rebase branch
-git checkout develop
-git checkout -b temp
+    <span class="c"># Create a temporary rebase branch</span>
+    git checkout develop
+    git checkout -b temp
 
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
+    <span class="c"># Merge feature branch and resolve a lot of conflicts</span>
+    git merge feature/add_css
 
-# Perform the rebase, you may have to resolve the conflict again
-git rebase develop
+    <span class="c"># Perform the rebase, you may have to resolve the conflict again</span>
+    git rebase develop
 
-# NOTE: Do not use git checkout (--theirs|–ours) path/to/file
-# as it will cause trouble when you resolved a bad conflict then
-# the subsequent merge may not be correct.
+    <span class="c"># NOTE: Do not use git checkout (--theirs|–ours) path/to/file</span>
+    <span class="c"># as it will cause trouble when you resolved a bad conflict then</span>
+    <span class="c"># the subsequent merge may not be correct.</span>
 
-# This will merge the rebased item to develop.
-git checkout develop
-git merge feature/something_rebase
+    <span class="c"># This will merge the rebased item to develop.</span>
+    git checkout develop
+    git merge feature/something_rebase
 
-# (Important) Checks that there are no difference. This should resolve in no difference in the ideal case
-git diff develop..feature/something
+    <span class="c"># (Important) Checks that there are no difference. This should resolve in no difference in the ideal case</span>
+    git diff develop..feature/something
 
-# (Important) Checks that the logs have been correctly integrated.
-git log --graph
+    <span class="c"># (Important) Checks that the logs have been correctly integrated.</span>
+    git log --graph
 
-# Push once all checks have been completed.
-git push
+    <span class="c"># Push once all checks have been completed.</span>
+    git push
 
-# Delete the temporary merge branch
-git branch -D temp
-</code></pre>
+    <span class="c"># Delete the temporary merge branch</span>
+    git branch -D temp
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <h2>
     <a aria-hidden="true" class="anchor" href="#rebasing-multiple-branches-into-develop" name="user-content-rebasing-multiple-branches-into-develop">
      <span class="octicon octicon-link">
@@ -207,49 +212,54 @@ git branch -D temp
      feature/add_html
     </code>
    </p>
-   <pre><code># This will merge the latest develop to feature/css
-git checkout develop
-git pull
-git checkout feature/add_css
-git pull
-git merge develop
-git push
+   <div class="highlight highlight-bash">
+    <pre>    <span class="c"># This will merge the latest develop to feature/css</span>
+    git checkout develop
+    git pull
+    git checkout feature/add_css
+    git pull
+    git merge develop
+    git push
 
-# Create a temporary rebase branch
-git checkout develop
-git checkout -b main_rebase
+    <span class="c"># Create a temporary rebase branch</span>
+    git checkout develop
+    git checkout -b main_rebase
 
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
+    <span class="c"># Merge feature branch and resolve a lot of conflicts</span>
+    git merge feature/add_css
 
-# Perform the rebase, you may have to resolve the conflict again
-git rebase develop
+    <span class="c"># Perform the rebase, you may have to resolve the conflict again</span>
+    git rebase develop
 
-# Push this branch to remote so we can rebase other branch based on it
-git push
+    <span class="c"># Push this branch to remote so we can rebase other branch based on it</span>
+    git push
 
-# Now checkout another temporary branch
-git checkout -b temp
+    <span class="c"># Now checkout another temporary branch</span>
+    git checkout -b temp
 
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
+    <span class="c"># Merge feature branch and resolve a lot of conflicts</span>
+    git merge feature/add_css
 
-# (IMPORTANT) Perform the rebase based on the main rebase branch
-git rebase main_rebase
+    <span class="c"># (IMPORTANT) Perform the rebase based on the main rebase branch</span>
+    git rebase main_rebase
 
-# Merge the rebase items into main rebase branch
-git checkout main_rebase
-git merge temp
+    <span class="c"># Merge the rebase items into main rebase branch</span>
+    git checkout main_rebase
+    git merge temp
 
-# (IMPORTANT) Checks that the logs have been correctly integrated.
-git log --graph
+    <span class="c"># (IMPORTANT) Checks that the logs have been correctly integrated.</span>
+    git log --graph
 
-# (IMPORTANT) Push main rebase branch to remote
-git push
+    <span class="c"># (IMPORTANT) Push main rebase branch to remote</span>
+    git push
 
-# Delete the temporary merge branch
-git branch -D temp
-</code></pre>
+    <span class="c"># Delete the temporary merge branch</span>
+    git branch -D temp
+</pre>
+   </div>
+   <p>
+    <br/>
+   </p>
    <p>
     Then repeat this process with the next branches one by one.
    </p>
@@ -291,17 +301,17 @@ git branch -D temp
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
 </ul>
 
 
