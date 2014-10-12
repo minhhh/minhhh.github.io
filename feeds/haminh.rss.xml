@@ -1379,6 +1379,9 @@
 &lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
     Here, the decorator is an object of class
     &lt;code&gt;
      memoized
@@ -1893,44 +1896,49 @@ Third&lt;/code&gt;&lt;/pre&gt;
      feature/add_css
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;# This will merge the latest develop to feature/css
-git checkout develop
-git pull
-git checkout feature/add_css
-git pull
-git merge develop
-git push
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="c"&gt;# This will merge the latest develop to feature/css&lt;/span&gt;
+    git checkout develop
+    git pull
+    git checkout feature/add_css
+    git pull
+    git merge develop
+    git push
 
-# Create a temporary rebase branch
-git checkout develop
-git checkout -b temp
+    &lt;span class="c"&gt;# Create a temporary rebase branch&lt;/span&gt;
+    git checkout develop
+    git checkout -b temp
 
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
+    &lt;span class="c"&gt;# Merge feature branch and resolve a lot of conflicts&lt;/span&gt;
+    git merge feature/add_css
 
-# Perform the rebase, you may have to resolve the conflict again
-git rebase develop
+    &lt;span class="c"&gt;# Perform the rebase, you may have to resolve the conflict again&lt;/span&gt;
+    git rebase develop
 
-# NOTE: Do not use git checkout (--theirs|–ours) path/to/file
-# as it will cause trouble when you resolved a bad conflict then
-# the subsequent merge may not be correct.
+    &lt;span class="c"&gt;# NOTE: Do not use git checkout (--theirs|–ours) path/to/file&lt;/span&gt;
+    &lt;span class="c"&gt;# as it will cause trouble when you resolved a bad conflict then&lt;/span&gt;
+    &lt;span class="c"&gt;# the subsequent merge may not be correct.&lt;/span&gt;
 
-# This will merge the rebased item to develop.
-git checkout develop
-git merge feature/something_rebase
+    &lt;span class="c"&gt;# This will merge the rebased item to develop.&lt;/span&gt;
+    git checkout develop
+    git merge feature/something_rebase
 
-# (Important) Checks that there are no difference. This should resolve in no difference in the ideal case
-git diff develop..feature/something
+    &lt;span class="c"&gt;# (Important) Checks that there are no difference. This should resolve in no difference in the ideal case&lt;/span&gt;
+    git diff develop..feature/something
 
-# (Important) Checks that the logs have been correctly integrated.
-git log --graph
+    &lt;span class="c"&gt;# (Important) Checks that the logs have been correctly integrated.&lt;/span&gt;
+    git log --graph
 
-# Push once all checks have been completed.
-git push
+    &lt;span class="c"&gt;# Push once all checks have been completed.&lt;/span&gt;
+    git push
 
-# Delete the temporary merge branch
-git branch -D temp
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class="c"&gt;# Delete the temporary merge branch&lt;/span&gt;
+    git branch -D temp
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#rebasing-multiple-branches-into-develop" name="user-content-rebasing-multiple-branches-into-develop"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -1948,49 +1956,54 @@ git branch -D temp
      feature/add_html
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;# This will merge the latest develop to feature/css
-git checkout develop
-git pull
-git checkout feature/add_css
-git pull
-git merge develop
-git push
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    &lt;span class="c"&gt;# This will merge the latest develop to feature/css&lt;/span&gt;
+    git checkout develop
+    git pull
+    git checkout feature/add_css
+    git pull
+    git merge develop
+    git push
 
-# Create a temporary rebase branch
-git checkout develop
-git checkout -b main_rebase
+    &lt;span class="c"&gt;# Create a temporary rebase branch&lt;/span&gt;
+    git checkout develop
+    git checkout -b main_rebase
 
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
+    &lt;span class="c"&gt;# Merge feature branch and resolve a lot of conflicts&lt;/span&gt;
+    git merge feature/add_css
 
-# Perform the rebase, you may have to resolve the conflict again
-git rebase develop
+    &lt;span class="c"&gt;# Perform the rebase, you may have to resolve the conflict again&lt;/span&gt;
+    git rebase develop
 
-# Push this branch to remote so we can rebase other branch based on it
-git push
+    &lt;span class="c"&gt;# Push this branch to remote so we can rebase other branch based on it&lt;/span&gt;
+    git push
 
-# Now checkout another temporary branch
-git checkout -b temp
+    &lt;span class="c"&gt;# Now checkout another temporary branch&lt;/span&gt;
+    git checkout -b temp
 
-# Merge feature branch and resolve a lot of conflicts
-git merge feature/add_css
+    &lt;span class="c"&gt;# Merge feature branch and resolve a lot of conflicts&lt;/span&gt;
+    git merge feature/add_css
 
-# (IMPORTANT) Perform the rebase based on the main rebase branch
-git rebase main_rebase
+    &lt;span class="c"&gt;# (IMPORTANT) Perform the rebase based on the main rebase branch&lt;/span&gt;
+    git rebase main_rebase
 
-# Merge the rebase items into main rebase branch
-git checkout main_rebase
-git merge temp
+    &lt;span class="c"&gt;# Merge the rebase items into main rebase branch&lt;/span&gt;
+    git checkout main_rebase
+    git merge temp
 
-# (IMPORTANT) Checks that the logs have been correctly integrated.
-git log --graph
+    &lt;span class="c"&gt;# (IMPORTANT) Checks that the logs have been correctly integrated.&lt;/span&gt;
+    git log --graph
 
-# (IMPORTANT) Push main rebase branch to remote
-git push
+    &lt;span class="c"&gt;# (IMPORTANT) Push main rebase branch to remote&lt;/span&gt;
+    git push
 
-# Delete the temporary merge branch
-git branch -D temp
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class="c"&gt;# Delete the temporary merge branch&lt;/span&gt;
+    git branch -D temp
+&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     Then repeat this process with the next branches one by one.
    &lt;/p&gt;
@@ -2072,47 +2085,47 @@ git branch -D temp
    &lt;/h2&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;a href="#installation"&gt;
+     &lt;a href="#user-content-installation"&gt;
       Installation
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#basics"&gt;
+     &lt;a href="#user-content-basics"&gt;
       Basics
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#info"&gt;
+     &lt;a href="#user-content-info"&gt;
       Info
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#exports"&gt;
+     &lt;a href="#user-content-exports"&gt;
       Exports
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#branching"&gt;
+     &lt;a href="#user-content-branching"&gt;
       Branching
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#undoing"&gt;
+     &lt;a href="#user-content-undoing"&gt;
       Undoing
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#remotes"&gt;
+     &lt;a href="#user-content-remotes"&gt;
       Remotes
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#submodules"&gt;
+     &lt;a href="#user-content-submodules"&gt;
       Submodules
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="#additional-resources"&gt;
+     &lt;a href="#user-content-additional-resources"&gt;
       Additional resources
      &lt;/a&gt;
     &lt;/li&gt;
@@ -2143,16 +2156,21 @@ git branch -D temp
     &lt;/a&gt;
     Branching model
    &lt;/h3&gt;
-   &lt;p&gt;
-    &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
-     Successful git branching model
-    &lt;/a&gt;
-   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
+      Successful git branching model
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
    &lt;pre&gt;&lt;code&gt;origin/feature/update_layout
 origin/hotfix/r20130305-1.1
 origin/master
-origin/release/r20130305
+origin/develop
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#basics" name="user-content-basics"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2160,16 +2178,18 @@ origin/release/r20130305
     &lt;/a&gt;
     Basics
    &lt;/h3&gt;
-   &lt;p&gt;
-    &lt;a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C"&gt;
-     10 commands
-    &lt;/a&gt;
-   &lt;/p&gt;
-   &lt;p&gt;
-    &lt;a href="http://git.or.cz/course/svn.html"&gt;
-     Git SVN crash course
-    &lt;/a&gt;
-   &lt;/p&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C"&gt;
+      10 commands
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://git.or.cz/course/svn.html"&gt;
+      Git SVN crash course
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
    &lt;pre&gt;&lt;code&gt;# pull rebase create nicer merge tree, but be careful with it
 git stash # stash any change
 git pull --rebase
@@ -2183,6 +2203,9 @@ git add -A # add all untracked files
 # Diff with remote
 git diff master origin/master
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#info" name="user-content-info"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2197,8 +2220,11 @@ git diff master origin/master
     &lt;/a&gt;
     Find commits where files were deleted
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;git log --diff-filter=D --summary
+   &lt;pre&gt;&lt;code&gt;git log --diff-filter=D --summary --stat
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#checkout-deleted-file-in-the-working-tree" name="user-content-checkout-deleted-file-in-the-working-tree"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2208,6 +2234,9 @@ git diff master origin/master
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git checkout &amp;lt;sha1&amp;gt;^ &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#only-show-the-content-of-a-file-from-a-specific-revision" name="user-content-only-show-the-content-of-a-file-from-a-specific-revision"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2217,6 +2246,9 @@ git diff master origin/master
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git show &amp;lt;sha1&amp;gt;^:&amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#diff-2-files-at-specific-revision" name="user-content-diff-2-files-at-specific-revision"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2224,8 +2256,11 @@ git diff master origin/master
     &lt;/a&gt;
     Diff 2 files at specific revision
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;git diff &amp;lt;revision_1&amp;gt;:&amp;lt;file_1&amp;gt; &amp;lt;revision_2&amp;gt;:&amp;lt;file_2&amp;gt;
+   &lt;pre&gt;&lt;code&gt;git diff &amp;lt;revision_1&amp;gt;..&amp;lt;revision_2&amp;gt; -- &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#show-changes-on-a-branch-that-is-not-merged-upstream" name="user-content-show-changes-on-a-branch-that-is-not-merged-upstream"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2236,6 +2271,9 @@ git diff master origin/master
    &lt;pre&gt;&lt;code&gt;git cherry &amp;lt;upstream_branch&amp;gt; &amp;lt;new_branch&amp;gt;
 git log &amp;lt;upstream_branch&amp;gt;..&amp;lt;new_branch&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#show-log-with-changed-files" name="user-content-show-log-with-changed-files"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2248,6 +2286,9 @@ git log --name-status
 git log --stat
 git log --decorate --graph --oneline --date-order # better visual
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#get-latest-tag-in-the-current-branch" name="user-content-get-latest-tag-in-the-current-branch"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2258,6 +2299,9 @@ git log --decorate --graph --oneline --date-order # better visual
    &lt;pre&gt;&lt;code&gt;git describe --exact-match --abbrev=0
 git describe --abbrev=0 --tags
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#show-log-graph" name="user-content-show-log-graph"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2278,6 +2322,9 @@ git log | cat -
 git show &amp;lt;hash&amp;gt;
 git show &amp;lt;hash&amp;gt; --stat # show only oneline for each change
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#get-current-url" name="user-content-get-current-url"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2287,6 +2334,9 @@ git show &amp;lt;hash&amp;gt; --stat # show only oneline for each change
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git remote show origin
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#get-brief-info-about-branches" name="user-content-get-brief-info-about-branches"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2296,6 +2346,21 @@ git show &amp;lt;hash&amp;gt; --stat # show only oneline for each change
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git branch -lvv
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#finding-what-branch-a-commit-came-from" name="user-content-finding-what-branch-a-commit-came-from"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Finding what branch a commit came from
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git branch --contains &amp;lt;commit&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#exports" name="user-content-exports"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2310,6 +2375,9 @@ git checkout-index -a -f --prefix=/destination/path/
 git archive --format=tar --remote=ssh://remote_server/remote_repository master | tar -xf -
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
     &lt;a href="#user-content-toc"&gt;
      TOC
     &lt;/a&gt;
@@ -2321,18 +2389,43 @@ git archive --format=tar --remote=ssh://remote_server/remote_repository master |
     &lt;/a&gt;
     Branching
    &lt;/h3&gt;
-   &lt;pre&gt;&lt;code&gt;# branch and create new branch
-git checkout -b experimental
-
-# delete unused branch
-git branch -d experimental
-
-# also delete on remote
-git push origin --delete newfeature
-
-# Rename a local branch
-git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#branch-and-create-new-branch" name="user-content-branch-and-create-new-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Branch and Create new branch
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git checkout -b experimental
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#delete-unused-branch" name="user-content-delete-unused-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Delete unused branch
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git branch -d experimental
+git push origin --delete newfeature
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#rename-a-local-branch" name="user-content-rename-a-local-branch"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Rename a local branch
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     &lt;a href="#user-content-toc"&gt;
      TOC
@@ -2365,6 +2458,9 @@ git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
    &lt;/p&gt;
    &lt;pre&gt;&lt;code&gt;git reset --hard
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#undo-a-merge-or-pull-inside-a-dirty-work-tree" name="user-content-undo-a-merge-or-pull-inside-a-dirty-work-tree"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2385,6 +2481,9 @@ git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
    &lt;/p&gt;
    &lt;pre&gt;&lt;code&gt;git reset --merge ORIG_HEAD
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#revert-a-bad-commit" name="user-content-revert-a-bad-commit"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2403,6 +2502,9 @@ git checkout .
 # Remove all new files or folder
 git clean -df
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#checkout-a-deleted-file-into-the-work-tree" name="user-content-checkout-a-deleted-file-into-the-work-tree"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2412,6 +2514,9 @@ git clean -df
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git checkout &amp;lt;sha1&amp;gt;^ -- &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#rewrite-authorcommiter-name-and-email" name="user-content-rewrite-authorcommiter-name-and-email"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2431,6 +2536,9 @@ git clean -df
                 git commit-tree "$@";
         fi' HEAD
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     &lt;a href="#user-content-toc"&gt;
      TOC
@@ -2453,6 +2561,9 @@ git clean -df
    &lt;pre&gt;&lt;code&gt;git checkout -b &amp;lt;branch_name&amp;gt;
 git push origin &amp;lt;branch_name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#crete-a-new-local-branch-by-pulling-a-remote-branch" name="user-content-crete-a-new-local-branch-by-pulling-a-remote-branch"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2463,6 +2574,9 @@ git push origin &amp;lt;branch_name&amp;gt;
    &lt;pre&gt;&lt;code&gt;git pull origin &amp;lt;branch_name&amp;gt;                                 # without tracking
 git checkout --track -b &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&amp;gt;    # with tracking
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#track-a-remote-branch-with-an-existing-local" name="user-content-track-a-remote-branch-with-an-existing-local"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2472,6 +2586,9 @@ git checkout --track -b &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&a
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git branch --set-upstream &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#delete-remote-branch" name="user-content-delete-remote-branch"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2482,10 +2599,16 @@ git checkout --track -b &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&a
    &lt;pre&gt;&lt;code&gt;git push origin :heads/&amp;lt;branch_name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
     or
    &lt;/p&gt;
    &lt;pre&gt;&lt;code&gt;git push origin :&amp;lt;branch_name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#prune-remote-tracking-branches-that-are-deleted-from-a-remote-repo" name="user-content-prune-remote-tracking-branches-that-are-deleted-from-a-remote-repo"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2495,6 +2618,9 @@ git checkout --track -b &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&a
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git remote prune origin
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#change-remote-url" name="user-content-change-remote-url"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2504,6 +2630,9 @@ git checkout --track -b &amp;lt;branch_name&amp;gt; origin/&amp;lt;branch_name&a
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;git remote set-url origin http://new-example.com/repo.git
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     &lt;a href="#user-content-toc"&gt;
      TOC
@@ -2527,7 +2656,7 @@ git submodule update --recursive
 git submodule foreach 'git checkout master &amp;amp;&amp;amp; git pull origin master'
 
 # Update submodule's URL
-#Edit the *.gitmodules* file, then run:
+# Edit the *.gitmodules* file, then run:
 git submodule sync
 
 # Delete submodule
@@ -2541,6 +2670,9 @@ git rm --cached asubmodule
 #Get submodule hash
 git ls-tree a9a796a [submodule_dir]
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;p&gt;
     &lt;a href="#user-content-toc"&gt;
      TOC
@@ -2559,6 +2691,9 @@ git remote add origin https://github.com/edwardaux/Pipelines.git
 git push -u origin --all # pushes up the repo and its refs for the first time
 git push -u origin --tags # pushes up any tags
 &lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#additional-resources" name="user-content-additional-resources"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2568,23 +2703,23 @@ git push -u origin --tags # pushes up any tags
    &lt;/h3&gt;
    &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
-      What is origin in GIT
-     &lt;/a&gt;
+     &lt;p&gt;
+      &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
+       What is origin in GIT
+      &lt;/a&gt;
+      - By saying
+      &lt;code&gt;
+       git push origin branchname
+      &lt;/code&gt;
+      you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+     &lt;/p&gt;
     &lt;/li&gt;
-   &lt;/ul&gt;
-   &lt;p&gt;
-    By saying
-    &lt;code&gt;
-     git push origin branchname
-    &lt;/code&gt;
-    you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
-   &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
     &lt;li&gt;
-     &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
-      Fetch and Merge
-     &lt;/a&gt;
+     &lt;p&gt;
+      &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
+       Fetch and Merge
+      &lt;/a&gt;
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
      &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757"&gt;

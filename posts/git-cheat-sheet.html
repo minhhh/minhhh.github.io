@@ -141,47 +141,47 @@
    </h2>
    <ul class="task-list">
     <li>
-     <a href="#installation">
+     <a href="#user-content-installation">
       Installation
      </a>
     </li>
     <li>
-     <a href="#basics">
+     <a href="#user-content-basics">
       Basics
      </a>
     </li>
     <li>
-     <a href="#info">
+     <a href="#user-content-info">
       Info
      </a>
     </li>
     <li>
-     <a href="#exports">
+     <a href="#user-content-exports">
       Exports
      </a>
     </li>
     <li>
-     <a href="#branching">
+     <a href="#user-content-branching">
       Branching
      </a>
     </li>
     <li>
-     <a href="#undoing">
+     <a href="#user-content-undoing">
       Undoing
      </a>
     </li>
     <li>
-     <a href="#remotes">
+     <a href="#user-content-remotes">
       Remotes
      </a>
     </li>
     <li>
-     <a href="#submodules">
+     <a href="#user-content-submodules">
       Submodules
      </a>
     </li>
     <li>
-     <a href="#additional-resources">
+     <a href="#user-content-additional-resources">
       Additional resources
      </a>
     </li>
@@ -212,16 +212,21 @@
     </a>
     Branching model
    </h3>
-   <p>
-    <a href="http://nvie.com/posts/a-successful-git-branching-model/">
-     Successful git branching model
-    </a>
-   </p>
+   <ul class="task-list">
+    <li>
+     <a href="http://nvie.com/posts/a-successful-git-branching-model/">
+      Successful git branching model
+     </a>
+    </li>
+   </ul>
    <pre><code>origin/feature/update_layout
 origin/hotfix/r20130305-1.1
 origin/master
-origin/release/r20130305
+origin/develop
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#basics" name="user-content-basics">
      <span class="octicon octicon-link">
@@ -229,16 +234,18 @@ origin/release/r20130305
     </a>
     Basics
    </h3>
-   <p>
-    <a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C">
-     10 commands
-    </a>
-   </p>
-   <p>
-    <a href="http://git.or.cz/course/svn.html">
-     Git SVN crash course
-    </a>
-   </p>
+   <ul class="task-list">
+    <li>
+     <a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C">
+      10 commands
+     </a>
+    </li>
+    <li>
+     <a href="http://git.or.cz/course/svn.html">
+      Git SVN crash course
+     </a>
+    </li>
+   </ul>
    <pre><code># pull rebase create nicer merge tree, but be careful with it
 git stash # stash any change
 git pull --rebase
@@ -252,6 +259,9 @@ git add -A # add all untracked files
 # Diff with remote
 git diff master origin/master
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#info" name="user-content-info">
      <span class="octicon octicon-link">
@@ -266,8 +276,11 @@ git diff master origin/master
     </a>
     Find commits where files were deleted
    </h4>
-   <pre><code>git log --diff-filter=D --summary
+   <pre><code>git log --diff-filter=D --summary --stat
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#checkout-deleted-file-in-the-working-tree" name="user-content-checkout-deleted-file-in-the-working-tree">
      <span class="octicon octicon-link">
@@ -277,6 +290,9 @@ git diff master origin/master
    </h4>
    <pre><code>git checkout &lt;sha1&gt;^ &lt;file&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#only-show-the-content-of-a-file-from-a-specific-revision" name="user-content-only-show-the-content-of-a-file-from-a-specific-revision">
      <span class="octicon octicon-link">
@@ -286,6 +302,9 @@ git diff master origin/master
    </h4>
    <pre><code>git show &lt;sha1&gt;^:&lt;file&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#diff-2-files-at-specific-revision" name="user-content-diff-2-files-at-specific-revision">
      <span class="octicon octicon-link">
@@ -293,8 +312,11 @@ git diff master origin/master
     </a>
     Diff 2 files at specific revision
    </h4>
-   <pre><code>git diff &lt;revision_1&gt;:&lt;file_1&gt; &lt;revision_2&gt;:&lt;file_2&gt;
+   <pre><code>git diff &lt;revision_1&gt;..&lt;revision_2&gt; -- &lt;file&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#show-changes-on-a-branch-that-is-not-merged-upstream" name="user-content-show-changes-on-a-branch-that-is-not-merged-upstream">
      <span class="octicon octicon-link">
@@ -305,6 +327,9 @@ git diff master origin/master
    <pre><code>git cherry &lt;upstream_branch&gt; &lt;new_branch&gt;
 git log &lt;upstream_branch&gt;..&lt;new_branch&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#show-log-with-changed-files" name="user-content-show-log-with-changed-files">
      <span class="octicon octicon-link">
@@ -317,6 +342,9 @@ git log --name-status
 git log --stat
 git log --decorate --graph --oneline --date-order # better visual
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#get-latest-tag-in-the-current-branch" name="user-content-get-latest-tag-in-the-current-branch">
      <span class="octicon octicon-link">
@@ -327,6 +355,9 @@ git log --decorate --graph --oneline --date-order # better visual
    <pre><code>git describe --exact-match --abbrev=0
 git describe --abbrev=0 --tags
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#show-log-graph" name="user-content-show-log-graph">
      <span class="octicon octicon-link">
@@ -347,6 +378,9 @@ git log | cat -
 git show &lt;hash&gt;
 git show &lt;hash&gt; --stat # show only oneline for each change
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#get-current-url" name="user-content-get-current-url">
      <span class="octicon octicon-link">
@@ -356,6 +390,9 @@ git show &lt;hash&gt; --stat # show only oneline for each change
    </h4>
    <pre><code>git remote show origin
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#get-brief-info-about-branches" name="user-content-get-brief-info-about-branches">
      <span class="octicon octicon-link">
@@ -365,6 +402,21 @@ git show &lt;hash&gt; --stat # show only oneline for each change
    </h4>
    <pre><code>git branch -lvv
 </code></pre>
+   <p>
+    <br/>
+   </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#finding-what-branch-a-commit-came-from" name="user-content-finding-what-branch-a-commit-came-from">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Finding what branch a commit came from
+   </h4>
+   <pre><code>git branch --contains &lt;commit&gt;
+</code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#exports" name="user-content-exports">
      <span class="octicon octicon-link">
@@ -379,6 +431,9 @@ git checkout-index -a -f --prefix=/destination/path/
 git archive --format=tar --remote=ssh://remote_server/remote_repository master | tar -xf -
 </code></pre>
    <p>
+    <br/>
+   </p>
+   <p>
     <a href="#user-content-toc">
      TOC
     </a>
@@ -390,18 +445,43 @@ git archive --format=tar --remote=ssh://remote_server/remote_repository master |
     </a>
     Branching
    </h3>
-   <pre><code># branch and create new branch
-git checkout -b experimental
-
-# delete unused branch
-git branch -d experimental
-
-# also delete on remote
-git push origin --delete newfeature
-
-# Rename a local branch
-git branch -m &lt;oldname&gt; &lt;newname&gt;
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#branch-and-create-new-branch" name="user-content-branch-and-create-new-branch">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Branch and Create new branch
+   </h4>
+   <pre><code>git checkout -b experimental
 </code></pre>
+   <p>
+    <br/>
+   </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#delete-unused-branch" name="user-content-delete-unused-branch">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Delete unused branch
+   </h4>
+   <pre><code>git branch -d experimental
+git push origin --delete newfeature
+</code></pre>
+   <p>
+    <br/>
+   </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#rename-a-local-branch" name="user-content-rename-a-local-branch">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Rename a local branch
+   </h4>
+   <pre><code>git branch -m &lt;oldname&gt; &lt;newname&gt;
+</code></pre>
+   <p>
+    <br/>
+   </p>
    <p>
     <a href="#user-content-toc">
      TOC
@@ -434,6 +514,9 @@ git branch -m &lt;oldname&gt; &lt;newname&gt;
    </p>
    <pre><code>git reset --hard
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#undo-a-merge-or-pull-inside-a-dirty-work-tree" name="user-content-undo-a-merge-or-pull-inside-a-dirty-work-tree">
      <span class="octicon octicon-link">
@@ -454,6 +537,9 @@ git branch -m &lt;oldname&gt; &lt;newname&gt;
    </p>
    <pre><code>git reset --merge ORIG_HEAD
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#revert-a-bad-commit" name="user-content-revert-a-bad-commit">
      <span class="octicon octicon-link">
@@ -472,6 +558,9 @@ git checkout .
 # Remove all new files or folder
 git clean -df
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#checkout-a-deleted-file-into-the-work-tree" name="user-content-checkout-a-deleted-file-into-the-work-tree">
      <span class="octicon octicon-link">
@@ -481,6 +570,9 @@ git clean -df
    </h4>
    <pre><code>git checkout &lt;sha1&gt;^ -- &lt;file&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#rewrite-authorcommiter-name-and-email" name="user-content-rewrite-authorcommiter-name-and-email">
      <span class="octicon octicon-link">
@@ -500,6 +592,9 @@ git clean -df
                 git commit-tree "$@";
         fi' HEAD
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <p>
     <a href="#user-content-toc">
      TOC
@@ -522,6 +617,9 @@ git clean -df
    <pre><code>git checkout -b &lt;branch_name&gt;
 git push origin &lt;branch_name&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#crete-a-new-local-branch-by-pulling-a-remote-branch" name="user-content-crete-a-new-local-branch-by-pulling-a-remote-branch">
      <span class="octicon octicon-link">
@@ -532,6 +630,9 @@ git push origin &lt;branch_name&gt;
    <pre><code>git pull origin &lt;branch_name&gt;                                 # without tracking
 git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with tracking
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#track-a-remote-branch-with-an-existing-local" name="user-content-track-a-remote-branch-with-an-existing-local">
      <span class="octicon octicon-link">
@@ -541,6 +642,9 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
    </h4>
    <pre><code>git branch --set-upstream &lt;branch_name&gt; origin/&lt;branch_name&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#delete-remote-branch" name="user-content-delete-remote-branch">
      <span class="octicon octicon-link">
@@ -551,10 +655,16 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
    <pre><code>git push origin :heads/&lt;branch_name&gt;
 </code></pre>
    <p>
+    <br/>
+   </p>
+   <p>
     or
    </p>
    <pre><code>git push origin :&lt;branch_name&gt;
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#prune-remote-tracking-branches-that-are-deleted-from-a-remote-repo" name="user-content-prune-remote-tracking-branches-that-are-deleted-from-a-remote-repo">
      <span class="octicon octicon-link">
@@ -564,6 +674,9 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
    </h4>
    <pre><code>git remote prune origin
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#change-remote-url" name="user-content-change-remote-url">
      <span class="octicon octicon-link">
@@ -573,6 +686,9 @@ git checkout --track -b &lt;branch_name&gt; origin/&lt;branch_name&gt;    # with
    </h4>
    <pre><code>git remote set-url origin http://new-example.com/repo.git
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <p>
     <a href="#user-content-toc">
      TOC
@@ -596,7 +712,7 @@ git submodule update --recursive
 git submodule foreach 'git checkout master &amp;&amp; git pull origin master'
 
 # Update submodule's URL
-#Edit the *.gitmodules* file, then run:
+# Edit the *.gitmodules* file, then run:
 git submodule sync
 
 # Delete submodule
@@ -610,6 +726,9 @@ git rm --cached asubmodule
 #Get submodule hash
 git ls-tree a9a796a [submodule_dir]
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <p>
     <a href="#user-content-toc">
      TOC
@@ -628,6 +747,9 @@ git remote add origin https://github.com/edwardaux/Pipelines.git
 git push -u origin --all # pushes up the repo and its refs for the first time
 git push -u origin --tags # pushes up any tags
 </code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#additional-resources" name="user-content-additional-resources">
      <span class="octicon octicon-link">
@@ -637,23 +759,23 @@ git push -u origin --tags # pushes up any tags
    </h3>
    <ul class="task-list">
     <li>
-     <a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git">
-      What is origin in GIT
-     </a>
+     <p>
+      <a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git">
+       What is origin in GIT
+      </a>
+      - By saying
+      <code>
+       git push origin branchname
+      </code>
+      you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+     </p>
     </li>
-   </ul>
-   <p>
-    By saying
-    <code>
-     git push origin branchname
-    </code>
-    you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
-   </p>
-   <ul class="task-list">
     <li>
-     <a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/">
-      Fetch and Merge
-     </a>
+     <p>
+      <a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/">
+       Fetch and Merge
+      </a>
+     </p>
     </li>
     <li>
      <a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757">
@@ -735,17 +857,17 @@ git push -u origin --tags # pushes up any tags
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
 </ul>
 
 
