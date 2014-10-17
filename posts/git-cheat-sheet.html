@@ -262,6 +262,29 @@
    <p>
     <br/>
    </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#tagging" name="user-content-tagging">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Tagging
+   </h4>
+   <pre><code>    # pull rebase create nicer merge tree, but be careful with it
+    git stash # stash any change
+    git pull --rebase
+    git stash pop # stash pop any change
+
+    git fetch -p # Bring the repository up to date without executing merge on the current branch
+
+    git add -u # add modified files but not new files
+    git add -A # add all untracked files
+
+    # Diff with remote
+    git diff master origin/master
+</code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#info" name="user-content-info">
      <span class="octicon octicon-link">
@@ -354,6 +377,18 @@
    </h4>
    <pre><code>    git describe --exact-match --abbrev=0
     git describe --abbrev=0 --tags
+</code></pre>
+   <p>
+    <br/>
+   </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#get-tag-with-messages" name="user-content-get-tag-with-messages">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Get tag with messages
+   </h4>
+   <pre><code>    git tag -l -n9
 </code></pre>
    <p>
     <br/>
@@ -689,6 +724,19 @@
    <p>
     <br/>
    </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#merge-upstream-from-fork-repo" name="user-content-merge-upstream-from-fork-repo">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Merge upstream from fork repo
+   </h4>
+   <pre><code>    git checkout master
+    git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git BRANCH_NAME
+</code></pre>
+   <p>
+    <br/>
+   </p>
    <p>
     <a href="#user-content-toc">
      TOC
@@ -857,17 +905,17 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 </ul>
 
 

@@ -152,8 +152,7 @@
      feature/add_css
     </code>
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="c"># This will merge the latest develop to feature/css</span>
+   <pre><code>    # This will merge the latest develop to feature/css
     git checkout develop
     git pull
     git checkout feature/add_css
@@ -161,37 +160,36 @@
     git merge develop
     git push
 
-    <span class="c"># Create a temporary rebase branch</span>
+    # Create a temporary rebase branch
     git checkout develop
     git checkout -b temp
 
-    <span class="c"># Merge feature branch and resolve a lot of conflicts</span>
+    # Merge feature branch and resolve a lot of conflicts
     git merge feature/add_css
 
-    <span class="c"># Perform the rebase, you may have to resolve the conflict again</span>
+    # Perform the rebase, you may have to resolve the conflict again
     git rebase develop
 
-    <span class="c"># NOTE: Do not use git checkout (--theirs|–ours) path/to/file</span>
-    <span class="c"># as it will cause trouble when you resolved a bad conflict then</span>
-    <span class="c"># the subsequent merge may not be correct.</span>
+    # NOTE: Do not use git checkout (--theirs|–ours) path/to/file
+    # as it will cause trouble when you resolved a bad conflict then
+    # the subsequent merge may not be correct.
 
-    <span class="c"># This will merge the rebased item to develop.</span>
+    # This will merge the rebased item to develop.
     git checkout develop
     git merge feature/something_rebase
 
-    <span class="c"># (Important) Checks that there are no difference. This should resolve in no difference in the ideal case</span>
+    # (Important) Checks that there are no difference. This should resolve in no difference in the ideal case
     git diff develop..feature/something
 
-    <span class="c"># (Important) Checks that the logs have been correctly integrated.</span>
+    # (Important) Checks that the logs have been correctly integrated.
     git log --graph
 
-    <span class="c"># Push once all checks have been completed.</span>
+    # Push once all checks have been completed.
     git push
 
-    <span class="c"># Delete the temporary merge branch</span>
+    # Delete the temporary merge branch
     git branch -D temp
-</pre>
-   </div>
+</code></pre>
    <p>
     <br/>
    </p>
@@ -212,8 +210,7 @@
      feature/add_html
     </code>
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="c"># This will merge the latest develop to feature/css</span>
+   <pre><code>    # This will merge the latest develop to feature/css
     git checkout develop
     git pull
     git checkout feature/add_css
@@ -221,42 +218,41 @@
     git merge develop
     git push
 
-    <span class="c"># Create a temporary rebase branch</span>
+    # Create a temporary rebase branch
     git checkout develop
     git checkout -b main_rebase
 
-    <span class="c"># Merge feature branch and resolve a lot of conflicts</span>
+    # Merge feature branch and resolve a lot of conflicts
     git merge feature/add_css
 
-    <span class="c"># Perform the rebase, you may have to resolve the conflict again</span>
+    # Perform the rebase, you may have to resolve the conflict again
     git rebase develop
 
-    <span class="c"># Push this branch to remote so we can rebase other branch based on it</span>
+    # Push this branch to remote so we can rebase other branch based on it
     git push
 
-    <span class="c"># Now checkout another temporary branch</span>
+    # Now checkout another temporary branch
     git checkout -b temp
 
-    <span class="c"># Merge feature branch and resolve a lot of conflicts</span>
+    # Merge feature branch and resolve a lot of conflicts
     git merge feature/add_css
 
-    <span class="c"># (IMPORTANT) Perform the rebase based on the main rebase branch</span>
+    # (IMPORTANT) Perform the rebase based on the main rebase branch
     git rebase main_rebase
 
-    <span class="c"># Merge the rebase items into main rebase branch</span>
+    # Merge the rebase items into main rebase branch
     git checkout main_rebase
     git merge temp
 
-    <span class="c"># (IMPORTANT) Checks that the logs have been correctly integrated.</span>
+    # (IMPORTANT) Checks that the logs have been correctly integrated.
     git log --graph
 
-    <span class="c"># (IMPORTANT) Push main rebase branch to remote</span>
+    # (IMPORTANT) Push main rebase branch to remote
     git push
 
-    <span class="c"># Delete the temporary merge branch</span>
+    # Delete the temporary merge branch
     git branch -D temp
-</pre>
-   </div>
+</code></pre>
    <p>
     <br/>
    </p>
@@ -301,17 +297,17 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
 	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
 </ul>
 
 
