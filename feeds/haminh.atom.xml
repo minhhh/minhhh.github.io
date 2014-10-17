@@ -1896,8 +1896,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
      feature/add_css
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    &lt;span class="c"&gt;# This will merge the latest develop to feature/css&lt;/span&gt;
+   &lt;pre&gt;&lt;code&gt;    # This will merge the latest develop to feature/css
     git checkout develop
     git pull
     git checkout feature/add_css
@@ -1905,37 +1904,36 @@ Third&lt;/code&gt;&lt;/pre&gt;
     git merge develop
     git push
 
-    &lt;span class="c"&gt;# Create a temporary rebase branch&lt;/span&gt;
+    # Create a temporary rebase branch
     git checkout develop
     git checkout -b temp
 
-    &lt;span class="c"&gt;# Merge feature branch and resolve a lot of conflicts&lt;/span&gt;
+    # Merge feature branch and resolve a lot of conflicts
     git merge feature/add_css
 
-    &lt;span class="c"&gt;# Perform the rebase, you may have to resolve the conflict again&lt;/span&gt;
+    # Perform the rebase, you may have to resolve the conflict again
     git rebase develop
 
-    &lt;span class="c"&gt;# NOTE: Do not use git checkout (--theirs|–ours) path/to/file&lt;/span&gt;
-    &lt;span class="c"&gt;# as it will cause trouble when you resolved a bad conflict then&lt;/span&gt;
-    &lt;span class="c"&gt;# the subsequent merge may not be correct.&lt;/span&gt;
+    # NOTE: Do not use git checkout (--theirs|–ours) path/to/file
+    # as it will cause trouble when you resolved a bad conflict then
+    # the subsequent merge may not be correct.
 
-    &lt;span class="c"&gt;# This will merge the rebased item to develop.&lt;/span&gt;
+    # This will merge the rebased item to develop.
     git checkout develop
     git merge feature/something_rebase
 
-    &lt;span class="c"&gt;# (Important) Checks that there are no difference. This should resolve in no difference in the ideal case&lt;/span&gt;
+    # (Important) Checks that there are no difference. This should resolve in no difference in the ideal case
     git diff develop..feature/something
 
-    &lt;span class="c"&gt;# (Important) Checks that the logs have been correctly integrated.&lt;/span&gt;
+    # (Important) Checks that the logs have been correctly integrated.
     git log --graph
 
-    &lt;span class="c"&gt;# Push once all checks have been completed.&lt;/span&gt;
+    # Push once all checks have been completed.
     git push
 
-    &lt;span class="c"&gt;# Delete the temporary merge branch&lt;/span&gt;
+    # Delete the temporary merge branch
     git branch -D temp
-&lt;/pre&gt;
-   &lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
@@ -1956,8 +1954,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
      feature/add_html
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    &lt;span class="c"&gt;# This will merge the latest develop to feature/css&lt;/span&gt;
+   &lt;pre&gt;&lt;code&gt;    # This will merge the latest develop to feature/css
     git checkout develop
     git pull
     git checkout feature/add_css
@@ -1965,42 +1962,41 @@ Third&lt;/code&gt;&lt;/pre&gt;
     git merge develop
     git push
 
-    &lt;span class="c"&gt;# Create a temporary rebase branch&lt;/span&gt;
+    # Create a temporary rebase branch
     git checkout develop
     git checkout -b main_rebase
 
-    &lt;span class="c"&gt;# Merge feature branch and resolve a lot of conflicts&lt;/span&gt;
+    # Merge feature branch and resolve a lot of conflicts
     git merge feature/add_css
 
-    &lt;span class="c"&gt;# Perform the rebase, you may have to resolve the conflict again&lt;/span&gt;
+    # Perform the rebase, you may have to resolve the conflict again
     git rebase develop
 
-    &lt;span class="c"&gt;# Push this branch to remote so we can rebase other branch based on it&lt;/span&gt;
+    # Push this branch to remote so we can rebase other branch based on it
     git push
 
-    &lt;span class="c"&gt;# Now checkout another temporary branch&lt;/span&gt;
+    # Now checkout another temporary branch
     git checkout -b temp
 
-    &lt;span class="c"&gt;# Merge feature branch and resolve a lot of conflicts&lt;/span&gt;
+    # Merge feature branch and resolve a lot of conflicts
     git merge feature/add_css
 
-    &lt;span class="c"&gt;# (IMPORTANT) Perform the rebase based on the main rebase branch&lt;/span&gt;
+    # (IMPORTANT) Perform the rebase based on the main rebase branch
     git rebase main_rebase
 
-    &lt;span class="c"&gt;# Merge the rebase items into main rebase branch&lt;/span&gt;
+    # Merge the rebase items into main rebase branch
     git checkout main_rebase
     git merge temp
 
-    &lt;span class="c"&gt;# (IMPORTANT) Checks that the logs have been correctly integrated.&lt;/span&gt;
+    # (IMPORTANT) Checks that the logs have been correctly integrated.
     git log --graph
 
-    &lt;span class="c"&gt;# (IMPORTANT) Push main rebase branch to remote&lt;/span&gt;
+    # (IMPORTANT) Push main rebase branch to remote
     git push
 
-    &lt;span class="c"&gt;# Delete the temporary merge branch&lt;/span&gt;
+    # Delete the temporary merge branch
     git branch -D temp
-&lt;/pre&gt;
-   &lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
@@ -2206,6 +2202,29 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#tagging" name="user-content-tagging"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Tagging
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    # pull rebase create nicer merge tree, but be careful with it
+    git stash # stash any change
+    git pull --rebase
+    git stash pop # stash pop any change
+
+    git fetch -p # Bring the repository up to date without executing merge on the current branch
+
+    git add -u # add modified files but not new files
+    git add -A # add all untracked files
+
+    # Diff with remote
+    git diff master origin/master
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#info" name="user-content-info"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -2298,6 +2317,18 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;    git describe --exact-match --abbrev=0
     git describe --abbrev=0 --tags
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#get-tag-with-messages" name="user-content-get-tag-with-messages"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Get tag with messages
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    git tag -l -n9
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2629,6 +2660,19 @@ Third&lt;/code&gt;&lt;/pre&gt;
     Change remote URL
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;    git remote set-url origin http://new-example.com/repo.git
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#merge-upstream-from-fork-repo" name="user-content-merge-upstream-from-fork-repo"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Merge upstream from fork repo
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    git checkout master
+    git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git BRANCH_NAME
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
