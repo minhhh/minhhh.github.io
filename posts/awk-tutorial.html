@@ -126,14 +126,14 @@
  <div class="blob instapaper_body" id="readme">
   <article class="markdown-body entry-content" itemprop="mainContentOfPage">
    <h1>
-    <a aria-hidden="true" class="anchor" href="#awk-cheatsheet" name="user-content-awk-cheatsheet">
+    <a aria-hidden="true" class="anchor" href="#awk-cheatsheet" id="user-content-awk-cheatsheet">
      <span class="octicon octicon-link">
      </span>
     </a>
     AWK CHEATSHEET
    </h1>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#run" name="user-content-run">
+    <a aria-hidden="true" class="anchor" href="#run" id="user-content-run">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -143,9 +143,8 @@
     Call from command line
    </p>
    <div class="highlight highlight-bash">
-    <pre>    awk <span class="s1">'pattern1 {action1}</span>
-<span class="s1">    pattern2 {action2} ...'</span> file1 file2 ..
-</pre>
+    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>pattern1 {action1}</span>
+<span class="pl-s1">    pattern2 {action2} ...<span class="pl-pds">'</span></span> file1 file2 ..</pre>
    </div>
    <p>
     <br/>
@@ -154,8 +153,7 @@
     Call a script
    </p>
    <div class="highlight highlight-bash">
-    <pre>    awk -f script file1 file2 ...
-</pre>
+    <pre>    awk -f script file1 file2 ...</pre>
    </div>
    <p>
     <br/>
@@ -164,14 +162,13 @@
     Call without input files
    </p>
    <div class="highlight highlight-bash">
-    <pre>    awk <span class="s1">'program'</span>
-</pre>
+    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>program<span class="pl-pds">'</span></span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#regular-expression" name="user-content-regular-expression">
+    <a aria-hidden="true" class="anchor" href="#regular-expression" id="user-content-regular-expression">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -181,8 +178,7 @@
     Awk can use regular exrepssion as conditions
    </p>
    <div class="highlight highlight-bash">
-    <pre>    awk <span class="s1">'/foo/ {program}'</span> file
-</pre>
+    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>/foo/ {program}<span class="pl-pds">'</span></span> file</pre>
    </div>
    <p>
     <br/>
@@ -191,7 +187,7 @@
     Awk supports Character class in POSIX standard such as [:alpha], [:alnum:]
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#case-sensitivity" name="user-content-case-sensitivity">
+    <a aria-hidden="true" class="anchor" href="#case-sensitivity" id="user-content-case-sensitivity">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -204,8 +200,7 @@
     </code>
    </p>
    <div class="highlight highlight-bash">
-    <pre>    tolower<span class="o">(</span><span class="nv">$1</span><span class="o">)</span> ~ /foo/ <span class="o">{</span>...<span class="o">}</span>
-</pre>
+    <pre>    tolower(<span class="pl-vo">$1</span>) <span class="pl-k">~</span> /foo/ {...}</pre>
    </div>
    <p>
     <br/>
@@ -218,14 +213,13 @@
     to non-zero
    </p>
    <div class="highlight highlight-bash">
-    <pre>    <span class="nv">IGNORECASE</span> <span class="o">=</span> 1
-</pre>
+    <pre>    IGNORECASE = 1</pre>
    </div>
    <p>
     <br/>
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#dynamic-regex" name="user-content-dynamic-regex">
+    <a aria-hidden="true" class="anchor" href="#dynamic-regex" id="user-content-dynamic-regex">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -235,8 +229,7 @@
     Awk provides facility to define dynamic regular expressions
    </p>
    <div class="highlight highlight-bash">
-    <pre>    BEGIN <span class="o">{</span> <span class="nv">digits_regexp</span> <span class="o">=</span> <span class="s2">"[[:digit:]]+"</span> <span class="o">}</span>
-</pre>
+    <pre>    BEGIN { digits_regexp = <span class="pl-s1"><span class="pl-pds">"</span>[[:digit:]]+<span class="pl-pds">"</span></span> }</pre>
    </div>
    <p>
     <br/>
@@ -245,7 +238,7 @@
     You shouldn't use string constants for regex because it needs to be processed twice and hard to read.
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#startup-and-cleanup-actions" name="user-content-startup-and-cleanup-actions">
+    <a aria-hidden="true" class="anchor" href="#startup-and-cleanup-actions" id="user-content-startup-and-cleanup-actions">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -255,8 +248,7 @@
     In other words, do something even if there are no line to process
    </p>
    <div class="highlight highlight-bash">
-    <pre>    awk <span class="s1">'BEGIN {do something}'</span>
-</pre>
+    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>BEGIN {do something}<span class="pl-pds">'</span></span></pre>
    </div>
    <p>
     <br/>
@@ -268,7 +260,7 @@
     specifies command to do at the end of loop.
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#change-field-seperator" name="user-content-change-field-seperator">
+    <a aria-hidden="true" class="anchor" href="#change-field-seperator" id="user-content-change-field-seperator">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -284,14 +276,13 @@
     Or it can be set in the BEGIN condition like this
    </p>
    <div class="highlight highlight-bash">
-    <pre>    BEGIN <span class="o">{</span><span class="nv">FS</span> <span class="o">=</span> <span class="s2">"/"</span><span class="o">}</span>
-</pre>
+    <pre>    BEGIN {FS = <span class="pl-s1"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>}</pre>
    </div>
    <p>
     <br/>
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#quote-and-quoting" name="user-content-quote-and-quoting">
+    <a aria-hidden="true" class="anchor" href="#quote-and-quoting" id="user-content-quote-and-quoting">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -321,7 +312,7 @@
     produces hexadecimal escape sequence
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#special-variables" name="user-content-special-variables">
+    <a aria-hidden="true" class="anchor" href="#special-variables" id="user-content-special-variables">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -351,8 +342,7 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    <span class="nv">$1</span> <span class="o">=</span> <span class="nv">$1</span><span class="p">;</span> <span class="c"># force record to be rebuilt</span>
-</pre>
+    <pre>    <span class="pl-vo">$1</span> = <span class="pl-vo">$1</span><span class="pl-k">;</span> <span class="pl-c"># force record to be rebuilt</span></pre>
    </div>
    <p>
     <br/>
@@ -406,7 +396,7 @@
     </li>
    </ul>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#operators" name="user-content-operators">
+    <a aria-hidden="true" class="anchor" href="#operators" id="user-content-operators">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -421,9 +411,8 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    <span class="nv">$ </span>awk <span class="s1">'$1 ~ /J/'</span> file
-    <span class="c"># matches line where the first field start with J</span>
-</pre>
+    <pre>    $ awk <span class="pl-s1"><span class="pl-pds">'</span>$1 ~ /J/<span class="pl-pds">'</span></span> file
+    <span class="pl-c"># matches line where the first field start with J</span></pre>
    </div>
    <p>
     <br/>
@@ -443,7 +432,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#useful-functions" name="user-content-useful-functions">
+    <a aria-hidden="true" class="anchor" href="#useful-functions" id="user-content-useful-functions">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -493,15 +482,14 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    <span class="c"># The following code copies all input files to the output, except for records that say @include filename</span>
-    <span class="c"># in this case it will replace such records with the content of the file `filename`</span>
-    <span class="k">if</span> <span class="o">(</span>NF <span class="m">2</span> <span class="o">&amp;&amp;</span> <span class="nv">$1</span> <span class="s2">"@include"</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">while</span> <span class="o">((</span>getline line &lt; <span class="nv">$2</span><span class="o">)</span> &gt; 0<span class="o">)</span>
-            print line
-        close<span class="o">(</span><span class="nv">$2</span><span class="o">)</span>
-    <span class="o">}</span> <span class="k">else</span>
-        print
-</pre>
+    <pre>    <span class="pl-c"># The following code copies all input files to the output, except for records that say @include filename</span>
+    <span class="pl-c"># in this case it will replace such records with the content of the file `filename`</span>
+    <span class="pl-k">if</span> (NF 2 <span class="pl-k">&amp;&amp;</span> <span class="pl-vo">$1</span> <span class="pl-s1"><span class="pl-pds">"</span>@include<span class="pl-pds">"</span></span>) {
+        <span class="pl-k">while</span> <span class="pl-s1"><span class="pl-pds">((</span>getline line <span class="pl-k">&lt;</span> <span class="pl-vo">$2</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
+<span class="pl-s1">            print line</span>
+<span class="pl-s1">        close(<span class="pl-vo">$2</span>)</span>
+<span class="pl-s1">    } else</span>
+<span class="pl-s1">        print</span></pre>
    </div>
    <p>
     <br/>
@@ -519,17 +507,16 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    <span class="c"># line begins with @execute is replaced by the output of the command after that</span>
-    <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> <span class="s2">"@execute"</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nv">tmp</span> <span class="o">=</span> substr<span class="o">(</span><span class="nv">$0</span>, 10<span class="o">)</span>
-            <span class="k">while</span> <span class="o">((</span>tmp <span class="p">|</span> getline<span class="o">)</span> &gt; 0<span class="o">)</span>
-                print
-            close<span class="o">(</span>tmp<span class="o">)</span>
-        <span class="o">}</span> <span class="k">else</span>
-            print
-    <span class="o">}</span>
-</pre>
+    <pre>    <span class="pl-c"># line begins with @execute is replaced by the output of the command after that</span>
+    {
+        <span class="pl-k">if</span> (<span class="pl-vo">$1</span> <span class="pl-s1"><span class="pl-pds">"</span>@execute<span class="pl-pds">"</span></span>) {
+            tmp = substr(<span class="pl-vo">$0</span>, 10)
+            <span class="pl-k">while</span> <span class="pl-s1"><span class="pl-pds">((</span>tmp <span class="pl-k">|</span> getline) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
+<span class="pl-s1">                print</span>
+<span class="pl-s1">            close(tmp)</span>
+<span class="pl-s1">        } else</span>
+<span class="pl-s1">            print</span>
+<span class="pl-s1">    }</span></pre>
    </div>
    <p>
     <br/>
@@ -568,7 +555,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#printing-and-output" name="user-content-printing-and-output">
+    <a aria-hidden="true" class="anchor" href="#printing-and-output" id="user-content-printing-and-output">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -612,7 +599,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#standard-descriptors" name="user-content-standard-descriptors">
+    <a aria-hidden="true" class="anchor" href="#standard-descriptors" id="user-content-standard-descriptors">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -638,14 +625,13 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    print <span class="s2">"serious error detected "</span> &gt; <span class="s2">"/dev/stderr"</span>
-</pre>
+    <pre>    print <span class="pl-s1"><span class="pl-pds">"</span>serious error detected <span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>/dev/stderr<span class="pl-pds">"</span></span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" name="user-content-special-files-for-process-related-information">
+    <a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" id="user-content-special-files-for-process-related-information">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -657,7 +643,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#special-files-for-network-communication" name="user-content-special-files-for-network-communication">
+    <a aria-hidden="true" class="anchor" href="#special-files-for-network-communication" id="user-content-special-files-for-network-communication">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -669,7 +655,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#close-input-and-output-redirection" name="user-content-close-input-and-output-redirection">
+    <a aria-hidden="true" class="anchor" href="#close-input-and-output-redirection" id="user-content-close-input-and-output-redirection">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -701,7 +687,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#piping-to-sh" name="user-content-piping-to-sh">
+    <a aria-hidden="true" class="anchor" href="#piping-to-sh" id="user-content-piping-to-sh">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -714,15 +700,14 @@
     </code>
    </p>
    <div class="highlight highlight-bash">
-    <pre>    <span class="o">{</span> <span class="nb">printf</span><span class="o">(</span><span class="s2">"mv %s %s\n"</span>, <span class="nv">$0</span>, tolower<span class="o">(</span><span class="nv">$0</span><span class="o">))</span> <span class="p">|</span> <span class="s2">"sh"</span> <span class="o">}</span>
-    END <span class="o">{</span>close<span class="o">(</span><span class="s2">"sh"</span><span class="o">)}</span>
-</pre>
+    <pre>    { <span class="pl-s3">printf</span>(<span class="pl-s1"><span class="pl-pds">"</span>mv %s %s\n<span class="pl-pds">"</span></span>, <span class="pl-vo">$0</span>, tolower(<span class="pl-vo">$0</span>)) <span class="pl-k">|</span> <span class="pl-s1"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span> }
+    END {close(<span class="pl-s1"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span>)}</pre>
    </div>
    <p>
     <br/>
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" name="user-content-change-the-content-of-a-field">
+    <a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" id="user-content-change-the-content-of-a-field">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -734,16 +719,15 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    awk <span class="s1">'{$2=$2-10; print $0}'</span>
-    <span class="c"># will subtract 10 from the second field, and the second field should be</span>
-    <span class="c"># a number for this to work.</span>
-</pre>
+    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>{$2=$2-10; print $0}<span class="pl-pds">'</span></span>
+    <span class="pl-c"># will subtract 10 from the second field, and the second field should be</span>
+    <span class="pl-c"># a number for this to work.</span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#variables" name="user-content-variables">
+    <a aria-hidden="true" class="anchor" href="#variables" id="user-content-variables">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -755,10 +739,9 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    <span class="o">{</span>
-        <span class="nv">str</span> <span class="o">=</span> <span class="s2">"hello"</span><span class="p">;</span>
-    <span class="o">}</span>
-</pre>
+    <pre>    {
+        str = <span class="pl-s1"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span><span class="pl-k">;</span>
+    }</pre>
    </div>
    <p>
     <br/>
@@ -807,7 +790,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#patterns" name="user-content-patterns">
+    <a aria-hidden="true" class="anchor" href="#patterns" id="user-content-patterns">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -837,7 +820,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#control-statements" name="user-content-control-statements">
+    <a aria-hidden="true" class="anchor" href="#control-statements" id="user-content-control-statements">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -847,11 +830,10 @@
     if-else
    </p>
    <div class="highlight highlight-bash">
-    <pre>    <span class="k">if</span> <span class="o">(</span>x % <span class="m">2</span> 0<span class="o">)</span>
-        print <span class="s2">"x is even"</span>
-    <span class="k">else</span>
-        print <span class="s2">"x is odd"</span>
-</pre>
+    <pre>    <span class="pl-k">if</span> (x % 2 0)
+        print <span class="pl-s1"><span class="pl-pds">"</span>x is even<span class="pl-pds">"</span></span>
+    <span class="pl-k">else</span>
+        print <span class="pl-s1"><span class="pl-pds">"</span>x is odd<span class="pl-pds">"</span></span></pre>
    </div>
    <p>
     <br/>
@@ -860,11 +842,10 @@
     while
    </p>
    <div class="highlight highlight-bash">
-    <pre>    <span class="k">while</span> <span class="o">(</span>i &lt;<span class="o">=</span> 3<span class="o">)</span> <span class="o">{</span>
-        print <span class="nv">$i</span>
+    <pre>    <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 3) {
+        print <span class="pl-vo">$i</span>
         i++
-    <span class="o">}</span>
-</pre>
+    }</pre>
    </div>
    <p>
     <br/>
@@ -873,11 +854,10 @@
     do while
    </p>
    <div class="highlight highlight-bash">
-    <pre>    <span class="k">do</span> <span class="o">{</span>
-        print <span class="nv">$0</span>
+    <pre>    <span class="pl-k">do</span> {
+        print <span class="pl-vo">$0</span>
         i++
-    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span>i &lt;<span class="o">=</span> 10<span class="o">)</span>
-</pre>
+    } <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 10)</pre>
    </div>
    <p>
     <br/>
@@ -886,9 +866,8 @@
     for
    </p>
    <div class="highlight highlight-bash">
-    <pre>    <span class="k">for</span> <span class="o">(</span><span class="nv">i</span> <span class="o">=</span> 1<span class="p">;</span> i &lt;<span class="o">=</span> 3<span class="p">;</span> i++<span class="o">)</span>
-        print <span class="nv">$i</span>
-</pre>
+    <pre>    <span class="pl-k">for</span> <span class="pl-vo">(i</span> = 1<span class="pl-k">;</span> i <span class="pl-k">&lt;</span>= 3<span class="pl-k">;</span> i++)
+        print <span class="pl-vo">$i</span></pre>
    </div>
    <p>
     <br/>
@@ -897,23 +876,22 @@
     switch: break
    </p>
    <div class="highlight highlight-bash">
-    <pre>    switch <span class="o">(</span>NR * <span class="m">2</span> + 1<span class="o">)</span> <span class="o">{</span>
-    <span class="k">case</span> 3:
-        <span class="nb">break</span>
-<span class="nb">    </span><span class="k">case</span> <span class="s2">"11"</span>:
+    <pre>    switch (NR <span class="pl-k">*</span> 2 + 1) {
+    <span class="pl-k">case</span> 3:
+        <span class="pl-s3">break</span>
+    <span class="pl-k">case</span> <span class="pl-s1"><span class="pl-pds">"</span>11<span class="pl-pds">"</span></span>:
         print NR - 1
-        <span class="nb">break</span>
-<span class="nb">    </span><span class="k">case</span> /2<span class="o">[[</span>:digit:<span class="o">]]</span>+/:
+        <span class="pl-s3">break</span>
+    <span class="pl-k">case</span> /2[[:digit:]]+/:
         print NR
-        <span class="nb">break</span>
-<span class="nb">    </span>default:
+        <span class="pl-s3">break</span>
+    default:
         print NR + 1
-        <span class="nb">break</span>
-<span class="nb">    </span><span class="k">case</span> -1:
-        print NR * -1
-        <span class="nb">break</span>
-    <span class="o">}</span>
-</pre>
+        <span class="pl-s3">break</span>
+    <span class="pl-k">case</span> -1:
+        print NR <span class="pl-k">*</span> -1
+        <span class="pl-s3">break</span>
+    }</pre>
    </div>
    <p>
     <br/>
@@ -922,15 +900,14 @@
     switch: continue
    </p>
    <div class="highlight highlight-bash">
-    <pre>    BEGIN <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nv">x</span> <span class="o">=</span> 0<span class="p">;</span> x &lt;<span class="o">=</span> 20<span class="p">;</span> x++<span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span>x 5<span class="o">)</span>
-                <span class="k">continue</span>
-            <span class="nb">printf</span> <span class="s2">"%d "</span>, x
-        <span class="o">}</span>
-        print <span class="s2">""</span>
-    <span class="o">}</span>
-</pre>
+    <pre>    BEGIN {
+        <span class="pl-k">for</span> <span class="pl-vo">(x</span> = 0<span class="pl-k">;</span> x <span class="pl-k">&lt;</span>= 20<span class="pl-k">;</span> x++) {
+            <span class="pl-k">if</span> (x 5)
+                <span class="pl-k">continue</span>
+            <span class="pl-s3">printf</span> <span class="pl-s1"><span class="pl-pds">"</span>%d <span class="pl-pds">"</span></span>, x
+        }
+        print <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+    }</pre>
    </div>
    <p>
     <br/>
@@ -947,21 +924,20 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    BEGIN <span class="o">{</span>
-    <span class="k">if</span> <span class="o">((</span><span class="s2">"date"</span> <span class="p">|</span> getline date_now<span class="o">)</span> &lt;<span class="o">=</span> 0<span class="o">)</span> <span class="o">{</span>
-    print <span class="s2">"Can’t get system date"</span> &gt; <span class="s2">"/dev/stderr"</span>
-    <span class="nb">exit </span>1
-    <span class="o">}</span>
-    print <span class="s2">"current date is"</span>, date_now
-    close<span class="o">(</span><span class="s2">"date"</span><span class="o">)</span>
-    <span class="o">}</span>
-</pre>
+    <pre>    BEGIN {
+    <span class="pl-k">if</span> <span class="pl-s1"><span class="pl-pds">((</span>"date" <span class="pl-k">|</span> getline date_now) <span class="pl-k">&lt;=</span> <span class="pl-c1">0</span>) {</span>
+<span class="pl-s1">    print "Can’t get system date" &gt; "/dev/stderr"</span>
+<span class="pl-s1">    exit <span class="pl-c1">1</span></span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">    print "current date is", date_now</span>
+<span class="pl-s1">    close("date")</span>
+<span class="pl-s1">    }</span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#functions" name="user-content-functions">
+    <a aria-hidden="true" class="anchor" href="#functions" id="user-content-functions">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -988,14 +964,14 @@
     </li>
    </ul>
    <h1>
-    <a aria-hidden="true" class="anchor" href="#howtos" name="user-content-howtos">
+    <a aria-hidden="true" class="anchor" href="#howtos" id="user-content-howtos">
      <span class="octicon octicon-link">
      </span>
     </a>
     HOWTOS
    </h1>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#how-to-remove-special-characters-from-files" name="user-content-how-to-remove-special-characters-from-files">
+    <a aria-hidden="true" class="anchor" href="#how-to-remove-special-characters-from-files" id="user-content-how-to-remove-special-characters-from-files">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1021,24 +997,23 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    <span class="c"># Suppose that the original files are in folder original_files and we want to copy them to</span>
-    <span class="c"># folder new_files</span>
-    ls original_files &gt; list1 <span class="c"># generate list of files</span>
-    awk <span class="s1">'{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}'</span> list1 &gt; list2 <span class="c"># removes all special characters and generate a second list</span>
+    <pre>    <span class="pl-c"># Suppose that the original files are in folder original_files and we want to copy them to</span>
+    <span class="pl-c"># folder new_files</span>
+    ls original_files <span class="pl-k">&gt;</span> list1 <span class="pl-c"># generate list of files</span>
+    awk <span class="pl-s1"><span class="pl-pds">'</span>{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}<span class="pl-pds">'</span></span> list1 <span class="pl-k">&gt;</span> list2 <span class="pl-c"># removes all special characters and generate a second list</span>
 
-    <span class="c"># combine list1 and list2 to a list of shell command in list3</span>
-    <span class="c"># We will use strong quoting</span>
-    awk <span class="s1">'{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}'</span> list1
+    <span class="pl-c"># combine list1 and list2 to a list of shell command in list3</span>
+    <span class="pl-c"># We will use strong quoting</span>
+    awk <span class="pl-s1"><span class="pl-pds">'</span>{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}<span class="pl-pds">'</span></span> list1
 
-    sh list3 <span class="c"># run the list of commands in list3</span>
-    rm -frv list1 list2 list3 <span class="c"># remove all temporary files</span>
-</pre>
+    sh list3 <span class="pl-c"># run the list of commands in list3</span>
+    rm -frv list1 list2 list3 <span class="pl-c"># remove all temporary files</span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" name="user-content-make-each-character-a-separate-field">
+    <a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" id="user-content-make-each-character-a-separate-field">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1050,14 +1025,13 @@
     </li>
    </ul>
    <div class="highlight highlight-bash">
-    <pre>    BEGIN <span class="o">{</span><span class="nv">FS</span><span class="o">=</span><span class="s2">""</span><span class="o">}</span>
-</pre>
+    <pre>    BEGIN {FS=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>}</pre>
    </div>
    <p>
     <br/>
    </p>
    <h1>
-    <a aria-hidden="true" class="anchor" href="#books" name="user-content-books">
+    <a aria-hidden="true" class="anchor" href="#books" id="user-content-books">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1077,7 +1051,7 @@
     </li>
    </ul>
    <h1>
-    <a aria-hidden="true" class="anchor" href="#articles" name="user-content-articles">
+    <a aria-hidden="true" class="anchor" href="#articles" id="user-content-articles">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1134,18 +1108,20 @@
 
 <h4>Tags</h4>
 	<ul class="none">
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-4"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
 </ul>
 
 

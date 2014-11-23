@@ -126,7 +126,7 @@
  <div class="blob instapaper_body" id="readme">
   <article class="markdown-body entry-content" itemprop="mainContentOfPage">
    <h1>
-    <a aria-hidden="true" class="anchor" href="#a-guide-to-pythons-magic-methods" name="user-content-a-guide-to-pythons-magic-methods">
+    <a aria-hidden="true" class="anchor" href="#a-guide-to-pythons-magic-methods" id="user-content-a-guide-to-pythons-magic-methods">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -162,7 +162,7 @@
     . Any issues can be reported there, along with comments, (or even contributions!).
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#table-of-contents" name="user-content-table-of-contents">
+    <a aria-hidden="true" class="anchor" href="#table-of-contents" id="user-content-table-of-contents">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -263,7 +263,7 @@
     </li>
    </ol>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#introduction" name="user-content-introduction">
+    <a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -290,7 +290,7 @@
     I hope you enjoy it. Use it as a tutorial, a refresher, or a reference; it's just intended to be a user-friendly guide to Python's magic methods.
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#construction-and-initialization" name="user-content-construction-and-initialization">
+    <a aria-hidden="true" class="anchor" href="#construction-and-initialization" id="user-content-construction-and-initialization">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -425,22 +425,21 @@
     in action:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+    <pre>    <span class="pl-k">from</span> os.path <span class="pl-k">import</span> join
 
-    <span class="k">class</span> <span class="nc">FileObject</span><span class="p">:</span>
-        <span class="sd">'''Wrapper for file objects to make sure the file gets closed on deletion.'''</span>
+    <span class="pl-st">class</span> <span class="pl-en">FileObject</span>:
+        <span class="pl-s1"><span class="pl-pds">'''</span>Wrapper for file objects to make sure the file gets closed on deletion.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="s">'~'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">'sample.txt'</span><span class="p">):</span>
-            <span class="c"># open a file filename in filepath in read and write mode</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s">'r+'</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">filepath</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>~<span class="pl-pds">'</span></span>, <span class="pl-vpf">filename</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>sample.txt<span class="pl-pds">'</span></span>):
+            <span class="pl-c"># open a file filename in filepath in read and write mode</span>
+            <span class="pl-v">self</span>.file <span class="pl-k">=</span> <span class="pl-s3">open</span>(join(filepath, filename), <span class="pl-s1"><span class="pl-pds">'</span>r+<span class="pl-pds">'</span></span>)
 
-        <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span>
-</pre>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__del__</span></span>(<span class="pl-vpf">self</span>):
+            <span class="pl-v">self</span>.file.close()
+            <span class="pl-k">del</span> <span class="pl-v">self</span>.file</pre>
    </div>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#making-operators-work-on-custom-classes" name="user-content-making-operators-work-on-custom-classes">
+    <a aria-hidden="true" class="anchor" href="#making-operators-work-on-custom-classes" id="user-content-making-operators-work-on-custom-classes">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -450,9 +449,8 @@
     One of the biggest advantages of using Python's magic methods is that they provide a simple way to make objects behave like built-in types. That means you can avoid ugly, counter-intuitive, and nonstandard ways of performing basic operators. In some languages, it's common to do something like this:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">other_instance</span><span class="p">):</span>
-        <span class="c"># do something</span>
-</pre>
+    <pre>    <span class="pl-k">if</span> instance.equals(other_instance):
+        <span class="pl-c"># do something</span></pre>
    </div>
    <p>
     You could certainly do this in Python, too, but this adds confusion and is unnecessarily verbose. Different libraries might use different names for the same operations, making the client do way more work than necessary. With the power of magic methods, however, we can define one method (
@@ -462,15 +460,14 @@
     , in this case), and say what we mean instead:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">if</span> <span class="n">instance</span> <span class="o">==</span> <span class="n">other_instance</span><span class="p">:</span>
-        <span class="c">#do something</span>
-</pre>
+    <pre>    <span class="pl-k">if</span> instance <span class="pl-k">==</span> other_instance:
+        <span class="pl-c">#do something</span></pre>
    </div>
    <p>
     That's part of the power of magic methods. The vast majority of them allow us to define meaning for operators so that we can use them on our own classes just like they were built in types.
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#comparison-magic-methods" name="user-content-comparison-magic-methods">
+    <a aria-hidden="true" class="anchor" href="#comparison-magic-methods" id="user-content-comparison-magic-methods">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -575,26 +572,25 @@
     For an example, consider a class to model a word. We might want to compare words lexicographically (by the alphabet), which is the default comparison behavior for strings, but we also might want to do it based on some other criterion, like length or number of syllables. In this example, we'll compare by length. Here's an implementation:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">class</span> <span class="nc">Word</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-        <span class="sd">'''Class for words, defining comparison based on word length.'''</span>
+    <pre>    <span class="pl-st">class</span> <span class="pl-en">Word</span>(<span class="pl-e"><span class="pl-s3">str</span></span>):
+        <span class="pl-s1"><span class="pl-pds">'''</span>Class for words, defining comparison based on word length.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
-            <span class="c"># Note that we have to use __new__. This is because str is an immutable</span>
-            <span class="c"># type, so we have to initialize it early (at creation)</span>
-            <span class="k">if</span> <span class="s">' '</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-                <span class="k">print</span> <span class="s">"Value contains spaces. Truncating to first space."</span>
-                <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="n">word</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">' '</span><span class="p">)]</span> <span class="c"># Word is now all chars before first space</span>
-            <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__new__</span></span>(<span class="pl-vpf">cls</span>, <span class="pl-vpf">word</span>):
+            <span class="pl-c"># Note that we have to use __new__. This is because str is an immutable</span>
+            <span class="pl-c"># type, so we have to initialize it early (at creation)</span>
+            <span class="pl-k">if</span> <span class="pl-s1"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> <span class="pl-k">in</span> word:
+                <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">"</span>Value contains spaces. Truncating to first space.<span class="pl-pds">"</span></span>
+                word <span class="pl-k">=</span> word[:word.index(<span class="pl-s1"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span>)] <span class="pl-c"># Word is now all chars before first space</span>
+            <span class="pl-k">return</span> <span class="pl-s3">str</span>.<span class="pl-s3">__new__</span>(<span class="pl-v">cls</span>, word)
 
-        <span class="k">def</span> <span class="nf">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-</pre>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__gt__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>):
+            <span class="pl-k">return</span> <span class="pl-s3">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&gt;</span> <span class="pl-s3">len</span>(other)
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__lt__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>):
+            <span class="pl-k">return</span> <span class="pl-s3">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&lt;</span> <span class="pl-s3">len</span>(other)
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__ge__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>):
+            <span class="pl-k">return</span> <span class="pl-s3">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&gt;=</span> <span class="pl-s3">len</span>(other)
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__le__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>):
+            <span class="pl-k">return</span> <span class="pl-s3">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&lt;=</span> <span class="pl-s3">len</span>(other)</pre>
    </div>
    <p>
     <br/>
@@ -650,7 +646,7 @@
     above your class definition.
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#numeric-magic-methods" name="user-content-numeric-magic-methods">
+    <a aria-hidden="true" class="anchor" href="#numeric-magic-methods" id="user-content-numeric-magic-methods">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -660,7 +656,7 @@
     Just like you can create ways for instances of your class to be compared with comparison operators, you can define behavior for numeric operators. Buckle your seat belts, folks, there's a lot of these. For organization's sake, I've split the numeric magic methods into 5 categories: unary operators, normal arithmetic operators, reflected arithmetic operators (more on this later), augmented assignment, and type conversions.
    </p>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#unary-operators-and-functions" name="user-content-unary-operators-and-functions">
+    <a aria-hidden="true" class="anchor" href="#unary-operators-and-functions" id="user-content-unary-operators-and-functions">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -752,7 +748,7 @@
     </li>
    </ul>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#normal-arithmetic-operators" name="user-content-normal-arithmetic-operators">
+    <a aria-hidden="true" class="anchor" href="#normal-arithmetic-operators" id="user-content-normal-arithmetic-operators">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -904,7 +900,7 @@
     </li>
    </ul>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#reflected-arithmetic-operators" name="user-content-reflected-arithmetic-operators">
+    <a aria-hidden="true" class="anchor" href="#reflected-arithmetic-operators" id="user-content-reflected-arithmetic-operators">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -914,8 +910,7 @@
     You know how I said I would get to reflected arithmetic in a bit? Some of you might think it's some big, scary, foreign concept. It's actually quite simple. Here's an example:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="n">some_object</span> <span class="o">+</span> <span class="n">other</span>
-</pre>
+    <pre>    some_object <span class="pl-k">+</span> other</pre>
    </div>
    <p>
     <br/>
@@ -924,8 +919,7 @@
     That was "normal" addition. The reflected equivalent is the same thing, except with the operands switched around:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="n">other</span> <span class="o">+</span> <span class="n">some_object</span>
-</pre>
+    <pre>    other <span class="pl-k">+</span> some_object</pre>
    </div>
    <p>
     <br/>
@@ -1092,7 +1086,7 @@
     </li>
    </ul>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#augmented-assignment" name="user-content-augmented-assignment">
+    <a aria-hidden="true" class="anchor" href="#augmented-assignment" id="user-content-augmented-assignment">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1102,9 +1096,8 @@
     Python also has a wide variety of magic methods to allow custom behavior to be defined for augmented assignment. You're probably already familiar with augmented assignment, it combines "normal" operators with assignment. If you still don't know what I'm talking about, here's an example:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c"># in other words x = x + 1</span>
-</pre>
+    <pre>    x <span class="pl-k">=</span> <span class="pl-c1">5</span>
+    x <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-c"># in other words x = x + 1</span></pre>
    </div>
    <p>
     <br/>
@@ -1249,7 +1242,7 @@
     </li>
    </ul>
    <h4>
-    <a aria-hidden="true" class="anchor" href="#type-conversion-magic-methods" name="user-content-type-conversion-magic-methods">
+    <a aria-hidden="true" class="anchor" href="#type-conversion-magic-methods" id="user-content-type-conversion-magic-methods">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1339,7 +1332,7 @@
     </li>
    </ul>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#representing-your-classes" name="user-content-representing-your-classes">
+    <a aria-hidden="true" class="anchor" href="#representing-your-classes" id="user-content-representing-your-classes">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1513,7 +1506,7 @@
     We're pretty much done with the boring (and example-free) part of the magic methods guide. Now that we've covered some of the more basic magic methods, it's time to move to more advanced material.
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#controlling-attribute-access" name="user-content-controlling-attribute-access">
+    <a aria-hidden="true" class="anchor" href="#controlling-attribute-access" id="user-content-controlling-attribute-access">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1616,17 +1609,16 @@
     You can easily cause a problem in your definitions of any of the methods controlling attribute access. Consider this example:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="c"># since every time an attribute is assigned, __setattr__() is called, this</span>
-        <span class="c"># is recursion.</span>
-        <span class="c"># so this really means self.__setattr__('name', value). Since the method</span>
-        <span class="c"># keeps calling itself, the recursion goes on forever causing a crash</span>
+    <pre>    <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__setattr__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">name</span>, <span class="pl-vpf">value</span>):
+        <span class="pl-v">self</span>.name <span class="pl-k">=</span> value
+        <span class="pl-c"># since every time an attribute is assigned, __setattr__() is called, this</span>
+        <span class="pl-c"># is recursion.</span>
+        <span class="pl-c"># so this really means self.__setattr__('name', value). Since the method</span>
+        <span class="pl-c"># keeps calling itself, the recursion goes on forever causing a crash</span>
 
-    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="c"># assigning to the dict of names in the class</span>
-        <span class="c"># define custom behavior here</span>
-</pre>
+    <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__setattr__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">name</span>, <span class="pl-vpf">value</span>):
+        <span class="pl-v">self</span>.<span class="pl-sv">__dict__</span>[name] <span class="pl-k">=</span> value <span class="pl-c"># assigning to the dict of names in the class</span>
+        <span class="pl-c"># define custom behavior here</span></pre>
    </div>
    <p>
     <br/>
@@ -1642,32 +1634,31 @@
     ):
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">class</span> <span class="nc">AccessCounter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="sd">'''A class that contains a value and implements an access counter.</span>
-<span class="sd">        The counter increments each time the value is changed.'''</span>
+    <pre>    <span class="pl-st">class</span> <span class="pl-en">AccessCounter</span>(<span class="pl-e"><span class="pl-s3">object</span></span>):
+        <span class="pl-s1"><span class="pl-pds">'''</span>A class that contains a value and implements an access counter.</span>
+<span class="pl-s1">        The counter increments each time the value is changed.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-            <span class="nb">super</span><span class="p">(</span><span class="n">AccessCounter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="s">'counter'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="nb">super</span><span class="p">(</span><span class="n">AccessCounter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="s">'value'</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">val</span>):
+            <span class="pl-s3">super</span>(AccessCounter, <span class="pl-v">self</span>).__setattr__(<span class="pl-s1"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)
+            <span class="pl-s3">super</span>(AccessCounter, <span class="pl-v">self</span>).__setattr__(<span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>, val)
 
-        <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'value'</span><span class="p">:</span>
-                <span class="nb">super</span><span class="p">(</span><span class="n">AccessCounter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="s">'counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="c"># Make this unconditional.</span>
-            <span class="c"># If you want to prevent other attributes to be set, raise AttributeError(name)</span>
-            <span class="nb">super</span><span class="p">(</span><span class="n">AccessCounter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__setattr__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">name</span>, <span class="pl-vpf">value</span>):
+            <span class="pl-k">if</span> name <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>:
+                <span class="pl-s3">super</span>(AccessCounter, <span class="pl-v">self</span>).__setattr__(<span class="pl-s1"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-v">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
+            <span class="pl-c"># Make this unconditional.</span>
+            <span class="pl-c"># If you want to prevent other attributes to be set, raise AttributeError(name)</span>
+            <span class="pl-s3">super</span>(AccessCounter, <span class="pl-v">self</span>).__setattr__(name, value)
 
-        <span class="k">def</span> <span class="nf">__delattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'value'</span><span class="p">:</span>
-                <span class="nb">super</span><span class="p">(</span><span class="n">AccessCounter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="s">'counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="nb">super</span><span class="p">(</span><span class="n">AccessCounter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__delattr__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</pre>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__delattr__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">name</span>):
+            <span class="pl-k">if</span> name <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>:
+                <span class="pl-s3">super</span>(AccessCounter, <span class="pl-v">self</span>).__setattr__(<span class="pl-s1"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-v">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
+            <span class="pl-s3">super</span>(AccessCounter, <span class="pl-v">self</span>).__delattr__(name)</pre>
    </div>
    <p>
     <br/>
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#making-custom-sequences" name="user-content-making-custom-sequences">
+    <a aria-hidden="true" class="anchor" href="#making-custom-sequences" id="user-content-making-custom-sequences">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1677,7 +1668,7 @@
     There's a number of ways to get your Python classes to act like built in sequences (dict, tuple, list, string, etc.). These are by far my favorite magic methods in Python because of the absurd degree of control they give you and the way that they magically make a whole array of global functions work beautifully on instances of your class. But before we get down to the good stuff, a quick word on requirements.
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#requirements" name="user-content-requirements">
+    <a aria-hidden="true" class="anchor" href="#requirements" id="user-content-requirements">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1718,7 +1709,7 @@
     .
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#the-magic-behind-containers" name="user-content-the-magic-behind-containers">
+    <a aria-hidden="true" class="anchor" href="#the-magic-behind-containers" id="user-content-the-magic-behind-containers">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1858,7 +1849,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#an-example" name="user-content-an-example">
+    <a aria-hidden="true" class="anchor" href="#an-example" id="user-content-an-example">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1868,56 +1859,55 @@
     For our example, let's look at a list that implements some functional constructs that you might be used to from other languages (Haskell, for example).
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">class</span> <span class="nc">FunctionalList</span><span class="p">:</span>
-        <span class="sd">'''A class wrapping a list with some extra functional magic, like head,</span>
-<span class="sd">        tail, init, last, drop, and take.'''</span>
+    <pre>    <span class="pl-st">class</span> <span class="pl-en">FunctionalList</span>:
+        <span class="pl-s1"><span class="pl-pds">'''</span>A class wrapping a list with some extra functional magic, like head,</span>
+<span class="pl-s1">        tail, init, last, drop, and take.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">values</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">values</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
+            <span class="pl-k">if</span> values <span class="pl-k">is</span> <span class="pl-c1">None</span>:
+                <span class="pl-v">self</span>.values <span class="pl-k">=</span> []
+            <span class="pl-k">else</span>:
+                <span class="pl-v">self</span>.values <span class="pl-k">=</span> values
 
-        <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__len__</span></span>(<span class="pl-vpf">self</span>):
+            <span class="pl-k">return</span> <span class="pl-s3">len</span>(<span class="pl-v">self</span>.values)
 
-        <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-            <span class="c"># if key is of invalid type or value, the list values will raise the error</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__getitem__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">key</span>):
+            <span class="pl-c"># if key is of invalid type or value, the list values will raise the error</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[key]
 
-        <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__setitem__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">key</span>, <span class="pl-vpf">value</span>):
+            <span class="pl-v">self</span>.values[key] <span class="pl-k">=</span> value
 
-        <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__delitem__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">key</span>):
+            <span class="pl-k">del</span> <span class="pl-v">self</span>.values[key]
 
-        <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__iter__</span></span>(<span class="pl-vpf">self</span>):
+            <span class="pl-k">return</span> <span class="pl-s3">iter</span>(<span class="pl-v">self</span>.values)
 
-        <span class="k">def</span> <span class="nf">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">FunctionalList</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+        <span class="pl-st">def</span> <span class="pl-en">__reversed__</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-k">return</span> FunctionalList(<span class="pl-s3">reversed</span>(<span class="pl-v">self</span>.values))
 
-        <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c"># get the first element</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c"># get all elements after the first</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c"># get elements up to the last</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c"># get last element</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">def</span> <span class="nf">drop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-            <span class="c"># get all elements except first n</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span>
-        <span class="k">def</span> <span class="nf">take</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-            <span class="c"># get first n elements</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
-</pre>
+        <span class="pl-st">def</span> <span class="pl-en">append</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">value</span>):
+            <span class="pl-v">self</span>.values.append(value)
+        <span class="pl-st">def</span> <span class="pl-en">head</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-c"># get the first element</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[<span class="pl-c1">0</span>]
+        <span class="pl-st">def</span> <span class="pl-en">tail</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-c"># get all elements after the first</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[<span class="pl-c1">1</span>:]
+        <span class="pl-st">def</span> <span class="pl-en">init</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-c"># get elements up to the last</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[:<span class="pl-k">-</span><span class="pl-c1">1</span>]
+        <span class="pl-st">def</span> <span class="pl-en">last</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-c"># get last element</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[<span class="pl-k">-</span><span class="pl-c1">1</span>]
+        <span class="pl-st">def</span> <span class="pl-en">drop</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">n</span>):
+            <span class="pl-c"># get all elements except first n</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[n:]
+        <span class="pl-st">def</span> <span class="pl-en">take</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">n</span>):
+            <span class="pl-c"># get first n elements</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[:n]</pre>
    </div>
    <p>
     <br/>
@@ -1926,7 +1916,7 @@
     There you have it, a (marginally) useful example of how to implement your own sequence. Of course, there are more useful applications of custom sequences, but quite a few of them are already implemented in the standard library (batteries included, right?), like Counter, OrderedDict, and NamedTuple.
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#reflection" name="user-content-reflection">
+    <a aria-hidden="true" class="anchor" href="#reflection" id="user-content-reflection">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1944,9 +1934,8 @@
     behaves by defining magic methods. The magic methods are:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="n">__instancecheck__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="n">Checks</span> <span class="k">if</span> <span class="n">an</span> <span class="n">instance</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">you</span> <span class="n">defined</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">class</span><span class="p">)</span><span class="o">.</span>
-    <span class="n">__subclasscheck__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subclass</span><span class="p">)</span> <span class="n">Checks</span> <span class="k">if</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">subclasses</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">you</span> <span class="n">defined</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">subclass</span><span class="p">,</span> <span class="n">class</span><span class="p">))</span><span class="o">.</span>
-</pre>
+    <pre>    __instancecheck__(<span class="pl-v">self</span>, instance) Checks <span class="pl-k">if</span> an instance <span class="pl-k">is</span> an instance of the <span class="pl-st">class</span> you defined (e.g. <span class="pl-s3">isinstance</span>(instance, <span class="pl-st">class</span>).
+    __subclasscheck__(<span class="pl-v">self</span>, subclass) Checks <span class="pl-k">if</span> a <span class="pl-st">class</span> subclasses the <span class="pl-st">class</span> you defined (e.g. <span class="pl-s3">issubclass</span>(subclass, <span class="pl-st">class</span>)).</pre>
    </div>
    <p>
     <br/>
@@ -1955,7 +1944,7 @@
     The use case for these magic methods might seem small, and that may very well be true. I won't spend too much more time on reflection magic methods because they aren't very important, but they reflect something important about object-oriented programming in Python and Python in general: there is almost always an easy way to do something, even if it's rarely necessary. These magic methods might not seem useful, but if you ever need them you'll be glad that they're there (and that you read this guide!).
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#callable-objects" name="user-content-callable-objects">
+    <a aria-hidden="true" class="anchor" href="#callable-objects" id="user-content-callable-objects">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -1998,25 +1987,24 @@
     can be particularly useful in classes whose instances that need to often change state. "Calling" the instance can be an intuitive and elegant way to change the object's state. An example might be a class representing an entity's position on a plane:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">class</span> <span class="nc">Entity</span><span class="p">:</span>
-        <span class="sd">'''Class to represent an entity. Callable to update the entity's position.'''</span>
+    <pre>    <span class="pl-st">class</span> <span class="pl-en">Entity</span>:
+        <span class="pl-s1"><span class="pl-pds">'''</span>Class to represent an entity. Callable to update the entity's position.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">size</span>, <span class="pl-vpf">x</span>, <span class="pl-vpf">y</span>):
+            <span class="pl-v">self</span>.x, <span class="pl-v">self</span>.y <span class="pl-k">=</span> x, y
+            <span class="pl-v">self</span>.size <span class="pl-k">=</span> size
 
-        <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-            <span class="sd">'''Change the position of the entity.'''</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__call__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">x</span>, <span class="pl-vpf">y</span>):
+            <span class="pl-s1"><span class="pl-pds">'''</span>Change the position of the entity.<span class="pl-pds">'''</span></span>
+            <span class="pl-v">self</span>.x, <span class="pl-v">self</span>.y <span class="pl-k">=</span> x, y
 
-        <span class="c"># snip...</span>
-</pre>
+        <span class="pl-c"># snip...</span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#context-managers" name="user-content-context-managers">
+    <a aria-hidden="true" class="anchor" href="#context-managers" id="user-content-context-managers">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2026,9 +2014,8 @@
     In Python 2.5, a new keyword was introduced in Python along with a new method for code reuse, the with statement. The concept of context managers was hardly new in Python (it was implemented before as a part of the library), but not until PEP 343 was accepted did it achieve status as a first class language construct. You may have seen with statements before:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'foo.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
-            <span class="c"># perform some action with bar</span>
-</pre>
+    <pre>    <span class="pl-k">with</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>foo.txt<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> bar:
+            <span class="pl-c"># perform some action with bar</span></pre>
    </div>
    <p>
     <br/>
@@ -2081,23 +2068,22 @@
     can be useful for specific classes that have well-defined and common behavior for setup and cleanup. You can also use these methods to create generic context managers that wrap other objects. Here's an example:
    </p>
    <div class="highlight highlight-python">
-    <pre><span class="k">class</span> <span class="nc">Closer</span><span class="p">:</span>
-    <span class="sd">'''A context manager to automatically close an object with a close method</span>
-<span class="sd">    in a with statement.'''</span>
+    <pre><span class="pl-st">class</span> <span class="pl-en">Closer</span>:
+    <span class="pl-s1"><span class="pl-pds">'''</span>A context manager to automatically close an object with a close method</span>
+<span class="pl-s1">    in a with statement.<span class="pl-pds">'''</span></span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">obj</span>):
+        <span class="pl-v">self</span>.obj <span class="pl-k">=</span> obj
 
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="c"># bound to target</span>
+    <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__enter__</span></span>(<span class="pl-vpf">self</span>):
+        <span class="pl-k">return</span> <span class="pl-v">self</span>.obj <span class="pl-c"># bound to target</span>
 
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_val</span><span class="p">,</span> <span class="n">trace</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-           <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span> <span class="c"># obj isn't closable</span>
-           <span class="k">print</span> <span class="s">'Not closable.'</span>
-           <span class="k">return</span> <span class="bp">True</span> <span class="c"># exception handled successfully</span>
-</pre>
+    <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__exit__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">exception_type</span>, <span class="pl-vpf">exception_val</span>, <span class="pl-vpf">trace</span>):
+        <span class="pl-k">try</span>:
+           <span class="pl-v">self</span>.obj.close()
+        <span class="pl-k">except</span> <span class="pl-s3">AttributeError</span>: <span class="pl-c"># obj isn't closable</span>
+           <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>Not closable.<span class="pl-pds">'</span></span>
+           <span class="pl-k">return</span> <span class="pl-c1">True</span> <span class="pl-c"># exception handled successfully</span></pre>
    </div>
    <p>
     <br/>
@@ -2110,21 +2096,20 @@
     in action, using an FTP connection to demonstrate it (a closable socket):
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">magicmethods</span> <span class="kn">import</span> <span class="n">Closer</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">ftplib</span> <span class="kn">import</span> <span class="n">FTP</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">Closer</span><span class="p">(</span><span class="n">FTP</span><span class="p">(</span><span class="s">'ftp.somesite.com'</span><span class="p">))</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
-    <span class="o">...</span>     <span class="n">conn</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
-    <span class="o">...</span>
-    <span class="c"># output omitted for brevity</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">conn</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
-    <span class="c"># long AttributeError message, can't use a connection that's closed</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">Closer</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
-    <span class="o">...</span>     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="o">...</span>
-    <span class="n">Not</span> <span class="n">closable</span><span class="o">.</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">i</span>
-    <span class="mi">6</span>
-</pre>
+    <pre>    <span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">from</span> magicmethods <span class="pl-k">import</span> Closer
+    <span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">from</span> ftplib <span class="pl-k">import</span> FTP
+    <span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">with</span> Closer(FTP(<span class="pl-s1"><span class="pl-pds">'</span>ftp.somesite.com<span class="pl-pds">'</span></span>)) <span class="pl-k">as</span> conn:
+    ...     conn.dir()
+    ...
+    <span class="pl-c"># output omitted for brevity</span>
+    <span class="pl-k">&gt;&gt;&gt;</span> conn.dir()
+    <span class="pl-c"># long AttributeError message, can't use a connection that's closed</span>
+    <span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">with</span> Closer(<span class="pl-s3">int</span>(<span class="pl-c1">5</span>)) <span class="pl-k">as</span> i:
+    ...     i <span class="pl-k">+=</span> <span class="pl-c1">1</span>
+    ...
+    Not closable.
+    <span class="pl-k">&gt;&gt;&gt;</span> i
+    <span class="pl-c1">6</span></pre>
    </div>
    <p>
     <br/>
@@ -2145,7 +2130,7 @@
     method).
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#abstract-base-classes" name="user-content-abstract-base-classes">
+    <a aria-hidden="true" class="anchor" href="#abstract-base-classes" id="user-content-abstract-base-classes">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2159,7 +2144,7 @@
     .
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#building-descriptor-objects" name="user-content-building-descriptor-objects">
+    <a aria-hidden="true" class="anchor" href="#building-descriptor-objects" id="user-content-building-descriptor-objects">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2207,36 +2192,35 @@
     Now, an example of a useful application of descriptors: unit conversions.
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="k">class</span> <span class="nc">Meter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="sd">'''Descriptor for a meter.'''</span>
+    <pre>    <span class="pl-st">class</span> <span class="pl-en">Meter</span>(<span class="pl-e"><span class="pl-s3">object</span></span>):
+        <span class="pl-s1"><span class="pl-pds">'''</span>Descriptor for a meter.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-        <span class="k">def</span> <span class="nf">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">value</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>):
+            <span class="pl-v">self</span>.value <span class="pl-k">=</span> <span class="pl-s3">float</span>(value)
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__get__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">instance</span>, <span class="pl-vpf">owner</span>):
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.value
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__set__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">instance</span>, <span class="pl-vpf">value</span>):
+            <span class="pl-v">self</span>.value <span class="pl-k">=</span> <span class="pl-s3">float</span>(value)
 
-    <span class="k">class</span> <span class="nc">Foot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="sd">'''Descriptor for a foot.'''</span>
+    <span class="pl-st">class</span> <span class="pl-en">Foot</span>(<span class="pl-e"><span class="pl-s3">object</span></span>):
+        <span class="pl-s1"><span class="pl-pds">'''</span>Descriptor for a foot.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">meter</span> <span class="o">*</span> <span class="mf">3.2808</span>
-        <span class="k">def</span> <span class="nf">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="n">instance</span><span class="o">.</span><span class="n">meter</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.2808</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__get__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">instance</span>, <span class="pl-vpf">owner</span>):
+            <span class="pl-k">return</span> instance.meter <span class="pl-k">*</span> <span class="pl-c1">3.2808</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__set__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">instance</span>, <span class="pl-vpf">value</span>):
+            instance.meter <span class="pl-k">=</span> <span class="pl-s3">float</span>(value) <span class="pl-k">/</span> <span class="pl-c1">3.2808</span>
 
-    <span class="k">class</span> <span class="nc">Distance</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="sd">'''Class to represent distance holding two descriptors for feet and</span>
-<span class="sd">        meters.'''</span>
-        <span class="n">meter</span> <span class="o">=</span> <span class="n">Meter</span><span class="p">()</span>
-        <span class="n">foot</span> <span class="o">=</span> <span class="n">Foot</span><span class="p">()</span>
-</pre>
+    <span class="pl-st">class</span> <span class="pl-en">Distance</span>(<span class="pl-e"><span class="pl-s3">object</span></span>):
+        <span class="pl-s1"><span class="pl-pds">'''</span>Class to represent distance holding two descriptors for feet and</span>
+<span class="pl-s1">        meters.<span class="pl-pds">'''</span></span>
+        meter <span class="pl-k">=</span> Meter()
+        foot <span class="pl-k">=</span> Foot()</pre>
    </div>
    <p>
     <br/>
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#copying" name="user-content-copying">
+    <a aria-hidden="true" class="anchor" href="#copying" id="user-content-copying">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2283,7 +2267,7 @@
     What are some use cases for these magic methods? As always, in any case where you need more fine-grained control than what the default behavior gives you. For instance, if you are attempting to copy an object that stores a cache as a dictionary (which might be large), it might not make sense to copy the cache as well -- if the cache can be shared in memory between instances, then it should be.
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#pickling-your-objects" name="user-content-pickling-your-objects">
+    <a aria-hidden="true" class="anchor" href="#pickling-your-objects" id="user-content-pickling-your-objects">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2300,7 +2284,7 @@
     ), but its own protocol and the magic methods to go with it. But first, a brief word on how to pickle existing types(feel free to skip it if you already know).
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#pickling-a-quick-soak-in-the-brine" name="user-content-pickling-a-quick-soak-in-the-brine">
+    <a aria-hidden="true" class="anchor" href="#pickling-a-quick-soak-in-the-brine" id="user-content-pickling-a-quick-soak-in-the-brine">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2314,15 +2298,14 @@
     or processing the file input. But this is precarious at best: if you store important data in plain text, it could be corrupted or changed in any number of ways to make your program crash or worse run malicious code on your computer. Instead, we're going to pickle it:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="kn">import</span> <span class="nn">pickle</span>
+    <pre>    <span class="pl-k">import</span> pickle
 
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'foo'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-            <span class="s">'bar'</span><span class="p">:</span> <span class="p">(</span><span class="s">'Hello'</span><span class="p">,</span> <span class="s">'world!'</span><span class="p">),</span>
-            <span class="s">'baz'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
-    <span class="n">jar</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.pkl'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">jar</span><span class="p">)</span> <span class="c"># write the pickled data to the file jar</span>
-    <span class="n">jar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre>
+    data <span class="pl-k">=</span> {<span class="pl-s1"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],
+            <span class="pl-s1"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: (<span class="pl-s1"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>world!<span class="pl-pds">'</span></span>),
+            <span class="pl-s1"><span class="pl-pds">'</span>baz<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>}
+    jar <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>)
+    pickle.dump(data, jar) <span class="pl-c"># write the pickled data to the file jar</span>
+    jar.close()</pre>
    </div>
    <p>
     <br/>
@@ -2331,13 +2314,12 @@
     Now, a few hours later, we want it back. All we have to do is unpickle it:
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="kn">import</span> <span class="nn">pickle</span>
+    <pre>    <span class="pl-k">import</span> pickle
 
-    <span class="n">pkl_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data.pkl'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="c"># connect to the pickled data</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pkl_file</span><span class="p">)</span> <span class="c"># load it into a variable</span>
-    <span class="k">print</span> <span class="n">data</span>
-    <span class="n">pkl_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre>
+    pkl_file <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>) <span class="pl-c"># connect to the pickled data</span>
+    data <span class="pl-k">=</span> pickle.load(pkl_file) <span class="pl-c"># load it into a variable</span>
+    <span class="pl-k">print</span> data
+    pkl_file.close()</pre>
    </div>
    <p>
     <br/>
@@ -2349,7 +2331,7 @@
     Now, for a word of caution: pickling is not perfect. Pickle files are easily corrupted on accident and on purpose. Pickling may be more secure than using flat text files, but it still can be used to run malicious code. It's also incompatible across versions of Python, so don't expect to distribute pickled objects and expect people to be able to open them. However, it can also be a powerful tool for caching and other common serialization tasks.
    </p>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#pickling-your-own-objects" name="user-content-pickling-your-own-objects">
+    <a aria-hidden="true" class="anchor" href="#pickling-your-own-objects" id="user-content-pickling-your-own-objects">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2465,7 +2447,7 @@
     </li>
    </ul>
    <h3>
-    <a aria-hidden="true" class="anchor" href="#an-example-1" name="user-content-an-example-1">
+    <a aria-hidden="true" class="anchor" href="#an-example-1" id="user-content-an-example-1">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2479,44 +2461,43 @@
     , which remembers what its values have been and when those values were written to it. However, this particular slate goes blank each time it is pickled: the current value will not be saved.
    </p>
    <div class="highlight highlight-python">
-    <pre>    <span class="kn">import</span> <span class="nn">time</span>
+    <pre>    <span class="pl-k">import</span> time
 
-    <span class="k">class</span> <span class="nc">Slate</span><span class="p">:</span>
-        <span class="sd">'''Class to store a string and a changelog, and forget its value when</span>
-<span class="sd">        pickled.'''</span>
+    <span class="pl-st">class</span> <span class="pl-en">Slate</span>:
+        <span class="pl-s1"><span class="pl-pds">'''</span>Class to store a string and a changelog, and forget its value when</span>
+<span class="pl-s1">        pickled.<span class="pl-pds">'''</span></span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">last_change</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">value</span>):
+            <span class="pl-v">self</span>.value <span class="pl-k">=</span> value
+            <span class="pl-v">self</span>.last_change <span class="pl-k">=</span> time.asctime()
+            <span class="pl-v">self</span>.history <span class="pl-k">=</span> {}
 
-        <span class="k">def</span> <span class="nf">change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
-            <span class="c"># Change the value. Commit last value to history</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">last_change</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">new_value</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">last_change</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">()</span>
+        <span class="pl-st">def</span> <span class="pl-en">change</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">new_value</span>):
+            <span class="pl-c"># Change the value. Commit last value to history</span>
+            <span class="pl-v">self</span>.history[<span class="pl-v">self</span>.last_change] <span class="pl-k">=</span> <span class="pl-v">self</span>.value
+            <span class="pl-v">self</span>.value <span class="pl-k">=</span> new_value
+            <span class="pl-v">self</span>.last_change <span class="pl-k">=</span> time.asctime()
 
-        <span class="k">def</span> <span class="nf">print_changes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">print</span> <span class="s">'Changelog for Slate object:'</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">print</span> <span class="s">'</span><span class="si">%s</span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="pl-st">def</span> <span class="pl-en">print_changes</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>Changelog for Slate object:<span class="pl-pds">'</span></span>
+            <span class="pl-k">for</span> k, v <span class="pl-k">in</span> <span class="pl-v">self</span>.history.items():
+                <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-c1">%s</span><span class="pl-cce">\t</span> <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> (k, v)
 
-        <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c"># Deliberately do not return self.value or self.last_change.</span>
-            <span class="c"># We want to have a "blank slate" when we unpickle.</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span>
+        <span class="pl-st">def</span> <span class="pl-en">__getstate__</span>(<span class="pl-vpf">self</span>):
+            <span class="pl-c"># Deliberately do not return self.value or self.last_change.</span>
+            <span class="pl-c"># We want to have a "blank slate" when we unpickle.</span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.history
 
-        <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
-            <span class="c"># Make self.history = state and last_change and value undefined</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">state</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_change</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
-</pre>
+        <span class="pl-st">def</span> <span class="pl-en">__setstate__</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">state</span>):
+            <span class="pl-c"># Make self.history = state and last_change and value undefined</span>
+            <span class="pl-v">self</span>.history <span class="pl-k">=</span> state
+            <span class="pl-v">self</span>.value, <span class="pl-v">self</span>.last_change <span class="pl-k">=</span> <span class="pl-c1">None</span>, <span class="pl-c1">None</span></pre>
    </div>
    <p>
     <br/>
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#conclusion" name="user-content-conclusion">
+    <a aria-hidden="true" class="anchor" href="#conclusion" id="user-content-conclusion">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2526,7 +2507,7 @@
     The goal of this guide is to bring something to anyone that reads it, regardless of their experience with Python or object-oriented programming. If you're just getting started with Python, you've gained valuable knowledge of the basics of writing feature-rich, elegant, and easy-to-use classes. If you're an intermediate Python programmer, you've probably picked up some slick new concepts and strategies and some good ways to reduce the amount of code written by you and clients. If you're an expert Pythonista, you've been refreshed on some of the stuff you might have forgotten about and maybe picked up a few new tricks along the way. Whatever your experience level, I hope that this trip through Python's special methods has been truly magical (I couldn't resist the final pun).
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#appendix-1-how-to-call-magic-methods" name="user-content-appendix-1-how-to-call-magic-methods">
+    <a aria-hidden="true" class="anchor" href="#appendix-1-how-to-call-magic-methods" id="user-content-appendix-1-how-to-call-magic-methods">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2901,7 +2882,7 @@
     Hopefully, this table should have cleared up any questions you might have had about what syntax invokes which magic method.
    </p>
    <h2>
-    <a aria-hidden="true" class="anchor" href="#appendix-2-changes-in-python-3" name="user-content-appendix-2-changes-in-python-3">
+    <a aria-hidden="true" class="anchor" href="#appendix-2-changes-in-python-3" id="user-content-appendix-2-changes-in-python-3">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -2997,18 +2978,20 @@
 
 <h4>Tags</h4>
 	<ul class="none">
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-4"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
 </ul>
 
 
