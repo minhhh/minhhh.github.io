@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-        <title>Android CLI tool cheatsheet</title>
+        <title>An Introduction to Bash</title>
         <meta charset="utf-8" />
 
 
@@ -64,13 +64,13 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../posts/android-cli-tool-cheatsheet" rel="bookmark"
-                   title="Permalink to Android CLI tool cheatsheet">Android CLI tool cheatsheet</a></h2>
+                <a href="../posts/an-introduction-to-bash" rel="bookmark"
+                   title="Permalink to An Introduction to Bash">An Introduction to Bash</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2014-10-03T00:00:00">
-                Fri 03 October 2014
+              <abbr class="published" title="2014-11-23T00:00:00">
+                Sun 23 November 2014
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../author/haminh.html">Ha.Minh</a>
@@ -126,105 +126,241 @@
  <div class="blob instapaper_body" id="readme">
   <article class="markdown-body entry-content" itemprop="mainContentOfPage">
    <h1>
-    <a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" id="user-content-android-cli-cheatsheet">
+    <a aria-hidden="true" class="anchor" href="#bash" id="user-content-bash">
      <span class="octicon octicon-link">
      </span>
     </a>
-    ANDROID CLI CHEATSHEET
+    BASH
    </h1>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#read-log" id="user-content-read-log">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Read log
-   </h3>
-   <pre><code>adb logcat
-adb logcat -v time
-
-adb logcat *:V # Get all message in verbose mode
-adb logcat xxxxxxx:V *:S # Get all message starts with xxxxx
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#list-package" id="user-content-list-package">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    List package
-   </h3>
-   <pre><code>adb shell pm list package
-adb shell pm path com.example.someapp
-adb pull /data/app/com.example.someapp-2.apk
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#run-a-particular-intent" id="user-content-run-a-particular-intent">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Run a particular intent
-   </h3>
-   <pre><code>arun-us: # Launch the game for US on the Android device.
-    adb shell 'am start -a $(MYPACKAGEID).RUN -e server http://$(MYIP):$(MYPORT) -e game $(game) -e nativeLog $(MYNATIVELOG)'
-astop-us: # Launch the game for US on the Android device.
-    adb shell 'am broadcast -a $(MYPACKAGEID).STOP'
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#install--uninstall" id="user-content-install--uninstall">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Install / Uninstall
-   </h3>
-   <pre><code>adb install file.apk
-adb install -r file.apk # replace
-
-adb shell am start -a android.intent.action.DELETE -d package:&lt;your app package&gt;
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#extracting-apk-file" id="user-content-extracting-apk-file">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Extracting APK file
-   </h3>
-   <p>
-    Use
-    <code>
-     apktool
-    </code>
-   </p>
-   <pre><code>apk d /path/to/apk
-open res/values/strings.xml
-</code></pre>
    <h2>
     <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
      <span class="octicon octicon-link">
      </span>
     </a>
-    References
+    REFERENCES
    </h2>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#general-documents-books-tutorials" id="user-content-general-documents-books-tutorials">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    General Documents, Books, Tutorials
+   </h3>
    <ul class="task-list">
     <li>
-     <a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file">
-      View android manifset from APK
+     <a href="http://tldp.org/LDP/abs/html/">
+      Advanced Bash Scripting Guide
      </a>
     </li>
     <li>
-     <a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device">
-      Get apk from Android device
+     <a href="https://code.google.com/p/bashscripts/downloads/list">
+      Sample Bash files
      </a>
     </li>
     <li>
-     <a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear">
-      Adb shell to uninstall package
-     </a>
-    </li>
-    <li>
-     <a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat">
-      Debugging with logcat
+     <a href="https://github.com/azet/community_bash_style_guide/blob/master/README.md">
+      Community Bash Style Guide
      </a>
     </li>
    </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#linting" id="user-content-linting">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Linting
+   </h3>
+   <ul class="task-list">
+    <li>
+     <a href="https://github.com/koalaman/shellcheck">
+      Shellcheck
+     </a>
+    </li>
+    <li>
+     <a href="https://www.npmjs.org/package/grunt-lint-bash">
+      Grunt Lint Bash
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/duggan/shlint">
+      SHLint
+     </a>
+    </li>
+    <li>
+     <a href="http://manpages.ubuntu.com/manpages/natty/man1/checkbashisms.1.html">
+      checkbashisms
+     </a>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#unit-testing" id="user-content-unit-testing">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Unit Testing
+   </h3>
+   <ul class="task-list">
+    <li>
+     <a href="https://github.com/sstephenson/bats">
+      bats
+     </a>
+    </li>
+    <li>
+     <a href="https://code.google.com/p/shunit2/">
+      shunit2
+     </a>
+    </li>
+    <li>
+     <a href="https://github.com/mlafeldt/sharness">
+      sharness
+     </a>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#profiling" id="user-content-profiling">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Profiling
+   </h3>
+   <ul class="task-list">
+    <li>
+     <a href="https://github.com/sstephenson/bashprof">
+      bashprof
+     </a>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#debugging" id="user-content-debugging">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Debugging
+   </h3>
+   <ul class="task-list">
+    <li>
+     <a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_03.html">
+      Debugging Bash
+     </a>
+    </li>
+    <li>
+     <a href="http://bashdb.sourceforge.net/bashdb.html">
+      bashdb
+     </a>
+    </li>
+   </ul>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#basics" id="user-content-basics">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    BASICS
+   </h2>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#run-a-bash-script" id="user-content-run-a-bash-script">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Run a bash script
+   </h3>
+   <p>
+    Forking a new shell
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="pl-c"># dot slash</span>
+    ./script.sh
+
+    <span class="pl-c"># specifying the shell interpreter</span>
+    bash script.sh</pre>
+   </div>
+   <p>
+    Executes the script in the current shell without forking a new shell
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="pl-c"># dot space dot slash</span>
+    <span class="pl-s3">.</span> ./script.sh
+
+    <span class="pl-c"># source command : similar to dot space dot slash</span>
+    <span class="pl-s3">source</span> script.sh</pre>
+   </div>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#block-comment" id="user-content-block-comment">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Block Comment
+   </h3>
+   <div class="highlight highlight-bash">
+    <pre>    <span class="pl-c">#! /usr/bin/env bash</span>
+    <span class="pl-s3">:</span> <span class="pl-s1"><span class="pl-k">&lt;&lt;</span><span class="pl-k">COMMENT</span></span>
+<span class="pl-s1">    Copyright (C) 2012 Author &lt;author at gmail dot com&gt;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    This program is free software: you can redistribute it and/or modify</span>
+<span class="pl-s1">    it under the terms of the GNU General Public License as published by</span>
+<span class="pl-s1">    the Free Software Foundation version 3.</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    This program is distributed in the hope that it will be useful,</span>
+<span class="pl-s1">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="pl-s1">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="pl-s1">    GNU General Public License for more details.</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    You should have received a copy of the GNU General Public License</span>
+<span class="pl-s1">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="pl-s1">    COMMENT</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    version="v0.1.1"</span></pre>
+   </div>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#looping-in-bash" id="user-content-looping-in-bash">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Looping in bash
+   </h3>
+   <ul class="task-list">
+    <li>
+     <a href="http://www.thegeekstuff.com/2011/07/bash-for-loop-examples/">
+      Bash for loop example
+     </a>
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#exit-on-error-with-set--e" id="user-content-exit-on-error-with-set--e">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Exit on error with set -e
+   </h3>
+   <ul class="task-list">
+    <li>
+     Call
+     <code>
+      set -e
+     </code>
+     in your bash and it will exit if any command returns any error.
+    </li>
+    <li>
+     Call
+     <code>
+      set -evx
+     </code>
+     or
+     <code>
+      bash -evx script.sh
+     </code>
+     to debug script.
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#get-current-bash-file-folder" id="user-content-get-current-bash-file-folder">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Get current bash file folder
+   </h3>
+   <div class="highlight highlight-bash">
+    <pre>    DIR=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pds">$(</span> <span class="pl-s3">cd</span> -P <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pds">$(</span> dirname <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-vo">$0</span><span class="pl-pds">"</span></span> <span class="pl-pds">)</span></span><span class="pl-pds">"</span></span> <span class="pl-k">&amp;&amp;</span> <span class="pl-s3">pwd</span> <span class="pl-pds">)</span></span><span class="pl-pds">"</span></span></pre>
+   </div>
   </article>
  </div>
 </div>
@@ -233,9 +369,9 @@ open res/values/strings.xml
                 
                 <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
                 
-                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/android_cli.md">view original</a></span>
+                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/bash.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
-                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/android_cli.md">android_cli.md</a></span>
+                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/bash.md">bash.md</a></span>
             </div>
         </div>
     </div>
