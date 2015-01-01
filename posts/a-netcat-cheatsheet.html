@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-        <title>An Introduction to Bash</title>
+        <title>A netcat cheatsheet</title>
         <meta charset="utf-8" />
 
 
@@ -64,13 +64,13 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../posts/an-introduction-to-bash" rel="bookmark"
-                   title="Permalink to An Introduction to Bash">An Introduction to Bash</a></h2>
+                <a href="../posts/a-netcat-cheatsheet" rel="bookmark"
+                   title="Permalink to A netcat cheatsheet">A netcat cheatsheet</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2014-11-23T00:00:00">
-                Sun 23 November 2014
+              <abbr class="published" title="2015-01-01T00:00:00">
+                Thu 01 January 2015
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../author/haminh.html">Ha.Minh</a>
@@ -126,241 +126,217 @@
  <div class="blob instapaper_body" id="readme">
   <article class="markdown-body entry-content" itemprop="mainContentOfPage">
    <h1>
-    <a aria-hidden="true" class="anchor" href="#bash" id="user-content-bash">
+    <a aria-hidden="true" class="anchor" href="#netcat-cheatsheet" id="user-content-netcat-cheatsheet">
      <span class="octicon octicon-link">
      </span>
     </a>
-    BASH
+    NETCAT CHEATSHEET
    </h1>
+   <p>
+    <code>
+     netcat
+    </code>
+    is a very useful tool for testing/debugging TCP/IP and UDP networking. In this cheetsheet I am sharing some useful examples of netcat usage for everyday purpose.
+   </p>
    <h2>
+    <a aria-hidden="true" class="anchor" href="#test-if-a-particular-tcpudp-port-is-open" id="user-content-test-if-a-particular-tcpudp-port-is-open">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Test if a particular TCP/UDP port is open
+   </h2>
+   <p>
+    To check if a TCP port is open
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -v google.com 80
+    <span class="pl-c"># Connection to google.com port 80 [tcp/http] succeeded!</span></pre>
+   </div>
+   <p>
+    To check if a UDP port is open, simple add option
+    <code>
+     -u
+    </code>
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -vu google.com 53
+    <span class="pl-c"># Connection to google.com port 53 [udp/domain] succeeded!</span></pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#port-scan" id="user-content-port-scan">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Port scan
+   </h2>
+   <p>
+    Scan UDP ports
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -vzu google.com 1-65535</pre>
+   </div>
+   <p>
+    To scan TCP ports simply remove the
+    <code>
+     -u
+    </code>
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -vz google.com 1-65535</pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#netcat-client-server" id="user-content-netcat-client-server">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Netcat client server
+   </h2>
+   <p>
+    Open a server that listens to a particular port
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -l 2389</pre>
+   </div>
+   <p>
+    Open another client connecting to that port
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc localhost 2389</pre>
+   </div>
+   <p>
+    Now you can (insecurely) chat between the 2 terminals.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#transfer-single-file" id="user-content-transfer-single-file">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Transfer single file
+   </h2>
+   <p>
+    On the remote server, open a port which output anything it receives to the target file
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -l 2389 <span class="pl-k">&gt;</span> <span class="pl-s3">test</span></pre>
+   </div>
+   <p>
+    On the local host, send the file
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    cat testfile <span class="pl-k">|</span> nc remotehost 2389</pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#transfer-whole-directory" id="user-content-transfer-whole-directory">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Transfer whole directory
+   </h2>
+   <p>
+    On receiver host
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -l 5000 <span class="pl-k">|</span> tar xvf -</pre>
+   </div>
+   <p>
+    On sender host
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    tar cvf - /path/to/dir <span class="pl-k">|</span> nc remotehost.com 5000</pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#transfer-whole-harddrive" id="user-content-transfer-whole-harddrive">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Transfer whole harddrive
+   </h2>
+   <p>
+    On receiver host
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -lp 5000 <span class="pl-k">|</span> sudo dd of=/backup/sdb.img.gz</pre>
+   </div>
+   <p>
+    On sender host
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    dd <span class="pl-k">if</span>=/dev/sdb <span class="pl-k">|</span> gzip -c <span class="pl-k">|</span> nc remote_server.com 5000</pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#create-a-web-proxy-for-a-particular-websites" id="user-content-create-a-web-proxy-for-a-particular-websites">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Create a web proxy for a particular websites
+   </h2>
+   <p>
+    The following commands redirect all incoming TCP/5000 connections to
+    <code>
+     http://www.google.com
+    </code>
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    mkfifo proxypipe
+    <span class="pl-k">while</span> <span class="pl-s3">true</span><span class="pl-k">;</span> <span class="pl-k">do</span> nc -l 5000 <span class="pl-k">0&lt;</span>proxypipe <span class="pl-k">|</span> nc www.google.com 80 <span class="pl-k">1&gt;</span> proxypipe<span class="pl-k">;</span> <span class="pl-k">done</span></pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#launch-a-remote-shell" id="user-content-launch-a-remote-shell">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Launch a remote shell
+   </h2>
+   <p>
+    On remote host
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc -lp 5000 -e /bin/bash</pre>
+   </div>
+   <p>
+    On localhost host
+   </p>
+   <div class="highlight highlight-bash">
+    <pre>    nc remotehost 5000</pre>
+   </div>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#test-network-speed" id="user-content-test-network-speed">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Test network speed
+   </h2>
+   <ul class="task-list">
+    <li>
+     <a href="http://deice.daug.net/netcat_speed.html">
+      Using netcat to test network speed
+     </a>
+    </li>
+   </ul>
+   <h1>
     <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
      <span class="octicon octicon-link">
      </span>
     </a>
     REFERENCES
-   </h2>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#general-documents-books-tutorials" id="user-content-general-documents-books-tutorials">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    General Documents, Books, Tutorials
-   </h3>
+   </h1>
    <ul class="task-list">
     <li>
-     <a href="http://tldp.org/LDP/abs/html/">
-      Advanced Bash Scripting Guide
+     <a href="http://www.thegeekstuff.com/2012/04/nc-command-examples/">
+      8 Practical Linux Netcat NC Command Examples
      </a>
     </li>
     <li>
-     <a href="https://code.google.com/p/bashscripts/downloads/list">
-      Sample Bash files
+     <a href="http://xmodulo.com/useful-netcat-examples-linux.html">
+      Useful netcat examples on Linux
      </a>
     </li>
     <li>
-     <a href="https://github.com/azet/community_bash_style_guide/blob/master/README.md">
-      Community Bash Style Guide
+     <a href="http://www.admin-magazine.com/Articles/Netcat-The-Admin-s-Best-Friend">
+      Netcat – The Admin’s Best Friend
      </a>
     </li>
    </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#linting" id="user-content-linting">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Linting
-   </h3>
-   <ul class="task-list">
-    <li>
-     <a href="https://github.com/koalaman/shellcheck">
-      Shellcheck
-     </a>
-    </li>
-    <li>
-     <a href="https://www.npmjs.org/package/grunt-lint-bash">
-      Grunt Lint Bash
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/duggan/shlint">
-      SHLint
-     </a>
-    </li>
-    <li>
-     <a href="http://manpages.ubuntu.com/manpages/natty/man1/checkbashisms.1.html">
-      checkbashisms
-     </a>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#unit-testing" id="user-content-unit-testing">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Unit Testing
-   </h3>
-   <ul class="task-list">
-    <li>
-     <a href="https://github.com/sstephenson/bats">
-      bats
-     </a>
-    </li>
-    <li>
-     <a href="https://code.google.com/p/shunit2/">
-      shunit2
-     </a>
-    </li>
-    <li>
-     <a href="https://github.com/mlafeldt/sharness">
-      sharness
-     </a>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#profiling" id="user-content-profiling">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Profiling
-   </h3>
-   <ul class="task-list">
-    <li>
-     <a href="https://github.com/sstephenson/bashprof">
-      bashprof
-     </a>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#debugging" id="user-content-debugging">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Debugging
-   </h3>
-   <ul class="task-list">
-    <li>
-     <a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_03.html">
-      Debugging Bash
-     </a>
-    </li>
-    <li>
-     <a href="http://bashdb.sourceforge.net/bashdb.html">
-      bashdb
-     </a>
-    </li>
-   </ul>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#basics" id="user-content-basics">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    BASICS
-   </h2>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#run-a-bash-script" id="user-content-run-a-bash-script">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Run a bash script
-   </h3>
-   <p>
-    Forking a new shell
-   </p>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="pl-c"># dot slash</span>
-    ./script.sh
-
-    <span class="pl-c"># specifying the shell interpreter</span>
-    bash script.sh</pre>
-   </div>
-   <p>
-    Executes the script in the current shell without forking a new shell
-   </p>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="pl-c"># dot space dot slash</span>
-    <span class="pl-s3">.</span> ./script.sh
-
-    <span class="pl-c"># source command : similar to dot space dot slash</span>
-    <span class="pl-s3">source</span> script.sh</pre>
-   </div>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#block-comment" id="user-content-block-comment">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Block Comment
-   </h3>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="pl-c">#! /usr/bin/env bash</span>
-    <span class="pl-s3">:</span> <span class="pl-s1"><span class="pl-k">&lt;&lt;</span><span class="pl-k">COMMENT</span></span>
-<span class="pl-s1">    Copyright (C) 2012 Author &lt;author at gmail dot com&gt;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    This program is free software: you can redistribute it and/or modify</span>
-<span class="pl-s1">    it under the terms of the GNU General Public License as published by</span>
-<span class="pl-s1">    the Free Software Foundation version 3.</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    This program is distributed in the hope that it will be useful,</span>
-<span class="pl-s1">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="pl-s1">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="pl-s1">    GNU General Public License for more details.</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    You should have received a copy of the GNU General Public License</span>
-<span class="pl-s1">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-<span class="pl-s1">    COMMENT</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    version="v0.1.1"</span></pre>
-   </div>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#looping-in-bash" id="user-content-looping-in-bash">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Looping in bash
-   </h3>
-   <ul class="task-list">
-    <li>
-     <a href="http://www.thegeekstuff.com/2011/07/bash-for-loop-examples/">
-      Bash for loop example
-     </a>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#exit-on-error-with-set--e" id="user-content-exit-on-error-with-set--e">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Exit on error with set -e
-   </h3>
-   <ul class="task-list">
-    <li>
-     Call
-     <code>
-      set -e
-     </code>
-     in your bash and it will exit if any command returns any error.
-    </li>
-    <li>
-     Call
-     <code>
-      set -evx
-     </code>
-     or
-     <code>
-      bash -evx script.sh
-     </code>
-     to debug script.
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#get-current-bash-file-folder" id="user-content-get-current-bash-file-folder">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Get current bash file folder
-   </h3>
-   <div class="highlight highlight-bash">
-    <pre>    DIR=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pds">$(</span> <span class="pl-s3">cd</span> -P <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pds">$(</span> dirname <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-vo">$0</span><span class="pl-pds">"</span></span> <span class="pl-pds">)</span></span><span class="pl-pds">"</span></span> <span class="pl-k">&amp;&amp;</span> <span class="pl-s3">pwd</span> <span class="pl-pds">)</span></span><span class="pl-pds">"</span></span></pre>
-   </div>
   </article>
  </div>
 </div>
@@ -369,9 +345,9 @@
                 
                 <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
                 
-                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/bash.md">view original</a></span>
+                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/netcat.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
-                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/bash.md">bash.md</a></span>
+                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/netcat.md">netcat.md</a></span>
             </div>
         </div>
     </div>
