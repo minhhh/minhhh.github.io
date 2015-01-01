@@ -1,5 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2014-11-23T00:00:00-05:00</updated><entry><title>An Introduction to Bash</title><link href="http://minhhh.github.io/posts/an-introduction-to-bash" rel="alternate"></link><updated>2014-11-23T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-11-23:posts/an-introduction-to-bash</id><summary type="html">&lt;p&gt;&lt;div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2015-01-01T00:00:00-05:00</updated><entry><title>A netcat cheatsheet</title><link href="http://minhhh.github.io/posts/a-netcat-cheatsheet" rel="alternate"></link><updated>2015-01-01T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-01-01:posts/a-netcat-cheatsheet</id><summary type="html">&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#netcat-cheatsheet" id="user-content-netcat-cheatsheet"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    NETCAT CHEATSHEET
+   &lt;/h1&gt;
+   &lt;p&gt;
+    &lt;code&gt;
+     netcat
+    &lt;/code&gt;
+    is a very useful tool for testing/debugging TCP/IP and UDP networking. In this cheetsheet I am sharing some useful examples of netcat usage for everyday purpose.
+   &lt;/p&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#test-if-a-particular-tcpudp-port-is-open" id="user-content-test-if-a-particular-tcpudp-port-is-open"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Test if a particular TCP/UDP port is open
+   &lt;/h2&gt;
+   &lt;p&gt;
+    To check if a TCP port is open
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -v google.com 80
+    &lt;span class="pl-c"&gt;# Connection to google.com port 80 [tcp/http] succeeded!&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    To check if a UDP port is open, simple add option
+    &lt;code&gt;
+     -u
+    &lt;/code&gt;
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -vu google.com 53
+    &lt;span class="pl-c"&gt;# Connection to google.com port 53 [udp/domain] succeeded!&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#port-scan" id="user-content-port-scan"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Port scan
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Scan UDP ports
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -vzu google.com 1-65535&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    To scan TCP ports simply remove the
+    &lt;code&gt;
+     -u
+    &lt;/code&gt;
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -vz google.com 1-65535&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#netcat-client-server" id="user-content-netcat-client-server"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Netcat client server
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Open a server that listens to a particular port
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -l 2389&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    Open another client connecting to that port
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc localhost 2389&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    Now you can (insecurely) chat between the 2 terminals.
+   &lt;/p&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#transfer-single-file" id="user-content-transfer-single-file"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Transfer single file
+   &lt;/h2&gt;
+   &lt;p&gt;
+    On the remote server, open a port which output anything it receives to the target file
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -l 2389 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-s3"&gt;test&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    On the local host, send the file
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    cat testfile &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remotehost 2389&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#transfer-whole-directory" id="user-content-transfer-whole-directory"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Transfer whole directory
+   &lt;/h2&gt;
+   &lt;p&gt;
+    On receiver host
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -l 5000 &lt;span class="pl-k"&gt;|&lt;/span&gt; tar xvf -&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    On sender host
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    tar cvf - /path/to/dir &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remotehost.com 5000&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#transfer-whole-harddrive" id="user-content-transfer-whole-harddrive"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Transfer whole harddrive
+   &lt;/h2&gt;
+   &lt;p&gt;
+    On receiver host
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -lp 5000 &lt;span class="pl-k"&gt;|&lt;/span&gt; sudo dd of=/backup/sdb.img.gz&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    On sender host
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    dd &lt;span class="pl-k"&gt;if&lt;/span&gt;=/dev/sdb &lt;span class="pl-k"&gt;|&lt;/span&gt; gzip -c &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remote_server.com 5000&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#create-a-web-proxy-for-a-particular-websites" id="user-content-create-a-web-proxy-for-a-particular-websites"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Create a web proxy for a particular websites
+   &lt;/h2&gt;
+   &lt;p&gt;
+    The following commands redirect all incoming TCP/5000 connections to
+    &lt;code&gt;
+     http://www.google.com
+    &lt;/code&gt;
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    mkfifo proxypipe
+    &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s3"&gt;true&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-k"&gt;do&lt;/span&gt; nc -l 5000 &lt;span class="pl-k"&gt;0&amp;lt;&lt;/span&gt;proxypipe &lt;span class="pl-k"&gt;|&lt;/span&gt; nc www.google.com 80 &lt;span class="pl-k"&gt;1&amp;gt;&lt;/span&gt; proxypipe&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-k"&gt;done&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#launch-a-remote-shell" id="user-content-launch-a-remote-shell"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Launch a remote shell
+   &lt;/h2&gt;
+   &lt;p&gt;
+    On remote host
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc -lp 5000 -e /bin/bash&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+    On localhost host
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-bash"&gt;
+    &lt;pre&gt;    nc remotehost 5000&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#test-network-speed" id="user-content-test-network-speed"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Test network speed
+   &lt;/h2&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://deice.daug.net/netcat_speed.html"&gt;
+      Using netcat to test network speed
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#references" id="user-content-references"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    REFERENCES
+   &lt;/h1&gt;
+   &lt;ul class="task-list"&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.thegeekstuff.com/2012/04/nc-command-examples/"&gt;
+      8 Practical Linux Netcat NC Command Examples
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://xmodulo.com/useful-netcat-examples-linux.html"&gt;
+      Useful netcat examples on Linux
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.admin-magazine.com/Articles/Netcat-The-Admin-s-Best-Friend"&gt;
+      Netcat – The Admin’s Best Friend
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/netcat.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/netcat.md"&gt;netcat.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="bash"></category><category term="shell"></category><category term="netcat"></category></entry><entry><title>An Introduction to Bash</title><link href="http://minhhh.github.io/posts/an-introduction-to-bash" rel="alternate"></link><updated>2014-11-23T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-11-23:posts/an-introduction-to-bash</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -5114,7 +5388,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     git merge feature/add_css
 
     # Perform the rebase, you may have to resolve the conflict again
-    git rebase develop
+    git rebase main_rebase
 
     # Push this branch to remote so we can rebase other branch based on it
     git push
