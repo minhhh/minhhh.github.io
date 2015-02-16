@@ -5689,7 +5689,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Only show the content of a file from a specific revision
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;    git show &amp;lt;sha1&amp;gt;^:&amp;lt;file&amp;gt;
+   &lt;pre&gt;&lt;code&gt;    git show &amp;lt;sha1&amp;gt;:&amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
