@@ -148,7 +148,7 @@
    <p>
     To check if a TCP port is open
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -v google.com 80
     <span class="pl-c"># Connection to google.com port 80 [tcp/http] succeeded!</span></pre>
    </div>
@@ -158,7 +158,7 @@
      -u
     </code>
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -vu google.com 53
     <span class="pl-c"># Connection to google.com port 53 [udp/domain] succeeded!</span></pre>
    </div>
@@ -172,7 +172,7 @@
    <p>
     Scan UDP ports
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -vzu google.com 1-65535</pre>
    </div>
    <p>
@@ -181,7 +181,7 @@
      -u
     </code>
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -vz google.com 1-65535</pre>
    </div>
    <h2>
@@ -194,13 +194,13 @@
    <p>
     Open a server that listens to a particular port
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -l 2389</pre>
    </div>
    <p>
     Open another client connecting to that port
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc localhost 2389</pre>
    </div>
    <p>
@@ -216,13 +216,13 @@
    <p>
     On the remote server, open a port which output anything it receives to the target file
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    nc -l 2389 <span class="pl-k">&gt;</span> <span class="pl-s3">test</span></pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    nc -l 2389 <span class="pl-k">&gt;</span> <span class="pl-c1">test</span></pre>
    </div>
    <p>
     On the local host, send the file
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    cat testfile <span class="pl-k">|</span> nc remotehost 2389</pre>
    </div>
    <h2>
@@ -235,13 +235,13 @@
    <p>
     On receiver host
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -l 5000 <span class="pl-k">|</span> tar xvf -</pre>
    </div>
    <p>
     On sender host
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    tar cvf - /path/to/dir <span class="pl-k">|</span> nc remotehost.com 5000</pre>
    </div>
    <h2>
@@ -254,14 +254,14 @@
    <p>
     On receiver host
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -lp 5000 <span class="pl-k">|</span> sudo dd of=/backup/sdb.img.gz</pre>
    </div>
    <p>
     On sender host
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    dd <span class="pl-k">if</span>=/dev/sdb <span class="pl-k">|</span> gzip -c <span class="pl-k">|</span> nc remote_server.com 5000</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    dd if=/dev/sdb <span class="pl-k">|</span> gzip -c <span class="pl-k">|</span> nc remote_server.com 5000</pre>
    </div>
    <h2>
     <a aria-hidden="true" class="anchor" href="#create-a-web-proxy-for-a-particular-websites" id="user-content-create-a-web-proxy-for-a-particular-websites">
@@ -276,9 +276,9 @@
      http://www.google.com
     </code>
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    mkfifo proxypipe
-    <span class="pl-k">while</span> <span class="pl-s3">true</span><span class="pl-k">;</span> <span class="pl-k">do</span> nc -l 5000 <span class="pl-k">0&lt;</span>proxypipe <span class="pl-k">|</span> nc www.google.com 80 <span class="pl-k">1&gt;</span> proxypipe<span class="pl-k">;</span> <span class="pl-k">done</span></pre>
+    <span class="pl-k">while</span> <span class="pl-c1">true</span><span class="pl-k">;</span> <span class="pl-k">do</span> nc -l 5000 <span class="pl-k">0&lt;</span>proxypipe <span class="pl-k">|</span> nc www.google.com 80 <span class="pl-k">1&gt;</span> proxypipe<span class="pl-k">;</span> <span class="pl-k">done</span></pre>
    </div>
    <h2>
     <a aria-hidden="true" class="anchor" href="#launch-a-remote-shell" id="user-content-launch-a-remote-shell">
@@ -290,13 +290,13 @@
    <p>
     On remote host
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc -lp 5000 -e /bin/bash</pre>
    </div>
    <p>
     On localhost host
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    nc remotehost 5000</pre>
    </div>
    <h2>
@@ -306,7 +306,7 @@
     </a>
     Test network speed
    </h2>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://deice.daug.net/netcat_speed.html">
       Using netcat to test network speed
@@ -320,7 +320,7 @@
     </a>
     REFERENCES
    </h1>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://www.thegeekstuff.com/2012/04/nc-command-examples/">
       8 Practical Linux Netcat NC Command Examples
@@ -343,7 +343,7 @@
 
             <div class="git-meta">
                 
-                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
                 
                 <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/netcat.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
@@ -375,21 +375,21 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
-	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 </ul>
 
 

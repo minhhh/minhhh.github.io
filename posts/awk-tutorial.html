@@ -142,9 +142,9 @@
    <p>
     Call from command line
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>pattern1 {action1}</span>
-<span class="pl-s1">    pattern2 {action2} ...<span class="pl-pds">'</span></span> file1 file2 ..</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>pattern1 {action1}</span>
+<span class="pl-s">    pattern2 {action2} ...<span class="pl-pds">'</span></span> file1 file2 ..</pre>
    </div>
    <p>
     <br/>
@@ -152,7 +152,7 @@
    <p>
     Call a script
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    awk -f script file1 file2 ...</pre>
    </div>
    <p>
@@ -161,8 +161,8 @@
    <p>
     Call without input files
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>program<span class="pl-pds">'</span></span></pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>program<span class="pl-pds">'</span></span></pre>
    </div>
    <p>
     <br/>
@@ -177,8 +177,8 @@
    <p>
     Awk can use regular exrepssion as conditions
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>/foo/ {program}<span class="pl-pds">'</span></span> file</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>/foo/ {program}<span class="pl-pds">'</span></span> file</pre>
    </div>
    <p>
     <br/>
@@ -199,8 +199,8 @@
      tolower
     </code>
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    tolower(<span class="pl-vo">$1</span>) <span class="pl-k">~</span> /foo/ {...}</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    tolower(<span class="pl-smi">$1</span>) <span class="pl-k">~</span> /foo/ {...}</pre>
    </div>
    <p>
     <br/>
@@ -212,7 +212,7 @@
     </code>
     to non-zero
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    IGNORECASE = 1</pre>
    </div>
    <p>
@@ -228,8 +228,8 @@
    <p>
     Awk provides facility to define dynamic regular expressions
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    BEGIN { digits_regexp = <span class="pl-s1"><span class="pl-pds">"</span>[[:digit:]]+<span class="pl-pds">"</span></span> }</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    BEGIN { digits_regexp = <span class="pl-s"><span class="pl-pds">"</span>[[:digit:]]+<span class="pl-pds">"</span></span> }</pre>
    </div>
    <p>
     <br/>
@@ -247,8 +247,8 @@
    <p>
     In other words, do something even if there are no line to process
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>BEGIN {do something}<span class="pl-pds">'</span></span></pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>BEGIN {do something}<span class="pl-pds">'</span></span></pre>
    </div>
    <p>
     <br/>
@@ -275,8 +275,8 @@
    <p>
     Or it can be set in the BEGIN condition like this
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    BEGIN {FS = <span class="pl-s1"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>}</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    BEGIN {FS = <span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>}</pre>
    </div>
    <p>
     <br/>
@@ -318,7 +318,7 @@
     </a>
     Special Variables
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      <code>
       $0
@@ -341,13 +341,13 @@
      To force awk to rebuild the record,
     </li>
    </ul>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="pl-vo">$1</span> = <span class="pl-vo">$1</span><span class="pl-k">;</span> <span class="pl-c"># force record to be rebuilt</span></pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    <span class="pl-smi">$1</span> = <span class="pl-smi">$1</span><span class="pl-k">;</span> <span class="pl-c"># force record to be rebuilt</span></pre>
    </div>
    <p>
     <br/>
    </p>
-   <ul class="task-list">
+   <ul>
     <li>
      NF is the number of fields
     </li>
@@ -371,7 +371,7 @@
     </li>
     <li>
      FS is the field separator
-     <ul class="task-list">
+     <ul>
       <li>
        FS can be specified at the beginning as well
       </li>
@@ -382,7 +382,7 @@
     </li>
     <li>
      FIELDWIDTHS is a string that specifies field widths separated by spaces.
-     <ul class="task-list">
+     <ul>
       <li>
        For instance
        <code>
@@ -402,7 +402,7 @@
     </a>
     Operators
    </h4>
-   <ul class="task-list">
+   <ul>
     <li>
      <code>
       ~
@@ -410,14 +410,14 @@
      (tilde) used to match a string with a regular expression
     </li>
    </ul>
-   <div class="highlight highlight-bash">
-    <pre>    $ awk <span class="pl-s1"><span class="pl-pds">'</span>$1 ~ /J/<span class="pl-pds">'</span></span> file
+   <div class="highlight highlight-source-shell">
+    <pre>    $ awk <span class="pl-s"><span class="pl-pds">'</span>$1 ~ /J/<span class="pl-pds">'</span></span> file
     <span class="pl-c"># matches line where the first field start with J</span></pre>
    </div>
    <p>
     <br/>
    </p>
-   <ul class="task-list">
+   <ul>
     <li>
      <code>
       !~
@@ -438,7 +438,7 @@
     </a>
     Useful functions
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      length() returns the string length.
     </li>
@@ -481,20 +481,20 @@
      </code>
     </li>
    </ul>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    <span class="pl-c"># The following code copies all input files to the output, except for records that say @include filename</span>
     <span class="pl-c"># in this case it will replace such records with the content of the file `filename`</span>
-    <span class="pl-k">if</span> (NF 2 <span class="pl-k">&amp;&amp;</span> <span class="pl-vo">$1</span> <span class="pl-s1"><span class="pl-pds">"</span>@include<span class="pl-pds">"</span></span>) {
-        <span class="pl-k">while</span> <span class="pl-s1"><span class="pl-pds">((</span>getline line <span class="pl-k">&lt;</span> <span class="pl-vo">$2</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
-<span class="pl-s1">            print line</span>
-<span class="pl-s1">        close(<span class="pl-vo">$2</span>)</span>
-<span class="pl-s1">    } else</span>
-<span class="pl-s1">        print</span></pre>
+    <span class="pl-k">if</span> (NF 2 <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$1</span> <span class="pl-s"><span class="pl-pds">"</span>@include<span class="pl-pds">"</span></span>) {
+        <span class="pl-k">while</span> <span class="pl-s"><span class="pl-pds">((</span>getline line <span class="pl-k">&lt;</span> <span class="pl-smi">$2</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
+<span class="pl-s">            print line</span>
+<span class="pl-s">        close(<span class="pl-smi">$2</span>)</span>
+<span class="pl-s">    } else</span>
+<span class="pl-s">        print</span></pre>
    </div>
    <p>
     <br/>
    </p>
-   <ul class="task-list">
+   <ul>
     <li>
      <code>
       command | getline
@@ -506,22 +506,22 @@
      is run as a shell command and its output is piped to getline
     </li>
    </ul>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    <span class="pl-c"># line begins with @execute is replaced by the output of the command after that</span>
     {
-        <span class="pl-k">if</span> (<span class="pl-vo">$1</span> <span class="pl-s1"><span class="pl-pds">"</span>@execute<span class="pl-pds">"</span></span>) {
-            tmp = substr(<span class="pl-vo">$0</span>, 10)
-            <span class="pl-k">while</span> <span class="pl-s1"><span class="pl-pds">((</span>tmp <span class="pl-k">|</span> getline) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
-<span class="pl-s1">                print</span>
-<span class="pl-s1">            close(tmp)</span>
-<span class="pl-s1">        } else</span>
-<span class="pl-s1">            print</span>
-<span class="pl-s1">    }</span></pre>
+        <span class="pl-k">if</span> (<span class="pl-smi">$1</span> <span class="pl-s"><span class="pl-pds">"</span>@execute<span class="pl-pds">"</span></span>) {
+            tmp = substr(<span class="pl-smi">$0</span>, 10)
+            <span class="pl-k">while</span> <span class="pl-s"><span class="pl-pds">((</span>tmp <span class="pl-k">|</span> getline) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
+<span class="pl-s">                print</span>
+<span class="pl-s">            close(tmp)</span>
+<span class="pl-s">        } else</span>
+<span class="pl-s">            print</span>
+<span class="pl-s">    }</span></pre>
    </div>
    <p>
     <br/>
    </p>
-   <ul class="task-list">
+   <ul>
     <li>
      <code>
       command | getline var
@@ -544,7 +544,7 @@
     </li>
     <li>
      Mathematical functions such as: sqrt(), atan2(), rand(). TODO
-     <ul class="task-list">
+     <ul>
       <li>
        DO NOT put a space between the function name and the parentheses. It can be confused with string concatenation
       </li>
@@ -561,7 +561,7 @@
     </a>
     Printing and output
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      print something, something, ...
     </li>
@@ -576,7 +576,7 @@
     </li>
     <li>
      The print and printf function can be redirected just as in the shell
-     <ul class="task-list">
+     <ul>
       <li>
        print items &gt; file
       </li>
@@ -605,10 +605,10 @@
     </a>
     Standard descriptors
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      Gawk supports special filenames for standard input, output and error streams
-     <ul class="task-list">
+     <ul>
       <li>
        /dev/stdin
       </li>
@@ -624,8 +624,8 @@
      </ul>
     </li>
    </ul>
-   <div class="highlight highlight-bash">
-    <pre>    print <span class="pl-s1"><span class="pl-pds">"</span>serious error detected <span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>/dev/stderr<span class="pl-pds">"</span></span></pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    print <span class="pl-s"><span class="pl-pds">"</span>serious error detected <span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>/dev/stderr<span class="pl-pds">"</span></span></pre>
    </div>
    <p>
     <br/>
@@ -637,7 +637,7 @@
     </a>
     Special files for process-related information
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      Gwak supports special file for accessing information about the running gawk process. TODO
     </li>
@@ -649,7 +649,7 @@
     </a>
     Special files for network communication
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      Gawk, awk can open two-way TCP-IP connection. TODO
     </li>
@@ -661,7 +661,7 @@
     </a>
     Close input and output redirection
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      <code>
       close(filename)
@@ -699,9 +699,9 @@
      sh
     </code>
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    { <span class="pl-s3">printf</span>(<span class="pl-s1"><span class="pl-pds">"</span>mv %s %s\n<span class="pl-pds">"</span></span>, <span class="pl-vo">$0</span>, tolower(<span class="pl-vo">$0</span>)) <span class="pl-k">|</span> <span class="pl-s1"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span> }
-    END {close(<span class="pl-s1"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span>)}</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    { <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>mv %s %s\n<span class="pl-pds">"</span></span>, <span class="pl-smi">$0</span>, tolower(<span class="pl-smi">$0</span>)) <span class="pl-k">|</span> <span class="pl-s"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span> }
+    END {close(<span class="pl-s"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span>)}</pre>
    </div>
    <p>
     <br/>
@@ -713,13 +713,13 @@
     </a>
     Change the content of a field
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      The content of a field can be change during processing , like this
     </li>
    </ul>
-   <div class="highlight highlight-bash">
-    <pre>    awk <span class="pl-s1"><span class="pl-pds">'</span>{$2=$2-10; print $0}<span class="pl-pds">'</span></span>
+   <div class="highlight highlight-source-shell">
+    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>{$2=$2-10; print $0}<span class="pl-pds">'</span></span>
     <span class="pl-c"># will subtract 10 from the second field, and the second field should be</span>
     <span class="pl-c"># a number for this to work.</span></pre>
    </div>
@@ -733,20 +733,20 @@
     </a>
     Variables
    </h4>
-   <ul class="task-list">
+   <ul>
     <li>
      Custom variables can be created and default to zero
     </li>
    </ul>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    {
-        str = <span class="pl-s1"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span><span class="pl-k">;</span>
+        str = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span><span class="pl-k">;</span>
     }</pre>
    </div>
    <p>
     <br/>
    </p>
-   <ul class="task-list">
+   <ul>
     <li>
      Variables can be assigned in the command line. TODO:
     </li>
@@ -758,7 +758,7 @@
     </li>
     <li>
      String concatenation is done by placing the operands next to each other
-     <ul class="task-list">
+     <ul>
       <li>
        <code>
         ()
@@ -796,7 +796,7 @@
     </a>
     Patterns
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      Patterns control the execution of rules, a rule is executed when its pattern matches the current input record (line).
     </li>
@@ -809,7 +809,7 @@
       beginpatter, endpattern
      </code>
      . Every record between inclusive is processed.
-     <ul class="task-list">
+     <ul>
       <li>
        The range pattern can be turned on and off by the same record.
       </li>
@@ -829,11 +829,11 @@
    <p>
     if-else
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    <span class="pl-k">if</span> (x % 2 0)
-        print <span class="pl-s1"><span class="pl-pds">"</span>x is even<span class="pl-pds">"</span></span>
+        print <span class="pl-s"><span class="pl-pds">"</span>x is even<span class="pl-pds">"</span></span>
     <span class="pl-k">else</span>
-        print <span class="pl-s1"><span class="pl-pds">"</span>x is odd<span class="pl-pds">"</span></span></pre>
+        print <span class="pl-s"><span class="pl-pds">"</span>x is odd<span class="pl-pds">"</span></span></pre>
    </div>
    <p>
     <br/>
@@ -841,9 +841,9 @@
    <p>
     while
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 3) {
-        print <span class="pl-vo">$i</span>
+        print <span class="pl-smi">$i</span>
         i++
     }</pre>
    </div>
@@ -853,9 +853,9 @@
    <p>
     do while
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    <span class="pl-k">do</span> {
-        print <span class="pl-vo">$0</span>
+        print <span class="pl-smi">$0</span>
         i++
     } <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 10)</pre>
    </div>
@@ -865,9 +865,9 @@
    <p>
     for
    </p>
-   <div class="highlight highlight-bash">
-    <pre>    <span class="pl-k">for</span> <span class="pl-vo">(i</span> = 1<span class="pl-k">;</span> i <span class="pl-k">&lt;</span>= 3<span class="pl-k">;</span> i++)
-        print <span class="pl-vo">$i</span></pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    <span class="pl-k">for</span> <span class="pl-smi">(i</span> = 1<span class="pl-k">;</span> i <span class="pl-k">&lt;</span>= 3<span class="pl-k">;</span> i++)
+        print <span class="pl-smi">$i</span></pre>
    </div>
    <p>
     <br/>
@@ -875,22 +875,22 @@
    <p>
     switch: break
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    switch (NR <span class="pl-k">*</span> 2 + 1) {
     <span class="pl-k">case</span> 3:
-        <span class="pl-s3">break</span>
-    <span class="pl-k">case</span> <span class="pl-s1"><span class="pl-pds">"</span>11<span class="pl-pds">"</span></span>:
+        <span class="pl-c1">break</span>
+    <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>11<span class="pl-pds">"</span></span>:
         print NR - 1
-        <span class="pl-s3">break</span>
+        <span class="pl-c1">break</span>
     <span class="pl-k">case</span> /2[[:digit:]]+/:
         print NR
-        <span class="pl-s3">break</span>
+        <span class="pl-c1">break</span>
     default:
         print NR + 1
-        <span class="pl-s3">break</span>
+        <span class="pl-c1">break</span>
     <span class="pl-k">case</span> -1:
         print NR <span class="pl-k">*</span> -1
-        <span class="pl-s3">break</span>
+        <span class="pl-c1">break</span>
     }</pre>
    </div>
    <p>
@@ -899,20 +899,20 @@
    <p>
     switch: continue
    </p>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    BEGIN {
-        <span class="pl-k">for</span> <span class="pl-vo">(x</span> = 0<span class="pl-k">;</span> x <span class="pl-k">&lt;</span>= 20<span class="pl-k">;</span> x++) {
+        <span class="pl-k">for</span> <span class="pl-smi">(x</span> = 0<span class="pl-k">;</span> x <span class="pl-k">&lt;</span>= 20<span class="pl-k">;</span> x++) {
             <span class="pl-k">if</span> (x 5)
                 <span class="pl-k">continue</span>
-            <span class="pl-s3">printf</span> <span class="pl-s1"><span class="pl-pds">"</span>%d <span class="pl-pds">"</span></span>, x
+            <span class="pl-c1">printf</span> <span class="pl-s"><span class="pl-pds">"</span>%d <span class="pl-pds">"</span></span>, x
         }
-        print <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+        print <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
     }</pre>
    </div>
    <p>
     <br/>
    </p>
-   <ul class="task-list">
+   <ul>
     <li>
      next: stop processing the current record and go on to the next record
     </li>
@@ -923,15 +923,15 @@
      exit n: stops execution for the current rule and execute the END rule if any.
     </li>
    </ul>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    BEGIN {
-    <span class="pl-k">if</span> <span class="pl-s1"><span class="pl-pds">((</span>"date" <span class="pl-k">|</span> getline date_now) <span class="pl-k">&lt;=</span> <span class="pl-c1">0</span>) {</span>
-<span class="pl-s1">    print "Can’t get system date" &gt; "/dev/stderr"</span>
-<span class="pl-s1">    exit <span class="pl-c1">1</span></span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1">    print "current date is", date_now</span>
-<span class="pl-s1">    close("date")</span>
-<span class="pl-s1">    }</span></pre>
+    <span class="pl-k">if</span> <span class="pl-s"><span class="pl-pds">((</span>"date" <span class="pl-k">|</span> getline date_now) <span class="pl-k">&lt;=</span> <span class="pl-c1">0</span>) {</span>
+<span class="pl-s">    print "Can’t get system date" &gt; "/dev/stderr"</span>
+<span class="pl-s">    exit <span class="pl-c1">1</span></span>
+<span class="pl-s">    }</span>
+<span class="pl-s">    print "current date is", date_now</span>
+<span class="pl-s">    close("date")</span>
+<span class="pl-s">    }</span></pre>
    </div>
    <p>
     <br/>
@@ -943,13 +943,13 @@
     </a>
     Functions
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      Controlling output buffering with
      <code>
       system
      </code>
-     <ul class="task-list">
+     <ul>
       <li>
        Use
        <code>
@@ -977,7 +977,7 @@
     </a>
     How to remove special characters from files
    </h2>
-   <ul class="task-list">
+   <ul>
     <li>
      Suppose you have a list of files starting with a certain number of special character that you want to remove
     </li>
@@ -996,15 +996,15 @@
      First, export the list of filenames to a first file test1
     </li>
    </ul>
-   <div class="highlight highlight-bash">
+   <div class="highlight highlight-source-shell">
     <pre>    <span class="pl-c"># Suppose that the original files are in folder original_files and we want to copy them to</span>
     <span class="pl-c"># folder new_files</span>
     ls original_files <span class="pl-k">&gt;</span> list1 <span class="pl-c"># generate list of files</span>
-    awk <span class="pl-s1"><span class="pl-pds">'</span>{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}<span class="pl-pds">'</span></span> list1 <span class="pl-k">&gt;</span> list2 <span class="pl-c"># removes all special characters and generate a second list</span>
+    awk <span class="pl-s"><span class="pl-pds">'</span>{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}<span class="pl-pds">'</span></span> list1 <span class="pl-k">&gt;</span> list2 <span class="pl-c"># removes all special characters and generate a second list</span>
 
     <span class="pl-c"># combine list1 and list2 to a list of shell command in list3</span>
     <span class="pl-c"># We will use strong quoting</span>
-    awk <span class="pl-s1"><span class="pl-pds">'</span>{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}<span class="pl-pds">'</span></span> list1
+    awk <span class="pl-s"><span class="pl-pds">'</span>{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}<span class="pl-pds">'</span></span> list1
 
     sh list3 <span class="pl-c"># run the list of commands in list3</span>
     rm -frv list1 list2 list3 <span class="pl-c"># remove all temporary files</span></pre>
@@ -1019,13 +1019,13 @@
     </a>
     Make each character a separate field
    </h2>
-   <ul class="task-list">
+   <ul>
     <li>
      By changing the field separtor to null string
     </li>
    </ul>
-   <div class="highlight highlight-bash">
-    <pre>    BEGIN {FS=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>}</pre>
+   <div class="highlight highlight-source-shell">
+    <pre>    BEGIN {FS=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>}</pre>
    </div>
    <p>
     <br/>
@@ -1037,7 +1037,7 @@
     </a>
     BOOKS
    </h1>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://www.gnu.org/software/gawk/manual/gawk.pdf">
       Gwak Effective awk programming
@@ -1057,7 +1057,7 @@
     </a>
     ARTICLES
    </h1>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/">
       Differences between different versions of awk
@@ -1076,7 +1076,7 @@
 
             <div class="git-meta">
                 
-                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
                 
                 <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/awk.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
@@ -1108,21 +1108,21 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
-	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 </ul>
 
 
