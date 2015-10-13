@@ -70,7 +70,7 @@
    &lt;p&gt;
     To check if a TCP port is open
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -v google.com 80
     &lt;span class="pl-c"&gt;# Connection to google.com port 80 [tcp/http] succeeded!&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
@@ -80,7 +80,7 @@
      -u
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -vu google.com 53
     &lt;span class="pl-c"&gt;# Connection to google.com port 53 [udp/domain] succeeded!&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
@@ -94,7 +94,7 @@
    &lt;p&gt;
     Scan UDP ports
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -vzu google.com 1-65535&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -103,7 +103,7 @@
      -u
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -vz google.com 1-65535&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
@@ -116,13 +116,13 @@
    &lt;p&gt;
     Open a server that listens to a particular port
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -l 2389&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     Open another client connecting to that port
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc localhost 2389&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -138,13 +138,13 @@
    &lt;p&gt;
     On the remote server, open a port which output anything it receives to the target file
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    nc -l 2389 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-s3"&gt;test&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    nc -l 2389 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;test&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     On the local host, send the file
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    cat testfile &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remotehost 2389&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
@@ -157,13 +157,13 @@
    &lt;p&gt;
     On receiver host
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -l 5000 &lt;span class="pl-k"&gt;|&lt;/span&gt; tar xvf -&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     On sender host
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    tar cvf - /path/to/dir &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remotehost.com 5000&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
@@ -176,14 +176,14 @@
    &lt;p&gt;
     On receiver host
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -lp 5000 &lt;span class="pl-k"&gt;|&lt;/span&gt; sudo dd of=/backup/sdb.img.gz&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     On sender host
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    dd &lt;span class="pl-k"&gt;if&lt;/span&gt;=/dev/sdb &lt;span class="pl-k"&gt;|&lt;/span&gt; gzip -c &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remote_server.com 5000&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    dd if=/dev/sdb &lt;span class="pl-k"&gt;|&lt;/span&gt; gzip -c &lt;span class="pl-k"&gt;|&lt;/span&gt; nc remote_server.com 5000&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#create-a-web-proxy-for-a-particular-websites" id="user-content-create-a-web-proxy-for-a-particular-websites"&gt;
@@ -198,9 +198,9 @@
      http://www.google.com
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    mkfifo proxypipe
-    &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s3"&gt;true&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-k"&gt;do&lt;/span&gt; nc -l 5000 &lt;span class="pl-k"&gt;0&amp;lt;&lt;/span&gt;proxypipe &lt;span class="pl-k"&gt;|&lt;/span&gt; nc www.google.com 80 &lt;span class="pl-k"&gt;1&amp;gt;&lt;/span&gt; proxypipe&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-k"&gt;done&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-c1"&gt;true&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-k"&gt;do&lt;/span&gt; nc -l 5000 &lt;span class="pl-k"&gt;0&amp;lt;&lt;/span&gt;proxypipe &lt;span class="pl-k"&gt;|&lt;/span&gt; nc www.google.com 80 &lt;span class="pl-k"&gt;1&amp;gt;&lt;/span&gt; proxypipe&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-k"&gt;done&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#launch-a-remote-shell" id="user-content-launch-a-remote-shell"&gt;
@@ -212,13 +212,13 @@
    &lt;p&gt;
     On remote host
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -lp 5000 -e /bin/bash&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     On localhost host
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc remotehost 5000&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
@@ -228,7 +228,7 @@
     &lt;/a&gt;
     Test network speed
    &lt;/h2&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://deice.daug.net/netcat_speed.html"&gt;
       Using netcat to test network speed
@@ -242,7 +242,7 @@
     &lt;/a&gt;
     REFERENCES
    &lt;/h1&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://www.thegeekstuff.com/2012/04/nc-command-examples/"&gt;
       8 Practical Linux Netcat NC Command Examples
@@ -265,7 +265,7 @@
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/netcat.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -342,7 +342,7 @@
     &lt;/a&gt;
     General Documents, Books, Tutorials
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://tldp.org/LDP/abs/html/"&gt;
       Advanced Bash Scripting Guide
@@ -366,7 +366,7 @@
     &lt;/a&gt;
     Linting
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="https://github.com/koalaman/shellcheck"&gt;
       Shellcheck
@@ -395,7 +395,7 @@
     &lt;/a&gt;
     Unit Testing
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="https://github.com/sstephenson/bats"&gt;
       bats
@@ -419,7 +419,7 @@
     &lt;/a&gt;
     Profiling
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="https://github.com/sstephenson/bashprof"&gt;
       bashprof
@@ -433,7 +433,7 @@
     &lt;/a&gt;
     Debugging
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_03.html"&gt;
       Debugging Bash
@@ -462,7 +462,7 @@
    &lt;p&gt;
     Forking a new shell
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-c"&gt;# dot slash&lt;/span&gt;
     ./script.sh
 
@@ -472,12 +472,12 @@
    &lt;p&gt;
     Executes the script in the current shell without forking a new shell
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-c"&gt;# dot space dot slash&lt;/span&gt;
-    &lt;span class="pl-s3"&gt;.&lt;/span&gt; ./script.sh
+    &lt;span class="pl-c1"&gt;.&lt;/span&gt; ./script.sh
 
     &lt;span class="pl-c"&gt;# source command : similar to dot space dot slash&lt;/span&gt;
-    &lt;span class="pl-s3"&gt;source&lt;/span&gt; script.sh&lt;/pre&gt;
+    &lt;span class="pl-c1"&gt;source&lt;/span&gt; script.sh&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#block-comment" id="user-content-block-comment"&gt;
@@ -486,25 +486,25 @@
     &lt;/a&gt;
     Block Comment
    &lt;/h3&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-c"&gt;#! /usr/bin/env bash&lt;/span&gt;
-    &lt;span class="pl-s3"&gt;:&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-k"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="pl-k"&gt;COMMENT&lt;/span&gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    Copyright (C) 2012 Author &amp;lt;author at gmail dot com&amp;gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    This program is free software: you can redistribute it and/or modify&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    it under the terms of the GNU General Public License as published by&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    the Free Software Foundation version 3.&lt;/span&gt;
-&lt;span class="pl-s1"&gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    This program is distributed in the hope that it will be useful,&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    GNU General Public License for more details.&lt;/span&gt;
-&lt;span class="pl-s1"&gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    You should have received a copy of the GNU General Public License&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    COMMENT&lt;/span&gt;
-&lt;span class="pl-s1"&gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    version="v0.1.1"&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-c1"&gt;:&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-k"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="pl-k"&gt;COMMENT&lt;/span&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;    Copyright (C) 2012 Author &amp;lt;author at gmail dot com&amp;gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;    This program is free software: you can redistribute it and/or modify&lt;/span&gt;
+&lt;span class="pl-s"&gt;    it under the terms of the GNU General Public License as published by&lt;/span&gt;
+&lt;span class="pl-s"&gt;    the Free Software Foundation version 3.&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;    This program is distributed in the hope that it will be useful,&lt;/span&gt;
+&lt;span class="pl-s"&gt;    but WITHOUT ANY WARRANTY; without even the implied warranty of&lt;/span&gt;
+&lt;span class="pl-s"&gt;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&lt;/span&gt;
+&lt;span class="pl-s"&gt;    GNU General Public License for more details.&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;    You should have received a copy of the GNU General Public License&lt;/span&gt;
+&lt;span class="pl-s"&gt;    along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.&lt;/span&gt;
+&lt;span class="pl-s"&gt;    COMMENT&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;    version="v0.1.1"&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#looping-in-bash" id="user-content-looping-in-bash"&gt;
@@ -513,7 +513,7 @@
     &lt;/a&gt;
     Looping in bash
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://www.thegeekstuff.com/2011/07/bash-for-loop-examples/"&gt;
       Bash for loop example
@@ -527,7 +527,7 @@
     &lt;/a&gt;
     Exit on error with set -e
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Call
      &lt;code&gt;
@@ -554,8 +554,8 @@
     &lt;/a&gt;
     Get current bash file folder
    &lt;/h3&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    DIR=&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;$(&lt;/span&gt; &lt;span class="pl-s3"&gt;cd&lt;/span&gt; -P &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;$(&lt;/span&gt; dirname &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-vo"&gt;$0&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-pds"&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="pl-s3"&gt;pwd&lt;/span&gt; &lt;span class="pl-pds"&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    DIR=&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;$(&lt;/span&gt; &lt;span class="pl-c1"&gt;cd&lt;/span&gt; -P &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;$(&lt;/span&gt; dirname &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-smi"&gt;$0&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-pds"&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="pl-c1"&gt;pwd&lt;/span&gt; &lt;span class="pl-pds"&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
   &lt;/article&gt;
  &lt;/div&gt;
@@ -563,7 +563,7 @@
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/bash.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -662,7 +662,7 @@
     &lt;/a&gt;
     Table of Contents
    &lt;/h3&gt;
-   &lt;ol class="task-list"&gt;
+   &lt;ol&gt;
     &lt;li&gt;
      &lt;a href="#user-content-introduction"&gt;
       Introduction
@@ -677,7 +677,7 @@
      &lt;a href="#user-content-making-operators-work-on-custom-classes"&gt;
       Making Operators Work on Custom Classes
      &lt;/a&gt;
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        &lt;a href="#user-content-comparison-magic-methods"&gt;
         Comparison magic methods
@@ -813,7 +813,7 @@
     &lt;/code&gt;
     Let's take a closer look at these 3 magic methods:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;p&gt;
       &lt;code&gt;
@@ -918,17 +918,17 @@
     &lt;/code&gt;
     in action:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;from&lt;/span&gt; os.path &lt;span class="pl-k"&gt;import&lt;/span&gt; join
 
-    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;FileObject&lt;/span&gt;:
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Wrapper for file objects to make sure the file gets closed on deletion.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;FileObject&lt;/span&gt;:
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Wrapper for file objects to make sure the file gets closed on deletion.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;filepath&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;~&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-vpf"&gt;filename&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;sample.txt&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;filepath&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;~&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;filename&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;sample.txt&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# open a file filename in filepath in read and write mode&lt;/span&gt;
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;open&lt;/span&gt;(join(filepath, filename), &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;r+&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
+            &lt;span class="pl-v"&gt;self&lt;/span&gt;.file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(join(filepath, filename), &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;r+&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__del__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__del__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.file.close()
             &lt;span class="pl-k"&gt;del&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.file&lt;/pre&gt;
    &lt;/div&gt;
@@ -942,7 +942,7 @@
    &lt;p&gt;
     One of the biggest advantages of using Python's magic methods is that they provide a simple way to make objects behave like built-in types. That means you can avoid ugly, counter-intuitive, and nonstandard ways of performing basic operators. In some languages, it's common to do something like this:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;if&lt;/span&gt; instance.equals(other_instance):
         &lt;span class="pl-c"&gt;# do something&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
@@ -953,7 +953,7 @@
     &lt;/code&gt;
     , in this case), and say what we mean instead:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;if&lt;/span&gt; instance &lt;span class="pl-k"&gt;==&lt;/span&gt; other_instance:
         &lt;span class="pl-c"&gt;#do something&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
@@ -970,7 +970,7 @@
    &lt;p&gt;
     Python has a whole slew of magic methods designed to implement intuitive comparisons between objects using operators, not awkward method calls. They also provide a way to override the default Python behavior for comparisons of objects (by reference). Here's the list of those methods and what they do:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __cmp__(self, other)
@@ -1065,26 +1065,26 @@
    &lt;p&gt;
     For an example, consider a class to model a word. We might want to compare words lexicographically (by the alphabet), which is the default comparison behavior for strings, but we also might want to do it based on some other criterion, like length or number of syllables. In this example, we'll compare by length. Here's an implementation:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Word&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-s3"&gt;str&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class for words, defining comparison based on word length.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Word&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-c1"&gt;str&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class for words, defining comparison based on word length.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__new__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;cls&lt;/span&gt;, &lt;span class="pl-vpf"&gt;word&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__new__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;cls&lt;/span&gt;, &lt;span class="pl-smi"&gt;word&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# Note that we have to use __new__. This is because str is an immutable&lt;/span&gt;
             &lt;span class="pl-c"&gt;# type, so we have to initialize it early (at creation)&lt;/span&gt;
-            &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; word:
-                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Value contains spaces. Truncating to first space.&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
-                word &lt;span class="pl-k"&gt;=&lt;/span&gt; word[:word.index(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)] &lt;span class="pl-c"&gt;# Word is now all chars before first space&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;.&lt;span class="pl-s3"&gt;__new__&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, word)
+            &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; word:
+                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Value contains spaces. Truncating to first space.&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
+                word &lt;span class="pl-k"&gt;=&lt;/span&gt; word[:word.index(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)] &lt;span class="pl-c"&gt;# Word is now all chars before first space&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;.&lt;span class="pl-c1"&gt;__new__&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, word)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__gt__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(other)
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__lt__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(other)
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__ge__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(other)
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__le__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(other)&lt;/pre&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__gt__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__lt__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__ge__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__le__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -1159,7 +1159,7 @@
    &lt;p&gt;
     Unary operators and functions only have one operand, e.g. negation, absolute value, etc.
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __pos__(self)
@@ -1263,7 +1263,7 @@
     &lt;/code&gt;
     and the like. These are, for the most part, pretty self-explanatory.
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __add__(self, other)
@@ -1403,7 +1403,7 @@
    &lt;p&gt;
     You know how I said I would get to reflected arithmetic in a bit? Some of you might think it's some big, scary, foreign concept. It's actually quite simple. Here's an example:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    some_object &lt;span class="pl-k"&gt;+&lt;/span&gt; other&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -1412,7 +1412,7 @@
    &lt;p&gt;
     That was "normal" addition. The reflected equivalent is the same thing, except with the operands switched around:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    other &lt;span class="pl-k"&gt;+&lt;/span&gt; some_object&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -1445,7 +1445,7 @@
     &lt;/code&gt;
     .
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __radd__(self, other)
@@ -1589,7 +1589,7 @@
    &lt;p&gt;
     Python also has a wide variety of magic methods to allow custom behavior to be defined for augmented assignment. You're probably already familiar with augmented assignment, it combines "normal" operators with assignment. If you still don't know what I'm talking about, here's an example:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    x &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;5&lt;/span&gt;
     x &lt;span class="pl-k"&gt;+=&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt; &lt;span class="pl-c"&gt;# in other words x = x + 1&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
@@ -1615,7 +1615,7 @@
     &lt;/code&gt;
     ). Here's the list:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __iadd__(self, other)
@@ -1745,7 +1745,7 @@
    &lt;p&gt;
     Python also has an array of magic methods designed to implement behavior for built in type conversion functions like float(). Here they are:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __int__(self)
@@ -1835,7 +1835,7 @@
    &lt;p&gt;
     It's often useful to have a string representation of a class. In Python, there's a few methods that you can implement in your class definition to customize how built in functions that return representations of your class behave.
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __str__(self)
@@ -2009,7 +2009,7 @@
    &lt;p&gt;
     Many people coming to Python from other languages complain that it lacks true encapsulation for classes (e.g. no way to define private attributes and then have public getter and setters). This couldn't be farther than the truth: it just happens that Python accomplishes a great deal of encapsulation through "magic", instead of explicit modifiers for methods or fields. Take a look:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __getattr__(self, name)
@@ -2102,16 +2102,16 @@
    &lt;p&gt;
     You can easily cause a problem in your definitions of any of the methods controlling attribute access. Consider this example:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__setattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;name&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
         &lt;span class="pl-v"&gt;self&lt;/span&gt;.name &lt;span class="pl-k"&gt;=&lt;/span&gt; value
         &lt;span class="pl-c"&gt;# since every time an attribute is assigned, __setattr__() is called, this&lt;/span&gt;
         &lt;span class="pl-c"&gt;# is recursion.&lt;/span&gt;
         &lt;span class="pl-c"&gt;# so this really means self.__setattr__('name', value). Since the method&lt;/span&gt;
         &lt;span class="pl-c"&gt;# keeps calling itself, the recursion goes on forever causing a crash&lt;/span&gt;
 
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__setattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;name&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
-        &lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-sv"&gt;__dict__&lt;/span&gt;[name] &lt;span class="pl-k"&gt;=&lt;/span&gt; value &lt;span class="pl-c"&gt;# assigning to the dict of names in the class&lt;/span&gt;
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
+        &lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__dict__&lt;/span&gt;[name] &lt;span class="pl-k"&gt;=&lt;/span&gt; value &lt;span class="pl-c"&gt;# assigning to the dict of names in the class&lt;/span&gt;
         &lt;span class="pl-c"&gt;# define custom behavior here&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -2127,26 +2127,26 @@
     &lt;/code&gt;
     ):
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;AccessCounter&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-s3"&gt;object&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;A class that contains a value and implements an access counter.&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        The counter increments each time the value is changed.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;AccessCounter&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-c1"&gt;object&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;A class that contains a value and implements an access counter.&lt;/span&gt;
+&lt;span class="pl-s"&gt;        The counter increments each time the value is changed.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;val&lt;/span&gt;):
-            &lt;span class="pl-s3"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-c1"&gt;0&lt;/span&gt;)
-            &lt;span class="pl-s3"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, val)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;val&lt;/span&gt;):
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-c1"&gt;0&lt;/span&gt;)
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, val)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__setattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;name&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;if&lt;/span&gt; name &lt;span class="pl-k"&gt;==&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;:
-                &lt;span class="pl-s3"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-v"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;if&lt;/span&gt; name &lt;span class="pl-k"&gt;==&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;:
+                &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-v"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
             &lt;span class="pl-c"&gt;# Make this unconditional.&lt;/span&gt;
             &lt;span class="pl-c"&gt;# If you want to prevent other attributes to be set, raise AttributeError(name)&lt;/span&gt;
-            &lt;span class="pl-s3"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(name, value)
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(name, value)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__delattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;name&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;if&lt;/span&gt; name &lt;span class="pl-k"&gt;==&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;:
-                &lt;span class="pl-s3"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-v"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
-            &lt;span class="pl-s3"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__delattr__(name)&lt;/pre&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__delattr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;if&lt;/span&gt; name &lt;span class="pl-k"&gt;==&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;:
+                &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__setattr__(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-v"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).__delattr__(name)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2212,7 +2212,7 @@
    &lt;p&gt;
     Without any more wait, here are the magic methods that containers use:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __len__(self)
@@ -2352,54 +2352,54 @@
    &lt;p&gt;
     For our example, let's look at a list that implements some functional constructs that you might be used to from other languages (Haskell, for example).
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;FunctionalList&lt;/span&gt;:
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;A class wrapping a list with some extra functional magic, like head,&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        tail, init, last, drop, and take.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;FunctionalList&lt;/span&gt;:
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;A class wrapping a list with some extra functional magic, like head,&lt;/span&gt;
+&lt;span class="pl-s"&gt;        tail, init, last, drop, and take.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;values&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;None&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;values&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;None&lt;/span&gt;):
             &lt;span class="pl-k"&gt;if&lt;/span&gt; values &lt;span class="pl-k"&gt;is&lt;/span&gt; &lt;span class="pl-c1"&gt;None&lt;/span&gt;:
                 &lt;span class="pl-v"&gt;self&lt;/span&gt;.values &lt;span class="pl-k"&gt;=&lt;/span&gt; []
             &lt;span class="pl-k"&gt;else&lt;/span&gt;:
                 &lt;span class="pl-v"&gt;self&lt;/span&gt;.values &lt;span class="pl-k"&gt;=&lt;/span&gt; values
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__len__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__len__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__getitem__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;key&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__getitem__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;key&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# if key is of invalid type or value, the list values will raise the error&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[key]
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__setitem__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;key&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__setitem__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;key&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[key] &lt;span class="pl-k"&gt;=&lt;/span&gt; value
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__delitem__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;key&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__delitem__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;key&lt;/span&gt;):
             &lt;span class="pl-k"&gt;del&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[key]
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__iter__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-s3"&gt;iter&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__iter__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;iter&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;__reversed__&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; FunctionalList(&lt;span class="pl-s3"&gt;reversed&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values))
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__reversed__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; FunctionalList(&lt;span class="pl-c1"&gt;reversed&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values))
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;append&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;append&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.values.append(value)
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;head&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;head&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# get the first element&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[&lt;span class="pl-c1"&gt;0&lt;/span&gt;]
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;tail&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;tail&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# get all elements after the first&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[&lt;span class="pl-c1"&gt;1&lt;/span&gt;:]
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;init&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;init&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# get elements up to the last&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[:&lt;span class="pl-k"&gt;-&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;]
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;last&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;last&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# get last element&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[&lt;span class="pl-k"&gt;-&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;]
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;drop&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;n&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;drop&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;n&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# get all elements except first n&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[n:]
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;take&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;n&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;take&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;n&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# get first n elements&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[:n]&lt;/pre&gt;
    &lt;/div&gt;
@@ -2427,9 +2427,9 @@
     &lt;/code&gt;
     behaves by defining magic methods. The magic methods are:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    __instancecheck__(&lt;span class="pl-v"&gt;self&lt;/span&gt;, instance) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; an instance &lt;span class="pl-k"&gt;is&lt;/span&gt; an instance of the &lt;span class="pl-st"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-s3"&gt;isinstance&lt;/span&gt;(instance, &lt;span class="pl-st"&gt;class&lt;/span&gt;).
-    __subclasscheck__(&lt;span class="pl-v"&gt;self&lt;/span&gt;, subclass) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; a &lt;span class="pl-st"&gt;class&lt;/span&gt; subclasses the &lt;span class="pl-st"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-s3"&gt;issubclass&lt;/span&gt;(subclass, &lt;span class="pl-st"&gt;class&lt;/span&gt;)).&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-c1"&gt;__instancecheck__&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;, instance) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; an instance &lt;span class="pl-k"&gt;is&lt;/span&gt; an instance of the &lt;span class="pl-k"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-c1"&gt;isinstance&lt;/span&gt;(instance, &lt;span class="pl-k"&gt;class&lt;/span&gt;).
+    &lt;span class="pl-c1"&gt;__subclasscheck__&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;, subclass) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; a &lt;span class="pl-k"&gt;class&lt;/span&gt; subclasses the &lt;span class="pl-k"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-c1"&gt;issubclass&lt;/span&gt;(subclass, &lt;span class="pl-k"&gt;class&lt;/span&gt;)).&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2450,7 +2450,7 @@
    &lt;p&gt;
     A special magic method in Python allows instances of your classes to behave as if they were functions, so that you can "call" them, pass them to functions that take functions as arguments, and so on. This is another powerful convenience feature that makes programming in Python that much sweeter.
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __call__(self, [args...])
@@ -2480,16 +2480,16 @@
     &lt;/code&gt;
     can be particularly useful in classes whose instances that need to often change state. "Calling" the instance can be an intuitive and elegant way to change the object's state. An example might be a class representing an entity's position on a plane:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Entity&lt;/span&gt;:
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to represent an entity. Callable to update the entity's position.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Entity&lt;/span&gt;:
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to represent an entity. Callable to update the entity's position.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;size&lt;/span&gt;, &lt;span class="pl-vpf"&gt;x&lt;/span&gt;, &lt;span class="pl-vpf"&gt;y&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;size&lt;/span&gt;, &lt;span class="pl-smi"&gt;x&lt;/span&gt;, &lt;span class="pl-smi"&gt;y&lt;/span&gt;):
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.x, &lt;span class="pl-v"&gt;self&lt;/span&gt;.y &lt;span class="pl-k"&gt;=&lt;/span&gt; x, y
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.size &lt;span class="pl-k"&gt;=&lt;/span&gt; size
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__call__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;x&lt;/span&gt;, &lt;span class="pl-vpf"&gt;y&lt;/span&gt;):
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Change the position of the entity.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__call__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;x&lt;/span&gt;, &lt;span class="pl-smi"&gt;y&lt;/span&gt;):
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Change the position of the entity.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.x, &lt;span class="pl-v"&gt;self&lt;/span&gt;.y &lt;span class="pl-k"&gt;=&lt;/span&gt; x, y
 
         &lt;span class="pl-c"&gt;# snip...&lt;/span&gt;&lt;/pre&gt;
@@ -2507,8 +2507,8 @@
    &lt;p&gt;
     In Python 2.5, a new keyword was introduced in Python along with a new method for code reuse, the with statement. The concept of context managers was hardly new in Python (it was implemented before as a part of the library), but not until PEP 343 was accepted did it achieve status as a first class language construct. You may have seen with statements before:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-k"&gt;with&lt;/span&gt; &lt;span class="pl-s3"&gt;open&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;foo.txt&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-k"&gt;as&lt;/span&gt; bar:
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;with&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;foo.txt&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-k"&gt;as&lt;/span&gt; bar:
             &lt;span class="pl-c"&gt;# perform some action with bar&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -2521,7 +2521,7 @@
     &lt;/code&gt;
     statement. The behavior of the context manager is determined by two magic methods:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __enter__(self)
@@ -2561,22 +2561,22 @@
     &lt;/code&gt;
     can be useful for specific classes that have well-defined and common behavior for setup and cleanup. You can also use these methods to create generic context managers that wrap other objects. Here's an example:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;&lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Closer&lt;/span&gt;:
-    &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;A context manager to automatically close an object with a close method&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    in a with statement.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;&lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Closer&lt;/span&gt;:
+    &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;A context manager to automatically close an object with a close method&lt;/span&gt;
+&lt;span class="pl-s"&gt;    in a with statement.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;obj&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;obj&lt;/span&gt;):
         &lt;span class="pl-v"&gt;self&lt;/span&gt;.obj &lt;span class="pl-k"&gt;=&lt;/span&gt; obj
 
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__enter__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__enter__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
         &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.obj &lt;span class="pl-c"&gt;# bound to target&lt;/span&gt;
 
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__exit__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;exception_type&lt;/span&gt;, &lt;span class="pl-vpf"&gt;exception_val&lt;/span&gt;, &lt;span class="pl-vpf"&gt;trace&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__exit__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;exception_type&lt;/span&gt;, &lt;span class="pl-smi"&gt;exception_val&lt;/span&gt;, &lt;span class="pl-smi"&gt;trace&lt;/span&gt;):
         &lt;span class="pl-k"&gt;try&lt;/span&gt;:
            &lt;span class="pl-v"&gt;self&lt;/span&gt;.obj.close()
-        &lt;span class="pl-k"&gt;except&lt;/span&gt; &lt;span class="pl-s3"&gt;AttributeError&lt;/span&gt;: &lt;span class="pl-c"&gt;# obj isn't closable&lt;/span&gt;
-           &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Not closable.&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="pl-k"&gt;except&lt;/span&gt; &lt;span class="pl-c1"&gt;AttributeError&lt;/span&gt;: &lt;span class="pl-c"&gt;# obj isn't closable&lt;/span&gt;
+           &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Not closable.&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;True&lt;/span&gt; &lt;span class="pl-c"&gt;# exception handled successfully&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -2589,16 +2589,16 @@
     &lt;/code&gt;
     in action, using an FTP connection to demonstrate it (a closable socket):
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;from&lt;/span&gt; magicmethods &lt;span class="pl-k"&gt;import&lt;/span&gt; Closer
     &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;from&lt;/span&gt; ftplib &lt;span class="pl-k"&gt;import&lt;/span&gt; FTP
-    &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; Closer(FTP(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;ftp.somesite.com&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)) &lt;span class="pl-k"&gt;as&lt;/span&gt; conn:
+    &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; Closer(FTP(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;ftp.somesite.com&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)) &lt;span class="pl-k"&gt;as&lt;/span&gt; conn:
     ...     conn.dir()
     ...
     &lt;span class="pl-c"&gt;# output omitted for brevity&lt;/span&gt;
     &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; conn.dir()
     &lt;span class="pl-c"&gt;# long AttributeError message, can't use a connection that's closed&lt;/span&gt;
-    &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; Closer(&lt;span class="pl-s3"&gt;int&lt;/span&gt;(&lt;span class="pl-c1"&gt;5&lt;/span&gt;)) &lt;span class="pl-k"&gt;as&lt;/span&gt; i:
+    &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; Closer(&lt;span class="pl-c1"&gt;int&lt;/span&gt;(&lt;span class="pl-c1"&gt;5&lt;/span&gt;)) &lt;span class="pl-k"&gt;as&lt;/span&gt; i:
     ...     i &lt;span class="pl-k"&gt;+=&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;
     ...
     Not closable.
@@ -2662,7 +2662,7 @@
     &lt;/code&gt;
     implemented. Let's take a look at those magic methods:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __get__(self, instance, owner)
@@ -2685,28 +2685,28 @@
    &lt;p&gt;
     Now, an example of a useful application of descriptors: unit conversions.
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Meter&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-s3"&gt;object&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Descriptor for a meter.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Meter&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-c1"&gt;object&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Descriptor for a meter.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;0.0&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;float&lt;/span&gt;(value)
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__get__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;instance&lt;/span&gt;, &lt;span class="pl-vpf"&gt;owner&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;0.0&lt;/span&gt;):
+            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__get__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;instance&lt;/span&gt;, &lt;span class="pl-smi"&gt;owner&lt;/span&gt;):
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.value
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__set__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;instance&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;float&lt;/span&gt;(value)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__set__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;instance&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
+            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value)
 
-    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Foot&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-s3"&gt;object&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Descriptor for a foot.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Foot&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-c1"&gt;object&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Descriptor for a foot.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__get__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;instance&lt;/span&gt;, &lt;span class="pl-vpf"&gt;owner&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__get__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;instance&lt;/span&gt;, &lt;span class="pl-smi"&gt;owner&lt;/span&gt;):
             &lt;span class="pl-k"&gt;return&lt;/span&gt; instance.meter &lt;span class="pl-k"&gt;*&lt;/span&gt; &lt;span class="pl-c1"&gt;3.2808&lt;/span&gt;
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__set__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;instance&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
-            instance.meter &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;float&lt;/span&gt;(value) &lt;span class="pl-k"&gt;/&lt;/span&gt; &lt;span class="pl-c1"&gt;3.2808&lt;/span&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__set__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;instance&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
+            instance.meter &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value) &lt;span class="pl-k"&gt;/&lt;/span&gt; &lt;span class="pl-c1"&gt;3.2808&lt;/span&gt;
 
-    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Distance&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-s3"&gt;object&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to represent distance holding two descriptors for feet and&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        meters.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Distance&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-c1"&gt;object&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to represent distance holding two descriptors for feet and&lt;/span&gt;
+&lt;span class="pl-s"&gt;        meters.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
         meter &lt;span class="pl-k"&gt;=&lt;/span&gt; Meter()
         foot &lt;span class="pl-k"&gt;=&lt;/span&gt; Foot()&lt;/pre&gt;
    &lt;/div&gt;
@@ -2723,7 +2723,7 @@
    &lt;p&gt;
     Sometimes, particularly when dealing with mutable objects, you want to be able to copy an object and make changes without affecting what you copied from. This is where Python's copy comes into play. However (fortunately), Python modules are not sentient, so we don't have to worry about a Linux-based robot uprising, but we do have to tell Python how to efficiently copy things.
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __copy__(self)
@@ -2791,13 +2791,13 @@
     &lt;/code&gt;
     or processing the file input. But this is precarious at best: if you store important data in plain text, it could be corrupted or changed in any number of ways to make your program crash or worse run malicious code on your computer. Instead, we're going to pickle it:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; pickle
 
-    data &lt;span class="pl-k"&gt;=&lt;/span&gt; {&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;foo&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [&lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-c1"&gt;2&lt;/span&gt;, &lt;span class="pl-c1"&gt;3&lt;/span&gt;],
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;bar&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Hello&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;world!&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;),
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;baz&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="pl-c1"&gt;True&lt;/span&gt;}
-    jar &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;open&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;wb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
+    data &lt;span class="pl-k"&gt;=&lt;/span&gt; {&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;foo&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [&lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-c1"&gt;2&lt;/span&gt;, &lt;span class="pl-c1"&gt;3&lt;/span&gt;],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;bar&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Hello&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;world!&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;),
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;baz&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="pl-c1"&gt;True&lt;/span&gt;}
+    jar &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;wb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
     pickle.dump(data, jar) &lt;span class="pl-c"&gt;# write the pickled data to the file jar&lt;/span&gt;
     jar.close()&lt;/pre&gt;
    &lt;/div&gt;
@@ -2807,10 +2807,10 @@
    &lt;p&gt;
     Now, a few hours later, we want it back. All we have to do is unpickle it:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; pickle
 
-    pkl_file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;open&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;rb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-c"&gt;# connect to the pickled data&lt;/span&gt;
+    pkl_file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;rb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-c"&gt;# connect to the pickled data&lt;/span&gt;
     data &lt;span class="pl-k"&gt;=&lt;/span&gt; pickle.load(pkl_file) &lt;span class="pl-c"&gt;# load it into a variable&lt;/span&gt;
     &lt;span class="pl-k"&gt;print&lt;/span&gt; data
     pkl_file.close()&lt;/pre&gt;
@@ -2834,7 +2834,7 @@
    &lt;p&gt;
     Pickling isn't just for built-in types. It's for any class that follows the pickle protocol. The pickle protocol has four optional methods for Python objects to customize how they act (it's a bit different for C extensions, but that's not in our scope):
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       __getinitargs__(self)
@@ -2954,35 +2954,35 @@
     &lt;/code&gt;
     , which remembers what its values have been and when those values were written to it. However, this particular slate goes blank each time it is pickled: the current value will not be saved.
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; time
 
-    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Slate&lt;/span&gt;:
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to store a string and a changelog, and forget its value when&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        pickled.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Slate&lt;/span&gt;:
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to store a string and a changelog, and forget its value when&lt;/span&gt;
+&lt;span class="pl-s"&gt;        pickled.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;value&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; value
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; time.asctime()
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.history &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;change&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;new_value&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;change&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;new_value&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# Change the value. Commit last value to history&lt;/span&gt;
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.history[&lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change] &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.value
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; new_value
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; time.asctime()
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;print_changes&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Changelog for Slate object:&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;print_changes&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Changelog for Slate object:&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
             &lt;span class="pl-k"&gt;for&lt;/span&gt; k, v &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.history.items():
-                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;span class="pl-c1"&gt;%s&lt;/span&gt;&lt;span class="pl-cce"&gt;\t&lt;/span&gt; &lt;span class="pl-c1"&gt;%s&lt;/span&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;%&lt;/span&gt; (k, v)
+                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;span class="pl-c1"&gt;%s&lt;/span&gt;&lt;span class="pl-cce"&gt;\t&lt;/span&gt; &lt;span class="pl-c1"&gt;%s&lt;/span&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;%&lt;/span&gt; (k, v)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;__getstate__&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;__getstate__&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# Deliberately do not return self.value or self.last_change.&lt;/span&gt;
             &lt;span class="pl-c"&gt;# We want to have a "blank slate" when we unpickle.&lt;/span&gt;
             &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.history
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;__setstate__&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;state&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;__setstate__&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;state&lt;/span&gt;):
             &lt;span class="pl-c"&gt;# Make self.history = state and last_change and value undefined&lt;/span&gt;
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.history &lt;span class="pl-k"&gt;=&lt;/span&gt; state
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.value, &lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;None&lt;/span&gt;, &lt;span class="pl-c1"&gt;None&lt;/span&gt;&lt;/pre&gt;
@@ -3385,7 +3385,7 @@
    &lt;p&gt;
     Here, we document a few major places where Python 3 differs from 2.x in terms of its object model:
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Since the distinction between string and unicode has been done away with in Python 3,
      &lt;code&gt;
@@ -3445,7 +3445,7 @@
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/magicmethods/blob/master/README.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -3518,9 +3518,9 @@
    &lt;p&gt;
     Call from command line
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;pattern1 {action1}&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    pattern2 {action2} ...&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file1 file2 ..&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;pattern1 {action1}&lt;/span&gt;
+&lt;span class="pl-s"&gt;    pattern2 {action2} ...&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file1 file2 ..&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3528,7 +3528,7 @@
    &lt;p&gt;
     Call a script
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    awk -f script file1 file2 ...&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -3537,8 +3537,8 @@
    &lt;p&gt;
     Call without input files
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;program&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;program&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3553,8 +3553,8 @@
    &lt;p&gt;
     Awk can use regular exrepssion as conditions
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;/foo/ {program}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;/foo/ {program}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3575,8 +3575,8 @@
      tolower
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    tolower(&lt;span class="pl-vo"&gt;$1&lt;/span&gt;) &lt;span class="pl-k"&gt;~&lt;/span&gt; /foo/ {...}&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    tolower(&lt;span class="pl-smi"&gt;$1&lt;/span&gt;) &lt;span class="pl-k"&gt;~&lt;/span&gt; /foo/ {...}&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3588,7 +3588,7 @@
     &lt;/code&gt;
     to non-zero
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    IGNORECASE = 1&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -3604,8 +3604,8 @@
    &lt;p&gt;
     Awk provides facility to define dynamic regular expressions
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    BEGIN { digits_regexp = &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;[[:digit:]]+&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; }&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    BEGIN { digits_regexp = &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;[[:digit:]]+&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; }&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3623,8 +3623,8 @@
    &lt;p&gt;
     In other words, do something even if there are no line to process
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;BEGIN {do something}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;BEGIN {do something}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3651,8 +3651,8 @@
    &lt;p&gt;
     Or it can be set in the BEGIN condition like this
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    BEGIN {FS = &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;/&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    BEGIN {FS = &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;/&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -3694,7 +3694,7 @@
     &lt;/a&gt;
     Special Variables
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       $0
@@ -3717,13 +3717,13 @@
      To force awk to rebuild the record,
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    &lt;span class="pl-vo"&gt;$1&lt;/span&gt; = &lt;span class="pl-vo"&gt;$1&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-c"&gt;# force record to be rebuilt&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    &lt;span class="pl-smi"&gt;$1&lt;/span&gt; = &lt;span class="pl-smi"&gt;$1&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-c"&gt;# force record to be rebuilt&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      NF is the number of fields
     &lt;/li&gt;
@@ -3747,7 +3747,7 @@
     &lt;/li&gt;
     &lt;li&gt;
      FS is the field separator
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        FS can be specified at the beginning as well
       &lt;/li&gt;
@@ -3758,7 +3758,7 @@
     &lt;/li&gt;
     &lt;li&gt;
      FIELDWIDTHS is a string that specifies field widths separated by spaces.
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        For instance
        &lt;code&gt;
@@ -3778,7 +3778,7 @@
     &lt;/a&gt;
     Operators
    &lt;/h4&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       ~
@@ -3786,14 +3786,14 @@
      (tilde) used to match a string with a regular expression
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    $ awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;$1 ~ /J/&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    $ awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;$1 ~ /J/&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file
     &lt;span class="pl-c"&gt;# matches line where the first field start with J&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       !~
@@ -3814,7 +3814,7 @@
     &lt;/a&gt;
     Useful functions
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      length() returns the string length.
     &lt;/li&gt;
@@ -3857,20 +3857,20 @@
      &lt;/code&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-c"&gt;# The following code copies all input files to the output, except for records that say @include filename&lt;/span&gt;
     &lt;span class="pl-c"&gt;# in this case it will replace such records with the content of the file `filename`&lt;/span&gt;
-    &lt;span class="pl-k"&gt;if&lt;/span&gt; (NF 2 &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="pl-vo"&gt;$1&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;@include&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;) {
-        &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;getline line &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-vo"&gt;$2&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;)&lt;/span&gt;
-&lt;span class="pl-s1"&gt;            print line&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        close(&lt;span class="pl-vo"&gt;$2&lt;/span&gt;)&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    } else&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        print&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-k"&gt;if&lt;/span&gt; (NF 2 &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="pl-smi"&gt;$1&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;@include&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;) {
+        &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;getline line &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-smi"&gt;$2&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;)&lt;/span&gt;
+&lt;span class="pl-s"&gt;            print line&lt;/span&gt;
+&lt;span class="pl-s"&gt;        close(&lt;span class="pl-smi"&gt;$2&lt;/span&gt;)&lt;/span&gt;
+&lt;span class="pl-s"&gt;    } else&lt;/span&gt;
+&lt;span class="pl-s"&gt;        print&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       command | getline
@@ -3882,22 +3882,22 @@
      is run as a shell command and its output is piped to getline
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-c"&gt;# line begins with @execute is replaced by the output of the command after that&lt;/span&gt;
     {
-        &lt;span class="pl-k"&gt;if&lt;/span&gt; (&lt;span class="pl-vo"&gt;$1&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;@execute&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;) {
-            tmp = substr(&lt;span class="pl-vo"&gt;$0&lt;/span&gt;, 10)
-            &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;tmp &lt;span class="pl-k"&gt;|&lt;/span&gt; getline) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;)&lt;/span&gt;
-&lt;span class="pl-s1"&gt;                print&lt;/span&gt;
-&lt;span class="pl-s1"&gt;            close(tmp)&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        } else&lt;/span&gt;
-&lt;span class="pl-s1"&gt;            print&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    }&lt;/span&gt;&lt;/pre&gt;
+        &lt;span class="pl-k"&gt;if&lt;/span&gt; (&lt;span class="pl-smi"&gt;$1&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;@execute&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;) {
+            tmp = substr(&lt;span class="pl-smi"&gt;$0&lt;/span&gt;, 10)
+            &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;tmp &lt;span class="pl-k"&gt;|&lt;/span&gt; getline) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;)&lt;/span&gt;
+&lt;span class="pl-s"&gt;                print&lt;/span&gt;
+&lt;span class="pl-s"&gt;            close(tmp)&lt;/span&gt;
+&lt;span class="pl-s"&gt;        } else&lt;/span&gt;
+&lt;span class="pl-s"&gt;            print&lt;/span&gt;
+&lt;span class="pl-s"&gt;    }&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       command | getline var
@@ -3920,7 +3920,7 @@
     &lt;/li&gt;
     &lt;li&gt;
      Mathematical functions such as: sqrt(), atan2(), rand(). TODO
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        DO NOT put a space between the function name and the parentheses. It can be confused with string concatenation
       &lt;/li&gt;
@@ -3937,7 +3937,7 @@
     &lt;/a&gt;
     Printing and output
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      print something, something, ...
     &lt;/li&gt;
@@ -3952,7 +3952,7 @@
     &lt;/li&gt;
     &lt;li&gt;
      The print and printf function can be redirected just as in the shell
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        print items &amp;gt; file
       &lt;/li&gt;
@@ -3981,10 +3981,10 @@
     &lt;/a&gt;
     Standard descriptors
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Gawk supports special filenames for standard input, output and error streams
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        /dev/stdin
       &lt;/li&gt;
@@ -4000,8 +4000,8 @@
      &lt;/ul&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    print &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;serious error detected &lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;/dev/stderr&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    print &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;serious error detected &lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;/dev/stderr&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4013,7 +4013,7 @@
     &lt;/a&gt;
     Special files for process-related information
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Gwak supports special file for accessing information about the running gawk process. TODO
     &lt;/li&gt;
@@ -4025,7 +4025,7 @@
     &lt;/a&gt;
     Special files for network communication
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Gawk, awk can open two-way TCP-IP connection. TODO
     &lt;/li&gt;
@@ -4037,7 +4037,7 @@
     &lt;/a&gt;
     Close input and output redirection
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;code&gt;
       close(filename)
@@ -4075,9 +4075,9 @@
      sh
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    { &lt;span class="pl-s3"&gt;printf&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;mv %s %s\n&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-vo"&gt;$0&lt;/span&gt;, tolower(&lt;span class="pl-vo"&gt;$0&lt;/span&gt;)) &lt;span class="pl-k"&gt;|&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;sh&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; }
-    END {close(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;sh&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)}&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    { &lt;span class="pl-c1"&gt;printf&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;mv %s %s\n&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;$0&lt;/span&gt;, tolower(&lt;span class="pl-smi"&gt;$0&lt;/span&gt;)) &lt;span class="pl-k"&gt;|&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;sh&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; }
+    END {close(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;sh&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)}&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4089,13 +4089,13 @@
     &lt;/a&gt;
     Change the content of a field
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      The content of a field can be change during processing , like this
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{$2=$2-10; print $0}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{$2=$2-10; print $0}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
     &lt;span class="pl-c"&gt;# will subtract 10 from the second field, and the second field should be&lt;/span&gt;
     &lt;span class="pl-c"&gt;# a number for this to work.&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
@@ -4109,20 +4109,20 @@
     &lt;/a&gt;
     Variables
    &lt;/h4&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Custom variables can be created and default to zero
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    {
-        str = &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;hello&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt;
+        str = &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;hello&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt;
     }&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Variables can be assigned in the command line. TODO:
     &lt;/li&gt;
@@ -4134,7 +4134,7 @@
     &lt;/li&gt;
     &lt;li&gt;
      String concatenation is done by placing the operands next to each other
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        &lt;code&gt;
         ()
@@ -4172,7 +4172,7 @@
     &lt;/a&gt;
     Patterns
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Patterns control the execution of rules, a rule is executed when its pattern matches the current input record (line).
     &lt;/li&gt;
@@ -4185,7 +4185,7 @@
       beginpatter, endpattern
      &lt;/code&gt;
      . Every record between inclusive is processed.
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        The range pattern can be turned on and off by the same record.
       &lt;/li&gt;
@@ -4205,11 +4205,11 @@
    &lt;p&gt;
     if-else
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;if&lt;/span&gt; (x % 2 0)
-        print &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;x is even&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
+        print &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;x is even&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
     &lt;span class="pl-k"&gt;else&lt;/span&gt;
-        print &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;x is odd&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+        print &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;x is odd&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4217,9 +4217,9 @@
    &lt;p&gt;
     while
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;while&lt;/span&gt; (i &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 3) {
-        print &lt;span class="pl-vo"&gt;$i&lt;/span&gt;
+        print &lt;span class="pl-smi"&gt;$i&lt;/span&gt;
         i++
     }&lt;/pre&gt;
    &lt;/div&gt;
@@ -4229,9 +4229,9 @@
    &lt;p&gt;
     do while
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;do&lt;/span&gt; {
-        print &lt;span class="pl-vo"&gt;$0&lt;/span&gt;
+        print &lt;span class="pl-smi"&gt;$0&lt;/span&gt;
         i++
     } &lt;span class="pl-k"&gt;while&lt;/span&gt; (i &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 10)&lt;/pre&gt;
    &lt;/div&gt;
@@ -4241,9 +4241,9 @@
    &lt;p&gt;
     for
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    &lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-vo"&gt;(i&lt;/span&gt; = 1&lt;span class="pl-k"&gt;;&lt;/span&gt; i &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 3&lt;span class="pl-k"&gt;;&lt;/span&gt; i++)
-        print &lt;span class="pl-vo"&gt;$i&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-smi"&gt;(i&lt;/span&gt; = 1&lt;span class="pl-k"&gt;;&lt;/span&gt; i &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 3&lt;span class="pl-k"&gt;;&lt;/span&gt; i++)
+        print &lt;span class="pl-smi"&gt;$i&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4251,22 +4251,22 @@
    &lt;p&gt;
     switch: break
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    switch (NR &lt;span class="pl-k"&gt;*&lt;/span&gt; 2 + 1) {
     &lt;span class="pl-k"&gt;case&lt;/span&gt; 3:
-        &lt;span class="pl-s3"&gt;break&lt;/span&gt;
-    &lt;span class="pl-k"&gt;case&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;11&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;:
+        &lt;span class="pl-c1"&gt;break&lt;/span&gt;
+    &lt;span class="pl-k"&gt;case&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;11&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;:
         print NR - 1
-        &lt;span class="pl-s3"&gt;break&lt;/span&gt;
+        &lt;span class="pl-c1"&gt;break&lt;/span&gt;
     &lt;span class="pl-k"&gt;case&lt;/span&gt; /2[[:digit:]]+/:
         print NR
-        &lt;span class="pl-s3"&gt;break&lt;/span&gt;
+        &lt;span class="pl-c1"&gt;break&lt;/span&gt;
     default:
         print NR + 1
-        &lt;span class="pl-s3"&gt;break&lt;/span&gt;
+        &lt;span class="pl-c1"&gt;break&lt;/span&gt;
     &lt;span class="pl-k"&gt;case&lt;/span&gt; -1:
         print NR &lt;span class="pl-k"&gt;*&lt;/span&gt; -1
-        &lt;span class="pl-s3"&gt;break&lt;/span&gt;
+        &lt;span class="pl-c1"&gt;break&lt;/span&gt;
     }&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -4275,20 +4275,20 @@
    &lt;p&gt;
     switch: continue
    &lt;/p&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    BEGIN {
-        &lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-vo"&gt;(x&lt;/span&gt; = 0&lt;span class="pl-k"&gt;;&lt;/span&gt; x &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 20&lt;span class="pl-k"&gt;;&lt;/span&gt; x++) {
+        &lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-smi"&gt;(x&lt;/span&gt; = 0&lt;span class="pl-k"&gt;;&lt;/span&gt; x &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 20&lt;span class="pl-k"&gt;;&lt;/span&gt; x++) {
             &lt;span class="pl-k"&gt;if&lt;/span&gt; (x 5)
                 &lt;span class="pl-k"&gt;continue&lt;/span&gt;
-            &lt;span class="pl-s3"&gt;printf&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;%d &lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;, x
+            &lt;span class="pl-c1"&gt;printf&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;%d &lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;, x
         }
-        print &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
+        print &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
     }&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      next: stop processing the current record and go on to the next record
     &lt;/li&gt;
@@ -4299,15 +4299,15 @@
      exit n: stops execution for the current rule and execute the END rule if any.
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    BEGIN {
-    &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;"date" &lt;span class="pl-k"&gt;|&lt;/span&gt; getline date_now) &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;) {&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    print "Can’t get system date" &amp;gt; "/dev/stderr"&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    exit &lt;span class="pl-c1"&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    }&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    print "current date is", date_now&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    close("date")&lt;/span&gt;
-&lt;span class="pl-s1"&gt;    }&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;"date" &lt;span class="pl-k"&gt;|&lt;/span&gt; getline date_now) &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;) {&lt;/span&gt;
+&lt;span class="pl-s"&gt;    print "Can’t get system date" &amp;gt; "/dev/stderr"&lt;/span&gt;
+&lt;span class="pl-s"&gt;    exit &lt;span class="pl-c1"&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;    }&lt;/span&gt;
+&lt;span class="pl-s"&gt;    print "current date is", date_now&lt;/span&gt;
+&lt;span class="pl-s"&gt;    close("date")&lt;/span&gt;
+&lt;span class="pl-s"&gt;    }&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4319,13 +4319,13 @@
     &lt;/a&gt;
     Functions
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Controlling output buffering with
      &lt;code&gt;
       system
      &lt;/code&gt;
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        Use
        &lt;code&gt;
@@ -4353,7 +4353,7 @@
     &lt;/a&gt;
     How to remove special characters from files
    &lt;/h2&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      Suppose you have a list of files starting with a certain number of special character that you want to remove
     &lt;/li&gt;
@@ -4372,15 +4372,15 @@
      First, export the list of filenames to a first file test1
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    &lt;span class="pl-c"&gt;# Suppose that the original files are in folder original_files and we want to copy them to&lt;/span&gt;
     &lt;span class="pl-c"&gt;# folder new_files&lt;/span&gt;
     ls original_files &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list1 &lt;span class="pl-c"&gt;# generate list of files&lt;/span&gt;
-    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list2 &lt;span class="pl-c"&gt;# removes all special characters and generate a second list&lt;/span&gt;
+    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list2 &lt;span class="pl-c"&gt;# removes all special characters and generate a second list&lt;/span&gt;
 
     &lt;span class="pl-c"&gt;# combine list1 and list2 to a list of shell command in list3&lt;/span&gt;
     &lt;span class="pl-c"&gt;# We will use strong quoting&lt;/span&gt;
-    awk &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &amp;lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &amp;gt; "list3";}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1
+    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &amp;lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &amp;gt; "list3";}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1
 
     sh list3 &lt;span class="pl-c"&gt;# run the list of commands in list3&lt;/span&gt;
     rm -frv list1 list2 list3 &lt;span class="pl-c"&gt;# remove all temporary files&lt;/span&gt;&lt;/pre&gt;
@@ -4395,13 +4395,13 @@
     &lt;/a&gt;
     Make each character a separate field
    &lt;/h2&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      By changing the field separtor to null string
     &lt;/li&gt;
    &lt;/ul&gt;
-   &lt;div class="highlight highlight-bash"&gt;
-    &lt;pre&gt;    BEGIN {FS=&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    BEGIN {FS=&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4413,7 +4413,7 @@
     &lt;/a&gt;
     BOOKS
    &lt;/h1&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://www.gnu.org/software/gawk/manual/gawk.pdf"&gt;
       Gwak Effective awk programming
@@ -4433,7 +4433,7 @@
     &lt;/a&gt;
     ARTICLES
    &lt;/h1&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/"&gt;
       Differences between different versions of awk
@@ -4452,7 +4452,7 @@
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/awk.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -4539,7 +4539,7 @@
    &lt;p&gt;
     We all know memoization and probably implement it as a function that takes an arbitrary function and return a memoized function:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    memoized_factorial &lt;span class="pl-k"&gt;=&lt;/span&gt; construct_memoize(factorial)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -4562,24 +4562,24 @@
      decorated function
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    cache_obj &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
 
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;cache&lt;/span&gt;(&lt;span class="pl-vpf"&gt;func&lt;/span&gt;):
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;inner&lt;/span&gt;(*&lt;span class="pl-vpf"&gt;args&lt;/span&gt;, **&lt;span class="pl-vpf"&gt;kwargs&lt;/span&gt;):
-            &lt;span class="pl-s"&gt;global&lt;/span&gt; cache_obj
-            key &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;(args) &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;(kwargs)
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;cache&lt;/span&gt;(&lt;span class="pl-smi"&gt;func&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;inner&lt;/span&gt;(*&lt;span class="pl-smi"&gt;args&lt;/span&gt;, **&lt;span class="pl-smi"&gt;kwargs&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;global&lt;/span&gt; cache_obj
+            key &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;(args) &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;(kwargs)
             &lt;span class="pl-k"&gt;if&lt;/span&gt; key &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; cache_obj:
                 cache_obj[key] &lt;span class="pl-k"&gt;=&lt;/span&gt; func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
             &lt;span class="pl-k"&gt;else&lt;/span&gt;:
-                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Get from cache &lt;span class="pl-c1"&gt;{}&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;.format(key)
+                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Get from cache &lt;span class="pl-c1"&gt;{}&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;.format(key)
             &lt;span class="pl-k"&gt;return&lt;/span&gt; cache_obj[key]
         &lt;span class="pl-k"&gt;return&lt;/span&gt; inner
 
     &lt;span class="pl-en"&gt;@cache&lt;/span&gt;
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;sum&lt;/span&gt;(&lt;span class="pl-vpf"&gt;a&lt;/span&gt;, &lt;span class="pl-vpf"&gt;b&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Sum 2 numbers&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        &lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;sum&lt;/span&gt;(&lt;span class="pl-smi"&gt;a&lt;/span&gt;, &lt;span class="pl-smi"&gt;b&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Sum 2 numbers&lt;/span&gt;
+&lt;span class="pl-s"&gt;        &lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
         &lt;span class="pl-k"&gt;return&lt;/span&gt; a &lt;span class="pl-k"&gt;+&lt;/span&gt; b&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -4615,23 +4615,23 @@
     &lt;/code&gt;
     is not a great idea, because different functions can have the same arguments, then your cache is overwritten. It's better to assign the cache object directly to the original function
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;memoize_2&lt;/span&gt;(&lt;span class="pl-vpf"&gt;func&lt;/span&gt;):
-        &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-s3"&gt;hasattr&lt;/span&gt;(func, &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;cache&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;memoize_2&lt;/span&gt;(&lt;span class="pl-smi"&gt;func&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;hasattr&lt;/span&gt;(func, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;cache&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
             func.cache &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;inner&lt;/span&gt;(*&lt;span class="pl-vpf"&gt;args&lt;/span&gt;, **&lt;span class="pl-vpf"&gt;kwargs&lt;/span&gt;):
-            key &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;(args) &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;(kwargs)
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;inner&lt;/span&gt;(*&lt;span class="pl-smi"&gt;args&lt;/span&gt;, **&lt;span class="pl-smi"&gt;kwargs&lt;/span&gt;):
+            key &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;(args) &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;(kwargs)
             &lt;span class="pl-k"&gt;if&lt;/span&gt; key &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; func.cache:
                 func.cache[key] &lt;span class="pl-k"&gt;=&lt;/span&gt; func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
             &lt;span class="pl-k"&gt;else&lt;/span&gt;:
-                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Get from cache &lt;span class="pl-c1"&gt;{}&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;.format(key)
+                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Get from cache &lt;span class="pl-c1"&gt;{}&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;.format(key)
             &lt;span class="pl-k"&gt;return&lt;/span&gt; func.cache[key]
         &lt;span class="pl-k"&gt;return&lt;/span&gt; inner
 
     &lt;span class="pl-en"&gt;@memoize_2&lt;/span&gt;
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;multiply&lt;/span&gt;(&lt;span class="pl-vpf"&gt;a&lt;/span&gt;, &lt;span class="pl-vpf"&gt;b&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Multiply 2 numbers&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        &lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;multiply&lt;/span&gt;(&lt;span class="pl-smi"&gt;a&lt;/span&gt;, &lt;span class="pl-smi"&gt;b&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Multiply 2 numbers&lt;/span&gt;
+&lt;span class="pl-s"&gt;        &lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
         &lt;span class="pl-k"&gt;return&lt;/span&gt; a &lt;span class="pl-k"&gt;*&lt;/span&gt; b
 
     multiply(&lt;span class="pl-c1"&gt;1&lt;/span&gt;,&lt;span class="pl-c1"&gt;2&lt;/span&gt;)
@@ -4643,8 +4643,8 @@
    &lt;p&gt;
     This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-k"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-sv"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;# None&lt;/span&gt;&lt;/pre&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;# None&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4655,22 +4655,22 @@
      functools.wrapper
     &lt;/code&gt;
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; functools
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;memoize&lt;/span&gt;(&lt;span class="pl-vpf"&gt;func&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;memoize&lt;/span&gt;(&lt;span class="pl-smi"&gt;func&lt;/span&gt;):
         &lt;span class="pl-en"&gt;@&lt;/span&gt;&lt;span class="pl-en"&gt;functools.wraps&lt;/span&gt;(func)
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;inner&lt;/span&gt;(*&lt;span class="pl-vpf"&gt;args&lt;/span&gt;, **&lt;span class="pl-vpf"&gt;kwargs&lt;/span&gt;):
-            key &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;(args) &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-s3"&gt;str&lt;/span&gt;(kwargs)
-            &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-s3"&gt;hasattr&lt;/span&gt;(func, &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;cache&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;inner&lt;/span&gt;(*&lt;span class="pl-smi"&gt;args&lt;/span&gt;, **&lt;span class="pl-smi"&gt;kwargs&lt;/span&gt;):
+            key &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;(args) &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;(kwargs)
+            &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;hasattr&lt;/span&gt;(func, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;cache&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
                 func.cache &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
             &lt;span class="pl-k"&gt;if&lt;/span&gt; key &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; func.cache:
                 func.cache[key] &lt;span class="pl-k"&gt;=&lt;/span&gt; func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
             &lt;span class="pl-k"&gt;else&lt;/span&gt;:
-                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Get from cache &lt;span class="pl-c1"&gt;{}&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;.format(key)
+                &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Get from cache &lt;span class="pl-c1"&gt;{}&lt;/span&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;.format(key)
             &lt;span class="pl-k"&gt;return&lt;/span&gt; func.cache[key]
         &lt;span class="pl-k"&gt;return&lt;/span&gt; inner
 
-    &lt;span class="pl-k"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-sv"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;# Multiply 2 numbers&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-k"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;# Multiply 2 numbers&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4692,27 +4692,27 @@
     &lt;/code&gt;
     decorator doesn't need any customization, but there are a lot of pattern that requires some kind of customization. For instance, we want to apply a retry pattern to a function that follows special protocol. Obviously, we have to specify the number of retries, the delay between retry, and maybe a backoff factor to scale up the delay between failed attempts. This is how we do it:
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; time, math
 
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;retry&lt;/span&gt;(&lt;span class="pl-vpf"&gt;tries&lt;/span&gt;, &lt;span class="pl-vpf"&gt;delay&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;3&lt;/span&gt;, &lt;span class="pl-vpf"&gt;backoff&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Retries a function or method until it returns True.&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        delay sets the initial delay in seconds, and backoff sets the factor by which&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        the delay should lengthen after each failure. backoff must be greater than 1,&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        or else it isn't really a backoff. tries must be at least 0, and delay&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        greater than 0.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;retry&lt;/span&gt;(&lt;span class="pl-smi"&gt;tries&lt;/span&gt;, &lt;span class="pl-smi"&gt;delay&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;3&lt;/span&gt;, &lt;span class="pl-smi"&gt;backoff&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Retries a function or method until it returns True.&lt;/span&gt;
+&lt;span class="pl-s"&gt;        delay sets the initial delay in seconds, and backoff sets the factor by which&lt;/span&gt;
+&lt;span class="pl-s"&gt;        the delay should lengthen after each failure. backoff must be greater than 1,&lt;/span&gt;
+&lt;span class="pl-s"&gt;        or else it isn't really a backoff. tries must be at least 0, and delay&lt;/span&gt;
+&lt;span class="pl-s"&gt;        greater than 0.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;if&lt;/span&gt; backoff &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;:
-            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-s3"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;backoff must be greater than 1&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)
+            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-c1"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;backoff must be greater than 1&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)
 
         &lt;span class="pl-k"&gt;if&lt;/span&gt; tries &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;:
-            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-s3"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;tries must be 0 or greater&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)
+            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-c1"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;tries must be 0 or greater&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)
 
         &lt;span class="pl-k"&gt;if&lt;/span&gt; delay &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;:
-            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-s3"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;delay must be greater than 0&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)
+            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-c1"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;delay must be greater than 0&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;)
 
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;deco_retry&lt;/span&gt;(&lt;span class="pl-vpf"&gt;f&lt;/span&gt;):
-            &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;f_retry&lt;/span&gt;(*&lt;span class="pl-vpf"&gt;args&lt;/span&gt;, **&lt;span class="pl-vpf"&gt;kwargs&lt;/span&gt;):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;deco_retry&lt;/span&gt;(&lt;span class="pl-smi"&gt;f&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;f_retry&lt;/span&gt;(*&lt;span class="pl-smi"&gt;args&lt;/span&gt;, **&lt;span class="pl-smi"&gt;kwargs&lt;/span&gt;):
                 mtries, mdelay &lt;span class="pl-k"&gt;=&lt;/span&gt; tries, delay
 
                 rv &lt;span class="pl-k"&gt;=&lt;/span&gt; f(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
@@ -4730,8 +4730,8 @@
             &lt;span class="pl-k"&gt;return&lt;/span&gt; f_retry
         &lt;span class="pl-k"&gt;return&lt;/span&gt; deco_retry
 
-    &lt;span class="pl-en"&gt;@&lt;/span&gt;&lt;span class="pl-en"&gt;retry&lt;/span&gt;(&lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-vpf"&gt;delay&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-vpf"&gt;backoff&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;)
-    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;get_data&lt;/span&gt;():
+    &lt;span class="pl-en"&gt;@&lt;/span&gt;&lt;span class="pl-en"&gt;retry&lt;/span&gt;(&lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-smi"&gt;delay&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-smi"&gt;backoff&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;)
+    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;get_data&lt;/span&gt;():
         &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;False&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -4770,19 +4770,19 @@
    &lt;p&gt;
     Using function as decorators is straight forward, and for storing persistent information we use closures over temporary variables. It'd be nice if the persistent information are class members.
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; collections
-    &lt;span class="pl-st"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;memoized&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-s3"&gt;object&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Decorator. Caches a function's return value each time it is called.&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        If called later with the same arguments, the cached value is returned&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        (not reevaluated).&lt;/span&gt;
-&lt;span class="pl-s1"&gt;        &lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;func&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;memoized&lt;/span&gt;(&lt;span class="pl-e"&gt;&lt;span class="pl-c1"&gt;object&lt;/span&gt;&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Decorator. Caches a function's return value each time it is called.&lt;/span&gt;
+&lt;span class="pl-s"&gt;        If called later with the same arguments, the cached value is returned&lt;/span&gt;
+&lt;span class="pl-s"&gt;        (not reevaluated).&lt;/span&gt;
+&lt;span class="pl-s"&gt;        &lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__init__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;func&lt;/span&gt;):
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.func &lt;span class="pl-k"&gt;=&lt;/span&gt; func
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.__doc__ &lt;span class="pl-k"&gt;=&lt;/span&gt; func.&lt;span class="pl-sv"&gt;__doc__&lt;/span&gt;
+            &lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; func.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
             &lt;span class="pl-v"&gt;self&lt;/span&gt;.cache &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__call__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, *&lt;span class="pl-vpf"&gt;args&lt;/span&gt;, **&lt;span class="pl-vpf"&gt;kwargs&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-s3"&gt;isinstance&lt;/span&gt;(args, collections.Hashable):
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__call__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, *&lt;span class="pl-smi"&gt;args&lt;/span&gt;, **&lt;span class="pl-smi"&gt;kwargs&lt;/span&gt;):
+            &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;isinstance&lt;/span&gt;(args, collections.Hashable):
                 &lt;span class="pl-c"&gt;# uncacheable. a list, for instance.&lt;/span&gt;
                 &lt;span class="pl-c"&gt;# better to not cache than blow up.&lt;/span&gt;
                 &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
@@ -4792,12 +4792,12 @@
                 value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
                 &lt;span class="pl-v"&gt;self&lt;/span&gt;.cache[args] &lt;span class="pl-k"&gt;=&lt;/span&gt; value
                 &lt;span class="pl-k"&gt;return&lt;/span&gt; value
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__repr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;):
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Return the function's docstring.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func.&lt;span class="pl-sv"&gt;__doc__&lt;/span&gt;
-        &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-s3"&gt;__get__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;obj&lt;/span&gt;, &lt;span class="pl-vpf"&gt;objtype&lt;/span&gt;):
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Support instance methods.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; functools.partial(&lt;span class="pl-v"&gt;self&lt;/span&gt;.__call__, obj)&lt;/pre&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__repr__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;):
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Return the function's docstring.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
+        &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;&lt;span class="pl-c1"&gt;__get__&lt;/span&gt;&lt;/span&gt;(&lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;obj&lt;/span&gt;, &lt;span class="pl-smi"&gt;objtype&lt;/span&gt;):
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Support instance methods.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; functools.partial(&lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__call__&lt;/span&gt;, obj)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4842,33 +4842,33 @@
     &lt;/code&gt;
     , and the other three will be defined based on the provided function.
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-st"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;total_ordering&lt;/span&gt;(&lt;span class="pl-vpf"&gt;cls&lt;/span&gt;):
-        &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Class decorator that fills in missing ordering methods&lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;total_ordering&lt;/span&gt;(&lt;span class="pl-smi"&gt;cls&lt;/span&gt;):
+        &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Class decorator that fills in missing ordering methods&lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
         convert &lt;span class="pl-k"&gt;=&lt;/span&gt; {
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other)],
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other)],
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other)],
-            &lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: (&lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other) &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-st"&gt;lambda&lt;/span&gt; &lt;span class="pl-vpf"&gt;self&lt;/span&gt;, &lt;span class="pl-vpf"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other)]
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other)],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other)],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other)],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: (&lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other) &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other)]
         }
         &lt;span class="pl-c"&gt;# Find user-defined comparisons (not those inherited from object).&lt;/span&gt;
-        roots &lt;span class="pl-k"&gt;=&lt;/span&gt; [op &lt;span class="pl-k"&gt;for&lt;/span&gt; op &lt;span class="pl-k"&gt;in&lt;/span&gt; convert &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-s3"&gt;getattr&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;) &lt;span class="pl-k"&gt;is&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-s3"&gt;getattr&lt;/span&gt;(&lt;span class="pl-s3"&gt;object&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;)]
+        roots &lt;span class="pl-k"&gt;=&lt;/span&gt; [op &lt;span class="pl-k"&gt;for&lt;/span&gt; op &lt;span class="pl-k"&gt;in&lt;/span&gt; convert &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;) &lt;span class="pl-k"&gt;is&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;object&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;)]
         &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; roots:
-            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-s3"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s1"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;must define at least one ordering operation: &amp;lt; &amp;gt; &amp;lt;= &amp;gt;=&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
-        root &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;max&lt;/span&gt;(roots)       &lt;span class="pl-c"&gt;# prefer __lt__ to __le__ to __gt__ to __ge__&lt;/span&gt;
+            &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-c1"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;must define at least one ordering operation: &amp;lt; &amp;gt; &amp;lt;= &amp;gt;=&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
+        root &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;max&lt;/span&gt;(roots)       &lt;span class="pl-c"&gt;# prefer __lt__ to __le__ to __gt__ to __ge__&lt;/span&gt;
         &lt;span class="pl-k"&gt;for&lt;/span&gt; opname, opfunc &lt;span class="pl-k"&gt;in&lt;/span&gt; convert[root]:
             &lt;span class="pl-k"&gt;if&lt;/span&gt; opname &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; roots:
-                opfunc.&lt;span class="pl-sv"&gt;__name__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; opname
-                opfunc.&lt;span class="pl-sv"&gt;__doc__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-s3"&gt;getattr&lt;/span&gt;(&lt;span class="pl-s3"&gt;int&lt;/span&gt;, opname).__doc__
-                &lt;span class="pl-s3"&gt;setattr&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, opname, opfunc)
+                opfunc.&lt;span class="pl-c1"&gt;__name__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; opname
+                opfunc.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;int&lt;/span&gt;, opname).__doc__
+                &lt;span class="pl-c1"&gt;setattr&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, opname, opfunc)
         &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;cls&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -4904,7 +4904,7 @@
     &lt;/a&gt;
     Useful decorators
    &lt;/h2&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      property - used to quickly create a field from appropriate getter, setter and deleter.
     &lt;/li&gt;
@@ -4916,7 +4916,7 @@
     &lt;/a&gt;
     REFERENCES
    &lt;/h1&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library"&gt;
       Python Decorator Library
@@ -4929,7 +4929,7 @@
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/py_decorators.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5047,15 +5047,22 @@ adb shell am start -a android.intent.action.DELETE -d package:&amp;lt;your app p
     &lt;/a&gt;
     Extracting APK file
    &lt;/h3&gt;
-   &lt;p&gt;
-    Use
-    &lt;code&gt;
-     apktool
-    &lt;/code&gt;
-   &lt;/p&gt;
-   &lt;pre&gt;&lt;code&gt;apk d /path/to/apk
+   &lt;ul&gt;
+    &lt;li&gt;
+     &lt;p&gt;
+      &lt;a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file"&gt;
+       Use
+       &lt;code&gt;
+        apktool
+       &lt;/code&gt;
+      &lt;/a&gt;
+     &lt;/p&gt;
+     &lt;p&gt;
+      apk d /path/to/apk
 open res/values/strings.xml
-&lt;/code&gt;&lt;/pre&gt;
+     &lt;/p&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#references" id="user-content-references"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -5063,7 +5070,7 @@ open res/values/strings.xml
     &lt;/a&gt;
     References
    &lt;/h2&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file"&gt;
       View android manifset from APK
@@ -5091,7 +5098,7 @@ open res/values/strings.xml
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/android_cli.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5199,11 +5206,11 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     Quote some code with correct syntax highlight
    &lt;/p&gt;
-   &lt;div class="highlight highlight-python"&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; [&lt;span class="pl-c1"&gt;0&lt;/span&gt;, &lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-c1"&gt;2&lt;/span&gt;, &lt;span class="pl-c1"&gt;3&lt;/span&gt;, &lt;span class="pl-c1"&gt;4&lt;/span&gt;, &lt;span class="pl-c1"&gt;5&lt;/span&gt;]:
     &lt;span class="pl-k"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;
 
-&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-s3"&gt;range&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
+&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-c1"&gt;range&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
     &lt;span class="pl-k"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h3&gt;
@@ -5213,11 +5220,11 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Third level title
    &lt;/h3&gt;
-   &lt;div class="highlight highlight-python"&gt;
-    &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-s3"&gt;xrange&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-c1"&gt;xrange&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
     &lt;span class="pl-k"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      First item
     &lt;/li&gt;
@@ -5231,7 +5238,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/sample.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5427,7 +5434,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/git_rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5499,8 +5506,14 @@ Third&lt;/code&gt;&lt;/pre&gt;
      TOC
     &lt;/a&gt;
    &lt;/h2&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;a id="user-content-toc"&gt;
+   &lt;/a&gt;
+   &lt;ul&gt;
+    &lt;a id="user-content-toc"&gt;
+    &lt;/a&gt;
     &lt;li&gt;
+     &lt;a id="user-content-toc"&gt;
+     &lt;/a&gt;
      &lt;a href="#user-content-installation"&gt;
       Installation
      &lt;/a&gt;
@@ -5555,7 +5568,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Installation
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://git-scm.com/book"&gt;
       Pro Git
@@ -5574,7 +5587,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Branching model
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
       Successful git branching model
@@ -5598,7 +5611,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Basics
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C"&gt;
       10 commands
@@ -5818,6 +5831,18 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#finding-who-committed-which-line" id="user-content-finding-who-committed-which-line"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Finding who committed which line
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    git blame &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#exports" id="user-content-exports"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -5964,6 +5989,32 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
     # Remove all new files or folder
     git clean -df
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#revert-a-bad-commit-1" id="user-content-revert-a-bad-commit-1"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Revert a bad commit
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    git revert &amp;lt;sha1&amp;gt;
+
+    # Revert single file
+    git checkout -- filename
+
+    # Revert all files in current folder
+    git checkout .
+
+    # Remove all new files or folder
+    git clean -df
+
+    # Revert to a commit with a new commit
+    git revert --no-commit xxxxxx..HEAD
+    git commit -m "revert to xxxxxx"
+    git diff HEAD xxxxxx
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -6183,7 +6234,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Additional resources
    &lt;/h3&gt;
-   &lt;ul class="task-list"&gt;
+   &lt;ul&gt;
     &lt;li&gt;
      &lt;p&gt;
       &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
@@ -6207,7 +6258,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
      &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757"&gt;
       Distributed Version Control Systems and the Enterprise
      &lt;/a&gt;
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        Explain how git fits into the enterprise environment
       &lt;/li&gt;
@@ -6223,7 +6274,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
      &lt;a href="http://stackoverflow.com/questions/1662205/how-to-make-a-git-repository-read-only"&gt;
       How to make a git repository read-only?
      &lt;/a&gt;
-     &lt;ul class="task-list"&gt;
+     &lt;ul&gt;
       &lt;li&gt;
        Seems that there's no way to limit read access at folder level.
       &lt;/li&gt;
@@ -6251,7 +6302,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/git_cheatsheet.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;

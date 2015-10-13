@@ -141,8 +141,14 @@
      TOC
     </a>
    </h2>
-   <ul class="task-list">
+   <a id="user-content-toc">
+   </a>
+   <ul>
+    <a id="user-content-toc">
+    </a>
     <li>
+     <a id="user-content-toc">
+     </a>
      <a href="#user-content-installation">
       Installation
      </a>
@@ -197,7 +203,7 @@
     </a>
     Installation
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://git-scm.com/book">
       Pro Git
@@ -216,7 +222,7 @@
     </a>
     Branching model
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://nvie.com/posts/a-successful-git-branching-model/">
       Successful git branching model
@@ -240,7 +246,7 @@
     </a>
     Basics
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C">
       10 commands
@@ -460,6 +466,18 @@
    <p>
     <br/>
    </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#finding-who-committed-which-line" id="user-content-finding-who-committed-which-line">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Finding who committed which line
+   </h4>
+   <pre><code>    git blame &lt;file&gt;
+</code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#exports" id="user-content-exports">
      <span class="octicon octicon-link">
@@ -606,6 +624,32 @@
 
     # Remove all new files or folder
     git clean -df
+</code></pre>
+   <p>
+    <br/>
+   </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#revert-a-bad-commit-1" id="user-content-revert-a-bad-commit-1">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Revert a bad commit
+   </h4>
+   <pre><code>    git revert &lt;sha1&gt;
+
+    # Revert single file
+    git checkout -- filename
+
+    # Revert all files in current folder
+    git checkout .
+
+    # Remove all new files or folder
+    git clean -df
+
+    # Revert to a commit with a new commit
+    git revert --no-commit xxxxxx..HEAD
+    git commit -m "revert to xxxxxx"
+    git diff HEAD xxxxxx
 </code></pre>
    <p>
     <br/>
@@ -825,7 +869,7 @@
     </a>
     Additional resources
    </h3>
-   <ul class="task-list">
+   <ul>
     <li>
      <p>
       <a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git">
@@ -849,7 +893,7 @@
      <a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757">
       Distributed Version Control Systems and the Enterprise
      </a>
-     <ul class="task-list">
+     <ul>
       <li>
        Explain how git fits into the enterprise environment
       </li>
@@ -865,7 +909,7 @@
      <a href="http://stackoverflow.com/questions/1662205/how-to-make-a-git-repository-read-only">
       How to make a git repository read-only?
      </a>
-     <ul class="task-list">
+     <ul>
       <li>
        Seems that there's no way to limit read access at folder level.
       </li>
@@ -893,7 +937,7 @@
 
             <div class="git-meta">
                 
-                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
                 
                 <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/git_cheatsheet.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
@@ -925,21 +969,21 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
-	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 </ul>
 
 

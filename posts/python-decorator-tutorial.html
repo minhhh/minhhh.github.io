@@ -156,7 +156,7 @@
    <p>
     We all know memoization and probably implement it as a function that takes an arbitrary function and return a memoized function:
    </p>
-   <div class="highlight highlight-python">
+   <div class="highlight highlight-source-python">
     <pre>    memoized_factorial <span class="pl-k">=</span> construct_memoize(factorial)</pre>
    </div>
    <p>
@@ -179,24 +179,24 @@
      decorated function
     </code>
    </p>
-   <div class="highlight highlight-python">
+   <div class="highlight highlight-source-python">
     <pre>    cache_obj <span class="pl-k">=</span> {}
 
-    <span class="pl-st">def</span> <span class="pl-en">cache</span>(<span class="pl-vpf">func</span>):
-        <span class="pl-st">def</span> <span class="pl-en">inner</span>(*<span class="pl-vpf">args</span>, **<span class="pl-vpf">kwargs</span>):
-            <span class="pl-s">global</span> cache_obj
-            key <span class="pl-k">=</span> <span class="pl-s3">str</span>(args) <span class="pl-k">+</span> <span class="pl-s3">str</span>(kwargs)
+    <span class="pl-k">def</span> <span class="pl-en">cache</span>(<span class="pl-smi">func</span>):
+        <span class="pl-k">def</span> <span class="pl-en">inner</span>(*<span class="pl-smi">args</span>, **<span class="pl-smi">kwargs</span>):
+            <span class="pl-k">global</span> cache_obj
+            key <span class="pl-k">=</span> <span class="pl-c1">str</span>(args) <span class="pl-k">+</span> <span class="pl-c1">str</span>(kwargs)
             <span class="pl-k">if</span> key <span class="pl-k">not</span> <span class="pl-k">in</span> cache_obj:
                 cache_obj[key] <span class="pl-k">=</span> func(<span class="pl-k">*</span>args, <span class="pl-k">**</span>kwargs)
             <span class="pl-k">else</span>:
-                <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">"</span>Get from cache <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(key)
+                <span class="pl-k">print</span> <span class="pl-s"><span class="pl-pds">"</span>Get from cache <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(key)
             <span class="pl-k">return</span> cache_obj[key]
         <span class="pl-k">return</span> inner
 
     <span class="pl-en">@cache</span>
-    <span class="pl-st">def</span> <span class="pl-en">sum</span>(<span class="pl-vpf">a</span>, <span class="pl-vpf">b</span>):
-        <span class="pl-s1"><span class="pl-pds">"""</span>Sum 2 numbers</span>
-<span class="pl-s1">        <span class="pl-pds">"""</span></span>
+    <span class="pl-k">def</span> <span class="pl-en">sum</span>(<span class="pl-smi">a</span>, <span class="pl-smi">b</span>):
+        <span class="pl-s"><span class="pl-pds">"""</span>Sum 2 numbers</span>
+<span class="pl-s">        <span class="pl-pds">"""</span></span>
         <span class="pl-k">return</span> a <span class="pl-k">+</span> b</pre>
    </div>
    <p>
@@ -232,23 +232,23 @@
     </code>
     is not a great idea, because different functions can have the same arguments, then your cache is overwritten. It's better to assign the cache object directly to the original function
    </p>
-   <div class="highlight highlight-python">
-    <pre>    <span class="pl-st">def</span> <span class="pl-en">memoize_2</span>(<span class="pl-vpf">func</span>):
-        <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-s3">hasattr</span>(func, <span class="pl-s1"><span class="pl-pds">'</span>cache<span class="pl-pds">'</span></span>):
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">def</span> <span class="pl-en">memoize_2</span>(<span class="pl-smi">func</span>):
+        <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-c1">hasattr</span>(func, <span class="pl-s"><span class="pl-pds">'</span>cache<span class="pl-pds">'</span></span>):
             func.cache <span class="pl-k">=</span> {}
-        <span class="pl-st">def</span> <span class="pl-en">inner</span>(*<span class="pl-vpf">args</span>, **<span class="pl-vpf">kwargs</span>):
-            key <span class="pl-k">=</span> <span class="pl-s3">str</span>(args) <span class="pl-k">+</span> <span class="pl-s3">str</span>(kwargs)
+        <span class="pl-k">def</span> <span class="pl-en">inner</span>(*<span class="pl-smi">args</span>, **<span class="pl-smi">kwargs</span>):
+            key <span class="pl-k">=</span> <span class="pl-c1">str</span>(args) <span class="pl-k">+</span> <span class="pl-c1">str</span>(kwargs)
             <span class="pl-k">if</span> key <span class="pl-k">not</span> <span class="pl-k">in</span> func.cache:
                 func.cache[key] <span class="pl-k">=</span> func(<span class="pl-k">*</span>args, <span class="pl-k">**</span>kwargs)
             <span class="pl-k">else</span>:
-                <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">"</span>Get from cache <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(key)
+                <span class="pl-k">print</span> <span class="pl-s"><span class="pl-pds">"</span>Get from cache <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(key)
             <span class="pl-k">return</span> func.cache[key]
         <span class="pl-k">return</span> inner
 
     <span class="pl-en">@memoize_2</span>
-    <span class="pl-st">def</span> <span class="pl-en">multiply</span>(<span class="pl-vpf">a</span>, <span class="pl-vpf">b</span>):
-        <span class="pl-s1"><span class="pl-pds">"""</span>Multiply 2 numbers</span>
-<span class="pl-s1">        <span class="pl-pds">"""</span></span>
+    <span class="pl-k">def</span> <span class="pl-en">multiply</span>(<span class="pl-smi">a</span>, <span class="pl-smi">b</span>):
+        <span class="pl-s"><span class="pl-pds">"""</span>Multiply 2 numbers</span>
+<span class="pl-s">        <span class="pl-pds">"""</span></span>
         <span class="pl-k">return</span> a <span class="pl-k">*</span> b
 
     multiply(<span class="pl-c1">1</span>,<span class="pl-c1">2</span>)
@@ -260,8 +260,8 @@
    <p>
     This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
    </p>
-   <div class="highlight highlight-python">
-    <pre>    <span class="pl-k">print</span> multiply.<span class="pl-sv">__doc__</span> <span class="pl-c"># None</span></pre>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">print</span> multiply.<span class="pl-c1">__doc__</span> <span class="pl-c"># None</span></pre>
    </div>
    <p>
     <br/>
@@ -272,22 +272,22 @@
      functools.wrapper
     </code>
    </p>
-   <div class="highlight highlight-python">
+   <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">import</span> functools
-    <span class="pl-st">def</span> <span class="pl-en">memoize</span>(<span class="pl-vpf">func</span>):
+    <span class="pl-k">def</span> <span class="pl-en">memoize</span>(<span class="pl-smi">func</span>):
         <span class="pl-en">@</span><span class="pl-en">functools.wraps</span>(func)
-        <span class="pl-st">def</span> <span class="pl-en">inner</span>(*<span class="pl-vpf">args</span>, **<span class="pl-vpf">kwargs</span>):
-            key <span class="pl-k">=</span> <span class="pl-s3">str</span>(args) <span class="pl-k">+</span> <span class="pl-s3">str</span>(kwargs)
-            <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-s3">hasattr</span>(func, <span class="pl-s1"><span class="pl-pds">'</span>cache<span class="pl-pds">'</span></span>):
+        <span class="pl-k">def</span> <span class="pl-en">inner</span>(*<span class="pl-smi">args</span>, **<span class="pl-smi">kwargs</span>):
+            key <span class="pl-k">=</span> <span class="pl-c1">str</span>(args) <span class="pl-k">+</span> <span class="pl-c1">str</span>(kwargs)
+            <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-c1">hasattr</span>(func, <span class="pl-s"><span class="pl-pds">'</span>cache<span class="pl-pds">'</span></span>):
                 func.cache <span class="pl-k">=</span> {}
             <span class="pl-k">if</span> key <span class="pl-k">not</span> <span class="pl-k">in</span> func.cache:
                 func.cache[key] <span class="pl-k">=</span> func(<span class="pl-k">*</span>args, <span class="pl-k">**</span>kwargs)
             <span class="pl-k">else</span>:
-                <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">"</span>Get from cache <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(key)
+                <span class="pl-k">print</span> <span class="pl-s"><span class="pl-pds">"</span>Get from cache <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(key)
             <span class="pl-k">return</span> func.cache[key]
         <span class="pl-k">return</span> inner
 
-    <span class="pl-k">print</span> multiply.<span class="pl-sv">__doc__</span> <span class="pl-c"># Multiply 2 numbers</span></pre>
+    <span class="pl-k">print</span> multiply.<span class="pl-c1">__doc__</span> <span class="pl-c"># Multiply 2 numbers</span></pre>
    </div>
    <p>
     <br/>
@@ -309,27 +309,27 @@
     </code>
     decorator doesn't need any customization, but there are a lot of pattern that requires some kind of customization. For instance, we want to apply a retry pattern to a function that follows special protocol. Obviously, we have to specify the number of retries, the delay between retry, and maybe a backoff factor to scale up the delay between failed attempts. This is how we do it:
    </p>
-   <div class="highlight highlight-python">
+   <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">import</span> time, math
 
-    <span class="pl-st">def</span> <span class="pl-en">retry</span>(<span class="pl-vpf">tries</span>, <span class="pl-vpf">delay</span><span class="pl-k">=</span><span class="pl-c1">3</span>, <span class="pl-vpf">backoff</span><span class="pl-k">=</span><span class="pl-c1">2</span>):
-        <span class="pl-s1"><span class="pl-pds">'''</span>Retries a function or method until it returns True.</span>
-<span class="pl-s1">        delay sets the initial delay in seconds, and backoff sets the factor by which</span>
-<span class="pl-s1">        the delay should lengthen after each failure. backoff must be greater than 1,</span>
-<span class="pl-s1">        or else it isn't really a backoff. tries must be at least 0, and delay</span>
-<span class="pl-s1">        greater than 0.<span class="pl-pds">'''</span></span>
+    <span class="pl-k">def</span> <span class="pl-en">retry</span>(<span class="pl-smi">tries</span>, <span class="pl-smi">delay</span><span class="pl-k">=</span><span class="pl-c1">3</span>, <span class="pl-smi">backoff</span><span class="pl-k">=</span><span class="pl-c1">2</span>):
+        <span class="pl-s"><span class="pl-pds">'''</span>Retries a function or method until it returns True.</span>
+<span class="pl-s">        delay sets the initial delay in seconds, and backoff sets the factor by which</span>
+<span class="pl-s">        the delay should lengthen after each failure. backoff must be greater than 1,</span>
+<span class="pl-s">        or else it isn't really a backoff. tries must be at least 0, and delay</span>
+<span class="pl-s">        greater than 0.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">if</span> backoff <span class="pl-k">&lt;=</span> <span class="pl-c1">1</span>:
-            <span class="pl-k">raise</span> <span class="pl-s3">ValueError</span>(<span class="pl-s1"><span class="pl-pds">"</span>backoff must be greater than 1<span class="pl-pds">"</span></span>)
+            <span class="pl-k">raise</span> <span class="pl-c1">ValueError</span>(<span class="pl-s"><span class="pl-pds">"</span>backoff must be greater than 1<span class="pl-pds">"</span></span>)
 
         <span class="pl-k">if</span> tries <span class="pl-k">&lt;</span> <span class="pl-c1">0</span>:
-            <span class="pl-k">raise</span> <span class="pl-s3">ValueError</span>(<span class="pl-s1"><span class="pl-pds">"</span>tries must be 0 or greater<span class="pl-pds">"</span></span>)
+            <span class="pl-k">raise</span> <span class="pl-c1">ValueError</span>(<span class="pl-s"><span class="pl-pds">"</span>tries must be 0 or greater<span class="pl-pds">"</span></span>)
 
         <span class="pl-k">if</span> delay <span class="pl-k">&lt;=</span> <span class="pl-c1">0</span>:
-            <span class="pl-k">raise</span> <span class="pl-s3">ValueError</span>(<span class="pl-s1"><span class="pl-pds">"</span>delay must be greater than 0<span class="pl-pds">"</span></span>)
+            <span class="pl-k">raise</span> <span class="pl-c1">ValueError</span>(<span class="pl-s"><span class="pl-pds">"</span>delay must be greater than 0<span class="pl-pds">"</span></span>)
 
-        <span class="pl-st">def</span> <span class="pl-en">deco_retry</span>(<span class="pl-vpf">f</span>):
-            <span class="pl-st">def</span> <span class="pl-en">f_retry</span>(*<span class="pl-vpf">args</span>, **<span class="pl-vpf">kwargs</span>):
+        <span class="pl-k">def</span> <span class="pl-en">deco_retry</span>(<span class="pl-smi">f</span>):
+            <span class="pl-k">def</span> <span class="pl-en">f_retry</span>(*<span class="pl-smi">args</span>, **<span class="pl-smi">kwargs</span>):
                 mtries, mdelay <span class="pl-k">=</span> tries, delay
 
                 rv <span class="pl-k">=</span> f(<span class="pl-k">*</span>args, <span class="pl-k">**</span>kwargs)
@@ -347,8 +347,8 @@
             <span class="pl-k">return</span> f_retry
         <span class="pl-k">return</span> deco_retry
 
-    <span class="pl-en">@</span><span class="pl-en">retry</span>(<span class="pl-c1">1</span>, <span class="pl-vpf">delay</span><span class="pl-k">=</span><span class="pl-c1">1</span>, <span class="pl-vpf">backoff</span><span class="pl-k">=</span><span class="pl-c1">2</span>)
-    <span class="pl-st">def</span> <span class="pl-en">get_data</span>():
+    <span class="pl-en">@</span><span class="pl-en">retry</span>(<span class="pl-c1">1</span>, <span class="pl-smi">delay</span><span class="pl-k">=</span><span class="pl-c1">1</span>, <span class="pl-smi">backoff</span><span class="pl-k">=</span><span class="pl-c1">2</span>)
+    <span class="pl-k">def</span> <span class="pl-en">get_data</span>():
         <span class="pl-k">return</span> <span class="pl-c1">False</span></pre>
    </div>
    <p>
@@ -387,19 +387,19 @@
    <p>
     Using function as decorators is straight forward, and for storing persistent information we use closures over temporary variables. It'd be nice if the persistent information are class members.
    </p>
-   <div class="highlight highlight-python">
+   <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">import</span> collections
-    <span class="pl-st">class</span> <span class="pl-en">memoized</span>(<span class="pl-e"><span class="pl-s3">object</span></span>):
-        <span class="pl-s1"><span class="pl-pds">'''</span>Decorator. Caches a function's return value each time it is called.</span>
-<span class="pl-s1">        If called later with the same arguments, the cached value is returned</span>
-<span class="pl-s1">        (not reevaluated).</span>
-<span class="pl-s1">        <span class="pl-pds">'''</span></span>
-        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">func</span>):
+    <span class="pl-k">class</span> <span class="pl-en">memoized</span>(<span class="pl-e"><span class="pl-c1">object</span></span>):
+        <span class="pl-s"><span class="pl-pds">'''</span>Decorator. Caches a function's return value each time it is called.</span>
+<span class="pl-s">        If called later with the same arguments, the cached value is returned</span>
+<span class="pl-s">        (not reevaluated).</span>
+<span class="pl-s">        <span class="pl-pds">'''</span></span>
+        <span class="pl-k">def</span> <span class="pl-en"><span class="pl-c1">__init__</span></span>(<span class="pl-smi">self</span>, <span class="pl-smi">func</span>):
             <span class="pl-v">self</span>.func <span class="pl-k">=</span> func
-            <span class="pl-v">self</span>.__doc__ <span class="pl-k">=</span> func.<span class="pl-sv">__doc__</span>
+            <span class="pl-v">self</span>.<span class="pl-c1">__doc__</span> <span class="pl-k">=</span> func.<span class="pl-c1">__doc__</span>
             <span class="pl-v">self</span>.cache <span class="pl-k">=</span> {}
-        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__call__</span></span>(<span class="pl-vpf">self</span>, *<span class="pl-vpf">args</span>, **<span class="pl-vpf">kwargs</span>):
-            <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-s3">isinstance</span>(args, collections.Hashable):
+        <span class="pl-k">def</span> <span class="pl-en"><span class="pl-c1">__call__</span></span>(<span class="pl-smi">self</span>, *<span class="pl-smi">args</span>, **<span class="pl-smi">kwargs</span>):
+            <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-c1">isinstance</span>(args, collections.Hashable):
                 <span class="pl-c"># uncacheable. a list, for instance.</span>
                 <span class="pl-c"># better to not cache than blow up.</span>
                 <span class="pl-k">return</span> <span class="pl-v">self</span>.func(<span class="pl-k">*</span>args, <span class="pl-k">**</span>kwargs)
@@ -409,12 +409,12 @@
                 value <span class="pl-k">=</span> <span class="pl-v">self</span>.func(<span class="pl-k">*</span>args, <span class="pl-k">**</span>kwargs)
                 <span class="pl-v">self</span>.cache[args] <span class="pl-k">=</span> value
                 <span class="pl-k">return</span> value
-        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__repr__</span></span>(<span class="pl-vpf">self</span>):
-            <span class="pl-s1"><span class="pl-pds">'''</span>Return the function's docstring.<span class="pl-pds">'''</span></span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.func.<span class="pl-sv">__doc__</span>
-        <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__get__</span></span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">obj</span>, <span class="pl-vpf">objtype</span>):
-            <span class="pl-s1"><span class="pl-pds">'''</span>Support instance methods.<span class="pl-pds">'''</span></span>
-            <span class="pl-k">return</span> functools.partial(<span class="pl-v">self</span>.__call__, obj)</pre>
+        <span class="pl-k">def</span> <span class="pl-en"><span class="pl-c1">__repr__</span></span>(<span class="pl-smi">self</span>):
+            <span class="pl-s"><span class="pl-pds">'''</span>Return the function's docstring.<span class="pl-pds">'''</span></span>
+            <span class="pl-k">return</span> <span class="pl-v">self</span>.func.<span class="pl-c1">__doc__</span>
+        <span class="pl-k">def</span> <span class="pl-en"><span class="pl-c1">__get__</span></span>(<span class="pl-smi">self</span>, <span class="pl-smi">obj</span>, <span class="pl-smi">objtype</span>):
+            <span class="pl-s"><span class="pl-pds">'''</span>Support instance methods.<span class="pl-pds">'''</span></span>
+            <span class="pl-k">return</span> functools.partial(<span class="pl-v">self</span>.<span class="pl-c1">__call__</span>, obj)</pre>
    </div>
    <p>
     <br/>
@@ -459,33 +459,33 @@
     </code>
     , and the other three will be defined based on the provided function.
    </p>
-   <div class="highlight highlight-python">
-    <pre>    <span class="pl-st">def</span> <span class="pl-en">total_ordering</span>(<span class="pl-vpf">cls</span>):
-        <span class="pl-s1"><span class="pl-pds">"""</span>Class decorator that fills in missing ordering methods<span class="pl-pds">"""</span></span>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">def</span> <span class="pl-en">total_ordering</span>(<span class="pl-smi">cls</span>):
+        <span class="pl-s"><span class="pl-pds">"""</span>Class decorator that fills in missing ordering methods<span class="pl-pds">"""</span></span>
         convert <span class="pl-k">=</span> {
-            <span class="pl-s1"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>: [(<span class="pl-s1"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> (<span class="pl-v">self</span> <span class="pl-k">&lt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other)),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-v">self</span> <span class="pl-k">&lt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&lt;</span> other)],
-            <span class="pl-s1"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>: [(<span class="pl-s1"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&lt;=</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-v">self</span> <span class="pl-k">&lt;=</span> other <span class="pl-k">and</span> <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&lt;=</span> other)],
-            <span class="pl-s1"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>: [(<span class="pl-s1"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> (<span class="pl-v">self</span> <span class="pl-k">&gt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other)),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-v">self</span> <span class="pl-k">&gt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&gt;</span> other)],
-            <span class="pl-s1"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>: [(<span class="pl-s1"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: (<span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&gt;=</span> other) <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-v">self</span> <span class="pl-k">&gt;=</span> other <span class="pl-k">and</span> <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
-                    (<span class="pl-s1"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>, <span class="pl-st">lambda</span> <span class="pl-vpf">self</span>, <span class="pl-vpf">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&gt;=</span> other)]
+            <span class="pl-s"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>: [(<span class="pl-s"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> (<span class="pl-v">self</span> <span class="pl-k">&lt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other)),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-v">self</span> <span class="pl-k">&lt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&lt;</span> other)],
+            <span class="pl-s"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>: [(<span class="pl-s"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&lt;=</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-v">self</span> <span class="pl-k">&lt;=</span> other <span class="pl-k">and</span> <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&lt;=</span> other)],
+            <span class="pl-s"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>: [(<span class="pl-s"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> (<span class="pl-v">self</span> <span class="pl-k">&gt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other)),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-v">self</span> <span class="pl-k">&gt;</span> other <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&gt;</span> other)],
+            <span class="pl-s"><span class="pl-pds">'</span>__ge__<span class="pl-pds">'</span></span>: [(<span class="pl-s"><span class="pl-pds">'</span>__le__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: (<span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&gt;=</span> other) <span class="pl-k">or</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-v">self</span> <span class="pl-k">&gt;=</span> other <span class="pl-k">and</span> <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">==</span> other),
+                    (<span class="pl-s"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> <span class="pl-v">self</span> <span class="pl-k">&gt;=</span> other)]
         }
         <span class="pl-c"># Find user-defined comparisons (not those inherited from object).</span>
-        roots <span class="pl-k">=</span> [op <span class="pl-k">for</span> op <span class="pl-k">in</span> convert <span class="pl-k">if</span> <span class="pl-s3">getattr</span>(<span class="pl-v">cls</span>, op, <span class="pl-c1">None</span>) <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-s3">getattr</span>(<span class="pl-s3">object</span>, op, <span class="pl-c1">None</span>)]
+        roots <span class="pl-k">=</span> [op <span class="pl-k">for</span> op <span class="pl-k">in</span> convert <span class="pl-k">if</span> <span class="pl-c1">getattr</span>(<span class="pl-v">cls</span>, op, <span class="pl-c1">None</span>) <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">getattr</span>(<span class="pl-c1">object</span>, op, <span class="pl-c1">None</span>)]
         <span class="pl-k">if</span> <span class="pl-k">not</span> roots:
-            <span class="pl-k">raise</span> <span class="pl-s3">ValueError</span>(<span class="pl-s1"><span class="pl-pds">'</span>must define at least one ordering operation: &lt; &gt; &lt;= &gt;=<span class="pl-pds">'</span></span>)
-        root <span class="pl-k">=</span> <span class="pl-s3">max</span>(roots)       <span class="pl-c"># prefer __lt__ to __le__ to __gt__ to __ge__</span>
+            <span class="pl-k">raise</span> <span class="pl-c1">ValueError</span>(<span class="pl-s"><span class="pl-pds">'</span>must define at least one ordering operation: &lt; &gt; &lt;= &gt;=<span class="pl-pds">'</span></span>)
+        root <span class="pl-k">=</span> <span class="pl-c1">max</span>(roots)       <span class="pl-c"># prefer __lt__ to __le__ to __gt__ to __ge__</span>
         <span class="pl-k">for</span> opname, opfunc <span class="pl-k">in</span> convert[root]:
             <span class="pl-k">if</span> opname <span class="pl-k">not</span> <span class="pl-k">in</span> roots:
-                opfunc.<span class="pl-sv">__name__</span> <span class="pl-k">=</span> opname
-                opfunc.<span class="pl-sv">__doc__</span> <span class="pl-k">=</span> <span class="pl-s3">getattr</span>(<span class="pl-s3">int</span>, opname).__doc__
-                <span class="pl-s3">setattr</span>(<span class="pl-v">cls</span>, opname, opfunc)
+                opfunc.<span class="pl-c1">__name__</span> <span class="pl-k">=</span> opname
+                opfunc.<span class="pl-c1">__doc__</span> <span class="pl-k">=</span> <span class="pl-c1">getattr</span>(<span class="pl-c1">int</span>, opname).__doc__
+                <span class="pl-c1">setattr</span>(<span class="pl-v">cls</span>, opname, opfunc)
         <span class="pl-k">return</span> <span class="pl-v">cls</span></pre>
    </div>
    <p>
@@ -521,7 +521,7 @@
     </a>
     Useful decorators
    </h2>
-   <ul class="task-list">
+   <ul>
     <li>
      property - used to quickly create a field from appropriate getter, setter and deleter.
     </li>
@@ -533,7 +533,7 @@
     </a>
     REFERENCES
    </h1>
-   <ul class="task-list">
+   <ul>
     <li>
      <a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library">
       Python Decorator Library
@@ -546,7 +546,7 @@
 
             <div class="git-meta">
                 
-                <span>Brought to you by <a href="https://github.com/minhhh/pelican-git">pelican_git</a>.</span>
+                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
                 
                 <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/py_decorators.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
@@ -578,21 +578,21 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
+	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
 	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
-	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
 </ul>
 
 
