@@ -1,7 +1,7 @@
 Title: Python decorator tutorial
 Date: 2014-10-05 00:00
 Author: Ha.Minh
-Category: Blog
+Category: Programming
 Tags: python, decorator
 Summary: A practical introduction to python decorator
 
