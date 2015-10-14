@@ -1,5 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 10 Oct 2015 00:00:00 -0400</lastBuildDate><item><title>An Introduction to Memcache</title><link>http://minhhh.github.io/posts/an-introduction-to-memcache</link><description>&lt;p&gt;&lt;div&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 14 Oct 2015 00:00:00 -0400</lastBuildDate><item><title>Setup OSX</title><link>http://minhhh.github.io/posts/setup-osx</link><description>&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="mainContentOfPage"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    INTRODUCTION
+   &lt;/h1&gt;
+   &lt;p&gt;
+    This is the list of some useful tools I used to setup my OSX.
+   &lt;/p&gt;
+   &lt;p&gt;
+    For more awesome osx command lines, see
+    &lt;a href="https://github.com/herrbischoff/awesome-osx-command-line"&gt;
+     Awesome OS X Command Line
+    &lt;/a&gt;
+    .
+   &lt;/p&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#setup" id="user-content-setup"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    SETUP
+   &lt;/h1&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     &lt;a href="http://lifehacker.com/225873/mac-switchers-tip--remap-the-home-and-end-keys"&gt;
+      Fix the home and end keys
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://lifehacker.com/5826055/make-your-keyboard-keys-repeat-properly-when-held-down-in-mac-os-x-lion"&gt;
+      Make Your Keyboard Keys Repeat Properly
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="https://support.apple.com/kb/HT3399"&gt;
+      Use Fn key normally in Mac
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://macs.about.com/od/OSXLion107/qt/Os-X-Lion-Automatic-Spelling-Correction.htm"&gt;
+      Disable automatic spelling
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.michael-noll.com/blog/2007/01/04/word-movement-shortcuts-for-iterm-on-mac-os-x/"&gt;
+      Word Movement Shortcuts for iTerm
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#osx-shortcuts--keys" id="user-content-osx-shortcuts--keys"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    OSX SHORTCUTS &amp;amp; KEYS
+   &lt;/h1&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    F11             - Show desktop
+    Ctrl left/right - Scroll to the next working desktop
+    Command Space   - Show search
+    Ctrl Up         - Show all programs
+    Ctrl Down       - Show other windows of the same program
+    Ctrl Command F  - Toggle full screen
+    Cmd Option D    - Toggle taskbar
+    Cmd Delete      - Move to trash
+    Cmd K           - Clear terminal screen&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#tools" id="user-content-tools"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    TOOLS
+   &lt;/h1&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     Testdisk - Disk recovery
+    &lt;/li&gt;
+    &lt;li&gt;
+     Blackmagic Disk Speed Test - Disk performance measurement tool.
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.macroplant.com/iexplorer/"&gt;
+      iexplorer
+     &lt;/a&gt;
+     - Transfer file with iPhone easily
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#quicksilver" id="user-content-quicksilver"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    QuickSilver
+   &lt;/h2&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     Great replacement for spotlight
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#diff-tools" id="user-content-diff-tools"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Diff tools
+   &lt;/h2&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     &lt;a href="http://scoobygalletas.blogspot.com/2011/09/how-to-install-meld-in-mac-os-x-lion.html"&gt;
+      Meld
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#mount-ssh" id="user-content-mount-ssh"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Mount SSH
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Install sshfs. Then run
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;    sshfs &amp;lt;username&amp;gt;@&amp;lt;ip&amp;gt;:&amp;lt;folder&amp;gt; /Users/&amp;lt;username&amp;gt;/&amp;lt;folder&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#mount-ssh-1" id="user-content-mount-ssh-1"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    MOUNT SSH
+   &lt;/h1&gt;
+   &lt;p&gt;
+    Install sshfs. Then run
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    sshfs &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;@&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;ip&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; /Users/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/mac.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/mac.md"&gt;mac.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 14 Oct 2015 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2015-10-14:posts/setup-osx</guid><category>mac</category><category>osx</category></item><item><title>An Introduction to Memcache</title><link>http://minhhh.github.io/posts/an-introduction-to-memcache</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
