@@ -9,5 +9,5 @@ Here's a list of projects that I did, am doing or hope to do. Most of them are s
 This [blog](http://minhhh.github.io).
 
 ## Texture packer
-A jython command line implementation of the popular TexturePacker. URL: https://github.com/minhhh/texture-packer
+A jython command line implementation of the popular TexturePacker. URL: [https://github.com/minhhh/texture-packer](https://github.com/minhhh/texture-packer)
 
