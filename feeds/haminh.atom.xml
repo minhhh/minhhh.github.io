@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2015-12-03T00:00:00-05:00</updated><entry><title>What is Medium</title><link href="http://minhhh.github.io/posts/what-is-medium" rel="alternate"></link><updated>2015-12-03T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</id><summary type="html">&lt;h1&gt;What is medium&lt;/h1&gt;
-&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2015-12-03T00:00:00-05:00</updated><entry><title>What is Medium</title><link href="http://minhhh.github.io/posts/what-is-medium" rel="alternate"></link><updated>2015-12-03T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</id><summary type="html">&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
 &lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
-&lt;p&gt;Medium seems to do following:
-    * Create a beautiful, simple blogging platform for everyone
-    * Pay some people to post to the site, but not most of them
-    * Promote the people they've paid along with a very small subset of everyone else.&lt;/p&gt;
+&lt;p&gt;Medium seems to do following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a beautiful, simple blogging platform for everyone&lt;/li&gt;
+&lt;li&gt;Pay some people to post to the site, but not most of them&lt;/li&gt;
+&lt;li&gt;Promote the people they've paid along with a very small subset of everyone else.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Therefore the content on medium can be either be:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;awesome if they were written by profesisonal writers who were hired and edited by professional editors&lt;/li&gt;
@@ -22,7 +23,7 @@
 &lt;li&gt;You like the Medium environment.&lt;/li&gt;
 &lt;li&gt;You aren’t in it for the money. Medium does have some paid contributors, but not for everyone.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;REFERENCES&lt;/h1&gt;
+&lt;h2&gt;REFERENCES&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/"&gt;What is medium&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/"&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/a&gt;&lt;/li&gt;
