@@ -3,23 +3,29 @@
 &lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
 &lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
 &lt;p&gt;Medium seems to do following:
-&lt;em&gt; Create a beautiful, simple blogging platform for everyone
-&lt;/em&gt; Pay some people to post to the site, but not most of them
-* Promote the people they've paid along with a very small subset of everyone else.&lt;/p&gt;
-&lt;p&gt;Therefore the content on medium can be either be:
-&lt;em&gt; awesome if they were written by profesisonal writers who were hired and edited by professional editors
-&lt;/em&gt; opposite of awesome if they were written by mediocre bloggers.&lt;/p&gt;
-&lt;p&gt;The differences between Medium and traditional publication are:
-&lt;em&gt; If the traditional publication publish anything bad or plagiarised, it reflects poorly on them.
-&lt;/em&gt; If Medium publishes anything bad or plagiarised, it reflects poorly on the writers&lt;/p&gt;
-&lt;p&gt;Medium is good for you if:
-&lt;em&gt; You aren’t not going to blog a lot.
-&lt;/em&gt; You like the Medium environment.
-* You aren’t in it for the money. Medium does have some paid contributors, but not for everyone.&lt;/p&gt;
+    * Create a beautiful, simple blogging platform for everyone
+    * Pay some people to post to the site, but not most of them
+    * Promote the people they've paid along with a very small subset of everyone else.&lt;/p&gt;
+&lt;p&gt;Therefore the content on medium can be either be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;awesome if they were written by profesisonal writers who were hired and edited by professional editors&lt;/li&gt;
+&lt;li&gt;opposite of awesome if they were written by mediocre bloggers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The differences between Medium and traditional publication are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If the traditional publication publish anything bad or plagiarised, it reflects poorly on them.&lt;/li&gt;
+&lt;li&gt;If Medium publishes anything bad or plagiarised, it reflects poorly on the writers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Medium is good for you if:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You aren’t not going to blog a lot.&lt;/li&gt;
+&lt;li&gt;You like the Medium environment.&lt;/li&gt;
+&lt;li&gt;You aren’t in it for the money. Medium does have some paid contributors, but not for everyone.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1&gt;REFERENCES&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/&lt;/li&gt;
-&lt;li&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/"&gt;What is medium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/"&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary><category term="medium"></category><category term="blog"></category></entry><entry><title>Setup OSX</title><link href="http://minhhh.github.io/posts/setup-osx" rel="alternate"></link><updated>2015-10-14T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-10-14:posts/setup-osx</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
