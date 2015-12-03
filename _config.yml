@@ -6,9 +6,15 @@
 title: Ha.Minh
 subtitle: A list apart
 description: My personal blog, ranting about technology, programming and life.
-author: Ha.Minh
+author: Ha Huy Minh
+author_title: 'Software Developer'
+avatar: css/images/avatar.png
+location: 'Hanoi, Vietnam'
+follow: https://github.com/minhhh/
+email: minhhh@minhhuyha.info # Your email (Used to show Gravatar).
 language: en
 timezone:
+since: 2010 # The start year showing in your copyright section.
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -40,7 +46,6 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -64,6 +69,11 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: icarus
+plugins:
+  - hexo-generator-sitemap
+
+# Disqus
+disqus_shortname: minhhh
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
