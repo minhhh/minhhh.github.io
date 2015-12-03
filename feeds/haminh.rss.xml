@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 14 Oct 2015 00:00:00 -0400</lastBuildDate><item><title>Setup OSX</title><link>http://minhhh.github.io/posts/setup-osx</link><description>&lt;p&gt;&lt;div&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 03 Dec 2015 00:00:00 -0500</lastBuildDate><item><title>What is Medium</title><link>http://minhhh.github.io/posts/what-is-medium</link><description>&lt;h1&gt;What is medium&lt;/h1&gt;
+&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
+&lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
+&lt;p&gt;Medium seems to do following:
+&lt;em&gt; Create a beautiful, simple blogging platform for everyone
+&lt;/em&gt; Pay some people to post to the site, but not most of them
+* Promote the people they've paid along with a very small subset of everyone else.&lt;/p&gt;
+&lt;p&gt;Therefore the content on medium can be either be:
+&lt;em&gt; awesome if they were written by profesisonal writers who were hired and edited by professional editors
+&lt;/em&gt; opposite of awesome if they were written by mediocre bloggers.&lt;/p&gt;
+&lt;p&gt;The differences between Medium and traditional publication are:
+&lt;em&gt; If the traditional publication publish anything bad or plagiarised, it reflects poorly on them.
+&lt;/em&gt; If Medium publishes anything bad or plagiarised, it reflects poorly on the writers&lt;/p&gt;
+&lt;p&gt;Medium is good for you if:
+&lt;em&gt; You aren’t not going to blog a lot.
+&lt;/em&gt; You like the Medium environment.
+* You aren’t in it for the money. Medium does have some paid contributors, but not for everyone.&lt;/p&gt;
+&lt;h1&gt;REFERENCES&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/&lt;/li&gt;
+&lt;li&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 03 Dec 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</guid><category>medium</category><category>blog</category></item><item><title>Setup OSX</title><link>http://minhhh.github.io/posts/setup-osx</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -95,6 +116,11 @@
     &lt;li&gt;
      &lt;a href="http://www.michael-noll.com/blog/2007/01/04/word-movement-shortcuts-for-iterm-on-mac-os-x/"&gt;
       Word Movement Shortcuts for iTerm
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.hackintosh.zone/downloads/download/506-free-ntfs-driver-for-mac-os-x/"&gt;
+      Install NTFS driver for macOS
      &lt;/a&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
@@ -6015,18 +6041,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/a&gt;
     Tagging
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;    # pull rebase create nicer merge tree, but be careful with it
-    git stash # stash any change
-    git pull --rebase
-    git stash pop # stash pop any change
-
-    git fetch -p # Bring the repository up to date without executing merge on the current branch
-
-    git add -u # add modified files but not new files
-    git add -A # add all untracked files
-
-    # Diff with remote
-    git diff master origin/master
+   &lt;pre&gt;&lt;code&gt;    git tag -a &amp;lt;tag-name&amp;gt; -m "Tag message"
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -6212,6 +6227,22 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
    &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#applying-a-range-of-commits" id="user-content-applying-a-range-of-commits"&gt;
+     &lt;span class="octicon octicon-link"&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    Applying a range of commits
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    # A should be older than B, this DOES NOT include A
+    git cherry-pick A..B
+
+    # Include A
+    git cherry-pick A^..B
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
    &lt;h3&gt;
     &lt;a aria-hidden="true" class="anchor" href="#exports" id="user-content-exports"&gt;
      &lt;span class="octicon octicon-link"&gt;
@@ -6343,27 +6374,6 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;/p&gt;
    &lt;h4&gt;
     &lt;a aria-hidden="true" class="anchor" href="#revert-a-bad-commit" id="user-content-revert-a-bad-commit"&gt;
-     &lt;span class="octicon octicon-link"&gt;
-     &lt;/span&gt;
-    &lt;/a&gt;
-    Revert a bad commit
-   &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;    git revert &amp;lt;sha1&amp;gt;
-
-    # Revert single file
-    git checkout -- filename
-
-    # Revert all files in current folder
-    git checkout .
-
-    # Remove all new files or folder
-    git clean -df
-&lt;/code&gt;&lt;/pre&gt;
-   &lt;p&gt;
-    &lt;br/&gt;
-   &lt;/p&gt;
-   &lt;h4&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#revert-a-bad-commit-1" id="user-content-revert-a-bad-commit-1"&gt;
      &lt;span class="octicon octicon-link"&gt;
      &lt;/span&gt;
     &lt;/a&gt;

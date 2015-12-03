@@ -281,18 +281,7 @@
     </a>
     Tagging
    </h4>
-   <pre><code>    # pull rebase create nicer merge tree, but be careful with it
-    git stash # stash any change
-    git pull --rebase
-    git stash pop # stash pop any change
-
-    git fetch -p # Bring the repository up to date without executing merge on the current branch
-
-    git add -u # add modified files but not new files
-    git add -A # add all untracked files
-
-    # Diff with remote
-    git diff master origin/master
+   <pre><code>    git tag -a &lt;tag-name&gt; -m "Tag message"
 </code></pre>
    <p>
     <br/>
@@ -478,6 +467,22 @@
    <p>
     <br/>
    </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#applying-a-range-of-commits" id="user-content-applying-a-range-of-commits">
+     <span class="octicon octicon-link">
+     </span>
+    </a>
+    Applying a range of commits
+   </h4>
+   <pre><code>    # A should be older than B, this DOES NOT include A
+    git cherry-pick A..B
+
+    # Include A
+    git cherry-pick A^..B
+</code></pre>
+   <p>
+    <br/>
+   </p>
    <h3>
     <a aria-hidden="true" class="anchor" href="#exports" id="user-content-exports">
      <span class="octicon octicon-link">
@@ -609,27 +614,6 @@
    </p>
    <h4>
     <a aria-hidden="true" class="anchor" href="#revert-a-bad-commit" id="user-content-revert-a-bad-commit">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Revert a bad commit
-   </h4>
-   <pre><code>    git revert &lt;sha1&gt;
-
-    # Revert single file
-    git checkout -- filename
-
-    # Revert all files in current folder
-    git checkout .
-
-    # Remove all new files or folder
-    git clean -df
-</code></pre>
-   <p>
-    <br/>
-   </p>
-   <h4>
-    <a aria-hidden="true" class="anchor" href="#revert-a-bad-commit-1" id="user-content-revert-a-bad-commit-1">
      <span class="octicon octicon-link">
      </span>
     </a>
@@ -969,24 +953,25 @@
 
 <h4>Tags</h4>
 	<ul class="none">
-	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
-	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
-	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
-	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
-	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
-	    <li class="tag-4"><a href="../tag/osx.html">osx</a></li>
-	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
-	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
-	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
-	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-4"><a href="../tag/memcache.html">memcache</a></li>
-	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
-	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
-	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
 	    <li class="tag-4"><a href="../tag/android.html">android</a></li>
-	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+	    <li class="tag-1"><a href="../tag/git.html">git</a></li>
+	    <li class="tag-2"><a href="../tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="../tag/rebase.html">rebase</a></li>
+	    <li class="tag-2"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-4"><a href="../tag/cli.html">cli</a></li>
-	    <li class="tag-4"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+	    <li class="tag-2"><a href="../tag/github.html">github</a></li>
+	    <li class="tag-4"><a href="../tag/netcat.html">netcat</a></li>
+	    <li class="tag-4"><a href="../tag/osx.html">osx</a></li>
+	    <li class="tag-4"><a href="../tag/magic-method.html">magic method</a></li>
+	    <li class="tag-4"><a href="../tag/decorator.html">decorator</a></li>
+	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
+	    <li class="tag-4"><a href="../tag/memcache.html">memcache</a></li>
+	    <li class="tag-4"><a href="../tag/adb.html">adb</a></li>
+	    <li class="tag-4"><a href="../tag/awk.html">awk</a></li>
+	    <li class="tag-2"><a href="../tag/blog.html">blog</a></li>
+	    <li class="tag-4"><a href="../tag/medium.html">medium</a></li>
 </ul>
 
 
