@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 03 Dec 2015 00:00:00 -0500</lastBuildDate><item><title>What is Medium</title><link>http://minhhh.github.io/posts/what-is-medium</link><description>&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description></description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 18 Dec 2015 00:00:00 -0500</lastBuildDate><item><title>Clippings 2015-12-18</title><link>http://minhhh.github.io/posts/clippings-2015-12-18</link><description>&lt;p&gt;&lt;a href="https://vimeo.com/125121010"&gt;Making a Silky Smooth Web&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=OrIFaWJ9Glo"&gt;Single Page Web Applications: JavaScript End-to-End (The Hard Stuff)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gadgette.com/2015/12/16/8-books-for-gamers-that-want-to-know-more-about-the-industry/"&gt;8 books for gamers that want to know more about the industry&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 18 Dec 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-12-18:posts/clippings-2015-12-18</guid><category>blog</category><category>clippings</category></item><item><title>What is Medium</title><link>http://minhhh.github.io/posts/what-is-medium</link><description>&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
 &lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
 &lt;p&gt;Medium seems to do following:&lt;/p&gt;
 &lt;ul&gt;
@@ -4644,7 +4646,7 @@
     for
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-smi"&gt;(i&lt;/span&gt; = 1&lt;span class="pl-k"&gt;;&lt;/span&gt; i &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 3&lt;span class="pl-k"&gt;;&lt;/span&gt; i++)
+    &lt;pre&gt;    &lt;span class="pl-k"&gt;for&lt;/span&gt; (i = 1&lt;span class="pl-k"&gt;;&lt;/span&gt; i &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 3&lt;span class="pl-k"&gt;;&lt;/span&gt; i++)
         print &lt;span class="pl-smi"&gt;$i&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -4679,7 +4681,7 @@
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    BEGIN {
-        &lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-smi"&gt;(x&lt;/span&gt; = 0&lt;span class="pl-k"&gt;;&lt;/span&gt; x &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 20&lt;span class="pl-k"&gt;;&lt;/span&gt; x++) {
+        &lt;span class="pl-k"&gt;for&lt;/span&gt; (x = 0&lt;span class="pl-k"&gt;;&lt;/span&gt; x &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;= 20&lt;span class="pl-k"&gt;;&lt;/span&gt; x++) {
             &lt;span class="pl-k"&gt;if&lt;/span&gt; (x 5)
                 &lt;span class="pl-k"&gt;continue&lt;/span&gt;
             &lt;span class="pl-c1"&gt;printf&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;%d &lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;, x
@@ -6099,13 +6101,15 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;br/&gt;
    &lt;/p&gt;
    &lt;h4&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#diff-2-files-at-specific-revision" id="user-content-diff-2-files-at-specific-revision"&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#diff-2-files-at-specific-revisions-or-branches" id="user-content-diff-2-files-at-specific-revisions-or-branches"&gt;
      &lt;span class="octicon octicon-link"&gt;
      &lt;/span&gt;
     &lt;/a&gt;
-    Diff 2 files at specific revision
+    Diff 2 files at specific revisions or branches
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;    git diff &amp;lt;revision_1&amp;gt;..&amp;lt;revision_2&amp;gt; -- &amp;lt;file&amp;gt;
+    git diff &amp;lt;branch_1&amp;gt; &amp;lt;branch_2&amp;gt; -- &amp;lt;file&amp;gt;
+    git diff &amp;lt;branch_2&amp;gt; -- &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
