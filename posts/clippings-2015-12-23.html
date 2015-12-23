@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-        <title>Android CLI tool cheatsheet</title>
+        <title>Clippings 2015-12-23</title>
         <meta charset="utf-8" />
 
 
@@ -64,189 +64,23 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../posts/android-cli-tool-cheatsheet" rel="bookmark"
-                   title="Permalink to Android CLI tool cheatsheet">Android CLI tool cheatsheet</a></h2>
+                <a href="../posts/clippings-2015-12-23" rel="bookmark"
+                   title="Permalink to Clippings 2015-12-23">Clippings 2015-12-23</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2014-10-03T00:00:00">
-                Fri 03 October 2014
+              <abbr class="published" title="2015-12-23T00:00:00">
+                Wed 23 December 2015
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../author/haminh.html">Ha.Minh</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p><div>
-    <style type = "text/css" scoped>
-.git-content div {
-    padding: 0;
-    margin: 0;
-}
-
-.git-content .git-file {
-    border: 1px solid #DEDEDE;
-    margin-bottom: 1em;
-}
-
-.git-content .git-file .git-meta {
-    background-color: #EAEAEA;
-    color: #666666;
-    font-size: 85%;
-    overflow: hidden;
-    padding: 0.5em;
-}
-
-.git-content .git-file .git-meta a {
-    color: #336699;
-}
-
-.git-content .git-file .git-meta a:visited {
-    color: #773377;
-}
-
-.git-content .git-file {
-    background-color: #F8F8FF;
-    border-bottom: 1px solid #DDDDDD;
-    font-size: 100%;
-    overflow: auto;
-    word-wrap: normal;
-}
-
-.git-content .git-file pre {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-    </style>
-    <div class="git-content">
-        <div class="git-file">
-            <div class="file">
- <div class="blob instapaper_body" id="readme">
-  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" id="user-content-android-cli-cheatsheet">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    ANDROID CLI CHEATSHEET
-   </h1>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#read-log" id="user-content-read-log">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Read log
-   </h3>
-   <pre><code>adb logcat
-adb logcat -v time
-
-adb logcat *:V # Get all message in verbose mode
-adb logcat xxxxxxx:V *:S # Get all message starts with xxxxx
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#list-package" id="user-content-list-package">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    List package
-   </h3>
-   <pre><code>adb shell pm list package
-adb shell pm path com.example.someapp
-adb pull /data/app/com.example.someapp-2.apk
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#run-a-particular-intent" id="user-content-run-a-particular-intent">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Run a particular intent
-   </h3>
-   <pre><code>arun-us: # Launch the game for US on the Android device.
-    adb shell 'am start -a $(MYPACKAGEID).RUN -e server http://$(MYIP):$(MYPORT) -e game $(game) -e nativeLog $(MYNATIVELOG)'
-astop-us: # Launch the game for US on the Android device.
-    adb shell 'am broadcast -a $(MYPACKAGEID).STOP'
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#install--uninstall" id="user-content-install--uninstall">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Install / Uninstall
-   </h3>
-   <pre><code>adb install file.apk
-adb install -r file.apk # replace
-
-adb shell am start -a android.intent.action.DELETE -d package:&lt;your app package&gt;
-</code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#extracting-apk-file" id="user-content-extracting-apk-file">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    Extracting APK file
-   </h3>
-   <ul>
-    <li>
-     <p>
-      <a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file">
-       Use
-       <code>
-        apktool
-       </code>
-      </a>
-     </p>
-     <p>
-      apk d /path/to/apk
-open res/values/strings.xml
-     </p>
-    </li>
-   </ul>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
-     <span class="octicon octicon-link">
-     </span>
-    </a>
-    References
-   </h2>
-   <ul>
-    <li>
-     <a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file">
-      View android manifset from APK
-     </a>
-    </li>
-    <li>
-     <a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device">
-      Get apk from Android device
-     </a>
-    </li>
-    <li>
-     <a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear">
-      Adb shell to uninstall package
-     </a>
-    </li>
-    <li>
-     <a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat">
-      Debugging with logcat
-     </a>
-    </li>
-   </ul>
-  </article>
- </div>
-</div>
-
-            <div class="git-meta">
-                
-                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
-                
-                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/android_cli.md">view original</a></span>
-                <span style="float: right; margin-right: 8px;">
-                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/android_cli.md">android_cli.md</a></span>
-            </div>
-        </div>
-    </div>
-</div></p>
+              <p><a href="http://www.javacodegeeks.com/2014/05/10-articles-every-programmer-must-read.html">10 Articles Every Programmer Must Read</a></p>
+<p><a href="https://medium.com/@bryce/how-we-talk-when-we-talk-about-ambition-5fdb4f6fe9cf#.nha9hk3t1">How We Talk When We Talk About Ambition</a></p>
+<p><a href="http://blog.bithound.io/2015-top-js-devs">2015's Top JavaScript Devs To Follow</a></p>
+<p><a href="http://www.phloxblog.in/understanding-view-backbonejs/#.VnpYkNOqpBc">Understanding view in Backbone.js</a></p>
             </div><!-- /.entry-content -->
 
 
