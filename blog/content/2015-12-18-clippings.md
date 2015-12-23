@@ -3,7 +3,7 @@ Date: 2015-12-18 00:00
 Author: Ha.Minh
 Category: Blog
 Tags: blog, clippings
-Summary: Clippings of articles read
+Summary: Clippings of articles read 2015-12-18
 
 [Making a Silky Smooth Web](https://vimeo.com/125121010)
 
