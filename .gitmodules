@@ -1,0 +1,3 @@
+[submodule "blog/pelican-themes/voidy-bootstrap"]
+	path = blog/pelican-themes/voidy-bootstrap
+	url = git@github.com:robulouski/voidy-bootstrap.git

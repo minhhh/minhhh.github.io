@@ -26,12 +26,9 @@ LINKS =  (('Pelican', 'http://getpelican.com/'),
           )
 
 # Social widget
-# SOCIAL = (
-#           # ('Twitter', 'https://twitter.com/utsace'),
+# SOCIAL =  (('Pelican', 'http://getpelican.com/'),
+#           ('Python.org', 'http://python.org/'),
 #           )
-SOCIAL =  (('Pelican', 'http://getpelican.com/'),
-          ('Python.org', 'http://python.org/'),
-          )
 
 GITHUB_URL = 'https://github.com/minhhh'
 TWITTER_URL = 'https://twitter.com/utsace'
@@ -66,7 +63,7 @@ YEAR_ARCHIVE_SAVE_AS = '{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%m}/index.html'
 
 # Themes
-THEME = "pelican-themes/gum"
+THEME = "pelican-themes/voidy-bootstrap"
 STATIC_PATHS = ['images', 'js', 'css']
 
 # Analytics
@@ -78,3 +75,23 @@ GOOGLE_ANALYTICS_SITENAME = 'auto'
 RELATIVE_URLS = True
 
 DELETE_OUTPUT_DIRECTORY = False
+
+# VoidyBootstrap
+SITESUBTITLE ='Software development and other stuff'
+
+STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
+
+CUSTOM_ARTICLE_FOOTERS = ("taglist.html", "sharing.html", )
+CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
+
+SIDEBAR = "sidebar.html"
+
+SOCIAL = (('Google+', 'https://plus.google.com/u/0/104727235342101204530/about/p/pub',
+         'fa fa-google-plus-square fa-fw fa-lg'),
+        ('Twitter', 'https://twitter.com/utsace',
+         'fa fa-twitter-square fa-fw fa-lg'),
+        ('Facebook', 'https://www.facebook.com/minh.ha.hanoi',
+         'fa fa-facebook-square fa-fw fa-lg'),
+        ('GitHub', 'https://github.com/minhhh',
+         'fa fa-github-square fa-fw fa-lg'),
+        )
