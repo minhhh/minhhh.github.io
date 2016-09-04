@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-01-06T00:00:00-05:00</updated><entry><title>Clippings 2016-01-06</title><link href="http://minhhh.github.io/posts/clippings-2016-01-06" rel="alternate"></link><published>2016-01-06T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-01-06:posts/clippings-2016-01-06</id><summary type="html">&lt;p&gt;&lt;a href="http://stuartsierra.com/2015/12/31/clojure-2015-year-in-review"&gt;Clojure 2015 Year in Review&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://swannodette.github.io/2015/12/23/year-in-review/"&gt;ClojureScript Year In Review&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@pyrolistical/how-to-get-out-of-promise-hell-8c20e0ab0513#.pp1bbsvmi"&gt;How to escape Promise Hell&lt;/a&gt;&lt;/p&gt;</summary><category term="blog"></category><category term="clippings"></category></entry><entry><title>Clippings 2015-12-25</title><link href="http://minhhh.github.io/posts/clippings-2015-12-25" rel="alternate"></link><published>2015-12-25T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-25:posts/clippings-2015-12-25</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/adleroliveira/dreamjs"&gt;dreamjs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://stateofstartups.firstround.com/#highlights"&gt;State of Startups&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.itworld.com/article/2935377/open-source-tools/the-slow-death-of-sourceforge.html"&gt;The slow death of SourceForge&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blackshellmedia.com/2015/03/the-7-habits-of-highly-successful-game-developers/"&gt;The 7 Habits of Highly Successful Game Developers&lt;/a&gt;&lt;/p&gt;</summary><category term="blog"></category><category term="clippings"></category></entry><entry><title>Clippings 2015-12-23</title><link href="http://minhhh.github.io/posts/clippings-2015-12-23" rel="alternate"></link><published>2015-12-23T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-23:posts/clippings-2015-12-23</id><summary type="html">&lt;p&gt;&lt;a href="http://www.javacodegeeks.com/2014/05/10-articles-every-programmer-must-read.html"&gt;10 Articles Every Programmer Must Read&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@bryce/how-we-talk-when-we-talk-about-ambition-5fdb4f6fe9cf#.nha9hk3t1"&gt;How We Talk When We Talk About Ambition&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.bithound.io/2015-top-js-devs"&gt;2015's Top JavaScript Devs To Follow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.phloxblog.in/understanding-view-backbonejs/#.VnpYkNOqpBc"&gt;Understanding view in Backbone.js&lt;/a&gt;&lt;/p&gt;</summary><category term="blog"></category><category term="clippings"></category></entry><entry><title>Clippings 2015-12-18</title><link href="http://minhhh.github.io/posts/clippings-2015-12-18" rel="alternate"></link><published>2015-12-18T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-18:posts/clippings-2015-12-18</id><summary type="html">&lt;p&gt;&lt;a href="https://vimeo.com/125121010"&gt;Making a Silky Smooth Web&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=OrIFaWJ9Glo"&gt;Single Page Web Applications: JavaScript End-to-End (The Hard Stuff)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gadgette.com/2015/12/16/8-books-for-gamers-that-want-to-know-more-about-the-industry/"&gt;8 books for gamers that want to know more about the industry&lt;/a&gt;&lt;/p&gt;</summary><category term="blog"></category><category term="clippings"></category></entry><entry><title>What is Medium</title><link href="http://minhhh.github.io/posts/what-is-medium" rel="alternate"></link><published>2015-12-03T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</id><summary type="html">&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
+&lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
+&lt;p&gt;Medium seems to do following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a beautiful, simple blogging platform for everyone&lt;/li&gt;
+&lt;li&gt;Pay some people to post to the site, but not most of them&lt;/li&gt;
+&lt;li&gt;Promote the people they've paid along with a very small subset of everyone else.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Therefore the content on medium can be either be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;awesome if they were written by profesisonal writers who were hired and edited by professional editors&lt;/li&gt;
+&lt;li&gt;opposite of awesome if they were written by mediocre bloggers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The differences between Medium and traditional publication are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If the traditional publication publish anything bad or plagiarised, it reflects poorly on them.&lt;/li&gt;
+&lt;li&gt;If Medium publishes anything bad or plagiarised, it reflects poorly on the writers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Medium is good for you if:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You aren’t not going to blog a lot.&lt;/li&gt;
+&lt;li&gt;You like the Medium environment.&lt;/li&gt;
+&lt;li&gt;You aren’t in it for the money. Medium does have some paid contributors, but not for everyone.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;REFERENCES&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/"&gt;What is medium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/"&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="medium"></category><category term="blog"></category></entry><entry><title>Setup OSX</title><link href="http://minhhh.github.io/posts/setup-osx" rel="alternate"></link><published>2015-10-14T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-10-14:posts/setup-osx</id><summary type="html">&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="readme blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    INTRODUCTION
+   &lt;/h1&gt;
+   &lt;p&gt;
+    This is the list of some useful tools I used to setup my OSX.
+   &lt;/p&gt;
+   &lt;p&gt;
+    For more awesome osx command lines, see
+    &lt;a href="https://github.com/herrbischoff/awesome-osx-command-line"&gt;
+     Awesome OS X Command Line
+    &lt;/a&gt;
+    .
+   &lt;/p&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#setup" id="user-content-setup"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    SETUP
+   &lt;/h1&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     &lt;a href="http://lifehacker.com/225873/mac-switchers-tip--remap-the-home-and-end-keys"&gt;
+      Fix the home and end keys
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://lifehacker.com/5826055/make-your-keyboard-keys-repeat-properly-when-held-down-in-mac-os-x-lion"&gt;
+      Make Your Keyboard Keys Repeat Properly
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="https://support.apple.com/kb/HT3399"&gt;
+      Use Fn key normally in Mac
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://macs.about.com/od/OSXLion107/qt/Os-X-Lion-Automatic-Spelling-Correction.htm"&gt;
+      Disable automatic spelling
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.michael-noll.com/blog/2007/01/04/word-movement-shortcuts-for-iterm-on-mac-os-x/"&gt;
+      Word Movement Shortcuts for iTerm
+     &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.hackintosh.zone/downloads/download/506-free-ntfs-driver-for-mac-os-x/"&gt;
+      Install NTFS driver for macOS
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#osx-shortcuts--keys" id="user-content-osx-shortcuts--keys"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    OSX SHORTCUTS &amp;amp; KEYS
+   &lt;/h1&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    F11             - Show desktop
+    Ctrl left/right - Scroll to the next working desktop
+    Command Space   - Show search
+    Ctrl Up         - Show all programs
+    Ctrl Down       - Show other windows of the same program
+    Ctrl Command F  - Toggle full screen
+    Cmd Option D    - Toggle taskbar
+    Cmd Delete      - Move to trash
+    Cmd K           - Clear terminal screen&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#tools" id="user-content-tools"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    TOOLS
+   &lt;/h1&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     Testdisk - Disk recovery
+    &lt;/li&gt;
+    &lt;li&gt;
+     Blackmagic Disk Speed Test - Disk performance measurement tool.
+    &lt;/li&gt;
+    &lt;li&gt;
+     &lt;a href="http://www.macroplant.com/iexplorer/"&gt;
+      iexplorer
+     &lt;/a&gt;
+     - Transfer file with iPhone easily
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#quicksilver" id="user-content-quicksilver"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    QuickSilver
+   &lt;/h2&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     Great replacement for spotlight
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#diff-tools" id="user-content-diff-tools"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Diff tools
+   &lt;/h2&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     &lt;a href="http://scoobygalletas.blogspot.com/2011/09/how-to-install-meld-in-mac-os-x-lion.html"&gt;
+      Meld
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#mount-ssh" id="user-content-mount-ssh"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Mount SSH
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Install sshfs. Then run
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;    sshfs &amp;lt;username&amp;gt;@&amp;lt;ip&amp;gt;:&amp;lt;folder&amp;gt; /Users/&amp;lt;username&amp;gt;/&amp;lt;folder&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#mount-ssh-1" id="user-content-mount-ssh-1"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    MOUNT SSH
+   &lt;/h1&gt;
+   &lt;p&gt;
+    Install sshfs. Then run
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-source-shell"&gt;
+    &lt;pre&gt;    sshfs &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;@&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;ip&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; /Users/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/mac.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/mac.md"&gt;mac.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="mac"></category><category term="osx"></category></entry><entry><title>Embed git file to pelican</title><link href="http://minhhh.github.io/posts/embed-git-file-to-pelican" rel="alternate"></link><published>2014-09-11T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</id><summary type="html">&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
+&lt;p&gt;I have several solutions for this problem:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I could duplicate the article. But I won't do this.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I could store the articles as &lt;code&gt;gist&lt;/code&gt; like this:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/dc8b7c536d0fe9c7003f.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;# First
+## Second
+Third&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+&lt;p&gt;But I can't store a lot of related things in gist because that's the role of a real git repo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I could store the articles in the normal &lt;code&gt;git&lt;/code&gt; repo, and embed it into the article in github page. I chose this approach for long articles. Like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- &lt;script src="http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"&gt;&lt;/script&gt; --&gt;
+
+&lt;p&gt;There's already a nice tool to do this: &lt;a href="https://github.com/minhhh/gist-it"&gt;gist-it&lt;/a&gt;. Using it is really simple, just clone the repo and deploy it to an AppEngine instance. The downside of this is it does not generate &lt;code&gt;html&lt;/code&gt; code for &lt;code&gt;Markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The best solution for me is to use a plugin for embedding git file into &lt;code&gt;pelican&lt;/code&gt; like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="readme blob instapaper_body" id="readme"&gt;
+  &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+   &lt;h1&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#first-level-title" id="user-content-first-level-title"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    First level title
+   &lt;/h1&gt;
+   &lt;p&gt;
+    Notes from
+    &lt;a href="https://github.com/minhhh/wiki"&gt;
+     link
+    &lt;/a&gt;
+    .
+   &lt;/p&gt;
+   &lt;h2&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#second-level-title" id="user-content-second-level-title"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Second level title
+   &lt;/h2&gt;
+   &lt;p&gt;
+    Quote some code with correct syntax highlight
+   &lt;/p&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; [&lt;span class="pl-c1"&gt;0&lt;/span&gt;, &lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-c1"&gt;2&lt;/span&gt;, &lt;span class="pl-c1"&gt;3&lt;/span&gt;, &lt;span class="pl-c1"&gt;4&lt;/span&gt;, &lt;span class="pl-c1"&gt;5&lt;/span&gt;]:
+    &lt;span class="pl-c1"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;
+
+&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-c1"&gt;range&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
+    &lt;span class="pl-c1"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;h3&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#third-level-title" id="user-content-third-level-title"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Third level title
+   &lt;/h3&gt;
+   &lt;div class="highlight highlight-source-python"&gt;
+    &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-v"&gt;xrange&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
+    &lt;span class="pl-c1"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
+   &lt;/div&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     First item
+    &lt;/li&gt;
+    &lt;li&gt;
+     Second item
+    &lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/article&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/sample.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/sample.md"&gt;sample.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="git"></category><category term="pelican"></category><category term="github"></category></entry><entry><title>Creating this blog</title><link href="http://minhhh.github.io/posts/creating-this-blog" rel="alternate"></link><published>2014-06-07T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</id><summary type="html">&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html"&gt;Pelican Guide initial setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html"&gt;Moving to Pelican planning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/streeter/pelican-gist"&gt;pelican-gist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/minhhh/gist-it"&gt;gist-it&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="github"></category></entry></feed>
