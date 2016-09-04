@@ -21,4 +21,4 @@ stop: stop # stop
 	. venv/bin/activate && cd blog && make stopserver
 
 publish: # publish to master
-	. venv/bin/activate && cd blog && git checkout source && make html && git checkout gh-pages && ghp-import output && git checkout master && git merge gh-pages && git push --all && git checkout source
+	. venv/bin/activate && cd blog && git checkout source && make publish && git checkout gh-pages && ghp-import output && git checkout master && git merge gh-pages && git push --all && git checkout source
