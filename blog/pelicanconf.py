@@ -66,11 +66,6 @@ MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%m}/index.html'
 THEME = "pelican-themes/voidy-bootstrap"
 STATIC_PATHS = ['images', 'js', 'css']
 
-# Analytics
-GOOGLE_ANALYTICS = 'UA-50796592-2'
-GOOGLE_ANALYTICS_ID = 'UA-50796592-2'
-GOOGLE_ANALYTICS_SITENAME = 'auto'
-
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
