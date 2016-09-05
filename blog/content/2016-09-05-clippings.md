@@ -12,3 +12,4 @@ Tags: blog, clippings
 
 [GET THE UNITY 5.5 BETA NOW](https://blogs.unity3d.com/2016/08/30/get-the-unity-5-5-beta-now/)
 
+[New Halo Wars 2 Gameplay Footage Arrives, As Dev Teases "Completely New" Mode](http://www.gamespot.com/articles/new-halo-wars-2-gameplay-footage-arrives-as-dev-te/1100-6443305/)
