@@ -2,7 +2,7 @@ Title: Clippings 2015-12-25
 Date: 2015-12-25 00:00
 Author: Ha.Minh
 Category: Blog
-Tags: blog, clippings
+Tags: clippings
 Summary: Clippings of articles read 2015-12-25
 
 [dreamjs](https://github.com/adleroliveira/dreamjs)

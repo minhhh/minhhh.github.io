@@ -2,7 +2,7 @@ Title: Clippings 2015-12-23
 Date: 2015-12-23 00:00
 Author: Ha.Minh
 Category: Blog
-Tags: blog, clippings
+Tags: clippings
 Summary: Clippings of articles read 2015-12-23
 
 [10 Articles Every Programmer Must Read](http://www.javacodegeeks.com/2014/05/10-articles-every-programmer-must-read.html)

@@ -2,7 +2,7 @@ Title: Clippings 2016-09-05
 Date: 2016-09-05 00:00
 Author: Ha.Minh
 Category: Blog
-Tags: blog, clippings
+Tags: clippings
 
 [Mobile Game Roundup: A New Life, Riff Racer and More](http://www.adweek.com/socialtimes/mobile-game-roundup-a-new-life-riff-racer-and-more/644386)
 
