@@ -13,3 +13,10 @@ Tags: blog, clippings
 [GET THE UNITY 5.5 BETA NOW](https://blogs.unity3d.com/2016/08/30/get-the-unity-5-5-beta-now/)
 
 [New Halo Wars 2 Gameplay Footage Arrives, As Dev Teases "Completely New" Mode](http://www.gamespot.com/articles/new-halo-wars-2-gameplay-footage-arrives-as-dev-te/1100-6443305/)
+
+Some stuff related to Unity singleton for upcoming blogs
+
+    http://www.unitygeek.com/unity_c_singleton/
+    http://huntingtongames.xyz/2016-05-01-unity-using-singletons-for-sound-management/
+    http://clearcutgames.net/home/?p=437
+    http://www.theappguruz.com/blog/managers-using-singleton
