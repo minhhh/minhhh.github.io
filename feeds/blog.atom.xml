@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-05T00:00:00-04:00</updated><entry><title>Clippings 2016-09-05</title><link href="http://minhhh.github.io/posts/clippings-2016-09-05" rel="alternate"></link><published>2016-09-05T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-05:posts/clippings-2016-09-05</id><summary type="html">&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/mobile-game-roundup-a-new-life-riff-racer-and-more/644386"&gt;Mobile Game Roundup: A New Life, Riff Racer and More&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-06T00:00:00-04:00</updated><entry><title>Clippings 2016-09-06</title><link href="http://minhhh.github.io/posts/clippings-2016-09-06" rel="alternate"></link><published>2016-09-06T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-06:posts/clippings-2016-09-06</id><summary type="html">&lt;p&gt;&lt;a href="http://www.gamasutra.com/blogs/SheldonLaframboise/20160222/266309/Breaking_Down_Supercells_Next_Hit_Clash_Royale.php"&gt;Breaking Down Supercell's Next Hit: Clash Royale&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://labertorium.de/unity/789/unity-realtime-mesh-deformation-package/"&gt;UNITY – REALTIME MESH DEFORMATION – PACKAGE&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some references for nested prefabs&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://coffeepoweredmachine.com/prefab-inception/
+http://forum.unity3d.com/threads/prefab-evolution-plugin-nested-prefabs.236719/
+http://www.wesleytam.com/010101011/
+http://www.demo.bento-studio.com/NestedPrefab/NestedPrefabReference.pdf
+https://josephstankowicz.wordpress.com/2013/05/23/the-perils-of-prefabs/
+http://www.gamasutra.com/blogs/GuillermoAndrades/20160203/265048/The_Unity_tools_we_use_in_Immortal_Redneck.php
+http://www.glenstevens.ca/unity3d-best-practices/#Process
+http://rhostatemachine.tumblr.com/post/133273018641/nested-prefabs-in-unity
+https://github.com/opencog/unity3d-opencog-game
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="clippings"></category></entry><entry><title>Clippings 2016-09-05</title><link href="http://minhhh.github.io/posts/clippings-2016-09-05" rel="alternate"></link><published>2016-09-05T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-05:posts/clippings-2016-09-05</id><summary type="html">&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/mobile-game-roundup-a-new-life-riff-racer-and-more/644386"&gt;Mobile Game Roundup: A New Life, Riff Racer and More&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/animoca-brands-launches-he-man-tappers-of-grayskull-on-mobile/644327"&gt;Animoca Brands Launches He-Man Tappers of Grayskull on Mobile&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.gamespot.com/articles/see-brand-new-final-fantasy-15-gameplay-and-more/1100-6443300/"&gt;See Brand New Final Fantasy 15 Gameplay and More&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://blogs.unity3d.com/2016/08/30/get-the-unity-5-5-beta-now/"&gt;GET THE UNITY 5.5 BETA NOW&lt;/a&gt;&lt;/p&gt;
