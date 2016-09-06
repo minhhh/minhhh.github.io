@@ -8,6 +8,8 @@ Tags: clippings
 
 [UNITY – REALTIME MESH DEFORMATION – PACKAGE](http://labertorium.de/unity/789/unity-realtime-mesh-deformation-package/)
 
+[Deus Ex: Mankind Divided: Everything You Need to Know](http://www.gamespot.com/articles/deus-ex-mankind-divided-everything-you-need-to-kno/1100-6442897/)
+
 Some references for nested prefabs
 
     http://coffeepoweredmachine.com/prefab-inception/
