@@ -10,6 +10,8 @@ Tags: clippings
 
 [Deus Ex: Mankind Divided: Everything You Need to Know](http://www.gamespot.com/articles/deus-ex-mankind-divided-everything-you-need-to-kno/1100-6442897/)
 
+[Creating a Roguelike Game in C#](https://roguesharp.wordpress.com/)
+
 Some references for nested prefabs
 
     http://coffeepoweredmachine.com/prefab-inception/
