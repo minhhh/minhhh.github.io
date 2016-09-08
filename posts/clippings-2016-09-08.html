@@ -8,7 +8,7 @@
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>An Introduction to Memcache - Ha.Minh's Blog</title>
+    <title>Clippings 2016-09-08 - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -90,212 +90,29 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Sat 10 October 2015
+  Thu 08 September 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/an-introduction-to-memcache" rel="bookmark"
-     title="Permalink to An Introduction to Memcache">
-    An Introduction to Memcache
+  <a href="http://minhhh.github.io/posts/clippings-2016-09-08" rel="bookmark"
+     title="Permalink to Clippings 2016-09-08">
+    Clippings 2016-09-08
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/programming.html">
-      Programming</a>
+    <a href="http://minhhh.github.io/category/blog.html">
+      Blog</a>
     &nbsp;&nbsp;
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p><div>
-    <style type = "text/css" scoped>
-.git-content div {
-    padding: 0;
-    margin: 0;
-}
-
-.git-content .git-file {
-    border: 1px solid #DEDEDE;
-    margin-bottom: 1em;
-}
-
-.git-content .git-file .git-meta {
-    background-color: #EAEAEA;
-    color: #666666;
-    font-size: 85%;
-    overflow: hidden;
-    padding: 0.5em;
-}
-
-.git-content .git-file .git-meta a {
-    color: #336699;
-}
-
-.git-content .git-file .git-meta a:visited {
-    color: #773377;
-}
-
-.git-content .git-file {
-    background-color: #F8F8FF;
-    border-bottom: 1px solid #DDDDDD;
-    font-size: 100%;
-    overflow: auto;
-    word-wrap: normal;
-}
-
-.git-content .git-file pre {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-    </style>
-    <div class="git-content">
-        <div class="git-file">
-            <div class="file">
- <div class="readme blob instapaper_body" id="readme">
-  <article class="markdown-body entry-content" itemprop="text">
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#memcache-cheatsheet" id="user-content-memcache-cheatsheet">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    MEMCACHE CHEATSHEET
-   </h1>
-   <p>
-    Memcached is simple yet powerful. Its simple design promotes quick deployment, ease of development, and solves many problems facing large data caches. Its API is available for most popular languages.
-   </p>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#viewing-memcache-stats" id="user-content-viewing-memcache-stats">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Viewing memcache stats
-   </h2>
-   <pre><code>    echo "stats" | nc localhost 11211
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#viewing-memcache-server-stats" id="user-content-viewing-memcache-server-stats">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Viewing memcache server stats
-   </h2>
-   <pre><code>    memcached -vv
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#viewing-slab-stats" id="user-content-viewing-slab-stats">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Viewing slab stats
-   </h2>
-   <pre><code>    echo "stats slabs" | nc localhost 11211
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#viewing-item-stats" id="user-content-viewing-item-stats">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Viewing item stats
-   </h2>
-   <pre><code>    echo "stats items" | nc localhost 11211
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#viewing-stats-sizes" id="user-content-viewing-stats-sizes">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Viewing stats sizes
-   </h2>
-   <pre><code>    echo "stats sizes" | nc localhost 11211
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#flush-all-cache" id="user-content-flush-all-cache">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Flush all cache
-   </h2>
-   <pre><code>    echo "flush_all" | nc localhost 11211
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#print-all-items-of-a-slab" id="user-content-print-all-items-of-a-slab">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Print all items of a slab
-   </h2>
-   <pre><code>    stats cachedump &lt;slabs_id&gt; &lt;limit&gt;
-    echo "stats cachedump 1 0" | nc localhost 11211
-</code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#get-multiple-items" id="user-content-get-multiple-items">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    Get multiple items
-   </h2>
-   <pre><code>    echo "get key1 key2" | nc localhost 11211
-</code></pre>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-      </path>
-     </svg>
-    </a>
-    REFERENCES
-   </h1>
-   <ul>
-    <li>
-     <a href="https://code.google.com/p/memcached/wiki/NewStart">
-      Memcache Wiki
-     </a>
-    </li>
-    <li>
-     <a href="http://lzone.de/cheat-sheet/memcached">
-      Memcache Cheatsheet
-     </a>
-    </li>
-   </ul>
-  </article>
- </div>
-</div>
-
-            <div class="git-meta">
-                
-                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
-                
-                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/memcache.md">view original</a></span>
-                <span style="float: right; margin-right: 8px;">
-                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/memcache.md">memcache.md</a></span>
-            </div>
-        </div>
-    </div>
-</div></p>
+	<p><a href="http://www.adweek.com/socialtimes/pokemon-go-is-coming-to-apple-watch/644557">Pokemon Go Is Coming to Apple Watch</a></p>
+<p><a href="http://www.adweek.com/socialtimes/nintendo-announces-super-mario-run-for-ios/644523">Nintendo Announces Super Mario Run for iOS</a></p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/memcache.html"><i class="fa fa-tag"></i>memcache</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/clippings.html"><i class="fa fa-tag"></i>clippings</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
 
@@ -306,7 +123,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/an-introduction-to-memcache" 
+        data-href="http://minhhh.github.io/posts/clippings-2016-09-08" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
