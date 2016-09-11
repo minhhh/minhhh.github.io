@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/programming.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-11T00:00:00-04:00</updated><entry><title>Autoformat C# code from command line</title><link href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><published>2016-09-11T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Requirements&lt;/em&gt;
+&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;
 &lt;em&gt; Customizable format options
 &lt;/em&gt; Format whole directory recursively&lt;/p&gt;
 &lt;p&gt;The second requirement is relatively easy to implement if we have a tool to format a single file on the commandline because we can just use &lt;code&gt;find&lt;/code&gt; with some filter to iteratively apply the tool to a bunch of files.&lt;/p&gt;
 &lt;h2&gt;Solution 1: Astyle&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://astyle.sourceforge.net/"&gt;Artistic Style&lt;/a&gt; is a source code indenter, formatter, and beautifier for the C, C++, C++/CLI, Objective‑C, C# and Java programming languages. We can download and install Astyle rather quickly without any problems on most platforms.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;We will use a simple script below to help us install AStyle on Mac OSX. Installation on other platforms can be done in a similar manner&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;
+We will use a simple script below to help us install AStyle on Mac OSX. Installation on other platforms can be done in a similar manner&lt;/p&gt;
 &lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
@@ -183,8 +183,8 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;
+After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Supposed our Code is in the Code folder
 format:
     find Code -iname &amp;quot;*.cs&amp;quot; -not -path &amp;quot;Code/excludedpath/*&amp;quot; | xargs -n 1 -I {} bash -c &amp;quot;astyle --options=.astylerc \&amp;quot;{}\&amp;quot;&amp;quot;
