@@ -1,5 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-10T00:00:00-04:00</updated><entry><title>Setup Github pages as your blog</title><link href="http://minhhh.github.io/posts/setup-github-pages-as-your-blog" rel="alternate"></link><published>2016-09-10T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-10:posts/setup-github-pages-as-your-blog</id><summary type="html">&lt;p&gt;How to setup github page as your blog? It's actually very easy, just follow the following guides&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-11T00:00:00-04:00</updated><entry><title>Autoformat C# code from command line</title><link href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><published>2016-09-11T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Requirements&lt;/em&gt;
+&lt;em&gt; Customizable format options
+&lt;/em&gt; Format whole directory recursively&lt;/p&gt;
+&lt;p&gt;The second requirement is relatively easy to implement if we have a tool to format a single file on the commandline because we can just use &lt;code&gt;find&lt;/code&gt; with some filter to iteratively apply the tool to a bunch of files.&lt;/p&gt;
+&lt;h2&gt;Solution 1: Astyle&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://astyle.sourceforge.net/"&gt;Artistic Style&lt;/a&gt; is a source code indenter, formatter, and beautifier for the C, C++, C++/CLI, Objective‑C, C# and Java programming languages. We can download and install Astyle rather quickly without any problems on most platforms.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Installation&lt;/em&gt;
+We will use a simple script below to help us install AStyle on Mac OSX. Installation on other platforms can be done in a similar manner&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="file"&gt;
+ &lt;div class="blob-wrapper data type-shell" itemprop="text"&gt;
+  &lt;table class="highlight tab-size js-file-line-container" data-tab-size="8"&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="1" id="L1"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC1"&gt;
+     &lt;span class="pl-c"&gt;
+      #! /bin/sh
+     &lt;/span&gt;
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="2" id="L2"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC2"&gt;
+     &lt;span class="pl-c1"&gt;
+      set
+     &lt;/span&gt;
+     -eu
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="3" id="L3"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC3"&gt;
+     &lt;span class="pl-c1"&gt;
+      cd
+     &lt;/span&gt;
+     /tmp/
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="4" id="L4"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC4"&gt;
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="5" id="L5"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC5"&gt;
+     curl -L -o astyle.tar.gz http://sourceforge.net/projects/astyle/files/astyle/astyle%202.05.1/astyle_2.05.1_macosx.tar.gz/download
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="6" id="L6"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC6"&gt;
+     tar zxvf astyle.tar.gz
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="7" id="L7"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC7"&gt;
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="8" id="L8"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC8"&gt;
+     &lt;span class="pl-c1"&gt;
+      cd
+     &lt;/span&gt;
+     astyle
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="9" id="L9"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC9"&gt;
+     &lt;span class="pl-c1"&gt;
+      cd
+     &lt;/span&gt;
+     build/xcode
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="10" id="L10"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC10"&gt;
+     sudo xcodebuild install -project AStyle.xcodeproj
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="11" id="L11"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC11"&gt;
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="12" id="L12"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC12"&gt;
+     &lt;span class="pl-c1"&gt;
+      cd
+     &lt;/span&gt;
+     ../../build/mac/
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="13" id="L13"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC13"&gt;
+     make
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td class="blob-num js-line-number" data-line-number="14" id="L14"&gt;
+    &lt;/td&gt;
+    &lt;td class="blob-code blob-code-inner js-file-line" id="LC14"&gt;
+     sudo make install
+    &lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/table&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh"&gt;astyle/setup_astyle.sh&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Usage&lt;/em&gt;
+After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Supposed our Code is in the Code folder
+format:
+    find Code -iname &amp;quot;*.cs&amp;quot; -not -path &amp;quot;Code/excludedpath/*&amp;quot; | xargs -n 1 -I {} bash -c &amp;quot;astyle --options=.astylerc \&amp;quot;{}\&amp;quot;&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Remember to create a file called &lt;code&gt;.astylerc&lt;/code&gt; and put whatever format options you want to customize for your project there.&lt;/p&gt;
+&lt;h2&gt;Solution 2: NRefactory&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/icsharpcode/NRefactory"&gt;NRefactory&lt;/a&gt; is the C# analysis library used in the SharpDevelop and MonoDevelop IDEs. We can write a command line client with our customized parameters and format options, which uses &lt;code&gt;NRefactory&lt;/code&gt; internally to format code.&lt;/p&gt;
+&lt;p&gt;TODO: Write a cli using &lt;code&gt;docopt&lt;/code&gt;&lt;/p&gt;</summary><category term="c#"></category><category term="cli"></category></entry><entry><title>Setup Github pages as your blog</title><link href="http://minhhh.github.io/posts/setup-github-pages-as-your-blog" rel="alternate"></link><published>2016-09-10T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-10:posts/setup-github-pages-as-your-blog</id><summary type="html">&lt;p&gt;How to setup github page as your blog? It's actually very easy, just follow the following guides&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://24ways.org/2013/get-started-with-github-pages/"&gt;Get Started With GitHub Pages (Plus Bonus Jekyll)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/start/new-project/user-page/"&gt;A guide to using Github Pages&lt;/a&gt;&lt;/li&gt;

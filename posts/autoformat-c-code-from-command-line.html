@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with rebase" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:rebase - Ha.Minh's Blog</title>
+    <title>Autoformat C# code from command line - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,19 +87,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">rebase</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Tue 09 September 2014
+  Sun 11 September 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/how-to-rebase-in-git" rel="bookmark"
-     title="Permalink to How to rebase in Git">
-    How to rebase in Git
+  <a href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="bookmark"
+     title="Permalink to Autoformat C# code from command line">
+    Autoformat C# code from command line
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -109,18 +104,241 @@
       Programming</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>How to rebase in git</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/how-to-rebase-in-git">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.</p>
+<p><em>Requirements</em>
+<em> Customizable format options
+</em> Format whole directory recursively</p>
+<p>The second requirement is relatively easy to implement if we have a tool to format a single file on the commandline because we can just use <code>find</code> with some filter to iteratively apply the tool to a bunch of files.</p>
+<h2>Solution 1: Astyle</h2>
+<p><a href="http://astyle.sourceforge.net/">Artistic Style</a> is a source code indenter, formatter, and beautifier for the C, C++, C++/CLI, Objective‑C, C# and Java programming languages. We can download and install Astyle rather quickly without any problems on most platforms.</p>
+<p><em>Installation</em>
+We will use a simple script below to help us install AStyle on Mac OSX. Installation on other platforms can be done in a similar manner</p>
+<p><div>
+    <style type = "text/css" scoped>
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
 
-<nav class="index-pager">
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
 
-</nav> <!-- /index-pager -->
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    </style>
+    <div class="git-content">
+        <div class="git-file">
+            <div class="file">
+ <div class="blob-wrapper data type-shell" itemprop="text">
+  <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="1" id="L1">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC1">
+     <span class="pl-c">
+      #! /bin/sh
+     </span>
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="2" id="L2">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC2">
+     <span class="pl-c1">
+      set
+     </span>
+     -eu
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="3" id="L3">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC3">
+     <span class="pl-c1">
+      cd
+     </span>
+     /tmp/
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="4" id="L4">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC4">
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="5" id="L5">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC5">
+     curl -L -o astyle.tar.gz http://sourceforge.net/projects/astyle/files/astyle/astyle%202.05.1/astyle_2.05.1_macosx.tar.gz/download
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="6" id="L6">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC6">
+     tar zxvf astyle.tar.gz
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="7" id="L7">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC7">
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="8" id="L8">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC8">
+     <span class="pl-c1">
+      cd
+     </span>
+     astyle
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="9" id="L9">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC9">
+     <span class="pl-c1">
+      cd
+     </span>
+     build/xcode
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="10" id="L10">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC10">
+     sudo xcodebuild install -project AStyle.xcodeproj
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="11" id="L11">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC11">
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="12" id="L12">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC12">
+     <span class="pl-c1">
+      cd
+     </span>
+     ../../build/mac/
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="13" id="L13">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC13">
+     make
+    </td>
+   </tr>
+   <tr>
+    <td class="blob-num js-line-number" data-line-number="14" id="L14">
+    </td>
+    <td class="blob-code blob-code-inner js-file-line" id="LC14">
+     sudo make install
+    </td>
+   </tr>
+  </table>
+ </div>
+</div>
+
+            <div class="git-meta">
+                
+                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
+                
+                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh">view original</a></span>
+                <span style="float: right; margin-right: 8px;">
+                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh">astyle/setup_astyle.sh</a></span>
+            </div>
+        </div>
+    </div>
+</div></p>
+<p><em>Usage</em>
+After we have <code>astyle</code> available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so</p>
+<div class="codehilite"><pre><span></span># Supposed our Code is in the Code folder
+format:
+    find Code -iname &quot;*.cs&quot; -not -path &quot;Code/excludedpath/*&quot; | xargs -n 1 -I {} bash -c &quot;astyle --options=.astylerc \&quot;{}\&quot;&quot;
+</pre></div>
+
+
+<p>Remember to create a file called <code>.astylerc</code> and put whatever format options you want to customize for your project there.</p>
+<h2>Solution 2: NRefactory</h2>
+<p><a href="https://github.com/icsharpcode/NRefactory">NRefactory</a> is the C# analysis library used in the SharpDevelop and MonoDevelop IDEs. We can write a command line client with our customized parameters and format options, which uses <code>NRefactory</code> internally to format code.</p>
+<p>TODO: Write a cli using <code>docopt</code></p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/c.html"><i class="fa fa-tag"></i>c#</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/cli.html"><i class="fa fa-tag"></i>cli</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -324,5 +542,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
