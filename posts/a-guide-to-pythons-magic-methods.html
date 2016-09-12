@@ -358,96 +358,90 @@
    </p>
    <ul>
     <li>
-     <p>
-      <code>
-       __new__(cls, [...)
-      </code>
-      -
-      <code>
-       __new__
-      </code>
-      is the first method to get called in an object's instantiation. It takes the class, then any other arguments that it will pass along to
-      <code>
-       __init__
-      </code>
-      .
-      <code>
-       __new__
-      </code>
-      is used fairly rarely, but it does have its purposes, particularly when subclassing an immutable type like a tuple or a string. I don't want to go in to too much detail on
-      <code>
-       __new__
-      </code>
-      because it's not too useful, but it is covered in great detail in the Python docs.
-     </p>
+     <code>
+      __new__(cls, [...)
+     </code>
+     -
+     <code>
+      __new__
+     </code>
+     is the first method to get called in an object's instantiation. It takes the class, then any other arguments that it will pass along to
+     <code>
+      __init__
+     </code>
+     .
+     <code>
+      __new__
+     </code>
+     is used fairly rarely, but it does have its purposes, particularly when subclassing an immutable type like a tuple or a string. I don't want to go in to too much detail on
+     <code>
+      __new__
+     </code>
+     because it's not too useful, but it is covered in great detail in the Python docs.
     </li>
     <li>
-     <p>
-      <code>
-       __init__(self, [...)
-      </code>
-      - The initializer for the class. It gets passed whatever the primary constructor was called with (so, for example, if we called
-      <code>
-       x = SomeClass(10, 'foo')
-      </code>
-      ,
-      <code>
-       __init__
-      </code>
-      would get passed
-      <code>
-       10
-      </code>
-      and
-      <code>
-       'foo'
-      </code>
-      as arguments.
-      <code>
-       __init__
-      </code>
-      is almost universally used in Python class definitions.
-     </p>
+     <code>
+      __init__(self, [...)
+     </code>
+     - The initializer for the class. It gets passed whatever the primary constructor was called with (so, for example, if we called
+     <code>
+      x = SomeClass(10, 'foo')
+     </code>
+     ,
+     <code>
+      __init__
+     </code>
+     would get passed
+     <code>
+      10
+     </code>
+     and
+     <code>
+      'foo'
+     </code>
+     as arguments.
+     <code>
+      __init__
+     </code>
+     is almost universally used in Python class definitions.
     </li>
     <li>
-     <p>
-      <code>
-       __del__(self)
-      </code>
-      - If
-      <code>
-       __new__
-      </code>
-      and
-      <code>
-       __init__
-      </code>
-      formed the constructor of the object,
-      <code>
-       __del__
-      </code>
-      is the destructor. It doesn't implement behavior for the statement
-      <code>
-       del x
-      </code>
-      (so that code would not translate to
-      <code>
-       x.__del__()
-      </code>
-      ). Rather, it defines behavior for when an object is garbage collected. It can be quite useful for objects that might require extra cleanup upon deletion, like sockets or file objects. Be careful, however, as there is no guarantee that
-      <code>
-       __del__
-      </code>
-      will be executed if the object is still alive when the interpreter exits, so
-      <code>
-       __del__
-      </code>
-      can't serve as a replacement for good coding practices (like always closing a connection when you're done with it. In fact,
-      <code>
-       __del__
-      </code>
-      should almost never be used because of the precarious circumstances under which it is called; use it with caution!
-     </p>
+     <code>
+      __del__(self)
+     </code>
+     - If
+     <code>
+      __new__
+     </code>
+     and
+     <code>
+      __init__
+     </code>
+     formed the constructor of the object,
+     <code>
+      __del__
+     </code>
+     is the destructor. It doesn't implement behavior for the statement
+     <code>
+      del x
+     </code>
+     (so that code would not translate to
+     <code>
+      x.__del__()
+     </code>
+     ). Rather, it defines behavior for when an object is garbage collected. It can be quite useful for objects that might require extra cleanup upon deletion, like sockets or file objects. Be careful, however, as there is no guarantee that
+     <code>
+      __del__
+     </code>
+     will be executed if the object is still alive when the interpreter exits, so
+     <code>
+      __del__
+     </code>
+     can't serve as a replacement for good coding practices (like always closing a connection when you're done with it. In fact,
+     <code>
+      __del__
+     </code>
+     should almost never be used because of the precarious circumstances under which it is called; use it with caution!
     </li>
    </ul>
    <p>
@@ -3138,19 +3132,19 @@
 
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/c.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>c#
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
     </a>
 </span>
 <span class="tag-4">
@@ -3169,8 +3163,53 @@
     </a>
 </span>
 <span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/memcache.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-4">
     <a href="http://minhhh.github.io/tag/osx.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
     </a>
 </span>
 <span class="tag-2">
@@ -3181,31 +3220,6 @@
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/decorator.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>decorator
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
     </a>
 </span>
 <span class="tag-4">
@@ -3219,28 +3233,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/memcache.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 </p>
