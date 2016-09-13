@@ -1250,90 +1250,96 @@ format:
    &lt;/p&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;code&gt;
-      __new__(cls, [...)
-     &lt;/code&gt;
-     -
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     is the first method to get called in an object's instantiation. It takes the class, then any other arguments that it will pass along to
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     .
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     is used fairly rarely, but it does have its purposes, particularly when subclassing an immutable type like a tuple or a string. I don't want to go in to too much detail on
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     because it's not too useful, but it is covered in great detail in the Python docs.
+     &lt;p&gt;
+      &lt;code&gt;
+       __new__(cls, [...)
+      &lt;/code&gt;
+      -
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      is the first method to get called in an object's instantiation. It takes the class, then any other arguments that it will pass along to
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      .
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      is used fairly rarely, but it does have its purposes, particularly when subclassing an immutable type like a tuple or a string. I don't want to go in to too much detail on
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      because it's not too useful, but it is covered in great detail in the Python docs.
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;code&gt;
-      __init__(self, [...)
-     &lt;/code&gt;
-     - The initializer for the class. It gets passed whatever the primary constructor was called with (so, for example, if we called
-     &lt;code&gt;
-      x = SomeClass(10, 'foo')
-     &lt;/code&gt;
-     ,
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     would get passed
-     &lt;code&gt;
-      10
-     &lt;/code&gt;
-     and
-     &lt;code&gt;
-      'foo'
-     &lt;/code&gt;
-     as arguments.
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     is almost universally used in Python class definitions.
+     &lt;p&gt;
+      &lt;code&gt;
+       __init__(self, [...)
+      &lt;/code&gt;
+      - The initializer for the class. It gets passed whatever the primary constructor was called with (so, for example, if we called
+      &lt;code&gt;
+       x = SomeClass(10, 'foo')
+      &lt;/code&gt;
+      ,
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      would get passed
+      &lt;code&gt;
+       10
+      &lt;/code&gt;
+      and
+      &lt;code&gt;
+       'foo'
+      &lt;/code&gt;
+      as arguments.
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      is almost universally used in Python class definitions.
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;code&gt;
-      __del__(self)
-     &lt;/code&gt;
-     - If
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     and
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     formed the constructor of the object,
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     is the destructor. It doesn't implement behavior for the statement
-     &lt;code&gt;
-      del x
-     &lt;/code&gt;
-     (so that code would not translate to
-     &lt;code&gt;
-      x.__del__()
-     &lt;/code&gt;
-     ). Rather, it defines behavior for when an object is garbage collected. It can be quite useful for objects that might require extra cleanup upon deletion, like sockets or file objects. Be careful, however, as there is no guarantee that
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     will be executed if the object is still alive when the interpreter exits, so
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     can't serve as a replacement for good coding practices (like always closing a connection when you're done with it. In fact,
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     should almost never be used because of the precarious circumstances under which it is called; use it with caution!
+     &lt;p&gt;
+      &lt;code&gt;
+       __del__(self)
+      &lt;/code&gt;
+      - If
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      and
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      formed the constructor of the object,
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      is the destructor. It doesn't implement behavior for the statement
+      &lt;code&gt;
+       del x
+      &lt;/code&gt;
+      (so that code would not translate to
+      &lt;code&gt;
+       x.__del__()
+      &lt;/code&gt;
+      ). Rather, it defines behavior for when an object is garbage collected. It can be quite useful for objects that might require extra cleanup upon deletion, like sockets or file objects. Be careful, however, as there is no guarantee that
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      will be executed if the object is still alive when the interpreter exits, so
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      can't serve as a replacement for good coding practices (like always closing a connection when you're done with it. In fact,
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      should almost never be used because of the precarious circumstances under which it is called; use it with caution!
+     &lt;/p&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;p&gt;
@@ -6742,19 +6748,23 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
-      What is origin in GIT
-     &lt;/a&gt;
-     - By saying
-     &lt;code&gt;
-      git push origin branchname
-     &lt;/code&gt;
-     you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+     &lt;p&gt;
+      &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
+       What is origin in GIT
+      &lt;/a&gt;
+      - By saying
+      &lt;code&gt;
+       git push origin branchname
+      &lt;/code&gt;
+      you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
-      Fetch and Merge
-     &lt;/a&gt;
+     &lt;p&gt;
+      &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
+       Fetch and Merge
+      &lt;/a&gt;
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
      &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757"&gt;
