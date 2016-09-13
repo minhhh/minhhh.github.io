@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-12T00:00:00-04:00</updated><entry><title>Clippings 2016-09-12</title><link href="http://minhhh.github.io/posts/clippings-2016-09-12" rel="alternate"></link><published>2016-09-12T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-12:posts/clippings-2016-09-12</id><summary type="html">&lt;p&gt;&lt;a href="https://www.reddit.com/r/androiddev/comments/3rrplu/flatbuffers_arent_fast_theyre_lazy_jesse_wilson/"&gt;FlatBuffers aren’t fast, they’re lazy&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-13T00:00:00-04:00</updated><entry><title>Clippings 2016-09-13</title><link href="http://minhhh.github.io/posts/clippings-2016-09-13" rel="alternate"></link><published>2016-09-13T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-13:posts/clippings-2016-09-13</id><summary type="html">&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/titanfall-frontline-collectible-card-game-announced-for-ios-android/644703"&gt;Titanfall: Frontline Collectible Card Game Announced for iOS, Android&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/square-enix-announces-guardian-codex-for-mobile/644673"&gt;Square Enix Announces Guardian Codex for Mobile&lt;/a&gt;&lt;/p&gt;</summary><category term="clippings"></category></entry><entry><title>Clippings 2016-09-12</title><link href="http://minhhh.github.io/posts/clippings-2016-09-12" rel="alternate"></link><published>2016-09-12T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-12:posts/clippings-2016-09-12</id><summary type="html">&lt;p&gt;&lt;a href="https://www.reddit.com/r/androiddev/comments/3rrplu/flatbuffers_arent_fast_theyre_lazy_jesse_wilson/"&gt;FlatBuffers aren’t fast, they’re lazy&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.reddit.com/r/gamedev/comments/3lsfcc/savingloading_with_flatbuffers_for_unity_sample/"&gt;Saving/Loading with Flatbuffers for Unity + Sample Code&lt;/a&gt;&lt;/p&gt;</summary><category term="clippings"></category></entry><entry><title>Autoformat C# code from command line</title><link href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><published>2016-09-11T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;
 &lt;em&gt; Customizable format options
@@ -1563,90 +1564,96 @@ http://www.theappguruz.com/blog/managers-using-singleton
    &lt;/p&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;code&gt;
-      __new__(cls, [...)
-     &lt;/code&gt;
-     -
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     is the first method to get called in an object's instantiation. It takes the class, then any other arguments that it will pass along to
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     .
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     is used fairly rarely, but it does have its purposes, particularly when subclassing an immutable type like a tuple or a string. I don't want to go in to too much detail on
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     because it's not too useful, but it is covered in great detail in the Python docs.
+     &lt;p&gt;
+      &lt;code&gt;
+       __new__(cls, [...)
+      &lt;/code&gt;
+      -
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      is the first method to get called in an object's instantiation. It takes the class, then any other arguments that it will pass along to
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      .
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      is used fairly rarely, but it does have its purposes, particularly when subclassing an immutable type like a tuple or a string. I don't want to go in to too much detail on
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      because it's not too useful, but it is covered in great detail in the Python docs.
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;code&gt;
-      __init__(self, [...)
-     &lt;/code&gt;
-     - The initializer for the class. It gets passed whatever the primary constructor was called with (so, for example, if we called
-     &lt;code&gt;
-      x = SomeClass(10, 'foo')
-     &lt;/code&gt;
-     ,
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     would get passed
-     &lt;code&gt;
-      10
-     &lt;/code&gt;
-     and
-     &lt;code&gt;
-      'foo'
-     &lt;/code&gt;
-     as arguments.
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     is almost universally used in Python class definitions.
+     &lt;p&gt;
+      &lt;code&gt;
+       __init__(self, [...)
+      &lt;/code&gt;
+      - The initializer for the class. It gets passed whatever the primary constructor was called with (so, for example, if we called
+      &lt;code&gt;
+       x = SomeClass(10, 'foo')
+      &lt;/code&gt;
+      ,
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      would get passed
+      &lt;code&gt;
+       10
+      &lt;/code&gt;
+      and
+      &lt;code&gt;
+       'foo'
+      &lt;/code&gt;
+      as arguments.
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      is almost universally used in Python class definitions.
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;code&gt;
-      __del__(self)
-     &lt;/code&gt;
-     - If
-     &lt;code&gt;
-      __new__
-     &lt;/code&gt;
-     and
-     &lt;code&gt;
-      __init__
-     &lt;/code&gt;
-     formed the constructor of the object,
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     is the destructor. It doesn't implement behavior for the statement
-     &lt;code&gt;
-      del x
-     &lt;/code&gt;
-     (so that code would not translate to
-     &lt;code&gt;
-      x.__del__()
-     &lt;/code&gt;
-     ). Rather, it defines behavior for when an object is garbage collected. It can be quite useful for objects that might require extra cleanup upon deletion, like sockets or file objects. Be careful, however, as there is no guarantee that
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     will be executed if the object is still alive when the interpreter exits, so
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     can't serve as a replacement for good coding practices (like always closing a connection when you're done with it. In fact,
-     &lt;code&gt;
-      __del__
-     &lt;/code&gt;
-     should almost never be used because of the precarious circumstances under which it is called; use it with caution!
+     &lt;p&gt;
+      &lt;code&gt;
+       __del__(self)
+      &lt;/code&gt;
+      - If
+      &lt;code&gt;
+       __new__
+      &lt;/code&gt;
+      and
+      &lt;code&gt;
+       __init__
+      &lt;/code&gt;
+      formed the constructor of the object,
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      is the destructor. It doesn't implement behavior for the statement
+      &lt;code&gt;
+       del x
+      &lt;/code&gt;
+      (so that code would not translate to
+      &lt;code&gt;
+       x.__del__()
+      &lt;/code&gt;
+      ). Rather, it defines behavior for when an object is garbage collected. It can be quite useful for objects that might require extra cleanup upon deletion, like sockets or file objects. Be careful, however, as there is no guarantee that
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      will be executed if the object is still alive when the interpreter exits, so
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      can't serve as a replacement for good coding practices (like always closing a connection when you're done with it. In fact,
+      &lt;code&gt;
+       __del__
+      &lt;/code&gt;
+      should almost never be used because of the precarious circumstances under which it is called; use it with caution!
+     &lt;/p&gt;
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;p&gt;
@@ -7201,19 +7208,23 @@ Third&lt;/code&gt;&lt;/pre&gt;
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
-      What is origin in GIT
-     &lt;/a&gt;
-     - By saying
-     &lt;code&gt;
-      git push origin branchname
-     &lt;/code&gt;
-     you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+     &lt;p&gt;
+      &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
+       What is origin in GIT
+      &lt;/a&gt;
+      - By saying
+      &lt;code&gt;
+       git push origin branchname
+      &lt;/code&gt;
+      you're saying to push to the origin repository. There's no requirement to name the remote repository origin, and there can be multiple remote repositories.
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
-      Fetch and Merge
-     &lt;/a&gt;
+     &lt;p&gt;
+      &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
+       Fetch and Merge
+      &lt;/a&gt;
+     &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
      &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757"&gt;
