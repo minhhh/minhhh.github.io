@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-25T00:00:00-04:00</updated><entry><title>Maple.js Deconstructued</title><link href="http://minhhh.github.io/posts/maplejs-deconstructued" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/maplejs-deconstructued</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;
-&lt;em&gt; Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.
-&lt;/em&gt; The supported functionality includes:
-    * Connect/Disconnect
-    * Ping server
-    * Handle arbitrary message
-    * Sync client server update tick on every frame
-* The problems with Maple are:
-    * Use Websocket, which is slow
-    * Require too much sync and only applicable for Round-based games.&lt;/p&gt;</summary><category term="deconstructed"></category><category term="network"></category></entry><entry><title>Osmus Deconstructued</title><link href="http://minhhh.github.io/posts/osmus-deconstructued" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/osmus-deconstructued</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/borismus/osmus"&gt;Osmus&lt;/a&gt; is a tech demo of a HTML5 multiplayer game inspired by &lt;a href="http://www.osmos-game.com/"&gt;Osmos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.&lt;/li&gt;
+&lt;li&gt;The supported functionality includes:&lt;ul&gt;
+&lt;li&gt;Connect/Disconnect&lt;/li&gt;
+&lt;li&gt;Ping server&lt;/li&gt;
+&lt;li&gt;Handle arbitrary message&lt;/li&gt;
+&lt;li&gt;Sync client server update tick on every frame&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The problems with Maple are:&lt;ul&gt;
+&lt;li&gt;Use Websocket, which is slow&lt;/li&gt;
+&lt;li&gt;Require too much sync and only applicable for Round-based games.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="deconstructed"></category><category term="network"></category></entry><entry><title>Osmus Deconstructued</title><link href="http://minhhh.github.io/posts/osmus-deconstructued" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/osmus-deconstructued</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/borismus/osmus"&gt;Osmus&lt;/a&gt; is a tech demo of a HTML5 multiplayer game inspired by &lt;a href="http://www.osmos-game.com/"&gt;Osmos&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Osmus uses node.js for the server and HTML5 Canvas with Javascript on the client side. The simulation code is shared between client and server.&lt;/li&gt;
