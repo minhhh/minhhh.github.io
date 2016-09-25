@@ -205,7 +205,7 @@ So what will happen if the `Instance` property is called before you initialize t
         }
 ```
 
-Note that `MyBaseBehaviour` class is a class derived from `MonoBehaviour` and is customized specifically for our game. For instance, it might have general code for handling `Update` or `OnjDestroy`.
+Note that `MyBaseBehaviour` class is a class derived from `MonoBehaviour` and is customized specifically for our game. For instance, it might have general code for handling `Update` or `OnDestroy`.
 
 All that is left now is writing a function `CreateInstance` for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling `CreateInstance` twice should throw an exception. This is better than mindlessly guard the function in the name of "defensive programming". It will look something like this:
 
