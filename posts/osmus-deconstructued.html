@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with clippings" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:clippings - Ha.Minh's Blog</title>
+    <title>Osmus Deconstructued - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,222 +87,73 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">clippings</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Wed 07 September 2016
+  Sun 25 September 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2016-09-07" rel="bookmark"
-     title="Permalink to Clippings 2016-09-07">
-    Clippings 2016-09-07
+  <a href="http://minhhh.github.io/posts/osmus-deconstructued" rel="bookmark"
+     title="Permalink to Osmus Deconstructued">
+    Osmus Deconstructued
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
+    <a href="http://minhhh.github.io/category/deconstructed.html">
+      Deconstructed</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Some references for object pooling in Unity</p>
-<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">Lean</span> <span class="n">pool</span><span class="p">](</span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.assetstore.unity3d.com/en/#!/content/35666)</span>
-<span class="p">[</span><span class="n">Object</span> <span class="n">Pools</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//catlikecoding.com/unity/tutorials/object-pools/)</span>
-<span class="nl">http</span><span class="p">:</span><span class="c1">//www.theappguruz.com/blog/object-pooling-in-unity-3d</span>
-<span class="nl">https</span><span class="p">:</span><span class="c1">//gist.github.com/quill18/5a7cfffae68892621267</span>
-<span class="nl">http</span><span class="p">:</span><span class="c1">//catlikecoding.com/unity/tutorials/object-pools/</span>
-</pre></div>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p><a href="https://github.com/borismus/osmus">Osmus</a> is a tech demo of a HTML5 multiplayer game inspired by <a href="http://www.osmos-game.com/">Osmos</a>.</p>
+<p><strong>Deconstruction</strong></p>
+<ul>
+<li>Osmus uses node.js for the server and HTML5 Canvas with Javascript on the client side. The simulation code is shared between client and server.</li>
+<li>Regarding network, Osmus uses <code>socket.io</code>. <code>Socket.io</code> is quite stable and performant so this is ok.</li>
+<li>The multiplayer architecture is Server/Client, with the server being the sole authority. All inputs from any client will be rebroadcast to all clients in the room. There are several problems with this approach<ul>
+<li>Not scalable: Simply rebroadcast all messages will increase the load on the server exponentially so this is totally not acceptable. Some sort of rate limit should be applied, such as only sending messages to viewable entities.</li>
+<li>Sudden positional jump on client: If the client entities can move around, then client simulation. client prediction and interpolation with server states should be applied to ensure smooth movement.</li>
+</ul>
+</li>
+</ul>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/deconstructed.html"><i class="fa fa-tag"></i>deconstructed</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/network.html"><i class="fa fa-tag"></i>network</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
 
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
 
-<p>Some references for post processing with unity ...</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2016-09-07">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Tue 06 September 2016
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2016-09-06" rel="bookmark"
-     title="Permalink to Clippings 2016-09-06">
-    Clippings 2016-09-06
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p><a href="http://www.gamasutra.com/blogs/SheldonLaframboise/20160222/266309/Breaking_Down_Supercells_Next_Hit_Clash_Royale.php">Breaking Down Supercell's Next Hit: Clash Royale</a></p>
-<p><a href="http://labertorium.de/unity/789/unity-realtime-mesh-deformation-package/">UNITY – REALTIME MESH DEFORMATION – PACKAGE</a></p>
-<p><a href="http://www.gamespot.com/articles/deus-ex-mankind-divided-everything-you-need-to-kno/1100-6442897/">Deus Ex: Mankind Divided: Everything You Need to Know</a></p>
-<p><a href="https://roguesharp.wordpress.com/">Creating a Roguelike Game in C#</a></p>
-<p>Some references for nested prefabs</p>
-<div class="codehilite"><pre><span></span>http://coffeepoweredmachine.com/prefab-inception/
-http://forum.unity3d.com/threads/prefab-evolution-plugin-nested-prefabs.236719/
-http://www.wesleytam.com/010101011/
-http ...</pre></div>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2016-09-06">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Mon 05 September 2016
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2016-09-05" rel="bookmark"
-     title="Permalink to Clippings 2016-09-05">
-    Clippings 2016-09-05
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p><a href="http://www.adweek.com/socialtimes/mobile-game-roundup-a-new-life-riff-racer-and-more/644386">Mobile Game Roundup: A New Life, Riff Racer and More</a></p>
-<p><a href="http://www.adweek.com/socialtimes/animoca-brands-launches-he-man-tappers-of-grayskull-on-mobile/644327">Animoca Brands Launches He-Man Tappers of Grayskull on Mobile</a></p>
-<p><a href="http://www.gamespot.com/articles/see-brand-new-final-fantasy-15-gameplay-and-more/1100-6443300/">See Brand New Final Fantasy 15 Gameplay and More</a></p>
-<p><a href="https://blogs.unity3d.com/2016/08/30/get-the-unity-5-5-beta-now/">GET THE UNITY 5.5 BETA NOW</a></p>
-<p><a href="http://www.gamespot.com/articles/new-halo-wars-2-gameplay-footage-arrives-as-dev-te/1100-6443305/">New Halo Wars 2 Gameplay Footage Arrives, As Dev Teases "Completely New" Mode</a></p>
-<p>Some stuff ...</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2016-09-05">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Wed 06 January 2016
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2016-01-06" rel="bookmark"
-     title="Permalink to Clippings 2016-01-06">
-    Clippings 2016-01-06
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Clippings of articles read 2016-01-06</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2016-01-06">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Fri 25 December 2015
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2015-12-25" rel="bookmark"
-     title="Permalink to Clippings 2015-12-25">
-    Clippings 2015-12-25
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Clippings of articles read 2015-12-25</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2015-12-25">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Wed 23 December 2015
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2015-12-23" rel="bookmark"
-     title="Permalink to Clippings 2015-12-23">
-    Clippings 2015-12-23
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Clippings of articles read 2015-12-23</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2015-12-23">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Fri 18 December 2015
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2015-12-18" rel="bookmark"
-     title="Permalink to Clippings 2015-12-18">
-    Clippings 2015-12-18
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Clippings of articles read 2015-12-18</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/clippings-2015-12-18">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-
-<nav class="index-pager">
-	<ul class="pagination">
-		<li class="prev">
-		  <a href="http://minhhh.github.io/tag/clippings.html">
-			<i class="fa fa-chevron-circle-left fa-fw fa-lg"></i> Previous
-		  </a>
-		</li>
-
-        <li>
-          <a href="http://minhhh.github.io/tag/clippings.html">1</a>
-        </li>
-        <li class="active"> <span>2</span> </li>
-
-        <li class="next disabled">
-          <span><i class="fa fa-chevron-circle-right fa-fw fa-lg"></i> Next</span>
-        </li>
-	</ul>
-
-</nav> <!-- /index-pager -->
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/osmus-deconstructued" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -524,5 +375,30 @@ http ...</pre></div>
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
