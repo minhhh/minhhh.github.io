@@ -1,4 +1,4 @@
-Title: Osmus Deconstructued
+Title: Osmus Deconstructed
 Date: 2016-09-25 00:00
 Author: Ha.Minh
 Category: Deconstructed

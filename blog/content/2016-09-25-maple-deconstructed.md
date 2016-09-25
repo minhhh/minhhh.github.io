@@ -1,4 +1,4 @@
-Title: Maple.js Deconstructued
+Title: Maple.js Deconstructed
 Date: 2016-09-25 00:00
 Author: Ha.Minh
 Category: Deconstructed
