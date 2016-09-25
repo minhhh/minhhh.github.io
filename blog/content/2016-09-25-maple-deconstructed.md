@@ -7,6 +7,7 @@ Tags: deconstructed, network
 [Maple.js](https://github.com/BonsaiDen/Maple.js) is a simple event-based multiplayer framework using Node.js
 
 **Deconstruction**
+
 * Maple provides a base class for `Client` and `Server`. Your specific game code should inherit these base classes.
 * The supported functionality includes:
     * Connect/Disconnect
