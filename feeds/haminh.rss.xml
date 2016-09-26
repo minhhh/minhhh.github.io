@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Sun, 25 Sep 2016 00:00:00 -0400</lastBuildDate><item><title>Maple.js Deconstructed</title><link>http://minhhh.github.io/posts/maplejs-deconstructed</link><description>&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
+<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Mon, 26 Sep 2016 00:00:00 -0400</lastBuildDate><item><title>Clippings 2016-09-26</title><link>http://minhhh.github.io/posts/clippings-2016-09-26</link><description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://strongloop.com/strongblog/node-js-deploy-production-best-practice/"&gt;Best Practices for Deploying Node.js in Production&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://github.com/mr-mig/going-to-production/blob/master/serverside-checklist.md"&gt;Serverside checklist&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://sematext.com/blog/2015/10/06/recipe-rsyslog-apache-kafka-logstash/"&gt;Recipe: rsyslog + Kafka + Logstash&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://sematext.com/blog/2016/09/13/logstash-alternatives/"&gt;5 Logstash Alternatives&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 26 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-26:posts/clippings-2016-09-26</guid><category>clippings</category></item><item><title>Maple.js Deconstructed</title><link>http://minhhh.github.io/posts/maplejs-deconstructed</link><description>&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.&lt;/li&gt;

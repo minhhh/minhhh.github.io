@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-25T00:00:00-04:00</updated><entry><title>Maple.js Deconstructed</title><link href="http://minhhh.github.io/posts/maplejs-deconstructed" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/maplejs-deconstructed</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-26T00:00:00-04:00</updated><entry><title>Clippings 2016-09-26</title><link href="http://minhhh.github.io/posts/clippings-2016-09-26" rel="alternate"></link><published>2016-09-26T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-26:posts/clippings-2016-09-26</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://strongloop.com/strongblog/node-js-deploy-production-best-practice/"&gt;Best Practices for Deploying Node.js in Production&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://github.com/mr-mig/going-to-production/blob/master/serverside-checklist.md"&gt;Serverside checklist&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://sematext.com/blog/2015/10/06/recipe-rsyslog-apache-kafka-logstash/"&gt;Recipe: rsyslog + Kafka + Logstash&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://sematext.com/blog/2016/09/13/logstash-alternatives/"&gt;5 Logstash Alternatives&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="clippings"></category></entry><entry><title>Maple.js Deconstructed</title><link href="http://minhhh.github.io/posts/maplejs-deconstructed" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/maplejs-deconstructed</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.&lt;/li&gt;
