@@ -1,10 +1,8 @@
 Title: Unity singleton
-Date: 2016-09-22 00:00
+Date: 2016-09-29 00:00
 Author: Ha.Minh
 Category: Unity
 Tags: unity, singleton
-Status: draft
-
 
 First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:
 * Hard to reason about code
@@ -199,8 +197,8 @@ So what will happen if the `Instance` property is called before you initialize t
         public static T Instance
         {
             get {
-                Assert.IsNotNull (_instance);
-                return _instance;
+                Assert.IsNotNull (instance);
+                return instance;
             }
         }
 ```
@@ -212,14 +210,14 @@ All that is left now is writing a function `CreateInstance` for creating the sin
 ```
 		public static T CreateInstance()
 		{
-            Assert.IsNull (_instance);
+            Assert.IsNull (instance);
 
 			GameObject go = new GameObject(typeof(T).Name);
-			_instance = go.AddComponent<T>();
-			_instance.OnCreated();
+			instance = go.AddComponent<T>();
+			instance.OnCreated();
 			DontDestroyOnLoad(go);
 
-			return _instance;
+			return instance;
 		}
 
 
@@ -234,5 +232,67 @@ Here we have a virtual function `OnCreated` waiting to be overriden in subclass.
     GameObject.Destroy (MySingleton.Instance.gameObject);
 ```
 
-When the `OnDestroy` function is called, we will do some clean up then call a special function `OnDisposed` to allow subclass do their specific cleanup activities.
+When the `OnDestroy` function is called, we will set `instance` variable to null then allow subclass to do cleanup themselves. The reason why we don't use `DeleteInstance` is because we don't want developers who use the API to think there's anything special about destroying the singleton than just destroying the container object.
 
+Finally, we discuss feature `destroy if exists in scene`. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that's should not be the main way to deal with game data. We'd better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.
+
+If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from `SecureUnitySingleton`:
+
+```
+	protected virtual void Awake()
+	{
+		if (InstanceExists && instance != this)
+			Destroy(gameObject);
+	}
+```
+
+## Implementation
+
+After we've considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows
+
+
+```
+using UnityEngine;
+using System;
+using UnityEngine.Assertions;
+
+public class SimpleSingleton<T> : BaseMonoBehaviour where T : SimpleSingleton<T>
+{
+    private static T instance;
+
+    public static T Instance {
+        get {
+            Assert.IsNotNull (instance, "Instance is null. Please call CreateInstance first!");
+            return instance;
+        }
+    }
+
+    public static T CreateInstance ()
+    {
+        if (instance != null) {
+            Assert.IsNull (instance, "Instance is not null. Please call CreateInstance once only");
+        }
+
+        GameObject go = new GameObject (typeof(T).Name);
+        instance = go.AddComponent<T> ();
+
+        instance.OnCreated ();
+
+        return instance;
+    }
+
+    protected virtual void OnDestroy ()
+    {
+        instance = null;
+    }
+
+    protected virtual void OnCreated ()
+    {
+    }
+
+}
+```
+
+Then remember to call `CreateInstance` when necessary and in appropriate order.
+
+The code with a sample scene is available on github at [https://github.com/minhhh/unity-singleton](https://github.com/minhhh/unity-singleton)
