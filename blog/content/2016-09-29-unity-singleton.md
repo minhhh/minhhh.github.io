@@ -25,7 +25,7 @@ Let's first review some requirements for a useful singleton system in Unity.
 **Singleton class types**
 
 * MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an `Update` function to do something useful in it.
-* Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need `Update`.
+* Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need `Update`. We will not focus on these types of singletons.
 
 **Singleton lifecycle types**
 
@@ -34,7 +34,7 @@ Let's first review some requirements for a useful singleton system in Unity.
 
 **Singleton configurability types**
 
-* Has customized parameters: This is a bit overlap with `Has dependencies` singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.
+* Has customized parameters: This is a bit overlap with `Has dependencies` singletons. These singletons might: 1. Depend on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.
 * No customized parameters: These singletons behave the same all the time.
 
 
@@ -70,6 +70,7 @@ The `instance` function implementation is as below:
 ```
 
 There are several problems with `AManager`:
+
 * We have to duplicate it for all singleton class
 * It's slow due to the 2 checks
 
@@ -144,11 +145,13 @@ Surely we can do better than this.
 
 ### Secure UnitySingleton
 [SecureUnitySingleton](http://wiki.unity3d.com/index.php/Secure_UnitySingleton) is the last one of the three singleton implementation in [unity3d](http://wiki.unity3d.com). It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:
+
 * Exists In Scene: Searches the current scene for an object with the singleton component attached to it.
 * Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.
 * Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.
 
-There are several issues with approach
+There are several issues with approach:
+
 * Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the `Instance` property.
 * Lack of lifecyle methods. Even though it provides a static `DeleteInstance` method, there's no other methods to execute when the instance is created. You might think that `Awake` can be used for that purpose, but it not explicit enough that `Awake` is called immediately after `Instance` is called. Another possible issue is `Awake` will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.
 
