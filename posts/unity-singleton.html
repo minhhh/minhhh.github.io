@@ -90,9 +90,9 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Thu 22 September 2016
+  Thu 29 September 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/drafts/unity-singleton.html" rel="bookmark"
+  <a href="http://minhhh.github.io/posts/unity-singleton" rel="bookmark"
      title="Permalink to Unity singleton">
     Unity singleton
   </a>
@@ -276,8 +276,8 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
         public static T Instance
         {
             get {
-                Assert.IsNotNull (_instance);
-                return _instance;
+                Assert.IsNotNull (instance);
+                return instance;
             }
         }
 </pre></div>
@@ -287,14 +287,14 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 <p>All that is left now is writing a function <code>CreateInstance</code> for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling <code>CreateInstance</code> twice should throw an exception. This is better than mindlessly guard the function in the name of "defensive programming". It will look something like this:</p>
 <div class="codehilite"><pre><span></span>        public static T CreateInstance()
         {
-            Assert.IsNull (_instance);
+            Assert.IsNull (instance);
 
             GameObject go = new GameObject(typeof(T).Name);
-            _instance = go.AddComponent&lt;T&gt;();
-            _instance.OnCreated();
+            instance = go.AddComponent&lt;T&gt;();
+            instance.OnCreated();
             DontDestroyOnLoad(go);
 
-            return _instance;
+            return instance;
         }
 
 
@@ -309,7 +309,63 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 </pre></div>
 
 
-<p>When the <code>OnDestroy</code> function is called, we will do some clean up then call a special function <code>OnDisposed</code> to allow subclass do their specific cleanup activities.</p>
+<p>When the <code>OnDestroy</code> function is called, we will set <code>instance</code> variable to null then allow subclass to do cleanup themselves. The reason why we don't use <code>DeleteInstance</code> is because we don't want developers who use the API to think there's anything special about destroying the singleton than just destroying the container object.</p>
+<p>Finally, we discuss feature <code>destroy if exists in scene</code>. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that's should not be the main way to deal with game data. We'd better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.</p>
+<p>If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from <code>SecureUnitySingleton</code>:</p>
+<div class="codehilite"><pre><span></span>    protected virtual void Awake()
+    {
+        if (InstanceExists &amp;&amp; instance != this)
+            Destroy(gameObject);
+    }
+</pre></div>
+
+
+<h2>Implementation</h2>
+<p>After we've considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows</p>
+<div class="codehilite"><pre><span></span>using UnityEngine;
+using System;
+using UnityEngine.Assertions;
+
+public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingleton&lt;T&gt;
+{
+    private static T instance;
+
+    public static T Instance {
+        get {
+            Assert.IsNotNull (instance, &quot;Instance is null. Please call CreateInstance first!&quot;);
+            return instance;
+        }
+    }
+
+    public static T CreateInstance ()
+    {
+        if (instance != null) {
+            Assert.IsNull (instance, &quot;Instance is not null. Please call CreateInstance once only&quot;);
+        }
+
+        GameObject go = new GameObject (typeof(T).Name);
+        instance = go.AddComponent&lt;T&gt; ();
+
+        instance.OnCreated ();
+
+        return instance;
+    }
+
+    protected virtual void OnDestroy ()
+    {
+        instance = null;
+    }
+
+    protected virtual void OnCreated ()
+    {
+    }
+
+}
+</pre></div>
+
+
+<p>Then remember to call <code>CreateInstance</code> when necessary and in appropriate order.</p>
+<p>The code with a sample scene is available on github at <a href="https://github.com/minhhh/unity-singleton">https://github.com/minhhh/unity-singleton</a></p>
   </div>
   
 <div class="article-tag-list">
@@ -326,13 +382,26 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/drafts/unity-singleton.html" 
+        data-href="http://minhhh.github.io/posts/unity-singleton" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
     </div>
     &nbsp;
   </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
 </article>
         </div><!-- /content -->
 
@@ -375,6 +444,8 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
     <i class="fa fa-folder-open fa-fw fa-lg"></i> Programming</a></li>
   <li><a href="http://minhhh.github.io/category/technology.html" >
     <i class="fa fa-folder-open fa-fw fa-lg"></i> Technology</a></li>
+  <li><a href="http://minhhh.github.io/category/unity.html" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Unity</a></li>
   <li><a href="http://minhhh.github.io/category/web-development.html" >
     <i class="fa fa-folder-open fa-fw fa-lg"></i> Web Development</a></li>
 </ul>
@@ -392,29 +463,19 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
     </a>
 </span>
 <span class="tag-4">
@@ -423,48 +484,8 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-3">
     <a href="http://minhhh.github.io/tag/bash.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
     </a>
 </span>
 <span class="tag-4">
@@ -473,13 +494,83 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
     </a>
 </span>
 <span class="tag-3">
     <a href="http://minhhh.github.io/tag/pelican.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/memcache.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-4">
@@ -495,16 +586,6 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/android.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/memcache.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
     </a>
 </span>
 </p>

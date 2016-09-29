@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/unity.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-29T00:00:00-04:00</updated><entry><title>Unity singleton</title><link href="http://minhhh.github.io/posts/unity-singleton" rel="alternate"></link><published>2016-09-29T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-29:posts/unity-singleton</id><summary type="html">&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:
+&lt;em&gt; Hard to reason about code
+&lt;/em&gt; Encourage coupling
+* Potential concurrency issue&lt;/p&gt;
+&lt;p&gt;However, in game development it's super useful to have singleton for many types of global system, including but not limited to:
+&lt;em&gt; Sound system
+&lt;/em&gt; Time manager
+&lt;em&gt; Localization
+&lt;/em&gt; Tutorial
+&lt;em&gt; Login
+&lt;/em&gt; Global Notifier&lt;/p&gt;
+&lt;p&gt;In this article we will look at some options of Singleton implementation we have in Unity to see what problems they're trying to solve and what assumptions they made.&lt;/p&gt;
+&lt;h2&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;Let's first review some requirements for a useful singleton system in Unity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Singleton class types&lt;/strong&gt;
+&lt;em&gt; MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an &lt;code&gt;Update&lt;/code&gt; function to do something useful in it.
+&lt;/em&gt; Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need &lt;code&gt;Update&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Singleton lifecycle types&lt;/strong&gt;
+&lt;em&gt; Has dependencies: These singletons depend on other system or singletons to exist before they can start
+&lt;/em&gt; No dependencies: These singletons can be created anytime without waiting for any other entities.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Singleton configurability types&lt;/strong&gt;
+&lt;em&gt; Has customized parameters: This is a bit overlap with &lt;code&gt;Has dependencies&lt;/code&gt; singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.
+&lt;/em&gt; No customized parameters: These singletons behave the same all the time.&lt;/p&gt;
+&lt;h2&gt;Solutions&lt;/h2&gt;
+&lt;p&gt;Fortunately there're already some solutions written in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt; so we can review and improve them as we wish.&lt;/p&gt;
+&lt;h3&gt;AManagerClass&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://wiki.unity3d.com/index.php/AManagerClass"&gt;AManagerClass&lt;/a&gt; is a standard implementation which supports MonoBehavior-based singletons. In the code, we refer to the singleton like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    AManager.instance.Foo ();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;instance&lt;/code&gt; function implementation is as below:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public static AManager instance {
+        get {
+            if (s_Instance == null) {
+                // This is where the magic happens.
+                //  FindObjectOfType(...) returns the first AManager object in the scene.
+                s_Instance =  FindObjectOfType(typeof (AManager)) as AManager;
+            }
+
+            // If it is still null, create a new instance
+            if (s_Instance == null) {
+                GameObject obj = new GameObject(&amp;quot;AManager&amp;quot;);
+                s_Instance = obj.AddComponent(typeof (AManager)) as AManager;
+                Debug.Log (&amp;quot;Could not locate an AManager object. \ AManager was Generated Automaticly.&amp;quot;);
+            }
+
+            return s_Instance;
+        }
+    }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are several problems with &lt;code&gt;AManager&lt;/code&gt;:
+&lt;em&gt; We have to duplicate it for all singleton class
+&lt;/em&gt; It's slow due to the 2 checks&lt;/p&gt;
+&lt;p&gt;Surely we can do better!&lt;/p&gt;
+&lt;h3&gt;AutoSingletonManager&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://wiki.unity3d.com/index.php/AutoSingletonManager"&gt;AutoSingletonManager&lt;/a&gt; solves the code duplication problem of &lt;code&gt;AManager&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here's the main code&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public abstract class AutoSingletonManager : MonoBehaviour { }
+
+public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManager where T : AutoSingletonManager
+{
+    private static bool Compare&amp;lt;T&amp;gt;(T x, T y) where T : class
+    {
+        return x == y;
+    }
+
+    #region Singleton
+
+    private static T _instance = default(T);
+
+    public static T Instance
+    {
+        get
+        {
+            if (!Compare&amp;lt;T&amp;gt;(default(T), _instance)) return _instance;
+
+            InitInstance(true);
+            return _instance;
+        }
+    }
+
+    #endregion
+
+    public void Awake()
+    {
+        InitInstance(false);
+    }
+
+    public static void InitInstance(bool shouldInitManager)
+    {
+        Type thisType = typeof (T);
+
+        _instance = FindObjectOfType&amp;lt;T&amp;gt;();
+
+        if (Compare&amp;lt;T&amp;gt;(default(T), _instance))
+        {
+            _instance = new GameObject(thisType.Name).AddComponent&amp;lt;T&amp;gt;();
+        }
+
+        //Won&amp;#39;t call InitManager from Awake
+        if (shouldInitManager)
+        {
+            (_instance as AutoSingletonManager&amp;lt;T&amp;gt;).InitManager();
+        }
+    }
+
+    public virtual void InitManager() { }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The code uses recursive generic definition. This allow us to reuse code by inheriting from the singleton class as well as from &lt;code&gt;MonoBehaviour&lt;/code&gt;. Note that we don't have to make &lt;code&gt;AutoSingletonManager&amp;lt;T&amp;gt;&lt;/code&gt; inherits from &lt;code&gt;AutoSingletonManager&lt;/code&gt;, instead we can make it inherit from our own class which in turn inherits from MonoBehavior.&lt;/p&gt;
+&lt;p&gt;It supports initializing the instance from &lt;code&gt;Awake&lt;/code&gt; so maybe it can be used by adding directly it to an object in the scene. However, &lt;code&gt;InitManager&lt;/code&gt; is not called in &lt;code&gt;Awake&lt;/code&gt; so if you call &lt;code&gt;AutoSingletonManager.Instance&lt;/code&gt; after it already awakes then InitManager will never be called.&lt;/p&gt;
+&lt;p&gt;Another more subtle draw back is it uses an unnecessary comparison &lt;code&gt;if (!Compare&amp;lt;T&amp;gt;(default(T), _instance)) return _instance;&lt;/code&gt; in the &lt;code&gt;Instance&lt;/code&gt; property, so it's not optimal if you call &lt;code&gt;Instance&lt;/code&gt; in a &lt;code&gt;Update&lt;/code&gt; loop or something similar.&lt;/p&gt;
+&lt;p&gt;Surely we can do better than this.&lt;/p&gt;
+&lt;h3&gt;Secure UnitySingleton&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://wiki.unity3d.com/index.php/Secure_UnitySingleton"&gt;SecureUnitySingleton&lt;/a&gt; is the last one of the three singleton implementation in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt;. It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:
+&lt;em&gt; Exists In Scene: Searches the current scene for an object with the singleton component attached to it.
+&lt;/em&gt; Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.
+* Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.&lt;/p&gt;
+&lt;p&gt;There are several issues with approach
+&lt;em&gt; Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the &lt;code&gt;Instance&lt;/code&gt; property.
+&lt;/em&gt; Lack of lifecyle methods. Even though it provides a static &lt;code&gt;DeleteInstance&lt;/code&gt; method, there's no other methods to execute when the instance is created. You might think that &lt;code&gt;Awake&lt;/code&gt; can be used for that purpose, but it not explicit enough that &lt;code&gt;Awake&lt;/code&gt; is called immediately after &lt;code&gt;Instance&lt;/code&gt; is called. Another possible issue is &lt;code&gt;Awake&lt;/code&gt; will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.&lt;/p&gt;
+&lt;p&gt;This is quite good but surely we can do better.&lt;/p&gt;
+&lt;h2&gt;Discussions&lt;/h2&gt;
+&lt;p&gt;First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public class MySingleton ...
+    {
+        static MySingleton _instance = null;
+        static object singletonLock = new object ();
+
+        public static MySingleton Instance
+        {
+            get {
+                if (_instance != null) {
+                    return;
+                }
+
+                lock (singletonLock) {
+                    if (_instance != null) {
+                        return _instance;
+                    }
+
+                    var singletonGameObject = new GameObject (&amp;quot;MySingleton&amp;quot;);
+                    GameObject.DontDestroyOnLoad (singletonGameObject);
+                    _instance = singletonGameObject.AddComponent&amp;lt; MySingleton &amp;gt; ();
+
+                    ... other initialization code
+                }
+
+                return _instance;
+            }
+        }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;By using a simple double lock pattern, we seemingly solve the "concurrency problem". The question is: Do we need to?. Why you have the concurrency problem with singleton? It's because you want to &lt;code&gt;lazy load&lt;/code&gt; the singleton, i.e. only create it when it is used for the first time. But that's exactly what we want to avoid if we want to achieve smooth gameplay. So what you should do instead is just create the bloody singleton at the beginning and forget about it. Remember, &lt;code&gt;preload&lt;/code&gt; is better than &lt;code&gt;lazy load&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Secondly, I've already mentioned the check for null is redundant if we know we only call the singleton after it's been initialized. In the usecases listed by &lt;code&gt;SecureSingleton&lt;/code&gt;, we see that the singleton is either created by code or already exists in the scene as a &lt;code&gt;GameObject&lt;/code&gt; which is supposed to be configured by designers. In either case, the code to initialize the scene should be a good place for calling the initialization code of the singleton and there's no need for making it sooner.&lt;/p&gt;
+&lt;p&gt;So what will happen if the &lt;code&gt;Instance&lt;/code&gt; property is called before you initialize the singleton? Obviously an exception will be thrown and this is an ideal case for using Unity Assert because you will have a nice message in development mode but you can also turn it off in production build.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public class GameSingleton&amp;lt;T&amp;gt; : MyBaseBehaviour where T : GameSingleton&amp;lt;T&amp;gt;
+    {
+        ...
+        public static T Instance
+        {
+            get {
+                Assert.IsNotNull (instance);
+                return instance;
+            }
+        }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note that &lt;code&gt;MyBaseBehaviour&lt;/code&gt; class is a class derived from &lt;code&gt;MonoBehaviour&lt;/code&gt; and is customized specifically for our game. For instance, it might have general code for handling &lt;code&gt;Update&lt;/code&gt; or &lt;code&gt;OnDestroy&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All that is left now is writing a function &lt;code&gt;CreateInstance&lt;/code&gt; for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling &lt;code&gt;CreateInstance&lt;/code&gt; twice should throw an exception. This is better than mindlessly guard the function in the name of "defensive programming". It will look something like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        public static T CreateInstance()
+        {
+            Assert.IsNull (instance);
+
+            GameObject go = new GameObject(typeof(T).Name);
+            instance = go.AddComponent&amp;lt;T&amp;gt;();
+            instance.OnCreated();
+            DontDestroyOnLoad(go);
+
+            return instance;
+        }
+
+
+        protected virtual void OnCreated()
+        {
+        }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here we have a virtual function &lt;code&gt;OnCreated&lt;/code&gt; waiting to be overriden in subclass. To destroy the singleton, we don't have to use fancy static function &lt;code&gt;DeleteInstance&lt;/code&gt;, instead we can just get the singleton gameobject and destroy it like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    GameObject.Destroy (MySingleton.Instance.gameObject);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When the &lt;code&gt;OnDestroy&lt;/code&gt; function is called, we will set &lt;code&gt;instance&lt;/code&gt; variable to null then allow subclass to do cleanup themselves. The reason why we don't use &lt;code&gt;DeleteInstance&lt;/code&gt; is because we don't want developers who use the API to think there's anything special about destroying the singleton than just destroying the container object.&lt;/p&gt;
+&lt;p&gt;Finally, we discuss feature &lt;code&gt;destroy if exists in scene&lt;/code&gt;. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that's should not be the main way to deal with game data. We'd better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.&lt;/p&gt;
+&lt;p&gt;If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from &lt;code&gt;SecureUnitySingleton&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    protected virtual void Awake()
+    {
+        if (InstanceExists &amp;amp;&amp;amp; instance != this)
+            Destroy(gameObject);
+    }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;After we've considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UnityEngine;
+using System;
+using UnityEngine.Assertions;
+
+public class SimpleSingleton&amp;lt;T&amp;gt; : BaseMonoBehaviour where T : SimpleSingleton&amp;lt;T&amp;gt;
+{
+    private static T instance;
+
+    public static T Instance {
+        get {
+            Assert.IsNotNull (instance, &amp;quot;Instance is null. Please call CreateInstance first!&amp;quot;);
+            return instance;
+        }
+    }
+
+    public static T CreateInstance ()
+    {
+        if (instance != null) {
+            Assert.IsNull (instance, &amp;quot;Instance is not null. Please call CreateInstance once only&amp;quot;);
+        }
+
+        GameObject go = new GameObject (typeof(T).Name);
+        instance = go.AddComponent&amp;lt;T&amp;gt; ();
+
+        instance.OnCreated ();
+
+        return instance;
+    }
+
+    protected virtual void OnDestroy ()
+    {
+        instance = null;
+    }
+
+    protected virtual void OnCreated ()
+    {
+    }
+
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then remember to call &lt;code&gt;CreateInstance&lt;/code&gt; when necessary and in appropriate order.&lt;/p&gt;
+&lt;p&gt;The code with a sample scene is available on github at &lt;a href="https://github.com/minhhh/unity-singleton"&gt;https://github.com/minhhh/unity-singleton&lt;/a&gt;&lt;/p&gt;</summary><category term="unity"></category><category term="singleton"></category></entry></feed>
