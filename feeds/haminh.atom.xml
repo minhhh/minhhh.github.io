@@ -13,15 +13,21 @@
 &lt;p&gt;In this article we will look at some options of Singleton implementation we have in Unity to see what problems they're trying to solve and what assumptions they made.&lt;/p&gt;
 &lt;h2&gt;Requirements&lt;/h2&gt;
 &lt;p&gt;Let's first review some requirements for a useful singleton system in Unity.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Singleton class types&lt;/strong&gt;
-&lt;em&gt; MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an &lt;code&gt;Update&lt;/code&gt; function to do something useful in it.
-&lt;/em&gt; Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need &lt;code&gt;Update&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Singleton lifecycle types&lt;/strong&gt;
-&lt;em&gt; Has dependencies: These singletons depend on other system or singletons to exist before they can start
-&lt;/em&gt; No dependencies: These singletons can be created anytime without waiting for any other entities.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Singleton configurability types&lt;/strong&gt;
-&lt;em&gt; Has customized parameters: This is a bit overlap with &lt;code&gt;Has dependencies&lt;/code&gt; singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.
-&lt;/em&gt; No customized parameters: These singletons behave the same all the time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Singleton class types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an &lt;code&gt;Update&lt;/code&gt; function to do something useful in it.&lt;/li&gt;
+&lt;li&gt;Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need &lt;code&gt;Update&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Singleton lifecycle types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Has dependencies: These singletons depend on other system or singletons to exist before they can start&lt;/li&gt;
+&lt;li&gt;No dependencies: These singletons can be created anytime without waiting for any other entities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Singleton configurability types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Has customized parameters: This is a bit overlap with &lt;code&gt;Has dependencies&lt;/code&gt; singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.&lt;/li&gt;
+&lt;li&gt;No customized parameters: These singletons behave the same all the time.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Solutions&lt;/h2&gt;
 &lt;p&gt;Fortunately there're already some solutions written in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt; so we can review and improve them as we wish.&lt;/p&gt;
 &lt;h3&gt;AManagerClass&lt;/h3&gt;
