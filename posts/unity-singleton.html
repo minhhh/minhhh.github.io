@@ -123,7 +123,7 @@
 <p><strong>Singleton class types</strong></p>
 <ul>
 <li>MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an <code>Update</code> function to do something useful in it.</li>
-<li>Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need <code>Update</code>.</li>
+<li>Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need <code>Update</code>. We will not focus on these types of singletons.</li>
 </ul>
 <p><strong>Singleton lifecycle types</strong></p>
 <ul>
@@ -132,7 +132,7 @@
 </ul>
 <p><strong>Singleton configurability types</strong></p>
 <ul>
-<li>Has customized parameters: This is a bit overlap with <code>Has dependencies</code> singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.</li>
+<li>Has customized parameters: This is a bit overlap with <code>Has dependencies</code> singletons. These singletons might: 1. Depend on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.</li>
 <li>No customized parameters: These singletons behave the same all the time.</li>
 </ul>
 <h2>Solutions</h2>
@@ -165,9 +165,11 @@
 </pre></div>
 
 
-<p>There are several problems with <code>AManager</code>:
-<em> We have to duplicate it for all singleton class
-</em> It's slow due to the 2 checks</p>
+<p>There are several problems with <code>AManager</code>:</p>
+<ul>
+<li>We have to duplicate it for all singleton class</li>
+<li>It's slow due to the 2 checks</li>
+</ul>
 <p>Surely we can do better!</p>
 <h3>AutoSingletonManager</h3>
 <ul>
@@ -233,13 +235,17 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 <p>Another more subtle draw back is it uses an unnecessary comparison <code>if (!Compare&lt;T&gt;(default(T), _instance)) return _instance;</code> in the <code>Instance</code> property, so it's not optimal if you call <code>Instance</code> in a <code>Update</code> loop or something similar.</p>
 <p>Surely we can do better than this.</p>
 <h3>Secure UnitySingleton</h3>
-<p><a href="http://wiki.unity3d.com/index.php/Secure_UnitySingleton">SecureUnitySingleton</a> is the last one of the three singleton implementation in <a href="http://wiki.unity3d.com">unity3d</a>. It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:
-<em> Exists In Scene: Searches the current scene for an object with the singleton component attached to it.
-</em> Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.
-* Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.</p>
-<p>There are several issues with approach
-<em> Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the <code>Instance</code> property.
-</em> Lack of lifecyle methods. Even though it provides a static <code>DeleteInstance</code> method, there's no other methods to execute when the instance is created. You might think that <code>Awake</code> can be used for that purpose, but it not explicit enough that <code>Awake</code> is called immediately after <code>Instance</code> is called. Another possible issue is <code>Awake</code> will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.</p>
+<p><a href="http://wiki.unity3d.com/index.php/Secure_UnitySingleton">SecureUnitySingleton</a> is the last one of the three singleton implementation in <a href="http://wiki.unity3d.com">unity3d</a>. It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:</p>
+<ul>
+<li>Exists In Scene: Searches the current scene for an object with the singleton component attached to it.</li>
+<li>Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.</li>
+<li>Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.</li>
+</ul>
+<p>There are several issues with approach:</p>
+<ul>
+<li>Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the <code>Instance</code> property.</li>
+<li>Lack of lifecyle methods. Even though it provides a static <code>DeleteInstance</code> method, there's no other methods to execute when the instance is created. You might think that <code>Awake</code> can be used for that purpose, but it not explicit enough that <code>Awake</code> is called immediately after <code>Instance</code> is called. Another possible issue is <code>Awake</code> will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.</li>
+</ul>
 <p>This is quite good but surely we can do better.</p>
 <h2>Discussions</h2>
 <p>First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:</p>
@@ -470,73 +476,8 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/decorator.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>decorator
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
     </a>
 </span>
 <span class="tag-4">
@@ -545,38 +486,13 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
     </a>
 </span>
 <span class="tag-3">
@@ -587,6 +503,96 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/adb.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
     </a>
 </span>
 <span class="tag-4">
