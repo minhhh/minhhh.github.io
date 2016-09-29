@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-29T00:00:00-04:00</updated><entry><title>Unity singleton</title><link href="http://minhhh.github.io/posts/unity-singleton" rel="alternate"></link><published>2016-09-29T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-29:posts/unity-singleton</id><summary type="html">&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:
-&lt;em&gt; Hard to reason about code
-&lt;/em&gt; Encourage coupling
-* Potential concurrency issue&lt;/p&gt;
-&lt;p&gt;However, in game development it's super useful to have singleton for many types of global system, including but not limited to:
-&lt;em&gt; Sound system
-&lt;/em&gt; Time manager
-&lt;em&gt; Localization
-&lt;/em&gt; Tutorial
-&lt;em&gt; Login
-&lt;/em&gt; Global Notifier&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-29T00:00:00-04:00</updated><entry><title>Unity singleton</title><link href="http://minhhh.github.io/posts/unity-singleton" rel="alternate"></link><published>2016-09-29T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-29:posts/unity-singleton</id><summary type="html">&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hard to reason about code&lt;/li&gt;
+&lt;li&gt;Encourage coupling&lt;/li&gt;
+&lt;li&gt;Potential concurrency issue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, in game development it's super useful to have singleton for many types of global system, including but not limited to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sound system&lt;/li&gt;
+&lt;li&gt;Time manager&lt;/li&gt;
+&lt;li&gt;Localization&lt;/li&gt;
+&lt;li&gt;Tutorial&lt;/li&gt;
+&lt;li&gt;Login&lt;/li&gt;
+&lt;li&gt;Global Notifier&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;In this article we will look at some options of Singleton implementation we have in Unity to see what problems they're trying to solve and what assumptions they made.&lt;/p&gt;
 &lt;h2&gt;Requirements&lt;/h2&gt;
 &lt;p&gt;Let's first review some requirements for a useful singleton system in Unity.&lt;/p&gt;
