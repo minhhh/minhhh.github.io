@@ -23,14 +23,17 @@ In this article we will look at some options of Singleton implementation we have
 Let's first review some requirements for a useful singleton system in Unity.
 
 **Singleton class types**
+
 * MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an `Update` function to do something useful in it.
 * Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need `Update`.
 
 **Singleton lifecycle types**
+
 * Has dependencies: These singletons depend on other system or singletons to exist before they can start
 * No dependencies: These singletons can be created anytime without waiting for any other entities.
 
 **Singleton configurability types**
+
 * Has customized parameters: This is a bit overlap with `Has dependencies` singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.
 * No customized parameters: These singletons behave the same all the time.
 
