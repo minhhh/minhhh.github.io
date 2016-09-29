@@ -5,11 +5,13 @@ Category: Unity
 Tags: unity, singleton
 
 First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:
+
 * Hard to reason about code
 * Encourage coupling
 * Potential concurrency issue
 
 However, in game development it's super useful to have singleton for many types of global system, including but not limited to:
+
 * Sound system
 * Time manager
 * Localization
