@@ -16,7 +16,7 @@
 &lt;p&gt;&lt;strong&gt;Singleton class types&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an &lt;code&gt;Update&lt;/code&gt; function to do something useful in it.&lt;/li&gt;
-&lt;li&gt;Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need &lt;code&gt;Update&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don't need to be inspected in the scene nor do they need &lt;code&gt;Update&lt;/code&gt;. We will not focus on these types of singletons.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Singleton lifecycle types&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -25,7 +25,7 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Singleton configurability types&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Has customized parameters: This is a bit overlap with &lt;code&gt;Has dependencies&lt;/code&gt; singletons. These singletons might: 1. Depends on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.&lt;/li&gt;
+&lt;li&gt;Has customized parameters: This is a bit overlap with &lt;code&gt;Has dependencies&lt;/code&gt; singletons. These singletons might: 1. Depend on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.&lt;/li&gt;
 &lt;li&gt;No customized parameters: These singletons behave the same all the time.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Solutions&lt;/h2&gt;
@@ -58,9 +58,11 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;There are several problems with &lt;code&gt;AManager&lt;/code&gt;:
-&lt;em&gt; We have to duplicate it for all singleton class
-&lt;/em&gt; It's slow due to the 2 checks&lt;/p&gt;
+&lt;p&gt;There are several problems with &lt;code&gt;AManager&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We have to duplicate it for all singleton class&lt;/li&gt;
+&lt;li&gt;It's slow due to the 2 checks&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Surely we can do better!&lt;/p&gt;
 &lt;h3&gt;AutoSingletonManager&lt;/h3&gt;
 &lt;ul&gt;
@@ -126,13 +128,17 @@ public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManag
 &lt;p&gt;Another more subtle draw back is it uses an unnecessary comparison &lt;code&gt;if (!Compare&amp;lt;T&amp;gt;(default(T), _instance)) return _instance;&lt;/code&gt; in the &lt;code&gt;Instance&lt;/code&gt; property, so it's not optimal if you call &lt;code&gt;Instance&lt;/code&gt; in a &lt;code&gt;Update&lt;/code&gt; loop or something similar.&lt;/p&gt;
 &lt;p&gt;Surely we can do better than this.&lt;/p&gt;
 &lt;h3&gt;Secure UnitySingleton&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://wiki.unity3d.com/index.php/Secure_UnitySingleton"&gt;SecureUnitySingleton&lt;/a&gt; is the last one of the three singleton implementation in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt;. It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:
-&lt;em&gt; Exists In Scene: Searches the current scene for an object with the singleton component attached to it.
-&lt;/em&gt; Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.
-* Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.&lt;/p&gt;
-&lt;p&gt;There are several issues with approach
-&lt;em&gt; Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the &lt;code&gt;Instance&lt;/code&gt; property.
-&lt;/em&gt; Lack of lifecyle methods. Even though it provides a static &lt;code&gt;DeleteInstance&lt;/code&gt; method, there's no other methods to execute when the instance is created. You might think that &lt;code&gt;Awake&lt;/code&gt; can be used for that purpose, but it not explicit enough that &lt;code&gt;Awake&lt;/code&gt; is called immediately after &lt;code&gt;Instance&lt;/code&gt; is called. Another possible issue is &lt;code&gt;Awake&lt;/code&gt; will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://wiki.unity3d.com/index.php/Secure_UnitySingleton"&gt;SecureUnitySingleton&lt;/a&gt; is the last one of the three singleton implementation in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt;. It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Exists In Scene: Searches the current scene for an object with the singleton component attached to it.&lt;/li&gt;
+&lt;li&gt;Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.&lt;/li&gt;
+&lt;li&gt;Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are several issues with approach:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the &lt;code&gt;Instance&lt;/code&gt; property.&lt;/li&gt;
+&lt;li&gt;Lack of lifecyle methods. Even though it provides a static &lt;code&gt;DeleteInstance&lt;/code&gt; method, there's no other methods to execute when the instance is created. You might think that &lt;code&gt;Awake&lt;/code&gt; can be used for that purpose, but it not explicit enough that &lt;code&gt;Awake&lt;/code&gt; is called immediately after &lt;code&gt;Instance&lt;/code&gt; is called. Another possible issue is &lt;code&gt;Awake&lt;/code&gt; will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;This is quite good but surely we can do better.&lt;/p&gt;
 &lt;h2&gt;Discussions&lt;/h2&gt;
 &lt;p&gt;First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:&lt;/p&gt;
