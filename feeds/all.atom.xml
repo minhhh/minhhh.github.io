@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-29T00:00:00-04:00</updated><entry><title>Unity singleton</title><link href="http://minhhh.github.io/posts/unity-singleton" rel="alternate"></link><published>2016-09-29T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-29:posts/unity-singleton</id><summary type="html">&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-10-02T00:00:00-04:00</updated><entry><title>Generate one-time password from the command line</title><link href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" rel="alternate"></link><published>2016-10-02T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</id><summary type="html">&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First, install &lt;code&gt;OneTimePass&lt;/code&gt; with &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install onetimepass
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then you get the secret generated from the service provider you're using. Normally it would be a time-based token, such as the ones you use for Google Authenticator.&lt;/p&gt;
+&lt;p&gt;To get time-based token you invoke it like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;onetimepass&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;otp&lt;/span&gt;
+
+&lt;span class="n"&gt;my_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;MFRGGZDFMZTWQ2LK&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;my_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_totp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;my_token&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</summary><category term="python"></category><category term="one-time-password"></category></entry><entry><title>Unity singleton</title><link href="http://minhhh.github.io/posts/unity-singleton" rel="alternate"></link><published>2016-09-29T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-29:posts/unity-singleton</id><summary type="html">&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hard to reason about code&lt;/li&gt;
 &lt;li&gt;Encourage coupling&lt;/li&gt;
