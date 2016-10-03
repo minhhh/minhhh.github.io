@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-26T00:00:00-04:00</updated><entry><title>Clippings 2016-09-26</title><link href="http://minhhh.github.io/posts/clippings-2016-09-26" rel="alternate"></link><published>2016-09-26T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-26:posts/clippings-2016-09-26</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-10-03T00:00:00-04:00</updated><entry><title>Clippings 2016-10-03</title><link href="http://minhhh.github.io/posts/clippings-2016-10-03" rel="alternate"></link><published>2016-10-03T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-03:posts/clippings-2016-10-03</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@topfunky/think-like-a-software-developer-103dd4db5ec8#.sonyhc7n8"&gt;Think Like a Software Developer&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://nymag.com/news/features/27840/"&gt;How Not to Talk to Your Kids&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.mattermost.org/what-slack-might-learn-from-its-open-source-alternative/"&gt;What Slack might learn from its Open Source alternative&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="clippings"></category></entry><entry><title>Clippings 2016-09-26</title><link href="http://minhhh.github.io/posts/clippings-2016-09-26" rel="alternate"></link><published>2016-09-26T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-26:posts/clippings-2016-09-26</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://strongloop.com/strongblog/node-js-deploy-production-best-practice/"&gt;Best Practices for Deploying Node.js in Production&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;

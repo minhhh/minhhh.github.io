@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-10-02T00:00:00-04:00</updated><entry><title>Generate one-time password from the command line</title><link href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" rel="alternate"></link><published>2016-10-02T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</id><summary type="html">&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-10-03T00:00:00-04:00</updated><entry><title>Clippings 2016-10-03</title><link href="http://minhhh.github.io/posts/clippings-2016-10-03" rel="alternate"></link><published>2016-10-03T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-03:posts/clippings-2016-10-03</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@topfunky/think-like-a-software-developer-103dd4db5ec8#.sonyhc7n8"&gt;Think Like a Software Developer&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://nymag.com/news/features/27840/"&gt;How Not to Talk to Your Kids&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.mattermost.org/what-slack-might-learn-from-its-open-source-alternative/"&gt;What Slack might learn from its Open Source alternative&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="clippings"></category></entry><entry><title>Generate one-time password from the command line</title><link href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" rel="alternate"></link><published>2016-10-02T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</id><summary type="html">&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;First, install &lt;code&gt;OneTimePass&lt;/code&gt; with &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install onetimepass
 &lt;/pre&gt;&lt;/div&gt;
