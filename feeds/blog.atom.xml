@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-10-05T00:00:00-04:00</updated><entry><title>Clippings 2016-10-05</title><link href="http://minhhh.github.io/posts/clippings-2016-10-05" rel="alternate"></link><published>2016-10-05T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-05:posts/clippings-2016-10-05</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-10-10T00:00:00-04:00</updated><entry><title>The power of checklist</title><link href="http://minhhh.github.io/posts/the-power-of-checklist" rel="alternate"></link><published>2016-10-10T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-10:posts/the-power-of-checklist</id><summary type="html">&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt;
+&lt;em&gt; The world has become more complex
+&lt;/em&gt; Our brain has not changed much&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;
+&lt;em&gt; Checklists in aviation help alleviate accidents
+&lt;/em&gt; Checklists in construction makes the failure list very low&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Benefits&lt;/strong&gt;
+&lt;em&gt; &lt;strong&gt;Checklists verify that the necessary minimum gets done&lt;/strong&gt; Because sometimes the most important stuff is the simple ones.
+&lt;/em&gt; &lt;strong&gt;Checklists free up mental RAM&lt;/strong&gt; Checklists don’t replace judgment, they enhance it.
+&lt;em&gt; &lt;strong&gt;Checklists instill discipline&lt;/strong&gt; and increase the chance of stuff getting done.
+&lt;/em&gt; &lt;strong&gt;Checklists save time&lt;/strong&gt; because you spend less time fixing simple mistakes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How&lt;/strong&gt;
+&lt;em&gt; &lt;strong&gt;Investigate your failures and look for “killer items.”&lt;/strong&gt; Look for failure or friction points in the tasks you do routinely
+ * &lt;strong&gt;Focus only on the “stupid” essential stuff that’s frequently overlooked or skipped&lt;/strong&gt; Just focus on putting down the “stupid” but essential stuff that you frequently miss. Your checklist should have no more than 9 items on it.
+&lt;/em&gt; &lt;strong&gt;Decide if you need a “communication” checklist&lt;/strong&gt; Most checklists are likely procedural (they lay out things you need to do), but some tasks or projects are so complex that communicating with others becomes vital to managing all the moving pieces. In such a case, create a dedicated communication checklist and make sure it includes who needs to talk to whom, by when, and about what.
+&lt;em&gt; &lt;strong&gt;Decide if your checklist will be a “DO-CONFIRM” or “READ-DO” checklist&lt;/strong&gt;. With DO-CONFIRM checklists, you do your job from memory and experience, but then at a certain point you stop to go through your list to verify you did everything. READ-DO checklists require you to read and perform a task on the checklist before you can move to the next task. If you need more flexibility, go with DO-CONFIRM; if you need more exactness go with READ-DO.
+&lt;/em&gt; &lt;strong&gt;Test your checklist in the real world and refine as needed&lt;/strong&gt;. If you’re still experiencing the same failures or if the checklist makes work cumbersome to the point that it becomes a stumbling block, then you need to refine your checklist.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;
+* &lt;a href="http://www.artofmanliness.com/2014/12/08/the-power-of-checklists/"&gt;The Power of Checklists&lt;/a&gt;&lt;/p&gt;</summary><category term="checklist"></category></entry><entry><title>Clippings 2016-10-05</title><link href="http://minhhh.github.io/posts/clippings-2016-10-05" rel="alternate"></link><published>2016-10-05T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-05:posts/clippings-2016-10-05</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://medium.com/the-black-box-of-product-management/a-bad-product-decision-340ee680fa0c#.oj0mk9yud"&gt;A Bad Product Decision&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
