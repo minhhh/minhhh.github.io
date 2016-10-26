@@ -1,5 +1,5 @@
 Title: Understanding Promises
-Date: 2016-10-26 00:00
+Date: 2016-10-26 00:02
 Author: Ha.Minh
 Category: Programming
 Tags: promise
