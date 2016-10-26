@@ -1,7 +1,7 @@
 Title: Building social networks
 Date: 2016-10-26 00:00
 Author: Ha.Minh
-Category: Blog
+Category: Technology
 Tags: socialnetwork
 
 **[How To Build An Online Community: The Ultimate List Of Resources](http://www.feverbee.com/2010/01/how-to-build-an-online-community-the-ultimate-list-of-resources.html)**
