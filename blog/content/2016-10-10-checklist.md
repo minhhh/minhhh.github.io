@@ -1,7 +1,7 @@
 Title: The power of checklist
 Date: 2016-10-10 00:00
 Author: Ha.Minh
-Category: Blog
+Category: Productivity
 Tags: checklist
 
 ## Why
