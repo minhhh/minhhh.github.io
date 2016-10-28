@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Thu, 27 Oct 2016 00:00:00 -0400</lastBuildDate><item><title>Understanding Reactive</title><link>http://minhhh.github.io/posts/understanding-reactive</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754"&gt;The introduction to Reactive Programming you've been missing&lt;/a&gt;&lt;/strong&gt; Best introduction tutorial to Reactive Programming&lt;/p&gt;
+<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Thu, 27 Oct 2016 00:00:00 -0400</lastBuildDate><item><title>MVC in Unity</title><link>http://minhhh.github.io/posts/mvc-in-unity</link><description>&lt;h1&gt;Some MVC like frameworks in Unity&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/cgarciae/karma"&gt;Karma&lt;/a&gt;&lt;/strong&gt; Lightweight MVC framework using Zenject DI container. It is inspired from &lt;a href="http://engineering.socialpoint.es/MVC-pattern-unity3d-ui.html"&gt;MODEL VIEW CONTROLLER PATTERN FOR UNITY3D USER INTERFACES&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/37466"&gt;Marklight&lt;/a&gt;&lt;/strong&gt; Looks nice. It offers XUML and external editor which might be good for view management, but it also feels too restrictive because you have to follow their way.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://chromealex.github.io/Unity3d.UI.Windows/"&gt;Unity3d.UI.Windows&lt;/a&gt;&lt;/strong&gt; Uses a Window system to create UI and layout elements. Try doing too many things: Audio, Tweening&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/strangeioc/strangeioc"&gt;strangeioc&lt;/a&gt;&lt;/strong&gt; Obsolete and not maintained&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/14381"&gt;uFrame MVVM&lt;/a&gt;&lt;/strong&gt; It's trying to do too much by offering a graphing/diagramming engine and code generation. I really don't like code generation&lt;/p&gt;
+&lt;h1&gt;Discussion&lt;/h1&gt;
+&lt;p&gt;It looks like the main advantages of using these MVC frameworks are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some of them can support theme change&lt;/li&gt;
+&lt;li&gt;They have some existing controls so you don't have to implement yourself.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, there are several disadvantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you don't need to change theme then definitely you don't need to separate View and ViewModel or Presenter.&lt;/li&gt;
+&lt;li&gt;UI usually consists of a big container and a lot of smaller views. Testing small views is easy so you don't need to create separate View class for each. Testing the container is complicated, you want to do it with a test scene in Unity anyway, thus there's no need to try to make an ViewModel interface for testing.&lt;/li&gt;
+&lt;li&gt;The examples of Unity MVC implementation in some blogs are usually naive and contrived. As such, they don't scale when you have really complex UI. In addition, they usually confuse between UI and gameplay, so they take example such as hitting enemies or updating their HP bar. MVC is suitable for UIs and maybe some turn-based gameplay, but extending it to a fighting gameplay requires much more than some optimistic guesswork.&lt;/li&gt;
+&lt;li&gt;Controller needs to behave according to states, that makes the ViewPresenter or ViewModel also have to replicate those states fully or partly. It's quite difficult to know which should be the common behaviour. A simpler way is to just merge Controller and View/ViewPresenter/ViewModel.&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 27 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-27:posts/mvc-in-unity</guid><category>unity</category><category>mvc</category></item><item><title>Understanding Reactive</title><link>http://minhhh.github.io/posts/understanding-reactive</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754"&gt;The introduction to Reactive Programming you've been missing&lt;/a&gt;&lt;/strong&gt; Best introduction tutorial to Reactive Programming&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=sTSQlYX5DU0"&gt;What does it mean to be Reactive&lt;/a&gt;&lt;/strong&gt; The inimitable Erik Meijer delivering his opening keynote to React 2014&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://www.introtorx.com/"&gt;Introduction to Rx&lt;/a&gt;&lt;/strong&gt; This book aims to teach you:
     * about the new types that Rx will provide
