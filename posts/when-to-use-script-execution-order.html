@@ -106,13 +106,13 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>Normally we don't control the execution order of MonoBehaviour scripts, and we should not. However, there are cases where we do want some scripts to be executed before others. Some usecases include:</p>
+	<p>Normally we don't control the execution order of <code>MonoBehaviour</code> scripts, and we should not. However, there are cases where we do want some scripts to be executed before others. Some usecases include:</p>
 <ol>
-<li>A Controller script that should be executed as the entry point to the scene</li>
+<li>A <code>Controller</code> script that should be executed as the entry point to the scene</li>
 <li>Scripts which use <code>LateUpdate</code> and must be executed in specific order</li>
 </ol>
 <p>For these cases, we will assign an integer number to those scripts in <code>Edit &gt; Project Settings &gt; Script Execution Order</code>. It's best practice to use large and discrete number such as <code>100</code>, <code>200</code>, <code>-100</code> instead of <code>1</code>, <code>2</code>, <code>3</code> because it would make it easier to insert something in between them when we need to.</p>
-<p>One inconvenience with Unity Editor GUI for Script Execution Order is that it's a bit hard to find your classes when there are a lot of them. The solution for this is to add Script Execution Order as meta information to the class using attribute. There's already an implementation for this: https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs and https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs. Using these 2 classes, now we can add Script Execution Order to any class as follows:</p>
+<p>One inconvenience with Unity Editor GUI for <code>Script Execution Order</code> is that it's a bit hard to find your classes when there are a lot of them. The solution for this is to add <code>Script Execution Order</code> as meta information to the class using attribute. There's already an implementation for this: <a href="https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs">https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs</a> and <a href="https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs">https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs</a>. Using these 2 classes, now we can add <code>Script Execution Order</code> to any class as follows:</p>
 <div class="codehilite"><pre><span></span>    [ScriptExecutionOrder(-1000)]
     public abstract class Game : MonoBehaviour
 </pre></div>
@@ -214,99 +214,9 @@
 
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/memcache.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
     </a>
 </span>
 <span class="tag-4">
@@ -315,23 +225,8 @@
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
     </a>
 </span>
 <span class="tag-4">
@@ -340,8 +235,83 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/memcache.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
     </a>
 </span>
 <span class="tag-4">
@@ -350,23 +320,53 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
     </a>
 </span>
 </p>
