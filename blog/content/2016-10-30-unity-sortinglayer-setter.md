@@ -8,4 +8,4 @@ Unity 5.x exposes the sorting layer and order in layer of `SpriterRenderer`, but
 
 It looks like this in the Editor
 
-![example 1](https://github.com/minhhh/unity-sortinglayer-setter/blob/master/images/example1.png)
+![example 1](https://raw.githubusercontent.com/minhhh/unity-sortinglayer-setter/master/images/example1.png)
