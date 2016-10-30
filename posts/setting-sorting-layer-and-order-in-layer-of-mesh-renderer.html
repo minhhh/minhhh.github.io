@@ -8,7 +8,7 @@
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Osmus Deconstructed - Ha.Minh's Blog</title>
+    <title>Setting sorting layer and order in layer of Mesh Renderer - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -90,39 +90,30 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Sun 25 September 2016
+  Sun 30 October 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/osmus-deconstructed" rel="bookmark"
-     title="Permalink to Osmus Deconstructed">
-    Osmus Deconstructed
+  <a href="http://minhhh.github.io/posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer" rel="bookmark"
+     title="Permalink to Setting sorting layer and order in layer of Mesh Renderer">
+    Setting sorting layer and order in layer of Mesh Renderer
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/deconstructed.html">
-      Deconstructed</a>
+    <a href="http://minhhh.github.io/category/unity.html">
+      Unity</a>
     &nbsp;&nbsp;
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p><a href="https://github.com/borismus/osmus">Osmus</a> is a tech demo of a HTML5 multiplayer game inspired by <a href="http://www.osmos-game.com/">Osmos</a>.</p>
-<p><strong>Deconstruction</strong></p>
-<ul>
-<li>Osmus uses node.js for the server and HTML5 Canvas with Javascript on the client side. The simulation code is shared between client and server.</li>
-<li>Regarding network, Osmus uses <code>socket.io</code>. <code>Socket.io</code> is quite stable and performant so this is ok.</li>
-<li>The multiplayer architecture is Server/Client, with the server being the sole authority. All inputs from any client will be rebroadcast to all clients in the room. There are several problems with this approach<ul>
-<li>Not scalable: Simply rebroadcast all messages will increase the load on the server exponentially so this is totally not acceptable. Some sort of rate limit should be applied, such as only sending messages to viewable entities.</li>
-<li>Sudden positional jump on client: If the client entities can move around, then client simulation. client prediction and interpolation with server states should be applied to ensure smooth movement.</li>
-</ul>
-</li>
-</ul>
+	<p>Unity 5.x exposes the sorting layer and order in layer of <code>SpriterRenderer</code>, but not <code>MeshRenderer</code>. Fortunately, it's very easy setting these property of the <code>MeshRenderer</code> in code. I've created a simple solution for setting sorting layer and order in layer of any <code>Renderer</code> component using a simple component called <a href="https://github.com/minhhh/unity-sortinglayer-setter">SortingLayerSetter</a>.</p>
+<p>It looks like this in the Editor</p>
+<p><a href="https://github.com/minhhh/unity-sortinglayer-setter/blob/master/images/example1.png">example 1</a></p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/deconstructed.html"><i class="fa fa-tag"></i>deconstructed</a>&nbsp;
-	<a href="http://minhhh.github.io/tag/network.html"><i class="fa fa-tag"></i>network</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
 
@@ -133,7 +124,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/osmus-deconstructed" 
+        data-href="http://minhhh.github.io/posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
