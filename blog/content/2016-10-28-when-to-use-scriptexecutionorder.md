@@ -14,6 +14,6 @@ For these cases, we will assign an integer number to those scripts in `Edit > Pr
 One inconvenience with Unity Editor GUI for `Script Execution Order` is that it's a bit hard to find your classes when there are a lot of them. The solution for this is to add `Script Execution Order` as meta information to the class using attribute. There's already an implementation for this: [https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs](https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs) and [https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs](https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs). Using these 2 classes, now we can add `Script Execution Order` to any class as follows:
 
 ```
-    [ScriptExecutionOrder(-1000)]
-    public abstract class Game : MonoBehaviour
+[ScriptExecutionOrder(-1000)]
+public abstract class Game : MonoBehaviour
 ```
