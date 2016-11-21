@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/unity.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-11-21T00:00:00-05:00</updated><entry><title>Unity local network multiplayer</title><link href="http://minhhh.github.io/posts/unity-local-network-multiplayer" rel="alternate"></link><published>2016-11-21T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-21:posts/unity-local-network-multiplayer</id><summary type="html">&lt;p&gt;iOS device can connect to iOS device via Bluetooth using:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* MultiPeer Local Multiplayer Plugin
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;ul&gt;
+&lt;li&gt;MultiPeer Local Multiplayer Plugin&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Android device can connect to Android device via Bluetooth using:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* Android Bluetooth Multiplayer (Pro)
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;ul&gt;
+&lt;li&gt;Android Bluetooth Multiplayer (Pro)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Android and iOS cannot connect to each other via iOS as mentioned &lt;a href="http://stackoverflow.com/questions/18884705/transfer-data-between-ios-and-android-via-bluetooth"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://stackoverflow.com/questions/13032540/unity3d-for-ios-and-android-multiplayer-bluetooth-connection"&gt;Unity3D for iOS and Android: Multiplayer&lt;/a&gt;. Options for multiplayer game&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* via Bluetooth (using Prime31 plugin)
-    * iOS
-* via LAN (using Unity RPC) The players can start combats in a Local Area Network with any of above devices: iOS vs iOS, iOS vs Android, Android vs Mac, and so on.
-    * iOS
-    * Android
-    * Mac
-    * Web (Kongregate)
-* via Game Center (using Prime31 plugin): Uses the Game Center multiplayer to match combats.
-    * iOS
-* via Global Server (an in-house solution): The players can start combats around the world with any of above devices: iOS vs iOS, iOS vs Android, Android vs Mac, and so on.
-    * iOS
-    * Android
-    * Mac
-    * Web (Kongregate)
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;ul&gt;
+&lt;li&gt;via Bluetooth (using Prime31 plugin)&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via LAN (using Unity RPC) The players can start combats in a Local Area Network with any of above devices: iOS vs iOS, iOS vs Android, Android vs Mac, and so on.&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;li&gt;Android&lt;/li&gt;
+&lt;li&gt;Mac&lt;/li&gt;
+&lt;li&gt;Web (Kongregate)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via Game Center (using Prime31 plugin): Uses the Game Center multiplayer to match combats.&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via Global Server (an in-house solution): The players can start combats around the world with any of above devices: iOS vs iOS, iOS vs Android, Android vs Mac, and so on.&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;li&gt;Android&lt;/li&gt;
+&lt;li&gt;Mac&lt;/li&gt;
+&lt;li&gt;Web (Kongregate)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;a href="http://www.tasharen.com/?page_id=4518"&gt;TNET&lt;/a&gt; Another option for local multiplayer game.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://docs.unity3d.com/Manual/UNetOverview.html"&gt;UNET&lt;/a&gt; the new Unity Networking library.&lt;/p&gt;</summary><category term="unity"></category><category term="bluetooth"></category><category term="multiplayer"></category></entry><entry><title>Setting sorting layer and order in layer of Mesh Renderer</title><link href="http://minhhh.github.io/posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer" rel="alternate"></link><published>2016-10-30T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-30:posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer</id><summary type="html">&lt;p&gt;Unity 5.x exposes the sorting layer and order in layer of &lt;code&gt;SpriterRenderer&lt;/code&gt;, but not &lt;code&gt;MeshRenderer&lt;/code&gt;. Fortunately, it's very easy setting these property of the &lt;code&gt;MeshRenderer&lt;/code&gt; in code. I've created a simple solution for setting sorting layer and order in layer of any &lt;code&gt;Renderer&lt;/code&gt; component using a simple component called &lt;a href="https://github.com/minhhh/unity-sortinglayer-setter"&gt;SortingLayerSetter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.unity3d.com/Manual/UNetOverview.html"&gt;UNET&lt;/a&gt; the new Unity Networking library.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://forum.unity3d.com/threads/unet-sample-projects.331978/"&gt;Unet sample projects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://forum.unity3d.com/threads/unity-5-unet-multiplayer-tutorials-making-a-basic-survival-co-op.325692/"&gt;Unity 5 UNET Multiplayer Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/multiplayer-networking/introduction-simple-multiplayer-example?playlist=29690"&gt;Multiplayer Networking Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="unity"></category><category term="bluetooth"></category><category term="multiplayer"></category></entry><entry><title>Setting sorting layer and order in layer of Mesh Renderer</title><link href="http://minhhh.github.io/posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer" rel="alternate"></link><published>2016-10-30T00:00:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-30:posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer</id><summary type="html">&lt;p&gt;Unity 5.x exposes the sorting layer and order in layer of &lt;code&gt;SpriterRenderer&lt;/code&gt;, but not &lt;code&gt;MeshRenderer&lt;/code&gt;. Fortunately, it's very easy setting these property of the &lt;code&gt;MeshRenderer&lt;/code&gt; in code. I've created a simple solution for setting sorting layer and order in layer of any &lt;code&gt;Renderer&lt;/code&gt; component using a simple component called &lt;a href="https://github.com/minhhh/unity-sortinglayer-setter"&gt;SortingLayerSetter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It looks like this in the Editor&lt;/p&gt;
 &lt;p&gt;&lt;img alt="example 1" src="https://raw.githubusercontent.com/minhhh/unity-sortinglayer-setter/master/images/example1.png" /&gt;&lt;/p&gt;</summary><category term="unity"></category></entry><entry><title>When to use Script Execution Order</title><link href="http://minhhh.github.io/posts/when-to-use-script-execution-order" rel="alternate"></link><published>2016-10-28T00:01:00-04:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-28:posts/when-to-use-script-execution-order</id><summary type="html">&lt;p&gt;Normally we don't control the execution order of &lt;code&gt;MonoBehaviour&lt;/code&gt; scripts, and we should not. However, there are cases where we do want some scripts to be executed before others. Some usecases include:&lt;/p&gt;
 &lt;ol&gt;
