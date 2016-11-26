@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-11-25T00:00:00-05:00</updated><entry><title>Writing Unity iOS plugin</title><link href="http://minhhh.github.io/posts/writing-unity-ios-plugin" rel="alternate"></link><published>2016-11-25T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-25:posts/writing-unity-ios-plugin</id><summary type="html">&lt;p&gt;&lt;a href="https://docs.unity3d.com/Manual/PluginsForIOS.html"&gt;Building Plugins for iOS&lt;/a&gt; is a guide from Unity&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-11-25T00:00:00-05:00</updated><entry><title>Game backends</title><link href="http://minhhh.github.io/posts/game-backends" rel="alternate"></link><published>2016-11-25T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-25:posts/game-backends</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;a href="http://blog.soom.la/2016/02/top-10-parse-alternatives-game-backend.html"&gt;Top 10 Parse Alternatives For Your Game Backend&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GameSparks&lt;/li&gt;
+&lt;li&gt;PlayFab&lt;/li&gt;
+&lt;li&gt;HeroicLabs&lt;/li&gt;
+&lt;li&gt;Gamedonia&lt;/li&gt;
+&lt;li&gt;Kii&lt;/li&gt;
+&lt;li&gt;Kinvey&lt;/li&gt;
+&lt;li&gt;BrainCloud&lt;/li&gt;
+&lt;li&gt;GamuaFlox&lt;/li&gt;
+&lt;li&gt;App42&lt;/li&gt;
+&lt;li&gt;Photon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://www.pocketgamer.biz/feature/59149/12-reasons-to-use-gamesparks/"&gt;Why should you use GameSparks&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GameSparks vs PlayFab&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* [Gamesparks vs PlayFab?](https://www.reddit.com/r/gamedev/comments/4otyeb/gamesparks_vs_playfab/)
+* [Spaceteam](http://spaceteamadmirals.club/blog/spaceteam-is-coming-to-your-library/) uses GameSparks
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="game"></category><category term="backend"></category></entry><entry><title>Writing Unity iOS plugin</title><link href="http://minhhh.github.io/posts/writing-unity-ios-plugin" rel="alternate"></link><published>2016-11-25T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-25:posts/writing-unity-ios-plugin</id><summary type="html">&lt;p&gt;&lt;a href="https://docs.unity3d.com/Manual/PluginsForIOS.html"&gt;Building Plugins for iOS&lt;/a&gt; is a guide from Unity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Two approaches&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Approach 1: Put plugin source code &lt;code&gt;.mm,.c,.cpp&lt;/code&gt; files in &lt;code&gt;Assets/Plugins/iOS&lt;/code&gt; folder.&lt;/li&gt;
+&lt;li&gt;Approach 2: Build plugin library to &lt;code&gt;.a&lt;/code&gt; file then put it in &lt;code&gt;Assets/Plugins/iOS&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;a href="http://stackoverflow.com/questions/14834626/how-to-build-unity3d-plugin-for-ios"&gt;How to build Unity3d Plugin for iOS&lt;/a&gt; experience from a developer&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://blogs.shephertz.com/2013/08/23/bridging-the-gap-plugin-for-unity-and-ios/"&gt;Plugin for Unity and iOS&lt;/a&gt; iOS plugin with source code inside Asset folder&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.slideshare.net/kaijungchen/unity3-d-plugins-development-guide-29659247"&gt;Unity3D Plugins Development Guide&lt;/a&gt;&lt;/p&gt;</summary><category term="unity"></category><category term="ios"></category></entry><entry><title>How to do blur effect in Unity</title><link href="http://minhhh.github.io/posts/how-to-do-blur-effect-in-unity" rel="alternate"></link><published>2016-11-24T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-24:posts/how-to-do-blur-effect-in-unity</id><summary type="html">&lt;p&gt;&lt;strong&gt;Image Blur&lt;/strong&gt;&lt;/p&gt;
