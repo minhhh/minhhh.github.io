@@ -6,7 +6,8 @@ Tags: unity, particlesystem
 
 Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.
 
-There are some plugins on the Asset Store which can help you with this tasks:  
+There are some plugins on the Asset Store which can help you with this tasks:
+
 * [Simple Particle Scaler](https://www.assetstore.unity3d.com/en/#!/content/9703)
 * [Particle Scaler](https://www.assetstore.unity3d.com/en/#!/content/4400)
 
