@@ -39,6 +39,7 @@ Asset Bundle is a big topic in Unity. Initially, you want to grasp the basic set
         * Bundles have to be updated across unity version: http://forum.unity3d.com/threads/end-of-the-resources-folder.363800/
             * Or force player to update their client
             * Client has to update and redownload ALL bundles
+<br/>
 
 * [AssetBundle usage patterns](https://unity3d.com/learn/tutorials/topics/best-practices/assetbundle-usage-patterns)
     * If an AssetBundle is unloaded improperly, it can cause Object duplication in memory
@@ -73,49 +74,50 @@ Asset Bundle is a big topic in Unity. Initially, you want to grasp the basic set
     * AssetBundles in the caching system are identified only by their file names
     * LZ4 decompress individual Objects without needing to decompress the entire AssetBundle
 
+<br/>
 * [Unity AssetBundle summary](https://matome.naver.jp/odai/2139114084705385001)
     * [Unite Japan 2013] Scene / Memory / Asset Bundle
         * 【process】
-            ① Build the asset bundle (A).
-            ② Download the asset bundle (A).
-            ③ Load the asset bundle (A).
-            ④ Load the asset (B) from the asset bundle.
-            ⑤ Generate an instance (C) of the asset.
-            ⑥ Unload the asset bundle (A).
-            (Note that unloaded assets can not depend on other assets)
-            ⑦ Discard instance (C).
-            ⑧ Unload asset (B).
+            * ① Build the asset bundle (A).
+            * ② Download the asset bundle (A).
+            * ③ Load the asset bundle (A).
+            * ④ Load the asset (B) from the asset bundle.
+            * ⑤ Generate an instance (C) of the asset.
+            * ⑥ Unload the asset bundle (A).
+            * (Note that unloaded assets can not depend on other assets)
+            * ⑦ Discard instance (C).
+            * ⑧ Unload asset (B).
         * AssetBundle placement place】
-            ① Server
-            ② In the StreemingAsset folder
+            * ① Server
+            * ② In the StreemingAsset folder
         * Minimize size of AssetBundle】
-            ① It does not depend on others (Include all referenced assets in AssetBundle.)
-            ② It depends on in-app scripts and basic components.
-            ③ It depends on another AssetBundle.
+            * ① It does not depend on others (Include all referenced assets in AssetBundle.)
+            * ② It depends on in-app scripts and basic components.
+            * ③ It depends on another AssetBundle.
         * 【Correspondence by Platform】
-            ① Editor (If you are looking at bundled assets bundle, it will be difficult to test, so let's do something.)
-            ② Android
-            ③ IOS
+            * ① Editor (If you are looking at bundled assets bundle, it will be difficult to test, so let's do something.)
+            * ② Android
+            * ③ IOS
         * 【How to Load Asset Bundle】
-            ① Use the cache. 'WWW.LoadFromCacheOrDownload'
-            (Note: 150 days deletion and caching can not be deleted.)
-            ② One time only "WWW (" http: // ... "), WWW (" file: // ... ")"
-            ③ Save locally and do not use cache. "AssetBundle.CreateFromFile, AssetBundle.CreateFromMemory"
+            * ① Use the cache. 'WWW.LoadFromCacheOrDownload'
+            * (Note: 150 days deletion and caching can not be deleted.)
+            * ② One time only "WWW (" http: // ... "), WWW (" file: // ... ")"
+            * ③ Save locally and do not use cache. "AssetBundle.CreateFromFile, AssetBundle.CreateFromMemory"
         * Supplement 1: How to summarize asset bundles
-            ① Compressed or uncompressed
-            ② Individual or large quantity
+            * ① Compressed or uncompressed
+            * ② Individual or large quantity
         * Supplement 2
-            ① Individual synchronous load
-            ② Individual asynchronous load
-            ③ bulk synchronous load
+            * ① Individual synchronous load
+            * ② Individual asynchronous load
+            * ③ bulk synchronous load
         * 【Efficient Build】
-            ① Automation
-            ② Folder structure
-            ③ Adjustment of property at build time · · ·
-            (Side street: property adjustment at asset import)
+            * ① Automation
+            * ② Folder structure
+            * ③ Adjustment of property at build time · · ·
+            * (Side street: property adjustment at asset import)
         * 【Correspondence at the time of version up】 · · · I do not use it so I omit it
-            ① Cash on the URL
-            ② Compatibility
+            * ① Cash on the URL
+            * ② Compatibility
         * 【Others】 · · · I do not use it so I omit it
-            ① To use binary data.
-            ② Include the script in the asset bundle. (It is impossible in IOS, so it is omitted)
+            * ① To use binary data.
+            * ② Include the script in the asset bundle. (It is impossible in IOS, so it is omitted)
