@@ -49,7 +49,8 @@
 &lt;/li&gt;
 &lt;li&gt;Bundles have to be updated across unity version: http://forum.unity3d.com/threads/end-of-the-resources-folder.363800/&lt;ul&gt;
 &lt;li&gt;Or force player to update their client&lt;/li&gt;
-&lt;li&gt;Client has to update and redownload ALL bundles&lt;/li&gt;
+&lt;li&gt;Client has to update and redownload ALL bundles
+&lt;br/&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -106,59 +107,54 @@
 &lt;li&gt;LZ4 decompress individual Objects without needing to decompress the entire AssetBundle&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://matome.naver.jp/odai/2139114084705385001"&gt;Unity AssetBundle summary&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[Unite Japan 2013] Scene / Memory / Asset Bundle&lt;ul&gt;
-&lt;li&gt;【process】
-    ① Build the asset bundle (A).
-    ② Download the asset bundle (A).
-    ③ Load the asset bundle (A).
-    ④ Load the asset (B) from the asset bundle.
-    ⑤ Generate an instance (C) of the asset.
-    ⑥ Unload the asset bundle (A).
-    (Note that unloaded assets can not depend on other assets)
-    ⑦ Discard instance (C).
-    ⑧ Unload asset (B).&lt;/li&gt;
-&lt;li&gt;AssetBundle placement place】
-    ① Server
-    ② In the StreemingAsset folder&lt;/li&gt;
-&lt;li&gt;Minimize size of AssetBundle】
-    ① It does not depend on others (Include all referenced assets in AssetBundle.)
-    ② It depends on in-app scripts and basic components.
-    ③ It depends on another AssetBundle.&lt;/li&gt;
-&lt;li&gt;【Correspondence by Platform】
-    ① Editor (If you are looking at bundled assets bundle, it will be difficult to test, so let's do something.)
-    ② Android
-    ③ IOS&lt;/li&gt;
-&lt;li&gt;【How to Load Asset Bundle】
-    ① Use the cache. 'WWW.LoadFromCacheOrDownload'
-    (Note: 150 days deletion and caching can not be deleted.)
-    ② One time only "WWW (" http: // ... "), WWW (" file: // ... ")"
-    ③ Save locally and do not use cache. "AssetBundle.CreateFromFile, AssetBundle.CreateFromMemory"&lt;/li&gt;
-&lt;li&gt;Supplement 1: How to summarize asset bundles
-    ① Compressed or uncompressed
-    ② Individual or large quantity&lt;/li&gt;
-&lt;li&gt;Supplement 2
-    ① Individual synchronous load
-    ② Individual asynchronous load
-    ③ bulk synchronous load&lt;/li&gt;
-&lt;li&gt;【Efficient Build】
-    ① Automation
-    ② Folder structure
-    ③ Adjustment of property at build time · · ·
-    (Side street: property adjustment at asset import)&lt;/li&gt;
-&lt;li&gt;【Correspondence at the time of version up】 · · · I do not use it so I omit it
-    ① Cash on the URL
-    ② Compatibility&lt;/li&gt;
-&lt;li&gt;【Others】 · · · I do not use it so I omit it
-    ① To use binary data.
-    ② Include the script in the asset bundle. (It is impossible in IOS, so it is omitted)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 30 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-30:posts/unity-asset-bundle</guid><category>unity</category><category>assetbundle</category></item><item><title>Scale Shuriken Particle System</title><link>http://minhhh.github.io/posts/scale-shuriken-particle-system</link><description>&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;
+* &lt;a href="https://matome.naver.jp/odai/2139114084705385001"&gt;Unity AssetBundle summary&lt;/a&gt;
+    * [Unite Japan 2013] Scene / Memory / Asset Bundle
+        * 【process】
+            * ① Build the asset bundle (A).
+            * ② Download the asset bundle (A).
+            * ③ Load the asset bundle (A).
+            * ④ Load the asset (B) from the asset bundle.
+            * ⑤ Generate an instance (C) of the asset.
+            * ⑥ Unload the asset bundle (A).
+            * (Note that unloaded assets can not depend on other assets)
+            * ⑦ Discard instance (C).
+            * ⑧ Unload asset (B).
+        * AssetBundle placement place】
+            * ① Server
+            * ② In the StreemingAsset folder
+        * Minimize size of AssetBundle】
+            * ① It does not depend on others (Include all referenced assets in AssetBundle.)
+            * ② It depends on in-app scripts and basic components.
+            * ③ It depends on another AssetBundle.
+        * 【Correspondence by Platform】
+            * ① Editor (If you are looking at bundled assets bundle, it will be difficult to test, so let's do something.)
+            * ② Android
+            * ③ IOS
+        * 【How to Load Asset Bundle】
+            * ① Use the cache. 'WWW.LoadFromCacheOrDownload'
+            * (Note: 150 days deletion and caching can not be deleted.)
+            * ② One time only "WWW (" http: // ... "), WWW (" file: // ... ")"
+            * ③ Save locally and do not use cache. "AssetBundle.CreateFromFile, AssetBundle.CreateFromMemory"
+        * Supplement 1: How to summarize asset bundles
+            * ① Compressed or uncompressed
+            * ② Individual or large quantity
+        * Supplement 2
+            * ① Individual synchronous load
+            * ② Individual asynchronous load
+            * ③ bulk synchronous load
+        * 【Efficient Build】
+            * ① Automation
+            * ② Folder structure
+            * ③ Adjustment of property at build time · · ·
+            * (Side street: property adjustment at asset import)
+        * 【Correspondence at the time of version up】 · · · I do not use it so I omit it
+            * ① Cash on the URL
+            * ② Compatibility
+        * 【Others】 · · · I do not use it so I omit it
+            * ① To use binary data.
+            * ② Include the script in the asset bundle. (It is impossible in IOS, so it is omitted)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 30 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-30:posts/unity-asset-bundle</guid><category>unity</category><category>assetbundle</category></item><item><title>Scale Shuriken Particle System</title><link>http://minhhh.github.io/posts/scale-shuriken-particle-system</link><description>&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
 &lt;p&gt;There are some plugins on the Asset Store which can help you with this tasks:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/9703"&gt;Simple Particle Scaler&lt;/a&gt;&lt;/li&gt;
