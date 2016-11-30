@@ -1,5 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-11-29T00:00:00-05:00</updated><entry><title>Scale Shuriken Particle System</title><link href="http://minhhh.github.io/posts/scale-shuriken-particle-system" rel="alternate"></link><published>2016-11-29T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-29:posts/scale-shuriken-particle-system</id><summary type="html">&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-11-30T00:00:00-05:00</updated><entry><title>Unity Asset Bundle</title><link href="http://minhhh.github.io/posts/unity-asset-bundle" rel="alternate"></link><published>2016-11-30T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-30:posts/unity-asset-bundle</id><summary type="html">&lt;p&gt;Asset Bundle is a big topic in Unity. Initially, you want to grasp the basic setup and make something work. As your games get bigger, you might want to do more customization to make sure you have full control of the lifecycle. Here are some documents I've studied while learning about asset bundle. Ultimately, my goal is to make a full asset bundle workflow for big online game, so this blog will be a work in progress until I can transfer it into a working repository.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Asset bundle and AssetBundleManager&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/assetbundles-and-assetbundle-manager"&gt;AssetBundles and the AssetBundle Manager&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;AssetBundles are downloaded and cached in their entirety.&lt;/li&gt;
+&lt;li&gt;AssetBundles do not need to be loaded in their entirety.&lt;/li&gt;
+&lt;li&gt;Assets in AssetBundles can have dependencies on other assets.&lt;/li&gt;
+&lt;li&gt;Assets in AssetBundles can share dependencies with other assets.&lt;/li&gt;
+&lt;li&gt;Each AssetBundle has some technical overhead, both in the size of the file and the need to manage that file.&lt;/li&gt;
+&lt;li&gt;AssetBundles should be built for each target platform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The steps of working with AssetBundles in the editor fall roughly into these steps:&lt;ul&gt;
+&lt;li&gt;Organizing &amp;amp; Setting-up AssetBundles in the editor.&lt;/li&gt;
+&lt;li&gt;Building AssetBundles.&lt;/li&gt;
+&lt;li&gt;Uploading AssetBundles to external storage.&lt;/li&gt;
+&lt;li&gt;Downloading AssetBundles at run-time.&lt;/li&gt;
+&lt;li&gt;Loading objects from AssetBundles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using Asset Variants to support different resolution&lt;ul&gt;
+&lt;li&gt;Create Variants folder&lt;/li&gt;
+&lt;li&gt;Create corresponding SD and HD folder (must be same structure)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pack sprites into AssetBundle&lt;ul&gt;
+&lt;li&gt;Use packing tag normally. Remember to set Sprite Mode: Single. Then set the AssetBundle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Load sprite sheet from Asset Bundle&lt;ul&gt;
+&lt;li&gt;Can load Sprite or Texture2D, but it can't load Sprite from a SpriteSheet directly&lt;/li&gt;
+&lt;li&gt;http://forum.unity3d.com/threads/packing-a-texture-sprite-sheet-in-an-asset-bundle-with-already-sliced-subtextures-possible.313186/&lt;/li&gt;
+&lt;li&gt;Basically use LoadAssetWithSubAssets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Issues&lt;ul&gt;
+&lt;li&gt;No subfolder inside AssetBundle&lt;/li&gt;
+&lt;li&gt;Clear cache in &lt;code&gt;~/Library/Caches/Unity/&lt;/code&gt; &lt;a href="http://www.leandro.co.uk/unity/caching-assetbundles-in-unity/"&gt;http://www.leandro.co.uk/unity/caching-assetbundles-in-unity/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Loading prefabs with script references from assetbundle&lt;ul&gt;
+&lt;li&gt;http://answers.unity3d.com/questions/1032495/loading-prefabs-with-script-references-from-assetb.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Variants with prefab&lt;ul&gt;
+&lt;li&gt;http://forum.unity3d.com/threads/official-how-did-asset-bundle-variant-fail-to-satisfy-your-hd-sd-use-case.375716/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Bundles have to be updated across unity version: http://forum.unity3d.com/threads/end-of-the-resources-folder.363800/&lt;ul&gt;
+&lt;li&gt;Or force player to update their client&lt;/li&gt;
+&lt;li&gt;Client has to update and redownload ALL bundles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/best-practices/assetbundle-usage-patterns"&gt;AssetBundle usage patterns&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If an AssetBundle is unloaded improperly, it can cause Object duplication in memory&lt;/li&gt;
+&lt;li&gt;Most projects should use AssetBundle.Unload(true) and adopt a method to ensure that Objects are not duplicated&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://unity3d.com/ru/learn/tutorials/topics/best-practices/assetbundle-fundamentals#Loading_Asset_Bundles"&gt;AssetBundle.CreateFromMemory&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;loads an AssetBundle from a managed-code byte array (byte[] in C#)&lt;/li&gt;
+&lt;li&gt;If the AssetBundle is LZMA compressed, it will decompress the AssetBundle while copying&lt;/li&gt;
+&lt;li&gt;Uncompressed and LZ4-compressed AssetBundles will be copied verbatim&lt;/li&gt;
+&lt;li&gt;The peak amount of memory consumed by this API will be at least twice the size of the AssetBundle: one copy in native memory created by the API, and one copy in the managed byte array passed to the API&lt;/li&gt;
+&lt;li&gt;Assets loaded from an AssetBundle created via this API will therefore be duplicated three times in memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://unity3d.com/ru/learn/tutorials/topics/best-practices/assetbundle-fundamentals#Loading_Asset_Bundles"&gt;AssetBundle.CreateFromFile&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;If the AssetBundles are uncompressed or LZ4&lt;ul&gt;
+&lt;li&gt;On device: only load the AssetBundle's header. Objects are loaded on-demand. No excess memory will be consumed.&lt;/li&gt;
+&lt;li&gt;On Editor: load the entire AssetBundle into memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Calls to AssetBundle.LoadFromFile will always fail for LZMA-compressed AssetBundles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://unity3d.com/ru/learn/tutorials/topics/best-practices/assetbundle-fundamentals#Loading_Asset_Bundles"&gt;WWW.LoadFromCacheOrDownload&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;WWW object will keep a full copy of the AssetBundle's bytes in native memory&lt;/li&gt;
+&lt;li&gt;3 ways to avoid&lt;ul&gt;
+&lt;li&gt;Keep AssetBundles small&lt;/li&gt;
+&lt;li&gt;If using Unity 5.3 or newer, switch to using the new UnityWebRequest API's DownloadHandlerAssetBundle, which does not cause memory spikes during downloads.&lt;/li&gt;
+&lt;li&gt;Write a custom downloader. For more information, see the Custom downloaders section.&lt;/li&gt;
+&lt;li&gt;Write a custom downloader&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://unity3d.com/ru/learn/tutorials/topics/best-practices/assetbundle-fundamentals#Loading_Asset_Bundles"&gt;AssetBundleDownloadHandler&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;LZMA-compressed AssetBundles will be decompressed during download and cached uncompressed.&lt;/li&gt;
+&lt;li&gt;does not keep a native-code copy of all downloaded bytes&lt;/li&gt;
+&lt;li&gt;supports caching in a manner identical to WWW.LoadFromCacheOrDownload&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Examples of situations which may prevent the use of UnityWebRequest or WWW.LoadFromCacheOrDownload:&lt;ul&gt;
+&lt;li&gt;When fine-grained control over the AssetBundle cache is required&lt;/li&gt;
+&lt;li&gt;When a project needs to implement a custom compression strategy&lt;/li&gt;
+&lt;li&gt;When a project wishes to use platform-specific APIs to satisfy certain requirements, such as the need to stream data while inactive. Example: Using iOS' Background Tasks API to download data while in the background.&lt;/li&gt;
+&lt;li&gt;When AssetBundles must be delivered over SSL on platforms where Unity does not have proper SSL support (such as PC).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AssetBundles in the caching system are identified only by their file names&lt;/li&gt;
+&lt;li&gt;LZ4 decompress individual Objects without needing to decompress the entire AssetBundle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://matome.naver.jp/odai/2139114084705385001"&gt;Unity AssetBundle summary&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[Unite Japan 2013] Scene / Memory / Asset Bundle&lt;ul&gt;
+&lt;li&gt;【process】
+    ① Build the asset bundle (A).
+    ② Download the asset bundle (A).
+    ③ Load the asset bundle (A).
+    ④ Load the asset (B) from the asset bundle.
+    ⑤ Generate an instance (C) of the asset.
+    ⑥ Unload the asset bundle (A).
+    (Note that unloaded assets can not depend on other assets)
+    ⑦ Discard instance (C).
+    ⑧ Unload asset (B).&lt;/li&gt;
+&lt;li&gt;AssetBundle placement place】
+    ① Server
+    ② In the StreemingAsset folder&lt;/li&gt;
+&lt;li&gt;Minimize size of AssetBundle】
+    ① It does not depend on others (Include all referenced assets in AssetBundle.)
+    ② It depends on in-app scripts and basic components.
+    ③ It depends on another AssetBundle.&lt;/li&gt;
+&lt;li&gt;【Correspondence by Platform】
+    ① Editor (If you are looking at bundled assets bundle, it will be difficult to test, so let's do something.)
+    ② Android
+    ③ IOS&lt;/li&gt;
+&lt;li&gt;【How to Load Asset Bundle】
+    ① Use the cache. 'WWW.LoadFromCacheOrDownload'
+    (Note: 150 days deletion and caching can not be deleted.)
+    ② One time only "WWW (" http: // ... "), WWW (" file: // ... ")"
+    ③ Save locally and do not use cache. "AssetBundle.CreateFromFile, AssetBundle.CreateFromMemory"&lt;/li&gt;
+&lt;li&gt;Supplement 1: How to summarize asset bundles
+    ① Compressed or uncompressed
+    ② Individual or large quantity&lt;/li&gt;
+&lt;li&gt;Supplement 2
+    ① Individual synchronous load
+    ② Individual asynchronous load
+    ③ bulk synchronous load&lt;/li&gt;
+&lt;li&gt;【Efficient Build】
+    ① Automation
+    ② Folder structure
+    ③ Adjustment of property at build time · · ·
+    (Side street: property adjustment at asset import)&lt;/li&gt;
+&lt;li&gt;【Correspondence at the time of version up】 · · · I do not use it so I omit it
+    ① Cash on the URL
+    ② Compatibility&lt;/li&gt;
+&lt;li&gt;【Others】 · · · I do not use it so I omit it
+    ① To use binary data.
+    ② Include the script in the asset bundle. (It is impossible in IOS, so it is omitted)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="unity"></category><category term="assetbundle"></category></entry><entry><title>Scale Shuriken Particle System</title><link href="http://minhhh.github.io/posts/scale-shuriken-particle-system" rel="alternate"></link><published>2016-11-29T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-11-29:posts/scale-shuriken-particle-system</id><summary type="html">&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
 &lt;p&gt;There are some plugins on the Asset Store which can help you with this tasks:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/9703"&gt;Simple Particle Scaler&lt;/a&gt;&lt;/li&gt;
