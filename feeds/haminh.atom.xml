@@ -109,6 +109,8 @@
 &lt;li&gt;LZ4 decompress individual Objects without needing to decompress the entire AssetBundle&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://docs.unity3d.com/Manual/AssetBundleCompression.html"&gt;Asset Bundle Compression&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://matome.naver.jp/odai/2139114084705385001"&gt;Unity AssetBundle summary&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[Unite Japan 2013] Scene / Memory / Asset Bundle&lt;ul&gt;
