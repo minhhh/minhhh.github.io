@@ -79,6 +79,10 @@ Asset Bundle is a big topic in Unity. Initially, you want to grasp the basic set
 
 <br/>
 
+**[Asset Bundle Compression](https://docs.unity3d.com/Manual/AssetBundleCompression.html)**
+
+<br/>
+
 **[Unity AssetBundle summary](https://matome.naver.jp/odai/2139114084705385001)**
 
 * [Unite Japan 2013] Scene / Memory / Asset Bundle
