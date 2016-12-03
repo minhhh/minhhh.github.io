@@ -66,14 +66,16 @@ Some texture optimization recommendations
 
 * ETC1 with Alpha channel splitalpha
     * Split Alpha texture
-    ```
-                            合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
-    RGBA 16bit	            879	                        0
-    RGBA PVRTC 4bit	        229	                        74
-    RGBA ETC2 8bit	        431	                        51
-    Split Alpha (Android)	249	                        72
-    Split Alpha (iOS)	    272	                        69
-    ```
+
+```
+                        合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
+RGBA 16bit	            879	                        0
+RGBA PVRTC 4bit	        229	                        74
+RGBA ETC2 8bit	        431	                        51
+Split Alpha (Android)	249	                        72
+Split Alpha (iOS)	    272	                        69
+```
+
 * https://github.com/keijiro/unity-alphamask
 
 In conclusion, use ETC + Alpha channel whenever you can because it provides the best build size and memory footprint in most cases, at reasonable quality.
