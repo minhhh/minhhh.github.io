@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-12-03T00:00:00-05:00</updated><entry><title>Unity geometry distortion on child object</title><link href="http://minhhh.github.io/posts/unity-geometry-distortion-on-child-object" rel="alternate"></link><published>2016-12-03T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-12-03:posts/unity-geometry-distortion-on-child-object</id><summary type="html">&lt;p&gt;In Unity there is a geometry issue with the child object of non-uniformly scaled parent. When the parent object does not have (1,1,1) scale, then the child object will be skewed weirdly when they rotate. This issue has been mentioned in the below references:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-12-03T00:01:00-05:00</updated><entry><title>Unity Texture compression and optimization</title><link href="http://minhhh.github.io/posts/unity-texture-compression-and-optimization" rel="alternate"></link><published>2016-12-03T00:01:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-12-03:posts/unity-texture-compression-and-optimization</id><summary type="html">&lt;p&gt;A common question when building Unity games is which texture compression format will be the best. The criteria are: size on disk, memory footprint, performance.&lt;/p&gt;
+&lt;p&gt;We have many options in the Unity Engine: ETC1, ETC2, DXT3, DXT5, and so on. How do we choose? Let's look at some optimization tricks to see how others choose their formats.&lt;/p&gt;
+&lt;p&gt;First you need to understand &lt;a href="http://gamedev.stackexchange.com/questions/5171/how-much-memory-does-a-texture-take-up-on-the-gpu"&gt;How much memory does a texture take up on the GPU?&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;many modern engines opt to store the same format on disk as they do in memory, leading to files that are the same size as the texture's memory requirements&lt;/li&gt;
+&lt;li&gt;Uncompresed image of 256x256 is 256KB. A DXT1 image of 256x256 is 32KB. And DXT3 or DXT5 is 64KB&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://mainroach.blogspot.com/2014/03/the-png-vs-gpu-battle-on-android.html"&gt;http://mainroach.blogspot.com/2014/03/the-png-vs-gpu-battle-on-android.html&lt;/a&gt; also explains why you don't want to use plain &lt;code&gt;png&lt;/code&gt; textures. Instead, export them to &lt;code&gt;DXT1&lt;/code&gt;, &lt;code&gt;PVR&lt;/code&gt; or &lt;code&gt;ETC&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://web.archive.org/web/20160826092252/http://android-developers.blogspot.com/2015/01/efficient-game-textures-with-hardware.html"&gt;Efficient Game Textures with Hardware Compression&lt;/a&gt; examines preferable compression formats which are supported on the GPU to help you reduce .apk size and loading times of your game:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;As you can see, with higher OpenGL support you gain access to better formats. There are proprietary formats to replace ETC1, delivering higher quality and alpha channel support. These are shown in the following table:&lt;ul&gt;
+&lt;li&gt;ATC   Available with Adreno GPU.&lt;/li&gt;
+&lt;li&gt;PVRTC Available with a PowerVR GPU.&lt;/li&gt;
+&lt;li&gt;DXT1  S3 DXT1 texture compression. Supported on devices running Nvidia Tegra platform.&lt;/li&gt;
+&lt;li&gt;S3TC  S3 texture compression, nonspecific to DXT variant. Supported on devices running Nvidia Tegra platform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using hardware accelerated textures in your games will help you reduce the size of your .apk, runtime memory use as well as loading times.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://web.archive.org/web/20160507141202/http://biobeasts.artix.com/unity-2d-texture-optimization/"&gt;Unity 2D Texture Optimization&lt;/a&gt; explains how they group textures by type instead of logical groups to save memory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2048x2048 sprite sheet above, even with compression applied, took up 4mb in Texture2D memory&lt;/li&gt;
+&lt;li&gt;assets fail to render and appear like black shapes&lt;/li&gt;
+&lt;li&gt;organize sprite sheets into three compression types: Solids, Fades, and Alpha Punchouts.&lt;/li&gt;
+&lt;li&gt;Solids are any rectangular assets with NO alpha. Here we can get a major savings by selecting a 4-bit compression that doesn't support alpha.&lt;/li&gt;
+&lt;li&gt;Alpha Punchouts are any other shapes that use binary alpha, meaning the area of the image is either 100% or 0% alpha. Here we select a 5-bit compression&lt;/li&gt;
+&lt;li&gt;Fades are reserved for our most complex objects that contain variable degrees of alpha. We use these sparingly and compress them using a minimum of 8-bit RGBA to look best.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://web.archive.org/web/20160513225925/http://forum.unity3d.com/threads/etc1-vs-etc2-texture-compression.219842/"&gt;ETC1 vs ETC2 vs DXT5&lt;/a&gt; discuss which is the best texture format&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ETC2 only for devices supporting ES 3.0&lt;/li&gt;
+&lt;li&gt;But if your targeting all devices... which u should consider doing in 2015, then it doesnt matter if you pick ETC2 or DXT5 Crunched because theyre both getting decompressed. Which makes sense for ARGB. And then for RGB just ETC1&lt;/li&gt;
+&lt;li&gt;Most devices support ETC1 &lt;a href="http://developer.android.com/guide/topics/graphics/opengl.html#textures"&gt;http://developer.android.com/guide/topics/graphics/opengl.html#textures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I was able to remove 25% of my file size this weekend, thanks to switching to ETC1 + DXT5 Crunched&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://web.archive.org/web/20150610061237/https://software.intel.com/en-us/articles/android-texture-compression-a-comparison-study-with-code-sample"&gt;Android Texture Compression - a comparison study with code sample&lt;/a&gt; compares the quality and sizes of different formats on Android devices including: &lt;code&gt;png, etc, etc2, pvrtc and s3tc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://web.archive.org/web/20160513225136/http://forum.unity3d.com/threads/etc2-as-default-texture-compression-on-android.348582/"&gt;ETC2 as default texture compression on Android&lt;/a&gt; discuss usage of ETC2 format&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We use DXT5 on our sprites to save space on apk file. When the device does not support your texture type, Unity uses software decompression on load and your textures become 32bit RGBA.&lt;/li&gt;
+&lt;li&gt;Use ETC2 to save memory. It might be bad for some low-spec device if they don't support ETC2. Also one more reason to pack your own sheets instead of using Unity packer, since you can do dithering yourself&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some texture optimization recommendations&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Don't use mipmap for 2D &lt;a href="https://web.archive.org/web/20160422114629/http://forum.unity3d.com/threads/is-it-possible-to-turn-on-mip-maps-for-a-sprite.219054/"&gt;Is it possible to turn on Mip Maps for a sprite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Compress your textures to DXT1 or DXT5 &lt;a href="https://web.archive.org/web/20160428065248/http://forum.unity3d.com/threads/tips-and-tricks-make-sure-to-profile-your-phone-apps-memory-usage.202952/"&gt;Memory optimization tricks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://web.archive.org/web/20160520084556/http://forum.unity3d.com/threads/what-resolution-should-i-be-painting-sprites-in.225845/"&gt;What Resolution should I be painting sprites in?&lt;/a&gt; 2048x2048 seems a bit big already on mobile device&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://support.unity3d.com/hc/en-us/articles/207051116-How-can-I-add-Alpha-to-ETC1-Compression-"&gt;How Can I Add Alpha To ETC1 Compression?&lt;/a&gt; attempts to answer the question about ETC1 + Alpha channel&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sprites placed on some atlas by specifying them with a packing tag&lt;/li&gt;
+&lt;li&gt;Make sure to mark the Override for Android checkbox as well as the Compress using ETC1 checkbox. Unity will split the resulting atlas into two textures, each without Alpha and then combine them in the final parts of the RenderPipeline.&lt;/li&gt;
+&lt;li&gt;The UI shaders in Unity 5.3.0 and earlier do not support ETC1 + Alpha&lt;/li&gt;
+&lt;li&gt;Yes. The UI elements do not work well with ETC1. We have a bug on it. (http://forum.unity3d.com/threads/etc1-alpha-feature.350184/)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://web.archive.org/web/20160726041743/http://developers.mobage.jp/blog/texture-compression"&gt;Unity mobile Splitalpha&lt;/a&gt;. This blogs has solved the issue with ETC1 + Alpha and provided a solution for both Android and iOS devices.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ETC1 with Alpha channel splitalpha&lt;ul&gt;
+&lt;li&gt;Split Alpha texture
+&lt;code&gt;合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
+RGBA 16bit              879                         0
+RGBA PVRTC 4bit         229                         74
+RGBA ETC2 8bit          431                         51
+Split Alpha (Android)   249                         72
+Split Alpha (iOS)       272                         69&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;https://github.com/keijiro/unity-alphamask&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In conclusion, use ETC + Alpha channel whenever you can because it provides the best build size and memory footprint in most cases, at reasonable quality.&lt;/p&gt;</summary><category term="unity"></category><category term="texture"></category><category term="splitalpha"></category><category term="optimization"></category></entry><entry><title>Unity geometry distortion on child object</title><link href="http://minhhh.github.io/posts/unity-geometry-distortion-on-child-object" rel="alternate"></link><published>2016-12-03T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-12-03:posts/unity-geometry-distortion-on-child-object</id><summary type="html">&lt;p&gt;In Unity there is a geometry issue with the child object of non-uniformly scaled parent. When the parent object does not have (1,1,1) scale, then the child object will be skewed weirdly when they rotate. This issue has been mentioned in the below references:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;http://answers.unity3d.com/questions/197739/object-skewing-on-rotation.html&lt;/li&gt;
 &lt;li&gt;http://answers.unity3d.com/questions/21645/geometry-distortion-on-child-objects.html&lt;/li&gt;
