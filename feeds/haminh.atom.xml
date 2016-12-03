@@ -56,15 +56,20 @@
 &lt;p&gt;&lt;a href="https://web.archive.org/web/20160726041743/http://developers.mobage.jp/blog/texture-compression"&gt;Unity mobile Splitalpha&lt;/a&gt;. This blogs has solved the issue with ETC1 + Alpha and provided a solution for both Android and iOS devices.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ETC1 with Alpha channel splitalpha&lt;ul&gt;
-&lt;li&gt;Split Alpha texture
-&lt;code&gt;合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
+&lt;li&gt;Split Alpha texture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;                        合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
 RGBA 16bit              879                         0
 RGBA PVRTC 4bit         229                         74
 RGBA ETC2 8bit          431                         51
 Split Alpha (Android)   249                         72
-Split Alpha (iOS)       272                         69&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+Split Alpha (iOS)       272                         69
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
 &lt;li&gt;https://github.com/keijiro/unity-alphamask&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In conclusion, use ETC + Alpha channel whenever you can because it provides the best build size and memory footprint in most cases, at reasonable quality.&lt;/p&gt;</summary><category term="unity"></category><category term="texture"></category><category term="splitalpha"></category><category term="optimization"></category></entry><entry><title>Unity geometry distortion on child object</title><link href="http://minhhh.github.io/posts/unity-geometry-distortion-on-child-object" rel="alternate"></link><published>2016-12-03T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-12-03:posts/unity-geometry-distortion-on-child-object</id><summary type="html">&lt;p&gt;In Unity there is a geometry issue with the child object of non-uniformly scaled parent. When the parent object does not have (1,1,1) scale, then the child object will be skewed weirdly when they rotate. This issue has been mentioned in the below references:&lt;/p&gt;
