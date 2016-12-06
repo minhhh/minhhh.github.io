@@ -9,14 +9,15 @@ Tags: rx
 **[The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)** Best introduction tutorial to Reactive Programming
 
 **[Introduction to Rx](http://www.introtorx.com/)** This book aims to teach you:
-    * about the new types that Rx will provide
-    * about the extension methods and how to use them
-    * how to manage subscriptions to "sequences" of data
-    * how to visualize "sequences" of data and sketch your solution before coding it
-    * how to deal with concurrency to your advantage and avoid common pitfalls
-    * how to compose, aggregate and transform streams
-    * how to test your Rx code
-    * some guidance on best practices when using Rx.
+
+* about the new types that Rx will provide
+* about the extension methods and how to use them
+* how to manage subscriptions to "sequences" of data
+* how to visualize "sequences" of data and sketch your solution before coding it
+* how to deal with concurrency to your advantage and avoid common pitfalls
+* how to compose, aggregate and transform streams
+* how to test your Rx code
+* some guidance on best practices when using Rx.
 
 **[ReactiveX](http://reactivex.io/intro.html)** The home of ReactiveX. Introduction, All operators are illustrated with graphical marble diagrams, there makes easy to understand
 
