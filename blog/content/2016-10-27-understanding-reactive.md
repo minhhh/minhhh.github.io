@@ -18,6 +18,8 @@ Tags: rx
     * how to test your Rx code
     * some guidance on best practices when using Rx.
 
+**[ReactiveX](http://reactivex.io/intro.html)** The home of ReactiveX. Introduction, All operators are illustrated with graphical marble diagrams, there makes easy to understand
+
 ## Reactive Design Patterns
 **[Reactive Design Patterns](http://www.slideshare.net/ZalandoTech/reactive-design-patterns-a-talk-by-typesafes-dr-roland-kuhn)** by Dr. Roland Kuhn: leader of Typesafe’s Akka project, and coauthor of the book Reactive Design Patterns and the Reactive Manifesto. Roland highlighted the importance of making reactive software: of considering responsiveness, maintainability, elasticity and scalability from the outset of development. He explored several architecture elements that are commonly found in reactive systems, such as the circuit breaker, various replication techniques, and flow control protocols. These patterns are language-agnostic and also independent of the abundant choice of reactive programming frameworks and libraries.
 
