@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Sun, 04 Dec 2016 00:00:00 -0500</lastBuildDate><item><title>Understanding Reactive</title><link>http://minhhh.github.io/posts/understanding-reactive</link><description>&lt;h2&gt;Reactive tutorials and manual&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754"&gt;The introduction to Reactive Programming you've been missing&lt;/a&gt;&lt;/strong&gt; Best introduction tutorial to Reactive Programming&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.introtorx.com/"&gt;Introduction to Rx&lt;/a&gt;&lt;/strong&gt; This book aims to teach you:
-    * about the new types that Rx will provide
-    * about the extension methods and how to use them
-    * how to manage subscriptions to "sequences" of data
-    * how to visualize "sequences" of data and sketch your solution before coding it
-    * how to deal with concurrency to your advantage and avoid common pitfalls
-    * how to compose, aggregate and transform streams
-    * how to test your Rx code
-    * some guidance on best practices when using Rx.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.introtorx.com/"&gt;Introduction to Rx&lt;/a&gt;&lt;/strong&gt; This book aims to teach you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;about the new types that Rx will provide&lt;/li&gt;
+&lt;li&gt;about the extension methods and how to use them&lt;/li&gt;
+&lt;li&gt;how to manage subscriptions to "sequences" of data&lt;/li&gt;
+&lt;li&gt;how to visualize "sequences" of data and sketch your solution before coding it&lt;/li&gt;
+&lt;li&gt;how to deal with concurrency to your advantage and avoid common pitfalls&lt;/li&gt;
+&lt;li&gt;how to compose, aggregate and transform streams&lt;/li&gt;
+&lt;li&gt;how to test your Rx code&lt;/li&gt;
+&lt;li&gt;some guidance on best practices when using Rx.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://reactivex.io/intro.html"&gt;ReactiveX&lt;/a&gt;&lt;/strong&gt; The home of ReactiveX. Introduction, All operators are illustrated with graphical marble diagrams, there makes easy to understand&lt;/p&gt;
 &lt;h2&gt;Reactive Design Patterns&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://www.slideshare.net/ZalandoTech/reactive-design-patterns-a-talk-by-typesafes-dr-roland-kuhn"&gt;Reactive Design Patterns&lt;/a&gt;&lt;/strong&gt; by Dr. Roland Kuhn: leader of Typesafe’s Akka project, and coauthor of the book Reactive Design Patterns and the Reactive Manifesto. Roland highlighted the importance of making reactive software: of considering responsiveness, maintainability, elasticity and scalability from the outset of development. He explored several architecture elements that are commonly found in reactive systems, such as the circuit breaker, various replication techniques, and flow control protocols. These patterns are language-agnostic and also independent of the abundant choice of reactive programming frameworks and libraries.&lt;/p&gt;
