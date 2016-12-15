@@ -8,7 +8,7 @@
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Clippings 2016-09-26 - Ha.Minh's Blog</title>
+    <title>Understanding Unity ScriptableObject - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -90,41 +90,273 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Mon 26 September 2016
+  Thu 15 December 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2016-09-26" rel="bookmark"
-     title="Permalink to Clippings 2016-09-26">
-    Clippings 2016-09-26
+  <a href="http://minhhh.github.io/posts/understanding-unity-scriptableobject" rel="bookmark"
+     title="Permalink to Understanding Unity ScriptableObject">
+    Understanding Unity ScriptableObject
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
+    <a href="http://minhhh.github.io/category/unity.html">
+      Unity</a>
     &nbsp;&nbsp;
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<ul>
+	<p>In the <a href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects">Introduction to Scriptable Objects</a> tutorial, they claim that <code>Scriptable Objects are amazing data containers</code>. However, it's not clear how useful Scriptable Objects really is, and what problems they're trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they're trying to solve, what the original solutions are, and what the pros and cons of each approach are.</p>
+<h2>Overall</h2>
+<p><strong>What is a Scriptable Object</strong></p>
+<ul>
+<li>Data Container</li>
+<li>Can NOT be attached to GameObject/Prefab</li>
+<li>Can be serialized and inspected like MonoBehaviour</li>
+<li>Can be put into .asset file</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Built into Unity</li>
+<li>Can be saved as assets</li>
+<li>Can save during runtime</li>
+<li>Can be referenced instead of copied like MonoBehaviour</li>
+<li>Internal solution (no files/parsing). Performance is quite fast.</li>
+<li>Add to structure as you go. No need to go through a large file/multiple files to replace schema.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Requires Editor Scripting</li>
+<li>Can't edit outside Unity</li>
+<li>Can't save once deployed</li>
+<li>Cannot optimize loading speed since this is Unity code</li>
+</ul>
+<h2>Use case 1: Global Game Settings</h2>
+<p>Every game has global settings for various aspects such as: Sounds, Video, Game play. There are some options to store these settings:</p>
+<ol>
+<li>Scattered throughout the code, or maybe centralized into one source file.<ol>
+<li>Pros: Easy to code</li>
+<li>Cons: Designers cannot find these settings easily. Change cannot persist if you quit <code>Play</code> mode</li>
+</ol>
+</li>
+<li>Stored in config files: text/binary.<ol>
+<li>Pros: Easy to code. Designers can look at them if they're text files.</li>
+<li>Cons: Cannot change settings while playing. Might be hard for designers to understand and change the settings files since there's no validation method.</li>
+</ol>
+</li>
+<li>Stored in Prefabs<ol>
+<li>Pros: Prefab can be stored as assets</li>
+<li>Cons: It might be too heavy for pure data purpose. Duplicate memory if you create instance.</li>
+</ol>
+</li>
+</ol>
+<p>ScriptableObject can be used to store global settings in <code>.asset</code> files.</p>
+<ul>
+<li>Pros<ol>
+<li>Easy to find them in Unity</li>
+<li>Easy to change and test</li>
+<li>Can change while playing. Changes persist after quitting play mode</li>
+<li>Can have custom editor so it's easy to note the meaning of each field</li>
+<li>Can be validated using custom editor code.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Implementation</strong></p>
+<ol>
+<li>Create a base class for all the global game Settings. It will have a static property <code>Instance</code>, which provides a way to create a singleton instance in a fixed location. This location will be customized on a project basis.</li>
+</ol>
+<div class="codehilite"><pre><span></span>public class Setting&lt;T&gt; : ScriptableObject where T : Setting&lt;T&gt;
+{
+...
+}
+</pre></div>
+
+
+<ol>
+<li>Create subclass the <code>Setting</code> class. Provide a MenuItem for accessing it.</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="k">[MenuItem (&quot;Settings/TextureSetting&quot;)]</span>
+<span class="err">public</span> <span class="err">static</span> <span class="err">void</span> <span class="err">Edit</span> <span class="err">()</span>
+<span class="err">{</span>
+    <span class="na">Selection.activeObject</span> <span class="o">=</span> <span class="s">Instance;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2>Use case 2: Swappable Global Game Settings or Scene Settings</h2>
+<p>Sometimes we don't want to have to change some global settings back and forth between a set of parameters since it's very time-consuming. So we might want to store several pre-defined settings and swap between them quickly.</p>
+<p>Another case is scene settings. These settings only affect the scene, not the whole game, and they usually change between scene reload, for instance, game mode settings: Easy, Medium, Difficult.</p>
+<p>ScriptableObject can deal with this situation:</p>
+<ol>
+<li>To be able to swap setting, create a wrapper setting which references the specific setting</li>
+<li>To swap scene setting, simply load the specific setting in <code>Assets</code> then assign it to specific field in a <code>MonoBehaviour</code></li>
+</ol>
+<p><strong>Implementation</strong>
+<em> Create multiple settings
+</em> Define a field in <code>MonoBehaviour</code> or parent ScriptableObject, referring to the settings ScriptableObject</p>
+<h2>Use case 3: Scriptable Objects as MasterData or Item Database</h2>
+<p>For any sufficiently large game, the game data will be so big that you have to separate them from the code, and they will be referred to as <code>MasterData</code>.</p>
+<p>Popular solutions for storing <code>MasterData</code> include:</p>
+<ol>
+<li>Text/Binary files. E.g <a href="https://www.youtube.com/watch?v=nYWlB7HRNSE">Unity XML Tutorial</a></li>
+<li>Database</li>
+<li>Network</li>
+</ol>
+<p><strong>Cons</strong></p>
+<ol>
+<li>One common disadvantage with these approach is you will need an external viewer to be able to see and modify <code>masterdata</code> conveniently.</li>
+<li>You will have to replicate the schema in code</li>
+</ol>
+<p>ScriptableObject can offer a way to create and edit <code>masterdata</code> inside Unity Editor.</p>
+<p><strong>ScriptableObject Pros</strong></p>
+<ol>
+<li>Can have references to Resources</li>
+<li>View, Add, Delete and Edit entities/items conveniently in Unity Editor</li>
+<li>Use ScriptableObject directly in <code>MonoBehaviour</code> instead of having to create an additional layer of MonoBehaviour</li>
+</ol>
+<p><strong>Implementation</strong></p>
+<p><a href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects">Introduction to Scriptable Objects</a> shows how you use Scriptable Object to create and edit Inventory Lists.</p>
+<p><a href="https://www.youtube.com/watch?v=ItZbTYO0Mnw">Saving Data in Unity: ScriptableObjects</a> shows how you can create multiple <code>Enemy</code> ScriptableObject and use them in the <code>EnemyMove</code> MonoBehaviour.</p>
+<h2>Use case 4: Scriptable Objects as Dynamic Behaviour</h2>
+<p>Another usecase of ScriptableObject is using them as game behaviour which has data that can be modified by designer. They have some instance functions, like <code>MonoBehaviour</code>, but unlike <code>MonoBehaviour</code> which cannot be saved independently without prefabs, ScriptableObject can be saved as if they're just pure data. Game programmers can change the code of the behaviour without affecting game designers.</p>
+<p><strong>Implementation</strong></p>
+<p>These ScriptableObjects are similar to the ones in Usecase 3, but they have functions which can act arbitrarily on <code>GameObject</code>, <code>MonoBehaviour</code> and so on.</p>
+<p><a href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117">Ability System with Scriptable Objects</a> shows how you implement an Ability System, where <code>Ability</code> is ScriptableObject with its own behaviour functions.</p>
+<p>The <code>Ability</code> class contains data and abstracts methods which act on <code>GameObject</code> based on those data.</p>
+<div class="codehilite"><pre><span></span>public abstract class Ability : ScriptableObject
+{
+    public string aName = &quot;New Ability&quot;;
+    public Sprite aSprite;
+    public AudioClip aSound;
+    public float aBaseCoolDown = 1f;
+
+    public abstract void Initialize (GameObject obj);
+    public abstract void TriggerAbility ();
+}
+</pre></div>
+
+
+<p>The <code>ProjectileAbility</code> is a concrete <code>Ability</code> subclass, which modifies the target <code>GameObject</code> as needed and trigger the projectile action.</p>
+<div class="codehilite"><pre><span></span>using UnityEngine;
+using System.Collections;
+
+[CreateAssetMenu (menuName = &quot;Abilities/ProjectileAbility&quot;)]
+public class ProjectileAbility : Ability
+{
+    public float projectileForce = 500f;
+    public Rigidbody projectile;
+
+    private ProjectileShootTriggerable launcher;
+
+    public override void Initialize (GameObject obj)
+    {
+        launcher = obj.GetComponent&lt;ProjectileShootTriggerable&gt; ();
+        launcher.projectileForce = projectileForce;
+        launcher.projectile = projectile;
+    }
+
+    public override void TriggerAbility ()
+    {
+        launcher.Launch ();
+    }
+}
+</pre></div>
+
+
+<p><a href="https://bitbucket.org/richardfine/scriptableobjectdemo">ScriptableObjectDemo</a> is a more comprehensive demo.</p>
+<h2>Other notes</h2>
+<ul>
 <li>
-<p><a href="https://strongloop.com/strongblog/node-js-deploy-production-best-practice/">Best Practices for Deploying Node.js in Production</a></p>
+<p>MasterData can include global settings, constants and any kind of game data. This really depends on the developers/designers to choose.</p>
 </li>
 <li>
-<p><a href="https://github.com/mr-mig/going-to-production/blob/master/serverside-checklist.md">Serverside checklist</a></p>
+<p>ScriptableObjects can help you to load some specific items in an Item Database quickly, if the items are stored as individual assets. Refactoring multiple ScriptableObject assets into a collection is simple.</p>
+</li>
+</ul>
+<p><strong>Other Methods to store data</strong></p>
+<ol>
+<li>
+<p>From source code</p>
+<ul>
+<li>A lot of code for storing data</li>
+<li>Large binary size</li>
+</ul>
 </li>
 <li>
-<p><a href="https://sematext.com/blog/2015/10/06/recipe-rsyslog-apache-kafka-logstash/">Recipe: rsyslog + Kafka + Logstash</a></p>
+<p>From GameObject</p>
+<ul>
+<li>We can store data in <code>Component</code> inside Prefabs, or in Scene.</li>
+<li>This way is mostly heavier than ScriptableObject</li>
+<li>However, you can pack multiple <code>Component</code> arbitrarily so it might be helpful.</li>
+</ul>
 </li>
 <li>
-<p><a href="https://sematext.com/blog/2016/09/13/logstash-alternatives/">5 Logstash Alternatives</a></p>
+<p>From XML, JSON, CSV, Excel</p>
+<ul>
+<li>Cannot have resources reference</li>
+<li>Might be good to have a workflow to convert into ScriptableObject</li>
+<li>To update data in saved data, text/binary are more suitable than ScriptableObject, which cannot be saved once deployed.</li>
+</ul>
+</li>
+<li>
+<p>PlayerPrefs</p>
+<ul>
+<li>Can be used to save data</li>
+<li>Not suitable for very large amount of data</li>
+<li>Cannot control the save process easily</li>
+</ul>
+</li>
+<li>
+<p>From embedded DB</p>
+<ul>
+<li>Cannot have resources reference</li>
+<li>Might be good to have a workflow to convert into ScriptableObject</li>
+<li>To update data in saved data, database is very convenient. But we must care about performance.</li>
+<li>We must be aware of encryption capabilities of the DB.</li>
+</ul>
+</li>
+<li>
+<p>From Network</p>
+<ul>
+<li>Cannot have resources reference</li>
+<li>Usually used in combination with a text/binary persisted in local storage</li>
+<li>To update data via Network with ScriptableObject, AssetBundle is needed. So the general-purpose text/binary format might be better.</li>
+</ul>
+</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li>
+<p><a href="https://medium.com/@mormo_music/game-settings-with-scriptable-objects-in-unity3d-6f753fe508fd#.tb9ahxiej">Game Settings with Scriptable Objects in Unity3D</a></p>
+</li>
+<li>
+<p><a href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects">Introduction to Scriptable Objects</a></p>
+</li>
+<li>
+<p><a href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117">Ability System with Scriptable Objects</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=ItZbTYO0Mnw">Saving Data in Unity: ScriptableObjects</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=VBA1QCoEAX4">Overthrowing the MonoBehaviour tyranny in a glorious ScriptableObject revolution</a></p>
+</li>
+<li>
+<p><a href="http://tsubakit1.hateblo.jp/entry/2014/07/24/030607">Scriptable Object</a></p>
+</li>
+<li>
+<p><a href="https://bitbucket.org/richardfine/scriptableobjectdemo">ScriptableObjectDemo</a></p>
+</li>
+<li>
+<p><a href="http://ivanozanchetta.com/gamedev/unity3d/unity-serialization-behind-scriptableobject/">Unity Serialization… behind the mistery of ScriptableObject</a></p>
 </li>
 </ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/clippings.html"><i class="fa fa-tag"></i>clippings</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/scriptableobject.html"><i class="fa fa-tag"></i>scriptableobject</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
 
@@ -135,7 +367,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/clippings-2016-09-26" 
+        data-href="http://minhhh.github.io/posts/understanding-unity-scriptableobject" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
