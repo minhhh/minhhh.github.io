@@ -15,6 +15,7 @@ In the [Introduction to Scriptable Objects](https://unity3d.com/learn/tutorials/
 * Can be serialized and inspected like MonoBehaviour
 * Can be put into .asset file
 
+<br/>
 
 **Pros**
 
@@ -24,6 +25,8 @@ In the [Introduction to Scriptable Objects](https://unity3d.com/learn/tutorials/
 * Can be referenced instead of copied like MonoBehaviour
 * Internal solution (no files/parsing). Performance is quite fast.
 * Add to structure as you go. No need to go through a large file/multiple files to replace schema.
+
+<br/>
 
 **Cons**
 
@@ -66,7 +69,6 @@ public class Setting<T> : ScriptableObject where T : Setting<T>
 ...
 }
 ```
-
 2. Create subclass the `Setting` class. Provide a MenuItem for accessing it.
 
 ```
@@ -77,7 +79,6 @@ public static void Edit ()
 }
 ```
 
-
 ## Use case 2: Swappable Global Game Settings or Scene Settings
 Sometimes we don't want to have to change some global settings back and forth between a set of parameters since it's very time-consuming. So we might want to store several pre-defined settings and swap between them quickly.
 
@@ -86,7 +87,7 @@ Another case is scene settings. These settings only affect the scene, not the wh
 ScriptableObject can deal with this situation:
 
 1. To be able to swap setting, create a wrapper setting which references the specific setting
-1. To swap scene setting, simply load the specific setting in `Assets` then assign it to specific field in a `MonoBehaviour`
+2. To swap scene setting, simply load the specific setting in `Assets` then assign it to specific field in a `MonoBehaviour`
 
 **Implementation**
 * Create multiple settings
@@ -187,34 +188,29 @@ public class ProjectileAbility : Ability
 **Other Methods to store data**
 
 1. From source code
-    * A lot of code for storing data
-    * Large binary size
-
-2. From GameObject
-    * We can store data in `Component` inside Prefabs, or in Scene.
-    * This way is mostly heavier than ScriptableObject
-    * However, you can pack multiple `Component` arbitrarily so it might be helpful.
-
-3. From XML, JSON, CSV, Excel
-    * Cannot have resources reference
-    * Might be good to have a workflow to convert into ScriptableObject
-    * To update data in saved data, text/binary are more suitable than ScriptableObject, which cannot be saved once deployed.
-
-4. PlayerPrefs
-    * Can be used to save data
-    * Not suitable for very large amount of data
-    * Cannot control the save process easily
-
-5. From embedded DB
-    * Cannot have resources reference
-    * Might be good to have a workflow to convert into ScriptableObject
-    * To update data in saved data, database is very convenient. But we must care about performance.
-    * We must be aware of encryption capabilities of the DB.
-
-6. From Network
-    * Cannot have resources reference
-    * Usually used in combination with a text/binary persisted in local storage
-    * To update data via Network with ScriptableObject, AssetBundle is needed. So the general-purpose text/binary format might be better.
+    1. A lot of code for storing data
+    1. Large binary size
+1. From GameObject
+    1. We can store data in `Component` inside Prefabs, or in Scene.
+    1. This way is mostly heavier than ScriptableObject
+    1. However, you can pack multiple `Component` arbitrarily so it might be helpful.
+1. From XML, JSON, CSV, Excel
+    1. Cannot have resources reference
+    1. Might be good to have a workflow to convert into ScriptableObject
+    1. To update data in saved data, text/binary are more suitable than ScriptableObject, which cannot be saved once deployed.
+1. PlayerPrefs
+    1. Can be used to save data
+    1. Not suitable for very large amount of data
+    1. Cannot control the save process easily
+1. From embedded DB
+    1. Cannot have resources reference
+    1. Might be good to have a workflow to convert into ScriptableObject
+    1. To update data in saved data, database is very convenient. But we must care about performance.
+    1. We must be aware of encryption capabilities of the DB.
+1. From Network
+    1. Cannot have resources reference
+    1. Usually used in combination with a text/binary persisted in local storage
+    1. To update data via Network with ScriptableObject, AssetBundle is needed. So the general-purpose text/binary format might be better.
 
 
 ## References
