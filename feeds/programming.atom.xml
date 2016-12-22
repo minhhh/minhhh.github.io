@@ -105,7 +105,10 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
     &lt;/td&gt;
     &lt;td class="blob-code blob-code-inner js-file-line" id="LC1"&gt;
      &lt;span class="pl-c"&gt;
-      #! /bin/sh
+      &lt;span class="pl-c"&gt;
+       #!
+      &lt;/span&gt;
+      /bin/sh
      &lt;/span&gt;
     &lt;/td&gt;
    &lt;/tr&gt;
@@ -315,7 +318,7 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -v google.com 80
-    &lt;span class="pl-c"&gt;# Connection to google.com port 80 [tcp/http] succeeded!&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Connection to google.com port 80 [tcp/http] succeeded!&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     To check if a UDP port is open, simple add option
@@ -325,7 +328,7 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    nc -vu google.com 53
-    &lt;span class="pl-c"&gt;# Connection to google.com port 53 [udp/domain] succeeded!&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Connection to google.com port 53 [udp/domain] succeeded!&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#port-scan" id="user-content-port-scan"&gt;
@@ -742,20 +745,20 @@ format:
     Forking a new shell
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c"&gt;# dot slash&lt;/span&gt;
+    &lt;pre&gt;    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; dot slash&lt;/span&gt;
     ./script.sh
 
-    &lt;span class="pl-c"&gt;# specifying the shell interpreter&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; specifying the shell interpreter&lt;/span&gt;
     bash script.sh&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     Executes the script in the current shell without forking a new shell
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c"&gt;# dot space dot slash&lt;/span&gt;
+    &lt;pre&gt;    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; dot space dot slash&lt;/span&gt;
     &lt;span class="pl-c1"&gt;.&lt;/span&gt; ./script.sh
 
-    &lt;span class="pl-c"&gt;# source command : similar to dot space dot slash&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; source command : similar to dot space dot slash&lt;/span&gt;
     &lt;span class="pl-c1"&gt;source&lt;/span&gt; script.sh&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h3&gt;
@@ -768,7 +771,7 @@ format:
     Block Comment
    &lt;/h3&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c"&gt;#! /usr/bin/env bash&lt;/span&gt;
+    &lt;pre&gt;    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#!&lt;/span&gt; /usr/bin/env bash&lt;/span&gt;
     &lt;span class="pl-c1"&gt;:&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-k"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="pl-k"&gt;COMMENT&lt;/span&gt;&lt;/span&gt;
 &lt;span class="pl-s"&gt;    Copyright (C) 2012 Author &amp;lt;author at gmail dot com&amp;gt;&lt;/span&gt;
 &lt;span class="pl-s"&gt;&lt;/span&gt;
@@ -1220,12 +1223,12 @@ format:
         &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Wrapper for file objects to make sure the file gets closed on deletion.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;filepath&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;~&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;filename&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;sample.txt&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# open a file filename in filepath in read and write mode&lt;/span&gt;
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(join(filepath, filename), &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;r+&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; open a file filename in filepath in read and write mode&lt;/span&gt;
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(join(filepath, filename), &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;r+&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__del__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.file.close()
-            &lt;span class="pl-k"&gt;del&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.file&lt;/pre&gt;
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.file.close()
+            &lt;span class="pl-k"&gt;del&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.file&lt;/pre&gt;
    &lt;/div&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#making-operators-work-on-custom-classes" id="user-content-making-operators-work-on-custom-classes"&gt;
@@ -1241,7 +1244,7 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;if&lt;/span&gt; instance.equals(other_instance):
-        &lt;span class="pl-c"&gt;# do something&lt;/span&gt;&lt;/pre&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; do something&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     You could certainly do this in Python, too, but this adds confusion and is unnecessarily verbose. Different libraries might use different names for the same operations, making the client do way more work than necessary. With the power of magic methods, however, we can define one method (
@@ -1252,7 +1255,7 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;if&lt;/span&gt; instance &lt;span class="pl-k"&gt;==&lt;/span&gt; other_instance:
-        &lt;span class="pl-c"&gt;#do something&lt;/span&gt;&lt;/pre&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt;do something&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     That's part of the power of magic methods. The vast majority of them allow us to define meaning for operators so that we can use them on our own classes just like they were built in types.
@@ -1369,21 +1372,21 @@ format:
         &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class for words, defining comparison based on word length.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__new__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;cls&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;word&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# Note that we have to use __new__. This is because str is an immutable&lt;/span&gt;
-            &lt;span class="pl-c"&gt;# type, so we have to initialize it early (at creation)&lt;/span&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Note that we have to use __new__. This is because str is an immutable&lt;/span&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; type, so we have to initialize it early (at creation)&lt;/span&gt;
             &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; word:
                 &lt;span class="pl-c1"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;Value contains spaces. Truncating to first space.&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
-                word &lt;span class="pl-k"&gt;=&lt;/span&gt; word[:word.index(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)] &lt;span class="pl-c"&gt;# Word is now all chars before first space&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;.&lt;span class="pl-c1"&gt;__new__&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, word)
+                word &lt;span class="pl-k"&gt;=&lt;/span&gt; word[:word.index(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt; &lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)] &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Word is now all chars before first space&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;str&lt;/span&gt;.&lt;span class="pl-c1"&gt;__new__&lt;/span&gt;(&lt;span class="pl-c1"&gt;cls&lt;/span&gt;, word)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__gt__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__lt__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__ge__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__le__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)&lt;/pre&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(other)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -1900,7 +1903,7 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    x &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;5&lt;/span&gt;
-    x &lt;span class="pl-k"&gt;+=&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt; &lt;span class="pl-c"&gt;# in other words x = x + 1&lt;/span&gt;&lt;/pre&gt;
+    x &lt;span class="pl-k"&gt;+=&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt; &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; in other words x = x + 1&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2419,15 +2422,15 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
-        &lt;span class="pl-v"&gt;self&lt;/span&gt;.name &lt;span class="pl-k"&gt;=&lt;/span&gt; value
-        &lt;span class="pl-c"&gt;# since every time an attribute is assigned, __setattr__() is called, this&lt;/span&gt;
-        &lt;span class="pl-c"&gt;# is recursion.&lt;/span&gt;
-        &lt;span class="pl-c"&gt;# so this really means self.__setattr__('name', value). Since the method&lt;/span&gt;
-        &lt;span class="pl-c"&gt;# keeps calling itself, the recursion goes on forever causing a crash&lt;/span&gt;
+        &lt;span class="pl-c1"&gt;self&lt;/span&gt;.name &lt;span class="pl-k"&gt;=&lt;/span&gt; value
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; since every time an attribute is assigned, __setattr__() is called, this&lt;/span&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; is recursion.&lt;/span&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; so this really means self.__setattr__('name', value). Since the method&lt;/span&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; keeps calling itself, the recursion goes on forever causing a crash&lt;/span&gt;
 
     &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
-        &lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__dict__&lt;/span&gt;[name] &lt;span class="pl-k"&gt;=&lt;/span&gt; value &lt;span class="pl-c"&gt;# assigning to the dict of names in the class&lt;/span&gt;
-        &lt;span class="pl-c"&gt;# define custom behavior here&lt;/span&gt;&lt;/pre&gt;
+        &lt;span class="pl-c1"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__dict__&lt;/span&gt;[name] &lt;span class="pl-k"&gt;=&lt;/span&gt; value &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; assigning to the dict of names in the class&lt;/span&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; define custom behavior here&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2448,20 +2451,20 @@ format:
 &lt;span class="pl-s"&gt;        The counter increments each time the value is changed.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;val&lt;/span&gt;):
-            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-c1"&gt;0&lt;/span&gt;)
-            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, val)
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-c1"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-c1"&gt;0&lt;/span&gt;)
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-c1"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, val)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
             &lt;span class="pl-k"&gt;if&lt;/span&gt; name &lt;span class="pl-k"&gt;==&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;:
-                &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-v"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
-            &lt;span class="pl-c"&gt;# Make this unconditional.&lt;/span&gt;
-            &lt;span class="pl-c"&gt;# If you want to prevent other attributes to be set, raise AttributeError(name)&lt;/span&gt;
-            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(name, value)
+                &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-c1"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-c1"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Make this unconditional.&lt;/span&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; If you want to prevent other attributes to be set, raise AttributeError(name)&lt;/span&gt;
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-c1"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(name, value)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__delattr__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;name&lt;/span&gt;):
             &lt;span class="pl-k"&gt;if&lt;/span&gt; name &lt;span class="pl-k"&gt;==&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;value&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;:
-                &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-v"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
-            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-v"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__delattr__&lt;/span&gt;(name)&lt;/pre&gt;
+                &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-c1"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__setattr__&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;counter&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-c1"&gt;self&lt;/span&gt;.counter &lt;span class="pl-k"&gt;+&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;)
+            &lt;span class="pl-c1"&gt;super&lt;/span&gt;(AccessCounter, &lt;span class="pl-c1"&gt;self&lt;/span&gt;).&lt;span class="pl-c1"&gt;__delattr__&lt;/span&gt;(name)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2682,49 +2685,49 @@ format:
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;values&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;None&lt;/span&gt;):
             &lt;span class="pl-k"&gt;if&lt;/span&gt; values &lt;span class="pl-k"&gt;is&lt;/span&gt; &lt;span class="pl-c1"&gt;None&lt;/span&gt;:
-                &lt;span class="pl-v"&gt;self&lt;/span&gt;.values &lt;span class="pl-k"&gt;=&lt;/span&gt; []
+                &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values &lt;span class="pl-k"&gt;=&lt;/span&gt; []
             &lt;span class="pl-k"&gt;else&lt;/span&gt;:
-                &lt;span class="pl-v"&gt;self&lt;/span&gt;.values &lt;span class="pl-k"&gt;=&lt;/span&gt; values
+                &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values &lt;span class="pl-k"&gt;=&lt;/span&gt; values
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__len__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values)
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;len&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;.values)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__getitem__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;key&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# if key is of invalid type or value, the list values will raise the error&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[key]
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; if key is of invalid type or value, the list values will raise the error&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[key]
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__setitem__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;key&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[key] &lt;span class="pl-k"&gt;=&lt;/span&gt; value
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[key] &lt;span class="pl-k"&gt;=&lt;/span&gt; value
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__delitem__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;key&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;del&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[key]
+            &lt;span class="pl-k"&gt;del&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[key]
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__iter__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;iter&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values)
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;iter&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;.values)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__reversed__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; FunctionalList(&lt;span class="pl-c1"&gt;reversed&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;.values))
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; FunctionalList(&lt;span class="pl-c1"&gt;reversed&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;.values))
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;append&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.values.append(value)
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values.append(value)
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;head&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# get the first element&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[&lt;span class="pl-c1"&gt;0&lt;/span&gt;]
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; get the first element&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[&lt;span class="pl-c1"&gt;0&lt;/span&gt;]
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;tail&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# get all elements after the first&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[&lt;span class="pl-c1"&gt;1&lt;/span&gt;:]
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; get all elements after the first&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[&lt;span class="pl-c1"&gt;1&lt;/span&gt;:]
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;init&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# get elements up to the last&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[:&lt;span class="pl-k"&gt;-&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;]
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; get elements up to the last&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[:&lt;span class="pl-k"&gt;-&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;]
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;last&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# get last element&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[&lt;span class="pl-k"&gt;-&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;]
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; get last element&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[&lt;span class="pl-k"&gt;-&lt;/span&gt;&lt;span class="pl-c1"&gt;1&lt;/span&gt;]
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;drop&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;n&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# get all elements except first n&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[n:]
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; get all elements except first n&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[n:]
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;take&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;n&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# get first n elements&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.values[:n]&lt;/pre&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; get first n elements&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.values[:n]&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2753,8 +2756,8 @@ format:
     behaves by defining magic methods. The magic methods are:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c1"&gt;__instancecheck__&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;, instance) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; an instance &lt;span class="pl-k"&gt;is&lt;/span&gt; an instance of the &lt;span class="pl-k"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-c1"&gt;isinstance&lt;/span&gt;(instance, &lt;span class="pl-k"&gt;class&lt;/span&gt;).
-    &lt;span class="pl-c1"&gt;__subclasscheck__&lt;/span&gt;(&lt;span class="pl-v"&gt;self&lt;/span&gt;, subclass) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; a &lt;span class="pl-k"&gt;class&lt;/span&gt; subclasses the &lt;span class="pl-k"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-c1"&gt;issubclass&lt;/span&gt;(subclass, &lt;span class="pl-k"&gt;class&lt;/span&gt;)).&lt;/pre&gt;
+    &lt;pre&gt;    &lt;span class="pl-c1"&gt;__instancecheck__&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;, instance) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; an instance &lt;span class="pl-k"&gt;is&lt;/span&gt; an instance of the &lt;span class="pl-k"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-c1"&gt;isinstance&lt;/span&gt;(instance, &lt;span class="pl-k"&gt;class&lt;/span&gt;).
+    &lt;span class="pl-c1"&gt;__subclasscheck__&lt;/span&gt;(&lt;span class="pl-c1"&gt;self&lt;/span&gt;, subclass) Checks &lt;span class="pl-k"&gt;if&lt;/span&gt; a &lt;span class="pl-k"&gt;class&lt;/span&gt; subclasses the &lt;span class="pl-k"&gt;class&lt;/span&gt; you defined (e.g. &lt;span class="pl-c1"&gt;issubclass&lt;/span&gt;(subclass, &lt;span class="pl-k"&gt;class&lt;/span&gt;)).&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2812,14 +2815,14 @@ format:
         &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Class to represent an entity. Callable to update the entity's position.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;size&lt;/span&gt;, &lt;span class="pl-smi"&gt;x&lt;/span&gt;, &lt;span class="pl-smi"&gt;y&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.x, &lt;span class="pl-v"&gt;self&lt;/span&gt;.y &lt;span class="pl-k"&gt;=&lt;/span&gt; x, y
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.size &lt;span class="pl-k"&gt;=&lt;/span&gt; size
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.x, &lt;span class="pl-c1"&gt;self&lt;/span&gt;.y &lt;span class="pl-k"&gt;=&lt;/span&gt; x, y
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.size &lt;span class="pl-k"&gt;=&lt;/span&gt; size
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__call__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;x&lt;/span&gt;, &lt;span class="pl-smi"&gt;y&lt;/span&gt;):
             &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Change the position of the entity.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.x, &lt;span class="pl-v"&gt;self&lt;/span&gt;.y &lt;span class="pl-k"&gt;=&lt;/span&gt; x, y
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.x, &lt;span class="pl-c1"&gt;self&lt;/span&gt;.y &lt;span class="pl-k"&gt;=&lt;/span&gt; x, y
 
-        &lt;span class="pl-c"&gt;# snip...&lt;/span&gt;&lt;/pre&gt;
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; snip...&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2838,7 +2841,7 @@ format:
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;with&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;foo.txt&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-k"&gt;as&lt;/span&gt; bar:
-            &lt;span class="pl-c"&gt;# perform some action with bar&lt;/span&gt;&lt;/pre&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; perform some action with bar&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2896,17 +2899,17 @@ format:
 &lt;span class="pl-s"&gt;    in a with statement.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
     &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;obj&lt;/span&gt;):
-        &lt;span class="pl-v"&gt;self&lt;/span&gt;.obj &lt;span class="pl-k"&gt;=&lt;/span&gt; obj
+        &lt;span class="pl-c1"&gt;self&lt;/span&gt;.obj &lt;span class="pl-k"&gt;=&lt;/span&gt; obj
 
     &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__enter__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-        &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.obj &lt;span class="pl-c"&gt;# bound to target&lt;/span&gt;
+        &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.obj &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; bound to target&lt;/span&gt;
 
     &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__exit__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;exception_type&lt;/span&gt;, &lt;span class="pl-smi"&gt;exception_val&lt;/span&gt;, &lt;span class="pl-smi"&gt;trace&lt;/span&gt;):
         &lt;span class="pl-k"&gt;try&lt;/span&gt;:
-           &lt;span class="pl-v"&gt;self&lt;/span&gt;.obj.close()
-        &lt;span class="pl-k"&gt;except&lt;/span&gt; &lt;span class="pl-c1"&gt;AttributeError&lt;/span&gt;: &lt;span class="pl-c"&gt;# obj isn't closable&lt;/span&gt;
+           &lt;span class="pl-c1"&gt;self&lt;/span&gt;.obj.close()
+        &lt;span class="pl-k"&gt;except&lt;/span&gt; &lt;span class="pl-c1"&gt;AttributeError&lt;/span&gt;: &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; obj isn't closable&lt;/span&gt;
            &lt;span class="pl-c1"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Not closable.&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
-           &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;True&lt;/span&gt; &lt;span class="pl-c"&gt;# exception handled successfully&lt;/span&gt;&lt;/pre&gt;
+           &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;True&lt;/span&gt; &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; exception handled successfully&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -2924,9 +2927,9 @@ format:
     &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; Closer(FTP(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;ftp.somesite.com&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)) &lt;span class="pl-k"&gt;as&lt;/span&gt; conn:
     &lt;span class="pl-c1"&gt;...&lt;/span&gt;     conn.dir()
     &lt;span class="pl-c1"&gt;...&lt;/span&gt;
-    &lt;span class="pl-c"&gt;# output omitted for brevity&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; output omitted for brevity&lt;/span&gt;
     &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; conn.dir()
-    &lt;span class="pl-c"&gt;# long AttributeError message, can't use a connection that's closed&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; long AttributeError message, can't use a connection that's closed&lt;/span&gt;
     &lt;span class="pl-k"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; Closer(&lt;span class="pl-c1"&gt;int&lt;/span&gt;(&lt;span class="pl-c1"&gt;5&lt;/span&gt;)) &lt;span class="pl-k"&gt;as&lt;/span&gt; i:
     &lt;span class="pl-c1"&gt;...&lt;/span&gt;     i &lt;span class="pl-k"&gt;+=&lt;/span&gt; &lt;span class="pl-c1"&gt;1&lt;/span&gt;
     &lt;span class="pl-c1"&gt;...&lt;/span&gt;
@@ -3023,11 +3026,11 @@ format:
         &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Descriptor for a meter.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;&lt;span class="pl-k"&gt;=&lt;/span&gt;&lt;span class="pl-c1"&gt;0.0&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value)
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value)
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__get__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;instance&lt;/span&gt;, &lt;span class="pl-smi"&gt;owner&lt;/span&gt;):
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.value
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__set__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;instance&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value)
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;float&lt;/span&gt;(value)
 
     &lt;span class="pl-k"&gt;class&lt;/span&gt; &lt;span class="pl-en"&gt;Foot&lt;/span&gt;(&lt;span class="pl-c1"&gt;object&lt;/span&gt;):
         &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Descriptor for a foot.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
@@ -3137,7 +3140,7 @@ format:
             &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;bar&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Hello&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;world!&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;),
             &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;baz&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="pl-c1"&gt;True&lt;/span&gt;}
     jar &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;wb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
-    pickle.dump(data, jar) &lt;span class="pl-c"&gt;# write the pickled data to the file jar&lt;/span&gt;
+    pickle.dump(data, jar) &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; write the pickled data to the file jar&lt;/span&gt;
     jar.close()&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
@@ -3149,8 +3152,8 @@ format:
    &lt;div class="highlight highlight-source-python"&gt;
     &lt;pre&gt;    &lt;span class="pl-k"&gt;import&lt;/span&gt; pickle
 
-    pkl_file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;rb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-c"&gt;# connect to the pickled data&lt;/span&gt;
-    data &lt;span class="pl-k"&gt;=&lt;/span&gt; pickle.load(pkl_file) &lt;span class="pl-c"&gt;# load it into a variable&lt;/span&gt;
+    pkl_file &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;open&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;data.pkl&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;rb&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; connect to the pickled data&lt;/span&gt;
+    data &lt;span class="pl-k"&gt;=&lt;/span&gt; pickle.load(pkl_file) &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; load it into a variable&lt;/span&gt;
     &lt;span class="pl-c1"&gt;print&lt;/span&gt; data
     pkl_file.close()&lt;/pre&gt;
    &lt;/div&gt;
@@ -3305,30 +3308,30 @@ format:
 &lt;span class="pl-s"&gt;        pickled.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;value&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; value
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; time.asctime()
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.history &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; value
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; time.asctime()
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.history &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;change&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;new_value&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# Change the value. Commit last value to history&lt;/span&gt;
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.history[&lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change] &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.value
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; new_value
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; time.asctime()
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Change the value. Commit last value to history&lt;/span&gt;
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.history[&lt;span class="pl-c1"&gt;self&lt;/span&gt;.last_change] &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value &lt;span class="pl-k"&gt;=&lt;/span&gt; new_value
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; time.asctime()
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;print_changes&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
             &lt;span class="pl-c1"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;Changelog for Slate object:&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
-            &lt;span class="pl-k"&gt;for&lt;/span&gt; k, v &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.history.items():
+            &lt;span class="pl-k"&gt;for&lt;/span&gt; k, v &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.history.items():
                 &lt;span class="pl-c1"&gt;print&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;span class="pl-c1"&gt;%s&lt;/span&gt;&lt;span class="pl-cce"&gt;\t&lt;/span&gt; &lt;span class="pl-c1"&gt;%s&lt;/span&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;%&lt;/span&gt; (k, v)
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__getstate__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# Deliberately do not return self.value or self.last_change.&lt;/span&gt;
-            &lt;span class="pl-c"&gt;# We want to have a "blank slate" when we unpickle.&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.history
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Deliberately do not return self.value or self.last_change.&lt;/span&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; We want to have a "blank slate" when we unpickle.&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.history
 
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__setstate__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;state&lt;/span&gt;):
-            &lt;span class="pl-c"&gt;# Make self.history = state and last_change and value undefined&lt;/span&gt;
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.history &lt;span class="pl-k"&gt;=&lt;/span&gt; state
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.value, &lt;span class="pl-v"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;None&lt;/span&gt;, &lt;span class="pl-c1"&gt;None&lt;/span&gt;&lt;/pre&gt;
+            &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Make self.history = state and last_change and value undefined&lt;/span&gt;
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.history &lt;span class="pl-k"&gt;=&lt;/span&gt; state
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.value, &lt;span class="pl-c1"&gt;self&lt;/span&gt;.last_change &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;None&lt;/span&gt;, &lt;span class="pl-c1"&gt;None&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4085,7 +4088,7 @@ format:
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-smi"&gt;$1&lt;/span&gt; = &lt;span class="pl-smi"&gt;$1&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-c"&gt;# force record to be rebuilt&lt;/span&gt;&lt;/pre&gt;
+    &lt;pre&gt;    &lt;span class="pl-smi"&gt;$1&lt;/span&gt; = &lt;span class="pl-smi"&gt;$1&lt;/span&gt;&lt;span class="pl-k"&gt;;&lt;/span&gt; &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; force record to be rebuilt&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4157,7 +4160,7 @@ format:
    &lt;/ul&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    $ awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;$1 ~ /J/&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; file
-    &lt;span class="pl-c"&gt;# matches line where the first field start with J&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; matches line where the first field start with J&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4229,8 +4232,8 @@ format:
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c"&gt;# The following code copies all input files to the output, except for records that say @include filename&lt;/span&gt;
-    &lt;span class="pl-c"&gt;# in this case it will replace such records with the content of the file `filename`&lt;/span&gt;
+    &lt;pre&gt;    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; The following code copies all input files to the output, except for records that say @include filename&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; in this case it will replace such records with the content of the file `filename`&lt;/span&gt;
     &lt;span class="pl-k"&gt;if&lt;/span&gt; (NF 2 &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="pl-smi"&gt;$1&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;@include&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;) {
         &lt;span class="pl-k"&gt;while&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;((&lt;/span&gt;getline line &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; &lt;span class="pl-smi"&gt;$2&lt;/span&gt;) &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pl-c1"&gt;0&lt;/span&gt;)&lt;/span&gt;
 &lt;span class="pl-s"&gt;            print line&lt;/span&gt;
@@ -4254,7 +4257,7 @@ format:
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c"&gt;# line begins with @execute is replaced by the output of the command after that&lt;/span&gt;
+    &lt;pre&gt;    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; line begins with @execute is replaced by the output of the command after that&lt;/span&gt;
     {
         &lt;span class="pl-k"&gt;if&lt;/span&gt; (&lt;span class="pl-smi"&gt;$1&lt;/span&gt; &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;@execute&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;) {
             tmp = substr(&lt;span class="pl-smi"&gt;$0&lt;/span&gt;, 10)
@@ -4481,8 +4484,8 @@ format:
    &lt;/ul&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
     &lt;pre&gt;    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{$2=$2-10; print $0}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;
-    &lt;span class="pl-c"&gt;# will subtract 10 from the second field, and the second field should be&lt;/span&gt;
-    &lt;span class="pl-c"&gt;# a number for this to work.&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; will subtract 10 from the second field, and the second field should be&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; a number for this to work.&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -4770,17 +4773,17 @@ format:
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c"&gt;# Suppose that the original files are in folder original_files and we want to copy them to&lt;/span&gt;
-    &lt;span class="pl-c"&gt;# folder new_files&lt;/span&gt;
-    ls original_files &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list1 &lt;span class="pl-c"&gt;# generate list of files&lt;/span&gt;
-    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list2 &lt;span class="pl-c"&gt;# removes all special characters and generate a second list&lt;/span&gt;
+    &lt;pre&gt;    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Suppose that the original files are in folder original_files and we want to copy them to&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; folder new_files&lt;/span&gt;
+    ls original_files &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list1 &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; generate list of files&lt;/span&gt;
+    awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1 &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; list2 &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; removes all special characters and generate a second list&lt;/span&gt;
 
-    &lt;span class="pl-c"&gt;# combine list1 and list2 to a list of shell command in list3&lt;/span&gt;
-    &lt;span class="pl-c"&gt;# We will use strong quoting&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; combine list1 and list2 to a list of shell command in list3&lt;/span&gt;
+    &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; We will use strong quoting&lt;/span&gt;
     awk &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &amp;lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &amp;gt; "list3";}&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt; list1
 
-    sh list3 &lt;span class="pl-c"&gt;# run the list of commands in list3&lt;/span&gt;
-    rm -frv list1 list2 list3 &lt;span class="pl-c"&gt;# remove all temporary files&lt;/span&gt;&lt;/pre&gt;
+    sh list3 &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; run the list of commands in list3&lt;/span&gt;
+    rm -frv list1 list2 list3 &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; remove all temporary files&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -5051,7 +5054,7 @@ format:
     This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
    &lt;/p&gt;
    &lt;div class="highlight highlight-source-python"&gt;
-    &lt;pre&gt;    &lt;span class="pl-c1"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;# None&lt;/span&gt;&lt;/pre&gt;
+    &lt;pre&gt;    &lt;span class="pl-c1"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; None&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -5077,7 +5080,7 @@ format:
             &lt;span class="pl-k"&gt;return&lt;/span&gt; func.cache[key]
         &lt;span class="pl-k"&gt;return&lt;/span&gt; inner
 
-    &lt;span class="pl-c1"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;# Multiply 2 numbers&lt;/span&gt;&lt;/pre&gt;
+    &lt;span class="pl-c1"&gt;print&lt;/span&gt; multiply.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Multiply 2 numbers&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -5189,26 +5192,26 @@ format:
 &lt;span class="pl-s"&gt;        (not reevaluated).&lt;/span&gt;
 &lt;span class="pl-s"&gt;        &lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__init__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;func&lt;/span&gt;):
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.func &lt;span class="pl-k"&gt;=&lt;/span&gt; func
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; func.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
-            &lt;span class="pl-v"&gt;self&lt;/span&gt;.cache &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.func &lt;span class="pl-k"&gt;=&lt;/span&gt; func
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; func.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
+            &lt;span class="pl-c1"&gt;self&lt;/span&gt;.cache &lt;span class="pl-k"&gt;=&lt;/span&gt; {}
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__call__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;*&lt;/span&gt;&lt;span class="pl-smi"&gt;args&lt;/span&gt;, &lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-smi"&gt;kwargs&lt;/span&gt;):
             &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;isinstance&lt;/span&gt;(args, collections.Hashable):
-                &lt;span class="pl-c"&gt;# uncacheable. a list, for instance.&lt;/span&gt;
-                &lt;span class="pl-c"&gt;# better to not cache than blow up.&lt;/span&gt;
-                &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
-            &lt;span class="pl-k"&gt;if&lt;/span&gt; args &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.cache:
-                &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.cache[args]
+                &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; uncacheable. a list, for instance.&lt;/span&gt;
+                &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; better to not cache than blow up.&lt;/span&gt;
+                &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
+            &lt;span class="pl-k"&gt;if&lt;/span&gt; args &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.cache:
+                &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.cache[args]
             &lt;span class="pl-k"&gt;else&lt;/span&gt;:
-                value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
-                &lt;span class="pl-v"&gt;self&lt;/span&gt;.cache[args] &lt;span class="pl-k"&gt;=&lt;/span&gt; value
+                value &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.func(&lt;span class="pl-k"&gt;*&lt;/span&gt;args, &lt;span class="pl-k"&gt;**&lt;/span&gt;kwargs)
+                &lt;span class="pl-c1"&gt;self&lt;/span&gt;.cache[args] &lt;span class="pl-k"&gt;=&lt;/span&gt; value
                 &lt;span class="pl-k"&gt;return&lt;/span&gt; value
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__repr__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;):
             &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Return the function's docstring.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt;.func.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt;.func.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
         &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-c1"&gt;__get__&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;self&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-smi"&gt;obj&lt;/span&gt;, &lt;span class="pl-smi"&gt;objtype&lt;/span&gt;):
             &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'''&lt;/span&gt;Support instance methods.&lt;span class="pl-pds"&gt;'''&lt;/span&gt;&lt;/span&gt;
-            &lt;span class="pl-k"&gt;return&lt;/span&gt; functools.partial(&lt;span class="pl-v"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__call__&lt;/span&gt;, obj)&lt;/pre&gt;
+            &lt;span class="pl-k"&gt;return&lt;/span&gt; functools.partial(&lt;span class="pl-c1"&gt;self&lt;/span&gt;.&lt;span class="pl-c1"&gt;__call__&lt;/span&gt;, obj)&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -5259,30 +5262,30 @@ format:
     &lt;pre&gt;    &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;total_ordering&lt;/span&gt;(&lt;span class="pl-smi"&gt;&lt;span class="pl-smi"&gt;cls&lt;/span&gt;&lt;/span&gt;):
         &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"""&lt;/span&gt;Class decorator that fills in missing ordering methods&lt;span class="pl-pds"&gt;"""&lt;/span&gt;&lt;/span&gt;
         convert &lt;span class="pl-k"&gt;=&lt;/span&gt; {
-            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other)],
-            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other)],
-            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other)],
-            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: (&lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other) &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
-                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-v"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other)]
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt; other)],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;lt;=&lt;/span&gt; other)],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; (&lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other)),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; other)],
+            &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__ge__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;: [(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__le__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: (&lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other) &lt;span class="pl-k"&gt;or&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__gt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other &lt;span class="pl-k"&gt;and&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;==&lt;/span&gt; other),
+                    (&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;__lt__&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="pl-k"&gt;lambda&lt;/span&gt; &lt;span class="pl-smi"&gt;self&lt;/span&gt;, &lt;span class="pl-smi"&gt;other&lt;/span&gt;: &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;self&lt;/span&gt; &lt;span class="pl-k"&gt;&amp;gt;=&lt;/span&gt; other)]
         }
-        &lt;span class="pl-c"&gt;# Find user-defined comparisons (not those inherited from object).&lt;/span&gt;
-        roots &lt;span class="pl-k"&gt;=&lt;/span&gt; [op &lt;span class="pl-k"&gt;for&lt;/span&gt; op &lt;span class="pl-k"&gt;in&lt;/span&gt; convert &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;) &lt;span class="pl-k"&gt;is&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;object&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;)]
+        &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; Find user-defined comparisons (not those inherited from object).&lt;/span&gt;
+        roots &lt;span class="pl-k"&gt;=&lt;/span&gt; [op &lt;span class="pl-k"&gt;for&lt;/span&gt; op &lt;span class="pl-k"&gt;in&lt;/span&gt; convert &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;cls&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;) &lt;span class="pl-k"&gt;is&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;object&lt;/span&gt;, op, &lt;span class="pl-c1"&gt;None&lt;/span&gt;)]
         &lt;span class="pl-k"&gt;if&lt;/span&gt; &lt;span class="pl-k"&gt;not&lt;/span&gt; roots:
             &lt;span class="pl-k"&gt;raise&lt;/span&gt; &lt;span class="pl-c1"&gt;ValueError&lt;/span&gt;(&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;'&lt;/span&gt;must define at least one ordering operation: &amp;lt; &amp;gt; &amp;lt;= &amp;gt;=&lt;span class="pl-pds"&gt;'&lt;/span&gt;&lt;/span&gt;)
-        root &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;max&lt;/span&gt;(roots)       &lt;span class="pl-c"&gt;# prefer __lt__ to __le__ to __gt__ to __ge__&lt;/span&gt;
+        root &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;max&lt;/span&gt;(roots)       &lt;span class="pl-c"&gt;&lt;span class="pl-c"&gt;#&lt;/span&gt; prefer __lt__ to __le__ to __gt__ to __ge__&lt;/span&gt;
         &lt;span class="pl-k"&gt;for&lt;/span&gt; opname, opfunc &lt;span class="pl-k"&gt;in&lt;/span&gt; convert[root]:
             &lt;span class="pl-k"&gt;if&lt;/span&gt; opname &lt;span class="pl-k"&gt;not&lt;/span&gt; &lt;span class="pl-k"&gt;in&lt;/span&gt; roots:
                 opfunc.&lt;span class="pl-c1"&gt;__name__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; opname
                 opfunc.&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt; &lt;span class="pl-k"&gt;=&lt;/span&gt; &lt;span class="pl-c1"&gt;getattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;int&lt;/span&gt;, opname).&lt;span class="pl-c1"&gt;__doc__&lt;/span&gt;
-                &lt;span class="pl-c1"&gt;setattr&lt;/span&gt;(&lt;span class="pl-v"&gt;cls&lt;/span&gt;, opname, opfunc)
-        &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-v"&gt;cls&lt;/span&gt;&lt;/pre&gt;
+                &lt;span class="pl-c1"&gt;setattr&lt;/span&gt;(&lt;span class="pl-c1"&gt;cls&lt;/span&gt;, opname, opfunc)
+        &lt;span class="pl-k"&gt;return&lt;/span&gt; &lt;span class="pl-c1"&gt;cls&lt;/span&gt;&lt;/pre&gt;
    &lt;/div&gt;
    &lt;p&gt;
     &lt;br/&gt;
@@ -6400,9 +6403,30 @@ format:
     &lt;/a&gt;
     Migrate from bitbucket to github
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;    cd $HOME/dev/Pipelines
+   &lt;pre&gt;&lt;code&gt;    cd &amp;lt;path_to_repo&amp;gt;
     git remote rename origin bitbucket
-    git remote add origin https://github.com/edwardaux/Pipelines.git
+    git remote add origin &amp;lt;new_repo_url&amp;gt; # add the new origin
+    git push -u origin --all # pushes up the repo and its refs for the first time
+    git push -u origin --tags # pushes up any tags
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#rename-github-repo" id="user-content-rename-github-repo"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Rename github repo
+   &lt;/h4&gt;
+   &lt;p&gt;
+    Create a new git repo with the new name
+   &lt;/p&gt;
+   &lt;pre&gt;&lt;code&gt;    cd &amp;lt;path_to_repo&amp;gt;
+    git remote rename origin old
+    git remote add origin &amp;lt;new_repo_url&amp;gt;
     git push -u origin --all # pushes up the repo and its refs for the first time
     git push -u origin --tags # pushes up any tags
 &lt;/code&gt;&lt;/pre&gt;

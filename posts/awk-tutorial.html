@@ -389,7 +389,7 @@
     </li>
    </ul>
    <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-smi">$1</span> = <span class="pl-smi">$1</span><span class="pl-k">;</span> <span class="pl-c"># force record to be rebuilt</span></pre>
+    <pre>    <span class="pl-smi">$1</span> = <span class="pl-smi">$1</span><span class="pl-k">;</span> <span class="pl-c"><span class="pl-c">#</span> force record to be rebuilt</span></pre>
    </div>
    <p>
     <br/>
@@ -461,7 +461,7 @@
    </ul>
    <div class="highlight highlight-source-shell">
     <pre>    $ awk <span class="pl-s"><span class="pl-pds">'</span>$1 ~ /J/<span class="pl-pds">'</span></span> file
-    <span class="pl-c"># matches line where the first field start with J</span></pre>
+    <span class="pl-c"><span class="pl-c">#</span> matches line where the first field start with J</span></pre>
    </div>
    <p>
     <br/>
@@ -533,8 +533,8 @@
     </li>
    </ul>
    <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-c"># The following code copies all input files to the output, except for records that say @include filename</span>
-    <span class="pl-c"># in this case it will replace such records with the content of the file `filename`</span>
+    <pre>    <span class="pl-c"><span class="pl-c">#</span> The following code copies all input files to the output, except for records that say @include filename</span>
+    <span class="pl-c"><span class="pl-c">#</span> in this case it will replace such records with the content of the file `filename`</span>
     <span class="pl-k">if</span> (NF 2 <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$1</span> <span class="pl-s"><span class="pl-pds">"</span>@include<span class="pl-pds">"</span></span>) {
         <span class="pl-k">while</span> <span class="pl-s"><span class="pl-pds">((</span>getline line <span class="pl-k">&lt;</span> <span class="pl-smi">$2</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
 <span class="pl-s">            print line</span>
@@ -558,7 +558,7 @@
     </li>
    </ul>
    <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-c"># line begins with @execute is replaced by the output of the command after that</span>
+    <pre>    <span class="pl-c"><span class="pl-c">#</span> line begins with @execute is replaced by the output of the command after that</span>
     {
         <span class="pl-k">if</span> (<span class="pl-smi">$1</span> <span class="pl-s"><span class="pl-pds">"</span>@execute<span class="pl-pds">"</span></span>) {
             tmp = substr(<span class="pl-smi">$0</span>, 10)
@@ -785,8 +785,8 @@
    </ul>
    <div class="highlight highlight-source-shell">
     <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>{$2=$2-10; print $0}<span class="pl-pds">'</span></span>
-    <span class="pl-c"># will subtract 10 from the second field, and the second field should be</span>
-    <span class="pl-c"># a number for this to work.</span></pre>
+    <span class="pl-c"><span class="pl-c">#</span> will subtract 10 from the second field, and the second field should be</span>
+    <span class="pl-c"><span class="pl-c">#</span> a number for this to work.</span></pre>
    </div>
    <p>
     <br/>
@@ -1074,17 +1074,17 @@
     </li>
    </ul>
    <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-c"># Suppose that the original files are in folder original_files and we want to copy them to</span>
-    <span class="pl-c"># folder new_files</span>
-    ls original_files <span class="pl-k">&gt;</span> list1 <span class="pl-c"># generate list of files</span>
-    awk <span class="pl-s"><span class="pl-pds">'</span>{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}<span class="pl-pds">'</span></span> list1 <span class="pl-k">&gt;</span> list2 <span class="pl-c"># removes all special characters and generate a second list</span>
+    <pre>    <span class="pl-c"><span class="pl-c">#</span> Suppose that the original files are in folder original_files and we want to copy them to</span>
+    <span class="pl-c"><span class="pl-c">#</span> folder new_files</span>
+    ls original_files <span class="pl-k">&gt;</span> list1 <span class="pl-c"><span class="pl-c">#</span> generate list of files</span>
+    awk <span class="pl-s"><span class="pl-pds">'</span>{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}<span class="pl-pds">'</span></span> list1 <span class="pl-k">&gt;</span> list2 <span class="pl-c"><span class="pl-c">#</span> removes all special characters and generate a second list</span>
 
-    <span class="pl-c"># combine list1 and list2 to a list of shell command in list3</span>
-    <span class="pl-c"># We will use strong quoting</span>
+    <span class="pl-c"><span class="pl-c">#</span> combine list1 and list2 to a list of shell command in list3</span>
+    <span class="pl-c"><span class="pl-c">#</span> We will use strong quoting</span>
     awk <span class="pl-s"><span class="pl-pds">'</span>{gsub(/\47/, "\47\\\47\47", $0); str = $0; getline &lt; "list2"; print "cp -f \47original_files/"str "\47 \47new_files/"$0"\47" &gt; "list3";}<span class="pl-pds">'</span></span> list1
 
-    sh list3 <span class="pl-c"># run the list of commands in list3</span>
-    rm -frv list1 list2 list3 <span class="pl-c"># remove all temporary files</span></pre>
+    sh list3 <span class="pl-c"><span class="pl-c">#</span> run the list of commands in list3</span>
+    rm -frv list1 list2 list3 <span class="pl-c"><span class="pl-c">#</span> remove all temporary files</span></pre>
    </div>
    <p>
     <br/>
@@ -1268,63 +1268,38 @@
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/ios.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>ios
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
     </a>
 </span>
 <span class="tag-2">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 <span class="tag-4">
@@ -1333,8 +1308,113 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
     </a>
 </span>
 <span class="tag-4">
@@ -1348,73 +1428,13 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    <a href="http://minhhh.github.io/tag/ios.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>ios
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
     </a>
 </span>
 <span class="tag-4">
@@ -1423,58 +1443,43 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
     </a>
 </span>
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/particlesystem.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
     </a>
 </span>
 <span class="tag-4">
