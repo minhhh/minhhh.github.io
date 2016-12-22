@@ -468,12 +468,12 @@
         <span class="pl-s"><span class="pl-pds">'''</span>Wrapper for file objects to make sure the file gets closed on deletion.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">filepath</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>~<span class="pl-pds">'</span></span>, <span class="pl-smi">filename</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>sample.txt<span class="pl-pds">'</span></span>):
-            <span class="pl-c"># open a file filename in filepath in read and write mode</span>
-            <span class="pl-v">self</span>.file <span class="pl-k">=</span> <span class="pl-c1">open</span>(join(filepath, filename), <span class="pl-s"><span class="pl-pds">'</span>r+<span class="pl-pds">'</span></span>)
+            <span class="pl-c"><span class="pl-c">#</span> open a file filename in filepath in read and write mode</span>
+            <span class="pl-c1">self</span>.file <span class="pl-k">=</span> <span class="pl-c1">open</span>(join(filepath, filename), <span class="pl-s"><span class="pl-pds">'</span>r+<span class="pl-pds">'</span></span>)
 
         <span class="pl-k">def</span> <span class="pl-c1">__del__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-v">self</span>.file.close()
-            <span class="pl-k">del</span> <span class="pl-v">self</span>.file</pre>
+            <span class="pl-c1">self</span>.file.close()
+            <span class="pl-k">del</span> <span class="pl-c1">self</span>.file</pre>
    </div>
    <h2>
     <a aria-hidden="true" class="anchor" href="#making-operators-work-on-custom-classes" id="user-content-making-operators-work-on-custom-classes">
@@ -489,7 +489,7 @@
    </p>
    <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">if</span> instance.equals(other_instance):
-        <span class="pl-c"># do something</span></pre>
+        <span class="pl-c"><span class="pl-c">#</span> do something</span></pre>
    </div>
    <p>
     You could certainly do this in Python, too, but this adds confusion and is unnecessarily verbose. Different libraries might use different names for the same operations, making the client do way more work than necessary. With the power of magic methods, however, we can define one method (
@@ -500,7 +500,7 @@
    </p>
    <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">if</span> instance <span class="pl-k">==</span> other_instance:
-        <span class="pl-c">#do something</span></pre>
+        <span class="pl-c"><span class="pl-c">#</span>do something</span></pre>
    </div>
    <p>
     That's part of the power of magic methods. The vast majority of them allow us to define meaning for operators so that we can use them on our own classes just like they were built in types.
@@ -617,21 +617,21 @@
         <span class="pl-s"><span class="pl-pds">'''</span>Class for words, defining comparison based on word length.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__new__</span>(<span class="pl-smi"><span class="pl-smi">cls</span></span>, <span class="pl-smi">word</span>):
-            <span class="pl-c"># Note that we have to use __new__. This is because str is an immutable</span>
-            <span class="pl-c"># type, so we have to initialize it early (at creation)</span>
+            <span class="pl-c"><span class="pl-c">#</span> Note that we have to use __new__. This is because str is an immutable</span>
+            <span class="pl-c"><span class="pl-c">#</span> type, so we have to initialize it early (at creation)</span>
             <span class="pl-k">if</span> <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> <span class="pl-k">in</span> word:
                 <span class="pl-c1">print</span> <span class="pl-s"><span class="pl-pds">"</span>Value contains spaces. Truncating to first space.<span class="pl-pds">"</span></span>
-                word <span class="pl-k">=</span> word[:word.index(<span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span>)] <span class="pl-c"># Word is now all chars before first space</span>
-            <span class="pl-k">return</span> <span class="pl-c1">str</span>.<span class="pl-c1">__new__</span>(<span class="pl-v">cls</span>, word)
+                word <span class="pl-k">=</span> word[:word.index(<span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span>)] <span class="pl-c"><span class="pl-c">#</span> Word is now all chars before first space</span>
+            <span class="pl-k">return</span> <span class="pl-c1">str</span>.<span class="pl-c1">__new__</span>(<span class="pl-c1">cls</span>, word)
 
         <span class="pl-k">def</span> <span class="pl-c1">__gt__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">other</span>):
-            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">len</span>(other)
+            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-c1">self</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">len</span>(other)
         <span class="pl-k">def</span> <span class="pl-c1">__lt__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">other</span>):
-            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&lt;</span> <span class="pl-c1">len</span>(other)
+            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-c1">self</span>) <span class="pl-k">&lt;</span> <span class="pl-c1">len</span>(other)
         <span class="pl-k">def</span> <span class="pl-c1">__ge__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">other</span>):
-            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&gt;=</span> <span class="pl-c1">len</span>(other)
+            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-c1">self</span>) <span class="pl-k">&gt;=</span> <span class="pl-c1">len</span>(other)
         <span class="pl-k">def</span> <span class="pl-c1">__le__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">other</span>):
-            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-v">self</span>) <span class="pl-k">&lt;=</span> <span class="pl-c1">len</span>(other)</pre>
+            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-c1">self</span>) <span class="pl-k">&lt;=</span> <span class="pl-c1">len</span>(other)</pre>
    </div>
    <p>
     <br/>
@@ -1148,7 +1148,7 @@
    </p>
    <div class="highlight highlight-source-python">
     <pre>    x <span class="pl-k">=</span> <span class="pl-c1">5</span>
-    x <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-c"># in other words x = x + 1</span></pre>
+    x <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-c"><span class="pl-c">#</span> in other words x = x + 1</span></pre>
    </div>
    <p>
     <br/>
@@ -1667,15 +1667,15 @@
    </p>
    <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">def</span> <span class="pl-c1">__setattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>, <span class="pl-smi">value</span>):
-        <span class="pl-v">self</span>.name <span class="pl-k">=</span> value
-        <span class="pl-c"># since every time an attribute is assigned, __setattr__() is called, this</span>
-        <span class="pl-c"># is recursion.</span>
-        <span class="pl-c"># so this really means self.__setattr__('name', value). Since the method</span>
-        <span class="pl-c"># keeps calling itself, the recursion goes on forever causing a crash</span>
+        <span class="pl-c1">self</span>.name <span class="pl-k">=</span> value
+        <span class="pl-c"><span class="pl-c">#</span> since every time an attribute is assigned, __setattr__() is called, this</span>
+        <span class="pl-c"><span class="pl-c">#</span> is recursion.</span>
+        <span class="pl-c"><span class="pl-c">#</span> so this really means self.__setattr__('name', value). Since the method</span>
+        <span class="pl-c"><span class="pl-c">#</span> keeps calling itself, the recursion goes on forever causing a crash</span>
 
     <span class="pl-k">def</span> <span class="pl-c1">__setattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>, <span class="pl-smi">value</span>):
-        <span class="pl-v">self</span>.<span class="pl-c1">__dict__</span>[name] <span class="pl-k">=</span> value <span class="pl-c"># assigning to the dict of names in the class</span>
-        <span class="pl-c"># define custom behavior here</span></pre>
+        <span class="pl-c1">self</span>.<span class="pl-c1">__dict__</span>[name] <span class="pl-k">=</span> value <span class="pl-c"><span class="pl-c">#</span> assigning to the dict of names in the class</span>
+        <span class="pl-c"><span class="pl-c">#</span> define custom behavior here</span></pre>
    </div>
    <p>
     <br/>
@@ -1696,20 +1696,20 @@
 <span class="pl-s">        The counter increments each time the value is changed.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">val</span>):
-            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-v">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)
-            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-v">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>, val)
+            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)
+            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>, val)
 
         <span class="pl-k">def</span> <span class="pl-c1">__setattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>, <span class="pl-smi">value</span>):
             <span class="pl-k">if</span> name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>:
-                <span class="pl-c1">super</span>(AccessCounter, <span class="pl-v">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-v">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
-            <span class="pl-c"># Make this unconditional.</span>
-            <span class="pl-c"># If you want to prevent other attributes to be set, raise AttributeError(name)</span>
-            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-v">self</span>).<span class="pl-c1">__setattr__</span>(name, value)
+                <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
+            <span class="pl-c"><span class="pl-c">#</span> Make this unconditional.</span>
+            <span class="pl-c"><span class="pl-c">#</span> If you want to prevent other attributes to be set, raise AttributeError(name)</span>
+            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__setattr__</span>(name, value)
 
         <span class="pl-k">def</span> <span class="pl-c1">__delattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>):
             <span class="pl-k">if</span> name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>:
-                <span class="pl-c1">super</span>(AccessCounter, <span class="pl-v">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-v">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
-            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-v">self</span>).<span class="pl-c1">__delattr__</span>(name)</pre>
+                <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
+            <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__delattr__</span>(name)</pre>
    </div>
    <p>
     <br/>
@@ -1930,49 +1930,49 @@
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">values</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
             <span class="pl-k">if</span> values <span class="pl-k">is</span> <span class="pl-c1">None</span>:
-                <span class="pl-v">self</span>.values <span class="pl-k">=</span> []
+                <span class="pl-c1">self</span>.values <span class="pl-k">=</span> []
             <span class="pl-k">else</span>:
-                <span class="pl-v">self</span>.values <span class="pl-k">=</span> values
+                <span class="pl-c1">self</span>.values <span class="pl-k">=</span> values
 
         <span class="pl-k">def</span> <span class="pl-c1">__len__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-v">self</span>.values)
+            <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-c1">self</span>.values)
 
         <span class="pl-k">def</span> <span class="pl-c1">__getitem__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">key</span>):
-            <span class="pl-c"># if key is of invalid type or value, the list values will raise the error</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[key]
+            <span class="pl-c"><span class="pl-c">#</span> if key is of invalid type or value, the list values will raise the error</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[key]
 
         <span class="pl-k">def</span> <span class="pl-c1">__setitem__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">key</span>, <span class="pl-smi">value</span>):
-            <span class="pl-v">self</span>.values[key] <span class="pl-k">=</span> value
+            <span class="pl-c1">self</span>.values[key] <span class="pl-k">=</span> value
 
         <span class="pl-k">def</span> <span class="pl-c1">__delitem__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">key</span>):
-            <span class="pl-k">del</span> <span class="pl-v">self</span>.values[key]
+            <span class="pl-k">del</span> <span class="pl-c1">self</span>.values[key]
 
         <span class="pl-k">def</span> <span class="pl-c1">__iter__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-k">return</span> <span class="pl-c1">iter</span>(<span class="pl-v">self</span>.values)
+            <span class="pl-k">return</span> <span class="pl-c1">iter</span>(<span class="pl-c1">self</span>.values)
 
         <span class="pl-k">def</span> <span class="pl-c1">__reversed__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-k">return</span> FunctionalList(<span class="pl-c1">reversed</span>(<span class="pl-v">self</span>.values))
+            <span class="pl-k">return</span> FunctionalList(<span class="pl-c1">reversed</span>(<span class="pl-c1">self</span>.values))
 
         <span class="pl-k">def</span> <span class="pl-en">append</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">value</span>):
-            <span class="pl-v">self</span>.values.append(value)
+            <span class="pl-c1">self</span>.values.append(value)
         <span class="pl-k">def</span> <span class="pl-en">head</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-c"># get the first element</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[<span class="pl-c1">0</span>]
+            <span class="pl-c"><span class="pl-c">#</span> get the first element</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[<span class="pl-c1">0</span>]
         <span class="pl-k">def</span> <span class="pl-en">tail</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-c"># get all elements after the first</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[<span class="pl-c1">1</span>:]
+            <span class="pl-c"><span class="pl-c">#</span> get all elements after the first</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[<span class="pl-c1">1</span>:]
         <span class="pl-k">def</span> <span class="pl-en">init</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-c"># get elements up to the last</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[:<span class="pl-k">-</span><span class="pl-c1">1</span>]
+            <span class="pl-c"><span class="pl-c">#</span> get elements up to the last</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[:<span class="pl-k">-</span><span class="pl-c1">1</span>]
         <span class="pl-k">def</span> <span class="pl-en">last</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-c"># get last element</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[<span class="pl-k">-</span><span class="pl-c1">1</span>]
+            <span class="pl-c"><span class="pl-c">#</span> get last element</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[<span class="pl-k">-</span><span class="pl-c1">1</span>]
         <span class="pl-k">def</span> <span class="pl-en">drop</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">n</span>):
-            <span class="pl-c"># get all elements except first n</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[n:]
+            <span class="pl-c"><span class="pl-c">#</span> get all elements except first n</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[n:]
         <span class="pl-k">def</span> <span class="pl-en">take</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">n</span>):
-            <span class="pl-c"># get first n elements</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.values[:n]</pre>
+            <span class="pl-c"><span class="pl-c">#</span> get first n elements</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[:n]</pre>
    </div>
    <p>
     <br/>
@@ -2001,8 +2001,8 @@
     behaves by defining magic methods. The magic methods are:
    </p>
    <div class="highlight highlight-source-python">
-    <pre>    <span class="pl-c1">__instancecheck__</span>(<span class="pl-v">self</span>, instance) Checks <span class="pl-k">if</span> an instance <span class="pl-k">is</span> an instance of the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">isinstance</span>(instance, <span class="pl-k">class</span>).
-    <span class="pl-c1">__subclasscheck__</span>(<span class="pl-v">self</span>, subclass) Checks <span class="pl-k">if</span> a <span class="pl-k">class</span> subclasses the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">issubclass</span>(subclass, <span class="pl-k">class</span>)).</pre>
+    <pre>    <span class="pl-c1">__instancecheck__</span>(<span class="pl-c1">self</span>, instance) Checks <span class="pl-k">if</span> an instance <span class="pl-k">is</span> an instance of the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">isinstance</span>(instance, <span class="pl-k">class</span>).
+    <span class="pl-c1">__subclasscheck__</span>(<span class="pl-c1">self</span>, subclass) Checks <span class="pl-k">if</span> a <span class="pl-k">class</span> subclasses the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">issubclass</span>(subclass, <span class="pl-k">class</span>)).</pre>
    </div>
    <p>
     <br/>
@@ -2060,14 +2060,14 @@
         <span class="pl-s"><span class="pl-pds">'''</span>Class to represent an entity. Callable to update the entity's position.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">size</span>, <span class="pl-smi">x</span>, <span class="pl-smi">y</span>):
-            <span class="pl-v">self</span>.x, <span class="pl-v">self</span>.y <span class="pl-k">=</span> x, y
-            <span class="pl-v">self</span>.size <span class="pl-k">=</span> size
+            <span class="pl-c1">self</span>.x, <span class="pl-c1">self</span>.y <span class="pl-k">=</span> x, y
+            <span class="pl-c1">self</span>.size <span class="pl-k">=</span> size
 
         <span class="pl-k">def</span> <span class="pl-c1">__call__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">x</span>, <span class="pl-smi">y</span>):
             <span class="pl-s"><span class="pl-pds">'''</span>Change the position of the entity.<span class="pl-pds">'''</span></span>
-            <span class="pl-v">self</span>.x, <span class="pl-v">self</span>.y <span class="pl-k">=</span> x, y
+            <span class="pl-c1">self</span>.x, <span class="pl-c1">self</span>.y <span class="pl-k">=</span> x, y
 
-        <span class="pl-c"># snip...</span></pre>
+        <span class="pl-c"><span class="pl-c">#</span> snip...</span></pre>
    </div>
    <p>
     <br/>
@@ -2086,7 +2086,7 @@
    </p>
    <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">with</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>foo.txt<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> bar:
-            <span class="pl-c"># perform some action with bar</span></pre>
+            <span class="pl-c"><span class="pl-c">#</span> perform some action with bar</span></pre>
    </div>
    <p>
     <br/>
@@ -2144,17 +2144,17 @@
 <span class="pl-s">    in a with statement.<span class="pl-pds">'''</span></span>
 
     <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">obj</span>):
-        <span class="pl-v">self</span>.obj <span class="pl-k">=</span> obj
+        <span class="pl-c1">self</span>.obj <span class="pl-k">=</span> obj
 
     <span class="pl-k">def</span> <span class="pl-c1">__enter__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-        <span class="pl-k">return</span> <span class="pl-v">self</span>.obj <span class="pl-c"># bound to target</span>
+        <span class="pl-k">return</span> <span class="pl-c1">self</span>.obj <span class="pl-c"><span class="pl-c">#</span> bound to target</span>
 
     <span class="pl-k">def</span> <span class="pl-c1">__exit__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">exception_type</span>, <span class="pl-smi">exception_val</span>, <span class="pl-smi">trace</span>):
         <span class="pl-k">try</span>:
-           <span class="pl-v">self</span>.obj.close()
-        <span class="pl-k">except</span> <span class="pl-c1">AttributeError</span>: <span class="pl-c"># obj isn't closable</span>
+           <span class="pl-c1">self</span>.obj.close()
+        <span class="pl-k">except</span> <span class="pl-c1">AttributeError</span>: <span class="pl-c"><span class="pl-c">#</span> obj isn't closable</span>
            <span class="pl-c1">print</span> <span class="pl-s"><span class="pl-pds">'</span>Not closable.<span class="pl-pds">'</span></span>
-           <span class="pl-k">return</span> <span class="pl-c1">True</span> <span class="pl-c"># exception handled successfully</span></pre>
+           <span class="pl-k">return</span> <span class="pl-c1">True</span> <span class="pl-c"><span class="pl-c">#</span> exception handled successfully</span></pre>
    </div>
    <p>
     <br/>
@@ -2172,9 +2172,9 @@
     <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">with</span> Closer(FTP(<span class="pl-s"><span class="pl-pds">'</span>ftp.somesite.com<span class="pl-pds">'</span></span>)) <span class="pl-k">as</span> conn:
     <span class="pl-c1">...</span>     conn.dir()
     <span class="pl-c1">...</span>
-    <span class="pl-c"># output omitted for brevity</span>
+    <span class="pl-c"><span class="pl-c">#</span> output omitted for brevity</span>
     <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> conn.dir()
-    <span class="pl-c"># long AttributeError message, can't use a connection that's closed</span>
+    <span class="pl-c"><span class="pl-c">#</span> long AttributeError message, can't use a connection that's closed</span>
     <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">with</span> Closer(<span class="pl-c1">int</span>(<span class="pl-c1">5</span>)) <span class="pl-k">as</span> i:
     <span class="pl-c1">...</span>     i <span class="pl-k">+=</span> <span class="pl-c1">1</span>
     <span class="pl-c1">...</span>
@@ -2271,11 +2271,11 @@
         <span class="pl-s"><span class="pl-pds">'''</span>Descriptor for a meter.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">value</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>):
-            <span class="pl-v">self</span>.value <span class="pl-k">=</span> <span class="pl-c1">float</span>(value)
+            <span class="pl-c1">self</span>.value <span class="pl-k">=</span> <span class="pl-c1">float</span>(value)
         <span class="pl-k">def</span> <span class="pl-c1">__get__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">instance</span>, <span class="pl-smi">owner</span>):
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.value
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.value
         <span class="pl-k">def</span> <span class="pl-c1">__set__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">instance</span>, <span class="pl-smi">value</span>):
-            <span class="pl-v">self</span>.value <span class="pl-k">=</span> <span class="pl-c1">float</span>(value)
+            <span class="pl-c1">self</span>.value <span class="pl-k">=</span> <span class="pl-c1">float</span>(value)
 
     <span class="pl-k">class</span> <span class="pl-en">Foot</span>(<span class="pl-c1">object</span>):
         <span class="pl-s"><span class="pl-pds">'''</span>Descriptor for a foot.<span class="pl-pds">'''</span></span>
@@ -2385,7 +2385,7 @@
             <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: (<span class="pl-s"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>world!<span class="pl-pds">'</span></span>),
             <span class="pl-s"><span class="pl-pds">'</span>baz<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>}
     jar <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>)
-    pickle.dump(data, jar) <span class="pl-c"># write the pickled data to the file jar</span>
+    pickle.dump(data, jar) <span class="pl-c"><span class="pl-c">#</span> write the pickled data to the file jar</span>
     jar.close()</pre>
    </div>
    <p>
@@ -2397,8 +2397,8 @@
    <div class="highlight highlight-source-python">
     <pre>    <span class="pl-k">import</span> pickle
 
-    pkl_file <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>) <span class="pl-c"># connect to the pickled data</span>
-    data <span class="pl-k">=</span> pickle.load(pkl_file) <span class="pl-c"># load it into a variable</span>
+    pkl_file <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">#</span> connect to the pickled data</span>
+    data <span class="pl-k">=</span> pickle.load(pkl_file) <span class="pl-c"><span class="pl-c">#</span> load it into a variable</span>
     <span class="pl-c1">print</span> data
     pkl_file.close()</pre>
    </div>
@@ -2553,30 +2553,30 @@
 <span class="pl-s">        pickled.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">value</span>):
-            <span class="pl-v">self</span>.value <span class="pl-k">=</span> value
-            <span class="pl-v">self</span>.last_change <span class="pl-k">=</span> time.asctime()
-            <span class="pl-v">self</span>.history <span class="pl-k">=</span> {}
+            <span class="pl-c1">self</span>.value <span class="pl-k">=</span> value
+            <span class="pl-c1">self</span>.last_change <span class="pl-k">=</span> time.asctime()
+            <span class="pl-c1">self</span>.history <span class="pl-k">=</span> {}
 
         <span class="pl-k">def</span> <span class="pl-en">change</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">new_value</span>):
-            <span class="pl-c"># Change the value. Commit last value to history</span>
-            <span class="pl-v">self</span>.history[<span class="pl-v">self</span>.last_change] <span class="pl-k">=</span> <span class="pl-v">self</span>.value
-            <span class="pl-v">self</span>.value <span class="pl-k">=</span> new_value
-            <span class="pl-v">self</span>.last_change <span class="pl-k">=</span> time.asctime()
+            <span class="pl-c"><span class="pl-c">#</span> Change the value. Commit last value to history</span>
+            <span class="pl-c1">self</span>.history[<span class="pl-c1">self</span>.last_change] <span class="pl-k">=</span> <span class="pl-c1">self</span>.value
+            <span class="pl-c1">self</span>.value <span class="pl-k">=</span> new_value
+            <span class="pl-c1">self</span>.last_change <span class="pl-k">=</span> time.asctime()
 
         <span class="pl-k">def</span> <span class="pl-en">print_changes</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
             <span class="pl-c1">print</span> <span class="pl-s"><span class="pl-pds">'</span>Changelog for Slate object:<span class="pl-pds">'</span></span>
-            <span class="pl-k">for</span> k, v <span class="pl-k">in</span> <span class="pl-v">self</span>.history.items():
+            <span class="pl-k">for</span> k, v <span class="pl-k">in</span> <span class="pl-c1">self</span>.history.items():
                 <span class="pl-c1">print</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-c1">%s</span><span class="pl-cce">\t</span> <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> (k, v)
 
         <span class="pl-k">def</span> <span class="pl-c1">__getstate__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-            <span class="pl-c"># Deliberately do not return self.value or self.last_change.</span>
-            <span class="pl-c"># We want to have a "blank slate" when we unpickle.</span>
-            <span class="pl-k">return</span> <span class="pl-v">self</span>.history
+            <span class="pl-c"><span class="pl-c">#</span> Deliberately do not return self.value or self.last_change.</span>
+            <span class="pl-c"><span class="pl-c">#</span> We want to have a "blank slate" when we unpickle.</span>
+            <span class="pl-k">return</span> <span class="pl-c1">self</span>.history
 
         <span class="pl-k">def</span> <span class="pl-c1">__setstate__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">state</span>):
-            <span class="pl-c"># Make self.history = state and last_change and value undefined</span>
-            <span class="pl-v">self</span>.history <span class="pl-k">=</span> state
-            <span class="pl-v">self</span>.value, <span class="pl-v">self</span>.last_change <span class="pl-k">=</span> <span class="pl-c1">None</span>, <span class="pl-c1">None</span></pre>
+            <span class="pl-c"><span class="pl-c">#</span> Make self.history = state and last_change and value undefined</span>
+            <span class="pl-c1">self</span>.history <span class="pl-k">=</span> state
+            <span class="pl-c1">self</span>.value, <span class="pl-c1">self</span>.last_change <span class="pl-k">=</span> <span class="pl-c1">None</span>, <span class="pl-c1">None</span></pre>
    </div>
    <p>
     <br/>
@@ -3151,63 +3151,38 @@
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/ios.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>ios
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
     </a>
 </span>
 <span class="tag-2">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 <span class="tag-4">
@@ -3216,8 +3191,113 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
     </a>
 </span>
 <span class="tag-4">
@@ -3231,73 +3311,13 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    <a href="http://minhhh.github.io/tag/ios.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>ios
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
     </a>
 </span>
 <span class="tag-4">
@@ -3306,58 +3326,43 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
     </a>
 </span>
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/particlesystem.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
     </a>
 </span>
 <span class="tag-4">
