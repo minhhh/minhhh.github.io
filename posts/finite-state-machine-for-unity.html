@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with particlesystem" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:particlesystem - Ha.Minh's Blog</title>
+    <title>Finite state machine for Unity - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,19 +87,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">particlesystem</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Tue 29 November 2016
+  Wed 28 December 2016
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/scale-shuriken-particle-system" rel="bookmark"
-     title="Permalink to Scale Shuriken Particle System">
-    Scale Shuriken Particle System
+  <a href="http://minhhh.github.io/posts/finite-state-machine-for-unity" rel="bookmark"
+     title="Permalink to Finite state machine for Unity">
+    Finite state machine for Unity
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -109,24 +104,77 @@
       Unity</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.</p>
-<p>There are some plugins on the Asset Store which can help you with this tasks:</p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>Finite State Machine (FSM) is an important technique in game programming. Most games that have some sort of battle will have to design an FSM for its entities. FSM can be applied in UI as well. For example, instead of using flags to enable/disable certain UI elements, we can use a full FSM for all possible states of the targetted UI and its interactions with user inputs.</p>
+<p>The main elements of a FSM include:</p>
 <ul>
-<li><a href="https://www.assetstore.unity3d.com/en/#!/content/9703">Simple Particle Scaler</a></li>
-<li><a href="https://www.assetstore.unity3d.com/en/#!/content/4400">Particle Scaler</a></li>
+<li>A representation of a state</li>
+<li>A representation of a transition between 2 state</li>
+<li>A central system that hosts the states and facilitates their transitions</li>
 </ul>
-<p>I've also written a tool ...</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/scale-shuriken-particle-system">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+<p><a href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai">Using Interfaces to Make a State Machine for AI</a> has a simplest implementation of FSM. A state is represented like this:</p>
+<div class="codehilite"><pre><span></span>public interface IEnemyState
+{
+    void UpdateState();
+    void OnTriggerEnter (Collider other);
+    void ToPatrolState();
+    void ToAlertState();
+    void ToChaseState();
+}
+</pre></div>
 
-<nav class="index-pager">
 
-</nav> <!-- /index-pager -->
+<p>This implementation hardcodes all state transitions in the interface, thus it's a bad example and should not be used in a serious game.</p>
+<p><a href="http://www.voidinspace.com/2013/05/a-simple-finite-state-machine-with-c-delegates-in-unity/">A simple finite state machine with C# delegates in Unity</a> provides a slightly better implementation. Instead of hardcoding, it calls a single delegate function when making a transition. Still, it does not separate actions to be executed upon entering and exiting states, so it's not very useful for serious purpose.</p>
+<p><a href="http://wiki.unity3d.com/index.php?title=Finite_State_Machine">Finite State Machine</a> by Unity Wiki does provide overridable functions to be executed when entering and exiting states. However, we also need to perform actions in <code>Update</code>, <code>FixedUpdate</code> and similar functions for entities that have time-based changes such as a player, enemies, NPC and so on. So this implementation is not sufficient.</p>
+<p><a href="https://github.com/thefuntastic/Unity3d-Finite-State-Machine">Unity3D Finite State Machine</a> satisfies functionality requirements. It provides on enter/exit functions as well as <code>Update</code>, <code>FixedUpdate</code>, <code>LateUpdate</code>. It does not use separate <code>State</code> class, instead, it uses reflection to call the correct function in the main Component for each state. Therefore, all functions of all states must be defined in the main Component, for instance, <code>Play_Enter</code>, <code>Play_Exit</code>, <code>Init_Enter</code>, <code>Init_Exit</code>, <code>Move_Enter</code>, <code>Move_Exit</code>.</p>
+<p>My own implementation of <a href="https://github.com/minhhh/unity-fsm">Finite State Machine</a> is similar to the above method, except that I don't want to use generics, since it will make it harder to refer to the <code>FSM</code> using code.</p>
+<p>Another way to implement FSM is to make each state a separate MonoBehaviour. In this way, you can separate the functions for each state in its own file. In addition, you can examine the states in the Editor easily, like other MonoBehaviour. One issue which needs to be solved is how to access the members of the main Component. So you have to pass in the main Component to the state via constructor and make the members public. An alternative way is to write generic singletons which can be accessed from anywhere.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://github.com/thefuntastic/Unity3d-Finite-State-Machine">Unity3D Finite State Machine</a></li>
+<li><a href="http://wiki.unity3d.com/index.php?title=Finite_State_Machine">Finite State Machine</a></li>
+<li><a href="http://www.voidinspace.com/2013/05/a-simple-finite-state-machine-with-c-delegates-in-unity/">A simple finite state machine with C# delegates in Unity</a></li>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai">Using Interfaces to Make a State Machine for AI</a></li>
+</ul>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/editor.html"><i class="fa fa-tag"></i>editor</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/finite-state-machine-for-unity" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -457,5 +505,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
