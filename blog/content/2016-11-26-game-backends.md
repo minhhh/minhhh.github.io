@@ -21,5 +21,5 @@ Tags: game, backend
 
 **GameSparks vs PlayFab**
 
-    * [Gamesparks vs PlayFab?](https://www.reddit.com/r/gamedev/comments/4otyeb/gamesparks_vs_playfab/)
-    * [Spaceteam](http://spaceteamadmirals.club/blog/spaceteam-is-coming-to-your-library/) uses GameSparks
+* [Gamesparks vs PlayFab?](https://www.reddit.com/r/gamedev/comments/4otyeb/gamesparks_vs_playfab/)
+* [Spaceteam](http://spaceteamadmirals.club/blog/spaceteam-is-coming-to-your-library/) uses GameSparks
