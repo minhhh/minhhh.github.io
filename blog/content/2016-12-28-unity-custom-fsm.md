@@ -2,7 +2,7 @@ Title: Finite state machine for Unity
 Date: 2016-12-28 00:00
 Author: Ha.Minh
 Category: Unity
-Tags: unity, editor
+Tags: unity, fsm
 
 Finite State Machine (FSM) is an important technique in game programming. Most games that have some sort of battle will have to design an FSM for its entities. FSM can be applied in UI as well. For example, instead of using flags to enable/disable certain UI elements, we can use a full FSM for all possible states of the targetted UI and its interactions with user inputs.
 
