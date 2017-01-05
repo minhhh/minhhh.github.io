@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-01-02T00:00:00-05:00</updated><entry><title>Using Unity Mecanim animation system</title><link href="http://minhhh.github.io/posts/using-unity-mecanim-animation-system" rel="alternate"></link><published>2017-01-02T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-01-02:posts/using-unity-mecanim-animation-system</id><summary type="html">&lt;p&gt;See &lt;a href="https://github.com/minhhh/unity-mecanim.git"&gt;unity-mecanim&lt;/a&gt; for sample code of this article&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-01-05T00:00:00-05:00</updated><entry><title>Dither Unity textures to save memory</title><link href="http://minhhh.github.io/posts/dither-unity-textures-to-save-memory" rel="alternate"></link><published>2017-01-05T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-01-05:posts/dither-unity-textures-to-save-memory</id><summary type="html">&lt;p&gt;The project code is here: https://github.com/minhhh/unity-texture-dither&lt;/p&gt;
+&lt;p&gt;In many cases, we want to dither textures so that we can use more compact texture import format to save memory. This project aims to provide a workflow for dithering imported texture automatically, based on settings that can be swapped easily. Note that this has nothing to do with using dithering to achieve some artistic goal or the real time dithering effect to solve color banding problem.&lt;/p&gt;
+&lt;p&gt;The algorithms are explained in a &lt;a href="http://www.tannerhelland.com/4660/dithering-eleven-algorithms-source-code/"&gt;blog post&lt;/a&gt; by Tanner Helland and the reference implementations are taken from https://github.com/mcraiha/Dithering-Unity3d with some slight modification.&lt;/p&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;To dither images, put them in a folder whose name ended with &lt;code&gt;Dither&lt;/code&gt;. Then click on the folder and &lt;code&gt;Reimport&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The dither setting, i.e. algorithm and output color space is defined in ScriptableObjects &lt;code&gt;DitheringAlgorithmSetting&lt;/code&gt;. You can find them in the &lt;code&gt;Assets&lt;/code&gt; folder. To change dither setting, select &lt;code&gt;Settings &amp;gt; TextureDitherSetting&lt;/code&gt; and change the field &lt;code&gt;Dither Algorithm Setting&lt;/code&gt; accordingly.&lt;/p&gt;
+&lt;p&gt;Supported algorithms are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Atkinson&lt;/li&gt;
+&lt;li&gt;Burkes&lt;/li&gt;
+&lt;li&gt;FloydSteinberg&lt;/li&gt;
+&lt;li&gt;JarvisJudiceNinke&lt;/li&gt;
+&lt;li&gt;Sierra&lt;/li&gt;
+&lt;li&gt;SierraLite&lt;/li&gt;
+&lt;li&gt;SierraTwoRow&lt;/li&gt;
+&lt;li&gt;Stucki&lt;/li&gt;
+&lt;li&gt;No Dithering (for testing purpose)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Supported color spaces are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RGBA4444&lt;/li&gt;
+&lt;li&gt;Websafe&lt;/li&gt;
+&lt;li&gt;TrueColor (for testing purpose)&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="unity"></category><category term="dither"></category></entry><entry><title>Using Unity Mecanim animation system</title><link href="http://minhhh.github.io/posts/using-unity-mecanim-animation-system" rel="alternate"></link><published>2017-01-02T00:00:00-05:00</published><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-01-02:posts/using-unity-mecanim-animation-system</id><summary type="html">&lt;p&gt;See &lt;a href="https://github.com/minhhh/unity-mecanim.git"&gt;unity-mecanim&lt;/a&gt; for sample code of this article&lt;/p&gt;
 &lt;h2&gt;Mechanim basics&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=wdOk5QXYC6Y"&gt;Unity 5 Tutorial - Animation Control&lt;/a&gt;&lt;/li&gt;
@@ -7796,6 +7819,20 @@ Third&lt;/code&gt;&lt;/pre&gt;
     Checkout deleted file in the working tree
    &lt;/h4&gt;
    &lt;pre&gt;&lt;code&gt;    git checkout &amp;lt;sha1&amp;gt;^ &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;p&gt;
+    &lt;br/&gt;
+   &lt;/p&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#search-for-a-file-in-project-commit-history" id="user-content-search-for-a-file-in-project-commit-history"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Search for a file in project commit history
+   &lt;/h4&gt;
+   &lt;pre&gt;&lt;code&gt;    git log --all --full-history -- **/&amp;lt;filename&amp;gt;.*
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;

@@ -8,7 +8,7 @@
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Clippings 2016-09-16 - Ha.Minh's Blog</title>
+    <title>Dither Unity textures to save memory - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -90,30 +90,52 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Fri 16 September 2016
+  Thu 05 January 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/clippings-2016-09-16" rel="bookmark"
-     title="Permalink to Clippings 2016-09-16">
-    Clippings 2016-09-16
+  <a href="http://minhhh.github.io/posts/dither-unity-textures-to-save-memory" rel="bookmark"
+     title="Permalink to Dither Unity textures to save memory">
+    Dither Unity textures to save memory
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/blog.html">
-      Blog</a>
+    <a href="http://minhhh.github.io/category/unity.html">
+      Unity</a>
     &nbsp;&nbsp;
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<ul>
-<li><a href="https://github.com/atrakeur/unity-unet-authoritative-networking">Unity-unet-authoritative-networking</a></li>
+	<p>The project code is here: https://github.com/minhhh/unity-texture-dither</p>
+<p>In many cases, we want to dither textures so that we can use more compact texture import format to save memory. This project aims to provide a workflow for dithering imported texture automatically, based on settings that can be swapped easily. Note that this has nothing to do with using dithering to achieve some artistic goal or the real time dithering effect to solve color banding problem.</p>
+<p>The algorithms are explained in a <a href="http://www.tannerhelland.com/4660/dithering-eleven-algorithms-source-code/">blog post</a> by Tanner Helland and the reference implementations are taken from https://github.com/mcraiha/Dithering-Unity3d with some slight modification.</p>
+<h2>Usage</h2>
+<p>To dither images, put them in a folder whose name ended with <code>Dither</code>. Then click on the folder and <code>Reimport</code>.</p>
+<p>The dither setting, i.e. algorithm and output color space is defined in ScriptableObjects <code>DitheringAlgorithmSetting</code>. You can find them in the <code>Assets</code> folder. To change dither setting, select <code>Settings &gt; TextureDitherSetting</code> and change the field <code>Dither Algorithm Setting</code> accordingly.</p>
+<p>Supported algorithms are:</p>
+<ul>
+<li>Atkinson</li>
+<li>Burkes</li>
+<li>FloydSteinberg</li>
+<li>JarvisJudiceNinke</li>
+<li>Sierra</li>
+<li>SierraLite</li>
+<li>SierraTwoRow</li>
+<li>Stucki</li>
+<li>No Dithering (for testing purpose)</li>
+</ul>
+<p>Supported color spaces are:</p>
+<ul>
+<li>RGBA4444</li>
+<li>Websafe</li>
+<li>TrueColor (for testing purpose)</li>
 </ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/clippings.html"><i class="fa fa-tag"></i>clippings</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/dither.html"><i class="fa fa-tag"></i>dither</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
 
@@ -124,7 +146,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/clippings-2016-09-16" 
+        data-href="http://minhhh.github.io/posts/dither-unity-textures-to-save-memory" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
