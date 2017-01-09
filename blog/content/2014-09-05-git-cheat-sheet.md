@@ -5,4 +5,4 @@ Category: Programming
 Tags: git
 Summary: Git cheat sheet
 
-[git:repo=minhhh/wiki,file=git_cheatsheet.md]
+[git:repo=minhhh/git-manual,file=README.md]

@@ -5,4 +5,4 @@ Category: Programming
 Tags: git, rebase
 Summary: How to rebase in git
 
-[git:repo=minhhh/wiki,file=git_rebase.md]
+[git:repo=minhhh/git-manual,file=git_rebase.md]
