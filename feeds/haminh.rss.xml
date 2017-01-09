@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Thu, 05 Jan 2017 00:00:00 -0500</lastBuildDate><item><title>Dither Unity textures to save memory</title><link>http://minhhh.github.io/posts/dither-unity-textures-to-save-memory</link><description>&lt;p&gt;The project code is here: https://github.com/minhhh/unity-texture-dither&lt;/p&gt;
+<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Mon, 09 Jan 2017 00:00:00 -0500</lastBuildDate><item><title>Git branching strategy</title><link>http://minhhh.github.io/posts/git-branching-strategy</link><description>&lt;p&gt;Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github &lt;a href="https://github.com/minhhh/git-manual/blob/master/branching_strategy.md"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Branch Description&lt;/h2&gt;
+&lt;h3&gt;master&lt;/h3&gt;
+&lt;p&gt;Master branch represents what's in live. It should not be modified directly.&lt;/p&gt;
+&lt;p&gt;When it is deployed, it will be tagged so that we can revert to a certain deployment later.&lt;/p&gt;
+&lt;p&gt;Lifetime: forever&lt;/p&gt;
+&lt;h3&gt;release/xxx&lt;/h3&gt;
+&lt;p&gt;After finishing a feature, make a release branch off the develop branch, merge all the necessary feature branches and do final test. Bugs found in this final QA phases can also be hotfixed in the same branch. After everything is complete, we will rebase this branch over &lt;code&gt;develop&lt;/code&gt; branch, then the rebase branch will be merged into the &lt;code&gt;master&lt;/code&gt; branch for release in Live environment.&lt;/p&gt;
+&lt;p&gt;Lifetime: Feature Finish ~ Release in Live&lt;/p&gt;
+&lt;h3&gt;hotfix/xxx&lt;/h3&gt;
+&lt;p&gt;If a bug is found in production, we wil branch hotfix branch off master.&lt;/p&gt;
+&lt;p&gt;Lifetime: Bugfix ~ Release in Live&lt;/p&gt;
+&lt;h3&gt;develop&lt;/h3&gt;
+&lt;p&gt;This is the main branch where feature branches should be branched off. Trivial changes can be directly applied to develop if you are sure it should go into the next version. Major feature/bugfix branches have to go through PR process to be merged into develop.&lt;/p&gt;
+&lt;p&gt;Lifetime: forever&lt;/p&gt;
+&lt;h3&gt;feature/xxx&lt;/h3&gt;
+&lt;p&gt;Feature branch should be branched off develop. While working on feature branches, developers can choose to merge develop into it. Once QA is completed on the feature branch, developers can send PR.&lt;/p&gt;
+&lt;p&gt;Lifetime: Feature development ~ PR merge&lt;/p&gt;
+&lt;h3&gt;art&lt;/h3&gt;
+&lt;p&gt;Art branch lives forever. Artists only need to deal with this branch.&lt;/p&gt;
+&lt;p&gt;Lifetime: forever&lt;/p&gt;
+&lt;h2&gt;Role Descriptions&lt;/h2&gt;
+&lt;h3&gt;Engineer / UIDesigner&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;develop -&amp;gt; feature&lt;/li&gt;
+&lt;li&gt;feature -&amp;gt; develop (PR)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Artist&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;art -&amp;gt; art&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Lead Engineer&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;develop -&amp;gt; release&lt;/li&gt;
+&lt;li&gt;release -&amp;gt; develop&lt;/li&gt;
+&lt;li&gt;master -&amp;gt; hotfix&lt;/li&gt;
+&lt;li&gt;hotfix -&amp;gt; master&lt;/li&gt;
+&lt;li&gt;hotfix -&amp;gt; develop&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 09 Jan 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-01-09:posts/git-branching-strategy</guid><category>git</category></item><item><title>Dither Unity textures to save memory</title><link>http://minhhh.github.io/posts/dither-unity-textures-to-save-memory</link><description>&lt;p&gt;The project code is here: https://github.com/minhhh/unity-texture-dither&lt;/p&gt;
 &lt;p&gt;In many cases, we want to dither textures so that we can use more compact texture import format to save memory. This project aims to provide a workflow for dithering imported texture automatically, based on settings that can be swapped easily. Note that this has nothing to do with using dithering to achieve some artistic goal or the real time dithering effect to solve color banding problem.&lt;/p&gt;
 &lt;p&gt;The algorithms are explained in a &lt;a href="http://www.tannerhelland.com/4660/dithering-eleven-algorithms-source-code/"&gt;blog post&lt;/a&gt; by Tanner Helland and the reference implementations are taken from https://github.com/mcraiha/Dithering-Unity3d with some slight modification.&lt;/p&gt;
 &lt;h2&gt;Usage&lt;/h2&gt;
@@ -5964,13 +6002,13 @@ http://www.theappguruz.com/blog/managers-using-singleton
      sends a query to a process. (This maybe useful but we don't use it yet)
     &lt;/li&gt;
     &lt;li&gt;
-     Mathematical functions such as: sqrt(), atan2(), rand(). TODO
+     Mathematical functions such as: sqrt(), atan2(), rand().
      &lt;ul&gt;
       &lt;li&gt;
        DO NOT put a space between the function name and the parentheses. It can be confused with string concatenation
       &lt;/li&gt;
       &lt;li&gt;
-       Operator precedence. TODO
+       Operator precedence.
       &lt;/li&gt;
      &lt;/ul&gt;
     &lt;/li&gt;
@@ -6066,7 +6104,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     Gwak supports special file for accessing information about the running gawk process. TODO
+     Gwak supports special file for accessing information about the running gawk process.
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;h3&gt;
@@ -6080,7 +6118,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     Gawk, awk can open two-way TCP-IP connection. TODO
+     Gawk, awk can open two-way TCP-IP connection.
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;h3&gt;
@@ -6185,13 +6223,13 @@ http://www.theappguruz.com/blog/managers-using-singleton
    &lt;/p&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     Variables can be assigned in the command line. TODO:
+     Variables can be assigned in the command line.
     &lt;/li&gt;
     &lt;li&gt;
-     Strings and number conversions. TODO
+     Strings and number conversions.
     &lt;/li&gt;
     &lt;li&gt;
-     Arithmetic Operators. TODO
+     Arithmetic Operators.
     &lt;/li&gt;
     &lt;li&gt;
      String concatenation is done by placing the operands next to each other
@@ -7557,9 +7595,9 @@ Third&lt;/code&gt;&lt;/pre&gt;
                 
                 &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
-                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/git_rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git-manual/blob/master/git_rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
-                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/git_rebase.md"&gt;git_rebase.md&lt;/a&gt;&lt;/span&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/git-manual/blob/master/git_rebase.md"&gt;git_rebase.md&lt;/a&gt;&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -7612,14 +7650,17 @@ Third&lt;/code&gt;&lt;/pre&gt;
  &lt;div class="readme blob instapaper_body" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#git-cheat-sheet" id="user-content-git-cheat-sheet"&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#git-manual" id="user-content-git-manual"&gt;
      &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
       &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
       &lt;/path&gt;
      &lt;/svg&gt;
     &lt;/a&gt;
-    GIT CHEAT SHEET
+    Git Manual
    &lt;/h1&gt;
+   &lt;p&gt;
+    Git manual and related topics such as branching process.
+   &lt;/p&gt;
    &lt;h2&gt;
     &lt;a aria-hidden="true" class="anchor" href="#toc" id="user-content-toc"&gt;
      &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -8532,9 +8573,9 @@ Third&lt;/code&gt;&lt;/pre&gt;
                 
                 &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
-                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/git_cheatsheet.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git-manual/blob/master/README.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
-                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/git_cheatsheet.md"&gt;git_cheatsheet.md&lt;/a&gt;&lt;/span&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/git-manual/blob/master/README.md"&gt;README.md&lt;/a&gt;&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;

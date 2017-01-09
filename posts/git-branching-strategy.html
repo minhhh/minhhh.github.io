@@ -8,7 +8,7 @@
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Generate one-time password from the command line - Ha.Minh's Blog</title>
+    <title>Git branching strategy - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -90,11 +90,11 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Sun 02 October 2016
+  Mon 09 January 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" rel="bookmark"
-     title="Permalink to Generate one-time password from the command line">
-    Generate one-time password from the command line
+  <a href="http://minhhh.github.io/posts/git-branching-strategy" rel="bookmark"
+     title="Permalink to Git branching strategy">
+    Git branching strategy
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -106,29 +106,50 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python <code>OneTimePass</code>.</p>
-<p>First, install <code>OneTimePass</code> with <code>pip</code>:</p>
-<div class="codehilite"><pre><span></span>pip install onetimepass
-</pre></div>
-
-
-<p>Then you get the secret generated from the service provider you're using. Normally it would be a time-based token, such as the ones you use for Google Authenticator.</p>
-<p>To get time-based token you invoke it like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">onetimepass</span> <span class="kn">as</span> <span class="nn">otp</span>
-
-<span class="n">my_secret</span> <span class="o">=</span> <span class="s1">&#39;MFRGGZDFMZTWQ2LK&#39;</span>
-<span class="n">my_token</span> <span class="o">=</span> <span class="n">otp</span><span class="o">.</span><span class="n">get_totp</span><span class="p">(</span><span class="n">my_secret</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">my_token</span>
-</pre></div>
-
-
-<p>Remember to store your secret safely.</p>
+	<p>Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github <a href="https://github.com/minhhh/git-manual/blob/master/branching_strategy.md">here</a></p>
+<h2>Branch Description</h2>
+<h3>master</h3>
+<p>Master branch represents what's in live. It should not be modified directly.</p>
+<p>When it is deployed, it will be tagged so that we can revert to a certain deployment later.</p>
+<p>Lifetime: forever</p>
+<h3>release/xxx</h3>
+<p>After finishing a feature, make a release branch off the develop branch, merge all the necessary feature branches and do final test. Bugs found in this final QA phases can also be hotfixed in the same branch. After everything is complete, we will rebase this branch over <code>develop</code> branch, then the rebase branch will be merged into the <code>master</code> branch for release in Live environment.</p>
+<p>Lifetime: Feature Finish ~ Release in Live</p>
+<h3>hotfix/xxx</h3>
+<p>If a bug is found in production, we wil branch hotfix branch off master.</p>
+<p>Lifetime: Bugfix ~ Release in Live</p>
+<h3>develop</h3>
+<p>This is the main branch where feature branches should be branched off. Trivial changes can be directly applied to develop if you are sure it should go into the next version. Major feature/bugfix branches have to go through PR process to be merged into develop.</p>
+<p>Lifetime: forever</p>
+<h3>feature/xxx</h3>
+<p>Feature branch should be branched off develop. While working on feature branches, developers can choose to merge develop into it. Once QA is completed on the feature branch, developers can send PR.</p>
+<p>Lifetime: Feature development ~ PR merge</p>
+<h3>art</h3>
+<p>Art branch lives forever. Artists only need to deal with this branch.</p>
+<p>Lifetime: forever</p>
+<h2>Role Descriptions</h2>
+<h3>Engineer / UIDesigner</h3>
+<ul>
+<li>develop -&gt; feature</li>
+<li>feature -&gt; develop (PR)</li>
+</ul>
+<h3>Artist</h3>
+<ul>
+<li>art -&gt; art</li>
+</ul>
+<h3>Lead Engineer</h3>
+<ul>
+<li>develop -&gt; release</li>
+<li>release -&gt; develop</li>
+<li>master -&gt; hotfix</li>
+<li>hotfix -&gt; master</li>
+<li>hotfix -&gt; develop</li>
+</ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/python.html"><i class="fa fa-tag"></i>python</a>&nbsp;
-	<a href="http://minhhh.github.io/tag/otp.html"><i class="fa fa-tag"></i>otp</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/git.html"><i class="fa fa-tag"></i>git</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
 
@@ -139,7 +160,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" 
+        data-href="http://minhhh.github.io/posts/git-branching-strategy" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
