@@ -45,3 +45,18 @@ Some people suggests [using NuGet](http://mymobiledevelopment.blogspot.com/2015/
 
 * Deliver packages via a central repository and zip
 * Require more work from package maintainer
+
+<br/>
+
+[UPM](https://bitbucket.org/Zeroto/upm)
+
+* UPM is a package manager designed to work with the Unity game engine. It allows rapid install of unity extension and assets using a command line interface. Packages support dependencies, which will be auto-downloaded when installing a package.
+* Seems to be unmaintained
+* No MacOS binary
+
+
+[unity-packman](https://github.com/appetizermonster/unity-packman)
+
+* A command-line client to manage Unity package
+* Does not support version and nested versions
+* Can only export 1 directory, which is really limited
