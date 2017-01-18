@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with texture" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:texture - Ha.Minh's Blog</title>
+    <title>Using Webp texture format in Unity - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,13 +87,8 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">texture</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
   Wed 18 January 2017
 </abbr> <h1>
@@ -109,9 +104,9 @@
       Unity</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Webp is a very optimized image format. It will produce smaller image size with almost the same quality as other compression format such as: <code>ETC2</code>, <code>DXT5</code>, <code>ETC1</code>, <code>PVRTC</code>. Below is some comparison between <code>Webp</code> and popular compression format in Unity</p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>Webp is a very optimized image format. It will produce smaller image size with almost the same quality as other compression format such as: <code>ETC2</code>, <code>DXT5</code>, <code>ETC1</code>, <code>PVRTC</code>. Below is some comparison between <code>Webp</code> and popular compression format in Unity</p>
 <table>
 <thead>
 <tr>
@@ -126,41 +121,116 @@
 </tr>
 <tr>
 <td>ETC1 4bits</td>
-<td align="right">128 ...</td></tr></tbody></table>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/using-webp-texture-format-in-unity">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<abbr class="article-header-date">
-  Sat 03 December 2016
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/unity-texture-compression-and-optimization" rel="bookmark"
-     title="Permalink to Unity Texture compression and optimization">
-    Unity Texture compression and optimization
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/unity.html">
-      Unity</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>A common question when building Unity games is which texture compression format will be the best. The criteria are: size on disk, memory footprint, performance.</p>
-<p>We have many options in the Unity Engine: ETC1, ETC2, DXT3, DXT5, and so on. How do we choose? Let's look at some optimization ...</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/unity-texture-compression-and-optimization">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+<td align="right">128</td>
+</tr>
+<tr>
+<td>ETC2 8bits</td>
+<td align="right">256</td>
+</tr>
+<tr>
+<td>Dxt5 Crunched</td>
+<td align="right">64</td>
+</tr>
+<tr>
+<td>PVRTC 2 bit</td>
+<td align="right">64</td>
+</tr>
+<tr>
+<td>PVRTC 4 bit</td>
+<td align="right">128</td>
+</tr>
+<tr>
+<td>Webp Lossless</td>
+<td align="right">287</td>
+</tr>
+<tr>
+<td>Webp Lossy 80</td>
+<td align="right">23</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>1024x1024 Image</th>
+<th align="right">Size in KB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original</td>
+<td align="right">1800</td>
+</tr>
+<tr>
+<td>ETC1 4bits</td>
+<td align="right">512</td>
+</tr>
+<tr>
+<td>ETC2 8bits</td>
+<td align="right">1000</td>
+</tr>
+<tr>
+<td>Dxt5 Crunched</td>
+<td align="right">183</td>
+</tr>
+<tr>
+<td>PVRTC 2 bit</td>
+<td align="right">256</td>
+</tr>
+<tr>
+<td>PVRTC 4 bit</td>
+<td align="right">512</td>
+</tr>
+<tr>
+<td>Webp Lossless</td>
+<td align="right">1200</td>
+</tr>
+<tr>
+<td>Webp Lossy 80</td>
+<td align="right">113</td>
+</tr>
+</tbody>
+</table>
+<p>I've written a simple plugin to include Webp textures into your Unity game here: https://github.com/minhhh/UBootstrap.Webp</p>
+<p>Ref: <a href="https://www.andrewmunsell.com/blog/png-vs-webp/">png vs webp</a></p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/texture.html"><i class="fa fa-tag"></i>texture</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/webp.html"><i class="fa fa-tag"></i>webp</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
 
-<nav class="index-pager">
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
 
-</nav> <!-- /index-pager -->
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/using-webp-texture-format-in-unity" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -511,5 +581,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
