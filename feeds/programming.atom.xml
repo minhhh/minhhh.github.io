@@ -5816,7 +5816,11 @@ format:
     &lt;/a&gt;
     Tagging
    &lt;/h4&gt;
-   &lt;pre&gt;&lt;code&gt;    git tag -a &amp;lt;tag-name&amp;gt; -m "Tag message"
+   &lt;pre&gt;&lt;code&gt;    git tag -a &amp;lt;tagname&amp;gt; -m "Tag message"
+
+    # delete tag on remote
+    git tag --delete &amp;lt;tagname&amp;gt;
+    git push origin :&amp;lt;tagname&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
    &lt;p&gt;
     &lt;br/&gt;
