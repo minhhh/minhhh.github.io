@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><atom:link href="http://minhhh.github.io/feeds/haminh.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 27 Feb 2017 00:00:00 -0500</lastBuildDate><item><title>How to force Gmail to check your POP3 account as often as possible</title><link>http://minhhh.github.io/posts/how-to-force-gmail-to-check-your-pop3-account-as-often-as-possible</link><description>&lt;p&gt;&lt;a href="https://web.archive.org/web/20160306102134/http://rakowski.pro/how-to-force-gmail-to-check-your-pop3-account-as-often-as-possible/"&gt;How to force Gmail to check your POP3 account as often as possible&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 27 Feb 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-02-27:posts/how-to-force-gmail-to-check-your-pop3-account-as-often-as-possible</guid><category>gmail</category></item><item><title>Unity Object Pooling</title><link>http://minhhh.github.io/posts/unity-object-pooling</link><description>&lt;p&gt;An object pool provides an efficient way to reuse objects, and thus keep the memory foot print of all dynamically created objects within fixed bounds. This is crucial for maintianing consistent framerates in realtime games (especially on mobile), as frequent garbage collection spikes would likley lead to inconsistent performance.&lt;/p&gt;
+<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Mon, 27 Feb 2017 00:00:00 -0500</lastBuildDate><item><title>How to force Gmail to check your POP3 account as often as possible</title><link>http://minhhh.github.io/posts/how-to-force-gmail-to-check-your-pop3-account-as-often-as-possible</link><description>&lt;p&gt;&lt;a href="https://web.archive.org/web/20160306102134/http://rakowski.pro/how-to-force-gmail-to-check-your-pop3-account-as-often-as-possible/"&gt;How to force Gmail to check your POP3 account as often as possible&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 27 Feb 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-02-27:posts/how-to-force-gmail-to-check-your-pop3-account-as-often-as-possible</guid><category>gmail</category></item><item><title>Unity Object Pooling</title><link>http://minhhh.github.io/posts/unity-object-pooling</link><description>&lt;p&gt;An object pool provides an efficient way to reuse objects, and thus keep the memory foot print of all dynamically created objects within fixed bounds. This is crucial for maintianing consistent framerates in realtime games (especially on mobile), as frequent garbage collection spikes would likley lead to inconsistent performance.&lt;/p&gt;
 &lt;p&gt;Implementing object pool is quite straight forward. There are several open-source solutions already so don't bother looking into AssetStore.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/minhhh/unity-leanpool"&gt;Leanpool&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/thefuntastic/unity-object-pool"&gt;Unity Object Pool&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/prime31/RecyclerKit"&gt;RecyclerKit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 24 Feb 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-02-24:posts/unity-object-pooling</guid><category>unity</category><category>pool</category></item><item><title>Unity Unit testing</title><link>http://minhhh.github.io/posts/unity-unit-testing</link><description>&lt;p&gt;&lt;a href="https://bitbucket.org/Unity-Technologies/unitytesttools/wiki/IntegrationTestsRunner"&gt;How to use the Integration Test Framework&lt;/a&gt; is the guide from offical repo&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 24 Feb 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-02-24:posts/unity-object-pooling</guid><category>unity</category><category>pool</category></item><item><title>Unity Unit testing</title><link>http://minhhh.github.io/posts/unity-unit-testing</link><description>&lt;p&gt;&lt;a href="https://bitbucket.org/Unity-Technologies/unitytesttools/wiki/IntegrationTestsRunner"&gt;How to use the Integration Test Framework&lt;/a&gt; is the guide from offical repo&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://ilkinulas.github.io/programming/unity/2016/03/12/integration-tests-unity3d.html"&gt;Writing Integration Tests For Unity3D Projects&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Suggests writing dynamic integration test on real game scene. This might be hard to maintain if you don't have discipline.&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 21 Feb 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-02-21:posts/unity-unit-testing</guid><category>unity</category><category>unittest</category></item><item><title>Property Backing Field Drawer</title><link>http://minhhh.github.io/posts/property-backing-field-drawer</link><description>&lt;p&gt;Property is not supported by Unity Editor by default, fortunately, there is a free plugin called &lt;a href="https://www.assetstore.unity3d.com/en/#!/content/18253"&gt;Property Backing Field Drawer&lt;/a&gt; that supports drawing custom editor for properties. The plugin's code is extracted &lt;a href="https://github.com/minhhh/property-backing-field-drawer"&gt;here&lt;/a&gt; for easy inclusion in your project.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 14 Feb 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-02-14:posts/property-backing-field-drawer</guid><category>unity</category><category>property</category></item><item><title>Better Unity workflow with command line</title><link>http://minhhh.github.io/posts/better-unity-workflow-with-command-line</link><description>&lt;p&gt;To do certain tasks for our game workflow, we will need to use other external tools that can only called from the command line. One way to do this is to switch back and forth between Unity and the command line, obviously this is not the best way. Our goal is to use only 1 click, or one action to execute a series of tasks in Unity and in the command line.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 21 Feb 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-02-21:posts/unity-unit-testing</guid><category>unity</category><category>unittest</category></item><item><title>Property Backing Field Drawer</title><link>http://minhhh.github.io/posts/property-backing-field-drawer</link><description>&lt;p&gt;Property is not supported by Unity Editor by default, fortunately, there is a free plugin called &lt;a href="https://www.assetstore.unity3d.com/en/#!/content/18253"&gt;Property Backing Field Drawer&lt;/a&gt; that supports drawing custom editor for properties. The plugin's code is extracted &lt;a href="https://github.com/minhhh/property-backing-field-drawer"&gt;here&lt;/a&gt; for easy inclusion in your project.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 14 Feb 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-02-14:posts/property-backing-field-drawer</guid><category>unity</category><category>property</category></item><item><title>Better Unity workflow with command line</title><link>http://minhhh.github.io/posts/better-unity-workflow-with-command-line</link><description>&lt;p&gt;To do certain tasks for our game workflow, we will need to use other external tools that can only called from the command line. One way to do this is to switch back and forth between Unity and the command line, obviously this is not the best way. Our goal is to use only 1 click, or one action to execute a series of tasks in Unity and in the command line.&lt;/p&gt;
 &lt;p&gt;There are 2 ways to achieve this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Create an editor script and call the command line, along with other Editor scripts. This is good if you want to stay in Unity all the time.&lt;/li&gt;
@@ -24,46 +24,46 @@
 &lt;p&gt;To run command line scripts from Unity, look at these references:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://web.archive.org/web/20170202150301/https://effectiveunity.com/articles/making-most-of-unitys-command-line.html"&gt;Running command line action through C# script&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 02 Feb 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-02-02:posts/better-unity-workflow-with-command-line</guid><category>unity</category><category>commandline</category></item><item><title>Best Practices in Persisting Player Data on Mobile</title><link>http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile</link><description>&lt;p&gt;Original talk: &lt;a href="https://www.youtube.com/watch?v=_hAzWgQupms"&gt;Unite 2016 - Best Practices in Persisting Player Data on Mobile&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 01 Feb 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-02-01:posts/best-practices-in-persisting-player-data-on-mobile</guid><category>unity</category></item><item><title>Using Webp texture format in Unity</title><link>http://minhhh.github.io/posts/using-webp-texture-format-in-unity</link><description>&lt;p&gt;Webp is a very optimized image format. It will produce smaller image size with almost the same quality as other compression format such as: &lt;code&gt;ETC2&lt;/code&gt;, &lt;code&gt;DXT5&lt;/code&gt;, &lt;code&gt;ETC1&lt;/code&gt;, &lt;code&gt;PVRTC&lt;/code&gt;. Below is some comparison between &lt;code&gt;Webp&lt;/code&gt; and popular compression format in Unity&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 02 Feb 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-02-02:posts/better-unity-workflow-with-command-line</guid><category>unity</category><category>commandline</category></item><item><title>Best Practices in Persisting Player Data on Mobile</title><link>http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile</link><description>&lt;p&gt;Original talk: &lt;a href="https://www.youtube.com/watch?v=_hAzWgQupms"&gt;Unite 2016 - Best Practices in Persisting Player Data on Mobile&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 01 Feb 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-02-01:posts/best-practices-in-persisting-player-data-on-mobile</guid><category>unity</category></item><item><title>Using Webp texture format in Unity</title><link>http://minhhh.github.io/posts/using-webp-texture-format-in-unity</link><description>&lt;p&gt;Webp is a very optimized image format. It will produce smaller image size with almost the same quality as other compression format such as: &lt;code&gt;ETC2&lt;/code&gt;, &lt;code&gt;DXT5&lt;/code&gt;, &lt;code&gt;ETC1&lt;/code&gt;, &lt;code&gt;PVRTC&lt;/code&gt;. Below is some comparison between &lt;code&gt;Webp&lt;/code&gt; and popular compression format in Unity&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;512x512 Image&lt;/th&gt;
-&lt;th&gt;Size in KB&lt;/th&gt;
+&lt;th align="right"&gt;Size in KB&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Original&lt;/td&gt;
-&lt;td&gt;480&lt;/td&gt;
+&lt;td align="right"&gt;480&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ETC1 4bits&lt;/td&gt;
-&lt;td&gt;128&lt;/td&gt;
+&lt;td align="right"&gt;128&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ETC2 8bits&lt;/td&gt;
-&lt;td&gt;256&lt;/td&gt;
+&lt;td align="right"&gt;256&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Dxt5 Crunched&lt;/td&gt;
-&lt;td&gt;64&lt;/td&gt;
+&lt;td align="right"&gt;64&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;PVRTC 2 bit&lt;/td&gt;
-&lt;td&gt;64&lt;/td&gt;
+&lt;td align="right"&gt;64&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;PVRTC 4 bit&lt;/td&gt;
-&lt;td&gt;128&lt;/td&gt;
+&lt;td align="right"&gt;128&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Webp Lossless&lt;/td&gt;
-&lt;td&gt;287&lt;/td&gt;
+&lt;td align="right"&gt;287&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Webp Lossy 80&lt;/td&gt;
-&lt;td&gt;23&lt;/td&gt;
+&lt;td align="right"&gt;23&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -71,46 +71,46 @@
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;1024x1024 Image&lt;/th&gt;
-&lt;th&gt;Size in KB&lt;/th&gt;
+&lt;th align="right"&gt;Size in KB&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Original&lt;/td&gt;
-&lt;td&gt;1800&lt;/td&gt;
+&lt;td align="right"&gt;1800&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ETC1 4bits&lt;/td&gt;
-&lt;td&gt;512&lt;/td&gt;
+&lt;td align="right"&gt;512&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ETC2 8bits&lt;/td&gt;
-&lt;td&gt;1000&lt;/td&gt;
+&lt;td align="right"&gt;1000&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Dxt5 Crunched&lt;/td&gt;
-&lt;td&gt;183&lt;/td&gt;
+&lt;td align="right"&gt;183&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;PVRTC 2 bit&lt;/td&gt;
-&lt;td&gt;256&lt;/td&gt;
+&lt;td align="right"&gt;256&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;PVRTC 4 bit&lt;/td&gt;
-&lt;td&gt;512&lt;/td&gt;
+&lt;td align="right"&gt;512&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Webp Lossless&lt;/td&gt;
-&lt;td&gt;1200&lt;/td&gt;
+&lt;td align="right"&gt;1200&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Webp Lossy 80&lt;/td&gt;
-&lt;td&gt;113&lt;/td&gt;
+&lt;td align="right"&gt;113&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;I've written a simple plugin to include Webp textures into your Unity game here: https://github.com/minhhh/UBootstrap.Webp&lt;/p&gt;
-&lt;p&gt;Ref: &lt;a href="https://www.andrewmunsell.com/blog/png-vs-webp/"&gt;png vs webp&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 18 Jan 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-01-18:posts/using-webp-texture-format-in-unity</guid><category>unity</category><category>texture</category><category>webp</category></item><item><title>Git branching strategy</title><link>http://minhhh.github.io/posts/git-branching-strategy</link><description>&lt;p&gt;Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github &lt;a href="https://github.com/minhhh/git-manual/blob/master/branching_strategy.md"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ref: &lt;a href="https://www.andrewmunsell.com/blog/png-vs-webp/"&gt;png vs webp&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 18 Jan 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-01-18:posts/using-webp-texture-format-in-unity</guid><category>unity</category><category>texture</category><category>webp</category></item><item><title>Git branching strategy</title><link>http://minhhh.github.io/posts/git-branching-strategy</link><description>&lt;p&gt;Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github &lt;a href="https://github.com/minhhh/git-manual/blob/master/branching_strategy.md"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Branch Description&lt;/h2&gt;
 &lt;h3&gt;master&lt;/h3&gt;
 &lt;p&gt;Master branch represents what's in live. It should not be modified directly.&lt;/p&gt;
@@ -148,7 +148,7 @@
 &lt;li&gt;master -&amp;gt; hotfix&lt;/li&gt;
 &lt;li&gt;hotfix -&amp;gt; master&lt;/li&gt;
 &lt;li&gt;hotfix -&amp;gt; develop&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 09 Jan 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-01-09:posts/git-branching-strategy</guid><category>git</category></item><item><title>Unity package management</title><link>http://minhhh.github.io/posts/unity-package-management</link><description>&lt;p&gt;A robust package management system is quite important when developing in Unity. People have been asking for one in the Unity &lt;a href="https://forum.unity3d.com/threads/any-robust-package-dependency-management-systems-for-unity.276329/"&gt;forum&lt;/a&gt;. The following survey will list some popular options.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 09 Jan 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-01-09:posts/git-branching-strategy</guid><category>git</category></item><item><title>Unity package management</title><link>http://minhhh.github.io/posts/unity-package-management</link><description>&lt;p&gt;A robust package management system is quite important when developing in Unity. People have been asking for one in the Unity &lt;a href="https://forum.unity3d.com/threads/any-robust-package-dependency-management-systems-for-unity.276329/"&gt;forum&lt;/a&gt;. The following survey will list some popular options.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/modesttree/Projeny"&gt;Projeny&lt;/a&gt; The purpose of Projeny is to allow your Unity3D project to easily scale in size without heavily impacting development time. Only available in Windows&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Share any Unity assets (code, scenes, prefabs, etc.) across multiple different Unity projects without copy and pasting&lt;/li&gt;
@@ -197,7 +197,7 @@
 &lt;li&gt;A command-line client to manage Unity package&lt;/li&gt;
 &lt;li&gt;Does not support version and nested versions&lt;/li&gt;
 &lt;li&gt;Can only export 1 directory, which is really limited&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 09 Jan 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-01-09:posts/unity-package-management</guid><category>unity</category></item><item><title>Dither Unity textures to save memory</title><link>http://minhhh.github.io/posts/dither-unity-textures-to-save-memory</link><description>&lt;p&gt;The project code is here: https://github.com/minhhh/unity-texture-dither&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 09 Jan 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-01-09:posts/unity-package-management</guid><category>unity</category></item><item><title>Dither Unity textures to save memory</title><link>http://minhhh.github.io/posts/dither-unity-textures-to-save-memory</link><description>&lt;p&gt;The project code is here: https://github.com/minhhh/unity-texture-dither&lt;/p&gt;
 &lt;p&gt;In many cases, we want to dither textures so that we can use more compact texture import format to save memory. This project aims to provide a workflow for dithering imported texture automatically, based on settings that can be swapped easily. Note that this has nothing to do with using dithering to achieve some artistic goal or the real time dithering effect to solve color banding problem.&lt;/p&gt;
 &lt;p&gt;The algorithms are explained in a &lt;a href="http://www.tannerhelland.com/4660/dithering-eleven-algorithms-source-code/"&gt;blog post&lt;/a&gt; by Tanner Helland and the reference implementations are taken from https://github.com/mcraiha/Dithering-Unity3d with some slight modification.&lt;/p&gt;
 &lt;h2&gt;Usage&lt;/h2&gt;
@@ -220,7 +220,7 @@
 &lt;li&gt;RGBA4444&lt;/li&gt;
 &lt;li&gt;Websafe&lt;/li&gt;
 &lt;li&gt;TrueColor (for testing purpose)&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-01-05:posts/dither-unity-textures-to-save-memory</guid><category>unity</category><category>dither</category></item><item><title>Using Unity Mecanim animation system</title><link>http://minhhh.github.io/posts/using-unity-mecanim-animation-system</link><description>&lt;p&gt;See &lt;a href="https://github.com/minhhh/unity-mecanim.git"&gt;unity-mecanim&lt;/a&gt; for sample code of this article&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-01-05:posts/dither-unity-textures-to-save-memory</guid><category>unity</category><category>dither</category></item><item><title>Using Unity Mecanim animation system</title><link>http://minhhh.github.io/posts/using-unity-mecanim-animation-system</link><description>&lt;p&gt;See &lt;a href="https://github.com/minhhh/unity-mecanim.git"&gt;unity-mecanim&lt;/a&gt; for sample code of this article&lt;/p&gt;
 &lt;h2&gt;Mechanim basics&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=wdOk5QXYC6Y"&gt;Unity 5 Tutorial - Animation Control&lt;/a&gt;&lt;/li&gt;
@@ -343,7 +343,7 @@
 &lt;li&gt;Try to only use one way&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 02 Jan 2017 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2017-01-02:posts/using-unity-mecanim-animation-system</guid><category>unity</category><category>mecanim</category></item><item><title>Finite state machine for Unity</title><link>http://minhhh.github.io/posts/finite-state-machine-for-unity</link><description>&lt;p&gt;Finite State Machine (FSM) is an important technique in game programming. Most games that have some sort of battle will have to design an FSM for its entities. FSM can be applied in UI as well. For example, instead of using flags to enable/disable certain UI elements, we can use a full FSM for all possible states of the targetted UI and its interactions with user inputs.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 02 Jan 2017 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-01-02:posts/using-unity-mecanim-animation-system</guid><category>unity</category><category>mecanim</category></item><item><title>Finite state machine for Unity</title><link>http://minhhh.github.io/posts/finite-state-machine-for-unity</link><description>&lt;p&gt;Finite State Machine (FSM) is an important technique in game programming. Most games that have some sort of battle will have to design an FSM for its entities. FSM can be applied in UI as well. For example, instead of using flags to enable/disable certain UI elements, we can use a full FSM for all possible states of the targetted UI and its interactions with user inputs.&lt;/p&gt;
 &lt;p&gt;The main elements of a FSM include:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A representation of a state&lt;/li&gt;
@@ -351,14 +351,14 @@
 &lt;li&gt;A central system that hosts the states and facilitates their transitions&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai"&gt;Using Interfaces to Make a State Machine for AI&lt;/a&gt; has a simplest implementation of FSM. A state is represented like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;IEnemyState&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;UpdateState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;OnTriggerEnter&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Collider&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ToPatrolState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ToAlertState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;ToChaseState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public interface IEnemyState
+{
+    void UpdateState();
+    void OnTriggerEnter (Collider other);
+    void ToPatrolState();
+    void ToAlertState();
+    void ToChaseState();
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -374,7 +374,7 @@
 &lt;li&gt;&lt;a href="http://wiki.unity3d.com/index.php?title=Finite_State_Machine"&gt;Finite State Machine&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.voidinspace.com/2013/05/a-simple-finite-state-machine-with-c-delegates-in-unity/"&gt;A simple finite state machine with C# delegates in Unity&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai"&gt;Using Interfaces to Make a State Machine for AI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 28 Dec 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-12-28:posts/finite-state-machine-for-unity</guid><category>unity</category><category>fsm</category></item><item><title>Understanding Unity Editor Extensions</title><link>http://minhhh.github.io/posts/understanding-unity-editor-extensions</link><description>&lt;p&gt;Unity Editor offers many ways for extending its functionality to suit your project's specific needs and workflow. Have a look at &lt;a href="https://github.com/minhhh/unity-editorextension-manual"&gt;unity-editorextension-manual&lt;/a&gt; for a complete list of ways you can extend the Unity Editor.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 22 Dec 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-12-22:posts/understanding-unity-editor-extensions</guid><category>unity</category><category>editor</category></item><item><title>Understanding Unity ScriptableObject</title><link>http://minhhh.github.io/posts/understanding-unity-scriptableobject</link><description>&lt;p&gt;In the &lt;a href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects"&gt;Introduction to Scriptable Objects&lt;/a&gt; tutorial, they claim that &lt;code&gt;Scriptable Objects are amazing data containers&lt;/code&gt;. However, it's not clear how useful Scriptable Objects really is, and what problems they're trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they're trying to solve, what the original solutions are, and what the pros and cons of each approach are.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 28 Dec 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-12-28:posts/finite-state-machine-for-unity</guid><category>unity</category><category>fsm</category></item><item><title>Understanding Unity Editor Extensions</title><link>http://minhhh.github.io/posts/understanding-unity-editor-extensions</link><description>&lt;p&gt;Unity Editor offers many ways for extending its functionality to suit your project's specific needs and workflow. Have a look at &lt;a href="https://github.com/minhhh/unity-editorextension-manual"&gt;unity-editorextension-manual&lt;/a&gt; for a complete list of ways you can extend the Unity Editor.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 22 Dec 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-12-22:posts/understanding-unity-editor-extensions</guid><category>unity</category><category>editor</category></item><item><title>Understanding Unity ScriptableObject</title><link>http://minhhh.github.io/posts/understanding-unity-scriptableobject</link><description>&lt;p&gt;In the &lt;a href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects"&gt;Introduction to Scriptable Objects&lt;/a&gt; tutorial, they claim that &lt;code&gt;Scriptable Objects are amazing data containers&lt;/code&gt;. However, it's not clear how useful Scriptable Objects really is, and what problems they're trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they're trying to solve, what the original solutions are, and what the pros and cons of each approach are.&lt;/p&gt;
 &lt;h2&gt;Overall&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;What is a Scriptable Object&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -435,17 +435,17 @@
 &lt;ol&gt;
 &lt;li&gt;Create a base class for all the global game Settings. It will have a static property &lt;code&gt;Instance&lt;/code&gt;, which provides a way to create a singleton instance in a fixed location. This location will be customized on a project basis.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Setting&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;ScriptableObject&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Setting&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="nx"&gt;...&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public class Setting&amp;lt;T&amp;gt; : ScriptableObject where T : Setting&amp;lt;T&amp;gt;
+{
+...
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ol&gt;
 &lt;li&gt;Create subclass the &lt;code&gt;Setting&lt;/code&gt; class. Provide a MenuItem for accessing it.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[MenuItem (&amp;quot;Settings/TextureSetting&amp;quot;)]&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[MenuItem (&amp;quot;Settings/TextureSetting&amp;quot;)]&lt;/span&gt;
 &lt;span class="err"&gt;public&lt;/span&gt; &lt;span class="err"&gt;static&lt;/span&gt; &lt;span class="err"&gt;void&lt;/span&gt; &lt;span class="err"&gt;Edit&lt;/span&gt; &lt;span class="err"&gt;()&lt;/span&gt;
 &lt;span class="err"&gt;{&lt;/span&gt;
     &lt;span class="na"&gt;Selection.activeObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Instance;&lt;/span&gt;
@@ -493,24 +493,24 @@
 &lt;p&gt;These ScriptableObjects are similar to the ones in Usecase 3, but they have functions which can act arbitrarily on &lt;code&gt;GameObject&lt;/code&gt;, &lt;code&gt;MonoBehaviour&lt;/code&gt; and so on.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117"&gt;Ability System with Scriptable Objects&lt;/a&gt; shows how you implement an Ability System, where &lt;code&gt;Ability&lt;/code&gt; is ScriptableObject with its own behaviour functions.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Ability&lt;/code&gt; class contains data and abstracts methods which act on &lt;code&gt;GameObject&lt;/code&gt; based on those data.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;abstract&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Ability&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ScriptableObject&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;aName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;New Ability&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt; &lt;span class="n"&gt;aSprite&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;AudioClip&lt;/span&gt; &lt;span class="n"&gt;aSound&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;aBaseCoolDown&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public abstract class Ability : ScriptableObject
+{
+    public string aName = &amp;quot;New Ability&amp;quot;;
+    public Sprite aSprite;
+    public AudioClip aSound;
+    public float aBaseCoolDown = 1f;
 
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Initialize&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GameObject&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;TriggerAbility&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    public abstract void Initialize (GameObject obj);
+    public abstract void TriggerAbility ();
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;ProjectileAbility&lt;/code&gt; is a concrete &lt;code&gt;Ability&lt;/code&gt; subclass, which modifies the target &lt;code&gt;GameObject&lt;/code&gt; as needed and trigger the projectile action.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;System.Collections&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UnityEngine;
+using System.Collections;
 
-&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;CreateAssetMenu&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;menuName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Abilities/ProjectileAbility&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
+[CreateAssetMenu (menuName = &amp;quot;Abilities/ProjectileAbility&amp;quot;)]
 public class ProjectileAbility : Ability
 {
     public float projectileForce = 500f;
@@ -520,7 +520,7 @@ public class ProjectileAbility : Ability
 
     public override void Initialize (GameObject obj)
     {
-        launcher = obj.GetComponent&lt;span class="nt"&gt;&amp;lt;ProjectileShootTriggerable&amp;gt;&lt;/span&gt; ();
+        launcher = obj.GetComponent&amp;lt;ProjectileShootTriggerable&amp;gt; ();
         launcher.projectileForce = projectileForce;
         launcher.projectile = projectile;
     }
@@ -608,7 +608,7 @@ public class ProjectileAbility : Ability
 &lt;li&gt;
 &lt;p&gt;&lt;a href="http://ivanozanchetta.com/gamedev/unity3d/unity-serialization-behind-scriptableobject/"&gt;Unity Serialization… behind the mistery of ScriptableObject&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 15 Dec 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-12-15:posts/understanding-unity-scriptableobject</guid><category>unity</category><category>scriptableobject</category></item><item><title>Understanding Reactive</title><link>http://minhhh.github.io/posts/understanding-reactive</link><description>&lt;h2&gt;Reactive tutorials and manual&lt;/h2&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 15 Dec 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-12-15:posts/understanding-unity-scriptableobject</guid><category>unity</category><category>scriptableobject</category></item><item><title>Understanding Reactive</title><link>http://minhhh.github.io/posts/understanding-reactive</link><description>&lt;h2&gt;Reactive tutorials and manual&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754"&gt;The introduction to Reactive Programming you've been missing&lt;/a&gt;&lt;/strong&gt; Best introduction tutorial to Reactive Programming&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://www.introtorx.com/"&gt;Introduction to Rx&lt;/a&gt;&lt;/strong&gt; This book aims to teach you:&lt;/p&gt;
 &lt;ul&gt;
@@ -628,7 +628,7 @@ public class ProjectileAbility : Ability
 &lt;h2&gt;Reactive usecases&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://blog.flowdock.com/2013/01/22/functional-reactive-programming-with-bacon-js/"&gt;Bacon.js&lt;/a&gt;&lt;/strong&gt; introduces FRP concepts and benefits with Bacon.js, an FRP library for both browsers and server-side JS&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=mS264h8KGwk"&gt;Immutability, interactivity &amp;amp; JavaScript&lt;/a&gt;&lt;/strong&gt; Surprisingly the high performance mutation available in modern JavaScript engines is a great foundation for building high performance immutable collections. Even more surprisingly efficient immutable collections permit new ways of approaching user interface programming. While the details will be in Om, an immutable user interface toolkit written in ClojureScript over Facebook's React, the talk will be primarily focused on high level concepts easily ported to JavaScript. We'll dive in and see how trees of JavaScript arrays can permit building these efficient immutable collections. Then we'll see how embracing immutable values dramatically simplifies some classic hard problems in client side programming including but not limited to undo, error playback, and online/offline synchronization.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=sTSQlYX5DU0"&gt;What does it mean to be Reactive&lt;/a&gt;&lt;/strong&gt; The inimitable Erik Meijer delivering his opening keynote to React 2014&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 04 Dec 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-12-04:posts/understanding-reactive</guid><category>rx</category></item><item><title>Unity Texture compression and optimization</title><link>http://minhhh.github.io/posts/unity-texture-compression-and-optimization</link><description>&lt;p&gt;A common question when building Unity games is which texture compression format will be the best. The criteria are: size on disk, memory footprint, performance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=sTSQlYX5DU0"&gt;What does it mean to be Reactive&lt;/a&gt;&lt;/strong&gt; The inimitable Erik Meijer delivering his opening keynote to React 2014&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 04 Dec 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-12-04:posts/understanding-reactive</guid><category>rx</category></item><item><title>Unity Texture compression and optimization</title><link>http://minhhh.github.io/posts/unity-texture-compression-and-optimization</link><description>&lt;p&gt;A common question when building Unity games is which texture compression format will be the best. The criteria are: size on disk, memory footprint, performance.&lt;/p&gt;
 &lt;p&gt;We have many options in the Unity Engine: ETC1, ETC2, DXT3, DXT5, and so on. How do we choose? Let's look at some optimization tricks to see how others choose their formats.&lt;/p&gt;
 &lt;p&gt;First you need to understand &lt;a href="http://gamedev.stackexchange.com/questions/5171/how-much-memory-does-a-texture-take-up-on-the-gpu"&gt;How much memory does a texture take up on the GPU?&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -689,19 +689,19 @@ public class ProjectileAbility : Ability
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;                        &lt;span class="err"&gt;合計サイズ&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MiB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;RGBA&lt;/span&gt;       &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt; &lt;span class="err"&gt;比のサイズ削減率&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;RGBA&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;              &lt;span class="mi"&gt;879&lt;/span&gt;                         &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="n"&gt;RGBA&lt;/span&gt; &lt;span class="n"&gt;PVRTC&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;         &lt;span class="mi"&gt;229&lt;/span&gt;                         &lt;span class="mi"&gt;74&lt;/span&gt;
-&lt;span class="n"&gt;RGBA&lt;/span&gt; &lt;span class="n"&gt;ETC2&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;          &lt;span class="mi"&gt;431&lt;/span&gt;                         &lt;span class="mi"&gt;51&lt;/span&gt;
-&lt;span class="n"&gt;Split&lt;/span&gt; &lt;span class="n"&gt;Alpha&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Android&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;   &lt;span class="mi"&gt;249&lt;/span&gt;                         &lt;span class="mi"&gt;72&lt;/span&gt;
-&lt;span class="n"&gt;Split&lt;/span&gt; &lt;span class="n"&gt;Alpha&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iOS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="mi"&gt;272&lt;/span&gt;                         &lt;span class="mi"&gt;69&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;                        合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
+RGBA 16bit              879                         0
+RGBA PVRTC 4bit         229                         74
+RGBA ETC2 8bit          431                         51
+Split Alpha (Android)   249                         72
+Split Alpha (iOS)       272                         69
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;https://github.com/keijiro/unity-alphamask&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In conclusion, use ETC + Alpha channel whenever you can because it provides the best build size and memory footprint in most cases, at reasonable quality.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 03 Dec 2016 00:01:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-12-03:posts/unity-texture-compression-and-optimization</guid><category>unity</category><category>texture</category><category>splitalpha</category><category>optimization</category></item><item><title>Unity geometry distortion on child object</title><link>http://minhhh.github.io/posts/unity-geometry-distortion-on-child-object</link><description>&lt;p&gt;In Unity there is a geometry issue with the child object of non-uniformly scaled parent. When the parent object does not have (1,1,1) scale, then the child object will be skewed weirdly when they rotate. This issue has been mentioned in the below references:&lt;/p&gt;
+&lt;p&gt;In conclusion, use ETC + Alpha channel whenever you can because it provides the best build size and memory footprint in most cases, at reasonable quality.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 03 Dec 2016 00:01:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-12-03:posts/unity-texture-compression-and-optimization</guid><category>unity</category><category>texture</category><category>splitalpha</category><category>optimization</category></item><item><title>Unity geometry distortion on child object</title><link>http://minhhh.github.io/posts/unity-geometry-distortion-on-child-object</link><description>&lt;p&gt;In Unity there is a geometry issue with the child object of non-uniformly scaled parent. When the parent object does not have (1,1,1) scale, then the child object will be skewed weirdly when they rotate. This issue has been mentioned in the below references:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;http://answers.unity3d.com/questions/197739/object-skewing-on-rotation.html&lt;/li&gt;
 &lt;li&gt;http://answers.unity3d.com/questions/21645/geometry-distortion-on-child-objects.html&lt;/li&gt;
@@ -710,13 +710,13 @@ public class ProjectileAbility : Ability
 &lt;ol&gt;
 &lt;li&gt;Make the parent uniform, OR&lt;/li&gt;
 &lt;li&gt;Child the objects to another uniformly scaled parent&lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 03 Dec 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-12-03:posts/unity-geometry-distortion-on-child-object</guid><category>unity</category></item><item><title>Scale Shuriken Particle System</title><link>http://minhhh.github.io/posts/scale-shuriken-particle-system</link><description>&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 03 Dec 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-12-03:posts/unity-geometry-distortion-on-child-object</guid><category>unity</category></item><item><title>Scale Shuriken Particle System</title><link>http://minhhh.github.io/posts/scale-shuriken-particle-system</link><description>&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
 &lt;p&gt;There are some plugins on the Asset Store which can help you with this tasks:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/9703"&gt;Simple Particle Scaler&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/4400"&gt;Particle Scaler&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I've also written a tool to scale Shuriken Particles in the Editor: &lt;a href="https://github.com/minhhh/unity-particle-scaler"&gt;unity-particle-scaler&lt;/a&gt;. It's very convenient and simple to use.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-11-29:posts/scale-shuriken-particle-system</guid><category>unity</category><category>particlesystem</category></item><item><title>Unity Asset Bundle</title><link>http://minhhh.github.io/posts/unity-asset-bundle</link><description>&lt;p&gt;Asset Bundle is a big topic in Unity. Initially, you want to grasp the basic setup and make something work. As your games get bigger, you might want to do more customization to make sure you have full control of the lifecycle. Here are some documents I've studied while learning about asset bundle. Ultimately, my goal is to make a full asset bundle workflow for big online game, so this blog will be a work in progress until I can transfer it into a working repository.&lt;/p&gt;
+&lt;p&gt;I've also written a tool to scale Shuriken Particles in the Editor: &lt;a href="https://github.com/minhhh/unity-particle-scaler"&gt;unity-particle-scaler&lt;/a&gt;. It's very convenient and simple to use.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-29:posts/scale-shuriken-particle-system</guid><category>unity</category><category>particlesystem</category></item><item><title>Unity Asset Bundle</title><link>http://minhhh.github.io/posts/unity-asset-bundle</link><description>&lt;p&gt;Asset Bundle is a big topic in Unity. Initially, you want to grasp the basic setup and make something work. As your games get bigger, you might want to do more customization to make sure you have full control of the lifecycle. Here are some documents I've studied while learning about asset bundle. Ultimately, my goal is to make a full asset bundle workflow for big online game, so this blog will be a work in progress until I can transfer it into a working repository.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Asset bundle and AssetBundleManager&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/assetbundles-and-assetbundle-manager"&gt;AssetBundles and the AssetBundle Manager&lt;/a&gt;&lt;ul&gt;
@@ -891,7 +891,7 @@ public class ProjectileAbility : Ability
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-11-29:posts/unity-asset-bundle</guid><category>unity</category><category>assetbundle</category></item><item><title>Game backends</title><link>http://minhhh.github.io/posts/game-backends</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="http://blog.soom.la/2016/02/top-10-parse-alternatives-game-backend.html"&gt;Top 10 Parse Alternatives For Your Game Backend&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-29:posts/unity-asset-bundle</guid><category>unity</category><category>assetbundle</category></item><item><title>Game backends</title><link>http://minhhh.github.io/posts/game-backends</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="http://blog.soom.la/2016/02/top-10-parse-alternatives-game-backend.html"&gt;Top 10 Parse Alternatives For Your Game Backend&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;GameSparks&lt;/li&gt;
 &lt;li&gt;PlayFab&lt;/li&gt;
@@ -909,7 +909,7 @@ public class ProjectileAbility : Ability
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.reddit.com/r/gamedev/comments/4otyeb/gamesparks_vs_playfab/"&gt;Gamesparks vs PlayFab?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://spaceteamadmirals.club/blog/spaceteam-is-coming-to-your-library/"&gt;Spaceteam&lt;/a&gt; uses GameSparks&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 25 Nov 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-11-25:posts/game-backends</guid><category>game</category><category>backend</category></item><item><title>Writing Unity iOS plugin</title><link>http://minhhh.github.io/posts/writing-unity-ios-plugin</link><description>&lt;p&gt;&lt;a href="https://docs.unity3d.com/Manual/PluginsForIOS.html"&gt;Building Plugins for iOS&lt;/a&gt; is a guide from Unity.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 25 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-25:posts/game-backends</guid><category>game</category><category>backend</category></item><item><title>Writing Unity iOS plugin</title><link>http://minhhh.github.io/posts/writing-unity-ios-plugin</link><description>&lt;p&gt;&lt;a href="https://docs.unity3d.com/Manual/PluginsForIOS.html"&gt;Building Plugins for iOS&lt;/a&gt; is a guide from Unity.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Two approaches&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Approach 1: Put plugin source code &lt;code&gt;.mm,.c,.cpp&lt;/code&gt; files in &lt;code&gt;Assets/Plugins/iOS&lt;/code&gt; folder.&lt;/li&gt;
@@ -917,7 +917,7 @@ public class ProjectileAbility : Ability
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href="http://stackoverflow.com/questions/14834626/how-to-build-unity3d-plugin-for-ios"&gt;How to build Unity3d Plugin for iOS&lt;/a&gt; experience from a developer&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://blogs.shephertz.com/2013/08/23/bridging-the-gap-plugin-for-unity-and-ios/"&gt;Plugin for Unity and iOS&lt;/a&gt; iOS plugin with source code inside Asset folder&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.slideshare.net/kaijungchen/unity3-d-plugins-development-guide-29659247"&gt;Unity3D Plugins Development Guide&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 25 Nov 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-11-25:posts/writing-unity-ios-plugin</guid><category>unity</category><category>ios</category></item><item><title>How to do blur effect in Unity</title><link>http://minhhh.github.io/posts/how-to-do-blur-effect-in-unity</link><description>&lt;p&gt;&lt;strong&gt;Image Blur&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.slideshare.net/kaijungchen/unity3-d-plugins-development-guide-29659247"&gt;Unity3D Plugins Development Guide&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 25 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-25:posts/writing-unity-ios-plugin</guid><category>unity</category><category>ios</category></item><item><title>How to do blur effect in Unity</title><link>http://minhhh.github.io/posts/how-to-do-blur-effect-in-unity</link><description>&lt;p&gt;&lt;strong&gt;Image Blur&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;can use a camera which render to a rendered texture&lt;/li&gt;
 &lt;li&gt;add the images to be rendered to a second canvas, which uses the new camera with screenspace-camera&lt;/li&gt;
@@ -929,7 +929,7 @@ public class ProjectileAbility : Ability
 &lt;li&gt;&lt;a href="http://answers.unity3d.com/questions/21699/unity-blur-behind-window.html"&gt;Blur Behind Window&lt;/a&gt; Use Camera post effect&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://forum.unity3d.com/threads/solved-dynamic-blurred-background-on-ui.345083/"&gt;Dynamic Blurred Background on UI&lt;/a&gt; Use Grabpass&lt;/li&gt;
 &lt;li&gt;http://blog.ivank.net/fastest-gaussian-blur.html&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 24 Nov 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-11-24:posts/how-to-do-blur-effect-in-unity</guid><category>unity</category><category>blur</category></item><item><title>Unity local network multiplayer</title><link>http://minhhh.github.io/posts/unity-local-network-multiplayer</link><description>&lt;p&gt;iOS device can connect to iOS device via Bluetooth using:&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 24 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-24:posts/how-to-do-blur-effect-in-unity</guid><category>unity</category><category>blur</category></item><item><title>Unity local network multiplayer</title><link>http://minhhh.github.io/posts/unity-local-network-multiplayer</link><description>&lt;p&gt;iOS device can connect to iOS device via Bluetooth using:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/2739"&gt;MultiPeer Local Multiplayer Plugin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://prime31.com/docs#iosGCMP"&gt;GameCenter Multiplayer plugin&lt;/a&gt;&lt;/li&gt;
@@ -973,22 +973,22 @@ public class ProjectileAbility : Ability
 &lt;li&gt;&lt;a href="https://forum.unity3d.com/threads/unity-5-unet-multiplayer-tutorials-making-a-basic-survival-co-op.325692/"&gt;Unity 5 UNET Multiplayer Tutorials&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href="http://www.tasharen.com/?page_id=4518"&gt;TNET&lt;/a&gt; Another option which uses UDP for multiplayer game.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://allseenalliance.org/framework"&gt;Alljoyn&lt;/a&gt; makes it easy for devices to communicate. Unfortunately it does not support Unity.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 21 Nov 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-11-21:posts/unity-local-network-multiplayer</guid><category>unity</category><category>bluetooth</category><category>multiplayer</category></item><item><title>Setting sorting layer and order in layer of Mesh Renderer</title><link>http://minhhh.github.io/posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer</link><description>&lt;p&gt;Unity 5.x exposes the sorting layer and order in layer of &lt;code&gt;SpriterRenderer&lt;/code&gt;, but not &lt;code&gt;MeshRenderer&lt;/code&gt;. Fortunately, it's very easy setting these property of the &lt;code&gt;MeshRenderer&lt;/code&gt; in code. I've created a simple solution for setting sorting layer and order in layer of any &lt;code&gt;Renderer&lt;/code&gt; component using a simple component called &lt;a href="https://github.com/minhhh/unity-sortinglayer-setter"&gt;SortingLayerSetter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://allseenalliance.org/framework"&gt;Alljoyn&lt;/a&gt; makes it easy for devices to communicate. Unfortunately it does not support Unity.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 21 Nov 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-11-21:posts/unity-local-network-multiplayer</guid><category>unity</category><category>bluetooth</category><category>multiplayer</category></item><item><title>Setting sorting layer and order in layer of Mesh Renderer</title><link>http://minhhh.github.io/posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer</link><description>&lt;p&gt;Unity 5.x exposes the sorting layer and order in layer of &lt;code&gt;SpriterRenderer&lt;/code&gt;, but not &lt;code&gt;MeshRenderer&lt;/code&gt;. Fortunately, it's very easy setting these property of the &lt;code&gt;MeshRenderer&lt;/code&gt; in code. I've created a simple solution for setting sorting layer and order in layer of any &lt;code&gt;Renderer&lt;/code&gt; component using a simple component called &lt;a href="https://github.com/minhhh/unity-sortinglayer-setter"&gt;SortingLayerSetter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It looks like this in the Editor&lt;/p&gt;
-&lt;p&gt;&lt;img alt="example 1" src="https://raw.githubusercontent.com/minhhh/unity-sortinglayer-setter/master/images/example1.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 30 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-30:posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer</guid><category>unity</category></item><item><title>When to use Script Execution Order</title><link>http://minhhh.github.io/posts/when-to-use-script-execution-order</link><description>&lt;p&gt;Normally we don't control the execution order of &lt;code&gt;MonoBehaviour&lt;/code&gt; scripts, and we should not. However, there are cases where we do want some scripts to be executed before others. Some usecases include:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="example 1" src="https://raw.githubusercontent.com/minhhh/unity-sortinglayer-setter/master/images/example1.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 30 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-30:posts/setting-sorting-layer-and-order-in-layer-of-mesh-renderer</guid><category>unity</category></item><item><title>When to use Script Execution Order</title><link>http://minhhh.github.io/posts/when-to-use-script-execution-order</link><description>&lt;p&gt;Normally we don't control the execution order of &lt;code&gt;MonoBehaviour&lt;/code&gt; scripts, and we should not. However, there are cases where we do want some scripts to be executed before others. Some usecases include:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;A &lt;code&gt;Controller&lt;/code&gt; script that should be executed as the entry point to the scene&lt;/li&gt;
 &lt;li&gt;Scripts which use &lt;code&gt;LateUpdate&lt;/code&gt; and must be executed in specific order&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;For these cases, we will assign an integer number to those scripts in &lt;code&gt;Edit &amp;gt; Project Settings &amp;gt; Script Execution Order&lt;/code&gt;. It's best practice to use large and discrete number such as &lt;code&gt;100&lt;/code&gt;, &lt;code&gt;200&lt;/code&gt;, &lt;code&gt;-100&lt;/code&gt; instead of &lt;code&gt;1&lt;/code&gt;, &lt;code&gt;2&lt;/code&gt;, &lt;code&gt;3&lt;/code&gt; because it would make it easier to insert something in between them when we need to.&lt;/p&gt;
 &lt;p&gt;One inconvenience with Unity Editor GUI for &lt;code&gt;Script Execution Order&lt;/code&gt; is that it's a bit hard to find your classes when there are a lot of them. The solution for this is to add &lt;code&gt;Script Execution Order&lt;/code&gt; as meta information to the class using attribute. There's already an implementation for this: &lt;a href="https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs"&gt;https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/Core/Editor/GameScriptExecutionOrder.cs&lt;/a&gt; and &lt;a href="https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs"&gt;https://github.com/kwnetzwelt/ugb-source/blob/UGB-3.0/UnityGameBase/ScriptExecutionOrderAttribute.cs&lt;/a&gt;. Using these 2 classes, now we can add &lt;code&gt;Script Execution Order&lt;/code&gt; to any class as follows:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[ScriptExecutionOrder(-1000)]&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[ScriptExecutionOrder(-1000)]&lt;/span&gt;
 &lt;span class="err"&gt;public&lt;/span&gt; &lt;span class="err"&gt;abstract&lt;/span&gt; &lt;span class="err"&gt;class&lt;/span&gt; &lt;span class="err"&gt;Game&lt;/span&gt; &lt;span class="err"&gt;:&lt;/span&gt; &lt;span class="err"&gt;MonoBehaviour&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 28 Oct 2016 00:01:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-28:posts/when-to-use-script-execution-order</guid><category>unity</category></item><item><title>Run specific code when Editor starts</title><link>http://minhhh.github.io/posts/run-specific-code-when-editor-starts</link><description>&lt;p&gt;Sometimes we want to execute code whenever we hit &lt;code&gt;Play&lt;/code&gt; button in Unity Editor. The reason for this usually is that we want to enforce some workflow automatically such as getting specific environment information (e.g. git hash, date) and fill it in a prefab or something. We could do these things by creating a Custom Window with a button somewhere, but it feels too manual.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 28 Oct 2016 00:01:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-28:posts/when-to-use-script-execution-order</guid><category>unity</category></item><item><title>Run specific code when Editor starts</title><link>http://minhhh.github.io/posts/run-specific-code-when-editor-starts</link><description>&lt;p&gt;Sometimes we want to execute code whenever we hit &lt;code&gt;Play&lt;/code&gt; button in Unity Editor. The reason for this usually is that we want to enforce some workflow automatically such as getting specific environment information (e.g. git hash, date) and fill it in a prefab or something. We could do these things by creating a Custom Window with a button somewhere, but it feels too manual.&lt;/p&gt;
 &lt;p&gt;Fortunately, Unity has offered a simple way to do this, that is &lt;code&gt;InitializeOnLoadAttribute&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://web.archive.org/web/20160515043658/http://blog.andreimarks.com/2012/08/16/unity-how-to-run-specific-code-only-when-building-out-a-project"&gt;http://blog.andreimarks.com/2012/08/16/unity-how-to-run-specific-code-only-when-building-out-a-project/&lt;/a&gt; shows an usecase of &lt;code&gt;InitializeOnLoadAttribute&lt;/code&gt;: to generate a tracking tag of the build with the build date.&lt;/p&gt;
 &lt;p&gt;Beware of a potential problem &lt;a href="https://web.archive.org/web/20161015115941/http://www.createdbyx.com/post/2013/02/17/Unity-Tip-101-55-%E2%80%93-InitializeOnLoad-ResourcesLoad-gotcha%E2%80%99s.aspx"&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;An awesome review of other ways to execute code on startup are listed here &lt;a href="http://www.codingjargames.com/blog/2015/08/04/unity-and-initialization-order/"&gt;http://www.codingjargames.com/blog/2015/08/04/unity-and-initialization-order/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 28 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-28:posts/run-specific-code-when-editor-starts</guid><category>unity</category></item><item><title>MVC in Unity</title><link>http://minhhh.github.io/posts/mvc-in-unity</link><description>&lt;h1&gt;Some MVC like frameworks in Unity&lt;/h1&gt;
+&lt;p&gt;An awesome review of other ways to execute code on startup are listed here &lt;a href="http://www.codingjargames.com/blog/2015/08/04/unity-and-initialization-order/"&gt;http://www.codingjargames.com/blog/2015/08/04/unity-and-initialization-order/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 28 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-28:posts/run-specific-code-when-editor-starts</guid><category>unity</category></item><item><title>MVC in Unity</title><link>http://minhhh.github.io/posts/mvc-in-unity</link><description>&lt;h1&gt;Some MVC like frameworks in Unity&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://forum.unity3d.com/threads/3usd-key-value-observing-lightweight-implementation-of-kvo-for-c.330319/"&gt;Key Value Observing&lt;/a&gt;&lt;/strong&gt; This is a simple implementation of MVC according to his own understandings&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/cgarciae/karma"&gt;Karma&lt;/a&gt;&lt;/strong&gt; Lightweight MVC framework using Zenject DI container. It is inspired from &lt;a href="http://engineering.socialpoint.es/MVC-pattern-unity3d-ui.html"&gt;MODEL VIEW CONTROLLER PATTERN FOR UNITY3D USER INTERFACES&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/37466"&gt;Marklight&lt;/a&gt;&lt;/strong&gt; Looks nice. It offers XUML and external editor which might be good for view management, but it also feels too restrictive because you have to follow their way.&lt;/p&gt;
@@ -1007,7 +1007,7 @@ public class ProjectileAbility : Ability
 &lt;li&gt;UI usually consists of a big container and a lot of smaller views. Testing small views is easy so you don't need to create separate View class for each. Testing the container is complicated, you want to do it with a test scene in Unity anyway, thus there's no need to try to make an ViewModel interface for testing.&lt;/li&gt;
 &lt;li&gt;The examples of Unity MVC implementation in some blogs are usually naive and contrived. As such, they don't scale when you have really complex UI. In addition, they usually confuse between UI and gameplay, so they take example such as hitting enemies or updating their HP bar. MVC is suitable for UIs and maybe some turn-based gameplay, but extending it to a fighting gameplay requires much more than some optimistic guesswork.&lt;/li&gt;
 &lt;li&gt;Controller needs to behave according to states, that makes the ViewPresenter or ViewModel also have to replicate those states fully or partly. It's quite difficult to know which should be the common behaviour. A simpler way is to just merge Controller and View/ViewPresenter/ViewModel.&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 27 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-27:posts/mvc-in-unity</guid><category>unity</category><category>mvc</category></item><item><title>Understanding Promises</title><link>http://minhhh.github.io/posts/understanding-promises</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.promisejs.org/"&gt;Understand promise vs callback&lt;/a&gt;&lt;/strong&gt; The ABCs of promises&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 27 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-27:posts/mvc-in-unity</guid><category>unity</category><category>mvc</category></item><item><title>Understanding Promises</title><link>http://minhhh.github.io/posts/understanding-promises</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.promisejs.org/"&gt;Understand promise vs callback&lt;/a&gt;&lt;/strong&gt; The ABCs of promises&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://promise-nuggets.github.io/"&gt;Promise nuggets&lt;/a&gt;&lt;/strong&gt; More examples of promises&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://spion.github.io/posts/why-i-am-switching-to-promises.html"&gt;Why I am switching to promises&lt;/a&gt;&lt;/strong&gt; A guy switches from callbacks to promises.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html"&gt;We have a problem with promises&lt;/a&gt;&lt;/strong&gt; Promises are not so easy to use if you don't know exactly how to use them properly. Try to avoid the mistakes of using something without fully understanding it.&lt;/p&gt;
@@ -1015,12 +1015,12 @@ public class ProjectileAbility : Ability
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/icodeforlove/promise-retryer"&gt;promise-retryer&lt;/a&gt;&lt;/strong&gt; Another way to do retry with promise which supports
     * custom delays based on attempts
     * maxRetries
-    * promise result validation (if it fails then keep trying)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 26 Oct 2016 00:02:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-26:posts/understanding-promises</guid><category>promise</category></item><item><title>Building social networks</title><link>http://minhhh.github.io/posts/building-social-networks</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.feverbee.com/2010/01/how-to-build-an-online-community-the-ultimate-list-of-resources.html"&gt;How To Build An Online Community: The Ultimate List Of Resources&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+    * promise result validation (if it fails then keep trying)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 26 Oct 2016 00:02:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-26:posts/understanding-promises</guid><category>promise</category></item><item><title>Building social networks</title><link>http://minhhh.github.io/posts/building-social-networks</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.feverbee.com/2010/01/how-to-build-an-online-community-the-ultimate-list-of-resources.html"&gt;How To Build An Online Community: The Ultimate List Of Resources&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://www.communityspark.com/"&gt;CommunitySpark&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://headrush.typepad.com/creating_passionate_users/2006/12/how_to_build_a_.html"&gt;How to Build a User Community&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://www.chrisbrogan.com/25-ways-to-build-your-community/"&gt;25 Ways to Build Your Community&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://blog.guykawasaki.com/2006/02/the_art_of_crea.html#axzz165byhjtT"&gt;The Art of Creating a Community&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.digital-web.com/articles/building_an_online_community/"&gt;Building an Online Community: Just Add Water&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 26 Oct 2016 00:01:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-26:posts/building-social-networks</guid><category>socialnetwork</category></item><item><title>The power of checklist</title><link>http://minhhh.github.io/posts/the-power-of-checklist</link><description>&lt;h2&gt;Why&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.digital-web.com/articles/building_an_online_community/"&gt;Building an Online Community: Just Add Water&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 26 Oct 2016 00:01:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-26:posts/building-social-networks</guid><category>socialnetwork</category></item><item><title>The power of checklist</title><link>http://minhhh.github.io/posts/the-power-of-checklist</link><description>&lt;h2&gt;Why&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The world has become more complex&lt;/li&gt;
 &lt;li&gt;Our brain has not changed much&lt;/li&gt;
@@ -1048,7 +1048,7 @@ public class ProjectileAbility : Ability
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.artofmanliness.com/2014/12/08/the-power-of-checklists/"&gt;The Power of Checklists&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 10 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-10:posts/the-power-of-checklist</guid><category>checklist</category></item><item><title>Clippings 2016-10-05</title><link>http://minhhh.github.io/posts/clippings-2016-10-05</link><description>&lt;ul&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 10 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-10:posts/the-power-of-checklist</guid><category>checklist</category></item><item><title>Clippings 2016-10-05</title><link>http://minhhh.github.io/posts/clippings-2016-10-05</link><description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://medium.com/the-black-box-of-product-management/a-bad-product-decision-340ee680fa0c#.oj0mk9yud"&gt;A Bad Product Decision&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1061,7 +1061,7 @@ public class ProjectileAbility : Ability
 &lt;li&gt;
 &lt;p&gt;&lt;a href="http://www.sebastiansylvan.com/post/robin-hood-hashing-should-be-your-default-hash-table-implementation/"&gt;Robin Hood Hashing should be your default Hash Table implementation&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 05 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-05:posts/clippings-2016-10-05</guid><category>clippings</category></item><item><title>Clippings 2016-10-03</title><link>http://minhhh.github.io/posts/clippings-2016-10-03</link><description>&lt;ul&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 05 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-05:posts/clippings-2016-10-05</guid><category>clippings</category></item><item><title>Clippings 2016-10-03</title><link>http://minhhh.github.io/posts/clippings-2016-10-03</link><description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://medium.com/@topfunky/think-like-a-software-developer-103dd4db5ec8#.sonyhc7n8"&gt;Think Like a Software Developer&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1077,23 +1077,23 @@ public class ProjectileAbility : Ability
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0#.aatwl06y1"&gt;The Greatest Sales Deck I’ve Ever Seen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 03 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-03:posts/clippings-2016-10-03</guid><category>clippings</category></item><item><title>Generate one-time password from the command line</title><link>http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line</link><description>&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 03 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-03:posts/clippings-2016-10-03</guid><category>clippings</category></item><item><title>Generate one-time password from the command line</title><link>http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line</link><description>&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;First, install &lt;code&gt;OneTimePass&lt;/code&gt; with &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;onetimepass&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install onetimepass
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then you get the secret generated from the service provider you're using. Normally it would be a time-based token, such as the ones you use for Google Authenticator.&lt;/p&gt;
 &lt;p&gt;To get time-based token you invoke it like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;onetimepass&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;onetimepass&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;otp&lt;/span&gt;
 
-&lt;span class="n"&gt;my_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;MFRGGZDFMZTWQ2LK&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;my_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_totp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;my_token&lt;/span&gt;
+&lt;span class="n"&gt;my_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;MFRGGZDFMZTWQ2LK&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;my_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_totp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;my_token&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</guid><category>python</category><category>otp</category></item><item><title>Unity singleton</title><link>http://minhhh.github.io/posts/unity-singleton</link><description>&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:&lt;/p&gt;
+&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</guid><category>python</category><category>otp</category></item><item><title>Unity singleton</title><link>http://minhhh.github.io/posts/unity-singleton</link><description>&lt;p&gt;First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hard to reason about code&lt;/li&gt;
 &lt;li&gt;Encourage coupling&lt;/li&gt;
@@ -1130,29 +1130,29 @@ public class ProjectileAbility : Ability
 &lt;p&gt;Fortunately there're already some solutions written in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt; so we can review and improve them as we wish.&lt;/p&gt;
 &lt;h3&gt;AManagerClass&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://wiki.unity3d.com/index.php/AManagerClass"&gt;AManagerClass&lt;/a&gt; is a standard implementation which supports MonoBehavior-based singletons. In the code, we refer to the singleton like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;    &lt;span class="n"&gt;AManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Foo&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    AManager.instance.Foo ();
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;instance&lt;/code&gt; function implementation is as below:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;AManager&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="c1"&gt;// This is where the magic happens.&lt;/span&gt;
-                &lt;span class="c1"&gt;//  FindObjectOfType(...) returns the first AManager object in the scene.&lt;/span&gt;
-                &lt;span class="n"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;FindObjectOfType&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;AManager&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;AManager&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public static AManager instance {
+        get {
+            if (s_Instance == null) {
+                // This is where the magic happens.
+                //  FindObjectOfType(...) returns the first AManager object in the scene.
+                s_Instance =  FindObjectOfType(typeof (AManager)) as AManager;
+            }
 
-            &lt;span class="c1"&gt;// If it is still null, create a new instance&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="n"&gt;GameObject&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;GameObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;AManager&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                &lt;span class="n"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AddComponent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;AManager&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;AManager&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Could not locate an AManager object. \ AManager was Generated Automaticly.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
+            // If it is still null, create a new instance
+            if (s_Instance == null) {
+                GameObject obj = new GameObject(&amp;quot;AManager&amp;quot;);
+                s_Instance = obj.AddComponent(typeof (AManager)) as AManager;
+                Debug.Log (&amp;quot;Could not locate an AManager object. \ AManager was Generated Automaticly.&amp;quot;);
+            }
 
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;s_Instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+            return s_Instance;
+        }
+    }
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1167,57 +1167,57 @@ public class ProjectileAbility : Ability
 &lt;li&gt;&lt;a href="http://wiki.unity3d.com/index.php/AutoSingletonManager"&gt;AutoSingletonManager&lt;/a&gt; solves the code duplication problem of &lt;code&gt;AManager&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Here's the main code&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;abstract&lt;/span&gt; &lt;span class="nb"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;AutoSingletonManager&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;MonoBehaviour&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public abstract class AutoSingletonManager : MonoBehaviour { }
 
-&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;abstract&lt;/span&gt; &lt;span class="nb"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;AutoSingletonManager&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;AutoSingletonManager&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;AutoSingletonManager&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;Compare&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;class&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManager where T : AutoSingletonManager
+{
+    private static bool Compare&amp;lt;T&amp;gt;(T x, T y) where T : class
+    {
+        return x == y;
+    }
 
-    &lt;span class="vi"&gt;#region&lt;/span&gt; &lt;span class="nx"&gt;Singleton&lt;/span&gt;
+    #region Singleton
 
-    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;default&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    private static T _instance = default(T);
 
-    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;Instance&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nb"&gt;get&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nb"&gt;Compare&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;default&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nx"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    public static T Instance
+    {
+        get
+        {
+            if (!Compare&amp;lt;T&amp;gt;(default(T), _instance)) return _instance;
 
-            &lt;span class="nx"&gt;InitInstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+            InitInstance(true);
+            return _instance;
+        }
+    }
 
-    &lt;span class="vi"&gt;#endregion&lt;/span&gt;
+    #endregion
 
-    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;Awake&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;InitInstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+    public void Awake()
+    {
+        InitInstance(false);
+    }
 
-    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="bp"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;InitInstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bool&lt;/span&gt; &lt;span class="nx"&gt;shouldInitManager&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="n"&gt;thisType&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;typeof&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    public static void InitInstance(bool shouldInitManager)
+    {
+        Type thisType = typeof (T);
 
-        &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;FindObjectOfType&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        _instance = FindObjectOfType&amp;lt;T&amp;gt;();
 
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Compare&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;default&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nx"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;GameObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;thisType.Name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
+        if (Compare&amp;lt;T&amp;gt;(default(T), _instance))
+        {
+            _instance = new GameObject(thisType.Name).AddComponent&amp;lt;T&amp;gt;();
+        }
 
-        &lt;span class="c1"&gt;//Won&amp;#39;t call InitManager from Awake&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;shouldInitManager&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;_instance&lt;/span&gt; &lt;span class="nx"&gt;as&lt;/span&gt; &lt;span class="nx"&gt;AutoSingletonManager&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;InitManager&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+        //Won&amp;#39;t call InitManager from Awake
+        if (shouldInitManager)
+        {
+            (_instance as AutoSingletonManager&amp;lt;T&amp;gt;).InitManager();
+        }
+    }
 
-    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;virtual&lt;/span&gt; &lt;span class="bp"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;InitManager&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    public virtual void InitManager() { }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1240,135 +1240,135 @@ public class ProjectileAbility : Ability
 &lt;p&gt;This is quite good but surely we can do better.&lt;/p&gt;
 &lt;h2&gt;Discussions&lt;/h2&gt;
 &lt;p&gt;First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;MySingleton&lt;/span&gt; &lt;span class="p"&gt;...&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;MySingleton&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="n"&gt;singletonLock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public class MySingleton ...
+    {
+        static MySingleton _instance = null;
+        static object singletonLock = new object ();
 
-        &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;MySingleton&lt;/span&gt; &lt;span class="n"&gt;Instance&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="p"&gt;}&lt;/span&gt;
+        public static MySingleton Instance
+        {
+            get {
+                if (_instance != null) {
+                    return;
+                }
 
-                &lt;span class="n"&gt;lock&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;singletonLock&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                    &lt;span class="p"&gt;}&lt;/span&gt;
+                lock (singletonLock) {
+                    if (_instance != null) {
+                        return _instance;
+                    }
 
-                    &lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;singletonGameObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;GameObject&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;MySingleton&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                    &lt;span class="n"&gt;GameObject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DontDestroyOnLoad&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;singletonGameObject&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                    &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;singletonGameObject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;MySingleton&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+                    var singletonGameObject = new GameObject (&amp;quot;MySingleton&amp;quot;);
+                    GameObject.DontDestroyOnLoad (singletonGameObject);
+                    _instance = singletonGameObject.AddComponent&amp;lt; MySingleton &amp;gt; ();
 
-                    &lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt; &lt;span class="n"&gt;initialization&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;
-                &lt;span class="p"&gt;}&lt;/span&gt;
+                    ... other initialization code
+                }
 
-                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
+                return _instance;
+            }
+        }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;By using a simple double lock pattern, we seemingly solve the "concurrency problem". The question is: Do we need to?. Why you have the concurrency problem with singleton? It's because you want to &lt;code&gt;lazy load&lt;/code&gt; the singleton, i.e. only create it when it is used for the first time. But that's exactly what we want to avoid if we want to achieve smooth gameplay. So what you should do instead is just create the bloody singleton at the beginning and forget about it. Remember, &lt;code&gt;preload&lt;/code&gt; is better than &lt;code&gt;lazy load&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Secondly, I've already mentioned the check for null is redundant if we know we only call the singleton after it's been initialized. In the usecases listed by &lt;code&gt;SecureSingleton&lt;/code&gt;, we see that the singleton is either created by code or already exists in the scene as a &lt;code&gt;GameObject&lt;/code&gt; which is supposed to be configured by designers. In either case, the code to initialize the scene should be a good place for calling the initialization code of the singleton and there's no need for making it sooner.&lt;/p&gt;
 &lt;p&gt;So what will happen if the &lt;code&gt;Instance&lt;/code&gt; property is called before you initialize the singleton? Obviously an exception will be thrown and this is an ideal case for using Unity Assert because you will have a nice message in development mode but you can also turn it off in production build.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;GameSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;MyBaseBehaviour&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;GameSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;...&lt;/span&gt;
-        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;Instance&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nb"&gt;get&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="nx"&gt;Assert.IsNotNull&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public class GameSingleton&amp;lt;T&amp;gt; : MyBaseBehaviour where T : GameSingleton&amp;lt;T&amp;gt;
+    {
+        ...
+        public static T Instance
+        {
+            get {
+                Assert.IsNotNull (instance);
+                return instance;
+            }
+        }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Note that &lt;code&gt;MyBaseBehaviour&lt;/code&gt; class is a class derived from &lt;code&gt;MonoBehaviour&lt;/code&gt; and is customized specifically for our game. For instance, it might have general code for handling &lt;code&gt;Update&lt;/code&gt; or &lt;code&gt;OnDestroy&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;All that is left now is writing a function &lt;code&gt;CreateInstance&lt;/code&gt; for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling &lt;code&gt;CreateInstance&lt;/code&gt; twice should throw an exception. This is better than mindlessly guard the function in the name of "defensive programming". It will look something like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;CreateInstance&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;Assert.IsNull&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        public static T CreateInstance()
+        {
+            Assert.IsNull (instance);
 
-            &lt;span class="nx"&gt;GameObject&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;GameObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;go.AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-            &lt;span class="nx"&gt;instance.OnCreated&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-            &lt;span class="nx"&gt;DontDestroyOnLoad&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;go&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            GameObject go = new GameObject(typeof(T).Name);
+            instance = go.AddComponent&amp;lt;T&amp;gt;();
+            instance.OnCreated();
+            DontDestroyOnLoad(go);
 
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
+            return instance;
+        }
 
 
-        &lt;span class="k"&gt;protected&lt;/span&gt; &lt;span class="nf"&gt;virtual&lt;/span&gt; &lt;span class="bp"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;OnCreated&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
+        protected virtual void OnCreated()
+        {
+        }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here we have a virtual function &lt;code&gt;OnCreated&lt;/code&gt; waiting to be overriden in subclass. To destroy the singleton, we don't have to use fancy static function &lt;code&gt;DeleteInstance&lt;/code&gt;, instead we can just get the singleton gameobject and destroy it like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;    &lt;span class="n"&gt;GameObject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Destroy&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MySingleton&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gameObject&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    GameObject.Destroy (MySingleton.Instance.gameObject);
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;When the &lt;code&gt;OnDestroy&lt;/code&gt; function is called, we will set &lt;code&gt;instance&lt;/code&gt; variable to null then allow subclass to do cleanup themselves. The reason why we don't use &lt;code&gt;DeleteInstance&lt;/code&gt; is because we don't want developers who use the API to think there's anything special about destroying the singleton than just destroying the container object.&lt;/p&gt;
 &lt;p&gt;Finally, we discuss feature &lt;code&gt;destroy if exists in scene&lt;/code&gt;. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that's should not be the main way to deal with game data. We'd better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.&lt;/p&gt;
 &lt;p&gt;If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from &lt;code&gt;SecureUnitySingleton&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;    &lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="n"&gt;virtual&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Awake&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;InstanceExists&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="n"&gt;Destroy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gameObject&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    protected virtual void Awake()
+    {
+        if (InstanceExists &amp;amp;&amp;amp; instance != this)
+            Destroy(gameObject);
+    }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Implementation&lt;/h2&gt;
 &lt;p&gt;After we've considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;UnityEngine.Assertions&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UnityEngine;
+using System;
+using UnityEngine.Assertions;
 
-&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;SimpleSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;BaseMonoBehaviour&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;SimpleSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+public class SimpleSingleton&amp;lt;T&amp;gt; : BaseMonoBehaviour where T : SimpleSingleton&amp;lt;T&amp;gt;
+{
+    private static T instance;
 
-    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;Instance&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nb"&gt;get&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;Assert.IsNotNull&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Instance is null. Please call CreateInstance first!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+    public static T Instance {
+        get {
+            Assert.IsNotNull (instance, &amp;quot;Instance is null. Please call CreateInstance first!&amp;quot;);
+            return instance;
+        }
+    }
 
-    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;static&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt; &lt;span class="nx"&gt;CreateInstance&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="kt"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;Assert.IsNull&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Instance is not null. Please call CreateInstance once only&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
+    public static T CreateInstance ()
+    {
+        if (instance != null) {
+            Assert.IsNull (instance, &amp;quot;Instance is not null. Please call CreateInstance once only&amp;quot;);
+        }
 
-        &lt;span class="nx"&gt;GameObject&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;GameObject&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;go.AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+        GameObject go = new GameObject (typeof(T).Name);
+        instance = go.AddComponent&amp;lt;T&amp;gt; ();
 
-        &lt;span class="nx"&gt;instance.OnCreated&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+        instance.OnCreated ();
 
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+        return instance;
+    }
 
-    &lt;span class="k"&gt;protected&lt;/span&gt; &lt;span class="nf"&gt;virtual&lt;/span&gt; &lt;span class="bp"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;OnDestroy&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+    protected virtual void OnDestroy ()
+    {
+        instance = null;
+    }
 
-    &lt;span class="k"&gt;protected&lt;/span&gt; &lt;span class="nf"&gt;virtual&lt;/span&gt; &lt;span class="bp"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;OnCreated&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+    protected virtual void OnCreated ()
+    {
+    }
 
-&lt;span class="p"&gt;}&lt;/span&gt;
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then remember to call &lt;code&gt;CreateInstance&lt;/code&gt; when necessary and in appropriate order.&lt;/p&gt;
-&lt;p&gt;The code with a sample scene is available on github at &lt;a href="https://github.com/minhhh/unity-singleton"&gt;https://github.com/minhhh/unity-singleton&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 29 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-29:posts/unity-singleton</guid><category>unity</category><category>singleton</category></item><item><title>Clippings 2016-09-26</title><link>http://minhhh.github.io/posts/clippings-2016-09-26</link><description>&lt;ul&gt;
+&lt;p&gt;The code with a sample scene is available on github at &lt;a href="https://github.com/minhhh/unity-singleton"&gt;https://github.com/minhhh/unity-singleton&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 29 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-29:posts/unity-singleton</guid><category>unity</category><category>singleton</category></item><item><title>Clippings 2016-09-26</title><link>http://minhhh.github.io/posts/clippings-2016-09-26</link><description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://strongloop.com/strongblog/node-js-deploy-production-best-practice/"&gt;Best Practices for Deploying Node.js in Production&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1381,7 +1381,7 @@ public class ProjectileAbility : Ability
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://sematext.com/blog/2016/09/13/logstash-alternatives/"&gt;5 Logstash Alternatives&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 26 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-26:posts/clippings-2016-09-26</guid><category>clippings</category></item><item><title>Maple.js Deconstructed</title><link>http://minhhh.github.io/posts/maplejs-deconstructed</link><description>&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 26 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-26:posts/clippings-2016-09-26</guid><category>clippings</category></item><item><title>Maple.js Deconstructed</title><link>http://minhhh.github.io/posts/maplejs-deconstructed</link><description>&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.&lt;/li&gt;
@@ -1397,7 +1397,7 @@ public class ProjectileAbility : Ability
 &lt;li&gt;Require too much sync and only applicable for Round-based games.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 25 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-25:posts/maplejs-deconstructed</guid><category>deconstructed</category><category>network</category></item><item><title>Osmus Deconstructed</title><link>http://minhhh.github.io/posts/osmus-deconstructed</link><description>&lt;p&gt;&lt;a href="https://github.com/borismus/osmus"&gt;Osmus&lt;/a&gt; is a tech demo of a HTML5 multiplayer game inspired by &lt;a href="http://www.osmos-game.com/"&gt;Osmos&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 25 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-25:posts/maplejs-deconstructed</guid><category>deconstructed</category><category>network</category></item><item><title>Osmus Deconstructed</title><link>http://minhhh.github.io/posts/osmus-deconstructed</link><description>&lt;p&gt;&lt;a href="https://github.com/borismus/osmus"&gt;Osmus&lt;/a&gt; is a tech demo of a HTML5 multiplayer game inspired by &lt;a href="http://www.osmos-game.com/"&gt;Osmos&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Osmus uses node.js for the server and HTML5 Canvas with Javascript on the client side. The simulation code is shared between client and server.&lt;/li&gt;
@@ -1407,16 +1407,16 @@ public class ProjectileAbility : Ability
 &lt;li&gt;Sudden positional jump on client: If the client entities can move around, then client simulation. client prediction and interpolation with server states should be applied to ensure smooth movement.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 25 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-25:posts/osmus-deconstructed</guid><category>deconstructed</category><category>network</category></item><item><title>Clippings 2016-09-21</title><link>http://minhhh.github.io/posts/clippings-2016-09-21</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/artix-entertainment-prepares-to-launch-adventurequest-3d-on-mobile/645088"&gt;Artix Entertainment Prepares to Launch AdventureQuest 3D on Mobile&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 21 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-21:posts/clippings-2016-09-21</guid><category>clippings</category></item><item><title>Clippings 2016-09-19</title><link>http://minhhh.github.io/posts/clippings-2016-09-19</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/nexon-launches-oz-broken-kingdom-on-ios-android/644925"&gt;Nexon Launches Oz: Broken Kingdom on iOS, Android&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/mobile-game-roundup-asterix-and-friends-legends-of-callasia-and-more/644953"&gt;Mobile Game Roundup: Asterix and Friends, Legends of Callasia and More&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-19:posts/clippings-2016-09-19</guid><category>clippings</category></item><item><title>Clippings 2016-09-18</title><link>http://minhhh.github.io/posts/clippings-2016-09-18</link><description>&lt;p&gt;&lt;a href="https://medium.com/@nodejs/the-progress-of-node-js-a-year-post-node-js-and-io-js-merge-and-where-the-technology-is-going-f168ce9ec8ee#.3vbikg9g0"&gt;The Progress of Node.js a Year Post Node.js and io.js Merge and Where the Technology is Going&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 25 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-25:posts/osmus-deconstructed</guid><category>deconstructed</category><category>network</category></item><item><title>Clippings 2016-09-21</title><link>http://minhhh.github.io/posts/clippings-2016-09-21</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/artix-entertainment-prepares-to-launch-adventurequest-3d-on-mobile/645088"&gt;Artix Entertainment Prepares to Launch AdventureQuest 3D on Mobile&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 21 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-21:posts/clippings-2016-09-21</guid><category>clippings</category></item><item><title>Clippings 2016-09-19</title><link>http://minhhh.github.io/posts/clippings-2016-09-19</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/nexon-launches-oz-broken-kingdom-on-ios-android/644925"&gt;Nexon Launches Oz: Broken Kingdom on iOS, Android&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/mobile-game-roundup-asterix-and-friends-legends-of-callasia-and-more/644953"&gt;Mobile Game Roundup: Asterix and Friends, Legends of Callasia and More&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-19:posts/clippings-2016-09-19</guid><category>clippings</category></item><item><title>Clippings 2016-09-18</title><link>http://minhhh.github.io/posts/clippings-2016-09-18</link><description>&lt;p&gt;&lt;a href="https://medium.com/@nodejs/the-progress-of-node-js-a-year-post-node-js-and-io-js-merge-and-where-the-technology-is-going-f168ce9ec8ee#.3vbikg9g0"&gt;The Progress of Node.js a Year Post Node.js and io.js Merge and Where the Technology is Going&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://medium.com/chris-messina/silicon-valley-is-all-wrong-about-the-airpods-8204ede08f0f#.n40nyqzc6"&gt;Why Silicon Valley is all wrong about Apple’s AirPods&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://medium.theuxblog.com/when-card-ui-design-doesnt-work-f4343118d108#.xoalmb1ta"&gt;When Card UI Design Doesn’t Work&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 18 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-18:posts/clippings-2016-09-18</guid><category>clippings</category></item><item><title>Clippings 2016-09-17</title><link>http://minhhh.github.io/posts/clippings-2016-09-17</link><description>&lt;ul&gt;
+&lt;p&gt;&lt;a href="https://medium.theuxblog.com/when-card-ui-design-doesnt-work-f4343118d108#.xoalmb1ta"&gt;When Card UI Design Doesn’t Work&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 18 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-18:posts/clippings-2016-09-18</guid><category>clippings</category></item><item><title>Clippings 2016-09-17</title><link>http://minhhh.github.io/posts/clippings-2016-09-17</link><description>&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://blog.cloudflare.com/the-relative-cost-of-bandwidth-around-the-world/"&gt;The Relative Cost of Bandwidth Around the World&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 17 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-17:posts/clippings-2016-09-17</guid><category>clippings</category></item><item><title>Clippings 2016-09-16</title><link>http://minhhh.github.io/posts/clippings-2016-09-16</link><description>&lt;ul&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 17 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-17:posts/clippings-2016-09-17</guid><category>clippings</category></item><item><title>Clippings 2016-09-16</title><link>http://minhhh.github.io/posts/clippings-2016-09-16</link><description>&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/atrakeur/unity-unet-authoritative-networking"&gt;Unity-unet-authoritative-networking&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 16 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-16:posts/clippings-2016-09-16</guid><category>clippings</category></item><item><title>Clippings 2016-09-14</title><link>http://minhhh.github.io/posts/clippings-2016-09-14</link><description>&lt;p&gt;&lt;a href="http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/"&gt;DOOM (2016) - Graphics Study&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 14 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-14:posts/clippings-2016-09-14</guid><category>clippings</category></item><item><title>Clippings 2016-09-13</title><link>http://minhhh.github.io/posts/clippings-2016-09-13</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/titanfall-frontline-collectible-card-game-announced-for-ios-android/644703"&gt;Titanfall: Frontline Collectible Card Game Announced for iOS, Android&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/square-enix-announces-guardian-codex-for-mobile/644673"&gt;Square Enix Announces Guardian Codex for Mobile&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 13 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-13:posts/clippings-2016-09-13</guid><category>clippings</category></item><item><title>Clippings 2016-09-12</title><link>http://minhhh.github.io/posts/clippings-2016-09-12</link><description>&lt;p&gt;&lt;a href="https://www.reddit.com/r/androiddev/comments/3rrplu/flatbuffers_arent_fast_theyre_lazy_jesse_wilson/"&gt;FlatBuffers aren’t fast, they’re lazy&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.reddit.com/r/gamedev/comments/3lsfcc/savingloading_with_flatbuffers_for_unity_sample/"&gt;Saving/Loading with Flatbuffers for Unity + Sample Code&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 12 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-12:posts/clippings-2016-09-12</guid><category>clippings</category></item><item><title>Autoformat C# code from command line</title><link>http://minhhh.github.io/posts/autoformat-c-code-from-command-line</link><description>&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 16 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-16:posts/clippings-2016-09-16</guid><category>clippings</category></item><item><title>Clippings 2016-09-14</title><link>http://minhhh.github.io/posts/clippings-2016-09-14</link><description>&lt;p&gt;&lt;a href="http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/"&gt;DOOM (2016) - Graphics Study&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 14 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-14:posts/clippings-2016-09-14</guid><category>clippings</category></item><item><title>Clippings 2016-09-13</title><link>http://minhhh.github.io/posts/clippings-2016-09-13</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/titanfall-frontline-collectible-card-game-announced-for-ios-android/644703"&gt;Titanfall: Frontline Collectible Card Game Announced for iOS, Android&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/square-enix-announces-guardian-codex-for-mobile/644673"&gt;Square Enix Announces Guardian Codex for Mobile&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 13 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-13:posts/clippings-2016-09-13</guid><category>clippings</category></item><item><title>Clippings 2016-09-12</title><link>http://minhhh.github.io/posts/clippings-2016-09-12</link><description>&lt;p&gt;&lt;a href="https://www.reddit.com/r/androiddev/comments/3rrplu/flatbuffers_arent_fast_theyre_lazy_jesse_wilson/"&gt;FlatBuffers aren’t fast, they’re lazy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.reddit.com/r/gamedev/comments/3lsfcc/savingloading_with_flatbuffers_for_unity_sample/"&gt;Saving/Loading with Flatbuffers for Unity + Sample Code&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 12 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-12:posts/clippings-2016-09-12</guid><category>clippings</category></item><item><title>Autoformat C# code from command line</title><link>http://minhhh.github.io/posts/autoformat-c-code-from-command-line</link><description>&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;
 &lt;em&gt; Customizable format options
 &lt;/em&gt; Format whole directory recursively&lt;/p&gt;
@@ -1594,7 +1594,7 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -1605,73 +1605,73 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
 &lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;
 After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Supposed our Code is in the Code folder&lt;/span&gt;
-&lt;span class="nl"&gt;format:&lt;/span&gt;
-    &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="n"&gt;Code&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iname&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;*.cs&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Code/excludedpath/*&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;xargs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;astyle --options=.astylerc &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;{}&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Supposed our Code is in the Code folder
+format:
+    find Code -iname &amp;quot;*.cs&amp;quot; -not -path &amp;quot;Code/excludedpath/*&amp;quot; | xargs -n 1 -I {} bash -c &amp;quot;astyle --options=.astylerc \&amp;quot;{}\&amp;quot;&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Remember to create a file called &lt;code&gt;.astylerc&lt;/code&gt; and put whatever format options you want to customize for your project there.&lt;/p&gt;
 &lt;h2&gt;Solution 2: NRefactory&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://github.com/icsharpcode/NRefactory"&gt;NRefactory&lt;/a&gt; is the C# analysis library used in the SharpDevelop and MonoDevelop IDEs. We can write a command line client with our customized parameters and format options, which uses &lt;code&gt;NRefactory&lt;/code&gt; internally to format code.&lt;/p&gt;
-&lt;p&gt;TODO: Write a cli using &lt;code&gt;docopt&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 11 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</guid><category>c#</category><category>cli</category></item><item><title>Setup Github pages as your blog</title><link>http://minhhh.github.io/posts/setup-github-pages-as-your-blog</link><description>&lt;p&gt;How to setup github page as your blog? It's actually very easy, just follow the following guides&lt;/p&gt;
+&lt;p&gt;TODO: Write a cli using &lt;code&gt;docopt&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 11 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</guid><category>c#</category><category>cli</category></item><item><title>Setup Github pages as your blog</title><link>http://minhhh.github.io/posts/setup-github-pages-as-your-blog</link><description>&lt;p&gt;How to setup github page as your blog? It's actually very easy, just follow the following guides&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://24ways.org/2013/get-started-with-github-pages/"&gt;Get Started With GitHub Pages (Plus Bonus Jekyll)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/start/new-project/user-page/"&gt;A guide to using Github Pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://knightlab.northwestern.edu/2013/06/13/getting-github-why-journalists-should-know-and-use-the-social-coding-site/"&gt;Getting GitHub: Why journalists should know and use the social coding site&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/csswizardry/csswizardry.github.com"&gt;csswizardry.github.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 10 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-10:posts/setup-github-pages-as-your-blog</guid><category>blog</category><category>github</category></item><item><title>Clippings 2016-09-09</title><link>http://minhhh.github.io/posts/clippings-2016-09-09</link><description>&lt;p&gt;&lt;a href="http://www.alanzucconi.com/2016/07/01/volumetric-rendering/"&gt;Volumetric Rendering&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 09 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-09:posts/clippings-2016-09-09</guid><category>clippings</category></item><item><title>Clippings 2016-09-08</title><link>http://minhhh.github.io/posts/clippings-2016-09-08</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/pokemon-go-is-coming-to-apple-watch/644557"&gt;Pokemon Go Is Coming to Apple Watch&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 10 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-10:posts/setup-github-pages-as-your-blog</guid><category>blog</category><category>github</category></item><item><title>Clippings 2016-09-09</title><link>http://minhhh.github.io/posts/clippings-2016-09-09</link><description>&lt;p&gt;&lt;a href="http://www.alanzucconi.com/2016/07/01/volumetric-rendering/"&gt;Volumetric Rendering&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 09 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-09:posts/clippings-2016-09-09</guid><category>clippings</category></item><item><title>Clippings 2016-09-08</title><link>http://minhhh.github.io/posts/clippings-2016-09-08</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/pokemon-go-is-coming-to-apple-watch/644557"&gt;Pokemon Go Is Coming to Apple Watch&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/nintendo-announces-super-mario-run-for-ios/644523"&gt;Nintendo Announces Super Mario Run for iOS&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.gamefromscratch.com/post/2013/06/11/Creating-art-for-your-game-when-you-are-a-programmer.aspx"&gt;A PROGRAMMER'S GUIDE TO CREATING ART FOR YOUR GAME&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.gamesparks.com/blog/game-engine-analysis-and-comparison/"&gt;Game Engine Analysis and Comparison&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 08 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-08:posts/clippings-2016-09-08</guid><category>clippings</category></item><item><title>Clippings 2016-09-07</title><link>http://minhhh.github.io/posts/clippings-2016-09-07</link><description>&lt;p&gt;Some references for object pooling in Unity&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Lean&lt;/span&gt; &lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.assetstore.unity3d.com/en/#!/content/35666)&lt;/span&gt;
-&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="n"&gt;Pools&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//catlikecoding.com/unity/tutorials/object-pools/)&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.theappguruz.com/blog/object-pooling-in-unity-3d&lt;/span&gt;
-&lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//gist.github.com/quill18/5a7cfffae68892621267&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//catlikecoding.com/unity/tutorials/object-pools/&lt;/span&gt;
+&lt;p&gt;&lt;a href="http://www.gamesparks.com/blog/game-engine-analysis-and-comparison/"&gt;Game Engine Analysis and Comparison&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 08 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-08:posts/clippings-2016-09-08</guid><category>clippings</category></item><item><title>Clippings 2016-09-07</title><link>http://minhhh.github.io/posts/clippings-2016-09-07</link><description>&lt;p&gt;Some references for object pooling in Unity&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Lean&lt;/span&gt; &lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.assetstore.unity3d.com/en/#!/content/35666)&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="n"&gt;Pools&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//catlikecoding.com/unity/tutorials/object-pools/)&lt;/span&gt;
+&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.theappguruz.com/blog/object-pooling-in-unity-3d&lt;/span&gt;
+&lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//gist.github.com/quill18/5a7cfffae68892621267&lt;/span&gt;
+&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//catlikecoding.com/unity/tutorials/object-pools/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Some references for post processing with unity&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//interplayoflight.wordpress.com/2015/07/03/adventures-in-postprocessing-with-unity/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.alanzucconi.com/2015/07/08/screen-shaders-and-postprocessing-effects-in-unity3d/&lt;/span&gt;
-&lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//www.youtube.com/watch?v=1q3Lt2V8K3k&lt;/span&gt;
-&lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//www.youtube.com/watch?v=emCR367rEJQ&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 07 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-07:posts/clippings-2016-09-07</guid><category>clippings</category></item><item><title>Clippings 2016-09-06</title><link>http://minhhh.github.io/posts/clippings-2016-09-06</link><description>&lt;p&gt;&lt;a href="http://www.gamasutra.com/blogs/SheldonLaframboise/20160222/266309/Breaking_Down_Supercells_Next_Hit_Clash_Royale.php"&gt;Breaking Down Supercell's Next Hit: Clash Royale&lt;/a&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://interplayoflight.wordpress.com/2015/07/03/adventures-in-postprocessing-with-unity/
+http://www.alanzucconi.com/2015/07/08/screen-shaders-and-postprocessing-effects-in-unity3d/
+https://www.youtube.com/watch?v=1q3Lt2V8K3k
+https://www.youtube.com/watch?v=emCR367rEJQ
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 07 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-07:posts/clippings-2016-09-07</guid><category>clippings</category></item><item><title>Clippings 2016-09-06</title><link>http://minhhh.github.io/posts/clippings-2016-09-06</link><description>&lt;p&gt;&lt;a href="http://www.gamasutra.com/blogs/SheldonLaframboise/20160222/266309/Breaking_Down_Supercells_Next_Hit_Clash_Royale.php"&gt;Breaking Down Supercell's Next Hit: Clash Royale&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://labertorium.de/unity/789/unity-realtime-mesh-deformation-package/"&gt;UNITY – REALTIME MESH DEFORMATION – PACKAGE&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.gamespot.com/articles/deus-ex-mankind-divided-everything-you-need-to-kno/1100-6442897/"&gt;Deus Ex: Mankind Divided: Everything You Need to Know&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://roguesharp.wordpress.com/"&gt;Creating a Roguelike Game in C#&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Some references for nested prefabs&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//coffeepoweredmachine.com/prefab-inception/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//forum.unity3d.com/threads/prefab-evolution-plugin-nested-prefabs.236719/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.wesleytam.com/010101011/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.demo.bento-studio.com/NestedPrefab/NestedPrefabReference.pdf&lt;/span&gt;
-&lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//josephstankowicz.wordpress.com/2013/05/23/the-perils-of-prefabs/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.gamasutra.com/blogs/GuillermoAndrades/20160203/265048/The_Unity_tools_we_use_in_Immortal_Redneck.php&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.glenstevens.ca/unity3d-best-practices/#Process&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//rhostatemachine.tumblr.com/post/133273018641/nested-prefabs-in-unity&lt;/span&gt;
-&lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/opencog/unity3d-opencog-game&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 06 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-06:posts/clippings-2016-09-06</guid><category>clippings</category></item><item><title>Clippings 2016-09-05</title><link>http://minhhh.github.io/posts/clippings-2016-09-05</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/mobile-game-roundup-a-new-life-riff-racer-and-more/644386"&gt;Mobile Game Roundup: A New Life, Riff Racer and More&lt;/a&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://coffeepoweredmachine.com/prefab-inception/
+http://forum.unity3d.com/threads/prefab-evolution-plugin-nested-prefabs.236719/
+http://www.wesleytam.com/010101011/
+http://www.demo.bento-studio.com/NestedPrefab/NestedPrefabReference.pdf
+https://josephstankowicz.wordpress.com/2013/05/23/the-perils-of-prefabs/
+http://www.gamasutra.com/blogs/GuillermoAndrades/20160203/265048/The_Unity_tools_we_use_in_Immortal_Redneck.php
+http://www.glenstevens.ca/unity3d-best-practices/#Process
+http://rhostatemachine.tumblr.com/post/133273018641/nested-prefabs-in-unity
+https://github.com/opencog/unity3d-opencog-game
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 06 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-06:posts/clippings-2016-09-06</guid><category>clippings</category></item><item><title>Clippings 2016-09-05</title><link>http://minhhh.github.io/posts/clippings-2016-09-05</link><description>&lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/mobile-game-roundup-a-new-life-riff-racer-and-more/644386"&gt;Mobile Game Roundup: A New Life, Riff Racer and More&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.adweek.com/socialtimes/animoca-brands-launches-he-man-tappers-of-grayskull-on-mobile/644327"&gt;Animoca Brands Launches He-Man Tappers of Grayskull on Mobile&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.gamespot.com/articles/see-brand-new-final-fantasy-15-gameplay-and-more/1100-6443300/"&gt;See Brand New Final Fantasy 15 Gameplay and More&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://blogs.unity3d.com/2016/08/30/get-the-unity-5-5-beta-now/"&gt;GET THE UNITY 5.5 BETA NOW&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.gamespot.com/articles/new-halo-wars-2-gameplay-footage-arrives-as-dev-te/1100-6443305/"&gt;New Halo Wars 2 Gameplay Footage Arrives, As Dev Teases "Completely New" Mode&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Some stuff related to Unity singleton for upcoming blogs&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.unitygeek.com/unity_c_singleton/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//huntingtongames.xyz/2016-05-01-unity-using-singletons-for-sound-management/&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//clearcutgames.net/home/?p=437&lt;/span&gt;
-&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.theappguruz.com/blog/managers-using-singleton&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 05 Sep 2016 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2016-09-05:posts/clippings-2016-09-05</guid><category>clippings</category></item><item><title>Clippings 2016-01-06</title><link>http://minhhh.github.io/posts/clippings-2016-01-06</link><description>&lt;p&gt;&lt;a href="http://stuartsierra.com/2015/12/31/clojure-2015-year-in-review"&gt;Clojure 2015 Year in Review&lt;/a&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://www.unitygeek.com/unity_c_singleton/
+http://huntingtongames.xyz/2016-05-01-unity-using-singletons-for-sound-management/
+http://clearcutgames.net/home/?p=437
+http://www.theappguruz.com/blog/managers-using-singleton
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 05 Sep 2016 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-09-05:posts/clippings-2016-09-05</guid><category>clippings</category></item><item><title>Clippings 2016-01-06</title><link>http://minhhh.github.io/posts/clippings-2016-01-06</link><description>&lt;p&gt;&lt;a href="http://stuartsierra.com/2015/12/31/clojure-2015-year-in-review"&gt;Clojure 2015 Year in Review&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://swannodette.github.io/2015/12/23/year-in-review/"&gt;ClojureScript Year In Review&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://medium.com/@pyrolistical/how-to-get-out-of-promise-hell-8c20e0ab0513#.pp1bbsvmi"&gt;How to escape Promise Hell&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 06 Jan 2016 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2016-01-06:posts/clippings-2016-01-06</guid><category>clippings</category></item><item><title>Clippings 2015-12-25</title><link>http://minhhh.github.io/posts/clippings-2015-12-25</link><description>&lt;p&gt;&lt;a href="https://github.com/adleroliveira/dreamjs"&gt;dreamjs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@pyrolistical/how-to-get-out-of-promise-hell-8c20e0ab0513#.pp1bbsvmi"&gt;How to escape Promise Hell&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 06 Jan 2016 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2016-01-06:posts/clippings-2016-01-06</guid><category>clippings</category></item><item><title>Clippings 2015-12-25</title><link>http://minhhh.github.io/posts/clippings-2015-12-25</link><description>&lt;p&gt;&lt;a href="https://github.com/adleroliveira/dreamjs"&gt;dreamjs&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://stateofstartups.firstround.com/#highlights"&gt;State of Startups&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.itworld.com/article/2935377/open-source-tools/the-slow-death-of-sourceforge.html"&gt;The slow death of SourceForge&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://blackshellmedia.com/2015/03/the-7-habits-of-highly-successful-game-developers/"&gt;The 7 Habits of Highly Successful Game Developers&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 25 Dec 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-12-25:posts/clippings-2015-12-25</guid><category>clippings</category></item><item><title>Clippings 2015-12-23</title><link>http://minhhh.github.io/posts/clippings-2015-12-23</link><description>&lt;p&gt;&lt;a href="http://www.javacodegeeks.com/2014/05/10-articles-every-programmer-must-read.html"&gt;10 Articles Every Programmer Must Read&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blackshellmedia.com/2015/03/the-7-habits-of-highly-successful-game-developers/"&gt;The 7 Habits of Highly Successful Game Developers&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 25 Dec 2015 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-12-25:posts/clippings-2015-12-25</guid><category>clippings</category></item><item><title>Clippings 2015-12-23</title><link>http://minhhh.github.io/posts/clippings-2015-12-23</link><description>&lt;p&gt;&lt;a href="http://www.javacodegeeks.com/2014/05/10-articles-every-programmer-must-read.html"&gt;10 Articles Every Programmer Must Read&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://medium.com/@bryce/how-we-talk-when-we-talk-about-ambition-5fdb4f6fe9cf#.nha9hk3t1"&gt;How We Talk When We Talk About Ambition&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://blog.bithound.io/2015-top-js-devs"&gt;2015's Top JavaScript Devs To Follow&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.phloxblog.in/understanding-view-backbonejs/#.VnpYkNOqpBc"&gt;Understanding view in Backbone.js&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 23 Dec 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-12-23:posts/clippings-2015-12-23</guid><category>clippings</category></item><item><title>Clippings 2015-12-18</title><link>http://minhhh.github.io/posts/clippings-2015-12-18</link><description>&lt;p&gt;&lt;a href="https://vimeo.com/125121010"&gt;Making a Silky Smooth Web&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.phloxblog.in/understanding-view-backbonejs/#.VnpYkNOqpBc"&gt;Understanding view in Backbone.js&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 23 Dec 2015 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-12-23:posts/clippings-2015-12-23</guid><category>clippings</category></item><item><title>Clippings 2015-12-18</title><link>http://minhhh.github.io/posts/clippings-2015-12-18</link><description>&lt;p&gt;&lt;a href="https://vimeo.com/125121010"&gt;Making a Silky Smooth Web&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=OrIFaWJ9Glo"&gt;Single Page Web Applications: JavaScript End-to-End (The Hard Stuff)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.gadgette.com/2015/12/16/8-books-for-gamers-that-want-to-know-more-about-the-industry/"&gt;8 books for gamers that want to know more about the industry&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 18 Dec 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-12-18:posts/clippings-2015-12-18</guid><category>clippings</category></item><item><title>What is Medium</title><link>http://minhhh.github.io/posts/what-is-medium</link><description>&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gadgette.com/2015/12/16/8-books-for-gamers-that-want-to-know-more-about-the-industry/"&gt;8 books for gamers that want to know more about the industry&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 18 Dec 2015 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-12-18:posts/clippings-2015-12-18</guid><category>clippings</category></item><item><title>What is Medium</title><link>http://minhhh.github.io/posts/what-is-medium</link><description>&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
 &lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
 &lt;p&gt;Medium seems to do following:&lt;/p&gt;
 &lt;ul&gt;
@@ -1699,7 +1699,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/"&gt;What is medium&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/"&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 03 Dec 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</guid><category>medium</category></item><item><title>Setup OSX</title><link>http://minhhh.github.io/posts/setup-osx</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 03 Dec 2015 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-12-03:posts/what-is-medium</guid><category>medium</category></item><item><title>Setup OSX</title><link>http://minhhh.github.io/posts/setup-osx</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -1918,7 +1918,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/mac.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -1926,7 +1926,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 14 Oct 2015 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2015-10-14:posts/setup-osx</guid><category>mac</category><category>osx</category></item><item><title>An Introduction to Memcache</title><link>http://minhhh.github.io/posts/an-introduction-to-memcache</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Wed, 14 Oct 2015 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-10-14:posts/setup-osx</guid><category>mac</category><category>osx</category></item><item><title>An Introduction to Memcache</title><link>http://minhhh.github.io/posts/an-introduction-to-memcache</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -2102,7 +2102,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/memcache.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -2110,7 +2110,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 10 Oct 2015 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2015-10-10:posts/an-introduction-to-memcache</guid><category>memcache</category></item><item><title>A netcat cheatsheet</title><link>http://minhhh.github.io/posts/a-netcat-cheatsheet</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 10 Oct 2015 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-10-10:posts/an-introduction-to-memcache</guid><category>memcache</category></item><item><title>A netcat cheatsheet</title><link>http://minhhh.github.io/posts/a-netcat-cheatsheet</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -2398,7 +2398,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/netcat.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -2406,7 +2406,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 01 Jan 2015 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2015-01-01:posts/a-netcat-cheatsheet</guid><category>bash</category><category>shell</category><category>netcat</category></item><item><title>An Introduction to Bash</title><link>http://minhhh.github.io/posts/an-introduction-to-bash</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 01 Jan 2015 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2015-01-01:posts/a-netcat-cheatsheet</guid><category>bash</category><category>shell</category><category>netcat</category></item><item><title>An Introduction to Bash</title><link>http://minhhh.github.io/posts/an-introduction-to-bash</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -2722,7 +2722,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/bash.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -2730,7 +2730,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 23 Nov 2014 00:00:00 -0500</pubDate><guid>tag:minhhh.github.io,2014-11-23:posts/an-introduction-to-bash</guid><category>bash</category><category>shell</category></item><item><title>A Guide to Python's Magic Methods</title><link>http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 23 Nov 2014 00:00:00 -0500</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-11-23:posts/an-introduction-to-bash</guid><category>bash</category><category>shell</category></item><item><title>A Guide to Python's Magic Methods</title><link>http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -5666,7 +5666,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/magicmethods/blob/master/README.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5674,7 +5674,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 19 Oct 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-10-19:posts/a-guide-to-pythons-magic-methods</guid><category>python</category><category>magic method</category></item><item><title>Awk tutorial</title><link>http://minhhh.github.io/posts/awk-tutorial</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 19 Oct 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-10-19:posts/a-guide-to-pythons-magic-methods</guid><category>python</category><category>magic method</category></item><item><title>Awk tutorial</title><link>http://minhhh.github.io/posts/awk-tutorial</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -6727,7 +6727,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/awk.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -6735,7 +6735,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 05 Oct 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-10-05:posts/awk-tutorial</guid><category>awk</category><category>cli</category></item><item><title>Python decorator tutorial</title><link>http://minhhh.github.io/posts/python-decorator-tutorial</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 05 Oct 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-10-05:posts/awk-tutorial</guid><category>awk</category><category>cli</category></item><item><title>Python decorator tutorial</title><link>http://minhhh.github.io/posts/python-decorator-tutorial</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -7218,7 +7218,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/py_decorators.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -7226,7 +7226,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 05 Oct 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-10-05:posts/python-decorator-tutorial</guid><category>python</category><category>decorator</category></item><item><title>Android CLI tool cheatsheet</title><link>http://minhhh.github.io/posts/android-cli-tool-cheatsheet</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 05 Oct 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-10-05:posts/python-decorator-tutorial</guid><category>python</category><category>decorator</category></item><item><title>Android CLI tool cheatsheet</title><link>http://minhhh.github.io/posts/android-cli-tool-cheatsheet</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -7405,7 +7405,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/android_cli.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -7413,7 +7413,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 03 Oct 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-10-03:posts/android-cli-tool-cheatsheet</guid><category>android</category><category>adb</category></item><item><title>Embed git file to pelican</title><link>http://minhhh.github.io/posts/embed-git-file-to-pelican</link><description>&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 03 Oct 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-10-03:posts/android-cli-tool-cheatsheet</guid><category>android</category><category>adb</category></item><item><title>Embed git file to pelican</title><link>http://minhhh.github.io/posts/embed-git-file-to-pelican</link><description>&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
 &lt;p&gt;I have several solutions for this problem:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -7551,7 +7551,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/sample.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -7559,7 +7559,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 11 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</guid><category>git</category><category>pelican</category><category>github</category></item><item><title>How to rebase in Git</title><link>http://minhhh.github.io/posts/how-to-rebase-in-git</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Thu, 11 Sep 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</guid><category>git</category><category>pelican</category><category>github</category></item><item><title>How to rebase in Git</title><link>http://minhhh.github.io/posts/how-to-rebase-in-git</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -7753,7 +7753,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git-manual/blob/master/git_rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -7761,7 +7761,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/posts/git-cheat-sheet</link><description>&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</guid><category>git</category><category>rebase</category></item><item><title>Git cheat sheet</title><link>http://minhhh.github.io/posts/git-cheat-sheet</link><description>&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -8735,7 +8735,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git-manual/blob/master/README.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -8743,7 +8743,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</guid><category>git</category></item><item><title>Creating this blog</title><link>http://minhhh.github.io/posts/creating-this-blog</link><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</guid><category>git</category></item><item><title>Creating this blog</title><link>http://minhhh.github.io/posts/creating-this-blog</link><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
@@ -8751,4 +8751,4 @@ Third&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href="http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html"&gt;Moving to Pelican planning&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/streeter/pelican-gist"&gt;pelican-gist&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/minhhh/gist-it"&gt;gist-it&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 07 Jun 2014 00:00:00 -0400</pubDate><guid>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</guid><category>pelican</category><category>blog</category><category>github</category></item></channel></rss>
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sat, 07 Jun 2014 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</guid><category>pelican</category><category>blog</category><category>github</category></item></channel></rss>

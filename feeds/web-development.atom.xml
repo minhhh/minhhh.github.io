@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/web-development.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2015-10-10T00:00:00-04:00</updated><entry><title>An Introduction to Memcache</title><link href="http://minhhh.github.io/posts/an-introduction-to-memcache" rel="alternate"></link><updated>2015-10-10T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-10-10:posts/an-introduction-to-memcache</id><summary type="html">&lt;p&gt;&lt;div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/web-development.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2015-10-10T00:00:00-04:00</updated><entry><title>An Introduction to Memcache</title><link href="http://minhhh.github.io/posts/an-introduction-to-memcache" rel="alternate"></link><published>2015-10-10T00:00:00-04:00</published><updated>2015-10-10T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-10-10:posts/an-introduction-to-memcache</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -175,7 +175,7 @@
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/memcache.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
