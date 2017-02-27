@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/programming.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-02-01T00:00:00-05:00</updated><entry><title>Best Practices in Persisting Player Data on Mobile</title><link href="http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile" rel="alternate"></link><updated>2017-02-01T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-02-01:posts/best-practices-in-persisting-player-data-on-mobile</id><summary type="html">&lt;p&gt;Original talk: &lt;a href="https://www.youtube.com/watch?v=_hAzWgQupms"&gt;Unite 2016 - Best Practices in Persisting Player Data on Mobile&lt;/a&gt;&lt;/p&gt;</summary><category term="unity"></category></entry><entry><title>Git branching strategy</title><link href="http://minhhh.github.io/posts/git-branching-strategy" rel="alternate"></link><updated>2017-01-09T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-01-09:posts/git-branching-strategy</id><summary type="html">&lt;p&gt;Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github &lt;a href="https://github.com/minhhh/git-manual/blob/master/branching_strategy.md"&gt;here&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/programming.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-02-01T00:00:00-05:00</updated><entry><title>Best Practices in Persisting Player Data on Mobile</title><link href="http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile" rel="alternate"></link><published>2017-02-01T00:00:00-05:00</published><updated>2017-02-01T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-02-01:posts/best-practices-in-persisting-player-data-on-mobile</id><summary type="html">&lt;p&gt;Original talk: &lt;a href="https://www.youtube.com/watch?v=_hAzWgQupms"&gt;Unite 2016 - Best Practices in Persisting Player Data on Mobile&lt;/a&gt;&lt;/p&gt;</summary><category term="unity"></category></entry><entry><title>Git branching strategy</title><link href="http://minhhh.github.io/posts/git-branching-strategy" rel="alternate"></link><published>2017-01-09T00:00:00-05:00</published><updated>2017-01-09T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-01-09:posts/git-branching-strategy</id><summary type="html">&lt;p&gt;Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github &lt;a href="https://github.com/minhhh/git-manual/blob/master/branching_strategy.md"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Branch Description&lt;/h2&gt;
 &lt;h3&gt;master&lt;/h3&gt;
 &lt;p&gt;Master branch represents what's in live. It should not be modified directly.&lt;/p&gt;
@@ -37,7 +37,7 @@
 &lt;li&gt;master -&amp;gt; hotfix&lt;/li&gt;
 &lt;li&gt;hotfix -&amp;gt; master&lt;/li&gt;
 &lt;li&gt;hotfix -&amp;gt; develop&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="git"></category></entry><entry><title>Understanding Reactive</title><link href="http://minhhh.github.io/posts/understanding-reactive" rel="alternate"></link><updated>2016-12-04T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-12-04:posts/understanding-reactive</id><summary type="html">&lt;h2&gt;Reactive tutorials and manual&lt;/h2&gt;
+&lt;/ul&gt;</summary><category term="git"></category></entry><entry><title>Understanding Reactive</title><link href="http://minhhh.github.io/posts/understanding-reactive" rel="alternate"></link><published>2016-12-04T00:00:00-05:00</published><updated>2016-12-04T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-12-04:posts/understanding-reactive</id><summary type="html">&lt;h2&gt;Reactive tutorials and manual&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754"&gt;The introduction to Reactive Programming you've been missing&lt;/a&gt;&lt;/strong&gt; Best introduction tutorial to Reactive Programming&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://www.introtorx.com/"&gt;Introduction to Rx&lt;/a&gt;&lt;/strong&gt; This book aims to teach you:&lt;/p&gt;
 &lt;ul&gt;
@@ -57,7 +57,7 @@
 &lt;h2&gt;Reactive usecases&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://blog.flowdock.com/2013/01/22/functional-reactive-programming-with-bacon-js/"&gt;Bacon.js&lt;/a&gt;&lt;/strong&gt; introduces FRP concepts and benefits with Bacon.js, an FRP library for both browsers and server-side JS&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=mS264h8KGwk"&gt;Immutability, interactivity &amp;amp; JavaScript&lt;/a&gt;&lt;/strong&gt; Surprisingly the high performance mutation available in modern JavaScript engines is a great foundation for building high performance immutable collections. Even more surprisingly efficient immutable collections permit new ways of approaching user interface programming. While the details will be in Om, an immutable user interface toolkit written in ClojureScript over Facebook's React, the talk will be primarily focused on high level concepts easily ported to JavaScript. We'll dive in and see how trees of JavaScript arrays can permit building these efficient immutable collections. Then we'll see how embracing immutable values dramatically simplifies some classic hard problems in client side programming including but not limited to undo, error playback, and online/offline synchronization.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=sTSQlYX5DU0"&gt;What does it mean to be Reactive&lt;/a&gt;&lt;/strong&gt; The inimitable Erik Meijer delivering his opening keynote to React 2014&lt;/p&gt;</summary><category term="rx"></category></entry><entry><title>Understanding Promises</title><link href="http://minhhh.github.io/posts/understanding-promises" rel="alternate"></link><updated>2016-10-26T00:02:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-26:posts/understanding-promises</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.promisejs.org/"&gt;Understand promise vs callback&lt;/a&gt;&lt;/strong&gt; The ABCs of promises&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=sTSQlYX5DU0"&gt;What does it mean to be Reactive&lt;/a&gt;&lt;/strong&gt; The inimitable Erik Meijer delivering his opening keynote to React 2014&lt;/p&gt;</summary><category term="rx"></category></entry><entry><title>Understanding Promises</title><link href="http://minhhh.github.io/posts/understanding-promises" rel="alternate"></link><published>2016-10-26T00:02:00-04:00</published><updated>2016-10-26T00:02:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-26:posts/understanding-promises</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.promisejs.org/"&gt;Understand promise vs callback&lt;/a&gt;&lt;/strong&gt; The ABCs of promises&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://promise-nuggets.github.io/"&gt;Promise nuggets&lt;/a&gt;&lt;/strong&gt; More examples of promises&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://spion.github.io/posts/why-i-am-switching-to-promises.html"&gt;Why I am switching to promises&lt;/a&gt;&lt;/strong&gt; A guy switches from callbacks to promises.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html"&gt;We have a problem with promises&lt;/a&gt;&lt;/strong&gt; Promises are not so easy to use if you don't know exactly how to use them properly. Try to avoid the mistakes of using something without fully understanding it.&lt;/p&gt;
@@ -65,23 +65,23 @@
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/icodeforlove/promise-retryer"&gt;promise-retryer&lt;/a&gt;&lt;/strong&gt; Another way to do retry with promise which supports
     * custom delays based on attempts
     * maxRetries
-    * promise result validation (if it fails then keep trying)&lt;/p&gt;</summary><category term="promise"></category></entry><entry><title>Generate one-time password from the command line</title><link href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" rel="alternate"></link><updated>2016-10-02T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</id><summary type="html">&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
+    * promise result validation (if it fails then keep trying)&lt;/p&gt;</summary><category term="promise"></category></entry><entry><title>Generate one-time password from the command line</title><link href="http://minhhh.github.io/posts/generate-one-time-password-from-the-command-line" rel="alternate"></link><published>2016-10-02T00:00:00-04:00</published><updated>2016-10-02T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-10-02:posts/generate-one-time-password-from-the-command-line</id><summary type="html">&lt;p&gt;One-time password is pretty common these days for any type of account that offers two-factor authentication. We can use an app to generate OTP but it would be troublesome if we lost the app or the phone. Fortunately there's a simple way to generate OTP programmatically using libraries such as Python &lt;code&gt;OneTimePass&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;First, install &lt;code&gt;OneTimePass&lt;/code&gt; with &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;onetimepass&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install onetimepass
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then you get the secret generated from the service provider you're using. Normally it would be a time-based token, such as the ones you use for Google Authenticator.&lt;/p&gt;
 &lt;p&gt;To get time-based token you invoke it like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;onetimepass&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;onetimepass&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;otp&lt;/span&gt;
 
-&lt;span class="n"&gt;my_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;MFRGGZDFMZTWQ2LK&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;my_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_totp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;my_token&lt;/span&gt;
+&lt;span class="n"&gt;my_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;MFRGGZDFMZTWQ2LK&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;my_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;otp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_totp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;my_token&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</summary><category term="python"></category><category term="otp"></category></entry><entry><title>Autoformat C# code from command line</title><link href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><updated>2016-09-11T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
+&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</summary><category term="python"></category><category term="otp"></category></entry><entry><title>Autoformat C# code from command line</title><link href="http://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><published>2016-09-11T00:00:00-04:00</published><updated>2016-09-11T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;
 &lt;em&gt; Customizable format options
 &lt;/em&gt; Format whole directory recursively&lt;/p&gt;
@@ -259,7 +259,7 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -270,16 +270,16 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
 &lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;
 After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Supposed our Code is in the Code folder&lt;/span&gt;
-&lt;span class="nl"&gt;format:&lt;/span&gt;
-    &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="n"&gt;Code&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;iname&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;*.cs&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Code/excludedpath/*&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;xargs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;astyle --options=.astylerc &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;{}&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Supposed our Code is in the Code folder
+format:
+    find Code -iname &amp;quot;*.cs&amp;quot; -not -path &amp;quot;Code/excludedpath/*&amp;quot; | xargs -n 1 -I {} bash -c &amp;quot;astyle --options=.astylerc \&amp;quot;{}\&amp;quot;&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Remember to create a file called &lt;code&gt;.astylerc&lt;/code&gt; and put whatever format options you want to customize for your project there.&lt;/p&gt;
 &lt;h2&gt;Solution 2: NRefactory&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://github.com/icsharpcode/NRefactory"&gt;NRefactory&lt;/a&gt; is the C# analysis library used in the SharpDevelop and MonoDevelop IDEs. We can write a command line client with our customized parameters and format options, which uses &lt;code&gt;NRefactory&lt;/code&gt; internally to format code.&lt;/p&gt;
-&lt;p&gt;TODO: Write a cli using &lt;code&gt;docopt&lt;/code&gt;&lt;/p&gt;</summary><category term="c#"></category><category term="cli"></category></entry><entry><title>A netcat cheatsheet</title><link href="http://minhhh.github.io/posts/a-netcat-cheatsheet" rel="alternate"></link><updated>2015-01-01T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-01-01:posts/a-netcat-cheatsheet</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;p&gt;TODO: Write a cli using &lt;code&gt;docopt&lt;/code&gt;&lt;/p&gt;</summary><category term="c#"></category><category term="cli"></category></entry><entry><title>A netcat cheatsheet</title><link href="http://minhhh.github.io/posts/a-netcat-cheatsheet" rel="alternate"></link><published>2015-01-01T00:00:00-05:00</published><updated>2015-01-01T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-01-01:posts/a-netcat-cheatsheet</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -567,7 +567,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/netcat.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -575,7 +575,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="bash"></category><category term="shell"></category><category term="netcat"></category></entry><entry><title>An Introduction to Bash</title><link href="http://minhhh.github.io/posts/an-introduction-to-bash" rel="alternate"></link><updated>2014-11-23T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-11-23:posts/an-introduction-to-bash</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="bash"></category><category term="shell"></category><category term="netcat"></category></entry><entry><title>An Introduction to Bash</title><link href="http://minhhh.github.io/posts/an-introduction-to-bash" rel="alternate"></link><published>2014-11-23T00:00:00-05:00</published><updated>2014-11-23T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-11-23:posts/an-introduction-to-bash</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -891,7 +891,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/bash.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -899,7 +899,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="bash"></category><category term="shell"></category></entry><entry><title>A Guide to Python's Magic Methods</title><link href="http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods" rel="alternate"></link><updated>2014-10-19T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-19:posts/a-guide-to-pythons-magic-methods</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="bash"></category><category term="shell"></category></entry><entry><title>A Guide to Python's Magic Methods</title><link href="http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods" rel="alternate"></link><published>2014-10-19T00:00:00-04:00</published><updated>2014-10-19T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-19:posts/a-guide-to-pythons-magic-methods</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -3835,7 +3835,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/magicmethods/blob/master/README.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -3843,7 +3843,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="magic method"></category></entry><entry><title>Awk tutorial</title><link href="http://minhhh.github.io/posts/awk-tutorial" rel="alternate"></link><updated>2014-10-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-05:posts/awk-tutorial</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="magic method"></category></entry><entry><title>Awk tutorial</title><link href="http://minhhh.github.io/posts/awk-tutorial" rel="alternate"></link><published>2014-10-05T00:00:00-04:00</published><updated>2014-10-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-05:posts/awk-tutorial</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -4896,7 +4896,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/awk.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -4904,7 +4904,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="awk"></category><category term="cli"></category></entry><entry><title>Python decorator tutorial</title><link href="http://minhhh.github.io/posts/python-decorator-tutorial" rel="alternate"></link><updated>2014-10-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-05:posts/python-decorator-tutorial</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="awk"></category><category term="cli"></category></entry><entry><title>Python decorator tutorial</title><link href="http://minhhh.github.io/posts/python-decorator-tutorial" rel="alternate"></link><published>2014-10-05T00:00:00-04:00</published><updated>2014-10-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-05:posts/python-decorator-tutorial</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -5387,7 +5387,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/py_decorators.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5395,7 +5395,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="decorator"></category></entry><entry><title>How to rebase in Git</title><link href="http://minhhh.github.io/posts/how-to-rebase-in-git" rel="alternate"></link><updated>2014-09-09T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="decorator"></category></entry><entry><title>How to rebase in Git</title><link href="http://minhhh.github.io/posts/how-to-rebase-in-git" rel="alternate"></link><published>2014-09-09T00:00:00-04:00</published><updated>2014-09-09T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -5589,7 +5589,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git-manual/blob/master/git_rebase.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
@@ -5597,7 +5597,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="git"></category><category term="rebase"></category></entry><entry><title>Git cheat sheet</title><link href="http://minhhh.github.io/posts/git-cheat-sheet" rel="alternate"></link><updated>2014-09-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="git"></category><category term="rebase"></category></entry><entry><title>Git cheat sheet</title><link href="http://minhhh.github.io/posts/git-cheat-sheet" rel="alternate"></link><published>2014-09-05T00:00:00-04:00</published><updated>2014-09-05T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-05:posts/git-cheat-sheet</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -6571,7 +6571,7 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican-git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/git-manual/blob/master/README.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
