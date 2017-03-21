@@ -179,361 +179,339 @@
     <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>pattern1 {action1}</span>
 <span class="pl-s">    pattern2 {action2} ...<span class="pl-pds">'</span></span> file1 file2 ..</pre>
    </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    Call a script
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    awk -f script file1 file2 ...</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    Call without input files
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>program<span class="pl-pds">'</span></span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#regular-expression" id="user-content-regular-expression">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Regular expression
-   </h2>
-   <p>
-    Awk can use regular exrepssion as conditions
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>/foo/ {program}<span class="pl-pds">'</span></span> file</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    Awk supports Character class in POSIX standard such as [:alpha], [:alnum:]
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#case-sensitivity" id="user-content-case-sensitivity">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Case sensitivity
-   </h3>
-   <p>
-    Either use function
-    <code>
-     tolower
-    </code>
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    tolower(<span class="pl-smi">$1</span>) <span class="pl-k">~</span> /foo/ {...}</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    Or set variable
-    <code>
-     IGNORECASE
-    </code>
-    to non-zero
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    IGNORECASE = 1</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#dynamic-regex" id="user-content-dynamic-regex">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Dynamic regex
-   </h3>
-   <p>
-    Awk provides facility to define dynamic regular expressions
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    BEGIN { digits_regexp = <span class="pl-s"><span class="pl-pds">"</span>[[:digit:]]+<span class="pl-pds">"</span></span> }</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    You shouldn't use string constants for regex because it needs to be processed twice and hard to read.
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#startup-and-cleanup-actions" id="user-content-startup-and-cleanup-actions">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Startup and cleanup actions
-   </h3>
-   <p>
-    In other words, do something even if there are no line to process
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>BEGIN {do something}<span class="pl-pds">'</span></span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    <code>
-     END
-    </code>
-    specifies command to do at the end of loop.
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#change-field-seperator" id="user-content-change-field-seperator">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Change field seperator
-   </h3>
-   <p>
-    <code>
-     awk -F:
-    </code>
-    changes the field separator to colon.
-   </p>
-   <p>
-    Or it can be set in the BEGIN condition like this
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    BEGIN {FS = <span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>}</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#quote-and-quoting" id="user-content-quote-and-quoting">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Quote and quoting
-   </h3>
-   <p>
-    Awk support many standard escape sequence that can be use inside strings or regular expression
-   </p>
-   <p>
-    There are various way to escape single quote and double quotes.
-   </p>
-   <p>
-    Once nice way is to use octal escape:
-    <code>
-     \42
-    </code>
-    is double quote and
-    <code>
-     \47
-    </code>
-    is single quote.
-   </p>
-   <p>
-    <code>
-     \xhh
-    </code>
-    produces hexadecimal escape sequence
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#special-variables" id="user-content-special-variables">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Special Variables
-   </h3>
-   <ul>
-    <li>
-     <code>
-      $0
-     </code>
-     is the current line. $1 is the first field, $2 is the second field and so on
-    </li>
-    <li>
-     Note that $NR is the first field in the first record, second in the second one, and so on
-    </li>
-    <li>
-     $(2x2) is equivalent to $4
-    </li>
-    <li>
-     $5 = something when the line has fewer than 5 fields will create the 5th field and change both $0 and NF
-    </li>
-    <li>
-     you get the idea
-    </li>
-    <li>
-     To force awk to rebuild the record,
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-smi">$1</span> = <span class="pl-smi">$1</span><span class="pl-k">;</span> <span class="pl-c"><span class="pl-c">#</span> force record to be rebuilt</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <ul>
-    <li>
-     NF is the number of fields
-    </li>
-    <li>
-     $NF is the last field.
-    </li>
-    <li>
-     NR is the total of records read so far in all files.
-    </li>
-    <li>
-     FNR is the number of records read so far in the current input files. This should be used instead of NR.
-    </li>
-    <li>
-     RS is the record separator. It can be changed at BEGIN
-    </li>
-    <li>
-     ORS is the output record separator.
-    </li>
-    <li>
-     RT contains the actual text that match RS if RS is a regular expression. If RS is just a normal character, then RT and RS are the same.
-    </li>
-    <li>
-     FS is the field separator
-     <ul>
-      <li>
-       FS can be specified at the beginning as well
-      </li>
-     </ul>
-    </li>
-    <li>
-     OFS is output field separator
-    </li>
-    <li>
-     FIELDWIDTHS is a string that specifies field widths separated by spaces.
-     <ul>
-      <li>
-       For instance
-       <code>
-        9 10 6 3 4 ...
-       </code>
-      </li>
-      <li>
-       If PROCINFO["FS"] "FS" then FS is being used, otherwise fixed width method is being used.
-      </li>
-     </ul>
-    </li>
-   </ul>
-   <h4>
-    <a aria-hidden="true" class="anchor" href="#operators" id="user-content-operators">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Operators
-   </h4>
-   <ul>
-    <li>
-     <code>
-      ~
-     </code>
-     (tilde) used to match a string with a regular expression
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    $ awk <span class="pl-s"><span class="pl-pds">'</span>$1 ~ /J/<span class="pl-pds">'</span></span> file
+   <br>
+    <p>
+     Call a script
+    </p>
+    <div class="highlight highlight-source-shell">
+     <pre>    awk -f script file1 file2 ...</pre>
+    </div>
+    <br>
+     <p>
+      Call without input files
+     </p>
+     <div class="highlight highlight-source-shell">
+      <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>program<span class="pl-pds">'</span></span></pre>
+     </div>
+     <br>
+      <h2>
+       <a aria-hidden="true" class="anchor" href="#regular-expression" id="user-content-regular-expression">
+        <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+         <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+         </path>
+        </svg>
+       </a>
+       Regular expression
+      </h2>
+      <p>
+       Awk can use regular exrepssion as conditions
+      </p>
+      <div class="highlight highlight-source-shell">
+       <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>/foo/ {program}<span class="pl-pds">'</span></span> file</pre>
+      </div>
+      <br>
+       <p>
+        Awk supports Character class in POSIX standard such as [:alpha], [:alnum:]
+       </p>
+       <h3>
+        <a aria-hidden="true" class="anchor" href="#case-sensitivity" id="user-content-case-sensitivity">
+         <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+          <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+          </path>
+         </svg>
+        </a>
+        Case sensitivity
+       </h3>
+       <p>
+        Either use function
+        <code>
+         tolower
+        </code>
+       </p>
+       <div class="highlight highlight-source-shell">
+        <pre>    tolower(<span class="pl-smi">$1</span>) <span class="pl-k">~</span> /foo/ {...}</pre>
+       </div>
+       <br>
+        <p>
+         Or set variable
+         <code>
+          IGNORECASE
+         </code>
+         to non-zero
+        </p>
+        <div class="highlight highlight-source-shell">
+         <pre>    IGNORECASE = 1</pre>
+        </div>
+        <br>
+         <h3>
+          <a aria-hidden="true" class="anchor" href="#dynamic-regex" id="user-content-dynamic-regex">
+           <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+            <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+            </path>
+           </svg>
+          </a>
+          Dynamic regex
+         </h3>
+         <p>
+          Awk provides facility to define dynamic regular expressions
+         </p>
+         <div class="highlight highlight-source-shell">
+          <pre>    BEGIN { digits_regexp = <span class="pl-s"><span class="pl-pds">"</span>[[:digit:]]+<span class="pl-pds">"</span></span> }</pre>
+         </div>
+         <br>
+          <p>
+           You shouldn't use string constants for regex because it needs to be processed twice and hard to read.
+          </p>
+          <h3>
+           <a aria-hidden="true" class="anchor" href="#startup-and-cleanup-actions" id="user-content-startup-and-cleanup-actions">
+            <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+             </path>
+            </svg>
+           </a>
+           Startup and cleanup actions
+          </h3>
+          <p>
+           In other words, do something even if there are no line to process
+          </p>
+          <div class="highlight highlight-source-shell">
+           <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>BEGIN {do something}<span class="pl-pds">'</span></span></pre>
+          </div>
+          <br>
+           <p>
+            <code>
+             END
+            </code>
+            specifies command to do at the end of loop.
+           </p>
+           <h3>
+            <a aria-hidden="true" class="anchor" href="#change-field-seperator" id="user-content-change-field-seperator">
+             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+              </path>
+             </svg>
+            </a>
+            Change field seperator
+           </h3>
+           <p>
+            <code>
+             awk -F:
+            </code>
+            changes the field separator to colon.
+           </p>
+           <p>
+            Or it can be set in the BEGIN condition like this
+           </p>
+           <div class="highlight highlight-source-shell">
+            <pre>    BEGIN {FS = <span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>}</pre>
+           </div>
+           <br>
+            <h3>
+             <a aria-hidden="true" class="anchor" href="#quote-and-quoting" id="user-content-quote-and-quoting">
+              <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+               <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+               </path>
+              </svg>
+             </a>
+             Quote and quoting
+            </h3>
+            <p>
+             Awk support many standard escape sequence that can be use inside strings or regular expression
+            </p>
+            <p>
+             There are various way to escape single quote and double quotes.
+            </p>
+            <p>
+             Once nice way is to use octal escape:
+             <code>
+              \42
+             </code>
+             is double quote and
+             <code>
+              \47
+             </code>
+             is single quote.
+            </p>
+            <p>
+             <code>
+              \xhh
+             </code>
+             produces hexadecimal escape sequence
+            </p>
+            <h3>
+             <a aria-hidden="true" class="anchor" href="#special-variables" id="user-content-special-variables">
+              <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+               <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+               </path>
+              </svg>
+             </a>
+             Special Variables
+            </h3>
+            <ul>
+             <li>
+              <code>
+               $0
+              </code>
+              is the current line. $1 is the first field, $2 is the second field and so on
+             </li>
+             <li>
+              Note that $NR is the first field in the first record, second in the second one, and so on
+             </li>
+             <li>
+              $(2x2) is equivalent to $4
+             </li>
+             <li>
+              $5 = something when the line has fewer than 5 fields will create the 5th field and change both $0 and NF
+             </li>
+             <li>
+              you get the idea
+             </li>
+             <li>
+              To force awk to rebuild the record,
+             </li>
+            </ul>
+            <div class="highlight highlight-source-shell">
+             <pre>    <span class="pl-smi">$1</span> = <span class="pl-smi">$1</span><span class="pl-k">;</span> <span class="pl-c"><span class="pl-c">#</span> force record to be rebuilt</span></pre>
+            </div>
+            <br>
+             <ul>
+              <li>
+               NF is the number of fields
+              </li>
+              <li>
+               $NF is the last field.
+              </li>
+              <li>
+               NR is the total of records read so far in all files.
+              </li>
+              <li>
+               FNR is the number of records read so far in the current input files. This should be used instead of NR.
+              </li>
+              <li>
+               RS is the record separator. It can be changed at BEGIN
+              </li>
+              <li>
+               ORS is the output record separator.
+              </li>
+              <li>
+               RT contains the actual text that match RS if RS is a regular expression. If RS is just a normal character, then RT and RS are the same.
+              </li>
+              <li>
+               FS is the field separator
+               <ul>
+                <li>
+                 FS can be specified at the beginning as well
+                </li>
+               </ul>
+              </li>
+              <li>
+               OFS is output field separator
+              </li>
+              <li>
+               FIELDWIDTHS is a string that specifies field widths separated by spaces.
+               <ul>
+                <li>
+                 For instance
+                 <code>
+                  9 10 6 3 4 ...
+                 </code>
+                </li>
+                <li>
+                 If PROCINFO["FS"] "FS" then FS is being used, otherwise fixed width method is being used.
+                </li>
+               </ul>
+              </li>
+             </ul>
+             <h4>
+              <a aria-hidden="true" class="anchor" href="#operators" id="user-content-operators">
+               <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                </path>
+               </svg>
+              </a>
+              Operators
+             </h4>
+             <ul>
+              <li>
+               <code>
+                ~
+               </code>
+               (tilde) used to match a string with a regular expression
+              </li>
+             </ul>
+             <div class="highlight highlight-source-shell">
+              <pre>    $ awk <span class="pl-s"><span class="pl-pds">'</span>$1 ~ /J/<span class="pl-pds">'</span></span> file
     <span class="pl-c"><span class="pl-c">#</span> matches line where the first field start with J</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <ul>
-    <li>
-     <code>
-      !~
-     </code>
-     not match regular expression
-    </li>
-    <li>
-     <code>
-      ==
-     </code>
-     is the equal operator
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#useful-functions" id="user-content-useful-functions">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Useful functions
-   </h3>
-   <ul>
-    <li>
-     length() returns the string length.
-    </li>
-    <li>
-     substr(s, m, n) produces substring of s beginning at position m and with length n
-    </li>
-    <li>
-     tolower(s) , toupper(s) transform text s to all lower or upper cases
-    </li>
-    <li>
-     sub("something", "withsomething")
-    </li>
-    <li>
-     <code>
-      getline
-     </code>
-     read the next line from input, returns 1 if it finds a record, 0 if end of file and -1 if there are any errors.
-    </li>
-    <li>
-     <code>
-      getline tmp
-     </code>
-     reads the next line from input to a variable named
-     <code>
-      tmp
-     </code>
-     , the variable
-     <code>
-      $0
-     </code>
-     is not affected by this getline. This function allows to skip one line ahead.
-    </li>
-    <li>
-     <code>
-      getlines var &lt; 'file'
-     </code>
-     reads the next line from file to a variable named
-     <code>
-      var
-     </code>
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-c"><span class="pl-c">#</span> The following code copies all input files to the output, except for records that say @include filename</span>
+             </div>
+             <br>
+              <ul>
+               <li>
+                <code>
+                 !~
+                </code>
+                not match regular expression
+               </li>
+               <li>
+                <code>
+                 ==
+                </code>
+                is the equal operator
+               </li>
+              </ul>
+              <h3>
+               <a aria-hidden="true" class="anchor" href="#useful-functions" id="user-content-useful-functions">
+                <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                 <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                 </path>
+                </svg>
+               </a>
+               Useful functions
+              </h3>
+              <ul>
+               <li>
+                length() returns the string length.
+               </li>
+               <li>
+                substr(s, m, n) produces substring of s beginning at position m and with length n
+               </li>
+               <li>
+                tolower(s) , toupper(s) transform text s to all lower or upper cases
+               </li>
+               <li>
+                sub("something", "withsomething")
+               </li>
+               <li>
+                <code>
+                 getline
+                </code>
+                read the next line from input, returns 1 if it finds a record, 0 if end of file and -1 if there are any errors.
+               </li>
+               <li>
+                <code>
+                 getline tmp
+                </code>
+                reads the next line from input to a variable named
+                <code>
+                 tmp
+                </code>
+                , the variable
+                <code>
+                 $0
+                </code>
+                is not affected by this getline. This function allows to skip one line ahead.
+               </li>
+               <li>
+                <code>
+                 getlines var &lt; 'file'
+                </code>
+                reads the next line from file to a variable named
+                <code>
+                 var
+                </code>
+               </li>
+              </ul>
+              <div class="highlight highlight-source-shell">
+               <pre>    <span class="pl-c"><span class="pl-c">#</span> The following code copies all input files to the output, except for records that say @include filename</span>
     <span class="pl-c"><span class="pl-c">#</span> in this case it will replace such records with the content of the file `filename`</span>
     <span class="pl-k">if</span> (NF 2 <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$1</span> <span class="pl-s"><span class="pl-pds">"</span>@include<span class="pl-pds">"</span></span>) {
         <span class="pl-k">while</span> <span class="pl-s"><span class="pl-pds">((</span>getline line <span class="pl-k">&lt;</span> <span class="pl-smi">$2</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)</span>
@@ -541,24 +519,22 @@
 <span class="pl-s">        close(<span class="pl-smi">$2</span>)</span>
 <span class="pl-s">    } else</span>
 <span class="pl-s">        print</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <ul>
-    <li>
-     <code>
-      command | getline
-     </code>
-     . In this case the string
-     <code>
-      command
-     </code>
-     is run as a shell command and its output is piped to getline
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-c"><span class="pl-c">#</span> line begins with @execute is replaced by the output of the command after that</span>
+              </div>
+              <br>
+               <ul>
+                <li>
+                 <code>
+                  command | getline
+                 </code>
+                 . In this case the string
+                 <code>
+                  command
+                 </code>
+                 is run as a shell command and its output is piped to getline
+                </li>
+               </ul>
+               <div class="highlight highlight-source-shell">
+                <pre>    <span class="pl-c"><span class="pl-c">#</span> line begins with @execute is replaced by the output of the command after that</span>
     {
         <span class="pl-k">if</span> (<span class="pl-smi">$1</span> <span class="pl-s"><span class="pl-pds">"</span>@execute<span class="pl-pds">"</span></span>) {
             tmp = substr(<span class="pl-smi">$0</span>, 10)
@@ -568,386 +544,368 @@
 <span class="pl-s">        } else</span>
 <span class="pl-s">            print</span>
 <span class="pl-s">    }</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <ul>
-    <li>
-     <code>
-      command | getline var
-     </code>
-     , the output of
-     <code>
-      commands
-     </code>
-     is sent through a pipe to getline and into variable
-     <code>
-      var
-     </code>
-     .
-    </li>
-    <li>
-     <code>
-      print "some query" |&amp; "db_server"
-     </code>
-     sends a query to a process. (This maybe useful but we don't use it yet)
-    </li>
-    <li>
-     Mathematical functions such as: sqrt(), atan2(), rand().
-     <ul>
-      <li>
-       DO NOT put a space between the function name and the parentheses. It can be confused with string concatenation
-      </li>
-      <li>
-       Operator precedence.
-      </li>
-     </ul>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#printing-and-output" id="user-content-printing-and-output">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Printing and output
-   </h3>
-   <ul>
-    <li>
-     print something, something, ...
-    </li>
-    <li>
-     printf "format string", something, something .... Similar to C printf function
-    </li>
-    <li>
-     OMFT contains the default format specification when print converts a number to a string
-    </li>
-    <li>
-     OFS and ORS do not have any effects on printf
-    </li>
-    <li>
-     The print and printf function can be redirected just as in the shell
-     <ul>
-      <li>
-       print items &gt; file
-      </li>
-      <li>
-       print items &gt;&gt; file
-      </li>
-      <li>
-       print items | command
-      </li>
-      <li>
-       print items |&amp; command: the output from command can be read with
-       <code>
-        getline
-       </code>
-      </li>
-      <li>
-       Some version of awk only allows one open pipe , so we can call print items &gt; file multiple times to append more items to the file, unlike in the shell where we have to use &gt;&gt; the second time onwards.
-      </li>
-     </ul>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#standard-descriptors" id="user-content-standard-descriptors">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Standard descriptors
-   </h3>
-   <ul>
-    <li>
-     Gawk supports special filenames for standard input, output and error streams
-     <ul>
-      <li>
-       /dev/stdin
-      </li>
-      <li>
-       /dev/stdout
-      </li>
-      <li>
-       /dev/stderr
-      </li>
-      <li>
-       /dev/fd/N : file associated with descriptor N.
-      </li>
-     </ul>
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    print <span class="pl-s"><span class="pl-pds">"</span>serious error detected <span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>/dev/stderr<span class="pl-pds">"</span></span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" id="user-content-special-files-for-process-related-information">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Special files for process-related information
-   </h3>
-   <ul>
-    <li>
-     Gwak supports special file for accessing information about the running gawk process.
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#special-files-for-network-communication" id="user-content-special-files-for-network-communication">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Special files for network communication
-   </h3>
-   <ul>
-    <li>
-     Gawk, awk can open two-way TCP-IP connection.
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#close-input-and-output-redirection" id="user-content-close-input-and-output-redirection">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Close input and output redirection
-   </h3>
-   <ul>
-    <li>
-     <code>
-      close(filename)
-     </code>
-     or
-     <code>
-      close(command)
-     </code>
-     close the input or output redirection pipe
-    </li>
-    <li>
-     <code>
-      filename
-     </code>
-     or
-     <code>
-      command
-     </code>
-     must
-     <code>
-      exactly match
-     </code>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#piping-to-sh" id="user-content-piping-to-sh">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Piping to sh
-   </h3>
-   <p>
-    A good way to build command line and execute them in the shell is to pipe them to
-    <code>
-     sh
-    </code>
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    { printf(<span class="pl-s"><span class="pl-pds">"</span>mv %s %s\n<span class="pl-pds">"</span></span>, <span class="pl-smi">$0</span>, tolower(<span class="pl-smi">$0</span>)) <span class="pl-k">|</span> <span class="pl-s"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span> }
+               </div>
+               <br>
+                <ul>
+                 <li>
+                  <code>
+                   command | getline var
+                  </code>
+                  , the output of
+                  <code>
+                   commands
+                  </code>
+                  is sent through a pipe to getline and into variable
+                  <code>
+                   var
+                  </code>
+                  .
+                 </li>
+                 <li>
+                  <code>
+                   print "some query" |&amp; "db_server"
+                  </code>
+                  sends a query to a process. (This maybe useful but we don't use it yet)
+                 </li>
+                 <li>
+                  Mathematical functions such as: sqrt(), atan2(), rand().
+                  <ul>
+                   <li>
+                    DO NOT put a space between the function name and the parentheses. It can be confused with string concatenation
+                   </li>
+                   <li>
+                    Operator precedence.
+                   </li>
+                  </ul>
+                 </li>
+                </ul>
+                <h3>
+                 <a aria-hidden="true" class="anchor" href="#printing-and-output" id="user-content-printing-and-output">
+                  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                   </path>
+                  </svg>
+                 </a>
+                 Printing and output
+                </h3>
+                <ul>
+                 <li>
+                  print something, something, ...
+                 </li>
+                 <li>
+                  printf "format string", something, something .... Similar to C printf function
+                 </li>
+                 <li>
+                  OMFT contains the default format specification when print converts a number to a string
+                 </li>
+                 <li>
+                  OFS and ORS do not have any effects on printf
+                 </li>
+                 <li>
+                  The print and printf function can be redirected just as in the shell
+                  <ul>
+                   <li>
+                    print items &gt; file
+                   </li>
+                   <li>
+                    print items &gt;&gt; file
+                   </li>
+                   <li>
+                    print items | command
+                   </li>
+                   <li>
+                    print items |&amp; command: the output from command can be read with
+                    <code>
+                     getline
+                    </code>
+                   </li>
+                   <li>
+                    Some version of awk only allows one open pipe , so we can call print items &gt; file multiple times to append more items to the file, unlike in the shell where we have to use &gt;&gt; the second time onwards.
+                   </li>
+                  </ul>
+                 </li>
+                </ul>
+                <h3>
+                 <a aria-hidden="true" class="anchor" href="#standard-descriptors" id="user-content-standard-descriptors">
+                  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                   </path>
+                  </svg>
+                 </a>
+                 Standard descriptors
+                </h3>
+                <ul>
+                 <li>
+                  Gawk supports special filenames for standard input, output and error streams
+                  <ul>
+                   <li>
+                    /dev/stdin
+                   </li>
+                   <li>
+                    /dev/stdout
+                   </li>
+                   <li>
+                    /dev/stderr
+                   </li>
+                   <li>
+                    /dev/fd/N : file associated with descriptor N.
+                   </li>
+                  </ul>
+                 </li>
+                </ul>
+                <div class="highlight highlight-source-shell">
+                 <pre>    print <span class="pl-s"><span class="pl-pds">"</span>serious error detected <span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>/dev/stderr<span class="pl-pds">"</span></span></pre>
+                </div>
+                <br>
+                 <h3>
+                  <a aria-hidden="true" class="anchor" href="#special-files-for-process-related-information" id="user-content-special-files-for-process-related-information">
+                   <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                    <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                    </path>
+                   </svg>
+                  </a>
+                  Special files for process-related information
+                 </h3>
+                 <ul>
+                  <li>
+                   Gwak supports special file for accessing information about the running gawk process.
+                  </li>
+                 </ul>
+                 <h3>
+                  <a aria-hidden="true" class="anchor" href="#special-files-for-network-communication" id="user-content-special-files-for-network-communication">
+                   <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                    <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                    </path>
+                   </svg>
+                  </a>
+                  Special files for network communication
+                 </h3>
+                 <ul>
+                  <li>
+                   Gawk, awk can open two-way TCP-IP connection.
+                  </li>
+                 </ul>
+                 <h3>
+                  <a aria-hidden="true" class="anchor" href="#close-input-and-output-redirection" id="user-content-close-input-and-output-redirection">
+                   <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                    <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                    </path>
+                   </svg>
+                  </a>
+                  Close input and output redirection
+                 </h3>
+                 <ul>
+                  <li>
+                   <code>
+                    close(filename)
+                   </code>
+                   or
+                   <code>
+                    close(command)
+                   </code>
+                   close the input or output redirection pipe
+                  </li>
+                  <li>
+                   <code>
+                    filename
+                   </code>
+                   or
+                   <code>
+                    command
+                   </code>
+                   must
+                   <code>
+                    exactly match
+                   </code>
+                  </li>
+                 </ul>
+                 <h3>
+                  <a aria-hidden="true" class="anchor" href="#piping-to-sh" id="user-content-piping-to-sh">
+                   <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                    <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                    </path>
+                   </svg>
+                  </a>
+                  Piping to sh
+                 </h3>
+                 <p>
+                  A good way to build command line and execute them in the shell is to pipe them to
+                  <code>
+                   sh
+                  </code>
+                 </p>
+                 <div class="highlight highlight-source-shell">
+                  <pre>    { printf(<span class="pl-s"><span class="pl-pds">"</span>mv %s %s\n<span class="pl-pds">"</span></span>, <span class="pl-smi">$0</span>, tolower(<span class="pl-smi">$0</span>)) <span class="pl-k">|</span> <span class="pl-s"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span> }
     END {close(<span class="pl-s"><span class="pl-pds">"</span>sh<span class="pl-pds">"</span></span>)}</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" id="user-content-change-the-content-of-a-field">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Change the content of a field
-   </h3>
-   <ul>
-    <li>
-     The content of a field can be change during processing , like this
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>{$2=$2-10; print $0}<span class="pl-pds">'</span></span>
+                 </div>
+                 <br>
+                  <h3>
+                   <a aria-hidden="true" class="anchor" href="#change-the-content-of-a-field" id="user-content-change-the-content-of-a-field">
+                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                     </path>
+                    </svg>
+                   </a>
+                   Change the content of a field
+                  </h3>
+                  <ul>
+                   <li>
+                    The content of a field can be change during processing , like this
+                   </li>
+                  </ul>
+                  <div class="highlight highlight-source-shell">
+                   <pre>    awk <span class="pl-s"><span class="pl-pds">'</span>{$2=$2-10; print $0}<span class="pl-pds">'</span></span>
     <span class="pl-c"><span class="pl-c">#</span> will subtract 10 from the second field, and the second field should be</span>
     <span class="pl-c"><span class="pl-c">#</span> a number for this to work.</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h4>
-    <a aria-hidden="true" class="anchor" href="#variables" id="user-content-variables">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Variables
-   </h4>
-   <ul>
-    <li>
-     Custom variables can be created and default to zero
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    {
+                  </div>
+                  <br>
+                   <h4>
+                    <a aria-hidden="true" class="anchor" href="#variables" id="user-content-variables">
+                     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                      </path>
+                     </svg>
+                    </a>
+                    Variables
+                   </h4>
+                   <ul>
+                    <li>
+                     Custom variables can be created and default to zero
+                    </li>
+                   </ul>
+                   <div class="highlight highlight-source-shell">
+                    <pre>    {
         str = <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span><span class="pl-k">;</span>
     }</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <ul>
-    <li>
-     Variables can be assigned in the command line.
-    </li>
-    <li>
-     Strings and number conversions.
-    </li>
-    <li>
-     Arithmetic Operators.
-    </li>
-    <li>
-     String concatenation is done by placing the operands next to each other
-     <ul>
-      <li>
-       <code>
-        ()
-       </code>
-       should be used around concatenation in all but the most common context
-      </li>
-     </ul>
-    </li>
-    <li>
-     True and false in awk. Zero and null string is false, other values are true.
-    </li>
-    <li>
-     Boolean expressions:
-     <code>
-      !
-     </code>
-     ,
-     <code>
-      &amp;&amp;
-     </code>
-     and
-     <code>
-      ||
-     </code>
-     . Tenary operator
-     <code>
-      condition?expression1:expression2
-     </code>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#patterns" id="user-content-patterns">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Patterns
-   </h3>
-   <ul>
-    <li>
-     Patterns control the execution of rules, a rule is executed when its pattern matches the current input record (line).
-    </li>
-    <li>
-     <code>
-      Record range
-     </code>
-     is specified in the form
-     <code>
-      beginpatter, endpattern
-     </code>
-     . Every record between inclusive is processed.
-     <ul>
-      <li>
-       The range pattern can be turned on and off by the same record.
-      </li>
-      <li>
-       Range pattern cannot be combined with other patterns.
-      </li>
-     </ul>
-    </li>
-   </ul>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#control-statements" id="user-content-control-statements">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Control Statements
-   </h3>
-   <p>
-    if-else
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-k">if</span> (x % 2 0)
+                   </div>
+                   <br>
+                    <ul>
+                     <li>
+                      Variables can be assigned in the command line.
+                     </li>
+                     <li>
+                      Strings and number conversions.
+                     </li>
+                     <li>
+                      Arithmetic Operators.
+                     </li>
+                     <li>
+                      String concatenation is done by placing the operands next to each other
+                      <ul>
+                       <li>
+                        <code>
+                         ()
+                        </code>
+                        should be used around concatenation in all but the most common context
+                       </li>
+                      </ul>
+                     </li>
+                     <li>
+                      True and false in awk. Zero and null string is false, other values are true.
+                     </li>
+                     <li>
+                      Boolean expressions:
+                      <code>
+                       !
+                      </code>
+                      ,
+                      <code>
+                       &amp;&amp;
+                      </code>
+                      and
+                      <code>
+                       ||
+                      </code>
+                      . Tenary operator
+                      <code>
+                       condition?expression1:expression2
+                      </code>
+                     </li>
+                    </ul>
+                    <h3>
+                     <a aria-hidden="true" class="anchor" href="#patterns" id="user-content-patterns">
+                      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                       <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                       </path>
+                      </svg>
+                     </a>
+                     Patterns
+                    </h3>
+                    <ul>
+                     <li>
+                      Patterns control the execution of rules, a rule is executed when its pattern matches the current input record (line).
+                     </li>
+                     <li>
+                      <code>
+                       Record range
+                      </code>
+                      is specified in the form
+                      <code>
+                       beginpatter, endpattern
+                      </code>
+                      . Every record between inclusive is processed.
+                      <ul>
+                       <li>
+                        The range pattern can be turned on and off by the same record.
+                       </li>
+                       <li>
+                        Range pattern cannot be combined with other patterns.
+                       </li>
+                      </ul>
+                     </li>
+                    </ul>
+                    <h3>
+                     <a aria-hidden="true" class="anchor" href="#control-statements" id="user-content-control-statements">
+                      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                       <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                       </path>
+                      </svg>
+                     </a>
+                     Control Statements
+                    </h3>
+                    <p>
+                     if-else
+                    </p>
+                    <div class="highlight highlight-source-shell">
+                     <pre>    <span class="pl-k">if</span> (x % 2 0)
         print <span class="pl-s"><span class="pl-pds">"</span>x is even<span class="pl-pds">"</span></span>
     <span class="pl-k">else</span>
         print <span class="pl-s"><span class="pl-pds">"</span>x is odd<span class="pl-pds">"</span></span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    while
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 3) {
+                    </div>
+                    <br>
+                     <p>
+                      while
+                     </p>
+                     <div class="highlight highlight-source-shell">
+                      <pre>    <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 3) {
         print <span class="pl-smi">$i</span>
         i++
     }</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    do while
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-k">do</span> {
+                     </div>
+                     <br>
+                      <p>
+                       do while
+                      </p>
+                      <div class="highlight highlight-source-shell">
+                       <pre>    <span class="pl-k">do</span> {
         print <span class="pl-smi">$0</span>
         i++
     } <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span>= 10)</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    for
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-k">for</span> (i = 1<span class="pl-k">;</span> i <span class="pl-k">&lt;</span>= 3<span class="pl-k">;</span> i++)
+                      </div>
+                      <br>
+                       <p>
+                        for
+                       </p>
+                       <div class="highlight highlight-source-shell">
+                        <pre>    <span class="pl-k">for</span> (i = 1<span class="pl-k">;</span> i <span class="pl-k">&lt;</span>= 3<span class="pl-k">;</span> i++)
         print <span class="pl-smi">$i</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    switch: break
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    switch (NR <span class="pl-k">*</span> 2 + 1) {
+                       </div>
+                       <br>
+                        <p>
+                         switch: break
+                        </p>
+                        <div class="highlight highlight-source-shell">
+                         <pre>    switch (NR <span class="pl-k">*</span> 2 + 1) {
     <span class="pl-k">case</span> 3:
         <span class="pl-c1">break</span>
     <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>11<span class="pl-pds">"</span></span>:
@@ -963,15 +921,13 @@
         print NR <span class="pl-k">*</span> -1
         <span class="pl-c1">break</span>
     }</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <p>
-    switch: continue
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    BEGIN {
+                        </div>
+                        <br>
+                         <p>
+                          switch: continue
+                         </p>
+                         <div class="highlight highlight-source-shell">
+                          <pre>    BEGIN {
         <span class="pl-k">for</span> (x = 0<span class="pl-k">;</span> x <span class="pl-k">&lt;</span>= 20<span class="pl-k">;</span> x++) {
             <span class="pl-k">if</span> (x 5)
                 <span class="pl-k">continue</span>
@@ -979,23 +935,21 @@
         }
         print <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
     }</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <ul>
-    <li>
-     next: stop processing the current record and go on to the next record
-    </li>
-    <li>
-     nextfile : stop processing the current file and go on to the next file
-    </li>
-    <li>
-     exit n: stops execution for the current rule and execute the END rule if any.
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    BEGIN {
+                         </div>
+                         <br>
+                          <ul>
+                           <li>
+                            next: stop processing the current record and go on to the next record
+                           </li>
+                           <li>
+                            nextfile : stop processing the current file and go on to the next file
+                           </li>
+                           <li>
+                            exit n: stops execution for the current rule and execute the END rule if any.
+                           </li>
+                          </ul>
+                          <div class="highlight highlight-source-shell">
+                           <pre>    BEGIN {
     <span class="pl-k">if</span> <span class="pl-s"><span class="pl-pds">((</span>"date" <span class="pl-k">|</span> getline date_now) <span class="pl-k">&lt;=</span> <span class="pl-c1">0</span>) {</span>
 <span class="pl-s">    print "Can’t get system date" &gt; "/dev/stderr"</span>
 <span class="pl-s">    exit <span class="pl-c1">1</span></span>
@@ -1003,78 +957,76 @@
 <span class="pl-s">    print "current date is", date_now</span>
 <span class="pl-s">    close("date")</span>
 <span class="pl-s">    }</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#functions" id="user-content-functions">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Functions
-   </h3>
-   <ul>
-    <li>
-     Controlling output buffering with
-     <code>
-      system
-     </code>
-     <ul>
-      <li>
-       Use
-       <code>
-        system("")
-       </code>
-       to fflush output buffering instead of
-       <code>
-        fflush
-       </code>
-      </li>
-     </ul>
-    </li>
-   </ul>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#howtos" id="user-content-howtos">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    HOWTOS
-   </h1>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#how-to-remove-special-characters-from-files" id="user-content-how-to-remove-special-characters-from-files">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    How to remove special characters from files
-   </h2>
-   <ul>
-    <li>
-     Suppose you have a list of files starting with a certain number of special character that you want to remove
-    </li>
-    <li>
-     The idea is to generate the new file name for each of the files then use the
-     <code>
-      mv
-     </code>
-     or
-     <code>
-      rename
-     </code>
-     command to change the orginal file name
-    </li>
-    <li>
-     First, export the list of filenames to a first file test1
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    <span class="pl-c"><span class="pl-c">#</span> Suppose that the original files are in folder original_files and we want to copy them to</span>
+                          </div>
+                          <br>
+                           <h3>
+                            <a aria-hidden="true" class="anchor" href="#functions" id="user-content-functions">
+                             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                              </path>
+                             </svg>
+                            </a>
+                            Functions
+                           </h3>
+                           <ul>
+                            <li>
+                             Controlling output buffering with
+                             <code>
+                              system
+                             </code>
+                             <ul>
+                              <li>
+                               Use
+                               <code>
+                                system("")
+                               </code>
+                               to fflush output buffering instead of
+                               <code>
+                                fflush
+                               </code>
+                              </li>
+                             </ul>
+                            </li>
+                           </ul>
+                           <h1>
+                            <a aria-hidden="true" class="anchor" href="#howtos" id="user-content-howtos">
+                             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                              </path>
+                             </svg>
+                            </a>
+                            HOWTOS
+                           </h1>
+                           <h2>
+                            <a aria-hidden="true" class="anchor" href="#how-to-remove-special-characters-from-files" id="user-content-how-to-remove-special-characters-from-files">
+                             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                              </path>
+                             </svg>
+                            </a>
+                            How to remove special characters from files
+                           </h2>
+                           <ul>
+                            <li>
+                             Suppose you have a list of files starting with a certain number of special character that you want to remove
+                            </li>
+                            <li>
+                             The idea is to generate the new file name for each of the files then use the
+                             <code>
+                              mv
+                             </code>
+                             or
+                             <code>
+                              rename
+                             </code>
+                             command to change the orginal file name
+                            </li>
+                            <li>
+                             First, export the list of filenames to a first file test1
+                            </li>
+                           </ul>
+                           <div class="highlight highlight-source-shell">
+                            <pre>    <span class="pl-c"><span class="pl-c">#</span> Suppose that the original files are in folder original_files and we want to copy them to</span>
     <span class="pl-c"><span class="pl-c">#</span> folder new_files</span>
     ls original_files <span class="pl-k">&gt;</span> list1 <span class="pl-c"><span class="pl-c">#</span> generate list of files</span>
     awk <span class="pl-s"><span class="pl-pds">'</span>{gsub(/[^a-zA-Z0-9 .]/, "", $0); print;}<span class="pl-pds">'</span></span> list1 <span class="pl-k">&gt;</span> list2 <span class="pl-c"><span class="pl-c">#</span> removes all special characters and generate a second list</span>
@@ -1085,74 +1037,96 @@
 
     sh list3 <span class="pl-c"><span class="pl-c">#</span> run the list of commands in list3</span>
     rm -frv list1 list2 list3 <span class="pl-c"><span class="pl-c">#</span> remove all temporary files</span></pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" id="user-content-make-each-character-a-separate-field">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Make each character a separate field
-   </h2>
-   <ul>
-    <li>
-     By changing the field separtor to null string
-    </li>
-   </ul>
-   <div class="highlight highlight-source-shell">
-    <pre>    BEGIN {FS=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>}</pre>
-   </div>
-   <p>
-    <br/>
-   </p>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#books" id="user-content-books">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    BOOKS
-   </h1>
-   <ul>
-    <li>
-     <a href="http://www.gnu.org/software/gawk/manual/gawk.pdf">
-      Gwak Effective awk programming
-     </a>
-     - Free book, great for understanding details about awk and gawk programming.
-    </li>
-    <li>
-     <a href="http://gregable.com/2010/09/why-you-should-know-just-little-awk.html">
-      Why you should learn just a little Awk - An Awk Tutorial by Example
-     </a>
-    </li>
-   </ul>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#articles" id="user-content-articles">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    ARTICLES
-   </h1>
-   <ul>
-    <li>
-     <a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/">
-      Differences between different versions of awk
-     </a>
-    </li>
-    <li>
-     <a href="http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/">
-      http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/
-     </a>
-     .
-    </li>
-   </ul>
+                           </div>
+                           <br>
+                            <h2>
+                             <a aria-hidden="true" class="anchor" href="#make-each-character-a-separate-field" id="user-content-make-each-character-a-separate-field">
+                              <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                               <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                               </path>
+                              </svg>
+                             </a>
+                             Make each character a separate field
+                            </h2>
+                            <ul>
+                             <li>
+                              By changing the field separtor to null string
+                             </li>
+                            </ul>
+                            <div class="highlight highlight-source-shell">
+                             <pre>    BEGIN {FS=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>}</pre>
+                            </div>
+                            <br>
+                             <h1>
+                              <a aria-hidden="true" class="anchor" href="#books" id="user-content-books">
+                               <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                                </path>
+                               </svg>
+                              </a>
+                              BOOKS
+                             </h1>
+                             <ul>
+                              <li>
+                               <a href="http://www.gnu.org/software/gawk/manual/gawk.pdf">
+                                Gwak Effective awk programming
+                               </a>
+                               - Free book, great for understanding details about awk and gawk programming.
+                              </li>
+                              <li>
+                               <a href="http://gregable.com/2010/09/why-you-should-know-just-little-awk.html">
+                                Why you should learn just a little Awk - An Awk Tutorial by Example
+                               </a>
+                              </li>
+                             </ul>
+                             <h1>
+                              <a aria-hidden="true" class="anchor" href="#articles" id="user-content-articles">
+                               <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+                                </path>
+                               </svg>
+                              </a>
+                              ARTICLES
+                             </h1>
+                             <ul>
+                              <li>
+                               <a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/">
+                                Differences between different versions of awk
+                               </a>
+                              </li>
+                              <li>
+                               <a href="http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/">
+                                http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/
+                               </a>
+                               .
+                              </li>
+                             </ul>
+                            </br>
+                           </br>
+                          </br>
+                         </br>
+                        </br>
+                       </br>
+                      </br>
+                     </br>
+                    </br>
+                   </br>
+                  </br>
+                 </br>
+                </br>
+               </br>
+              </br>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </br>
+       </br>
+      </br>
+     </br>
+    </br>
+   </br>
   </article>
  </div>
 </div>
@@ -1268,63 +1242,8 @@
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    <a href="http://minhhh.github.io/tag/property.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>property
     </a>
 </span>
 <span class="tag-4">
@@ -1333,198 +1252,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/property.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/pool.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pool
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/ios.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>ios
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mesh.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/fsm.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
     </a>
 </span>
 <span class="tag-4">
@@ -1533,13 +1262,258 @@
     </a>
 </span>
 <span class="tag-4">
+    <a href="http://minhhh.github.io/tag/unittest.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/ios.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>ios
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-4">
     <a href="http://minhhh.github.io/tag/otp.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>otp
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unittest.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
+    <a href="http://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/pool.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pool
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/fsm.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mesh.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>webp
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
     </a>
 </span>
 </p>
