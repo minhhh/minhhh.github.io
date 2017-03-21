@@ -1232,4 +1232,6 @@ public class SimpleSingleton&amp;lt;T&amp;gt; : BaseMonoBehaviour where T : Simp
 
 
 &lt;p&gt;Then remember to call &lt;code&gt;CreateInstance&lt;/code&gt; when necessary and in appropriate order.&lt;/p&gt;
-&lt;p&gt;The code with a sample scene is available on github at &lt;a href="https://github.com/minhhh/unity-singleton"&gt;https://github.com/minhhh/unity-singleton&lt;/a&gt;&lt;/p&gt;</summary><category term="unity"></category><category term="singleton"></category></entry></feed>
+&lt;p&gt;The code with a sample scene is available on github at &lt;a href="https://github.com/minhhh/unity-singleton"&gt;https://github.com/minhhh/unity-singleton&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Regarding the &lt;code&gt;Has Customized Parameters&lt;/code&gt; singletons, there are some implementations of this type using Prefab to set the parameters. This method is not recommended. Instead, we can use ScriptableObject to store the parameter and let the Singleton read from these ScriptableObject. This method will make all the settings centralized in a single location.&lt;/p&gt;
+&lt;p&gt;TODO: Create SceneSingleton&lt;/p&gt;</summary><category term="unity"></category><category term="singleton"></category></entry></feed>
