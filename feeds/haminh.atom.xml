@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-03-14T00:00:00-04:00</updated><entry><title>Unity Jelly Physics</title><link href="http://minhhh.github.io/posts/unity-jelly-physics" rel="alternate"></link><published>2017-03-14T00:00:00-04:00</published><updated>2017-03-14T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-03-14:posts/unity-jelly-physics</id><summary type="html">&lt;p&gt;There are several plugins to help creating a jelly like physics in Unity:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/haminh.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-03-21T00:00:00-04:00</updated><entry><title>Resources for learning Blender</title><link href="http://minhhh.github.io/posts/resources-for-learning-blender" rel="alternate"></link><published>2017-03-21T00:00:00-04:00</published><updated>2017-03-21T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-03-21:posts/resources-for-learning-blender</id><summary type="html">&lt;p&gt;This is collection of resources for learning Blender from the beginning&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://gryllus.net/Blender/3D.html"&gt;Blender 3D Design Course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=JmVxCDZ6lEM"&gt;Unity Mega-Tutorial: Blender 3D Modelling Tricks, High-Speed Physics, and Real-Time Reflections!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=lY6KPrc4uMw&amp;amp;list=PLda3VoSoc_TR7X7wfblBGiRz-bvhKpGkS"&gt;Blender 2.7 Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.reddit.com/r/gamedev/comments/43kes4/learning_3d_modelling_as_a_single_indie_developer/"&gt;Learning 3D modelling as a single indie developer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.blenderguru.com/articles/12-useful-blender-addons-everyone-should-use/"&gt;12 (More) Blender Addons Everyone Should Use&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Low poly&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=w38wzDREnKk&amp;amp;index=3&amp;amp;list=PLv1DCiCg2KQLpl6mzDHsWZ70016emDfUu"&gt;Low Poly Planet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=_pK2Ya0CMww"&gt;Learn to Create Geometric Assets in Blender&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=oDWfB9JAZ9s"&gt;GAME ASSET TUTORIAL&lt;/a&gt; In this Video Tutorial series for Beginners, we will create Low Poly Barrel Game Asset using Blender, Photoshop, and Unity.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=JjW6r10Mlqs"&gt;Create any low poly animal | Blender | 10 mins&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="blender"></category></entry><entry><title>Unity Jelly Physics</title><link href="http://minhhh.github.io/posts/unity-jelly-physics" rel="alternate"></link><published>2017-03-14T00:00:00-04:00</published><updated>2017-03-14T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-03-14:posts/unity-jelly-physics</id><summary type="html">&lt;p&gt;There are several plugins to help creating a jelly like physics in Unity:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/13327"&gt;Jelly Sprites&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.assetstore.unity3d.com/en/#!/content/15685"&gt;Jelly Mesh&lt;/a&gt;&lt;/li&gt;
