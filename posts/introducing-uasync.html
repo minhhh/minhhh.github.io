@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with webp" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:webp - Ha.Minh's Blog</title>
+    <title>Introducing UAsync - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,19 +87,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">webp</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Wed 18 January 2017
+  Mon 08 May 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/using-webp-texture-format-in-unity" rel="bookmark"
-     title="Permalink to Using Webp texture format in Unity">
-    Using Webp texture format in Unity
+  <a href="http://minhhh.github.io/posts/introducing-uasync" rel="bookmark"
+     title="Permalink to Introducing UAsync">
+    Introducing UAsync
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -109,33 +104,106 @@
       Unity</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Webp is a very optimized image format. It will produce smaller image size with almost the same quality as other compression format such as: <code>ETC2</code>, <code>DXT5</code>, <code>ETC1</code>, <code>PVRTC</code>. Below is some comparison between <code>Webp</code> and popular compression format in Unity</p>
-<table>
-<thead>
-<tr>
-<th>512x512 Image</th>
-<th align="right">Size in KB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Original</td>
-<td align="right">480</td>
-</tr>
-<tr>
-<td>ETC1 4bits</td>
-<td align="right">128 ...</td></tr></tbody></table>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/using-webp-texture-format-in-unity">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>Nowadays, if you want to use a structured way for your flow control in Unity, you basically have 4 options:</p>
+<ul>
+<li>Write your own <code>Task</code> library (which might use coroutines)</li>
+<li>Use coroutines. This means that you <code>StartCoroutine</code> in a lot of places and insert try catch code when errors occur. This works for small games. For larger games, not being able to catch nested exception is a big NO NO.</li>
+<li>Use <a href="https://github.com/Real-Serious-Games/C-Sharp-Promise">C-Sharp-Promise</a>. If you're familiar with JS promises, this comes natural to you. It handles exceptions pretty well. You can try combining this with coroutine, but the API is probably verbose.</li>
+<li>Use <a href="https://github.com/neuecc/UniRx">UniRx</a>. This is simply the best choice because it supports control flow, exception handling, progress report and coroutine.</li>
+</ul>
+<p>So we should always use <code>UniRx</code>, right? Unfortunately, sometimes the efforts to use <code>UniRx</code> is just too much that we can't afford. In that case, it's better to use existing solution, but with more robust code. (<code>C-Sharp-Promise</code> is ofcourse another option, but it is not compatible with coroutine and existing coroutine code without some custom modifications).</p>
+<p><code>UAsync</code> <a href="https://github.com/minhhh/UAsync">Unity Async</a> is a library that helps you write Unity code using callback style of <code>Node.js</code> and <code>async</code> library. The <code>TaskRunner</code> part is taken from <a href="https://github.com/sebas77/Svelto.Tasks">Svelto.Tasks</a> with some modifications to make it support catching exceptions and returning errors. The <code>UAsync</code> class adds several functions on top of <code>TaskRunner</code> to support execution of tasks in parallel or serial with returned results at the end of the execution. For the moment, it does not support <code>Thread</code> because it focuses on control flow, not enhancing performance by distributing work to multiple cores.</p>
+<p>To include UAsync into your project, you can use <code>npm</code> method of unity package management described <a href="https://github.com/minhhh/UBootstrap">here</a>.</p>
+<h2>Usage</h2>
+<p><strong>TaskRunner</strong></p>
+<p>First of all, it's quite well-known that 2 main disadvantages of coroutine are: 1) it cannot return value and 2) it cannot handle nested exception. There's a simple way to wrap coroutine so we can support those 2 features, as detailed in <a href="http://www.zingweb.com/blog/2013/02/05/unity-coroutine-wrapper">this article</a>. <code>TaskRunner</code> also supports returning value and catching exceptions using callback style. You use it like so:</p>
+<div class="codehilite"><pre><span></span>using UAsync;
+...
+TaskRunner.Instance.Run (task, onComplete);
+// public TaskRoutine Run (IEnumerator task, CallbackDelegate onComplete = null)
+</pre></div>
 
-<nav class="index-pager">
 
-</nav> <!-- /index-pager -->
+<p>In the code above, <code>task</code> is a <code>IEnumerator</code> and <code>onComplete</code> is a delegate of type <code>CallbackDelegate (object err = null, object res = null)</code>. Any exceptions occur will be passed via <code>err</code>. The last <code>yield</code> in <code>task</code> will be passed to <code>res</code>. You might want to use <code>TaskRunner.Instance.Run</code> when you have a sequence of actions to be performed in a fixed order.</p>
+<p><strong>UAsync</strong></p>
+<p><code>UAsync</code> is a port of Node's <code>async</code> module to Unity environment. It can be used to turn a set of synchronous functions or coroutine to run sequentially or concurrently. Even though you can already run a set of tasks sequentially using coroutine, passing values between these tasks are proven to be difficult. You have to use external variables to hold the return values which creates coupling between functions, and it's not convenient. <code>UAsync</code> can solve this problem by allowing coroutine to return value, as well as catching exceptions if any.</p>
+<p>Let's look at an example:</p>
+<div class="codehilite"><pre><span></span>var series =
+    UAsync.Async.Series (
+        SeriesFunc.FromAction (&quot;one&quot;, SeriesFunc1),
+        SeriesFunc.FromEnumerator (&quot;two&quot;, SeriesFunc2),
+        SeriesFunc.FromAction (&quot;three&quot;, SeriesFunc3),
+        UAsyncFinalFunc.From ((object err, Dictionary&lt;string, object&gt; res) =&gt; {
+            Debug.Log (&quot;Finish &quot; + err);
+            if (err == null) {
+                Debug.Log (&quot;res &quot; + res [&quot;one&quot;] + &quot; &quot; + res [&quot;two&quot;] + &quot; &quot; + res [&quot;three&quot;]);
+            }
+        })
+    );
+
+void SeriesFunc1 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
+{
+    cb (null, 100);
+}
+
+IEnumerator SeriesFunc2 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
+{
+    yield return new WaitForSeconds (1);
+    cb (null, 200);
+}
+
+void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
+{
+    cb (null, 300);
+}
+</pre></div>
+
+
+<p>Here, <code>SeriesFunc.FromAction</code> and <code>SeriesFunc.FromEnumerator</code> are just convenient functions to wrap synchronous functions and coroutines. Each of the functions <code>SeriesFunc1</code>, <code>SeriesFunc2</code> and <code>SeriesFunc3</code> will receive a callback parameter and a <code>res</code> parameter. To complete the execution of each function, you must call <code>cb</code> with 2 parameters: <code>err</code> representing the error, and <code>result</code> representing the returned value. In the code above, there is no error. If any of the code in those function throws exception, cb will also be called automatically with the exception as the first parameter.</p>
+<p>The second parameter passed to each of the functions <code>SeriesFunc1</code>, <code>SeriesFunc2</code> and <code>SeriesFunc3</code> is quite important. It is a dicionary which contains all the results from previous functions, so <code>SeriesFunc2</code> will receive result from <code>SeriesFunc1</code>, <code>SeriesFunc3</code> will receive results from <code>SeriesFunc1</code> and <code>SeriesFunc2</code>. The key of the dictionary are declared when creating the series, e.g. SeriesFunc.FromAction ("one", SeriesFunc1) means the result of SeriesFunc1 will have key "one". This is a powerful way to pass results between functions without creating high coupling between them.</p>
+<p>After all the functions have been executed, there is a final function <code>UAsyncFinalFunc</code> which will receive all the results and execute some logic accordingly. If any of the functions above throws exceptions or calls callback with a <code>err</code> parameter, the error will be passed to the final function to deal with.</p>
+<p>The <code>UAsync.Async.Parallel</code> function is similar to the <code>Series</code> function, except that there will be no results from previous functions since they're executed concurrently.</p>
+<p>Finally, you can cancel a running sequence once it's started. This is not obvious with coroutine because even though you can call <code>MonoBehaviour.StopCoroutine</code></p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/uasync.html"><i class="fa fa-tag"></i>uasync</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/coroutine.html"><i class="fa fa-tag"></i>coroutine</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/introducing-uasync" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -541,5 +609,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>

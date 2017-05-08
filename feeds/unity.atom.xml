@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/unity.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-04-25T00:00:00-04:00</updated><entry><title>Using Unity Assert</title><link href="http://minhhh.github.io/posts/using-unity-assert" rel="alternate"></link><published>2017-04-25T00:00:00-04:00</published><updated>2017-04-25T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-04-25:posts/using-unity-assert</id><summary type="html">&lt;p&gt;Even though Unity's &lt;a href="http://blog.theknightsofunity.com/unity-5-1-assertion-library/"&gt;UnityEngine.Assertions&lt;/a&gt; is great, it has two major disadvantages&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/unity.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2017-05-08T00:00:00-04:00</updated><entry><title>Introducing UAsync</title><link href="http://minhhh.github.io/posts/introducing-uasync" rel="alternate"></link><published>2017-05-08T00:00:00-04:00</published><updated>2017-05-08T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-05-08:posts/introducing-uasync</id><summary type="html">&lt;p&gt;Nowadays, if you want to use a structured way for your flow control in Unity, you basically have 4 options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write your own &lt;code&gt;Task&lt;/code&gt; library (which might use coroutines)&lt;/li&gt;
+&lt;li&gt;Use coroutines. This means that you &lt;code&gt;StartCoroutine&lt;/code&gt; in a lot of places and insert try catch code when errors occur. This works for small games. For larger games, not being able to catch nested exception is a big NO NO.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href="https://github.com/Real-Serious-Games/C-Sharp-Promise"&gt;C-Sharp-Promise&lt;/a&gt;. If you're familiar with JS promises, this comes natural to you. It handles exceptions pretty well. You can try combining this with coroutine, but the API is probably verbose.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href="https://github.com/neuecc/UniRx"&gt;UniRx&lt;/a&gt;. This is simply the best choice because it supports control flow, exception handling, progress report and coroutine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So we should always use &lt;code&gt;UniRx&lt;/code&gt;, right? Unfortunately, sometimes the efforts to use &lt;code&gt;UniRx&lt;/code&gt; is just too much that we can't afford. In that case, it's better to use existing solution, but with more robust code. (&lt;code&gt;C-Sharp-Promise&lt;/code&gt; is ofcourse another option, but it is not compatible with coroutine and existing coroutine code without some custom modifications).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;UAsync&lt;/code&gt; &lt;a href="https://github.com/minhhh/UAsync"&gt;Unity Async&lt;/a&gt; is a library that helps you write Unity code using callback style of &lt;code&gt;Node.js&lt;/code&gt; and &lt;code&gt;async&lt;/code&gt; library. The &lt;code&gt;TaskRunner&lt;/code&gt; part is taken from &lt;a href="https://github.com/sebas77/Svelto.Tasks"&gt;Svelto.Tasks&lt;/a&gt; with some modifications to make it support catching exceptions and returning errors. The &lt;code&gt;UAsync&lt;/code&gt; class adds several functions on top of &lt;code&gt;TaskRunner&lt;/code&gt; to support execution of tasks in parallel or serial with returned results at the end of the execution. For the moment, it does not support &lt;code&gt;Thread&lt;/code&gt; because it focuses on control flow, not enhancing performance by distributing work to multiple cores.&lt;/p&gt;
+&lt;p&gt;To include UAsync into your project, you can use &lt;code&gt;npm&lt;/code&gt; method of unity package management described &lt;a href="https://github.com/minhhh/UBootstrap"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;TaskRunner&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First of all, it's quite well-known that 2 main disadvantages of coroutine are: 1) it cannot return value and 2) it cannot handle nested exception. There's a simple way to wrap coroutine so we can support those 2 features, as detailed in &lt;a href="http://www.zingweb.com/blog/2013/02/05/unity-coroutine-wrapper"&gt;this article&lt;/a&gt;. &lt;code&gt;TaskRunner&lt;/code&gt; also supports returning value and catching exceptions using callback style. You use it like so:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UAsync;
+...
+TaskRunner.Instance.Run (task, onComplete);
+// public TaskRoutine Run (IEnumerator task, CallbackDelegate onComplete = null)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the code above, &lt;code&gt;task&lt;/code&gt; is a &lt;code&gt;IEnumerator&lt;/code&gt; and &lt;code&gt;onComplete&lt;/code&gt; is a delegate of type &lt;code&gt;CallbackDelegate (object err = null, object res = null)&lt;/code&gt;. Any exceptions occur will be passed via &lt;code&gt;err&lt;/code&gt;. The last &lt;code&gt;yield&lt;/code&gt; in &lt;code&gt;task&lt;/code&gt; will be passed to &lt;code&gt;res&lt;/code&gt;. You might want to use &lt;code&gt;TaskRunner.Instance.Run&lt;/code&gt; when you have a sequence of actions to be performed in a fixed order.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UAsync&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;UAsync&lt;/code&gt; is a port of Node's &lt;code&gt;async&lt;/code&gt; module to Unity environment. It can be used to turn a set of synchronous functions or coroutine to run sequentially or concurrently. Even though you can already run a set of tasks sequentially using coroutine, passing values between these tasks are proven to be difficult. You have to use external variables to hold the return values which creates coupling between functions, and it's not convenient. &lt;code&gt;UAsync&lt;/code&gt; can solve this problem by allowing coroutine to return value, as well as catching exceptions if any.&lt;/p&gt;
+&lt;p&gt;Let's look at an example:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;var series =
+    UAsync.Async.Series (
+        SeriesFunc.FromAction (&amp;quot;one&amp;quot;, SeriesFunc1),
+        SeriesFunc.FromEnumerator (&amp;quot;two&amp;quot;, SeriesFunc2),
+        SeriesFunc.FromAction (&amp;quot;three&amp;quot;, SeriesFunc3),
+        UAsyncFinalFunc.From ((object err, Dictionary&amp;lt;string, object&amp;gt; res) =&amp;gt; {
+            Debug.Log (&amp;quot;Finish &amp;quot; + err);
+            if (err == null) {
+                Debug.Log (&amp;quot;res &amp;quot; + res [&amp;quot;one&amp;quot;] + &amp;quot; &amp;quot; + res [&amp;quot;two&amp;quot;] + &amp;quot; &amp;quot; + res [&amp;quot;three&amp;quot;]);
+            }
+        })
+    );
+
+void SeriesFunc1 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; res)
+{
+    cb (null, 100);
+}
+
+IEnumerator SeriesFunc2 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; res)
+{
+    yield return new WaitForSeconds (1);
+    cb (null, 200);
+}
+
+void SeriesFunc3 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; res)
+{
+    cb (null, 300);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;code&gt;SeriesFunc.FromAction&lt;/code&gt; and &lt;code&gt;SeriesFunc.FromEnumerator&lt;/code&gt; are just convenient functions to wrap synchronous functions and coroutines. Each of the functions &lt;code&gt;SeriesFunc1&lt;/code&gt;, &lt;code&gt;SeriesFunc2&lt;/code&gt; and &lt;code&gt;SeriesFunc3&lt;/code&gt; will receive a callback parameter and a &lt;code&gt;res&lt;/code&gt; parameter. To complete the execution of each function, you must call &lt;code&gt;cb&lt;/code&gt; with 2 parameters: &lt;code&gt;err&lt;/code&gt; representing the error, and &lt;code&gt;result&lt;/code&gt; representing the returned value. In the code above, there is no error. If any of the code in those function throws exception, cb will also be called automatically with the exception as the first parameter.&lt;/p&gt;
+&lt;p&gt;The second parameter passed to each of the functions &lt;code&gt;SeriesFunc1&lt;/code&gt;, &lt;code&gt;SeriesFunc2&lt;/code&gt; and &lt;code&gt;SeriesFunc3&lt;/code&gt; is quite important. It is a dicionary which contains all the results from previous functions, so &lt;code&gt;SeriesFunc2&lt;/code&gt; will receive result from &lt;code&gt;SeriesFunc1&lt;/code&gt;, &lt;code&gt;SeriesFunc3&lt;/code&gt; will receive results from &lt;code&gt;SeriesFunc1&lt;/code&gt; and &lt;code&gt;SeriesFunc2&lt;/code&gt;. The key of the dictionary are declared when creating the series, e.g. SeriesFunc.FromAction ("one", SeriesFunc1) means the result of SeriesFunc1 will have key "one". This is a powerful way to pass results between functions without creating high coupling between them.&lt;/p&gt;
+&lt;p&gt;After all the functions have been executed, there is a final function &lt;code&gt;UAsyncFinalFunc&lt;/code&gt; which will receive all the results and execute some logic accordingly. If any of the functions above throws exceptions or calls callback with a &lt;code&gt;err&lt;/code&gt; parameter, the error will be passed to the final function to deal with.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;UAsync.Async.Parallel&lt;/code&gt; function is similar to the &lt;code&gt;Series&lt;/code&gt; function, except that there will be no results from previous functions since they're executed concurrently.&lt;/p&gt;
+&lt;p&gt;Finally, you can cancel a running sequence once it's started. This is not obvious with coroutine because even though you can call &lt;code&gt;MonoBehaviour.StopCoroutine&lt;/code&gt;&lt;/p&gt;</summary><category term="unity"></category><category term="uasync"></category><category term="coroutine"></category></entry><entry><title>Using Unity Assert</title><link href="http://minhhh.github.io/posts/using-unity-assert" rel="alternate"></link><published>2017-04-25T00:00:00-04:00</published><updated>2017-04-25T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-04-25:posts/using-unity-assert</id><summary type="html">&lt;p&gt;Even though Unity's &lt;a href="http://blog.theknightsofunity.com/unity-5-1-assertion-library/"&gt;UnityEngine.Assertions&lt;/a&gt; is great, it has two major disadvantages&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;We cannot extend it&lt;/li&gt;
 &lt;li&gt;It does not have the concept of error code. Using error code, we can force developers to explicitly think about how they will categorize the error so it's easier to analyze the error when the game crashes&lt;/li&gt;
