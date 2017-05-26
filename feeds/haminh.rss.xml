@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Mon, 08 May 2017 00:00:00 -0400</lastBuildDate><item><title>Introducing UAsync</title><link>http://minhhh.github.io/posts/introducing-uasync</link><description>&lt;p&gt;Nowadays, if you want to use a structured way for your flow control in Unity, you basically have 4 options:&lt;/p&gt;
+<rss version="2.0"><channel><title>Ha.Minh's Blog</title><link>http://minhhh.github.io/</link><description>Software development and other stuff</description><lastBuildDate>Fri, 26 May 2017 00:00:00 -0400</lastBuildDate><item><title>How to backup your gmail account</title><link>http://minhhh.github.io/posts/how-to-backup-your-gmail-account</link><description>&lt;p&gt;&lt;strong&gt;&lt;a href="http://www.zdnet.com/article/ultimate-guide-to-gmail-backup/"&gt;The 2017 ultimate guide to Gmail backup&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you want to backup mail from one gmail to another gmail you can use the following software:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/jay0lee/got-your-back/"&gt;got-your-back&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gmvault.org"&gt;gmvault&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Fri, 26 May 2017 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-05-26:posts/how-to-backup-your-gmail-account</guid><category>gmail</category></item><item><title>Introducing UAsync</title><link>http://minhhh.github.io/posts/introducing-uasync</link><description>&lt;p&gt;Nowadays, if you want to use a structured way for your flow control in Unity, you basically have 4 options:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Write your own &lt;code&gt;Task&lt;/code&gt; library (which might use coroutines)&lt;/li&gt;
 &lt;li&gt;Use coroutines. This means that you &lt;code&gt;StartCoroutine&lt;/code&gt; in a lot of places and insert try catch code when errors occur. This works for small games. For larger games, not being able to catch nested exception is a big NO NO.&lt;/li&gt;
