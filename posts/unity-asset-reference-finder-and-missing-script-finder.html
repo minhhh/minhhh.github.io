@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with prefab" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:prefab - Ha.Minh's Blog</title>
+    <title>Unity Asset Reference Finder and Missing Script Finder - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,19 +87,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">prefab</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Thu 06 July 2017
+  Mon 10 July 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/unity-prefab-best-practices" rel="bookmark"
-     title="Permalink to Unity Prefab Best Practices">
-    Unity Prefab Best Practices
+  <a href="http://minhhh.github.io/posts/unity-asset-reference-finder-and-missing-script-finder" rel="bookmark"
+     title="Permalink to Unity Asset Reference Finder and Missing Script Finder">
+    Unity Asset Reference Finder and Missing Script Finder
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -109,20 +104,46 @@
       Unity</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p><strong>Link prefabs to prefabs; do not link instances to instances</strong> This is from <a href="http://devmag.org.za/2012/07/12/50-tips-for-working-with-unity-best-practices/">50 Tips for Working with Unity</a>
-<br/></p>
-<p><strong>Use GameObject.Find to establish links between instances</strong> if you have to. It's best to not having to establish links between instances and use prebabs instead. <strong>Don't</strong> link instance ...</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/unity-prefab-best-practices">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>When using Unity, you often have to check which GameObject or Prefabs are using a certain image or other types of assets. There's a convenient tool for you to check which objects are using a certain asset: <a href="https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/AssetReferencerFinder.cs">AssetReferenceFinder</a></p>
+<p>Another tool called <a href="https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/MissingScriptFinder.cs">MissingScriptFinder</a> helps you find missing scripts in scene due to refactoring</p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
 
-<nav class="index-pager">
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
 
-</nav> <!-- /index-pager -->
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/unity-asset-reference-finder-and-missing-script-finder" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -533,5 +554,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
