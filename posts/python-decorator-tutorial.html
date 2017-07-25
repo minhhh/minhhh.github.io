@@ -192,26 +192,26 @@
    <div class="highlight highlight-source-python">
     <pre>    memoized_factorial <span class="pl-k">=</span> construct_memoize(factorial)</pre>
    </div>
-   <br>
-    <p>
-     This is extremely cumbersome if
-     <code>
-      factorial
-     </code>
-     is a method of some class because then we have to use temporary variable to store the memoized function and somehow reassign it to the method. We want some way to elegantly do all the manual things to make a memoized version of a function, this is where
-     <code>
-      decorator
-     </code>
-     comes in.
-    </p>
-    <p>
-     In its simplest form, a decorator is a function that takes the original function and returns a
-     <code>
-      decorated function
-     </code>
-    </p>
-    <div class="highlight highlight-source-python">
-     <pre>    cache_obj <span class="pl-k">=</span> {}
+   <br/>
+   <p>
+    This is extremely cumbersome if
+    <code>
+     factorial
+    </code>
+    is a method of some class because then we have to use temporary variable to store the memoized function and somehow reassign it to the method. We want some way to elegantly do all the manual things to make a memoized version of a function, this is where
+    <code>
+     decorator
+    </code>
+    comes in.
+   </p>
+   <p>
+    In its simplest form, a decorator is a function that takes the original function and returns a
+    <code>
+     decorated function
+    </code>
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    cache_obj <span class="pl-k">=</span> {}
 
     <span class="pl-k">def</span> <span class="pl-en">cache</span>(<span class="pl-smi">func</span>):
         <span class="pl-k">def</span> <span class="pl-en">inner</span>(<span class="pl-k">*</span><span class="pl-smi">args</span>, <span class="pl-k">**</span><span class="pl-smi">kwargs</span>):
@@ -229,40 +229,40 @@
         <span class="pl-s"><span class="pl-pds">"""</span>Sum 2 numbers</span>
 <span class="pl-s">        <span class="pl-pds">"""</span></span>
         <span class="pl-k">return</span> a <span class="pl-k">+</span> b</pre>
-    </div>
-    <br>
-     <p>
-      The
-      <code>
-       @
-      </code>
-      is a special syntax that applies the decorator function to the underneath function or class. Here,
-      <code>
-       cache(func)
-      </code>
-      is called, passing original
-      <code>
-       func
-      </code>
-      to the decorator, then replace
-      <code>
-       func
-      </code>
-      with whatever function is returned from
-      <code>
-       cache(func)
-      </code>
-      .
-     </p>
-     <p>
-      Using global cache object
-      <code>
-       cache_obj
-      </code>
-      is not a great idea, because different functions can have the same arguments, then your cache is overwritten. It's better to assign the cache object directly to the original function
-     </p>
-     <div class="highlight highlight-source-python">
-      <pre>    <span class="pl-k">def</span> <span class="pl-en">memoize_2</span>(<span class="pl-smi">func</span>):
+   </div>
+   <br/>
+   <p>
+    The
+    <code>
+     @
+    </code>
+    is a special syntax that applies the decorator function to the underneath function or class. Here,
+    <code>
+     cache(func)
+    </code>
+    is called, passing original
+    <code>
+     func
+    </code>
+    to the decorator, then replace
+    <code>
+     func
+    </code>
+    with whatever function is returned from
+    <code>
+     cache(func)
+    </code>
+    .
+   </p>
+   <p>
+    Using global cache object
+    <code>
+     cache_obj
+    </code>
+    is not a great idea, because different functions can have the same arguments, then your cache is overwritten. It's better to assign the cache object directly to the original function
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">def</span> <span class="pl-en">memoize_2</span>(<span class="pl-smi">func</span>):
         <span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-c1">hasattr</span>(func, <span class="pl-s"><span class="pl-pds">'</span>cache<span class="pl-pds">'</span></span>):
             func.cache <span class="pl-k">=</span> {}
         <span class="pl-k">def</span> <span class="pl-en">inner</span>(<span class="pl-k">*</span><span class="pl-smi">args</span>, <span class="pl-k">**</span><span class="pl-smi">kwargs</span>):
@@ -282,23 +282,23 @@
 
     multiply(<span class="pl-c1">1</span>,<span class="pl-c1">2</span>)
     multiply(<span class="pl-c1">1</span>,<span class="pl-c1">2</span>)</pre>
-     </div>
-     <br>
-      <p>
-       This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
-      </p>
-      <div class="highlight highlight-source-python">
-       <pre>    <span class="pl-c1">print</span> multiply.<span class="pl-c1">__doc__</span> <span class="pl-c"><span class="pl-c">#</span> None</span></pre>
-      </div>
-      <br>
-       <p>
-        To keep these information, we use
-        <code>
-         functools.wrapper
-        </code>
-       </p>
-       <div class="highlight highlight-source-python">
-        <pre>    <span class="pl-k">import</span> functools
+   </div>
+   <br/>
+   <p>
+    This decorator is nice, but in practice nobody does this, and it's too bad that a lot of tutorials keep giving these non-working examples. The reason is the new decorated function lose all its original information such as name, docstring, module name and so on.
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-c1">print</span> multiply.<span class="pl-c1">__doc__</span> <span class="pl-c"><span class="pl-c">#</span> None</span></pre>
+   </div>
+   <br/>
+   <p>
+    To keep these information, we use
+    <code>
+     functools.wrapper
+    </code>
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">import</span> functools
     <span class="pl-k">def</span> <span class="pl-en">memoize</span>(<span class="pl-smi">func</span>):
         <span class="pl-en">@functools.wraps</span>(func)
         <span class="pl-k">def</span> <span class="pl-en">inner</span>(<span class="pl-k">*</span><span class="pl-smi">args</span>, <span class="pl-k">**</span><span class="pl-smi">kwargs</span>):
@@ -313,29 +313,29 @@
         <span class="pl-k">return</span> inner
 
     <span class="pl-c1">print</span> multiply.<span class="pl-c1">__doc__</span> <span class="pl-c"><span class="pl-c">#</span> Multiply 2 numbers</span></pre>
-       </div>
-       <br>
-        <p>
-         Now the decorated function also retain important information from the original functions, that's neat!
-        </p>
-        <h2>
-         <a aria-hidden="true" class="anchor" href="#higher-level" id="user-content-higher-level">
-          <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-           <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-           </path>
-          </svg>
-         </a>
-         Higher level
-        </h2>
-        <p>
-         The
-         <code>
-          memoize
-         </code>
-         decorator doesn't need any customization, but there are a lot of pattern that requires some kind of customization. For instance, we want to apply a retry pattern to a function that follows special protocol. Obviously, we have to specify the number of retries, the delay between retry, and maybe a backoff factor to scale up the delay between failed attempts. This is how we do it:
-        </p>
-        <div class="highlight highlight-source-python">
-         <pre>    <span class="pl-k">import</span> time, math
+   </div>
+   <br/>
+   <p>
+    Now the decorated function also retain important information from the original functions, that's neat!
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#higher-level" id="user-content-higher-level">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Higher level
+   </h2>
+   <p>
+    The
+    <code>
+     memoize
+    </code>
+    decorator doesn't need any customization, but there are a lot of pattern that requires some kind of customization. For instance, we want to apply a retry pattern to a function that follows special protocol. Obviously, we have to specify the number of retries, the delay between retry, and maybe a backoff factor to scale up the delay between failed attempts. This is how we do it:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">import</span> time, math
 
     <span class="pl-k">def</span> <span class="pl-en">retry</span>(<span class="pl-smi">tries</span>, <span class="pl-smi">delay</span><span class="pl-k">=</span><span class="pl-c1">3</span>, <span class="pl-smi">backoff</span><span class="pl-k">=</span><span class="pl-c1">2</span>):
         <span class="pl-s"><span class="pl-pds">'''</span>Retries a function or method until it returns True.</span>
@@ -375,45 +375,45 @@
     <span class="pl-en">@retry</span>(<span class="pl-c1">1</span>, <span class="pl-v">delay</span><span class="pl-k">=</span><span class="pl-c1">1</span>, <span class="pl-v">backoff</span><span class="pl-k">=</span><span class="pl-c1">2</span>)
     <span class="pl-k">def</span> <span class="pl-en">get_data</span>():
         <span class="pl-k">return</span> <span class="pl-c1">False</span></pre>
-        </div>
-        <br>
-         <p>
-          Here, we define
-          <code>
-           retry
-          </code>
-          as a function that returns a
-          <code>
-           decorator
-          </code>
-          which will do the actual decoration of our original function with the parameters provided by
-          <code>
-           retry
-          </code>
-          . We consider that
-          <code>
-           retry(1, delay=1, backoff=2)
-          </code>
-          is called first, returning a function, then the decorator syntax
-          <code>
-           @
-          </code>
-          is applied. This is just an addition of another layer on the decoration stack. In theory, you can have unlimited number of nested layer, but in practice, most of the time you only use 2.
-         </p>
-         <h2>
-          <a aria-hidden="true" class="anchor" href="#decorator-class" id="user-content-decorator-class">
-           <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-            <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-            </path>
-           </svg>
-          </a>
-          Decorator class
-         </h2>
-         <p>
-          Using function as decorators is straight forward, and for storing persistent information we use closures over temporary variables. It'd be nice if the persistent information are class members.
-         </p>
-         <div class="highlight highlight-source-python">
-          <pre>    <span class="pl-k">import</span> collections
+   </div>
+   <br/>
+   <p>
+    Here, we define
+    <code>
+     retry
+    </code>
+    as a function that returns a
+    <code>
+     decorator
+    </code>
+    which will do the actual decoration of our original function with the parameters provided by
+    <code>
+     retry
+    </code>
+    . We consider that
+    <code>
+     retry(1, delay=1, backoff=2)
+    </code>
+    is called first, returning a function, then the decorator syntax
+    <code>
+     @
+    </code>
+    is applied. This is just an addition of another layer on the decoration stack. In theory, you can have unlimited number of nested layer, but in practice, most of the time you only use 2.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#decorator-class" id="user-content-decorator-class">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Decorator class
+   </h2>
+   <p>
+    Using function as decorators is straight forward, and for storing persistent information we use closures over temporary variables. It'd be nice if the persistent information are class members.
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">import</span> collections
     <span class="pl-k">class</span> <span class="pl-en">memoized</span>(<span class="pl-c1">object</span>):
         <span class="pl-s"><span class="pl-pds">'''</span>Decorator. Caches a function's return value each time it is called.</span>
 <span class="pl-s">        If called later with the same arguments, the cached value is returned</span>
@@ -440,52 +440,52 @@
         <span class="pl-k">def</span> <span class="pl-c1">__get__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">obj</span>, <span class="pl-smi">objtype</span>):
             <span class="pl-s"><span class="pl-pds">'''</span>Support instance methods.<span class="pl-pds">'''</span></span>
             <span class="pl-k">return</span> functools.partial(<span class="pl-c1">self</span>.<span class="pl-c1">__call__</span>, obj)</pre>
-         </div>
-         <br>
-          <p>
-           Here, the decorator is an object of class
-           <code>
-            memoized
-           </code>
-           and you can store all sort of information like you would a normal object.
-          </p>
-          <h2>
-           <a aria-hidden="true" class="anchor" href="#class-decorator" id="user-content-class-decorator">
-            <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-             <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-             </path>
-            </svg>
-           </a>
-           Class decorator
-          </h2>
-          <p>
-           Up to now we're working with function decorator, what if we want to operate at class level? It's actually quite simple, we only have to define a function that takes a class instead of a function as the parameter.
-          </p>
-          <p>
-           Let's have a look at
-           <a href="https://hg.python.org/cpython/file/8e838598eed1/Lib/functools.py">
-            functool.total_ordering
-           </a>
-           . This decorator makes it so that you only have to define one of the four functions
-           <code>
-            __lt__
-           </code>
-           ,
-           <code>
-            __le__
-           </code>
-           ,
-           <code>
-            __gt__
-           </code>
-           ,
-           <code>
-            __ge__
-           </code>
-           , and the other three will be defined based on the provided function.
-          </p>
-          <div class="highlight highlight-source-python">
-           <pre>    <span class="pl-k">def</span> <span class="pl-en">total_ordering</span>(<span class="pl-smi"><span class="pl-smi">cls</span></span>):
+   </div>
+   <br/>
+   <p>
+    Here, the decorator is an object of class
+    <code>
+     memoized
+    </code>
+    and you can store all sort of information like you would a normal object.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#class-decorator" id="user-content-class-decorator">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Class decorator
+   </h2>
+   <p>
+    Up to now we're working with function decorator, what if we want to operate at class level? It's actually quite simple, we only have to define a function that takes a class instead of a function as the parameter.
+   </p>
+   <p>
+    Let's have a look at
+    <a href="https://hg.python.org/cpython/file/8e838598eed1/Lib/functools.py">
+     functool.total_ordering
+    </a>
+    . This decorator makes it so that you only have to define one of the four functions
+    <code>
+     __lt__
+    </code>
+    ,
+    <code>
+     __le__
+    </code>
+    ,
+    <code>
+     __gt__
+    </code>
+    ,
+    <code>
+     __ge__
+    </code>
+    , and the other three will be defined based on the provided function.
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">def</span> <span class="pl-en">total_ordering</span>(<span class="pl-smi"><span class="pl-smi">cls</span></span>):
         <span class="pl-s"><span class="pl-pds">"""</span>Class decorator that fills in missing ordering methods<span class="pl-pds">"""</span></span>
         convert <span class="pl-k">=</span> {
             <span class="pl-s"><span class="pl-pds">'</span>__lt__<span class="pl-pds">'</span></span>: [(<span class="pl-s"><span class="pl-pds">'</span>__gt__<span class="pl-pds">'</span></span>, <span class="pl-k">lambda</span> <span class="pl-smi">self</span>, <span class="pl-smi">other</span>: <span class="pl-k">not</span> (<span class="pl-c1">self</span> <span class="pl-k">&lt;</span> other <span class="pl-k">or</span> <span class="pl-c1">self</span> <span class="pl-k">==</span> other)),
@@ -512,69 +512,61 @@
                 opfunc.<span class="pl-c1">__doc__</span> <span class="pl-k">=</span> <span class="pl-c1">getattr</span>(<span class="pl-c1">int</span>, opname).<span class="pl-c1">__doc__</span>
                 <span class="pl-c1">setattr</span>(<span class="pl-c1">cls</span>, opname, opfunc)
         <span class="pl-k">return</span> <span class="pl-c1">cls</span></pre>
-          </div>
-          <br>
-           <p>
-            This code is pretty simple. It defines 3 other operators based on 2 operators:
-            <code>
-             __eq__
-            </code>
-            and one of the four functions
-            <code>
-             __lt__
-            </code>
-            ,
-            <code>
-             __le__
-            </code>
-            ,
-            <code>
-             __gt__
-            </code>
-            ,
-            <code>
-             __ge__
-            </code>
-            .
-           </p>
-           <h2>
-            <a aria-hidden="true" class="anchor" href="#useful-decorators" id="user-content-useful-decorators">
-             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-              </path>
-             </svg>
-            </a>
-            Useful decorators
-           </h2>
-           <ul>
-            <li>
-             property - used to quickly create a field from appropriate getter, setter and deleter.
-            </li>
-           </ul>
-           <h1>
-            <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
-             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-              </path>
-             </svg>
-            </a>
-            REFERENCES
-           </h1>
-           <ul>
-            <li>
-             <a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library">
-              Python Decorator Library
-             </a>
-            </li>
-           </ul>
-          </br>
-         </br>
-        </br>
-       </br>
-      </br>
-     </br>
-    </br>
-   </br>
+   </div>
+   <br/>
+   <p>
+    This code is pretty simple. It defines 3 other operators based on 2 operators:
+    <code>
+     __eq__
+    </code>
+    and one of the four functions
+    <code>
+     __lt__
+    </code>
+    ,
+    <code>
+     __le__
+    </code>
+    ,
+    <code>
+     __gt__
+    </code>
+    ,
+    <code>
+     __ge__
+    </code>
+    .
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#useful-decorators" id="user-content-useful-decorators">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Useful decorators
+   </h2>
+   <ul>
+    <li>
+     property - used to quickly create a field from appropriate getter, setter and deleter.
+    </li>
+   </ul>
+   <h1>
+    <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    REFERENCES
+   </h1>
+   <ul>
+    <li>
+     <a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library">
+      Python Decorator Library
+     </a>
+    </li>
+   </ul>
   </article>
  </div>
 </div>
@@ -689,179 +681,9 @@
 
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/pool.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pool
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/memcache.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assert.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assert
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/dither.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>dither
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/coroutine.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
 <span class="tag-4">
     <a href="http://minhhh.github.io/tag/mesh.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
     </a>
 </span>
 <span class="tag-4">
@@ -870,58 +692,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/uasync.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blender.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blender
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/property.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
+    <a href="http://minhhh.github.io/tag/prefab.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
     </a>
 </span>
 <span class="tag-4">
@@ -930,33 +702,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/ios.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>ios
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
     </a>
 </span>
 <span class="tag-4">
@@ -964,19 +711,34 @@
         <i class="fa fa-tag fa-fw fa-lg"></i>osx
     </a>
 </span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    <a href="http://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/pool.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pool
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/assert.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assert
     </a>
 </span>
 <span class="tag-4">
@@ -985,8 +747,238 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/prefab.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
+    <a href="http://minhhh.github.io/tag/coroutine.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/property.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>property
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/ios.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>ios
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+    </a>
+</span>
+<span class="tag-2">
+    <a href="http://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>git
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/dither.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>dither
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/clippings.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/uasync.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/memcache.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blender.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>webp
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 </p>
