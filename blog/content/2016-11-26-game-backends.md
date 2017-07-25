@@ -19,7 +19,8 @@ Tags: game, backend
 
 [Why should you use GameSparks](http://www.pocketgamer.biz/feature/59149/12-reasons-to-use-gamesparks/)
 
-**GameSparks vs PlayFab**
+**GameSparks vs PlayFab vs Firebase**
 
 * [Gamesparks vs PlayFab?](https://www.reddit.com/r/gamedev/comments/4otyeb/gamesparks_vs_playfab/)
 * [Spaceteam](http://spaceteamadmirals.club/blog/spaceteam-is-coming-to-your-library/) uses GameSparks
+* [Firebase vs Playfab vs Gamesparks?](https://forum.unity3d.com/threads/firebase-vs-playfab-vs-gamesparks.451840/)

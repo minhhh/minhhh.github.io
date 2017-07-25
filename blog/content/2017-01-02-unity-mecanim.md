@@ -79,7 +79,13 @@ See [unity-mecanim](https://github.com/minhhh/unity-mecanim.git) for sample code
 ## Best Practices
 
 * [Animation events not firing](http://answers.unity3d.com/questions/806949/animation-events-not-firing.html) when the event is near the endframe, so either use a third party event dispatcher, or use `StateMachineBehaviour`.
+
+* Use custom class to cache animation event
+    * You might catch animation events using a general event handler function such as `OnAnimationEvent (AnimationEvent)`, however this might not be the best solution since you will have to do a switch case in your main logic class. This will make the main logic class (e.g. Enemy, Player) knows too much about the flow to handle animation event. Also you might not be able to reuse common code.
+    * A better way is to have a generic custom class to handle animation event, e.g. `AnimatorHandler`. This class will have most common function such as `OnAnimationStart`, `OnAnimationEnd`, `OnAnimationUpdate`. You can pass custom handle functions in as callback if you need to. This class also has common utility function such as getting current state name, check if any animation is playing etc.
+
 * When importing animations, make sure to `Bake into pose` the part where you don't want to move by Root motion. Also use `Offset` to fix Average velocity not zero problems, e.g. walking animation that has a X speed
+
 * Change the animation speed of specific layer
     * There's no way to change the animation speed of specific layer. The current best way is to Use blend tree to control the speed of a particular layer based on parameter. See [Mecanim - Change animation speed of specific animation or layers](http://forum.unity3d.com/threads/mecanim-change-animation-speed-of-specific-animation-or-layers.160395/)
     * You can also change the speed of particular state in Editor and via script
@@ -88,10 +94,12 @@ See [unity-mecanim](https://github.com/minhhh/unity-mecanim.git) for sample code
 * Use SMB: [Applied Mecanim : Character Animation and Combat State Machines](https://www.youtube.com/watch?v=Is9C4i4XyXk)
 * [Running an animation completely before transitioning back](http://answers.unity3d.com/questions/685968/running-an-animation-completely-before-transitioni.html)
     * Make sure Exit time is 1.00, with FixedDuration unchecked.
+
 * How to Run the death animation then destroy GameObject
     * Use a timer. This is quite a robust solution but maybe not visually correct in some cases, i.e. the animation might be stopped too soon.
     * Use animation event. Add an Exit event to the animation at the last frame. This is not very robust, since Unity might skip Animation event
     * Use auto transition to a fake after death state. Then use StateMachineBehaviour to detect when we exit the Death state. This is also a robust solution, but requires you to modify the structure of the Animator.
+
 * How to transition out of a substate machine ([Using substate machine](https://www.youtube.com/watch?v=lpekqN4_4xg))
     * Using Up node: Transition to state or StateMachine
     * Using Entry/Exit nodes: Transition to/from StateMachine. This facilitates better reusability
