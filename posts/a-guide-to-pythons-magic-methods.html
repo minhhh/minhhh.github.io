@@ -1,112 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="Ha.Minh" />
-    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
-
-    <title>A Guide to Python&#39;s Magic Methods - Ha.Minh's Blog</title>
-
-   
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-              crossorigin="anonymous" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+<head>
+          <title>Ha.Minh's Blog</title>
+        <meta charset="utf-8" />
+        <link href="http://minhhh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ha.Minh's Blog Full Atom Feed" />
+        <link href="http://minhhh.github.io/feeds/programming.atom.xml" type="application/atom+xml" rel="alternate" title="Ha.Minh's Blog Categories Atom Feed" />
 
 
-      <link rel="stylesheet" href="http://minhhh.github.io/theme/css/pygment.css" />
-      <link rel="stylesheet" href="http://minhhh.github.io/theme/css/voidybootstrap.css" />
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta name="tags" contents="python" />
+    <meta name="tags" contents="magic method" />
 
-    <link rel="shortcut icon" href="http://minhhh.github.io/favicon.ico" />
-        <link href="http://minhhh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ha.Minh's Blog Atom Feed" />
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</head>
 
-  ga('create', 'UA-50796592-2', '');
-  ga('send', 'pageview');
-
-</script>
-  </head>
-
-  <body>
-   
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
-	   <div class="navbar-header">
-		<button type="button" class="navbar-toggle" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
-		  <span class="sr-only">Toggle navigation</span>
-		  <span class="icon-bar"></span>
-		  <span class="icon-bar"></span>
-		  <span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="http://minhhh.github.io/" rel="home">
-          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
-       </div>
-
-      <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav">
-              <li>
-                <a href="http://minhhh.github.io/pages/about">About</a>
-              </li>
-              <li>
-                <a href="http://minhhh.github.io/pages/projects">Projects</a>
-              </li>
-            <li class="divider"></li>
-            <li class="">
-              <a href="http://minhhh.github.io/archives.html">Archives</a>
-            </li>
-          <li class="divider"></li>
-            <li><a href="http://minhhh.github.io/feeds/all.atom.xml" 
-                   type="application/atom+xml" rel="alternate">
-                <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
-        </ul> <!-- /nav -->
-      </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
-    </nav> <!-- /navbar -->
-
-	<div class="jumbotron" id="overview">
-	  <div class="container">
-		<h1><a href="http://minhhh.github.io/">Ha.Minh's Blog</a></h1>
-		<p class="lead">Software development and other stuff</p>
-	  </div>
-	</div>
-
-    <div class="container" id="main-container">
-      <div class="row">
-        <div class="col-md-9" id="content">
-<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <header class="article-header">
-<abbr class="article-header-date">
-  Sun 19 October 2014
-</abbr> <h1>
-  <a href="http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods" rel="bookmark"
-     title="Permalink to A Guide to Python&#39;s Magic Methods">
-    A Guide to Python's Magic Methods
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
-    in 
-    <a href="http://minhhh.github.io/category/programming.html">
-      Programming</a>
-    &nbsp;&nbsp;
-  </p>
-</div> <!-- /.article-header-info -->  </header>
-  <div class="content-body" itemprop="text articleBody">
-	<p><div>
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://minhhh.github.io/">Ha.Minh's Blog <strong>Software development and other stuff</strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+            <li><a href="http://minhhh.github.io/pages/about">About</a></li>
+            <li><a href="http://minhhh.github.io/pages/projects">Projects</a></li>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods" rel="bookmark"
+         title="Permalink to A Guide to Python's Magic Methods">A Guide to Python's Magic Methods</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-10-19T00:00:00">
+      Sun 19 October 2014
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p><div>
     <style type = "text/css" scoped>
 .git-content div {
     padding: 0;
@@ -633,1032 +564,1032 @@
         <span class="pl-k">def</span> <span class="pl-c1">__le__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">other</span>):
             <span class="pl-k">return</span> <span class="pl-c1">len</span>(<span class="pl-c1">self</span>) <span class="pl-k">&lt;=</span> <span class="pl-c1">len</span>(other)</pre>
    </div>
-   <br>
-    <p>
-     Now, we can create two
+   <br/>
+   <p>
+    Now, we can create two
+    <code>
+     Words
+    </code>
+    (by using
+    <code>
+     Word('foo')
+    </code>
+    and
+    <code>
+     Word('bar')
+    </code>
+    ) and compare them based on length. Note, however, that we didn't define
+    <code>
+     __eq__
+    </code>
+    and
+    <code>
+     __ne__.
+    </code>
+    This is because this would lead to some weird behavior (notably that
+    <code>
+     Word('foo') == Word('bar')
+    </code>
+    would evaluate to true). It wouldn't make sense to test for equality based on length, so we fall back on str's implementation of equality.
+   </p>
+   <p>
+    Now would be a good time to note that you don't have to define every comparison magic method to get rich comparisons. The standard library has kindly provided us with a class decorator in the module
+    <code>
+     functools
+    </code>
+    that will define all rich comparison methods if you only define
+    <code>
+     __eq__
+    </code>
+    and one other (e.g.
+    <code>
+     __gt__
+    </code>
+    ,
+    <code>
+     __lt__
+    </code>
+    , etc.) This feature is only available in Python 2.7, but when you get a chance it saves a great deal of time and effort. You can use it by placing
+    <code>
+     @total_ordering
+    </code>
+    above your class definition.
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#numeric-magic-methods" id="user-content-numeric-magic-methods">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Numeric magic methods
+   </h3>
+   <p>
+    Just like you can create ways for instances of your class to be compared with comparison operators, you can define behavior for numeric operators. Buckle your seat belts, folks, there's a lot of these. For organization's sake, I've split the numeric magic methods into 5 categories: unary operators, normal arithmetic operators, reflected arithmetic operators (more on this later), augmented assignment, and type conversions.
+   </p>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#unary-operators-and-functions" id="user-content-unary-operators-and-functions">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Unary operators and functions
+   </h4>
+   <p>
+    Unary operators and functions only have one operand, e.g. negation, absolute value, etc.
+   </p>
+   <ul>
+    <li>
      <code>
-      Words
+      __pos__(self)
      </code>
-     (by using
+     - Implements behavior for unary positive (e.g.
      <code>
-      Word('foo')
+      +some_object
      </code>
-     and
+     )
+    </li>
+    <li>
      <code>
-      Word('bar')
+      __neg__(self)
      </code>
-     ) and compare them based on length. Note, however, that we didn't define
+     - Implements behavior for negation (e.g.
      <code>
-      __eq__
+      -some_object
      </code>
-     and
+     )
+    </li>
+    <li>
      <code>
-      __ne__.
+      __abs__(self)
      </code>
-     This is because this would lead to some weird behavior (notably that
+     - Implements behavior for the built in
      <code>
-      Word('foo') == Word('bar')
+      abs()
      </code>
-     would evaluate to true). It wouldn't make sense to test for equality based on length, so we fall back on str's implementation of equality.
-    </p>
-    <p>
-     Now would be a good time to note that you don't have to define every comparison magic method to get rich comparisons. The standard library has kindly provided us with a class decorator in the module
+     function.
+    </li>
+    <li>
      <code>
-      functools
+      __invert__(self)
      </code>
-     that will define all rich comparison methods if you only define
+     - Implements behavior for inversion using the ~ operator. For an explanation on what this does, see the Wikipedia article on bitwise operations.
+    </li>
+    <li>
      <code>
-      __eq__
+      __round__(self, n)
      </code>
-     and one other (e.g.
+     - Implements behavior for the built in
      <code>
-      __gt__
+      round()
      </code>
-     ,
+     function.
      <code>
-      __lt__
+      n
      </code>
-     , etc.) This feature is only available in Python 2.7, but when you get a chance it saves a great deal of time and effort. You can use it by placing
+     is the number of decimal places to round to.
+    </li>
+    <li>
      <code>
-      @total_ordering
+      __floor__(self)
      </code>
-     above your class definition.
-    </p>
-    <h3>
-     <a aria-hidden="true" class="anchor" href="#numeric-magic-methods" id="user-content-numeric-magic-methods">
-      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-       <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-       </path>
-      </svg>
-     </a>
-     Numeric magic methods
-    </h3>
-    <p>
-     Just like you can create ways for instances of your class to be compared with comparison operators, you can define behavior for numeric operators. Buckle your seat belts, folks, there's a lot of these. For organization's sake, I've split the numeric magic methods into 5 categories: unary operators, normal arithmetic operators, reflected arithmetic operators (more on this later), augmented assignment, and type conversions.
-    </p>
-    <h4>
-     <a aria-hidden="true" class="anchor" href="#unary-operators-and-functions" id="user-content-unary-operators-and-functions">
-      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-       <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-       </path>
-      </svg>
-     </a>
-     Unary operators and functions
-    </h4>
-    <p>
-     Unary operators and functions only have one operand, e.g. negation, absolute value, etc.
-    </p>
-    <ul>
-     <li>
-      <code>
-       __pos__(self)
-      </code>
-      - Implements behavior for unary positive (e.g.
-      <code>
-       +some_object
-      </code>
-      )
-     </li>
-     <li>
-      <code>
-       __neg__(self)
-      </code>
-      - Implements behavior for negation (e.g.
-      <code>
-       -some_object
-      </code>
-      )
-     </li>
-     <li>
-      <code>
-       __abs__(self)
-      </code>
-      - Implements behavior for the built in
-      <code>
-       abs()
-      </code>
-      function.
-     </li>
-     <li>
-      <code>
-       __invert__(self)
-      </code>
-      - Implements behavior for inversion using the ~ operator. For an explanation on what this does, see the Wikipedia article on bitwise operations.
-     </li>
-     <li>
-      <code>
-       __round__(self, n)
-      </code>
-      - Implements behavior for the built in
-      <code>
-       round()
-      </code>
-      function.
-      <code>
-       n
-      </code>
-      is the number of decimal places to round to.
-     </li>
-     <li>
-      <code>
-       __floor__(self)
-      </code>
-      - Implements behavior for
-      <code>
-       math.floor()
-      </code>
-      , i.e., rounding down to the nearest integer.
-     </li>
-     <li>
-      <code>
-       __ceil__(self)
-      </code>
-      - Implements behavior for
-      <code>
-       math.ceil()
-      </code>
-      , i.e., rounding up to the nearest integer.
-     </li>
-     <li>
-      <code>
-       __trunc__(self)
-      </code>
-      - Implements behavior for
-      <code>
-       math.trunc()
-      </code>
-      , i.e., truncating to an integral.
-     </li>
-    </ul>
-    <h4>
-     <a aria-hidden="true" class="anchor" href="#normal-arithmetic-operators" id="user-content-normal-arithmetic-operators">
-      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-       <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-       </path>
-      </svg>
-     </a>
-     Normal arithmetic operators
-    </h4>
-    <p>
-     Now, we cover the typical binary operators (and a function or two):
+     - Implements behavior for
      <code>
-      +
+      math.floor()
      </code>
-     ,
+     , i.e., rounding down to the nearest integer.
+    </li>
+    <li>
      <code>
-      -
+      __ceil__(self)
      </code>
-     ,
+     - Implements behavior for
      <code>
-      *
+      math.ceil()
      </code>
-     and the like. These are, for the most part, pretty self-explanatory.
-    </p>
-    <ul>
-     <li>
-      <code>
-       __add__(self, other)
-      </code>
-      - Implements addition.
-     </li>
-     <li>
-      <code>
-       __sub__(self, other)
-      </code>
-      - Implements subtraction.
-     </li>
-     <li>
-      <code>
-       __mul__(self, other)
-      </code>
-      - Implements multiplication.
-     </li>
-     <li>
-      <code>
-       __floordiv__(self, other)
-      </code>
-      - Implements integer division using the
-      <code>
-       //
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __div__(self, other)
-      </code>
-      - Implements division using the
-      <code>
-       /
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __truediv__(self, other)
-      </code>
-      - Implements true division. Note that this only works when from
-      <code>
-       __future__ import division
-      </code>
-      is in effect.
-     </li>
-     <li>
-      <code>
-       __mod__(self, other)
-      </code>
-      - Implements modulo using the
-      <code>
-       %
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __divmod__(self, other)
-      </code>
-      - Implements behavior for long division using the
-      <code>
-       divmod()
-      </code>
-      built in function.
-     </li>
-     <li>
-      <code>
-       __pow__
-      </code>
-      - Implements behavior for exponents using the
-      <code>
-       **
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __lshift__
-      </code>
-      -(self, other) Implements left bitwise shift using the
-      <code>
-       &lt;&lt;
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __rshift__
-      </code>
-      -(self, other) Implements right bitwise shift using the
-      <code>
-       &gt;&gt;
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __and__(self, other)
-      </code>
-      - Implements bitwise and using the
-      <code>
-       &amp;
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __or__(self, other)
-      </code>
-      - Implements bitwise or using the
-      <code>
-       |
-      </code>
-      operator.
-     </li>
-     <li>
-      <code>
-       __xor__(self, other)
-      </code>
-      - Implements bitwise xor using the
-      <code>
-       ^
-      </code>
-      operator.
-     </li>
-    </ul>
-    <h4>
-     <a aria-hidden="true" class="anchor" href="#reflected-arithmetic-operators" id="user-content-reflected-arithmetic-operators">
-      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-       <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-       </path>
-      </svg>
-     </a>
-     Reflected arithmetic operators
-    </h4>
-    <p>
-     You know how I said I would get to reflected arithmetic in a bit? Some of you might think it's some big, scary, foreign concept. It's actually quite simple. Here's an example:
-    </p>
-    <div class="highlight highlight-source-python">
-     <pre>    some_object <span class="pl-k">+</span> other</pre>
-    </div>
-    <br>
-     <p>
-      That was "normal" addition. The reflected equivalent is the same thing, except with the operands switched around:
-     </p>
-     <div class="highlight highlight-source-python">
-      <pre>    other <span class="pl-k">+</span> some_object</pre>
-     </div>
-     <br>
-      <p>
-       So, all of these magic methods do the same thing as their normal equivalents, except the perform the operation with other as the first operand and self as the second, rather than the other way around. In most cases, the result of a reflected operation is the same as its normal equivalent, so you may just end up defining
-       <code>
-        __radd__
-       </code>
-       as calling
-       <code>
-        __add__
-       </code>
-       and so on. Note that the object on the left hand side of the operator (
-       <code>
-        other
-       </code>
-       in the example) must not define (or return
-       <code>
-        NotImplemented
-       </code>
-       ) for its definition of the non-reflected version of an operation. For instance, in the example,
-       <code>
-        some_object.__radd__
-       </code>
-       will only be called if other does not define
-       <code>
-        __add__
-       </code>
-       .
-      </p>
-      <ul>
-       <li>
-        <code>
-         __radd__(self, other)
-        </code>
-        - Implements reflected addition.
-       </li>
-       <li>
-        <code>
-         __rsub__(self, other)
-        </code>
-        - Implements reflected subtraction.
-       </li>
-       <li>
-        <code>
-         __rmul__(self, other)
-        </code>
-        - Implements reflected multiplication.
-       </li>
-       <li>
-        <code>
-         __rfloordiv__(self, other)
-        </code>
-        - Implements reflected integer division using the
-        <code>
-         //
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rdiv__(self, other)
-        </code>
-        - Implements reflected division using the
-        <code>
-         /
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rtruediv__(self, other)
-        </code>
-        - Implements reflected true division. Note that this only works when from
-        <code>
-         __future__ import division
-        </code>
-        is in effect.
-       </li>
-       <li>
-        <code>
-         __rmod__(self, other)
-        </code>
-        - Implements reflected modulo using the
-        <code>
-         %
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rdivmod__(self, other)
-        </code>
-        - Implements behavior for long division using the
-        <code>
-         divmod()
-        </code>
-        built in function, when
-        <code>
-         divmod(other, self)
-        </code>
-        is called.
-       </li>
-       <li>
-        <code>
-         __rpow__
-        </code>
-        - Implements behavior for reflected exponents using the
-        <code>
-         **
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rlshift__(self, other)
-        </code>
-        - Implements reflected left bitwise shift using the
-        <code>
-         &lt;&lt;
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rrshift__(self, other)
-        </code>
-        - Implements reflected right bitwise shift using the
-        <code>
-         &gt;&gt;
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rand__(self, other)
-        </code>
-        - Implements reflected bitwise and using the
-        <code>
-         &amp;
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __ror__(self, other)
-        </code>
-        - Implements reflected bitwise or using the
-        <code>
-         |
-        </code>
-        operator.
-       </li>
-       <li>
-        <code>
-         __rxor__(self, other)
-        </code>
-        - Implements reflected bitwise xor using the
-        <code>
-         ^
-        </code>
-        operator.
-       </li>
-      </ul>
-      <h4>
-       <a aria-hidden="true" class="anchor" href="#augmented-assignment" id="user-content-augmented-assignment">
-        <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-         <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-         </path>
-        </svg>
-       </a>
-       Augmented assignment
-      </h4>
-      <p>
-       Python also has a wide variety of magic methods to allow custom behavior to be defined for augmented assignment. You're probably already familiar with augmented assignment, it combines "normal" operators with assignment. If you still don't know what I'm talking about, here's an example:
-      </p>
-      <div class="highlight highlight-source-python">
-       <pre>    x <span class="pl-k">=</span> <span class="pl-c1">5</span>
+     , i.e., rounding up to the nearest integer.
+    </li>
+    <li>
+     <code>
+      __trunc__(self)
+     </code>
+     - Implements behavior for
+     <code>
+      math.trunc()
+     </code>
+     , i.e., truncating to an integral.
+    </li>
+   </ul>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#normal-arithmetic-operators" id="user-content-normal-arithmetic-operators">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Normal arithmetic operators
+   </h4>
+   <p>
+    Now, we cover the typical binary operators (and a function or two):
+    <code>
+     +
+    </code>
+    ,
+    <code>
+     -
+    </code>
+    ,
+    <code>
+     *
+    </code>
+    and the like. These are, for the most part, pretty self-explanatory.
+   </p>
+   <ul>
+    <li>
+     <code>
+      __add__(self, other)
+     </code>
+     - Implements addition.
+    </li>
+    <li>
+     <code>
+      __sub__(self, other)
+     </code>
+     - Implements subtraction.
+    </li>
+    <li>
+     <code>
+      __mul__(self, other)
+     </code>
+     - Implements multiplication.
+    </li>
+    <li>
+     <code>
+      __floordiv__(self, other)
+     </code>
+     - Implements integer division using the
+     <code>
+      //
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __div__(self, other)
+     </code>
+     - Implements division using the
+     <code>
+      /
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __truediv__(self, other)
+     </code>
+     - Implements true division. Note that this only works when from
+     <code>
+      __future__ import division
+     </code>
+     is in effect.
+    </li>
+    <li>
+     <code>
+      __mod__(self, other)
+     </code>
+     - Implements modulo using the
+     <code>
+      %
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __divmod__(self, other)
+     </code>
+     - Implements behavior for long division using the
+     <code>
+      divmod()
+     </code>
+     built in function.
+    </li>
+    <li>
+     <code>
+      __pow__
+     </code>
+     - Implements behavior for exponents using the
+     <code>
+      **
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __lshift__
+     </code>
+     -(self, other) Implements left bitwise shift using the
+     <code>
+      &lt;&lt;
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rshift__
+     </code>
+     -(self, other) Implements right bitwise shift using the
+     <code>
+      &gt;&gt;
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __and__(self, other)
+     </code>
+     - Implements bitwise and using the
+     <code>
+      &amp;
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __or__(self, other)
+     </code>
+     - Implements bitwise or using the
+     <code>
+      |
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __xor__(self, other)
+     </code>
+     - Implements bitwise xor using the
+     <code>
+      ^
+     </code>
+     operator.
+    </li>
+   </ul>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#reflected-arithmetic-operators" id="user-content-reflected-arithmetic-operators">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Reflected arithmetic operators
+   </h4>
+   <p>
+    You know how I said I would get to reflected arithmetic in a bit? Some of you might think it's some big, scary, foreign concept. It's actually quite simple. Here's an example:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    some_object <span class="pl-k">+</span> other</pre>
+   </div>
+   <br/>
+   <p>
+    That was "normal" addition. The reflected equivalent is the same thing, except with the operands switched around:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    other <span class="pl-k">+</span> some_object</pre>
+   </div>
+   <br/>
+   <p>
+    So, all of these magic methods do the same thing as their normal equivalents, except the perform the operation with other as the first operand and self as the second, rather than the other way around. In most cases, the result of a reflected operation is the same as its normal equivalent, so you may just end up defining
+    <code>
+     __radd__
+    </code>
+    as calling
+    <code>
+     __add__
+    </code>
+    and so on. Note that the object on the left hand side of the operator (
+    <code>
+     other
+    </code>
+    in the example) must not define (or return
+    <code>
+     NotImplemented
+    </code>
+    ) for its definition of the non-reflected version of an operation. For instance, in the example,
+    <code>
+     some_object.__radd__
+    </code>
+    will only be called if other does not define
+    <code>
+     __add__
+    </code>
+    .
+   </p>
+   <ul>
+    <li>
+     <code>
+      __radd__(self, other)
+     </code>
+     - Implements reflected addition.
+    </li>
+    <li>
+     <code>
+      __rsub__(self, other)
+     </code>
+     - Implements reflected subtraction.
+    </li>
+    <li>
+     <code>
+      __rmul__(self, other)
+     </code>
+     - Implements reflected multiplication.
+    </li>
+    <li>
+     <code>
+      __rfloordiv__(self, other)
+     </code>
+     - Implements reflected integer division using the
+     <code>
+      //
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rdiv__(self, other)
+     </code>
+     - Implements reflected division using the
+     <code>
+      /
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rtruediv__(self, other)
+     </code>
+     - Implements reflected true division. Note that this only works when from
+     <code>
+      __future__ import division
+     </code>
+     is in effect.
+    </li>
+    <li>
+     <code>
+      __rmod__(self, other)
+     </code>
+     - Implements reflected modulo using the
+     <code>
+      %
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rdivmod__(self, other)
+     </code>
+     - Implements behavior for long division using the
+     <code>
+      divmod()
+     </code>
+     built in function, when
+     <code>
+      divmod(other, self)
+     </code>
+     is called.
+    </li>
+    <li>
+     <code>
+      __rpow__
+     </code>
+     - Implements behavior for reflected exponents using the
+     <code>
+      **
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rlshift__(self, other)
+     </code>
+     - Implements reflected left bitwise shift using the
+     <code>
+      &lt;&lt;
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rrshift__(self, other)
+     </code>
+     - Implements reflected right bitwise shift using the
+     <code>
+      &gt;&gt;
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rand__(self, other)
+     </code>
+     - Implements reflected bitwise and using the
+     <code>
+      &amp;
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __ror__(self, other)
+     </code>
+     - Implements reflected bitwise or using the
+     <code>
+      |
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __rxor__(self, other)
+     </code>
+     - Implements reflected bitwise xor using the
+     <code>
+      ^
+     </code>
+     operator.
+    </li>
+   </ul>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#augmented-assignment" id="user-content-augmented-assignment">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Augmented assignment
+   </h4>
+   <p>
+    Python also has a wide variety of magic methods to allow custom behavior to be defined for augmented assignment. You're probably already familiar with augmented assignment, it combines "normal" operators with assignment. If you still don't know what I'm talking about, here's an example:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    x <span class="pl-k">=</span> <span class="pl-c1">5</span>
     x <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-c"><span class="pl-c">#</span> in other words x = x + 1</span></pre>
-      </div>
-      <br>
-       <p>
-        Each of these methods should return the value that the variable on the left hand side should be assigned to (for instance, for
-        <code>
-         a += b
-        </code>
-        ,
-        <code>
-         __iadd__
-        </code>
-        might return
-        <code>
-         a + b
-        </code>
-        , which would be assigned to
-        <code>
-         a
-        </code>
-        ). Here's the list:
-       </p>
-       <ul>
-        <li>
-         <code>
-          __iadd__(self, other)
-         </code>
-         - Implements addition with assignment.
-        </li>
-        <li>
-         <code>
-          __isub__(self, other)
-         </code>
-         - Implements subtraction with assignment.
-        </li>
-        <li>
-         <code>
-          __imul__(self, other)
-         </code>
-         - Implements multiplication with assignment.
-        </li>
-        <li>
-         <code>
-          __ifloordiv__(self, other)
-         </code>
-         - Implements integer division with assignment using the
-         <code>
-          //=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __idiv__(self, other)
-         </code>
-         - Implements division with assignment using the
-         <code>
-          /=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __itruediv__(self, other)
-         </code>
-         - Implements true division with assignment. Note that this only works when from
-         <code>
-          __future__ import division
-         </code>
-         is in effect.
-        </li>
-        <li>
-         <code>
-          __imod__(self, other)
-         </code>
-         - Implements modulo with assignment using the
-         <code>
-          %=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __ipow__
-         </code>
-         - Implements behavior for exponents with assignment using the
-         <code>
-          **=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __ilshift__(self, other)
-         </code>
-         - Implements left bitwise shift with assignment using the
-         <code>
-          &lt;&lt;=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __irshift__(self, other)
-         </code>
-         - Implements right bitwise shift with assignment using the
-         <code>
-          &gt;&gt;=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __iand__(self, other)
-         </code>
-         - Implements bitwise and with assignment using the
-         <code>
-          &amp;=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __ior__(self, other)
-         </code>
-         - Implements bitwise or with assignment using the
-         <code>
-          |=
-         </code>
-         operator.
-        </li>
-        <li>
-         <code>
-          __ixor__(self, other)
-         </code>
-         - Implements bitwise xor with assignment using the
-         <code>
-          ^=
-         </code>
-         operator.
-        </li>
-       </ul>
-       <h4>
-        <a aria-hidden="true" class="anchor" href="#type-conversion-magic-methods" id="user-content-type-conversion-magic-methods">
-         <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-          <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-          </path>
-         </svg>
-        </a>
-        Type conversion magic methods
-       </h4>
-       <p>
-        Python also has an array of magic methods designed to implement behavior for built in type conversion functions like float(). Here they are:
-       </p>
-       <ul>
-        <li>
-         <code>
-          __int__(self)
-         </code>
-         - Implements type conversion to int.
-        </li>
-        <li>
-         <code>
-          __long__(self)
-         </code>
-         - Implements type conversion to long.
-        </li>
-        <li>
-         <code>
-          __float__(self)
-         </code>
-         - Implements type conversion to float.
-        </li>
-        <li>
-         <code>
-          __complex__(self)
-         </code>
-         - Implements type conversion to complex.
-        </li>
-        <li>
-         <code>
-          __oct__(self)
-         </code>
-         - Implements type conversion to octal.
-        </li>
-        <li>
-         <code>
-          __hex__(self)
-         </code>
-         - Implements type conversion to hexadecimal.
-        </li>
-        <li>
-         <code>
-          __index__(self)
-         </code>
-         - Implements type conversion to an int when the object is used in a slice expression. If you define a custom numeric type that might be used in slicing, you should define
-         <code>
-          __index__
-         </code>
-         .
-        </li>
-        <li>
-         <code>
-          __trunc__(self)
-         </code>
-         - Called when
-         <code>
-          math.trunc(self)
-         </code>
-         is called.
-         <code>
-          __trunc__
-         </code>
-         should return the value of self truncated to an integral type (usually a long).
-        </li>
-        <li>
-         <code>
-          __coerce__(self, other)
-         </code>
-         - Method to implement mixed mode arithmetic.
-         <code>
-          __coerce__
-         </code>
-         should return None if type conversion is impossible. Otherwise, it should return a pair (2-tuple) of
-         <code>
-          self
-         </code>
-         and
-         <code>
-          other
-         </code>
-         , manipulated to have the same type.
-        </li>
-       </ul>
-       <h2>
-        <a aria-hidden="true" class="anchor" href="#representing-your-classes" id="user-content-representing-your-classes">
-         <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-          <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-          </path>
-         </svg>
-        </a>
-        Representing your Classes
-       </h2>
-       <p>
-        It's often useful to have a string representation of a class. In Python, there's a few methods that you can implement in your class definition to customize how built in functions that return representations of your class behave.
-       </p>
-       <ul>
-        <li>
-         <code>
-          __str__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          str()
-         </code>
-         is called on an instance of your class.
-        </li>
-        <li>
-         <code>
-          __repr__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          repr()
-         </code>
-         is called on an instance of your class. The major difference between
-         <code>
-          str()
-         </code>
-         and
-         <code>
-          repr()
-         </code>
-         is intended audience.
-         <code>
-          repr()
-         </code>
-         is intended to produce output that is mostly machine-readable (in many cases, it could be valid Python code even), whereas
-         <code>
-          str()
-         </code>
-         is intended to be human-readable.
-        </li>
-        <li>
-         <code>
-          __unicode__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          unicode()
-         </code>
-         is called on an instance of your class.
-         <code>
-          unicode()
-         </code>
-         is like
-         <code>
-          str()
-         </code>
-         , but it returns a unicode string. Be wary: if a client calls
-         <code>
-          str()
-         </code>
-         on an instance of your class and you've only defined
-         <code>
-          __unicode__()
-         </code>
-         , it won't work. You should always try to define
-         <code>
-          __str__()
-         </code>
-         as well in case someone doesn't have the luxury of using unicode.
-        </li>
-        <li>
-         <code>
-          __format__(self, formatstr)
-         </code>
-         - Defines behavior for when an instance of your class is used in new-style string formatting. For instance,
-         <code>
-          "Hello, {0:abc}!".format(a)
-         </code>
-         would lead to the call
-         <code>
-          a.__format__("abc")
-         </code>
-         . This can be useful for defining your own numerical or string types that you might like to give special formatting options.
-        </li>
-        <li>
-         <code>
-          __hash__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          hash()
-         </code>
-         is called on an instance of your class. It has to return an integer, and its result is used for quick key comparison in dictionaries. Note that this usually entails implementing
-         <code>
-          __eq__
-         </code>
-         as well. Live by the following rule:
-         <code>
-          a == b
-         </code>
-         implies
-         <code>
-          hash(a) == hash(b)
-         </code>
-         .
-        </li>
-        <li>
-         <code>
-          __nonzero__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          bool()
-         </code>
-         is called on an instance of your class. Should return
-         <code>
-          True
-         </code>
-         or
-         <code>
-          False
-         </code>
-         , depending on whether you would want to consider the instance to be
-         <code>
-          True
-         </code>
-         or
-         <code>
-          False.
-         </code>
-        </li>
-        <li>
-         <code>
-          __dir__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          dir()
-         </code>
-         is called on an instance of your class. This method should return a list of attributes for the user. Typically, implementing
-         <code>
-          __dir__
-         </code>
-         is unnecessary, but it can be vitally important for interactive use of your classes if you redefine
-         <code>
-          __getattr__
-         </code>
-         or
-         <code>
-          __getattribute__
-         </code>
-         (which you will see in the next section) or are otherwise dynamically generating attributes.
-        </li>
-        <li>
-         <code>
-          __sizeof__(self)
-         </code>
-         - Defines behavior for when
-         <code>
-          sys.getsizeof()
-         </code>
-         is called on an instance of your class. This should return the size of your object, in bytes. This is generally more useful for Python classes implemented in C extensions, but it helps to be aware of it.
-        </li>
-       </ul>
-       <p>
-        We're pretty much done with the boring (and example-free) part of the magic methods guide. Now that we've covered some of the more basic magic methods, it's time to move to more advanced material.
-       </p>
-       <h2>
-        <a aria-hidden="true" class="anchor" href="#controlling-attribute-access" id="user-content-controlling-attribute-access">
-         <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-          <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-          </path>
-         </svg>
-        </a>
-        Controlling Attribute Access
-       </h2>
-       <p>
-        Many people coming to Python from other languages complain that it lacks true encapsulation for classes (e.g. no way to define private attributes and then have public getter and setters). This couldn't be farther than the truth: it just happens that Python accomplishes a great deal of encapsulation through "magic", instead of explicit modifiers for methods or fields. Take a look:
-       </p>
-       <ul>
-        <li>
-         <code>
-          __getattr__(self, name)
-         </code>
-         - You can define behavior for when a user attempts to access an attribute that doesn't exist (either at all or yet). This can be useful for catching and redirecting common misspellings, giving warnings about using deprecated attributes (you can still choose to compute and return that attribute, if you wish), or deftly handing an
-         <code>
-          -AttributeError
-         </code>
-         . It only gets called when a nonexistent attribute is accessed, however, so it isn't a true encapsulation solution.
-        </li>
-        <li>
-         <code>
-          __setattr__(self, name, value)
-         </code>
-         - Unlike
-         <code>
-          __getattr__
-         </code>
-         ,
-         <code>
-          __setattr__
-         </code>
-         is an encapsulation solution. It allows you to define behavior for assignment to an attribute regardless of whether or not that attribute exists, meaning you can define custom rules for any changes in the values of attributes. However, you have to be careful with how you use
-         <code>
-          __setattr__
-         </code>
-         , as the example at the end of the list will show.
-        </li>
-        <li>
-         <code>
-          __delattr__(self, name)
-         </code>
-         - This is the exact same as
-         <code>
-          __setattr__
-         </code>
-         , but for deleting attributes instead of setting them. The same precautions need to be taken as with
-         <code>
-          __setattr__
-         </code>
-         as well in order to prevent infinite recursion (calling
-         <code>
-          del self.name
-         </code>
-         in the implementation of
-         <code>
-          __delattr__
-         </code>
-         would cause infinite recursion).
-        </li>
-        <li>
-         <code>
-          __getattribute__(self, name)
-         </code>
-         - After all this,
-         <code>
-          __getattribute__
-         </code>
-         fits in pretty well with its companions
-         <code>
-          __setattr__
-         </code>
-         and
-         <code>
-          __delattr__
-         </code>
-         . However, I don't recommend you use it.
-         <code>
-          __getattribute__
-         </code>
-         can only be used with new-style classes (all classes are new-style in the newest versions of Python, and in older versions you can make a class new-style by subclassing object. It allows you to define rules for whenever an attribute's value is accessed. It suffers from some similar infinite recursion problems as its partners-in-crime (this time you call the base class's
-         <code>
-          __getattribute__
-         </code>
-         method to prevent this). It also mainly obviates the need for
-         <code>
-          __getattr__
-         </code>
-         , which only gets called when
-         <code>
-          __getattribute__
-         </code>
-         is implemented if it is called explicitly or an
-         <code>
-          AttributeError
-         </code>
-         is raised. This method can be used (after all, it's your choice), but I don't recommend it because it has a small use case (it's far more rare that we need special behavior to retrieve a value than to assign to it) and because it can be really difficult to implement bug-free.
-        </li>
-       </ul>
-       <p>
-        You can easily cause a problem in your definitions of any of the methods controlling attribute access. Consider this example:
-       </p>
-       <div class="highlight highlight-source-python">
-        <pre>    <span class="pl-k">def</span> <span class="pl-c1">__setattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>, <span class="pl-smi">value</span>):
+   </div>
+   <br/>
+   <p>
+    Each of these methods should return the value that the variable on the left hand side should be assigned to (for instance, for
+    <code>
+     a += b
+    </code>
+    ,
+    <code>
+     __iadd__
+    </code>
+    might return
+    <code>
+     a + b
+    </code>
+    , which would be assigned to
+    <code>
+     a
+    </code>
+    ). Here's the list:
+   </p>
+   <ul>
+    <li>
+     <code>
+      __iadd__(self, other)
+     </code>
+     - Implements addition with assignment.
+    </li>
+    <li>
+     <code>
+      __isub__(self, other)
+     </code>
+     - Implements subtraction with assignment.
+    </li>
+    <li>
+     <code>
+      __imul__(self, other)
+     </code>
+     - Implements multiplication with assignment.
+    </li>
+    <li>
+     <code>
+      __ifloordiv__(self, other)
+     </code>
+     - Implements integer division with assignment using the
+     <code>
+      //=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __idiv__(self, other)
+     </code>
+     - Implements division with assignment using the
+     <code>
+      /=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __itruediv__(self, other)
+     </code>
+     - Implements true division with assignment. Note that this only works when from
+     <code>
+      __future__ import division
+     </code>
+     is in effect.
+    </li>
+    <li>
+     <code>
+      __imod__(self, other)
+     </code>
+     - Implements modulo with assignment using the
+     <code>
+      %=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __ipow__
+     </code>
+     - Implements behavior for exponents with assignment using the
+     <code>
+      **=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __ilshift__(self, other)
+     </code>
+     - Implements left bitwise shift with assignment using the
+     <code>
+      &lt;&lt;=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __irshift__(self, other)
+     </code>
+     - Implements right bitwise shift with assignment using the
+     <code>
+      &gt;&gt;=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __iand__(self, other)
+     </code>
+     - Implements bitwise and with assignment using the
+     <code>
+      &amp;=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __ior__(self, other)
+     </code>
+     - Implements bitwise or with assignment using the
+     <code>
+      |=
+     </code>
+     operator.
+    </li>
+    <li>
+     <code>
+      __ixor__(self, other)
+     </code>
+     - Implements bitwise xor with assignment using the
+     <code>
+      ^=
+     </code>
+     operator.
+    </li>
+   </ul>
+   <h4>
+    <a aria-hidden="true" class="anchor" href="#type-conversion-magic-methods" id="user-content-type-conversion-magic-methods">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Type conversion magic methods
+   </h4>
+   <p>
+    Python also has an array of magic methods designed to implement behavior for built in type conversion functions like float(). Here they are:
+   </p>
+   <ul>
+    <li>
+     <code>
+      __int__(self)
+     </code>
+     - Implements type conversion to int.
+    </li>
+    <li>
+     <code>
+      __long__(self)
+     </code>
+     - Implements type conversion to long.
+    </li>
+    <li>
+     <code>
+      __float__(self)
+     </code>
+     - Implements type conversion to float.
+    </li>
+    <li>
+     <code>
+      __complex__(self)
+     </code>
+     - Implements type conversion to complex.
+    </li>
+    <li>
+     <code>
+      __oct__(self)
+     </code>
+     - Implements type conversion to octal.
+    </li>
+    <li>
+     <code>
+      __hex__(self)
+     </code>
+     - Implements type conversion to hexadecimal.
+    </li>
+    <li>
+     <code>
+      __index__(self)
+     </code>
+     - Implements type conversion to an int when the object is used in a slice expression. If you define a custom numeric type that might be used in slicing, you should define
+     <code>
+      __index__
+     </code>
+     .
+    </li>
+    <li>
+     <code>
+      __trunc__(self)
+     </code>
+     - Called when
+     <code>
+      math.trunc(self)
+     </code>
+     is called.
+     <code>
+      __trunc__
+     </code>
+     should return the value of self truncated to an integral type (usually a long).
+    </li>
+    <li>
+     <code>
+      __coerce__(self, other)
+     </code>
+     - Method to implement mixed mode arithmetic.
+     <code>
+      __coerce__
+     </code>
+     should return None if type conversion is impossible. Otherwise, it should return a pair (2-tuple) of
+     <code>
+      self
+     </code>
+     and
+     <code>
+      other
+     </code>
+     , manipulated to have the same type.
+    </li>
+   </ul>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#representing-your-classes" id="user-content-representing-your-classes">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Representing your Classes
+   </h2>
+   <p>
+    It's often useful to have a string representation of a class. In Python, there's a few methods that you can implement in your class definition to customize how built in functions that return representations of your class behave.
+   </p>
+   <ul>
+    <li>
+     <code>
+      __str__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      str()
+     </code>
+     is called on an instance of your class.
+    </li>
+    <li>
+     <code>
+      __repr__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      repr()
+     </code>
+     is called on an instance of your class. The major difference between
+     <code>
+      str()
+     </code>
+     and
+     <code>
+      repr()
+     </code>
+     is intended audience.
+     <code>
+      repr()
+     </code>
+     is intended to produce output that is mostly machine-readable (in many cases, it could be valid Python code even), whereas
+     <code>
+      str()
+     </code>
+     is intended to be human-readable.
+    </li>
+    <li>
+     <code>
+      __unicode__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      unicode()
+     </code>
+     is called on an instance of your class.
+     <code>
+      unicode()
+     </code>
+     is like
+     <code>
+      str()
+     </code>
+     , but it returns a unicode string. Be wary: if a client calls
+     <code>
+      str()
+     </code>
+     on an instance of your class and you've only defined
+     <code>
+      __unicode__()
+     </code>
+     , it won't work. You should always try to define
+     <code>
+      __str__()
+     </code>
+     as well in case someone doesn't have the luxury of using unicode.
+    </li>
+    <li>
+     <code>
+      __format__(self, formatstr)
+     </code>
+     - Defines behavior for when an instance of your class is used in new-style string formatting. For instance,
+     <code>
+      "Hello, {0:abc}!".format(a)
+     </code>
+     would lead to the call
+     <code>
+      a.__format__("abc")
+     </code>
+     . This can be useful for defining your own numerical or string types that you might like to give special formatting options.
+    </li>
+    <li>
+     <code>
+      __hash__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      hash()
+     </code>
+     is called on an instance of your class. It has to return an integer, and its result is used for quick key comparison in dictionaries. Note that this usually entails implementing
+     <code>
+      __eq__
+     </code>
+     as well. Live by the following rule:
+     <code>
+      a == b
+     </code>
+     implies
+     <code>
+      hash(a) == hash(b)
+     </code>
+     .
+    </li>
+    <li>
+     <code>
+      __nonzero__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      bool()
+     </code>
+     is called on an instance of your class. Should return
+     <code>
+      True
+     </code>
+     or
+     <code>
+      False
+     </code>
+     , depending on whether you would want to consider the instance to be
+     <code>
+      True
+     </code>
+     or
+     <code>
+      False.
+     </code>
+    </li>
+    <li>
+     <code>
+      __dir__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      dir()
+     </code>
+     is called on an instance of your class. This method should return a list of attributes for the user. Typically, implementing
+     <code>
+      __dir__
+     </code>
+     is unnecessary, but it can be vitally important for interactive use of your classes if you redefine
+     <code>
+      __getattr__
+     </code>
+     or
+     <code>
+      __getattribute__
+     </code>
+     (which you will see in the next section) or are otherwise dynamically generating attributes.
+    </li>
+    <li>
+     <code>
+      __sizeof__(self)
+     </code>
+     - Defines behavior for when
+     <code>
+      sys.getsizeof()
+     </code>
+     is called on an instance of your class. This should return the size of your object, in bytes. This is generally more useful for Python classes implemented in C extensions, but it helps to be aware of it.
+    </li>
+   </ul>
+   <p>
+    We're pretty much done with the boring (and example-free) part of the magic methods guide. Now that we've covered some of the more basic magic methods, it's time to move to more advanced material.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#controlling-attribute-access" id="user-content-controlling-attribute-access">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Controlling Attribute Access
+   </h2>
+   <p>
+    Many people coming to Python from other languages complain that it lacks true encapsulation for classes (e.g. no way to define private attributes and then have public getter and setters). This couldn't be farther than the truth: it just happens that Python accomplishes a great deal of encapsulation through "magic", instead of explicit modifiers for methods or fields. Take a look:
+   </p>
+   <ul>
+    <li>
+     <code>
+      __getattr__(self, name)
+     </code>
+     - You can define behavior for when a user attempts to access an attribute that doesn't exist (either at all or yet). This can be useful for catching and redirecting common misspellings, giving warnings about using deprecated attributes (you can still choose to compute and return that attribute, if you wish), or deftly handing an
+     <code>
+      -AttributeError
+     </code>
+     . It only gets called when a nonexistent attribute is accessed, however, so it isn't a true encapsulation solution.
+    </li>
+    <li>
+     <code>
+      __setattr__(self, name, value)
+     </code>
+     - Unlike
+     <code>
+      __getattr__
+     </code>
+     ,
+     <code>
+      __setattr__
+     </code>
+     is an encapsulation solution. It allows you to define behavior for assignment to an attribute regardless of whether or not that attribute exists, meaning you can define custom rules for any changes in the values of attributes. However, you have to be careful with how you use
+     <code>
+      __setattr__
+     </code>
+     , as the example at the end of the list will show.
+    </li>
+    <li>
+     <code>
+      __delattr__(self, name)
+     </code>
+     - This is the exact same as
+     <code>
+      __setattr__
+     </code>
+     , but for deleting attributes instead of setting them. The same precautions need to be taken as with
+     <code>
+      __setattr__
+     </code>
+     as well in order to prevent infinite recursion (calling
+     <code>
+      del self.name
+     </code>
+     in the implementation of
+     <code>
+      __delattr__
+     </code>
+     would cause infinite recursion).
+    </li>
+    <li>
+     <code>
+      __getattribute__(self, name)
+     </code>
+     - After all this,
+     <code>
+      __getattribute__
+     </code>
+     fits in pretty well with its companions
+     <code>
+      __setattr__
+     </code>
+     and
+     <code>
+      __delattr__
+     </code>
+     . However, I don't recommend you use it.
+     <code>
+      __getattribute__
+     </code>
+     can only be used with new-style classes (all classes are new-style in the newest versions of Python, and in older versions you can make a class new-style by subclassing object. It allows you to define rules for whenever an attribute's value is accessed. It suffers from some similar infinite recursion problems as its partners-in-crime (this time you call the base class's
+     <code>
+      __getattribute__
+     </code>
+     method to prevent this). It also mainly obviates the need for
+     <code>
+      __getattr__
+     </code>
+     , which only gets called when
+     <code>
+      __getattribute__
+     </code>
+     is implemented if it is called explicitly or an
+     <code>
+      AttributeError
+     </code>
+     is raised. This method can be used (after all, it's your choice), but I don't recommend it because it has a small use case (it's far more rare that we need special behavior to retrieve a value than to assign to it) and because it can be really difficult to implement bug-free.
+    </li>
+   </ul>
+   <p>
+    You can easily cause a problem in your definitions of any of the methods controlling attribute access. Consider this example:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">def</span> <span class="pl-c1">__setattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>, <span class="pl-smi">value</span>):
         <span class="pl-c1">self</span>.name <span class="pl-k">=</span> value
         <span class="pl-c"><span class="pl-c">#</span> since every time an attribute is assigned, __setattr__() is called, this</span>
         <span class="pl-c"><span class="pl-c">#</span> is recursion.</span>
@@ -1668,20 +1599,20 @@
     <span class="pl-k">def</span> <span class="pl-c1">__setattr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">name</span>, <span class="pl-smi">value</span>):
         <span class="pl-c1">self</span>.<span class="pl-c1">__dict__</span>[name] <span class="pl-k">=</span> value <span class="pl-c"><span class="pl-c">#</span> assigning to the dict of names in the class</span>
         <span class="pl-c"><span class="pl-c">#</span> define custom behavior here</span></pre>
-       </div>
-       <br>
-        <p>
-         Again, Python's magic methods are incredibly powerful, and with great power comes great responsibility. It's important to know the proper way to use magic methods so you don't break any code.
-        </p>
-        <p>
-         So, what have we learned about custom attribute access in Python? It's not to be used lightly. In fact, it tends to be excessively powerful and counter-intuitive. But the reason why it exists is to scratch a certain itch: Python doesn't seek to make bad things impossible, but just to make them difficult. Freedom is paramount, so you can really do whatever you want. Here's an example of some of the special attribute access methods in action (note that we use super because not all classes have an attribute
-         <code>
-          __dict__
-         </code>
-         ):
-        </p>
-        <div class="highlight highlight-source-python">
-         <pre>    <span class="pl-k">class</span> <span class="pl-en">AccessCounter</span>(<span class="pl-c1">object</span>):
+   </div>
+   <br/>
+   <p>
+    Again, Python's magic methods are incredibly powerful, and with great power comes great responsibility. It's important to know the proper way to use magic methods so you don't break any code.
+   </p>
+   <p>
+    So, what have we learned about custom attribute access in Python? It's not to be used lightly. In fact, it tends to be excessively powerful and counter-intuitive. But the reason why it exists is to scratch a certain itch: Python doesn't seek to make bad things impossible, but just to make them difficult. Freedom is paramount, so you can really do whatever you want. Here's an example of some of the special attribute access methods in action (note that we use super because not all classes have an attribute
+    <code>
+     __dict__
+    </code>
+    ):
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">class</span> <span class="pl-en">AccessCounter</span>(<span class="pl-c1">object</span>):
         <span class="pl-s"><span class="pl-pds">'''</span>A class that contains a value and implements an access counter.</span>
 <span class="pl-s">        The counter increments each time the value is changed.<span class="pl-pds">'''</span></span>
 
@@ -1700,219 +1631,219 @@
             <span class="pl-k">if</span> name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>:
                 <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__setattr__</span>(<span class="pl-s"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-c1">self</span>.counter <span class="pl-k">+</span> <span class="pl-c1">1</span>)
             <span class="pl-c1">super</span>(AccessCounter, <span class="pl-c1">self</span>).<span class="pl-c1">__delattr__</span>(name)</pre>
-        </div>
-        <br>
-         <h2>
-          <a aria-hidden="true" class="anchor" href="#making-custom-sequences" id="user-content-making-custom-sequences">
-           <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-            <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-            </path>
-           </svg>
-          </a>
-          Making Custom Sequences
-         </h2>
-         <p>
-          There's a number of ways to get your Python classes to act like built in sequences (dict, tuple, list, string, etc.). These are by far my favorite magic methods in Python because of the absurd degree of control they give you and the way that they magically make a whole array of global functions work beautifully on instances of your class. But before we get down to the good stuff, a quick word on requirements.
-         </p>
-         <h3>
-          <a aria-hidden="true" class="anchor" href="#requirements" id="user-content-requirements">
-           <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-            <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-            </path>
-           </svg>
-          </a>
-          Requirements
-         </h3>
-         <p>
-          Now that we're talking about creating your own sequences in Python, it's time to talk about protocols. Protocols are somewhat similar to interfaces in other languages in that they give you a set of methods you must define. However, in Python protocols are totally informal and require no explicit declarations to implement. Rather, they're more like guidelines.
-         </p>
-         <p>
-          Why are we talking about protocols now? Because implementing custom container types in Python involves using some of these protocols. First, there's the protocol for defining immutable containers: to make an immutable container, you need only define
-          <code>
-           __len__
-          </code>
-          and
-          <code>
-           __getitem__
-          </code>
-          (more on these later). The mutable container protocol requires everything that immutable containers require plus
-          <code>
-           __setitem__
-          </code>
-          and
-          <code>
-           __delitem__.
-          </code>
-          Lastly, if you want your object to be iterable, you'll have to define
-          <code>
-           __iter__
-          </code>
-          , which returns an iterator. That iterator must conform to an iterator protocol, which requires iterators to have methods called
-          <code>
-           __iter__
-          </code>
-          (returning itself) and
-          <code>
-           next
-          </code>
-          .
-         </p>
-         <h3>
-          <a aria-hidden="true" class="anchor" href="#the-magic-behind-containers" id="user-content-the-magic-behind-containers">
-           <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-            <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-            </path>
-           </svg>
-          </a>
-          The magic behind containers
-         </h3>
-         <p>
-          Without any more wait, here are the magic methods that containers use:
-         </p>
-         <ul>
-          <li>
-           <code>
-            __len__(self)
-           </code>
-           - Returns the length of the container. Part of the protocol for both immutable and mutable containers.
-          </li>
-          <li>
-           <code>
-            __getitem__(self, key)
-           </code>
-           - Defines behavior for when an item is accessed, using the notation
-           <code>
-            self[key]
-           </code>
-           . This is also part of both the mutable and immutable container protocols. It should also raise appropriate exceptions:
-           <code>
-            TypeError
-           </code>
-           if the type of the key is wrong and
-           <code>
-            KeyError
-           </code>
-           if there is no corresponding value for the key.
-          </li>
-          <li>
-           <code>
-            __setitem__(self, key, value)
-           </code>
-           - Defines behavior for when an item is assigned to, using the notation
-           <code>
-            self[nkey] = value
-           </code>
-           . This is part of the mutable container protocol. Again, you should raise
-           <code>
-            KeyError
-           </code>
-           and
-           <code>
-            TypeError
-           </code>
-           where appropriate.
-          </li>
-          <li>
-           <code>
-            __delitem__(self, key)
-           </code>
-           - Defines behavior for when an item is deleted (e.g.
-           <code>
-            del self[key]
-           </code>
-           ). This is only part of the mutable container protocol. You must raise the appropriate exceptions when an invalid key is used.
-          </li>
-          <li>
-           <code>
-            __iter__(self)
-           </code>
-           - Should return an iterator for the container. Iterators are returned in a number of contexts, most notably by the
-           <code>
-            iter()
-           </code>
-           built in function and when a container is looped over using the form
-           <code>
-            for x in container:
-           </code>
-           . Iterators are their own objects, and they also must define an
-           <code>
-            __iter__
-           </code>
-           method that returns
-           <code>
-            self
-           </code>
-           .
-          </li>
-          <li>
-           <code>
-            __reversed__(self)
-           </code>
-           - Called to implement behavior for the
-           <code>
-            reversed()
-           </code>
-           built in function. Should return a reversed version of the sequence. Implement this only if the sequence class is ordered, like list or tuple.
-          </li>
-          <li>
-           <code>
-            __contains__(self, item)
-           </code>
-           -
-           <code>
-            __contains__
-           </code>
-           defines behavior for membership tests using in and not in. Why isn't this part of a sequence protocol, you ask? Because when
-           <code>
-            __contains__
-           </code>
-           isn't defined, Python just iterates over the sequence and returns
-           <code>
-            True
-           </code>
-           if it comes across the item it's looking for.
-          </li>
-          <li>
-           <code>
-            __missing__(self, key)
-           </code>
-           -
-           <code>
-            __missing__
-           </code>
-           is used in subclasses of
-           <code>
-            dict
-           </code>
-           . It defines behavior for whenever a key is accessed that does not exist in a dictionary (so, for instance, if I had a dictionary
-           <code>
-            d
-           </code>
-           and said
-           <code>
-            d["george"]
-           </code>
-           when "george" is not a key in the dict,
-           <code>
-            d.__missing__("george")
-           </code>
-           would be called).
-          </li>
-         </ul>
-         <h3>
-          <a aria-hidden="true" class="anchor" href="#an-example" id="user-content-an-example">
-           <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-            <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-            </path>
-           </svg>
-          </a>
-          An example
-         </h3>
-         <p>
-          For our example, let's look at a list that implements some functional constructs that you might be used to from other languages (Haskell, for example).
-         </p>
-         <div class="highlight highlight-source-python">
-          <pre>    <span class="pl-k">class</span> <span class="pl-en">FunctionalList</span>:
+   </div>
+   <br/>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#making-custom-sequences" id="user-content-making-custom-sequences">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Making Custom Sequences
+   </h2>
+   <p>
+    There's a number of ways to get your Python classes to act like built in sequences (dict, tuple, list, string, etc.). These are by far my favorite magic methods in Python because of the absurd degree of control they give you and the way that they magically make a whole array of global functions work beautifully on instances of your class. But before we get down to the good stuff, a quick word on requirements.
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#requirements" id="user-content-requirements">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Requirements
+   </h3>
+   <p>
+    Now that we're talking about creating your own sequences in Python, it's time to talk about protocols. Protocols are somewhat similar to interfaces in other languages in that they give you a set of methods you must define. However, in Python protocols are totally informal and require no explicit declarations to implement. Rather, they're more like guidelines.
+   </p>
+   <p>
+    Why are we talking about protocols now? Because implementing custom container types in Python involves using some of these protocols. First, there's the protocol for defining immutable containers: to make an immutable container, you need only define
+    <code>
+     __len__
+    </code>
+    and
+    <code>
+     __getitem__
+    </code>
+    (more on these later). The mutable container protocol requires everything that immutable containers require plus
+    <code>
+     __setitem__
+    </code>
+    and
+    <code>
+     __delitem__.
+    </code>
+    Lastly, if you want your object to be iterable, you'll have to define
+    <code>
+     __iter__
+    </code>
+    , which returns an iterator. That iterator must conform to an iterator protocol, which requires iterators to have methods called
+    <code>
+     __iter__
+    </code>
+    (returning itself) and
+    <code>
+     next
+    </code>
+    .
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#the-magic-behind-containers" id="user-content-the-magic-behind-containers">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    The magic behind containers
+   </h3>
+   <p>
+    Without any more wait, here are the magic methods that containers use:
+   </p>
+   <ul>
+    <li>
+     <code>
+      __len__(self)
+     </code>
+     - Returns the length of the container. Part of the protocol for both immutable and mutable containers.
+    </li>
+    <li>
+     <code>
+      __getitem__(self, key)
+     </code>
+     - Defines behavior for when an item is accessed, using the notation
+     <code>
+      self[key]
+     </code>
+     . This is also part of both the mutable and immutable container protocols. It should also raise appropriate exceptions:
+     <code>
+      TypeError
+     </code>
+     if the type of the key is wrong and
+     <code>
+      KeyError
+     </code>
+     if there is no corresponding value for the key.
+    </li>
+    <li>
+     <code>
+      __setitem__(self, key, value)
+     </code>
+     - Defines behavior for when an item is assigned to, using the notation
+     <code>
+      self[nkey] = value
+     </code>
+     . This is part of the mutable container protocol. Again, you should raise
+     <code>
+      KeyError
+     </code>
+     and
+     <code>
+      TypeError
+     </code>
+     where appropriate.
+    </li>
+    <li>
+     <code>
+      __delitem__(self, key)
+     </code>
+     - Defines behavior for when an item is deleted (e.g.
+     <code>
+      del self[key]
+     </code>
+     ). This is only part of the mutable container protocol. You must raise the appropriate exceptions when an invalid key is used.
+    </li>
+    <li>
+     <code>
+      __iter__(self)
+     </code>
+     - Should return an iterator for the container. Iterators are returned in a number of contexts, most notably by the
+     <code>
+      iter()
+     </code>
+     built in function and when a container is looped over using the form
+     <code>
+      for x in container:
+     </code>
+     . Iterators are their own objects, and they also must define an
+     <code>
+      __iter__
+     </code>
+     method that returns
+     <code>
+      self
+     </code>
+     .
+    </li>
+    <li>
+     <code>
+      __reversed__(self)
+     </code>
+     - Called to implement behavior for the
+     <code>
+      reversed()
+     </code>
+     built in function. Should return a reversed version of the sequence. Implement this only if the sequence class is ordered, like list or tuple.
+    </li>
+    <li>
+     <code>
+      __contains__(self, item)
+     </code>
+     -
+     <code>
+      __contains__
+     </code>
+     defines behavior for membership tests using in and not in. Why isn't this part of a sequence protocol, you ask? Because when
+     <code>
+      __contains__
+     </code>
+     isn't defined, Python just iterates over the sequence and returns
+     <code>
+      True
+     </code>
+     if it comes across the item it's looking for.
+    </li>
+    <li>
+     <code>
+      __missing__(self, key)
+     </code>
+     -
+     <code>
+      __missing__
+     </code>
+     is used in subclasses of
+     <code>
+      dict
+     </code>
+     . It defines behavior for whenever a key is accessed that does not exist in a dictionary (so, for instance, if I had a dictionary
+     <code>
+      d
+     </code>
+     and said
+     <code>
+      d["george"]
+     </code>
+     when "george" is not a key in the dict,
+     <code>
+      d.__missing__("george")
+     </code>
+     would be called).
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#an-example" id="user-content-an-example">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    An example
+   </h3>
+   <p>
+    For our example, let's look at a list that implements some functional constructs that you might be used to from other languages (Haskell, for example).
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">class</span> <span class="pl-en">FunctionalList</span>:
         <span class="pl-s"><span class="pl-pds">'''</span>A class wrapping a list with some extra functional magic, like head,</span>
 <span class="pl-s">        tail, init, last, drop, and take.<span class="pl-pds">'''</span></span>
 
@@ -1961,86 +1892,86 @@
         <span class="pl-k">def</span> <span class="pl-en">take</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">n</span>):
             <span class="pl-c"><span class="pl-c">#</span> get first n elements</span>
             <span class="pl-k">return</span> <span class="pl-c1">self</span>.values[:n]</pre>
-         </div>
-         <br>
-          <p>
-           There you have it, a (marginally) useful example of how to implement your own sequence. Of course, there are more useful applications of custom sequences, but quite a few of them are already implemented in the standard library (batteries included, right?), like Counter, OrderedDict, and NamedTuple.
-          </p>
-          <h2>
-           <a aria-hidden="true" class="anchor" href="#reflection" id="user-content-reflection">
-            <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-             <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-             </path>
-            </svg>
-           </a>
-           Reflection
-          </h2>
-          <p>
-           You can also control how reflection using the built in functions
-           <code>
-            isinstance()
-           </code>
-           and
-           <code>
-            issubclass()
-           </code>
-           behaves by defining magic methods. The magic methods are:
-          </p>
-          <div class="highlight highlight-source-python">
-           <pre>    <span class="pl-c1">__instancecheck__</span>(<span class="pl-c1">self</span>, instance) Checks <span class="pl-k">if</span> an instance <span class="pl-k">is</span> an instance of the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">isinstance</span>(instance, <span class="pl-k">class</span>).
+   </div>
+   <br/>
+   <p>
+    There you have it, a (marginally) useful example of how to implement your own sequence. Of course, there are more useful applications of custom sequences, but quite a few of them are already implemented in the standard library (batteries included, right?), like Counter, OrderedDict, and NamedTuple.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#reflection" id="user-content-reflection">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Reflection
+   </h2>
+   <p>
+    You can also control how reflection using the built in functions
+    <code>
+     isinstance()
+    </code>
+    and
+    <code>
+     issubclass()
+    </code>
+    behaves by defining magic methods. The magic methods are:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-c1">__instancecheck__</span>(<span class="pl-c1">self</span>, instance) Checks <span class="pl-k">if</span> an instance <span class="pl-k">is</span> an instance of the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">isinstance</span>(instance, <span class="pl-k">class</span>).
     <span class="pl-c1">__subclasscheck__</span>(<span class="pl-c1">self</span>, subclass) Checks <span class="pl-k">if</span> a <span class="pl-k">class</span> subclasses the <span class="pl-k">class</span> you defined (e.g. <span class="pl-c1">issubclass</span>(subclass, <span class="pl-k">class</span>)).</pre>
-          </div>
-          <br>
-           <p>
-            The use case for these magic methods might seem small, and that may very well be true. I won't spend too much more time on reflection magic methods because they aren't very important, but they reflect something important about object-oriented programming in Python and Python in general: there is almost always an easy way to do something, even if it's rarely necessary. These magic methods might not seem useful, but if you ever need them you'll be glad that they're there (and that you read this guide!).
-           </p>
-           <h2>
-            <a aria-hidden="true" class="anchor" href="#callable-objects" id="user-content-callable-objects">
-             <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-              <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-              </path>
-             </svg>
-            </a>
-            Callable Objects
-           </h2>
-           <p>
-            As you may already know, in Python, functions are first-class objects. This means that they can be passed to functions and methods just as if they were objects of any other kind. This is an incredibly powerful feature.
-           </p>
-           <p>
-            A special magic method in Python allows instances of your classes to behave as if they were functions, so that you can "call" them, pass them to functions that take functions as arguments, and so on. This is another powerful convenience feature that makes programming in Python that much sweeter.
-           </p>
-           <ul>
-            <li>
-             <code>
-              __call__(self, [args...])
-             </code>
-             -  Allows an instance of a class to be called as a function. Essentially, this means that
-             <code>
-              x()
-             </code>
-             is the same as
-             <code>
-              x.__call__()
-             </code>
-             . Note that
-             <code>
-              __call__
-             </code>
-             takes a variable number of arguments; this means that you define
-             <code>
-              __call__
-             </code>
-             as you would any other function, taking however many arguments you'd like it to.
-            </li>
-           </ul>
-           <p>
-            <code>
-             __call__
-            </code>
-            can be particularly useful in classes whose instances that need to often change state. "Calling" the instance can be an intuitive and elegant way to change the object's state. An example might be a class representing an entity's position on a plane:
-           </p>
-           <div class="highlight highlight-source-python">
-            <pre>    <span class="pl-k">class</span> <span class="pl-en">Entity</span>:
+   </div>
+   <br/>
+   <p>
+    The use case for these magic methods might seem small, and that may very well be true. I won't spend too much more time on reflection magic methods because they aren't very important, but they reflect something important about object-oriented programming in Python and Python in general: there is almost always an easy way to do something, even if it's rarely necessary. These magic methods might not seem useful, but if you ever need them you'll be glad that they're there (and that you read this guide!).
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#callable-objects" id="user-content-callable-objects">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Callable Objects
+   </h2>
+   <p>
+    As you may already know, in Python, functions are first-class objects. This means that they can be passed to functions and methods just as if they were objects of any other kind. This is an incredibly powerful feature.
+   </p>
+   <p>
+    A special magic method in Python allows instances of your classes to behave as if they were functions, so that you can "call" them, pass them to functions that take functions as arguments, and so on. This is another powerful convenience feature that makes programming in Python that much sweeter.
+   </p>
+   <ul>
+    <li>
+     <code>
+      __call__(self, [args...])
+     </code>
+     -  Allows an instance of a class to be called as a function. Essentially, this means that
+     <code>
+      x()
+     </code>
+     is the same as
+     <code>
+      x.__call__()
+     </code>
+     . Note that
+     <code>
+      __call__
+     </code>
+     takes a variable number of arguments; this means that you define
+     <code>
+      __call__
+     </code>
+     as you would any other function, taking however many arguments you'd like it to.
+    </li>
+   </ul>
+   <p>
+    <code>
+     __call__
+    </code>
+    can be particularly useful in classes whose instances that need to often change state. "Calling" the instance can be an intuitive and elegant way to change the object's state. An example might be a class representing an entity's position on a plane:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">class</span> <span class="pl-en">Entity</span>:
         <span class="pl-s"><span class="pl-pds">'''</span>Class to represent an entity. Callable to update the entity's position.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">size</span>, <span class="pl-smi">x</span>, <span class="pl-smi">y</span>):
@@ -2052,74 +1983,74 @@
             <span class="pl-c1">self</span>.x, <span class="pl-c1">self</span>.y <span class="pl-k">=</span> x, y
 
         <span class="pl-c"><span class="pl-c">#</span> snip...</span></pre>
-           </div>
-           <br>
-            <h2>
-             <a aria-hidden="true" class="anchor" href="#context-managers" id="user-content-context-managers">
-              <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-               <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-               </path>
-              </svg>
-             </a>
-             Context Managers
-            </h2>
-            <p>
-             In Python 2.5, a new keyword was introduced in Python along with a new method for code reuse, the with statement. The concept of context managers was hardly new in Python (it was implemented before as a part of the library), but not until PEP 343 was accepted did it achieve status as a first class language construct. You may have seen with statements before:
-            </p>
-            <div class="highlight highlight-source-python">
-             <pre>    <span class="pl-k">with</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>foo.txt<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> bar:
+   </div>
+   <br/>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#context-managers" id="user-content-context-managers">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Context Managers
+   </h2>
+   <p>
+    In Python 2.5, a new keyword was introduced in Python along with a new method for code reuse, the with statement. The concept of context managers was hardly new in Python (it was implemented before as a part of the library), but not until PEP 343 was accepted did it achieve status as a first class language construct. You may have seen with statements before:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">with</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>foo.txt<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> bar:
             <span class="pl-c"><span class="pl-c">#</span> perform some action with bar</span></pre>
-            </div>
-            <br>
-             <p>
-              Context managers allow setup and cleanup actions to be taken for objects when their creation is wrapped with a
-              <code>
-               with
-              </code>
-              statement. The behavior of the context manager is determined by two magic methods:
-             </p>
-             <ul>
-              <li>
-               <code>
-                __enter__(self)
-               </code>
-               - Defines what the context manager should do at the beginning of the block created by the with statement. Note that the return value of
-               <code>
-                __enter__
-               </code>
-               is bound to the target of the with statement, or the name after the as.
-              </li>
-              <li>
-               <code>
-                __exit__(self, exception_type, exception_value, traceback)
-               </code>
-               - Defines what the context manager should do after its block has been executed (or terminates). It can be used to handle exceptions, perform cleanup, or do something always done immediately after the action in the block. If the block executes successfully,
-               <code>
-                exception_type
-               </code>
-               ,
-               <code>
-                exception_value
-               </code>
-               , and 	traceback	 will be None. Otherwise, you can choose to handle the exception or let the user handle it; if you want to handle it, make sure
-               <code>
-                __exit__
-               </code>
-               returns True after all is said and done. If you don't want the exception to be handled by the context manager, just let it happen.
-              </li>
-             </ul>
-             <p>
-              <code>
-               __enter__
-              </code>
-              and
-              <code>
-               __exit__
-              </code>
-              can be useful for specific classes that have well-defined and common behavior for setup and cleanup. You can also use these methods to create generic context managers that wrap other objects. Here's an example:
-             </p>
-             <div class="highlight highlight-source-python">
-              <pre><span class="pl-k">class</span> <span class="pl-en">Closer</span>:
+   </div>
+   <br/>
+   <p>
+    Context managers allow setup and cleanup actions to be taken for objects when their creation is wrapped with a
+    <code>
+     with
+    </code>
+    statement. The behavior of the context manager is determined by two magic methods:
+   </p>
+   <ul>
+    <li>
+     <code>
+      __enter__(self)
+     </code>
+     - Defines what the context manager should do at the beginning of the block created by the with statement. Note that the return value of
+     <code>
+      __enter__
+     </code>
+     is bound to the target of the with statement, or the name after the as.
+    </li>
+    <li>
+     <code>
+      __exit__(self, exception_type, exception_value, traceback)
+     </code>
+     - Defines what the context manager should do after its block has been executed (or terminates). It can be used to handle exceptions, perform cleanup, or do something always done immediately after the action in the block. If the block executes successfully,
+     <code>
+      exception_type
+     </code>
+     ,
+     <code>
+      exception_value
+     </code>
+     , and 	traceback	 will be None. Otherwise, you can choose to handle the exception or let the user handle it; if you want to handle it, make sure
+     <code>
+      __exit__
+     </code>
+     returns True after all is said and done. If you don't want the exception to be handled by the context manager, just let it happen.
+    </li>
+   </ul>
+   <p>
+    <code>
+     __enter__
+    </code>
+    and
+    <code>
+     __exit__
+    </code>
+    can be useful for specific classes that have well-defined and common behavior for setup and cleanup. You can also use these methods to create generic context managers that wrap other objects. Here's an example:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre><span class="pl-k">class</span> <span class="pl-en">Closer</span>:
     <span class="pl-s"><span class="pl-pds">'''</span>A context manager to automatically close an object with a close method</span>
 <span class="pl-s">    in a with statement.<span class="pl-pds">'''</span></span>
 
@@ -2135,17 +2066,17 @@
         <span class="pl-k">except</span> <span class="pl-c1">AttributeError</span>: <span class="pl-c"><span class="pl-c">#</span> obj isn't closable</span>
            <span class="pl-c1">print</span> <span class="pl-s"><span class="pl-pds">'</span>Not closable.<span class="pl-pds">'</span></span>
            <span class="pl-k">return</span> <span class="pl-c1">True</span> <span class="pl-c"><span class="pl-c">#</span> exception handled successfully</span></pre>
-             </div>
-             <br>
-              <p>
-               Here's an example of
-               <code>
-                Closer
-               </code>
-               in action, using an FTP connection to demonstrate it (a closable socket):
-              </p>
-              <div class="highlight highlight-source-python">
-               <pre>    <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">from</span> magicmethods <span class="pl-k">import</span> Closer
+   </div>
+   <br/>
+   <p>
+    Here's an example of
+    <code>
+     Closer
+    </code>
+    in action, using an FTP connection to demonstrate it (a closable socket):
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">from</span> magicmethods <span class="pl-k">import</span> Closer
     <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">from</span> ftplib <span class="pl-k">import</span> <span class="pl-c1">FTP</span>
     <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">with</span> Closer(FTP(<span class="pl-s"><span class="pl-pds">'</span>ftp.somesite.com<span class="pl-pds">'</span></span>)) <span class="pl-k">as</span> conn:
     <span class="pl-c1">...</span>     conn.dir()
@@ -2159,91 +2090,91 @@
     Not closable.
     <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> i
     <span class="pl-c1">6</span></pre>
-              </div>
-              <br>
-               <p>
-                See how our wrapper gracefully handled both proper and improper uses? That's the power of context managers and magic methods. Note that the Python standard library includes a module
-                <code>
-                 contextlib
-                </code>
-                that contains a context manager,
-                <code>
-                 contextlib.closing()
-                </code>
-                , that does approximately the same thing (without any handling of the case where an object does not have a
-                <code>
-                 close()
-                </code>
-                method).
-               </p>
-               <h2>
-                <a aria-hidden="true" class="anchor" href="#abstract-base-classes" id="user-content-abstract-base-classes">
-                 <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                  <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                  </path>
-                 </svg>
-                </a>
-                Abstract Base Classes
-               </h2>
-               <p>
-                See
-                <a href="http://docs.python.org/2/library/abc.html">
-                 http://docs.python.org/2/library/abc.html
-                </a>
-                .
-               </p>
-               <h2>
-                <a aria-hidden="true" class="anchor" href="#building-descriptor-objects" id="user-content-building-descriptor-objects">
-                 <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                  <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                  </path>
-                 </svg>
-                </a>
-                Building Descriptor Objects
-               </h2>
-               <p>
-                Descriptors are classes which, when accessed through either getting, setting, or deleting, can also alter other objects. Descriptors aren't meant to stand alone; rather, they're meant to be held by an owner class. Descriptors can be useful when building object-oriented databases or classes that have attributes whose values are dependent on each other. Descriptors are particularly useful when representing attributes in several different units of measurement or representing computed attributes (like distance from the origin in a class to represent a point on a grid).
-               </p>
-               <p>
-                To be a descriptor, a class must have at least one of
-                <code>
-                 __get__
-                </code>
-                ,
-                <code>
-                 __set__
-                </code>
-                , and
-                <code>
-                 __delete__
-                </code>
-                implemented. Let's take a look at those magic methods:
-               </p>
-               <ul>
-                <li>
-                 <code>
-                  __get__(self, instance, owner)
-                 </code>
-                 - Define behavior for when the descriptor's value is retrieved. instance is the instance of the owner object. owner is the owner class itself.
-                </li>
-                <li>
-                 <code>
-                  __set__(self, instance, value)
-                 </code>
-                 - Define behavior for when the descriptor's value is changed. instance is the instance of the owner class and value is the value to set the descriptor to.
-                </li>
-                <li>
-                 <code>
-                  __delete__(self, instance)
-                 </code>
-                 - Define behavior for when the descriptor's value is deleted. instance is the instance of the owner object.
-                </li>
-               </ul>
-               <p>
-                Now, an example of a useful application of descriptors: unit conversions.
-               </p>
-               <div class="highlight highlight-source-python">
-                <pre>    <span class="pl-k">class</span> <span class="pl-en">Meter</span>(<span class="pl-c1">object</span>):
+   </div>
+   <br/>
+   <p>
+    See how our wrapper gracefully handled both proper and improper uses? That's the power of context managers and magic methods. Note that the Python standard library includes a module
+    <code>
+     contextlib
+    </code>
+    that contains a context manager,
+    <code>
+     contextlib.closing()
+    </code>
+    , that does approximately the same thing (without any handling of the case where an object does not have a
+    <code>
+     close()
+    </code>
+    method).
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#abstract-base-classes" id="user-content-abstract-base-classes">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Abstract Base Classes
+   </h2>
+   <p>
+    See
+    <a href="http://docs.python.org/2/library/abc.html">
+     http://docs.python.org/2/library/abc.html
+    </a>
+    .
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#building-descriptor-objects" id="user-content-building-descriptor-objects">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Building Descriptor Objects
+   </h2>
+   <p>
+    Descriptors are classes which, when accessed through either getting, setting, or deleting, can also alter other objects. Descriptors aren't meant to stand alone; rather, they're meant to be held by an owner class. Descriptors can be useful when building object-oriented databases or classes that have attributes whose values are dependent on each other. Descriptors are particularly useful when representing attributes in several different units of measurement or representing computed attributes (like distance from the origin in a class to represent a point on a grid).
+   </p>
+   <p>
+    To be a descriptor, a class must have at least one of
+    <code>
+     __get__
+    </code>
+    ,
+    <code>
+     __set__
+    </code>
+    , and
+    <code>
+     __delete__
+    </code>
+    implemented. Let's take a look at those magic methods:
+   </p>
+   <ul>
+    <li>
+     <code>
+      __get__(self, instance, owner)
+     </code>
+     - Define behavior for when the descriptor's value is retrieved. instance is the instance of the owner object. owner is the owner class itself.
+    </li>
+    <li>
+     <code>
+      __set__(self, instance, value)
+     </code>
+     - Define behavior for when the descriptor's value is changed. instance is the instance of the owner class and value is the value to set the descriptor to.
+    </li>
+    <li>
+     <code>
+      __delete__(self, instance)
+     </code>
+     - Define behavior for when the descriptor's value is deleted. instance is the instance of the owner object.
+    </li>
+   </ul>
+   <p>
+    Now, an example of a useful application of descriptors: unit conversions.
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">class</span> <span class="pl-en">Meter</span>(<span class="pl-c1">object</span>):
         <span class="pl-s"><span class="pl-pds">'''</span>Descriptor for a meter.<span class="pl-pds">'''</span></span>
 
         <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">value</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>):
@@ -2266,94 +2197,94 @@
 <span class="pl-s">        meters.<span class="pl-pds">'''</span></span>
         meter <span class="pl-k">=</span> Meter()
         foot <span class="pl-k">=</span> Foot()</pre>
-               </div>
-               <br>
-                <h2>
-                 <a aria-hidden="true" class="anchor" href="#copying" id="user-content-copying">
-                  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                   </path>
-                  </svg>
-                 </a>
-                 Copying
-                </h2>
-                <p>
-                 Sometimes, particularly when dealing with mutable objects, you want to be able to copy an object and make changes without affecting what you copied from. This is where Python's copy comes into play. However (fortunately), Python modules are not sentient, so we don't have to worry about a Linux-based robot uprising, but we do have to tell Python how to efficiently copy things.
-                </p>
-                <ul>
-                 <li>
-                  <code>
-                   __copy__(self)
-                  </code>
-                  - Defines behavior for
-                  <code>
-                   copy.copy()
-                  </code>
-                  for instances of your class.
-                  <code>
-                   copy.copy()
-                  </code>
-                  returns a shallow copy of your object -- this means that, while the instance itself is a new instance, all of its data is referenced -- i.e., the object itself is copied, but its data is still referenced (and hence changes to data in a shallow copy may cause changes in the original).
-                 </li>
-                 <li>
-                  <code>
-                   __deepcopy__(self, memodict={})
-                  </code>
-                  - Defines behavior for
-                  <code>
-                   copy.deepcopy()
-                  </code>
-                  for instances of your class.
-                  <code>
-                   copy.deepcopy()
-                  </code>
-                  returns a deep copy of your object -- the object and its data are both copied. memodict is a cache of previously copied objects -- this optimizes copying and prevents infinite recursion when copying recursive data structures. When you want to deep copy an individual attribute, call
-                  <code>
-                   copy.deepcopy()
-                  </code>
-                  on that attribute with memodict as the first argument.
-                 </li>
-                </ul>
-                <p>
-                 What are some use cases for these magic methods? As always, in any case where you need more fine-grained control than what the default behavior gives you. For instance, if you are attempting to copy an object that stores a cache as a dictionary (which might be large), it might not make sense to copy the cache as well -- if the cache can be shared in memory between instances, then it should be.
-                </p>
-                <h2>
-                 <a aria-hidden="true" class="anchor" href="#pickling-your-objects" id="user-content-pickling-your-objects">
-                  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                   </path>
-                  </svg>
-                 </a>
-                 Pickling Your Objects
-                </h2>
-                <p>
-                 If you spend time with other Pythonistas, chances are you've at least heard of pickling. Pickling is a serialization process for Python data structures, and can be incredibly useful when you need to store an object and retrieve it later (usually for caching). It's also a major source of worries and confusion.
-                </p>
-                <p>
-                 Pickling is so important that it doesn't just have its own module (
-                 <code>
-                  pickle
-                 </code>
-                 ), but its own protocol and the magic methods to go with it. But first, a brief word on how to pickle existing types(feel free to skip it if you already know).
-                </p>
-                <h3>
-                 <a aria-hidden="true" class="anchor" href="#pickling-a-quick-soak-in-the-brine" id="user-content-pickling-a-quick-soak-in-the-brine">
-                  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                   </path>
-                  </svg>
-                 </a>
-                 Pickling: A Quick Soak in the Brine
-                </h3>
-                <p>
-                 Let's dive into pickling. Say you have a dictionary that you want to store and retrieve later. You couldwrite it's contents to a file, carefully making sure that you write correct syntax, then retrieve it using either
-                 <code>
-                  exec()
-                 </code>
-                 or processing the file input. But this is precarious at best: if you store important data in plain text, it could be corrupted or changed in any number of ways to make your program crash or worse run malicious code on your computer. Instead, we're going to pickle it:
-                </p>
-                <div class="highlight highlight-source-python">
-                 <pre>    <span class="pl-k">import</span> pickle
+   </div>
+   <br/>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#copying" id="user-content-copying">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Copying
+   </h2>
+   <p>
+    Sometimes, particularly when dealing with mutable objects, you want to be able to copy an object and make changes without affecting what you copied from. This is where Python's copy comes into play. However (fortunately), Python modules are not sentient, so we don't have to worry about a Linux-based robot uprising, but we do have to tell Python how to efficiently copy things.
+   </p>
+   <ul>
+    <li>
+     <code>
+      __copy__(self)
+     </code>
+     - Defines behavior for
+     <code>
+      copy.copy()
+     </code>
+     for instances of your class.
+     <code>
+      copy.copy()
+     </code>
+     returns a shallow copy of your object -- this means that, while the instance itself is a new instance, all of its data is referenced -- i.e., the object itself is copied, but its data is still referenced (and hence changes to data in a shallow copy may cause changes in the original).
+    </li>
+    <li>
+     <code>
+      __deepcopy__(self, memodict={})
+     </code>
+     - Defines behavior for
+     <code>
+      copy.deepcopy()
+     </code>
+     for instances of your class.
+     <code>
+      copy.deepcopy()
+     </code>
+     returns a deep copy of your object -- the object and its data are both copied. memodict is a cache of previously copied objects -- this optimizes copying and prevents infinite recursion when copying recursive data structures. When you want to deep copy an individual attribute, call
+     <code>
+      copy.deepcopy()
+     </code>
+     on that attribute with memodict as the first argument.
+    </li>
+   </ul>
+   <p>
+    What are some use cases for these magic methods? As always, in any case where you need more fine-grained control than what the default behavior gives you. For instance, if you are attempting to copy an object that stores a cache as a dictionary (which might be large), it might not make sense to copy the cache as well -- if the cache can be shared in memory between instances, then it should be.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#pickling-your-objects" id="user-content-pickling-your-objects">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Pickling Your Objects
+   </h2>
+   <p>
+    If you spend time with other Pythonistas, chances are you've at least heard of pickling. Pickling is a serialization process for Python data structures, and can be incredibly useful when you need to store an object and retrieve it later (usually for caching). It's also a major source of worries and confusion.
+   </p>
+   <p>
+    Pickling is so important that it doesn't just have its own module (
+    <code>
+     pickle
+    </code>
+    ), but its own protocol and the magic methods to go with it. But first, a brief word on how to pickle existing types(feel free to skip it if you already know).
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#pickling-a-quick-soak-in-the-brine" id="user-content-pickling-a-quick-soak-in-the-brine">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Pickling: A Quick Soak in the Brine
+   </h3>
+   <p>
+    Let's dive into pickling. Say you have a dictionary that you want to store and retrieve later. You couldwrite it's contents to a file, carefully making sure that you write correct syntax, then retrieve it using either
+    <code>
+     exec()
+    </code>
+    or processing the file input. But this is precarious at best: if you store important data in plain text, it could be corrupted or changed in any number of ways to make your program crash or worse run malicious code on your computer. Instead, we're going to pickle it:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">import</span> pickle
 
     data <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],
             <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: (<span class="pl-s"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>world!<span class="pl-pds">'</span></span>),
@@ -2361,162 +2292,162 @@
     jar <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>)
     pickle.dump(data, jar) <span class="pl-c"><span class="pl-c">#</span> write the pickled data to the file jar</span>
     jar.close()</pre>
-                </div>
-                <br>
-                 <p>
-                  Now, a few hours later, we want it back. All we have to do is unpickle it:
-                 </p>
-                 <div class="highlight highlight-source-python">
-                  <pre>    <span class="pl-k">import</span> pickle
+   </div>
+   <br/>
+   <p>
+    Now, a few hours later, we want it back. All we have to do is unpickle it:
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">import</span> pickle
 
     pkl_file <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>data.pkl<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">#</span> connect to the pickled data</span>
     data <span class="pl-k">=</span> pickle.load(pkl_file) <span class="pl-c"><span class="pl-c">#</span> load it into a variable</span>
     <span class="pl-c1">print</span> data
     pkl_file.close()</pre>
-                 </div>
-                 <br>
-                  <p>
-                   What happens? Exactly what you expect. It's just like we had data all along.
-                  </p>
-                  <p>
-                   Now, for a word of caution: pickling is not perfect. Pickle files are easily corrupted on accident and on purpose. Pickling may be more secure than using flat text files, but it still can be used to run malicious code. It's also incompatible across versions of Python, so don't expect to distribute pickled objects and expect people to be able to open them. However, it can also be a powerful tool for caching and other common serialization tasks.
-                  </p>
-                  <h3>
-                   <a aria-hidden="true" class="anchor" href="#pickling-your-own-objects" id="user-content-pickling-your-own-objects">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                     </path>
-                    </svg>
-                   </a>
-                   Pickling your own Objects
-                  </h3>
-                  <p>
-                   Pickling isn't just for built-in types. It's for any class that follows the pickle protocol. The pickle protocol has four optional methods for Python objects to customize how they act (it's a bit different for C extensions, but that's not in our scope):
-                  </p>
-                  <ul>
-                   <li>
-                    <code>
-                     __getinitargs__(self)
-                    </code>
-                    - If you'd like for
-                    <code>
-                     __init__
-                    </code>
-                    to be called when your class is unpickled, you can define
-                    <code>
-                     __getinitargs__
-                    </code>
-                    , which should return a tuple of the arguments that you'd like to be passed to
-                    <code>
-                     __init__
-                    </code>
-                    . Note that this method will only work for old-style classes.
-                   </li>
-                   <li>
-                    <code>
-                     __getnewargs__(self)
-                    </code>
-                    - For new-style classes, you can influence what arguments get passed to
-                    <code>
-                     __new__
-                    </code>
-                    upon unpickling. This method should also return a tuple of arguments that will then be passed to
-                    <code>
-                     __new__
-                    </code>
-                    .
-                   </li>
-                   <li>
-                    <code>
-                     __getstate__(self)
-                    </code>
-                    - Instead of the object's
-                    <code>
-                     __dict__
-                    </code>
-                    attribute being stored, you can return a custom state to be stored when the object is pickled. That state will be used by
-                    <code>
-                     __setstate__
-                    </code>
-                    when the object is unpickled.
-                   </li>
-                   <li>
-                    <code>
-                     __setstate__(self, state)
-                    </code>
-                    - When the object is unpickled, if
-                    <code>
-                     __setstate__
-                    </code>
-                    is defined the object's state will be passed to it instead of directly applied to the object's
-                    <code>
-                     __dict__
-                    </code>
-                    . This goes hand in hand with
-                    <code>
-                     __getstate__
-                    </code>
-                    : when both are defined, you can represent the object's pickled state however you want with whatever you want.
-                   </li>
-                   <li>
-                    <code>
-                     __reduce__(self)
-                    </code>
-                    - When defining extension types (i.e., types implemented using Python's C API), you have to tell Python how to pickle them if you want them to pickle them.
-                    <code>
-                     __reduce__()
-                    </code>
-                    is called when an object defining it is pickled. It can either return a string representing a global name that Python will look up and pickle, or a tuple. The tuple contains between 2 and 5 elements: a callable object that is called to recreate the object, a tuple of arguments for that callable object, state to be passed to
-                    <code>
-                     __setstate__
-                    </code>
-                    (optional), an iterator yielding list items to be pickled (optional), and an iterator yielding dictionary items to be pickled (optional).
-                   </li>
-                   <li>
-                    <code>
-                     __reduce_ex__(self)
-                    </code>
-                    -
-                    <code>
-                     __reduce_ex__
-                    </code>
-                    exists for compatibility. If it is defined,
-                    <code>
-                     __reduce_ex__
-                    </code>
-                    will be called over
-                    <code>
-                     __reduce__
-                    </code>
-                    on pickling.
-                    <code>
-                     __reduce__
-                    </code>
-                    can be defined as well for older versions of the pickling API that did not support
-                    <code>
-                     __reduce_ex__
-                    </code>
-                    .
-                   </li>
-                  </ul>
-                  <h3>
-                   <a aria-hidden="true" class="anchor" href="#an-example-1" id="user-content-an-example-1">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                     </path>
-                    </svg>
-                   </a>
-                   An Example
-                  </h3>
-                  <p>
-                   Our example is a
-                   <code>
-                    Slate
-                   </code>
-                   , which remembers what its values have been and when those values were written to it. However, this particular slate goes blank each time it is pickled: the current value will not be saved.
-                  </p>
-                  <div class="highlight highlight-source-python">
-                   <pre>    <span class="pl-k">import</span> time
+   </div>
+   <br/>
+   <p>
+    What happens? Exactly what you expect. It's just like we had data all along.
+   </p>
+   <p>
+    Now, for a word of caution: pickling is not perfect. Pickle files are easily corrupted on accident and on purpose. Pickling may be more secure than using flat text files, but it still can be used to run malicious code. It's also incompatible across versions of Python, so don't expect to distribute pickled objects and expect people to be able to open them. However, it can also be a powerful tool for caching and other common serialization tasks.
+   </p>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#pickling-your-own-objects" id="user-content-pickling-your-own-objects">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Pickling your own Objects
+   </h3>
+   <p>
+    Pickling isn't just for built-in types. It's for any class that follows the pickle protocol. The pickle protocol has four optional methods for Python objects to customize how they act (it's a bit different for C extensions, but that's not in our scope):
+   </p>
+   <ul>
+    <li>
+     <code>
+      __getinitargs__(self)
+     </code>
+     - If you'd like for
+     <code>
+      __init__
+     </code>
+     to be called when your class is unpickled, you can define
+     <code>
+      __getinitargs__
+     </code>
+     , which should return a tuple of the arguments that you'd like to be passed to
+     <code>
+      __init__
+     </code>
+     . Note that this method will only work for old-style classes.
+    </li>
+    <li>
+     <code>
+      __getnewargs__(self)
+     </code>
+     - For new-style classes, you can influence what arguments get passed to
+     <code>
+      __new__
+     </code>
+     upon unpickling. This method should also return a tuple of arguments that will then be passed to
+     <code>
+      __new__
+     </code>
+     .
+    </li>
+    <li>
+     <code>
+      __getstate__(self)
+     </code>
+     - Instead of the object's
+     <code>
+      __dict__
+     </code>
+     attribute being stored, you can return a custom state to be stored when the object is pickled. That state will be used by
+     <code>
+      __setstate__
+     </code>
+     when the object is unpickled.
+    </li>
+    <li>
+     <code>
+      __setstate__(self, state)
+     </code>
+     - When the object is unpickled, if
+     <code>
+      __setstate__
+     </code>
+     is defined the object's state will be passed to it instead of directly applied to the object's
+     <code>
+      __dict__
+     </code>
+     . This goes hand in hand with
+     <code>
+      __getstate__
+     </code>
+     : when both are defined, you can represent the object's pickled state however you want with whatever you want.
+    </li>
+    <li>
+     <code>
+      __reduce__(self)
+     </code>
+     - When defining extension types (i.e., types implemented using Python's C API), you have to tell Python how to pickle them if you want them to pickle them.
+     <code>
+      __reduce__()
+     </code>
+     is called when an object defining it is pickled. It can either return a string representing a global name that Python will look up and pickle, or a tuple. The tuple contains between 2 and 5 elements: a callable object that is called to recreate the object, a tuple of arguments for that callable object, state to be passed to
+     <code>
+      __setstate__
+     </code>
+     (optional), an iterator yielding list items to be pickled (optional), and an iterator yielding dictionary items to be pickled (optional).
+    </li>
+    <li>
+     <code>
+      __reduce_ex__(self)
+     </code>
+     -
+     <code>
+      __reduce_ex__
+     </code>
+     exists for compatibility. If it is defined,
+     <code>
+      __reduce_ex__
+     </code>
+     will be called over
+     <code>
+      __reduce__
+     </code>
+     on pickling.
+     <code>
+      __reduce__
+     </code>
+     can be defined as well for older versions of the pickling API that did not support
+     <code>
+      __reduce_ex__
+     </code>
+     .
+    </li>
+   </ul>
+   <h3>
+    <a aria-hidden="true" class="anchor" href="#an-example-1" id="user-content-an-example-1">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    An Example
+   </h3>
+   <p>
+    Our example is a
+    <code>
+     Slate
+    </code>
+    , which remembers what its values have been and when those values were written to it. However, this particular slate goes blank each time it is pickled: the current value will not be saved.
+   </p>
+   <div class="highlight highlight-source-python">
+    <pre>    <span class="pl-k">import</span> time
 
     <span class="pl-k">class</span> <span class="pl-en">Slate</span>:
         <span class="pl-s"><span class="pl-pds">'''</span>Class to store a string and a changelog, and forget its value when</span>
@@ -2547,479 +2478,463 @@
             <span class="pl-c"><span class="pl-c">#</span> Make self.history = state and last_change and value undefined</span>
             <span class="pl-c1">self</span>.history <span class="pl-k">=</span> state
             <span class="pl-c1">self</span>.value, <span class="pl-c1">self</span>.last_change <span class="pl-k">=</span> <span class="pl-c1">None</span>, <span class="pl-c1">None</span></pre>
-                  </div>
-                  <br>
-                   <h2>
-                    <a aria-hidden="true" class="anchor" href="#conclusion" id="user-content-conclusion">
-                     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                      </path>
-                     </svg>
-                    </a>
-                    Conclusion
-                   </h2>
-                   <p>
-                    The goal of this guide is to bring something to anyone that reads it, regardless of their experience with Python or object-oriented programming. If you're just getting started with Python, you've gained valuable knowledge of the basics of writing feature-rich, elegant, and easy-to-use classes. If you're an intermediate Python programmer, you've probably picked up some slick new concepts and strategies and some good ways to reduce the amount of code written by you and clients. If you're an expert Pythonista, you've been refreshed on some of the stuff you might have forgotten about and maybe picked up a few new tricks along the way. Whatever your experience level, I hope that this trip through Python's special methods has been truly magical (I couldn't resist the final pun).
-                   </p>
-                   <h2>
-                    <a aria-hidden="true" class="anchor" href="#appendix-1-how-to-call-magic-methods" id="user-content-appendix-1-how-to-call-magic-methods">
-                     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                      </path>
-                     </svg>
-                    </a>
-                    Appendix 1: How to Call Magic Methods
-                   </h2>
-                   <p>
-                    Some of the magic methods in Python directly map to built-in functions; in this case, how to invoke them is fairly obvious. However, in other cases, the invocation is far less obvious. This appendix is devoted to exposing non-obvious syntax that leads to magic methods getting called.
-                   </p>
-                   <table>
-                    <thead>
-                     <tr>
-                      <th>
-                       Magic Method
-                      </th>
-                      <th>
-                       When it gets invoked (example)
-                      </th>
-                      <th>
-                       Explanation
-                      </th>
-                     </tr>
-                    </thead>
-                    <tbody>
-                     <tr>
-                      <td>
-                       <code>
-                        __new__(cls [,...])
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        instance = MyClass(arg1, arg2)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        __new__
-                       </code>
-                       is called on instance creation
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __init__(self [,...])
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        instance = MyClass(arg1, arg2)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        __init__
-                       </code>
-                       is called on instance creation
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __cmp__(self, other)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self == other, self &gt; other, etc.
-                       </code>
-                      </td>
-                      <td>
-                       Called for any comparison
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __pos__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        +self
-                       </code>
-                      </td>
-                      <td>
-                       Unary plus sign
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __neg__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        -self
-                       </code>
-                      </td>
-                      <td>
-                       Unary minus sign
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __invert__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        ~self
-                       </code>
-                      </td>
-                      <td>
-                       Bitwise inversion
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __index__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        x[self]
-                       </code>
-                      </td>
-                      <td>
-                       Conversion when object is used as index
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __nonzero__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        bool(self)
-                       </code>
-                      </td>
-                      <td>
-                       Boolean value of the object
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __getattr__(self, name)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self.name # name doesn't exist
-                       </code>
-                      </td>
-                      <td>
-                       Accessing nonexistent attribute
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __setattr__(self, name, val)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self.name = val
-                       </code>
-                      </td>
-                      <td>
-                       Assigning to an attribute
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __delattr__(self, name)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        del self.name
-                       </code>
-                      </td>
-                      <td>
-                       Deleting an attribute
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __getattribute__(self, name)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self.name
-                       </code>
-                      </td>
-                      <td>
-                       Accessing any attribute
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __getitem__(self, key)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self[key]
-                       </code>
-                      </td>
-                      <td>
-                       Accessing an item using an index
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __setitem__(self, key, val)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self[key] = val
-                       </code>
-                      </td>
-                      <td>
-                       Assigning to an item using an index
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __delitem__(self, key)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        del self[key]
-                       </code>
-                      </td>
-                      <td>
-                       Deleting an item using an index
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __iter__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        for x in self
-                       </code>
-                      </td>
-                      <td>
-                       Iteration
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __contains__(self, value)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        value in self, value not in self
-                       </code>
-                      </td>
-                      <td>
-                       Membership tests using
-                       <code>
-                        in
-                       </code>
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __call__(self [,...])
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        self(args)
-                       </code>
-                      </td>
-                      <td>
-                       "Calling" an instance
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __enter__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        with self as x:
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        with
-                       </code>
-                       statement context managers
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __exit__(self, exc, val, trace)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        with self as x:
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        with
-                       </code>
-                       statement context managers
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __getstate__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        pickle.dump(pkl_file, self)
-                       </code>
-                      </td>
-                      <td>
-                       Pickling
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>
-                       <code>
-                        __setstate__(self)
-                       </code>
-                      </td>
-                      <td>
-                       <code>
-                        data = pickle.load(pkl_file)
-                       </code>
-                      </td>
-                      <td>
-                       Pickling
-                      </td>
-                     </tr>
-                    </tbody>
-                   </table>
-                   <p>
-                    Hopefully, this table should have cleared up any questions you might have had about what syntax invokes which magic method.
-                   </p>
-                   <h2>
-                    <a aria-hidden="true" class="anchor" href="#appendix-2-changes-in-python-3" id="user-content-appendix-2-changes-in-python-3">
-                     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-                      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-                      </path>
-                     </svg>
-                    </a>
-                    Appendix 2: Changes in Python 3
-                   </h2>
-                   <p>
-                    Here, we document a few major places where Python 3 differs from 2.x in terms of its object model:
-                   </p>
-                   <ul>
-                    <li>
-                     Since the distinction between string and unicode has been done away with in Python 3,
-                     <code>
-                      __unicode__
-                     </code>
-                     is gone and
-                     <code>
-                      __bytes__
-                     </code>
-                     (which behaves similarly to
-                     <code>
-                      __str__
-                     </code>
-                     and
-                     <code>
-                      __unicode__
-                     </code>
-                     in 2.7) exists for a new built-in for constructing byte arrays.
-                    </li>
-                    <li>
-                     Since division defaults to true division in Python 3,
-                     <code>
-                      __div__
-                     </code>
-                     is gone in Python 3
-                    </li>
-                    <li>
-                     <code>
-                      __coerce__
-                     </code>
-                     is gone due to redundancy with other magic methods and confusing behavior
-                    </li>
-                    <li>
-                     <code>
-                      __cmp__
-                     </code>
-                     is gone due to redundancy with other magic methods
-                    </li>
-                    <li>
-                     <code>
-                      __nonzero__
-                     </code>
-                     has been renamed to
-                     <code>
-                      __bool__
-                     </code>
-                    </li>
-                   </ul>
-                   <p>
-                    <a href="https://bitdeli.com/free" title="Bitdeli Badge">
-                     <img alt="Bitdeli Badge" data-canonical-src="https://d2weczhvl823v0.cloudfront.net/minhhh/magicmethods/trend.png" src="https://camo.githubusercontent.com/cfc702718d96e78f9afef53956bd7fbb03deaabb/68747470733a2f2f64327765637a68766c38323376302e636c6f756466726f6e742e6e65742f6d696e6868682f6d616769636d6574686f64732f7472656e642e706e67" style="max-width:100%;"/>
-                    </a>
-                   </p>
-                  </br>
-                 </br>
-                </br>
-               </br>
-              </br>
-             </br>
-            </br>
-           </br>
-          </br>
-         </br>
-        </br>
-       </br>
-      </br>
-     </br>
-    </br>
-   </br>
+   </div>
+   <br/>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#conclusion" id="user-content-conclusion">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Conclusion
+   </h2>
+   <p>
+    The goal of this guide is to bring something to anyone that reads it, regardless of their experience with Python or object-oriented programming. If you're just getting started with Python, you've gained valuable knowledge of the basics of writing feature-rich, elegant, and easy-to-use classes. If you're an intermediate Python programmer, you've probably picked up some slick new concepts and strategies and some good ways to reduce the amount of code written by you and clients. If you're an expert Pythonista, you've been refreshed on some of the stuff you might have forgotten about and maybe picked up a few new tricks along the way. Whatever your experience level, I hope that this trip through Python's special methods has been truly magical (I couldn't resist the final pun).
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#appendix-1-how-to-call-magic-methods" id="user-content-appendix-1-how-to-call-magic-methods">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Appendix 1: How to Call Magic Methods
+   </h2>
+   <p>
+    Some of the magic methods in Python directly map to built-in functions; in this case, how to invoke them is fairly obvious. However, in other cases, the invocation is far less obvious. This appendix is devoted to exposing non-obvious syntax that leads to magic methods getting called.
+   </p>
+   <table>
+    <thead>
+     <tr>
+      <th>
+       Magic Method
+      </th>
+      <th>
+       When it gets invoked (example)
+      </th>
+      <th>
+       Explanation
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td>
+       <code>
+        __new__(cls [,...])
+       </code>
+      </td>
+      <td>
+       <code>
+        instance = MyClass(arg1, arg2)
+       </code>
+      </td>
+      <td>
+       <code>
+        __new__
+       </code>
+       is called on instance creation
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __init__(self [,...])
+       </code>
+      </td>
+      <td>
+       <code>
+        instance = MyClass(arg1, arg2)
+       </code>
+      </td>
+      <td>
+       <code>
+        __init__
+       </code>
+       is called on instance creation
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __cmp__(self, other)
+       </code>
+      </td>
+      <td>
+       <code>
+        self == other, self &gt; other, etc.
+       </code>
+      </td>
+      <td>
+       Called for any comparison
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __pos__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        +self
+       </code>
+      </td>
+      <td>
+       Unary plus sign
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __neg__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        -self
+       </code>
+      </td>
+      <td>
+       Unary minus sign
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __invert__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        ~self
+       </code>
+      </td>
+      <td>
+       Bitwise inversion
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __index__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        x[self]
+       </code>
+      </td>
+      <td>
+       Conversion when object is used as index
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __nonzero__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        bool(self)
+       </code>
+      </td>
+      <td>
+       Boolean value of the object
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __getattr__(self, name)
+       </code>
+      </td>
+      <td>
+       <code>
+        self.name # name doesn't exist
+       </code>
+      </td>
+      <td>
+       Accessing nonexistent attribute
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __setattr__(self, name, val)
+       </code>
+      </td>
+      <td>
+       <code>
+        self.name = val
+       </code>
+      </td>
+      <td>
+       Assigning to an attribute
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __delattr__(self, name)
+       </code>
+      </td>
+      <td>
+       <code>
+        del self.name
+       </code>
+      </td>
+      <td>
+       Deleting an attribute
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __getattribute__(self, name)
+       </code>
+      </td>
+      <td>
+       <code>
+        self.name
+       </code>
+      </td>
+      <td>
+       Accessing any attribute
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __getitem__(self, key)
+       </code>
+      </td>
+      <td>
+       <code>
+        self[key]
+       </code>
+      </td>
+      <td>
+       Accessing an item using an index
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __setitem__(self, key, val)
+       </code>
+      </td>
+      <td>
+       <code>
+        self[key] = val
+       </code>
+      </td>
+      <td>
+       Assigning to an item using an index
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __delitem__(self, key)
+       </code>
+      </td>
+      <td>
+       <code>
+        del self[key]
+       </code>
+      </td>
+      <td>
+       Deleting an item using an index
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __iter__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        for x in self
+       </code>
+      </td>
+      <td>
+       Iteration
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __contains__(self, value)
+       </code>
+      </td>
+      <td>
+       <code>
+        value in self, value not in self
+       </code>
+      </td>
+      <td>
+       Membership tests using
+       <code>
+        in
+       </code>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __call__(self [,...])
+       </code>
+      </td>
+      <td>
+       <code>
+        self(args)
+       </code>
+      </td>
+      <td>
+       "Calling" an instance
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __enter__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        with self as x:
+       </code>
+      </td>
+      <td>
+       <code>
+        with
+       </code>
+       statement context managers
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __exit__(self, exc, val, trace)
+       </code>
+      </td>
+      <td>
+       <code>
+        with self as x:
+       </code>
+      </td>
+      <td>
+       <code>
+        with
+       </code>
+       statement context managers
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __getstate__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        pickle.dump(pkl_file, self)
+       </code>
+      </td>
+      <td>
+       Pickling
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <code>
+        __setstate__(self)
+       </code>
+      </td>
+      <td>
+       <code>
+        data = pickle.load(pkl_file)
+       </code>
+      </td>
+      <td>
+       Pickling
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p>
+    Hopefully, this table should have cleared up any questions you might have had about what syntax invokes which magic method.
+   </p>
+   <h2>
+    <a aria-hidden="true" class="anchor" href="#appendix-2-changes-in-python-3" id="user-content-appendix-2-changes-in-python-3">
+     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+      </path>
+     </svg>
+    </a>
+    Appendix 2: Changes in Python 3
+   </h2>
+   <p>
+    Here, we document a few major places where Python 3 differs from 2.x in terms of its object model:
+   </p>
+   <ul>
+    <li>
+     Since the distinction between string and unicode has been done away with in Python 3,
+     <code>
+      __unicode__
+     </code>
+     is gone and
+     <code>
+      __bytes__
+     </code>
+     (which behaves similarly to
+     <code>
+      __str__
+     </code>
+     and
+     <code>
+      __unicode__
+     </code>
+     in 2.7) exists for a new built-in for constructing byte arrays.
+    </li>
+    <li>
+     Since division defaults to true division in Python 3,
+     <code>
+      __div__
+     </code>
+     is gone in Python 3
+    </li>
+    <li>
+     <code>
+      __coerce__
+     </code>
+     is gone due to redundancy with other magic methods and confusing behavior
+    </li>
+    <li>
+     <code>
+      __cmp__
+     </code>
+     is gone due to redundancy with other magic methods
+    </li>
+    <li>
+     <code>
+      __nonzero__
+     </code>
+     has been renamed to
+     <code>
+      __bool__
+     </code>
+    </li>
+   </ul>
+   <p>
+    <a href="https://bitdeli.com/free" title="Bitdeli Badge">
+     <img alt="Bitdeli Badge" data-canonical-src="https://d2weczhvl823v0.cloudfront.net/minhhh/magicmethods/trend.png" src="https://camo.githubusercontent.com/cfc702718d96e78f9afef53956bd7fbb03deaabb/68747470733a2f2f64327765637a68766c38323376302e636c6f756466726f6e742e6e65742f6d696e6868682f6d616769636d6574686f64732f7472656e642e706e67" style="max-width:100%;"/>
+    </a>
+   </p>
   </article>
  </div>
 </div>
@@ -3035,477 +2950,13 @@
         </div>
     </div>
 </div></p>
-  </div>
-  
-<div class="article-tag-list">
-<span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/python.html"><i class="fa fa-tag"></i>python</a>&nbsp;
-	<a href="http://minhhh.github.io/tag/magic-method.html"><i class="fa fa-tag"></i>magic method</a>&nbsp;
-</div>  <hr />
-  <div class="well well-sm">  <!-- Social media sharing buttons -->
-
-    <!-- Google+ -->
-    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="g-plusone" data-size="medium"></div>&nbsp;
-
-    <!-- Facebook -->
-    <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods" 
-        data-layout="button_count" 
-        data-action="like" data-show-faces="true" 
-        data-share="true">
-    </div>
-    &nbsp;
-  </div> <!-- /Social media sharing buttons -->
-  <div class="comments">
-	<h2>Comments</h2>
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-				   (function() {
-						var dsq = document.createElement('script');
-						dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = '//minhhh.disqus.com/embed.js';
-						(document.getElementsByTagName('head')[0] ||
-						 document.getElementsByTagName('body')[0]).appendChild(dsq);
-				  })();
-	</script>
-  </div>
-</article>
-        </div><!-- /content -->
-
-        <div class="col-md-3 sidebar-nav" id="sidebar">
-
-<div class="row">
-
-<div class="col-xs-6 col-md-12">
-<h4><i class="fa fa-comment fa-fw fa-lg"></i> Social</h4>
-<ul class="list-unstyled social-links">
-    <li><a href="https://plus.google.com/u/0/104727235342101204530/about/p/pub" target="_blank">
-	  <i class="fa fa-google-plus-square fa-fw fa-lg" title="Google+"></i>
-		Google+
-	</a></li>
-    <li><a href="https://twitter.com/utsace" target="_blank">
-	  <i class="fa fa-twitter-square fa-fw fa-lg" title="Twitter"></i>
-		Twitter
-	</a></li>
-    <li><a href="https://www.facebook.com/minh.ha.hanoi" target="_blank">
-	  <i class="fa fa-facebook-square fa-fw fa-lg" title="Facebook"></i>
-		Facebook
-	</a></li>
-    <li><a href="https://github.com/minhhh" target="_blank">
-	  <i class="fa fa-github-square fa-fw fa-lg" title="GitHub"></i>
-		GitHub
-	</a></li>
-</ul>
-</div>
-
-<div class="col-xs-6 col-md-12">
-<h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
-<ul class="list-unstyled category-links">
-  <li><a href="http://minhhh.github.io/category/android.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Android</a></li>
-  <li><a href="http://minhhh.github.io/category/blog.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Blog</a></li>
-  <li><a href="http://minhhh.github.io/category/deconstructed.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Deconstructed</a></li>
-  <li><a href="http://minhhh.github.io/category/productivity.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Productivity</a></li>
-  <li><a href="http://minhhh.github.io/category/programming.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Programming</a></li>
-  <li><a href="http://minhhh.github.io/category/technology.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Technology</a></li>
-  <li><a href="http://minhhh.github.io/category/unity.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Unity</a></li>
-  <li><a href="http://minhhh.github.io/category/web-development.html" >
-    <i class="fa fa-folder-open fa-fw fa-lg"></i> Web Development</a></li>
-</ul>
-</div>
-
-</div> <!-- /row -->
-
-<h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
-<ul class="list-unstyled category-links">
-  <li><a href=http://getpelican.com/ >
-    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Pelican</a></li>
-  <li><a href=http://python.org/ >
-    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Python.org</a></li>
-</ul>
-
-<h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
-<p class="tag-cloud">
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/pool.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pool
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/memcache.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>memcache
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/magic-method.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>magic method
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assert.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assert
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/clippings.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>clippings
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/dither.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>dither
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/coroutine.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mesh.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/python.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
-    </a>
-</span>
-<span class="tag-2">
-    <a href="http://minhhh.github.io/tag/git.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>git
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/blog.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blog
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unittest.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/uasync.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blender.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blender
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/property.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/fsm.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/ios.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>ios
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/prefab.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
-    </a>
-</span>
-</p>
-
-<h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
-<ul class="list-unstyled">
-    <li><a href="http://minhhh.github.io/feeds/all.atom.xml" 
-		   type="application/atom+xml" rel="alternate">
-		<i class="fa fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
-</ul>
-
-<hr />
-
-        </div><!--/sidebar -->
-      </div><!--/row-->
-    </div><!--/.container /#main-container -->
-
-    <footer id="site-footer">
- 
-      <address id="site-colophon">
-        <p class="text-center text-muted">
-        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
-        &nbsp;&bull;&nbsp; Theme based on
-        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
-           target="_blank">VoidyBootstrap</a> by 
-        <a href="http://www.robertiwancz.com/"
-           target="_blank">RKI</a>  
-        </p>
-      </address><!-- /colophon  -->
-    </footer>
-
-<!-- DISQUS script for displaying comment count -->
-<script type="text/javascript">
-    var disqus_shortname = 'minhhh';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
-    <!-- javascript -->
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-
-
-<!-- Facebook -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- Twitter -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<!-- Google+ -->
-<!-- Synchronous 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
--->
-<!-- Asynchronous -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>  </body>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
 </html>
