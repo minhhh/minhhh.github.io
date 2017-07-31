@@ -17,7 +17,7 @@ See [unity-mecanim](https://github.com/minhhh/unity-mecanim.git) for sample code
 * Animation Parameters are variables that are defined within an Animator Controller that can be accessed and assigned values from scripts. This is how a script can control or affect the flow of the state machine.
 * Parameters can be assigned values from a script using functions in the Animator class: SetFloat, SetInt, SetBool, SetTrigger and ResetTrigger
 * [Mecanim Animation Parameter Types: Boolean vs. Trigger](http://answers.unity3d.com/questions/600268/mecanim-animation-parameter-types-boolean-vs-trigg.html)
-* Parameters can also be controlled animation using Curve and read in script
+* Parameters can also be controlled in animation using Curve and read in script
     * You cannot control an Animation parameter from both Curve and Script, so you have to structure your code correspondingly.
 
 
@@ -80,7 +80,7 @@ See [unity-mecanim](https://github.com/minhhh/unity-mecanim.git) for sample code
 
 * [Animation events not firing](http://answers.unity3d.com/questions/806949/animation-events-not-firing.html) when the event is near the endframe, so either use a third party event dispatcher, or use `StateMachineBehaviour`.
 
-* Use custom class to cache animation event
+* Use custom class to cache animation event  
     * You might catch animation events using a general event handler function such as `OnAnimationEvent (AnimationEvent)`, however this might not be the best solution since you will have to do a switch case in your main logic class. This will make the main logic class (e.g. Enemy, Player) knows too much about the flow to handle animation event. Also you might not be able to reuse common code.
     * A better way is to have a generic custom class to handle animation event, e.g. `AnimatorHandler`. This class will have most common function such as `OnAnimationStart`, `OnAnimationEnd`, `OnAnimationUpdate`. You can pass custom handle functions in as callback if you need to. This class also has common utility function such as getting current state name, check if any animation is playing etc.
 
