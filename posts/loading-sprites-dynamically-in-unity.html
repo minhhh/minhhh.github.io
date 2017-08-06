@@ -8,7 +8,7 @@
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Setup OSX - Ha.Minh's Blog</title>
+    <title>Loading Sprites dynamically in Unity - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -90,254 +90,59 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  Wed 14 October 2015
+  Sun 06 August 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/setup-osx" rel="bookmark"
-     title="Permalink to Setup OSX">
-    Setup OSX
+  <a href="http://minhhh.github.io/posts/loading-sprites-dynamically-in-unity" rel="bookmark"
+     title="Permalink to Loading Sprites dynamically in Unity">
+    Loading Sprites dynamically in Unity
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/technology.html">
-      Technology</a>
+    <a href="http://minhhh.github.io/category/unity.html">
+      Unity</a>
     &nbsp;&nbsp;
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p><div>
-    <style type = "text/css" scoped>
-.git-content div {
-    padding: 0;
-    margin: 0;
-}
+	<p>Loading sprites dynamically from code is one of the most basic tasks that we have to do. However, it seems that there's not a standard way to to this in Unity. This guide will look at several cases of loading sprites dynamically and their solutions</p>
+<p><strong>Loading a separate sprite</strong></p>
+<p>Imagine you have 4 attribute icons: fire, water, earth and wind. You will have to load the correct icon for the correct character. The easiest way to do this is to put 4 icon images: fire.png, water.png, earth.png and wind.png inside a folder in <code>Resources</code>, such as <code>Resources/attribute_icons/</code>. Then loading a sprite is as simple as this:</p>
+<div class="codehilite"><pre><span></span>Sprite sprite = Resources.Load (&quot;attribute_icons/fire&quot;, typeof(Sprite)) as Sprite;
+</pre></div>
 
-.git-content .git-file {
-    border: 1px solid #DEDEDE;
-    margin-bottom: 1em;
-}
 
-.git-content .git-file .git-meta {
-    background-color: #EAEAEA;
-    color: #666666;
-    font-size: 85%;
-    overflow: hidden;
-    padding: 0.5em;
-}
+<p>In reality, we almost never do this. The reason is we need to batch drawcall, so we cannot afford to have separate drawcall for each of these small icon images. But if you put the sprites inside the <code>Resources</code> folder, you cannot pack them with Unity's Sprite Packer. If you put them outside of the <code>Resources</code> folder, you cannot load them dynamically with Resources.Load. This leads to the next solutions.</p>
+<p><strong>Packing spritesheet with external tools</strong></p>
+<p>Unity has a Sprite import mode called <code>Multiple</code>, where you can slice a Sprite atlas or Spritesheet into multiple sprites. The sprites can then be load dynamically like this:</p>
+<div class="codehilite"><pre><span></span>// suppose the texturesheet is in Resources/attributeicons.png
+Sprite[] sprites = Resources.LoadAll &lt;Sprite&gt; (&quot;attributeicons&quot;);
+// Find the correct sprite to use by Sprite.name
+</pre></div>
 
-.git-content .git-file .git-meta a {
-    color: #336699;
-}
 
-.git-content .git-file .git-meta a:visited {
-    color: #773377;
-}
-
-.git-content .git-file {
-    background-color: #F8F8FF;
-    border-bottom: 1px solid #DDDDDD;
-    font-size: 100%;
-    overflow: auto;
-    word-wrap: normal;
-}
-
-.git-content .git-file pre {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-    </style>
-    <div class="git-content">
-        <div class="git-file">
-            <div class="file">
- <div class="readme blob instapaper_body" id="readme">
-  <article class="markdown-body entry-content" itemprop="text">
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    INTRODUCTION
-   </h1>
-   <p>
-    This is the list of some useful tools I used to setup my OSX.
-   </p>
-   <p>
-    For more awesome osx command lines, see
-    <a href="https://github.com/herrbischoff/awesome-osx-command-line">
-     Awesome OS X Command Line
-    </a>
-    .
-   </p>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#setup" id="user-content-setup">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    SETUP
-   </h1>
-   <ul>
-    <li>
-     <a href="http://lifehacker.com/225873/mac-switchers-tip--remap-the-home-and-end-keys">
-      Fix the home and end keys
-     </a>
-    </li>
-    <li>
-     <a href="http://lifehacker.com/5826055/make-your-keyboard-keys-repeat-properly-when-held-down-in-mac-os-x-lion">
-      Make Your Keyboard Keys Repeat Properly
-     </a>
-    </li>
-    <li>
-     <a href="https://support.apple.com/kb/HT3399">
-      Use Fn key normally in Mac
-     </a>
-    </li>
-    <li>
-     <a href="http://macs.about.com/od/OSXLion107/qt/Os-X-Lion-Automatic-Spelling-Correction.htm">
-      Disable automatic spelling
-     </a>
-    </li>
-    <li>
-     <a href="http://www.michael-noll.com/blog/2007/01/04/word-movement-shortcuts-for-iterm-on-mac-os-x/">
-      Word Movement Shortcuts for iTerm
-     </a>
-    </li>
-    <li>
-     <a href="http://www.hackintosh.zone/downloads/download/506-free-ntfs-driver-for-mac-os-x/">
-      Install NTFS driver for macOS
-     </a>
-    </li>
-   </ul>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#osx-shortcuts--keys" id="user-content-osx-shortcuts--keys">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    OSX SHORTCUTS &amp; KEYS
-   </h1>
-   <div class="highlight highlight-source-shell">
-    <pre>    F11             - Show desktop
-    Ctrl left/right - Scroll to the next working desktop
-    Command Space   - Show search
-    Ctrl Up         - Show all programs
-    Ctrl Down       - Show other windows of the same program
-    Ctrl Command F  - Toggle full screen
-    Cmd Option D    - Toggle taskbar
-    Cmd Delete      - Move to trash
-    Cmd K           - Clear terminal screen</pre>
-   </div>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#tools" id="user-content-tools">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    TOOLS
-   </h1>
-   <ul>
-    <li>
-     Testdisk - Disk recovery
-    </li>
-    <li>
-     Blackmagic Disk Speed Test - Disk performance measurement tool.
-    </li>
-    <li>
-     <a href="http://www.macroplant.com/iexplorer/">
-      iexplorer
-     </a>
-     - Transfer file with iPhone easily
-    </li>
-   </ul>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#quicksilver" id="user-content-quicksilver">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    QuickSilver
-   </h2>
-   <ul>
-    <li>
-     Great replacement for spotlight
-    </li>
-   </ul>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#diff-tools" id="user-content-diff-tools">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Diff tools
-   </h2>
-   <ul>
-    <li>
-     <a href="http://scoobygalletas.blogspot.com/2011/09/how-to-install-meld-in-mac-os-x-lion.html">
-      Meld
-     </a>
-    </li>
-   </ul>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#mount-ssh" id="user-content-mount-ssh">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Mount SSH
-   </h2>
-   <p>
-    Install sshfs. Then run
-   </p>
-   <pre><code>    sshfs &lt;username&gt;@&lt;ip&gt;:&lt;folder&gt; /Users/&lt;username&gt;/&lt;folder&gt;
-</code></pre>
-   <br/>
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#mount-ssh-1" id="user-content-mount-ssh-1">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    MOUNT SSH
-   </h1>
-   <p>
-    Install sshfs. Then run
-   </p>
-   <div class="highlight highlight-source-shell">
-    <pre>    sshfs <span class="pl-k">&lt;</span>username<span class="pl-k">&gt;</span>@<span class="pl-k">&lt;</span>ip<span class="pl-k">&gt;</span>:<span class="pl-k">&lt;</span>folder<span class="pl-k">&gt;</span> /Users/<span class="pl-k">&lt;</span>username<span class="pl-k">&gt;</span>/<span class="pl-k">&lt;</span>folder<span class="pl-k">&gt;</span></pre>
-   </div>
-  </article>
- </div>
-</div>
-
-            <div class="git-meta">
-                
-                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
-                
-                <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/mac.md">view original</a></span>
-                <span style="float: right; margin-right: 8px;">
-                    <a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/mac.md">mac.md</a></span>
-            </div>
-        </div>
-    </div>
-</div></p>
+<p>Obviously, you would not want to create the Sprite atlas and slice sprites by hand in a real game (not a tutorial). Therefore, you will use an external tools to create the Sprite atlas. There are several solutions:</p>
+<ol>
+<li>Write your own texture packer (or use an existing one you can easily find in github). Remember to export the UVs information to text, or json and copy it to Unity. In Unity, you have to write an Editor extension to slice the Sprite atlas using the Uvs information in the text/json file. I have a tool and Unity code for this but I cannot publish them due to copyright. They're super easy to create though.</li>
+<li>Use a full solution inside Unity. You will have the original textures in Unity, then the Sprite atlas will be created inside Unity easily by dragging, dropping sprites to the tools, or some other similar method. You can try the asset <a href="https://www.assetstore.unity3d.com/en/#!/content/23276">SimpleSpritePacker</a>.</li>
+<li>Use <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a>. This is the best solution since it creates much more optimized sprites. But it costs 40 dollars.</li>
+</ol>
+<p><strong>Packing sprites using Unity Sprite Packer</strong></p>
+<p>One big disadvantage with using  external tools is that you cannot move sprites easily. If you move a sprite from one path to another, you will have to update the path in all objects that use that sprite. Using Unity sprite packer, you can do it like so:</p>
+<ol>
+<li>Mark a Sprite with a packing tag</li>
+<li>Use the sprite in a GameObject or Prefab freely</li>
+<li>A spritesheet will be created by Unity automatically. The sprite will be loaded automatically from that sprite sheet.</li>
+</ol>
+<p>So this is perfect, but you cannot load sprite dynamically anymore? There're 2 solution for this problem.</p>
+<p>First, you can add all the needed sprites to whatever objects using them, then enable/disable the correct ones by code. This solution works for small projects but it does not scale.</p>
+<p>The second solution is to use a tool that automatically load all the sprites into a prefab that can be loaded dynamically in runtime. A sample of this solution is https://github.com/minhhh/UBootstrap.SpriteCollection</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="http://minhhh.github.io/tag/mac.html"><i class="fa fa-tag"></i>mac</a>&nbsp;
-	<a href="http://minhhh.github.io/tag/osx.html"><i class="fa fa-tag"></i>osx</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
 
@@ -348,7 +153,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="http://minhhh.github.io/posts/setup-osx" 
+        data-href="http://minhhh.github.io/posts/loading-sprites-dynamically-in-unity" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
