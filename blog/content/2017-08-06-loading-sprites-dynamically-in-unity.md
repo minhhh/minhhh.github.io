@@ -46,4 +46,7 @@ First, you can add all the needed sprites to whatever objects using them, then e
 
 The second solution is to use a tool that automatically load all the sprites into a prefab that can be loaded dynamically in runtime. A sample of this solution is https://github.com/minhhh/UBootstrap.SpriteCollection
 
+![Spritecollection example](https://raw.githubusercontent.com/minhhh/UBootstrap.SpriteCollection/master/imgs/img1.png)
+
+
 
