@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with fsm" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:fsm - Ha.Minh's Blog</title>
+    <title>Loading Sprites dynamically in Unity - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,19 +87,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">fsm</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Wed 28 December 2016
+  Sun 06 August 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/finite-state-machine-for-unity" rel="bookmark"
-     title="Permalink to Finite state machine for Unity">
-    Finite state machine for Unity
+  <a href="http://minhhh.github.io/posts/loading-sprites-dynamically-in-unity" rel="bookmark"
+     title="Permalink to Loading Sprites dynamically in Unity">
+    Loading Sprites dynamically in Unity
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -109,18 +104,77 @@
       Unity</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>Finite State Machine (FSM) is an important technique in game programming. Most games that have some sort of battle will have to design an FSM for its entities. FSM can be applied in UI as well. For example, instead of using flags to enable/disable certain UI elements, we can ...</p>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/finite-state-machine-for-unity">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>Loading sprites dynamically from code is one of the most basic tasks that we have to do. However, it seems that there's not a standard way to to this in Unity. This guide will look at several cases of loading sprites dynamically and their solutions</p>
+<p><strong>Loading a separate sprite</strong></p>
+<p>Imagine you have 4 attribute icons: fire, water, earth and wind. You will have to load the correct icon for the correct character. The easiest way to do this is to put 4 icon images: fire.png, water.png, earth.png and wind.png inside a folder in <code>Resources</code>, such as <code>Resources/attribute_icons/</code>. Then loading a sprite is as simple as this:</p>
+<div class="codehilite"><pre><span></span>Sprite sprite = Resources.Load (&quot;attribute_icons/fire&quot;, typeof(Sprite)) as Sprite;
+</pre></div>
 
-<nav class="index-pager">
 
-</nav> <!-- /index-pager -->
+<p>In reality, we almost never do this. The reason is we need to batch drawcall, so we cannot afford to have separate drawcall for each of these small icon images. But if you put the sprites inside the <code>Resources</code> folder, you cannot pack them with Unity's Sprite Packer. If you put them outside of the <code>Resources</code> folder, you cannot load them dynamically with Resources.Load. This leads to the next solutions.</p>
+<p><strong>Packing spritesheet with external tools</strong></p>
+<p>Unity has a Sprite import mode called <code>Multiple</code>, where you can slice a Sprite atlas or Spritesheet into multiple sprites. The sprites can then be load dynamically like this:</p>
+<div class="codehilite"><pre><span></span>// suppose the texturesheet is in Resources/attributeicons.png
+Sprite[] sprites = Resources.LoadAll &lt;Sprite&gt; (&quot;attributeicons&quot;);
+// Find the correct sprite to use by Sprite.name
+</pre></div>
+
+
+<p>Obviously, you would not want to create the Sprite atlas and slice sprites by hand in a real game (not a tutorial). Therefore, you will use an external tools to create the Sprite atlas. There are several solutions:</p>
+<ol>
+<li>Write your own texture packer (or use an existing one you can easily find in github). Remember to export the UVs information to text, or json and copy it to Unity. In Unity, you have to write an Editor extension to slice the Sprite atlas using the Uvs information in the text/json file. I have a tool and Unity code for this but I cannot publish them due to copyright. They're super easy to create though.</li>
+<li>Use a full solution inside Unity. You will have the original textures in Unity, then the Sprite atlas will be created inside Unity easily by dragging, dropping sprites to the tools, or some other similar method. You can try the asset <a href="https://www.assetstore.unity3d.com/en/#!/content/23276">SimpleSpritePacker</a>.</li>
+<li>Use <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a>. This is the best solution since it creates much more optimized sprites. But it costs 40 dollars.</li>
+</ol>
+<p><strong>Packing sprites using Unity Sprite Packer</strong></p>
+<p>One big disadvantage with using  external tools is that you cannot move sprites easily. If you move a sprite from one path to another, you will have to update the path in all objects that use that sprite. Using Unity sprite packer, you can do it like so:</p>
+<ol>
+<li>Mark a Sprite with a packing tag</li>
+<li>Use the sprite in a GameObject or Prefab freely</li>
+<li>A spritesheet will be created by Unity automatically. The sprite will be loaded automatically from that sprite sheet.</li>
+</ol>
+<p>So this is perfect, but you cannot load sprite dynamically anymore? There're 2 solution for this problem.</p>
+<p>First, you can add all the needed sprites to whatever objects using them, then enable/disable the correct ones by code. This solution works for small projects but it does not scale.</p>
+<p>The second solution is to use a tool that automatically load all the sprites into a prefab that can be loaded dynamically in runtime. A sample of this solution is https://github.com/minhhh/UBootstrap.SpriteCollection</p>
+<p><img alt="Spritecollection example" src="https://raw.githubusercontent.com/minhhh/UBootstrap.SpriteCollection/master/imgs/img1.png" /></p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/loading-sprites-dynamically-in-unity" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -531,5 +585,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
