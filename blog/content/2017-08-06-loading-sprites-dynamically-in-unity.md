@@ -6,7 +6,7 @@ Tags: unity
 
 Loading sprites dynamically from code is one of the most basic tasks that we have to do. However, it seems that there's not a standard way to to this in Unity. This guide will look at several cases of loading sprites dynamically and their solutions
 
-**Loading a separate sprite**
+**1. Loading a separate sprite**
 
 Imagine you have 4 attribute icons: fire, water, earth and wind. You will have to load the correct icon for the correct character. The easiest way to do this is to put 4 icon images: fire.png, water.png, earth.png and wind.png inside a folder in `Resources`, such as `Resources/attribute_icons/`. Then loading a sprite is as simple as this:
 
@@ -16,7 +16,7 @@ Sprite sprite = Resources.Load ("attribute_icons/fire", typeof(Sprite)) as Sprit
 
 In reality, we almost never do this. The reason is we need to batch drawcall, so we cannot afford to have separate drawcall for each of these small icon images. But if you put the sprites inside the `Resources` folder, you cannot pack them with Unity's Sprite Packer. If you put them outside of the `Resources` folder, you cannot load them dynamically with Resources.Load. This leads to the next solutions.
 
-**Packing spritesheet with external tools**
+**2. Packing spritesheet with external tools**
 
 Unity has a Sprite import mode called `Multiple`, where you can slice a Sprite atlas or Spritesheet into multiple sprites. The sprites can then be load dynamically like this:
 
@@ -32,7 +32,7 @@ Obviously, you would not want to create the Sprite atlas and slice sprites by ha
 2. Use a full solution inside Unity. You will have the original textures in Unity, then the Sprite atlas will be created inside Unity easily by dragging, dropping sprites to the tools, or some other similar method. You can try the asset [SimpleSpritePacker](https://www.assetstore.unity3d.com/en/#!/content/23276).
 3. Use [TexturePacker](https://www.codeandweb.com/texturepacker). This is the best solution since it creates much more optimized sprites. But it costs 40 dollars.
 
-**Packing sprites using Unity Sprite Packer**
+**3. Packing sprites using Unity Sprite Packer**
 
 One big disadvantage with using  external tools is that you cannot move sprites easily. If you move a sprite from one path to another, you will have to update the path in all objects that use that sprite. Using Unity sprite packer, you can do it like so:
 
@@ -48,5 +48,6 @@ The second solution is to use a tool that automatically load all the sprites int
 
 ![Spritecollection example](https://raw.githubusercontent.com/minhhh/UBootstrap.SpriteCollection/master/imgs/img1.png)
 
+Note that sometimes this option is not possible. For instance, you have to use a special material and shader, then the material might not work with Unity Sprite Packer. In one project that I worked on, we have custom SplitAlpha shaders that do not work with Unity Sprite Packer and SpriteRenderer. In those cases, you have to use solution 2.
 
 
