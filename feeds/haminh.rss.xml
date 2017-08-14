@@ -30,7 +30,8 @@ Sprite[] sprites = Resources.LoadAll &amp;lt;Sprite&amp;gt; (&amp;quot;attribute
 &lt;/ol&gt;
 &lt;p&gt;So this is perfect, but you cannot load sprite dynamically anymore? There're 2 solution for this problem.&lt;/p&gt;
 &lt;p&gt;First, you can add all the needed sprites to whatever objects using them, then enable/disable the correct ones by code. This solution works for small projects but it does not scale.&lt;/p&gt;
-&lt;p&gt;The second solution is to use a tool that automatically load all the sprites into a prefab that can be loaded dynamically in runtime. A sample of this solution is https://github.com/minhhh/UBootstrap.SpriteCollection&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 06 Aug 2017 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-08-06:posts/loading-sprites-dynamically-in-unity</guid><category>unity</category></item><item><title>Unity Asset Reference Finder and Missing Script Finder</title><link>http://minhhh.github.io/posts/unity-asset-reference-finder-and-missing-script-finder</link><description>&lt;p&gt;When using Unity, you often have to check which GameObject or Prefabs are using a certain image or other types of assets. There's a convenient tool for you to check which objects are using a certain asset: &lt;a href="https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/AssetReferencerFinder.cs"&gt;AssetReferenceFinder&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The second solution is to use a tool that automatically load all the sprites into a prefab that can be loaded dynamically in runtime. A sample of this solution is https://github.com/minhhh/UBootstrap.SpriteCollection&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Spritecollection example" src="https://raw.githubusercontent.com/minhhh/UBootstrap.SpriteCollection/master/imgs/img1.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Sun, 06 Aug 2017 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-08-06:posts/loading-sprites-dynamically-in-unity</guid><category>unity</category></item><item><title>Unity Asset Reference Finder and Missing Script Finder</title><link>http://minhhh.github.io/posts/unity-asset-reference-finder-and-missing-script-finder</link><description>&lt;p&gt;When using Unity, you often have to check which GameObject or Prefabs are using a certain image or other types of assets. There's a convenient tool for you to check which objects are using a certain asset: &lt;a href="https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/AssetReferencerFinder.cs"&gt;AssetReferenceFinder&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Another tool called &lt;a href="https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/MissingScriptFinder.cs"&gt;MissingScriptFinder&lt;/a&gt; helps you find missing scripts in scene due to refactoring&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ha.Minh</dc:creator><pubDate>Mon, 10 Jul 2017 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:minhhh.github.io,2017-07-10:posts/unity-asset-reference-finder-and-missing-script-finder</guid><category>unity</category></item><item><title>Unity Prefab Best Practices</title><link>http://minhhh.github.io/posts/unity-prefab-best-practices</link><description>&lt;p&gt;&lt;strong&gt;Link prefabs to prefabs; do not link instances to instances&lt;/strong&gt; This is from &lt;a href="http://devmag.org.za/2012/07/12/50-tips-for-working-with-unity-best-practices/"&gt;50 Tips for Working with Unity&lt;/a&gt;
 &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Use GameObject.Find to establish links between instances&lt;/strong&gt; if you have to. It's best to not having to establish links between instances and use prebabs instead. &lt;strong&gt;Don't&lt;/strong&gt; link instance to instance like this article suggests (https://akbiggs.silvrback.com/please-stop-using-gameobject-find)
@@ -1763,6 +1764,37 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
     &lt;/td&gt;
    &lt;/tr&gt;
   &lt;/table&gt;
+  &lt;div aria-hidden="true" class="BlobToolbar position-absolute js-file-line-actions dropdown js-menu-container js-select-menu d-none"&gt;
+   &lt;button aria-controls="inline-file-actions" aria-expanded="false" aria-haspopup="true" aria-label="Inline file action toolbar" class="btn-octicon ml-0 px-2 p-0 bg-white border border-gray-dark rounded-1 dropdown-toggle js-menu-target" id="js-file-line-action-button" type="button"&gt;
+    &lt;svg aria-hidden="true" class="octicon" height="16" version="1.1" viewbox="0 0 13 4" width="14"&gt;
+     &lt;g fill-rule="evenodd" stroke="none" stroke-width="1"&gt;
+      &lt;g transform="translate(-1.000000, -6.000000)"&gt;
+       &lt;path d="M2.5,9.5 C1.67157288,9.5 1,8.82842712 1,8 C1,7.17157288 1.67157288,6.5 2.5,6.5 C3.32842712,6.5 4,7.17157288 4,8 C4,8.82842712 3.32842712,9.5 2.5,9.5 Z M7.5,9.5 C6.67157288,9.5 6,8.82842712 6,8 C6,7.17157288 6.67157288,6.5 7.5,6.5 C8.32842712,6.5 9,7.17157288 9,8 C9,8.82842712 8.32842712,9.5 7.5,9.5 Z M12.5,9.5 C11.6715729,9.5 11,8.82842712 11,8 C11,7.17157288 11.6715729,6.5 12.5,6.5 C13.3284271,6.5 14,7.17157288 14,8 C14,8.82842712 13.3284271,9.5 12.5,9.5 Z"&gt;
+       &lt;/path&gt;
+      &lt;/g&gt;
+     &lt;/g&gt;
+    &lt;/svg&gt;
+   &lt;/button&gt;
+   &lt;div class="dropdown-menu-content js-menu-content" id="inline-file-actions"&gt;
+    &lt;ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2"&gt;
+     &lt;li&gt;
+      &lt;a class="js-zeroclipboard dropdown-item" data-original-text="Copy lines" id="js-copy-lines" style="cursor:pointer;"&gt;
+       Copy lines
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;a class="js-zeroclipboard dropdown-item" data-original-text="Copy permalink" id="js-copy-permalink" style="cursor:pointer;"&gt;
+       Copy permalink
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;a class="dropdown-item" href="/minhhh/dev-tools/issues/new" id="js-new-issue"&gt;
+       Open new issue
+      &lt;/a&gt;
+     &lt;/li&gt;
+    &lt;/ul&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 
