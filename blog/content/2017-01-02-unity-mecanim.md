@@ -80,7 +80,7 @@ See [unity-mecanim](https://github.com/minhhh/unity-mecanim.git) for sample code
 
 * [Animation events not firing](http://answers.unity3d.com/questions/806949/animation-events-not-firing.html) when the event is near the endframe, so either use a third party event dispatcher, or use `StateMachineBehaviour`.
 
-* Use custom class to cache animation event  
+* Use custom class to cache animation event
     * You might catch animation events using a general event handler function such as `OnAnimationEvent (AnimationEvent)`, however this might not be the best solution since you will have to do a switch case in your main logic class. This will make the main logic class (e.g. Enemy, Player) knows too much about the flow to handle animation event. Also you might not be able to reuse common code.
     * A better way is to have a generic custom class to handle animation event, e.g. `AnimatorHandler`. This class will have most common function such as `OnAnimationStart`, `OnAnimationEnd`, `OnAnimationUpdate`. You can pass custom handle functions in as callback if you need to. This class also has common utility function such as getting current state name, check if any animation is playing etc.
 
@@ -92,6 +92,7 @@ See [unity-mecanim](https://github.com/minhhh/unity-mecanim.git) for sample code
 * Use int parameter instead of boolean or trigger. This way you can use AnyState to transition using condition such as `skill=1`, then when entering the mecanim state we set it to another number immediately [Applied Mecanim : Character Animation and Combat State Machines](https://www.youtube.com/watch?v=Is9C4i4XyXk)
 * Use substate to simplify your state machine. However, becareful when constructing AnyState transition to deeper substate, since AnyState is global. In this way, we can ignore the immediate substate and only care about the final subtate. We use the most specific condition, such as `skill=1 and subskill=2` to trigger the final substate from AnyState. This way we don't have to configure transition to immediate substate and only care about the final state
 * Use SMB: [Applied Mecanim : Character Animation and Combat State Machines](https://www.youtube.com/watch?v=Is9C4i4XyXk)
+    * `SMB` makes sure that `OnStateMachineExit` is called when exiting a state. Putting a animation event at the end of an animation cannot ensure that for 2 reasons: The animation might be forced to switch in the middle or the animation event might not fire because the animation is played too quickly
 * [Running an animation completely before transitioning back](http://answers.unity3d.com/questions/685968/running-an-animation-completely-before-transitioni.html)
     * Make sure Exit time is 1.00, with FixedDuration unchecked.
 
