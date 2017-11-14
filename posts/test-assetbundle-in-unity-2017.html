@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with checklist" />
+    <meta name="description" content="" />
     <meta name="author" content="Ha.Minh" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:checklist - Ha.Minh's Blog</title>
+    <title>Test AssetBundle in Unity 2017 - Ha.Minh's Blog</title>
 
    
         <link rel="stylesheet"
@@ -87,53 +87,90 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://minhhh.github.io/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">checklist</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  Mon 10 October 2016
+  Tue 14 November 2017
 </abbr> <h1>
-  <a href="http://minhhh.github.io/posts/the-power-of-checklist" rel="bookmark"
-     title="Permalink to The power of checklist">
-    The power of checklist
+  <a href="http://minhhh.github.io/posts/test-assetbundle-in-unity-2017" rel="bookmark"
+     title="Permalink to Test AssetBundle in Unity 2017">
+    Test AssetBundle in Unity 2017
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://minhhh.github.io/author/haminh.html">Ha.Minh</a>
     in 
-    <a href="http://minhhh.github.io/category/productivity.html">
-      Productivity</a>
+    <a href="http://minhhh.github.io/category/unity.html">
+      Unity</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<h2>Why</h2>
-<ul>
-<li>The world has become more complex</li>
-<li>Our brain has not changed much</li>
-</ul>
-<h2>Examples</h2>
-<ul>
-<li>Checklists in aviation help alleviate accidents</li>
-<li>Checklists in construction makes the failure list very low</li>
-</ul>
-<h2>Benefits</h2>
-<ul>
-<li><strong>Checklists verify that the necessary minimum gets done</strong> Because sometimes the most important stuff is the simple ones.</li>
-<li><strong>Checklists free ...</strong></li></ul>
-		<p class="content-emphasis"><a href="http://minhhh.github.io/posts/the-power-of-checklist">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>With Unity 2017, we can use 2 tools to build Asset Bundle: <a href="https://github.com/Unity-Technologies/AssetBundles-Browser">AssetBundles-Browser</a> and <a href="https://github.com/unity3d-jp/AssetGraph">AssetGraph</a>. I've created a test project <a href="https://github.com/minhhh/unity-test2017-assetbundle">here</a></p>
+<h2>General flow</h2>
+<ol>
+<li>Setup <code>Asset Bundle Graph</code> to build AssetBundles</li>
+<li>Check AssetBundles with AssetBundleBrowser</li>
+</ol>
+<p><strong>Setup Asset Bundle Graph</strong></p>
+<p>The most basic setup consists of 4 nodes:</p>
+<ol>
+<li>Load From Directory</li>
+<li>Group By File Path</li>
+<li>Configure Bundle From Group</li>
+<li>Build Asset Bundles</li>
+</ol>
+<p>In step 1, we create a folder that represents all resources related to an entity in our system, this could be a character or an enemy NPC. In step 2 we want to create one AssetBundle for each of the sub-folders in the parent folder. Each AssetBundle represents an aspect of the entity, such as by resource types: textures, materials, animations, or by enemy types: fast, slow. Step 3 applies naming convention to the AssetBundle's name. Step 4 is obvious, building the final asset bundles.</p>
+<p>There are 2 examples of Asset Bundle Graph (ABG) in <code>Assets/Tests</code>: <code>ABG_with_regex</code> and <code>ABG_with_wildcard</code>.</p>
+<p>In the <code>ABG_with_regex</code> example, we used the pattern <code>/Missile\/(.*)/</code>. There are several issues with this approach:</p>
+<ol>
+<li>It's not real regex since we cannot use <code>(.+)</code> and we are forced to use <code>(.*)</code>.</li>
+<li>It creates group for sub-sub-folder. For example, it creates a group named <code>Object/Materials</code> instead of just putting it inside group <code>Object</code></li>
+<li>The main blocker issue is the error <code>Moving file failed</code> when building AssetBundles</li>
+</ol>
+<p>In the <code>ABG_with_wildcard</code> example, the group is created correctly for each of the sub-folders. There is still some issues:</p>
+<ol>
+<li>We cannot have <code>.</code> in the group name because if we do then the part after <code>.</code> will be considered variant.</li>
+<li>We cannot have variants of sub-folder, we have to use the folder name itself as variant</li>
+</ol>
+<p>This is just a rough test and obviously we require much more for an usable workflow.</p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="http://minhhh.github.io/tag/unity.html"><i class="fa fa-tag"></i>unity</a>&nbsp;
+	<a href="http://minhhh.github.io/tag/assetbundle.html"><i class="fa fa-tag"></i>assetbundle</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
 
-<nav class="index-pager">
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
 
-</nav> <!-- /index-pager -->
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="http://minhhh.github.io/posts/test-assetbundle-in-unity-2017" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -544,5 +581,30 @@
             crossorigin="anonymous"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>

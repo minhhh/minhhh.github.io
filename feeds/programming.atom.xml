@@ -256,13 +256,9 @@ We will use a simple script below to help us install AStyle on Mac OSX. Installa
   &lt;/table&gt;
   &lt;div aria-hidden="true" class="BlobToolbar position-absolute js-file-line-actions dropdown js-menu-container js-select-menu d-none"&gt;
    &lt;button aria-controls="inline-file-actions" aria-expanded="false" aria-haspopup="true" aria-label="Inline file action toolbar" class="btn-octicon ml-0 px-2 p-0 bg-white border border-gray-dark rounded-1 dropdown-toggle js-menu-target" id="js-file-line-action-button" type="button"&gt;
-    &lt;svg aria-hidden="true" class="octicon" height="16" version="1.1" viewbox="0 0 13 4" width="14"&gt;
-     &lt;g fill-rule="evenodd" stroke="none" stroke-width="1"&gt;
-      &lt;g transform="translate(-1.000000, -6.000000)"&gt;
-       &lt;path d="M2.5,9.5 C1.67157288,9.5 1,8.82842712 1,8 C1,7.17157288 1.67157288,6.5 2.5,6.5 C3.32842712,6.5 4,7.17157288 4,8 C4,8.82842712 3.32842712,9.5 2.5,9.5 Z M7.5,9.5 C6.67157288,9.5 6,8.82842712 6,8 C6,7.17157288 6.67157288,6.5 7.5,6.5 C8.32842712,6.5 9,7.17157288 9,8 C9,8.82842712 8.32842712,9.5 7.5,9.5 Z M12.5,9.5 C11.6715729,9.5 11,8.82842712 11,8 C11,7.17157288 11.6715729,6.5 12.5,6.5 C13.3284271,6.5 14,7.17157288 14,8 C14,8.82842712 13.3284271,9.5 12.5,9.5 Z"&gt;
-       &lt;/path&gt;
-      &lt;/g&gt;
-     &lt;/g&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-kebab-horizontal" height="16" version="1.1" viewbox="0 0 13 16" width="13"&gt;
+     &lt;path d="M1.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
     &lt;/svg&gt;
    &lt;/button&gt;
    &lt;div class="dropdown-menu-content js-menu-content" id="inline-file-actions"&gt;
