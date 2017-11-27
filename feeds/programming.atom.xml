@@ -562,7 +562,7 @@ format:
    &lt;/h2&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://deice.daug.net/netcat_speed.html"&gt;
+     &lt;a href="http://deice.daug.net/netcat_speed.html" rel="nofollow"&gt;
       Using netcat to test network speed
      &lt;/a&gt;
     &lt;/li&gt;
@@ -578,17 +578,17 @@ format:
    &lt;/h1&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://www.thegeekstuff.com/2012/04/nc-command-examples/"&gt;
+     &lt;a href="http://www.thegeekstuff.com/2012/04/nc-command-examples/" rel="nofollow"&gt;
       8 Practical Linux Netcat NC Command Examples
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://xmodulo.com/useful-netcat-examples-linux.html"&gt;
+     &lt;a href="http://xmodulo.com/useful-netcat-examples-linux.html" rel="nofollow"&gt;
       Useful netcat examples on Linux
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://www.admin-magazine.com/Articles/Netcat-The-Admin-s-Best-Friend"&gt;
+     &lt;a href="http://www.admin-magazine.com/Articles/Netcat-The-Admin-s-Best-Friend" rel="nofollow"&gt;
       Netcat – The Admin’s Best Friend
      &lt;/a&gt;
     &lt;/li&gt;
@@ -684,12 +684,12 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://tldp.org/LDP/abs/html/"&gt;
+     &lt;a href="http://tldp.org/LDP/abs/html/" rel="nofollow"&gt;
       Advanced Bash Scripting Guide
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="https://code.google.com/p/bashscripts/downloads/list"&gt;
+     &lt;a href="https://code.google.com/p/bashscripts/downloads/list" rel="nofollow"&gt;
       Sample Bash files
      &lt;/a&gt;
     &lt;/li&gt;
@@ -715,7 +715,7 @@ format:
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="https://www.npmjs.org/package/grunt-lint-bash"&gt;
+     &lt;a href="https://www.npmjs.org/package/grunt-lint-bash" rel="nofollow"&gt;
       Grunt Lint Bash
      &lt;/a&gt;
     &lt;/li&gt;
@@ -725,7 +725,7 @@ format:
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://manpages.ubuntu.com/manpages/natty/man1/checkbashisms.1.html"&gt;
+     &lt;a href="http://manpages.ubuntu.com/manpages/natty/man1/checkbashisms.1.html" rel="nofollow"&gt;
       checkbashisms
      &lt;/a&gt;
     &lt;/li&gt;
@@ -746,7 +746,7 @@ format:
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="https://code.google.com/p/shunit2/"&gt;
+     &lt;a href="https://code.google.com/p/shunit2/" rel="nofollow"&gt;
       shunit2
      &lt;/a&gt;
     &lt;/li&gt;
@@ -783,12 +783,12 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_03.html"&gt;
+     &lt;a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_03.html" rel="nofollow"&gt;
       Debugging Bash
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://bashdb.sourceforge.net/bashdb.html"&gt;
+     &lt;a href="http://bashdb.sourceforge.net/bashdb.html" rel="nofollow"&gt;
       bashdb
      &lt;/a&gt;
     &lt;/li&gt;
@@ -871,7 +871,7 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://www.thegeekstuff.com/2011/07/bash-for-loop-examples/"&gt;
+     &lt;a href="http://www.thegeekstuff.com/2011/07/bash-for-loop-examples/" rel="nofollow"&gt;
       Bash for loop example
      &lt;/a&gt;
     &lt;/li&gt;
@@ -1004,7 +1004,7 @@ format:
    &lt;/p&gt;
    &lt;p&gt;
     A PDF version of this guide can be obtained from
-    &lt;a href="http://www.rafekettler.com/magicmethods.pdf"&gt;
+    &lt;a href="http://www.rafekettler.com/magicmethods.pdf" rel="nofollow"&gt;
      my site
     &lt;/a&gt;
     or
@@ -3012,7 +3012,7 @@ format:
    &lt;/h2&gt;
    &lt;p&gt;
     See
-    &lt;a href="http://docs.python.org/2/library/abc.html"&gt;
+    &lt;a href="http://docs.python.org/2/library/abc.html" rel="nofollow"&gt;
      http://docs.python.org/2/library/abc.html
     &lt;/a&gt;
     .
@@ -3825,7 +3825,7 @@ format:
     &lt;/li&gt;
    &lt;/ul&gt;
    &lt;p&gt;
-    &lt;a href="https://bitdeli.com/free" title="Bitdeli Badge"&gt;
+    &lt;a href="https://bitdeli.com/free" rel="nofollow" title="Bitdeli Badge"&gt;
      &lt;img alt="Bitdeli Badge" data-canonical-src="https://d2weczhvl823v0.cloudfront.net/minhhh/magicmethods/trend.png" src="https://camo.githubusercontent.com/cfc702718d96e78f9afef53956bd7fbb03deaabb/68747470733a2f2f64327765637a68766c38323376302e636c6f756466726f6e742e6e65742f6d696e6868682f6d616769636d6574686f64732f7472656e642e706e67" style="max-width:100%;"/&gt;
     &lt;/a&gt;
    &lt;/p&gt;
@@ -4805,13 +4805,13 @@ format:
    &lt;/h1&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://www.gnu.org/software/gawk/manual/gawk.pdf"&gt;
+     &lt;a href="http://www.gnu.org/software/gawk/manual/gawk.pdf" rel="nofollow"&gt;
       Gwak Effective awk programming
      &lt;/a&gt;
      - Free book, great for understanding details about awk and gawk programming.
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://gregable.com/2010/09/why-you-should-know-just-little-awk.html"&gt;
+     &lt;a href="http://gregable.com/2010/09/why-you-should-know-just-little-awk.html" rel="nofollow"&gt;
       Why you should learn just a little Awk - An Awk Tutorial by Example
      &lt;/a&gt;
     &lt;/li&gt;
@@ -4827,12 +4827,12 @@ format:
    &lt;/h1&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/"&gt;
+     &lt;a href="http://www.differencebetween.net/technology/software-technology/difference-between-gawk-and-awk/" rel="nofollow"&gt;
       Differences between different versions of awk
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/"&gt;
+     &lt;a href="http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/" rel="nofollow"&gt;
       http://www.thegeekstuff.com/2011/06/awk-nawk-gawk/
      &lt;/a&gt;
      .
@@ -5209,7 +5209,7 @@ format:
    &lt;/p&gt;
    &lt;p&gt;
     Let's have a look at
-    &lt;a href="https://hg.python.org/cpython/file/8e838598eed1/Lib/functools.py"&gt;
+    &lt;a href="https://hg.python.org/cpython/file/8e838598eed1/Lib/functools.py" rel="nofollow"&gt;
      functool.total_ordering
     &lt;/a&gt;
     . This decorator makes it so that you only have to define one of the four functions
@@ -5308,7 +5308,7 @@ format:
    &lt;/h1&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="https://wiki.python.org/moin/PythonDecoratorLibrary" title="Python Decorator Library"&gt;
+     &lt;a href="https://wiki.python.org/moin/PythonDecoratorLibrary" rel="nofollow" title="Python Decorator Library"&gt;
       Python Decorator Library
      &lt;/a&gt;
     &lt;/li&gt;
@@ -5386,7 +5386,7 @@ format:
    &lt;/h1&gt;
    &lt;p&gt;
     If you follow
-    &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
+    &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/" rel="nofollow"&gt;
      A successful Git branching model
     &lt;/a&gt;
     , you will have to merge feature branches into develop from time to time. To make a beautiful linear tree in the develop branch, you would rebase instead of just merging. The following guide will outline the rebase process from beginning to end.
@@ -5662,12 +5662,12 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://git-scm.com/book"&gt;
+     &lt;a href="http://git-scm.com/book" rel="nofollow"&gt;
       Pro Git
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://serverfault.com/questions/194567/how-to-i-tell-git-for-windows-where-to-find-my-private-rsa-key"&gt;
+     &lt;a href="http://serverfault.com/questions/194567/how-to-i-tell-git-for-windows-where-to-find-my-private-rsa-key" rel="nofollow"&gt;
       Set tortoisegit with SSH private key
      &lt;/a&gt;
     &lt;/li&gt;
@@ -5683,7 +5683,7 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;
+     &lt;a href="http://nvie.com/posts/a-successful-git-branching-model/" rel="nofollow"&gt;
       Successful git branching model
      &lt;/a&gt;
     &lt;/li&gt;
@@ -5707,12 +5707,12 @@ format:
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C"&gt;
+     &lt;a href="http://niklasschlimm.blogspot.com/2011/07/top-10-git-commands-for-newbie.html%7C" rel="nofollow"&gt;
       10 commands
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://git.or.cz/course/svn.html"&gt;
+     &lt;a href="http://git.or.cz/course/svn.html" rel="nofollow"&gt;
       Git SVN crash course
      &lt;/a&gt;
     &lt;/li&gt;
@@ -6058,11 +6058,11 @@ format:
    &lt;/h4&gt;
    &lt;p&gt;
     Check out
-    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html"&gt;
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html" rel="nofollow"&gt;
      git reset
     &lt;/a&gt;
     for great explanation and
-    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html#_examples"&gt;
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html#_examples" rel="nofollow"&gt;
      examples
     &lt;/a&gt;
     .
@@ -6081,11 +6081,11 @@ format:
    &lt;/h4&gt;
    &lt;p&gt;
     Check out
-    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html"&gt;
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html" rel="nofollow"&gt;
      git reset
     &lt;/a&gt;
     for great explanation and
-    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html#_examples"&gt;
+    &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-reset.html#_examples" rel="nofollow"&gt;
      examples
     &lt;/a&gt;
     .
@@ -6370,7 +6370,7 @@ format:
    &lt;ul&gt;
     &lt;li&gt;
      &lt;p&gt;
-      &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git"&gt;
+      &lt;a href="http://stackoverflow.com/questions/9529497/what-is-origin-in-git" rel="nofollow"&gt;
        What is origin in GIT
       &lt;/a&gt;
       - By saying
@@ -6382,14 +6382,14 @@ format:
     &lt;/li&gt;
     &lt;li&gt;
      &lt;p&gt;
-      &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/"&gt;
+      &lt;a href="http://longair.net/blog/2009/04/16/git-fetch-and-merge/" rel="nofollow"&gt;
        Fetch and Merge
       &lt;/a&gt;
      &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
      &lt;p&gt;
-      &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757"&gt;
+      &lt;a href="http://stackoverflow.com/questions/5683253/distributed-version-control-systems-and-the-enterprise-a-good-mix/5685757#5685757" rel="nofollow"&gt;
        Distributed Version Control Systems and the Enterprise
       &lt;/a&gt;
      &lt;/p&gt;
@@ -6407,7 +6407,7 @@ format:
     &lt;/li&gt;
     &lt;li&gt;
      &lt;p&gt;
-      &lt;a href="http://stackoverflow.com/questions/1662205/how-to-make-a-git-repository-read-only"&gt;
+      &lt;a href="http://stackoverflow.com/questions/1662205/how-to-make-a-git-repository-read-only" rel="nofollow"&gt;
        How to make a git repository read-only?
       &lt;/a&gt;
      &lt;/p&gt;
@@ -6419,14 +6419,14 @@ format:
     &lt;/li&gt;
     &lt;li&gt;
      &lt;p&gt;
-      &lt;a href="http://stackoverflow.com/questions/2602546/how-do-i-git-fetch-and-git-merge-from-a-remote-tracking-branch-like-git-pu"&gt;
+      &lt;a href="http://stackoverflow.com/questions/2602546/how-do-i-git-fetch-and-git-merge-from-a-remote-tracking-branch-like-git-pu" rel="nofollow"&gt;
        Difference between git pull and fetch
       &lt;/a&gt;
      &lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
      &lt;p&gt;
-      &lt;a href="http://scottchacon.com/2011/08/31/github-flow.html"&gt;
+      &lt;a href="http://scottchacon.com/2011/08/31/github-flow.html" rel="nofollow"&gt;
        Github flow
       &lt;/a&gt;
      &lt;/p&gt;
