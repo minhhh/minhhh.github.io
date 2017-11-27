@@ -159,12 +159,12 @@
    &lt;/h1&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="https://code.google.com/p/memcached/wiki/NewStart"&gt;
+     &lt;a href="https://code.google.com/p/memcached/wiki/NewStart" rel="nofollow"&gt;
       Memcache Wiki
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://lzone.de/cheat-sheet/memcached"&gt;
+     &lt;a href="http://lzone.de/cheat-sheet/memcached" rel="nofollow"&gt;
       Memcache Cheatsheet
      &lt;/a&gt;
     &lt;/li&gt;

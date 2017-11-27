@@ -130,7 +130,7 @@
    &lt;/h3&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://ibotpeaches.github.io/Apktool/"&gt;
+     &lt;a href="http://ibotpeaches.github.io/Apktool/" rel="nofollow"&gt;
       Use
       &lt;code&gt;
        apktool
@@ -152,22 +152,22 @@
    &lt;/h2&gt;
    &lt;ul&gt;
     &lt;li&gt;
-     &lt;a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file"&gt;
+     &lt;a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file" rel="nofollow"&gt;
       View android manifset from APK
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device"&gt;
+     &lt;a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device" rel="nofollow"&gt;
       Get apk from Android device
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear"&gt;
+     &lt;a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear" rel="nofollow"&gt;
       Adb shell to uninstall package
      &lt;/a&gt;
     &lt;/li&gt;
     &lt;li&gt;
-     &lt;a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat"&gt;
+     &lt;a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat" rel="nofollow"&gt;
       Debugging with logcat
      &lt;/a&gt;
     &lt;/li&gt;
