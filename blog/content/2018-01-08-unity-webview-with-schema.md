@@ -1,4 +1,4 @@
-Title: Webview with cchema
+Title: Webview with schema
 Date: 2018-01-08 00:00
 Author: Ha.Minh
 Category: Unity
