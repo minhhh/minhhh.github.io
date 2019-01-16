@@ -1640,216 +1640,6 @@ public class SimpleSingleton&amp;lt;T&amp;gt; : BaseMonoBehaviour where T : Simp
 &lt;p&gt;&lt;a href="http://astyle.sourceforge.net/"&gt;Artistic Style&lt;/a&gt; is a source code indenter, formatter, and beautifier for the C, C++, C++/CLI, Objective‑C, C# and Java programming languages. We can download and install Astyle rather quickly without any problems on most platforms.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;
 We will use a simple script below to help us install AStyle on Mac OSX. Installation on other platforms can be done in a similar manner&lt;/p&gt;
-&lt;p&gt;&lt;div&gt;
-    &lt;style type = "text/css" scoped&gt;
-.git-content div {
-    padding: 0;
-    margin: 0;
-}
-
-.git-content .git-file {
-    border: 1px solid #DEDEDE;
-    margin-bottom: 1em;
-}
-
-.git-content .git-file .git-meta {
-    background-color: #EAEAEA;
-    color: #666666;
-    font-size: 85%;
-    overflow: hidden;
-    padding: 0.5em;
-}
-
-.git-content .git-file .git-meta a {
-    color: #336699;
-}
-
-.git-content .git-file .git-meta a:visited {
-    color: #773377;
-}
-
-.git-content .git-file {
-    background-color: #F8F8FF;
-    border-bottom: 1px solid #DDDDDD;
-    font-size: 100%;
-    overflow: auto;
-    word-wrap: normal;
-}
-
-.git-content .git-file pre {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-    &lt;/style&gt;
-    &lt;div class="git-content"&gt;
-        &lt;div class="git-file"&gt;
-            &lt;div class="file"&gt;
- &lt;div class="blob-wrapper data type-shell" itemprop="text"&gt;
-  &lt;table class="highlight tab-size js-file-line-container" data-tab-size="8"&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="1" id="L1"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC1"&gt;
-     &lt;span class="pl-c"&gt;
-      &lt;span class="pl-c"&gt;
-       #!
-      &lt;/span&gt;
-      /bin/sh
-     &lt;/span&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="2" id="L2"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC2"&gt;
-     &lt;span class="pl-c1"&gt;
-      set
-     &lt;/span&gt;
-     -eu
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="3" id="L3"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC3"&gt;
-     &lt;span class="pl-c1"&gt;
-      cd
-     &lt;/span&gt;
-     /tmp/
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="4" id="L4"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC4"&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="5" id="L5"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC5"&gt;
-     curl -L -o astyle.tar.gz http://sourceforge.net/projects/astyle/files/astyle/astyle%202.05.1/astyle_2.05.1_macosx.tar.gz/download
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="6" id="L6"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC6"&gt;
-     tar zxvf astyle.tar.gz
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="7" id="L7"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC7"&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="8" id="L8"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC8"&gt;
-     &lt;span class="pl-c1"&gt;
-      cd
-     &lt;/span&gt;
-     astyle
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="9" id="L9"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC9"&gt;
-     &lt;span class="pl-c1"&gt;
-      cd
-     &lt;/span&gt;
-     build/xcode
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="10" id="L10"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC10"&gt;
-     sudo xcodebuild install -project AStyle.xcodeproj
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="11" id="L11"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC11"&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="12" id="L12"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC12"&gt;
-     &lt;span class="pl-c1"&gt;
-      cd
-     &lt;/span&gt;
-     ../../build/mac/
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="13" id="L13"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC13"&gt;
-     make
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class="blob-num js-line-number" data-line-number="14" id="L14"&gt;
-    &lt;/td&gt;
-    &lt;td class="blob-code blob-code-inner js-file-line" id="LC14"&gt;
-     sudo make install
-    &lt;/td&gt;
-   &lt;/tr&gt;
-  &lt;/table&gt;
-  &lt;div aria-hidden="true" class="BlobToolbar position-absolute js-file-line-actions dropdown js-menu-container js-select-menu d-none"&gt;
-   &lt;button aria-controls="inline-file-actions" aria-expanded="false" aria-haspopup="true" aria-label="Inline file action toolbar" class="btn-octicon ml-0 px-2 p-0 bg-white border border-gray-dark rounded-1 dropdown-toggle js-menu-target" id="js-file-line-action-button" type="button"&gt;
-    &lt;svg aria-hidden="true" class="octicon octicon-kebab-horizontal" height="16" version="1.1" viewbox="0 0 13 16" width="13"&gt;
-     &lt;path d="M1.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill-rule="evenodd"&gt;
-     &lt;/path&gt;
-    &lt;/svg&gt;
-   &lt;/button&gt;
-   &lt;div class="dropdown-menu-content js-menu-content" id="inline-file-actions"&gt;
-    &lt;ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2"&gt;
-     &lt;li&gt;
-      &lt;a class="js-zeroclipboard dropdown-item" data-original-text="Copy lines" id="js-copy-lines" style="cursor:pointer;"&gt;
-       Copy lines
-      &lt;/a&gt;
-     &lt;/li&gt;
-     &lt;li&gt;
-      &lt;a class="js-zeroclipboard dropdown-item" data-original-text="Copy permalink" id="js-copy-permalink" style="cursor:pointer;"&gt;
-       Copy permalink
-      &lt;/a&gt;
-     &lt;/li&gt;
-     &lt;li&gt;
-      &lt;a class="dropdown-item js-update-url-with-hash" href="/minhhh/dev-tools/blame/9964c83d65ceca834fb68b8d9105732033d9e3ab/astyle/setup_astyle.sh" id="js-view-git-blame"&gt;
-       View git blame
-      &lt;/a&gt;
-     &lt;/li&gt;
-     &lt;li&gt;
-      &lt;a class="dropdown-item" href="/minhhh/dev-tools/issues/new" id="js-new-issue"&gt;
-       Open new issue
-      &lt;/a&gt;
-     &lt;/li&gt;
-    &lt;/ul&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-
-            &lt;div class="git-meta"&gt;
-                
-                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
-                
-                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh"&gt;view original&lt;/a&gt;&lt;/span&gt;
-                &lt;span style="float: right; margin-right: 8px;"&gt;
-                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/dev-tools/blob/master/astyle/setup_astyle.sh"&gt;astyle/setup_astyle.sh&lt;/a&gt;&lt;/span&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;
 After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Supposed our Code is in the Code folder
@@ -1992,7 +1782,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction"&gt;
@@ -2202,7 +1992,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#memcache-cheatsheet" id="user-content-memcache-cheatsheet"&gt;
@@ -2386,7 +2176,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#netcat-cheatsheet" id="user-content-netcat-cheatsheet"&gt;
@@ -2682,7 +2472,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#bash" id="user-content-bash"&gt;
@@ -3006,7 +2796,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#a-guide-to-pythons-magic-methods" id="user-content-a-guide-to-pythons-magic-methods"&gt;
@@ -5918,7 +5708,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#awk-cheatsheet" id="user-content-awk-cheatsheet"&gt;
@@ -6927,7 +6717,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#python-decorator-tutorial" id="user-content-python-decorator-tutorial"&gt;
@@ -7402,7 +7192,7 @@ http://www.theappguruz.com/blog/managers-using-singleton
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" id="user-content-android-cli-cheatsheet"&gt;
@@ -7617,7 +7407,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#first-level-title" id="user-content-first-level-title"&gt;
@@ -7735,7 +7525,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#rebase-feature-branch-into-develop-branch" id="user-content-rebase-feature-branch-into-develop-branch"&gt;
@@ -7933,7 +7723,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#git-manual" id="user-content-git-manual"&gt;
@@ -8107,6 +7897,27 @@ Third&lt;/code&gt;&lt;/pre&gt;
     # delete tag on remote
     git tag --delete &amp;lt;tagname&amp;gt;
     git push origin :&amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;br/&gt;
+   &lt;h4&gt;
+    &lt;a aria-hidden="true" class="anchor" href="#pull-from-all-branches" id="user-content-pull-from-all-branches"&gt;
+     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+      &lt;/path&gt;
+     &lt;/svg&gt;
+    &lt;/a&gt;
+    Pull from all branches
+   &lt;/h4&gt;
+   &lt;ul&gt;
+    &lt;li&gt;
+     &lt;a href="https://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches" rel="nofollow"&gt;
+      https://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches
+     &lt;/a&gt;
+    &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;pre&gt;&lt;code&gt;git branch -r | grep -v '\-&amp;gt;' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+git fetch --all
+git pull --all
 &lt;/code&gt;&lt;/pre&gt;
    &lt;br/&gt;
    &lt;h3&gt;

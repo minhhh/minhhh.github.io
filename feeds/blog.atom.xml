@@ -209,7 +209,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
             &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body" id="readme"&gt;
+ &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
   &lt;article class="markdown-body entry-content" itemprop="text"&gt;
    &lt;h1&gt;
     &lt;a aria-hidden="true" class="anchor" href="#first-level-title" id="user-content-first-level-title"&gt;
