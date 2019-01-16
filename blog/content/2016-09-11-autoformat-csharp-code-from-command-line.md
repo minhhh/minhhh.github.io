@@ -18,8 +18,6 @@ The second requirement is relatively easy to implement if we have a tool to form
 **Installation**
 We will use a simple script below to help us install AStyle on Mac OSX. Installation on other platforms can be done in a similar manner
 
-[git:repo=minhhh/dev-tools,file=astyle/setup_astyle.sh]
-
 **Usage**
 After we have `astyle` available on the command line, applying it for our project is a matter of wrapping everything in a single Make command like so
 
