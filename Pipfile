@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 pelican = "==3.4.0"
 pelican-gist = "*"
-pelican-git = "*"
+pelican-git = ">=0.1.13"
 pelican-minification = "*"
 ghp-import = "*"
 Markdown = "*"
