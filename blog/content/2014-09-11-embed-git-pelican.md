@@ -10,7 +10,6 @@ Writing articles in github pages is nice, because you have github repository wit
 I have several solutions for this problem:
 
 * I could duplicate the article. But I won't do this.
-
 * I could store the articles as `gist` like this:
 
 [gist:id=dc8b7c536d0fe9c7003f]
