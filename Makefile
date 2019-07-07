@@ -17,4 +17,4 @@ stop: # stop
 	cd blog && pipenv run make stopserver
 
 publish: # publish to master
-	cd blog && git checkout source && pipenv run make publish && git checkout gh-pages && pipenv run ghp-import output && git checkout master && git merge gh-pages && git push --all && git checkout source
+	cd blog && git checkout source && make publish && git checkout gh-pages && ghp-import output && git checkout master && git merge gh-pages && git push --all && git checkout source
