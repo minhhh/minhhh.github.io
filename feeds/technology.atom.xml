@@ -49,80 +49,79 @@
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
-  &lt;article class="markdown-body entry-content" itemprop="text"&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
+            &lt;div class="Box-body readme blob instapaper_body js-code-block-container" id="readme"&gt;
+ &lt;article class="markdown-body entry-content p-3 p-md-6" itemprop="text"&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#introduction" id="user-content-introduction"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   INTRODUCTION
+  &lt;/h1&gt;
+  &lt;p&gt;
+   This is the list of some useful tools I used to setup my OSX.
+  &lt;/p&gt;
+  &lt;p&gt;
+   For more awesome osx command lines, see
+   &lt;a href="https://github.com/herrbischoff/awesome-osx-command-line"&gt;
+    Awesome OS X Command Line
+   &lt;/a&gt;
+   .
+  &lt;/p&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#setup" id="user-content-setup"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   SETUP
+  &lt;/h1&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;a href="http://lifehacker.com/225873/mac-switchers-tip--remap-the-home-and-end-keys" rel="nofollow"&gt;
+     Fix the home and end keys
     &lt;/a&gt;
-    INTRODUCTION
-   &lt;/h1&gt;
-   &lt;p&gt;
-    This is the list of some useful tools I used to setup my OSX.
-   &lt;/p&gt;
-   &lt;p&gt;
-    For more awesome osx command lines, see
-    &lt;a href="https://github.com/herrbischoff/awesome-osx-command-line"&gt;
-     Awesome OS X Command Line
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://lifehacker.com/5826055/make-your-keyboard-keys-repeat-properly-when-held-down-in-mac-os-x-lion" rel="nofollow"&gt;
+     Make Your Keyboard Keys Repeat Properly
     &lt;/a&gt;
-    .
-   &lt;/p&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#setup" id="user-content-setup"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="https://support.apple.com/kb/HT3399" rel="nofollow"&gt;
+     Use Fn key normally in Mac
     &lt;/a&gt;
-    SETUP
-   &lt;/h1&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     &lt;a href="http://lifehacker.com/225873/mac-switchers-tip--remap-the-home-and-end-keys" rel="nofollow"&gt;
-      Fix the home and end keys
-     &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="http://lifehacker.com/5826055/make-your-keyboard-keys-repeat-properly-when-held-down-in-mac-os-x-lion" rel="nofollow"&gt;
-      Make Your Keyboard Keys Repeat Properly
-     &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="https://support.apple.com/kb/HT3399" rel="nofollow"&gt;
-      Use Fn key normally in Mac
-     &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="http://macs.about.com/od/OSXLion107/qt/Os-X-Lion-Automatic-Spelling-Correction.htm" rel="nofollow"&gt;
-      Disable automatic spelling
-     &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="http://www.michael-noll.com/blog/2007/01/04/word-movement-shortcuts-for-iterm-on-mac-os-x/" rel="nofollow"&gt;
-      Word Movement Shortcuts for iTerm
-     &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="http://www.hackintosh.zone/downloads/download/506-free-ntfs-driver-for-mac-os-x/" rel="nofollow"&gt;
-      Install NTFS driver for macOS
-     &lt;/a&gt;
-    &lt;/li&gt;
-   &lt;/ul&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#osx-shortcuts--keys" id="user-content-osx-shortcuts--keys"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://macs.about.com/od/OSXLion107/qt/Os-X-Lion-Automatic-Spelling-Correction.htm" rel="nofollow"&gt;
+     Disable automatic spelling
     &lt;/a&gt;
-    OSX SHORTCUTS &amp;amp; KEYS
-   &lt;/h1&gt;
-   &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    F11             - Show desktop
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://www.michael-noll.com/blog/2007/01/04/word-movement-shortcuts-for-iterm-on-mac-os-x/" rel="nofollow"&gt;
+     Word Movement Shortcuts for iTerm
+    &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://www.hackintosh.zone/downloads/download/506-free-ntfs-driver-for-mac-os-x/" rel="nofollow"&gt;
+     Install NTFS driver for macOS
+    &lt;/a&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#osx-shortcuts--keys" id="user-content-osx-shortcuts--keys"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   OSX SHORTCUTS &amp;amp; KEYS
+  &lt;/h1&gt;
+  &lt;div class="highlight highlight-source-shell"&gt;
+   &lt;pre&gt;    F11             - Show desktop
     Ctrl left/right - Scroll to the next working desktop
     Command Space   - Show search
     Ctrl Up         - Show all programs
@@ -131,82 +130,81 @@
     Cmd Option D    - Toggle taskbar
     Cmd Delete      - Move to trash
     Cmd K           - Clear terminal screen&lt;/pre&gt;
-   &lt;/div&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#tools" id="user-content-tools"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#tools" id="user-content-tools"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   TOOLS
+  &lt;/h1&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    Testdisk - Disk recovery
+   &lt;/li&gt;
+   &lt;li&gt;
+    Blackmagic Disk Speed Test - Disk performance measurement tool.
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://www.macroplant.com/iexplorer/" rel="nofollow"&gt;
+     iexplorer
     &lt;/a&gt;
-    TOOLS
-   &lt;/h1&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     Testdisk - Disk recovery
-    &lt;/li&gt;
-    &lt;li&gt;
-     Blackmagic Disk Speed Test - Disk performance measurement tool.
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="http://www.macroplant.com/iexplorer/" rel="nofollow"&gt;
-      iexplorer
-     &lt;/a&gt;
-     - Transfer file with iPhone easily
-    &lt;/li&gt;
-   &lt;/ul&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#quicksilver" id="user-content-quicksilver"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
+    - Transfer file with iPhone easily
+   &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#quicksilver" id="user-content-quicksilver"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   QuickSilver
+  &lt;/h2&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    Great replacement for spotlight
+   &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#diff-tools" id="user-content-diff-tools"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Diff tools
+  &lt;/h2&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;a href="http://scoobygalletas.blogspot.com/2011/09/how-to-install-meld-in-mac-os-x-lion.html" rel="nofollow"&gt;
+     Meld
     &lt;/a&gt;
-    QuickSilver
-   &lt;/h2&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     Great replacement for spotlight
-    &lt;/li&gt;
-   &lt;/ul&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#diff-tools" id="user-content-diff-tools"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Diff tools
-   &lt;/h2&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     &lt;a href="http://scoobygalletas.blogspot.com/2011/09/how-to-install-meld-in-mac-os-x-lion.html" rel="nofollow"&gt;
-      Meld
-     &lt;/a&gt;
-    &lt;/li&gt;
-   &lt;/ul&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#mount-ssh" id="user-content-mount-ssh"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    MOUNT SSH
-   &lt;/h1&gt;
-   &lt;p&gt;
-    Install sshfs. Then run
-   &lt;/p&gt;
-   &lt;div class="highlight highlight-source-shell"&gt;
-    &lt;pre&gt;    sshfs &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;@&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;ip&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; /Users/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
-   &lt;/div&gt;
-  &lt;/article&gt;
- &lt;/div&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#mount-ssh" id="user-content-mount-ssh"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   MOUNT SSH
+  &lt;/h1&gt;
+  &lt;p&gt;
+   Install sshfs. Then run
+  &lt;/p&gt;
+  &lt;div class="highlight highlight-source-shell"&gt;
+   &lt;pre&gt;    sshfs &lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;@&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;ip&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt; /Users/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;username&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;/&lt;span class="pl-k"&gt;&amp;lt;&lt;/span&gt;folder&lt;span class="pl-k"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+ &lt;/article&gt;
 &lt;/div&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/mac.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;
