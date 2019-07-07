@@ -75,6 +75,7 @@ RGBA ETC2 8bit	        431	                        51
 Split Alpha (Android)	249	                        72
 Split Alpha (iOS)	    272	                        69
 ```
+<br/>
 
 * https://github.com/keijiro/unity-alphamask
 
