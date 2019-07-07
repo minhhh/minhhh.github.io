@@ -119,10 +119,10 @@
 <h2>Usage</h2>
 <p><strong>TaskRunner</strong></p>
 <p>First of all, it's quite well-known that 2 main disadvantages of coroutine are: 1) it cannot return value and 2) it cannot handle nested exception. There's a simple way to wrap coroutine so we can support those 2 features, as detailed in <a href="http://www.zingweb.com/blog/2013/02/05/unity-coroutine-wrapper">this article</a>. <code>TaskRunner</code> also supports returning value and catching exceptions using callback style. You use it like so:</p>
-<div class="codehilite"><pre><span></span>using UAsync;
-...
-TaskRunner.Instance.Run (task, onComplete);
-// public TaskRoutine Run (IEnumerator task, CallbackDelegate onComplete = null)
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">UAsync</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="n">TaskRunner</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Run</span> <span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">onComplete</span><span class="p">);</span>
+<span class="o">//</span> <span class="k">public</span> <span class="n">TaskRoutine</span> <span class="n">Run</span> <span class="p">(</span><span class="n">IEnumerator</span> <span class="n">task</span><span class="p">,</span> <span class="n">CallbackDelegate</span> <span class="n">onComplete</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
 </pre></div>
 
 
@@ -130,33 +130,33 @@ TaskRunner.Instance.Run (task, onComplete);
 <p><strong>UAsync</strong></p>
 <p><code>UAsync</code> is a port of Node's <code>async</code> module to Unity environment. It can be used to turn a set of synchronous functions or coroutine to run sequentially or concurrently. Even though you can already run a set of tasks sequentially using coroutine, passing values between these tasks are proven to be difficult. You have to use external variables to hold the return values which creates coupling between functions, and it's not convenient. <code>UAsync</code> can solve this problem by allowing coroutine to return value, as well as catching exceptions if any.</p>
 <p>Let's look at an example:</p>
-<div class="codehilite"><pre><span></span>var series =
-    UAsync.Async.Series (
-        SeriesFunc.FromAction (&quot;one&quot;, SeriesFunc1),
-        SeriesFunc.FromEnumerator (&quot;two&quot;, SeriesFunc2),
-        SeriesFunc.FromAction (&quot;three&quot;, SeriesFunc3),
-        UAsyncFinalFunc.From ((object err, Dictionary&lt;string, object&gt; res) =&gt; {
-            Debug.Log (&quot;Finish &quot; + err);
-            if (err == null) {
-                Debug.Log (&quot;res &quot; + res [&quot;one&quot;] + &quot; &quot; + res [&quot;two&quot;] + &quot; &quot; + res [&quot;three&quot;]);
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">series</span> <span class="o">=</span>
+    <span class="nv">UAsync</span>.<span class="nv">Async</span>.<span class="nv">Series</span> <span class="ss">(</span>
+        <span class="nv">SeriesFunc</span>.<span class="nv">FromAction</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">one</span><span class="s2">&quot;</span>, <span class="nv">SeriesFunc1</span><span class="ss">)</span>,
+        <span class="nv">SeriesFunc</span>.<span class="nv">FromEnumerator</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">two</span><span class="s2">&quot;</span>, <span class="nv">SeriesFunc2</span><span class="ss">)</span>,
+        <span class="nv">SeriesFunc</span>.<span class="nv">FromAction</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">three</span><span class="s2">&quot;</span>, <span class="nv">SeriesFunc3</span><span class="ss">)</span>,
+        <span class="nv">UAsyncFinalFunc</span>.<span class="nv">From</span> <span class="ss">((</span><span class="nv">object</span> <span class="nv">err</span>, <span class="nv">Dictionary</span><span class="o">&lt;</span><span class="nv">string</span>, <span class="nv">object</span><span class="o">&gt;</span> <span class="nv">res</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+            <span class="nv">Debug</span>.<span class="nv">Log</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">Finish </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">err</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">err</span> <span class="o">==</span> <span class="nv">null</span><span class="ss">)</span> {
+                <span class="nv">Debug</span>.<span class="nv">Log</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">res </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">res</span> [<span class="s2">&quot;</span><span class="s">one</span><span class="s2">&quot;</span>] <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">res</span> [<span class="s2">&quot;</span><span class="s">two</span><span class="s2">&quot;</span>] <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">res</span> [<span class="s2">&quot;</span><span class="s">three</span><span class="s2">&quot;</span>]<span class="ss">)</span><span class="c1">;</span>
             }
-        })
-    );
+        }<span class="ss">)</span>
+    <span class="ss">)</span><span class="c1">;</span>
 
-void SeriesFunc1 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
+<span class="nv">void</span> <span class="nv">SeriesFunc1</span> <span class="ss">(</span><span class="nv">CallbackDelegate</span> <span class="nv">cb</span>, <span class="nv">Dictionary</span><span class="o">&lt;</span><span class="nv">string</span>, <span class="nv">object</span><span class="o">&gt;</span> <span class="nv">res</span><span class="ss">)</span>
 {
-    cb (null, 100);
+    <span class="nv">cb</span> <span class="ss">(</span><span class="nv">null</span>, <span class="mi">100</span><span class="ss">)</span><span class="c1">;</span>
 }
 
-IEnumerator SeriesFunc2 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
+<span class="nv">IEnumerator</span> <span class="nv">SeriesFunc2</span> <span class="ss">(</span><span class="nv">CallbackDelegate</span> <span class="nv">cb</span>, <span class="nv">Dictionary</span><span class="o">&lt;</span><span class="nv">string</span>, <span class="nv">object</span><span class="o">&gt;</span> <span class="nv">res</span><span class="ss">)</span>
 {
-    yield return new WaitForSeconds (1);
-    cb (null, 200);
+    <span class="nv">yield</span> <span class="k">return</span> <span class="nv">new</span> <span class="nv">WaitForSeconds</span> <span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">cb</span> <span class="ss">(</span><span class="nv">null</span>, <span class="mi">200</span><span class="ss">)</span><span class="c1">;</span>
 }
 
-void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
+<span class="nv">void</span> <span class="nv">SeriesFunc3</span> <span class="ss">(</span><span class="nv">CallbackDelegate</span> <span class="nv">cb</span>, <span class="nv">Dictionary</span><span class="o">&lt;</span><span class="nv">string</span>, <span class="nv">object</span><span class="o">&gt;</span> <span class="nv">res</span><span class="ss">)</span>
 {
-    cb (null, 300);
+    <span class="nv">cb</span> <span class="ss">(</span><span class="nv">null</span>, <span class="mi">300</span><span class="ss">)</span><span class="c1">;</span>
 }
 </pre></div>
 
@@ -271,89 +271,29 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
         <i class="fa fa-tag fa-fw fa-lg"></i>git
     </a>
 </span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/prefab.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/dither.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>dither
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    <a href="http://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    <a href="http://minhhh.github.io/tag/unittest.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assert.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assert
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/uasync.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    <a href="http://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
     </a>
 </span>
 <span class="tag-4">
@@ -362,48 +302,8 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/coroutine.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 <span class="tag-4">
@@ -417,18 +317,53 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>webp
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blender.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/uasync.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/fsm.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-3">
@@ -437,93 +372,8 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mesh.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/property.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/fsm.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
     </a>
 </span>
 <span class="tag-4">
@@ -532,23 +382,153 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    <a href="http://minhhh.github.io/tag/assert.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assert
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    <a href="http://minhhh.github.io/tag/prefab.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mesh.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blender.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unittest.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/dither.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>dither
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
     </a>
 </span>
 <span class="tag-3">
@@ -557,8 +537,28 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&lt;string, object&gt; res)
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
     </a>
 </span>
 </p>

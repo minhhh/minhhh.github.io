@@ -143,27 +143,27 @@
 <p>Fortunately there're already some solutions written in <a href="http://wiki.unity3d.com">unity3d</a> so we can review and improve them as we wish.</p>
 <h3>AManagerClass</h3>
 <p><a href="http://wiki.unity3d.com/index.php/AManagerClass">AManagerClass</a> is a standard implementation which supports MonoBehavior-based singletons. In the code, we refer to the singleton like this:</p>
-<div class="codehilite"><pre><span></span>    AManager.instance.Foo ();
+<div class="codehilite"><pre><span></span>    <span class="n">AManager</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">Foo</span> <span class="p">();</span>
 </pre></div>
 
 
 <p>The <code>instance</code> function implementation is as below:</p>
-<div class="codehilite"><pre><span></span>    public static AManager instance {
-        get {
-            if (s_Instance == null) {
-                // This is where the magic happens.
-                //  FindObjectOfType(...) returns the first AManager object in the scene.
-                s_Instance =  FindObjectOfType(typeof (AManager)) as AManager;
+<div class="codehilite"><pre><span></span>    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">AManager</span> <span class="nv">instance</span> {
+        <span class="nv">get</span> {
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">s_Instance</span> <span class="o">==</span> <span class="nv">null</span><span class="ss">)</span> {
+                <span class="o">//</span> <span class="nv">This</span> <span class="nv">is</span> <span class="nv">where</span> <span class="nv">the</span> <span class="nv">magic</span> <span class="nv">happens</span>.
+                <span class="o">//</span>  <span class="nv">FindObjectOfType</span><span class="ss">(</span>...<span class="ss">)</span> <span class="nv">returns</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">AManager</span> <span class="nv">object</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">scene</span>.
+                <span class="nv">s_Instance</span> <span class="o">=</span>  <span class="nv">FindObjectOfType</span><span class="ss">(</span><span class="nv">typeof</span> <span class="ss">(</span><span class="nv">AManager</span><span class="ss">))</span> <span class="nv">as</span> <span class="nv">AManager</span><span class="c1">;</span>
             }
 
-            // If it is still null, create a new instance
-            if (s_Instance == null) {
-                GameObject obj = new GameObject(&quot;AManager&quot;);
-                s_Instance = obj.AddComponent(typeof (AManager)) as AManager;
-                Debug.Log (&quot;Could not locate an AManager object. \ AManager was Generated Automaticly.&quot;);
+            <span class="o">//</span> <span class="k">If</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">still</span> <span class="nv">null</span>, <span class="nv">create</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">instance</span>
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">s_Instance</span> <span class="o">==</span> <span class="nv">null</span><span class="ss">)</span> {
+                <span class="nv">GameObject</span> <span class="nv">obj</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">GameObject</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">AManager</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+                <span class="nv">s_Instance</span> <span class="o">=</span> <span class="nv">obj</span>.<span class="nv">AddComponent</span><span class="ss">(</span><span class="nv">typeof</span> <span class="ss">(</span><span class="nv">AManager</span><span class="ss">))</span> <span class="nv">as</span> <span class="nv">AManager</span><span class="c1">;</span>
+                <span class="nv">Debug</span>.<span class="nv">Log</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">Could not locate an AManager object. \ AManager was Generated Automaticly.</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
             }
 
-            return s_Instance;
+            <span class="k">return</span> <span class="nv">s_Instance</span><span class="c1">;</span>
         }
     }
 </pre></div>
@@ -180,56 +180,56 @@
 <li><a href="http://wiki.unity3d.com/index.php/AutoSingletonManager">AutoSingletonManager</a> solves the code duplication problem of <code>AManager</code></li>
 </ul>
 <p>Here's the main code</p>
-<div class="codehilite"><pre><span></span>public abstract class AutoSingletonManager : MonoBehaviour { }
+<div class="codehilite"><pre><span></span><span class="nv">public</span> <span class="nv">abstract</span> <span class="nv">class</span> <span class="nv">AutoSingletonManager</span> : <span class="nv">MonoBehaviour</span> { }
 
-public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where T : AutoSingletonManager
+<span class="nv">public</span> <span class="nv">abstract</span> <span class="nv">class</span> <span class="nv">AutoSingletonManager</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span> : <span class="nv">AutoSingletonManager</span> <span class="nv">where</span> <span class="nv">T</span> : <span class="nv">AutoSingletonManager</span>
 {
-    private static bool Compare&lt;T&gt;(T x, T y) where T : class
+    <span class="nv">private</span> <span class="nv">static</span> <span class="nv">bool</span> <span class="nv">Compare</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">(</span><span class="nv">T</span> <span class="nv">x</span>, <span class="nv">T</span> <span class="nv">y</span><span class="ss">)</span> <span class="nv">where</span> <span class="nv">T</span> : <span class="nv">class</span>
     {
-        return x == y;
+        <span class="k">return</span> <span class="nv">x</span> <span class="o">==</span> <span class="nv">y</span><span class="c1">;</span>
     }
 
-    #region Singleton
+    #<span class="nv">region</span> <span class="nv">Singleton</span>
 
-    private static T _instance = default(T);
+    <span class="nv">private</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">_instance</span> <span class="o">=</span> <span class="nv">default</span><span class="ss">(</span><span class="nv">T</span><span class="ss">)</span><span class="c1">;</span>
 
-    public static T Instance
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">Instance</span>
     {
-        get
+        <span class="nv">get</span>
         {
-            if (!Compare&lt;T&gt;(default(T), _instance)) return _instance;
+            <span class="k">if</span> <span class="ss">(</span><span class="o">!</span><span class="nv">Compare</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">(</span><span class="nv">default</span><span class="ss">(</span><span class="nv">T</span><span class="ss">)</span>, <span class="nv">_instance</span><span class="ss">))</span> <span class="k">return</span> <span class="nv">_instance</span><span class="c1">;</span>
 
-            InitInstance(true);
-            return _instance;
+            <span class="nv">InitInstance</span><span class="ss">(</span><span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="nv">_instance</span><span class="c1">;</span>
         }
     }
 
-    #endregion
+    #<span class="nv">endregion</span>
 
-    public void Awake()
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">Awake</span><span class="ss">()</span>
     {
-        InitInstance(false);
+        <span class="nv">InitInstance</span><span class="ss">(</span><span class="nv">false</span><span class="ss">)</span><span class="c1">;</span>
     }
 
-    public static void InitInstance(bool shouldInitManager)
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">void</span> <span class="nv">InitInstance</span><span class="ss">(</span><span class="nv">bool</span> <span class="nv">shouldInitManager</span><span class="ss">)</span>
     {
-        Type thisType = typeof (T);
+        <span class="nv">Type</span> <span class="nv">thisType</span> <span class="o">=</span> <span class="nv">typeof</span> <span class="ss">(</span><span class="nv">T</span><span class="ss">)</span><span class="c1">;</span>
 
-        _instance = FindObjectOfType&lt;T&gt;();
+        <span class="nv">_instance</span> <span class="o">=</span> <span class="nv">FindObjectOfType</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">()</span><span class="c1">;</span>
 
-        if (Compare&lt;T&gt;(default(T), _instance))
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">Compare</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">(</span><span class="nv">default</span><span class="ss">(</span><span class="nv">T</span><span class="ss">)</span>, <span class="nv">_instance</span><span class="ss">))</span>
         {
-            _instance = new GameObject(thisType.Name).AddComponent&lt;T&gt;();
+            <span class="nv">_instance</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">GameObject</span><span class="ss">(</span><span class="nv">thisType</span>.<span class="nv">Name</span><span class="ss">)</span>.<span class="nv">AddComponent</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">()</span><span class="c1">;</span>
         }
 
-        //Won&#39;t call InitManager from Awake
-        if (shouldInitManager)
+        <span class="o">//</span><span class="nv">Won</span><span class="s1">&#39;</span><span class="s">t call InitManager from Awake</span>
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">shouldInitManager</span><span class="ss">)</span>
         {
-            (_instance as AutoSingletonManager&lt;T&gt;).InitManager();
+            <span class="ss">(</span><span class="nv">_instance</span> <span class="nv">as</span> <span class="nv">AutoSingletonManager</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">)</span>.<span class="nv">InitManager</span><span class="ss">()</span><span class="c1">;</span>
         }
     }
 
-    public virtual void InitManager() { }
+    <span class="nv">public</span> <span class="nv">virtual</span> <span class="nv">void</span> <span class="nv">InitManager</span><span class="ss">()</span> { }
 }
 </pre></div>
 
@@ -253,31 +253,31 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 <p>This is quite good but surely we can do better.</p>
 <h2>Discussions</h2>
 <p>First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:</p>
-<div class="codehilite"><pre><span></span>    public class MySingleton ...
+<div class="codehilite"><pre><span></span>    <span class="nv">public</span> <span class="nv">class</span> <span class="nv">MySingleton</span> ...
     {
-        static MySingleton _instance = null;
-        static object singletonLock = new object ();
+        <span class="nv">static</span> <span class="nv">MySingleton</span> <span class="nv">_instance</span> <span class="o">=</span> <span class="nv">null</span><span class="c1">;</span>
+        <span class="nv">static</span> <span class="nv">object</span> <span class="nv">singletonLock</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">object</span> <span class="ss">()</span><span class="c1">;</span>
 
-        public static MySingleton Instance
+        <span class="nv">public</span> <span class="nv">static</span> <span class="nv">MySingleton</span> <span class="nv">Instance</span>
         {
-            get {
-                if (_instance != null) {
-                    return;
+            <span class="nv">get</span> {
+                <span class="k">if</span> <span class="ss">(</span><span class="nv">_instance</span> <span class="o">!=</span> <span class="nv">null</span><span class="ss">)</span> {
+                    <span class="k">return</span><span class="c1">;</span>
                 }
 
-                lock (singletonLock) {
-                    if (_instance != null) {
-                        return _instance;
+                <span class="nv">lock</span> <span class="ss">(</span><span class="nv">singletonLock</span><span class="ss">)</span> {
+                    <span class="k">if</span> <span class="ss">(</span><span class="nv">_instance</span> <span class="o">!=</span> <span class="nv">null</span><span class="ss">)</span> {
+                        <span class="k">return</span> <span class="nv">_instance</span><span class="c1">;</span>
                     }
 
-                    var singletonGameObject = new GameObject (&quot;MySingleton&quot;);
-                    GameObject.DontDestroyOnLoad (singletonGameObject);
-                    _instance = singletonGameObject.AddComponent&lt; MySingleton &gt; ();
+                    <span class="nv">var</span> <span class="nv">singletonGameObject</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">GameObject</span> <span class="ss">(</span><span class="s2">&quot;</span><span class="s">MySingleton</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+                    <span class="nv">GameObject</span>.<span class="nv">DontDestroyOnLoad</span> <span class="ss">(</span><span class="nv">singletonGameObject</span><span class="ss">)</span><span class="c1">;</span>
+                    <span class="nv">_instance</span> <span class="o">=</span> <span class="nv">singletonGameObject</span>.<span class="nv">AddComponent</span><span class="o">&lt;</span> <span class="nv">MySingleton</span> <span class="o">&gt;</span> <span class="ss">()</span><span class="c1">;</span>
 
-                    ... other initialization code
+                    ... <span class="nv">other</span> <span class="nv">initialization</span> <span class="nv">code</span>
                 }
 
-                return _instance;
+                <span class="k">return</span> <span class="nv">_instance</span><span class="c1">;</span>
             }
         }
 </pre></div>
@@ -286,14 +286,14 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 <p>By using a simple double lock pattern, we seemingly solve the "concurrency problem". The question is: Do we need to?. Why you have the concurrency problem with singleton? It's because you want to <code>lazy load</code> the singleton, i.e. only create it when it is used for the first time. But that's exactly what we want to avoid if we want to achieve smooth gameplay. So what you should do instead is just create the bloody singleton at the beginning and forget about it. Remember, <code>preload</code> is better than <code>lazy load</code>.</p>
 <p>Secondly, I've already mentioned the check for null is redundant if we know we only call the singleton after it's been initialized. In the usecases listed by <code>SecureSingleton</code>, we see that the singleton is either created by code or already exists in the scene as a <code>GameObject</code> which is supposed to be configured by designers. In either case, the code to initialize the scene should be a good place for calling the initialization code of the singleton and there's no need for making it sooner.</p>
 <p>So what will happen if the <code>Instance</code> property is called before you initialize the singleton? Obviously an exception will be thrown and this is an ideal case for using Unity Assert because you will have a nice message in development mode but you can also turn it off in production build.</p>
-<div class="codehilite"><pre><span></span>    public class GameSingleton&lt;T&gt; : MyBaseBehaviour where T : GameSingleton&lt;T&gt;
+<div class="codehilite"><pre><span></span>    <span class="nv">public</span> <span class="nv">class</span> <span class="nv">GameSingleton</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span> : <span class="nv">MyBaseBehaviour</span> <span class="nv">where</span> <span class="nv">T</span> : <span class="nv">GameSingleton</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span>
     {
         ...
-        public static T Instance
+        <span class="nv">public</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">Instance</span>
         {
-            get {
-                Assert.IsNotNull (instance);
-                return instance;
+            <span class="nv">get</span> {
+                <span class="nv">Assert</span>.<span class="nv">IsNotNull</span> <span class="ss">(</span><span class="nv">instance</span><span class="ss">)</span><span class="c1">;</span>
+                <span class="k">return</span> <span class="nv">instance</span><span class="c1">;</span>
             }
         }
 </pre></div>
@@ -301,78 +301,78 @@ public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where
 
 <p>Note that <code>MyBaseBehaviour</code> class is a class derived from <code>MonoBehaviour</code> and is customized specifically for our game. For instance, it might have general code for handling <code>Update</code> or <code>OnDestroy</code>.</p>
 <p>All that is left now is writing a function <code>CreateInstance</code> for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling <code>CreateInstance</code> twice should throw an exception. This is better than mindlessly guard the function in the name of "defensive programming". It will look something like this:</p>
-<div class="codehilite"><pre><span></span>        public static T CreateInstance()
+<div class="codehilite"><pre><span></span>        <span class="nv">public</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">CreateInstance</span><span class="ss">()</span>
         {
-            Assert.IsNull (instance);
+            <span class="nv">Assert</span>.<span class="nv">IsNull</span> <span class="ss">(</span><span class="nv">instance</span><span class="ss">)</span><span class="c1">;</span>
 
-            GameObject go = new GameObject(typeof(T).Name);
-            instance = go.AddComponent&lt;T&gt;();
-            instance.OnCreated();
-            DontDestroyOnLoad(go);
+            <span class="nv">GameObject</span> <span class="nv">go</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">GameObject</span><span class="ss">(</span><span class="nv">typeof</span><span class="ss">(</span><span class="nv">T</span><span class="ss">)</span>.<span class="nv">Name</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="nv">instance</span> <span class="o">=</span> <span class="nv">go</span>.<span class="nv">AddComponent</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="nv">instance</span>.<span class="nv">OnCreated</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="nv">DontDestroyOnLoad</span><span class="ss">(</span><span class="nv">go</span><span class="ss">)</span><span class="c1">;</span>
 
-            return instance;
+            <span class="k">return</span> <span class="nv">instance</span><span class="c1">;</span>
         }
 
 
-        protected virtual void OnCreated()
+        <span class="nv">protected</span> <span class="nv">virtual</span> <span class="nv">void</span> <span class="nv">OnCreated</span><span class="ss">()</span>
         {
         }
 </pre></div>
 
 
 <p>Here we have a virtual function <code>OnCreated</code> waiting to be overriden in subclass. To destroy the singleton, we don't have to use fancy static function <code>DeleteInstance</code>, instead we can just get the singleton gameobject and destroy it like this:</p>
-<div class="codehilite"><pre><span></span>    GameObject.Destroy (MySingleton.Instance.gameObject);
+<div class="codehilite"><pre><span></span>    <span class="n">GameObject</span><span class="p">.</span><span class="k">Destroy</span> <span class="p">(</span><span class="n">MySingleton</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
 </pre></div>
 
 
 <p>When the <code>OnDestroy</code> function is called, we will set <code>instance</code> variable to null then allow subclass to do cleanup themselves. The reason why we don't use <code>DeleteInstance</code> is because we don't want developers who use the API to think there's anything special about destroying the singleton than just destroying the container object.</p>
 <p>Finally, we discuss feature <code>destroy if exists in scene</code>. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that's should not be the main way to deal with game data. We'd better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.</p>
 <p>If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from <code>SecureUnitySingleton</code>:</p>
-<div class="codehilite"><pre><span></span>    protected virtual void Awake()
+<div class="codehilite"><pre><span></span>    <span class="nv">protected</span> <span class="nv">virtual</span> <span class="nv">void</span> <span class="nv">Awake</span><span class="ss">()</span>
     {
-        if (InstanceExists &amp;&amp; instance != this)
-            Destroy(gameObject);
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">InstanceExists</span> <span class="o">&amp;&amp;</span> <span class="nv">instance</span> <span class="o">!=</span> <span class="nv">this</span><span class="ss">)</span>
+            <span class="nv">Destroy</span><span class="ss">(</span><span class="nv">gameObject</span><span class="ss">)</span><span class="c1">;</span>
     }
 </pre></div>
 
 
 <h2>Implementation</h2>
 <p>After we've considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows</p>
-<div class="codehilite"><pre><span></span>using UnityEngine;
-using System;
-using UnityEngine.Assertions;
+<div class="codehilite"><pre><span></span><span class="nv">using</span> <span class="nv">UnityEngine</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">UnityEngine</span>.<span class="nv">Assertions</span><span class="c1">;</span>
 
-public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingleton&lt;T&gt;
+<span class="nv">public</span> <span class="nv">class</span> <span class="nv">SimpleSingleton</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span> : <span class="nv">BaseMonoBehaviour</span> <span class="nv">where</span> <span class="nv">T</span> : <span class="nv">SimpleSingleton</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span>
 {
-    private static T instance;
+    <span class="nv">private</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">instance</span><span class="c1">;</span>
 
-    public static T Instance {
-        get {
-            Assert.IsNotNull (instance, &quot;Instance is null. Please call CreateInstance first!&quot;);
-            return instance;
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">Instance</span> {
+        <span class="nv">get</span> {
+            <span class="nv">Assert</span>.<span class="nv">IsNotNull</span> <span class="ss">(</span><span class="nv">instance</span>, <span class="s2">&quot;</span><span class="s">Instance is null. Please call CreateInstance first!</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="nv">instance</span><span class="c1">;</span>
         }
     }
 
-    public static T CreateInstance ()
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">T</span> <span class="nv">CreateInstance</span> <span class="ss">()</span>
     {
-        if (instance != null) {
-            Assert.IsNull (instance, &quot;Instance is not null. Please call CreateInstance once only&quot;);
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">instance</span> <span class="o">!=</span> <span class="nv">null</span><span class="ss">)</span> {
+            <span class="nv">Assert</span>.<span class="nv">IsNull</span> <span class="ss">(</span><span class="nv">instance</span>, <span class="s2">&quot;</span><span class="s">Instance is not null. Please call CreateInstance once only</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
         }
 
-        GameObject go = new GameObject (typeof(T).Name);
-        instance = go.AddComponent&lt;T&gt; ();
+        <span class="nv">GameObject</span> <span class="nv">go</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">GameObject</span> <span class="ss">(</span><span class="nv">typeof</span><span class="ss">(</span><span class="nv">T</span><span class="ss">)</span>.<span class="nv">Name</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">instance</span> <span class="o">=</span> <span class="nv">go</span>.<span class="nv">AddComponent</span><span class="o">&lt;</span><span class="nv">T</span><span class="o">&gt;</span> <span class="ss">()</span><span class="c1">;</span>
 
-        instance.OnCreated ();
+        <span class="nv">instance</span>.<span class="nv">OnCreated</span> <span class="ss">()</span><span class="c1">;</span>
 
-        return instance;
+        <span class="k">return</span> <span class="nv">instance</span><span class="c1">;</span>
     }
 
-    protected virtual void OnDestroy ()
+    <span class="nv">protected</span> <span class="nv">virtual</span> <span class="nv">void</span> <span class="nv">OnDestroy</span> <span class="ss">()</span>
     {
-        instance = null;
+        <span class="nv">instance</span> <span class="o">=</span> <span class="nv">null</span><span class="c1">;</span>
     }
 
-    protected virtual void OnCreated ()
+    <span class="nv">protected</span> <span class="nv">virtual</span> <span class="nv">void</span> <span class="nv">OnCreated</span> <span class="ss">()</span>
     {
     }
 
@@ -488,89 +488,29 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
         <i class="fa fa-tag fa-fw fa-lg"></i>git
     </a>
 </span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/prefab.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/dither.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>dither
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    <a href="http://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    <a href="http://minhhh.github.io/tag/unittest.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assert.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assert
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/uasync.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    <a href="http://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
     </a>
 </span>
 <span class="tag-4">
@@ -579,48 +519,8 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/coroutine.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 <span class="tag-4">
@@ -634,18 +534,53 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>webp
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blender.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/uasync.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/fsm.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-3">
@@ -654,93 +589,8 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mesh.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/property.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/fsm.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
     </a>
 </span>
 <span class="tag-4">
@@ -749,23 +599,153 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    <a href="http://minhhh.github.io/tag/assert.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assert
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    <a href="http://minhhh.github.io/tag/prefab.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mesh.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blender.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unittest.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/dither.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>dither
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
     </a>
 </span>
 <span class="tag-3">
@@ -774,8 +754,28 @@ public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingle
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
     </a>
 </span>
 </p>

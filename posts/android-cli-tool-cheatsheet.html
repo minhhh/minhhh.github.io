@@ -151,28 +151,27 @@
     </style>
     <div class="git-content">
         <div class="git-file">
-            <div class="file">
- <div class="readme blob instapaper_body js-code-block-container" id="readme">
-  <article class="markdown-body entry-content" itemprop="text">
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" id="user-content-android-cli-cheatsheet">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    ANDROID CLI CHEATSHEET
-   </h1>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#read-log" id="user-content-read-log">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Read log
-   </h3>
-   <pre><code>    adb logcat
+            <div class="Box-body readme blob instapaper_body js-code-block-container" id="readme">
+ <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
+  <h1>
+   <a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" id="user-content-android-cli-cheatsheet">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   ANDROID CLI CHEATSHEET
+  </h1>
+  <h3>
+   <a aria-hidden="true" class="anchor" href="#read-log" id="user-content-read-log">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Read log
+  </h3>
+  <pre><code>    adb logcat
     adb logcat -v time
 
     adb logcat *:V # Get all message in verbose mode
@@ -181,44 +180,44 @@
     # Log by pid
     adb logcat | grep `adb shell ps | grep com.example.package | cut -c10-15`
 </code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#list-package" id="user-content-list-package">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    List package
-   </h3>
-   <pre><code>    adb shell pm list package
+  <h3>
+   <a aria-hidden="true" class="anchor" href="#list-package" id="user-content-list-package">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   List package
+  </h3>
+  <pre><code>    adb shell pm list package
     adb shell pm path com.example.someapp
     adb pull /data/app/com.example.someapp-2.apk
 </code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#run-a-particular-intent" id="user-content-run-a-particular-intent">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Run a particular intent
-   </h3>
-   <pre><code>    # Start by activity name
+  <h3>
+   <a aria-hidden="true" class="anchor" href="#run-a-particular-intent" id="user-content-run-a-particular-intent">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Run a particular intent
+  </h3>
+  <pre><code>    # Start by activity name
     adb shell 'am start -n com.qooapp.qoohelper/.activity.WelcomeActivity'
 
     # add environment variable
     adb shell 'am start -a $(MYPACKAGEID).RUN -e server http://$(MYIP):$(MYPORT) -e game $(game) -e nativeLog $(MYNATIVELOG)'
 </code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#install--uninstall" id="user-content-install--uninstall">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Install / Uninstall
-   </h3>
-   <pre><code>    adb install file.apk
+  <h3>
+   <a aria-hidden="true" class="anchor" href="#install--uninstall" id="user-content-install--uninstall">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Install / Uninstall
+  </h3>
+  <pre><code>    adb install file.apk
     adb install -r file.apk # replace
 
     # Install to a specific device
@@ -226,66 +225,65 @@
 
     adb shell am start -a android.intent.action.DELETE -d package:&lt;your app package&gt;
 </code></pre>
-   <h3>
-    <a aria-hidden="true" class="anchor" href="#extracting-apk-file" id="user-content-extracting-apk-file">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
+  <h3>
+   <a aria-hidden="true" class="anchor" href="#extracting-apk-file" id="user-content-extracting-apk-file">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Extracting APK file
+  </h3>
+  <ul>
+   <li>
+    <a href="http://ibotpeaches.github.io/Apktool/" rel="nofollow">
+     Use
+     <code>
+      apktool
+     </code>
     </a>
-    Extracting APK file
-   </h3>
-   <ul>
-    <li>
-     <a href="http://ibotpeaches.github.io/Apktool/" rel="nofollow">
-      Use
-      <code>
-       apktool
-      </code>
-     </a>
-    </li>
-   </ul>
-   <pre><code>    apktool d /path/to/apk
+   </li>
+  </ul>
+  <pre><code>    apktool d /path/to/apk
     open res/values/strings.xml
 </code></pre>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
+  <h2>
+   <a aria-hidden="true" class="anchor" href="#references" id="user-content-references">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   References
+  </h2>
+  <ul>
+   <li>
+    <a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file" rel="nofollow">
+     View android manifset from APK
     </a>
-    References
-   </h2>
-   <ul>
-    <li>
-     <a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file" rel="nofollow">
-      View android manifset from APK
-     </a>
-    </li>
-    <li>
-     <a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device" rel="nofollow">
-      Get apk from Android device
-     </a>
-    </li>
-    <li>
-     <a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear" rel="nofollow">
-      Adb shell to uninstall package
-     </a>
-    </li>
-    <li>
-     <a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat" rel="nofollow">
-      Debugging with logcat
-     </a>
-    </li>
-   </ul>
-  </article>
- </div>
+   </li>
+   <li>
+    <a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device" rel="nofollow">
+     Get apk from Android device
+    </a>
+   </li>
+   <li>
+    <a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear" rel="nofollow">
+     Adb shell to uninstall package
+    </a>
+   </li>
+   <li>
+    <a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat" rel="nofollow">
+     Debugging with logcat
+    </a>
+   </li>
+  </ul>
+ </article>
 </div>
 
             <div class="git-meta">
                 
-                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
+                <span>Brought to you by <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
                 
                 <span style="float: right; color: #369;"><a href="https://github.com/minhhh/wiki/blob/master/android_cli.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
@@ -398,89 +396,29 @@
         <i class="fa fa-tag fa-fw fa-lg"></i>git
     </a>
 </span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/prefab.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/dither.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>dither
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    <a href="http://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    <a href="http://minhhh.github.io/tag/unittest.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assert.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assert
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/uasync.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    <a href="http://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
     </a>
 </span>
 <span class="tag-4">
@@ -489,48 +427,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/coroutine.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 <span class="tag-4">
@@ -544,18 +442,53 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>webp
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blender.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/uasync.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/fsm.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-3">
@@ -564,93 +497,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mesh.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/property.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/fsm.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
     </a>
 </span>
 <span class="tag-4">
@@ -659,23 +507,153 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    <a href="http://minhhh.github.io/tag/assert.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assert
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    <a href="http://minhhh.github.io/tag/prefab.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mesh.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blender.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unittest.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/dither.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>dither
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
     </a>
 </span>
 <span class="tag-3">
@@ -684,8 +662,28 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
     </a>
 </span>
 </p>

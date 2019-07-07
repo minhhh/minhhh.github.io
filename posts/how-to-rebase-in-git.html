@@ -151,41 +151,40 @@
     </style>
     <div class="git-content">
         <div class="git-file">
-            <div class="file">
- <div class="readme blob instapaper_body js-code-block-container" id="readme">
-  <article class="markdown-body entry-content" itemprop="text">
-   <h1>
-    <a aria-hidden="true" class="anchor" href="#rebase-feature-branch-into-develop-branch" id="user-content-rebase-feature-branch-into-develop-branch">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Rebase feature branch into develop branch
-   </h1>
-   <p>
-    If you follow
-    <a href="http://nvie.com/posts/a-successful-git-branching-model/" rel="nofollow">
-     A successful Git branching model
-    </a>
-    , you will have to merge feature branches into develop from time to time. To make a beautiful linear tree in the develop branch, you would rebase instead of just merging. The following guide will outline the rebase process from beginning to end.
-   </p>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#rebasing-one-branch-into-develop" id="user-content-rebasing-one-branch-into-develop">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Rebasing one branch into develop
-   </h2>
-   <p>
-    Suppose your feature branch is
-    <code>
-     feature/add_css
-    </code>
-   </p>
-   <pre><code>    # This will merge the latest develop to feature/css
+            <div class="Box-body readme blob instapaper_body js-code-block-container" id="readme">
+ <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
+  <h1>
+   <a aria-hidden="true" class="anchor" href="#rebase-feature-branch-into-develop-branch" id="user-content-rebase-feature-branch-into-develop-branch">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Rebase feature branch into develop branch
+  </h1>
+  <p>
+   If you follow
+   <a href="http://nvie.com/posts/a-successful-git-branching-model/" rel="nofollow">
+    A successful Git branching model
+   </a>
+   , you will have to merge feature branches into develop from time to time. To make a beautiful linear tree in the develop branch, you would rebase instead of just merging. The following guide will outline the rebase process from beginning to end.
+  </p>
+  <h2>
+   <a aria-hidden="true" class="anchor" href="#rebasing-one-branch-into-develop" id="user-content-rebasing-one-branch-into-develop">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Rebasing one branch into develop
+  </h2>
+  <p>
+   Suppose your feature branch is
+   <code>
+    feature/add_css
+   </code>
+  </p>
+  <pre><code>    # This will merge the latest develop to feature/css
     git checkout develop
     git pull
     git checkout feature/add_css
@@ -223,27 +222,27 @@
     # Delete the temporary merge branch
     git branch -D temp
 </code></pre>
-   <br/>
-   <h2>
-    <a aria-hidden="true" class="anchor" href="#rebasing-multiple-branches-into-develop" id="user-content-rebasing-multiple-branches-into-develop">
-     <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-      <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
-      </path>
-     </svg>
-    </a>
-    Rebasing multiple branches into develop
-   </h2>
-   <p>
-    The correct way to do this is to rebase each branch one by one, but the next one will have to rebase based on the result of the last rebase. Suppose you're going to merge these 2 branches:
-    <code>
-     feature/add_css
-    </code>
-    and
-    <code>
-     feature/add_html
-    </code>
-   </p>
-   <pre><code>    # This will merge the latest develop to feature/css
+  <br/>
+  <h2>
+   <a aria-hidden="true" class="anchor" href="#rebasing-multiple-branches-into-develop" id="user-content-rebasing-multiple-branches-into-develop">
+    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+     <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd">
+     </path>
+    </svg>
+   </a>
+   Rebasing multiple branches into develop
+  </h2>
+  <p>
+   The correct way to do this is to rebase each branch one by one, but the next one will have to rebase based on the result of the last rebase. Suppose you're going to merge these 2 branches:
+   <code>
+    feature/add_css
+   </code>
+   and
+   <code>
+    feature/add_html
+   </code>
+  </p>
+  <pre><code>    # This will merge the latest develop to feature/css
     git checkout develop
     git pull
     git checkout feature/add_css
@@ -286,17 +285,16 @@
     # Delete the temporary merge branch
     git branch -D temp
 </code></pre>
-   <br/>
-   <p>
-    Then repeat this process with the next branches one by one.
-   </p>
-  </article>
- </div>
+  <br/>
+  <p>
+   Then repeat this process with the next branches one by one.
+  </p>
+ </article>
 </div>
 
             <div class="git-meta">
                 
-                <span>Brought to you by me <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
+                <span>Brought to you by <a href="https://github.com/minhhh/pelican_git">pelican_git</a>.</span>
                 
                 <span style="float: right; color: #369;"><a href="https://github.com/minhhh/git-manual/blob/master/git_rebase.md">view original</a></span>
                 <span style="float: right; margin-right: 8px;">
@@ -409,89 +407,29 @@
         <i class="fa fa-tag fa-fw fa-lg"></i>git
     </a>
 </span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/medium.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>medium
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/scriptableobject.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/netcat.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rebase.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/backend.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/network.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>network
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/particlesystem.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/prefab.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/dither.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>dither
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/jelly.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/socialnetwork.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    <a href="http://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/texture.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    <a href="http://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>cli
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mvc.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    <a href="http://minhhh.github.io/tag/unittest.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/promise.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>promise
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/assert.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assert
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/uasync.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/singleton.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    <a href="http://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
     </a>
 </span>
 <span class="tag-4">
@@ -500,48 +438,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mecanim.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/deconstructed.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/rx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>rx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/splitalpha.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/pelican.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/coroutine.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>coroutine
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mac.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mac
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/optimization.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/adb.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>adb
     </a>
 </span>
 <span class="tag-4">
@@ -555,18 +453,53 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/c.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    <a href="http://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>webp
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blender.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    <a href="http://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/uasync.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>uasync
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>splitalpha
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/fsm.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/assetbundle.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>assetbundle
+    <a href="http://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
     </a>
 </span>
 <span class="tag-3">
@@ -575,93 +508,8 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/multiplayer.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/mesh.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
-    </a>
-</span>
-<span class="tag-4">
     <a href="http://minhhh.github.io/tag/property.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>property
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/bash.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/fsm.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>fsm
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/webp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>webp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/awk.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>awk
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/blur.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>blur
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/osx.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>osx
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/otp.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>otp
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/gmail.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>gmail
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/commandline.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>commandline
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/bluetooth.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/github.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>github
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/checklist.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>checklist
-    </a>
-</span>
-<span class="tag-1">
-    <a href="http://minhhh.github.io/tag/unity.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="http://minhhh.github.io/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-    </a>
-</span>
-<span class="tag-4">
-    <a href="http://minhhh.github.io/tag/android.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>android
     </a>
 </span>
 <span class="tag-4">
@@ -670,23 +518,153 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/game.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>game
+    <a href="http://minhhh.github.io/tag/assert.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>assert
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/editor.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    <a href="http://minhhh.github.io/tag/prefab.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>prefab
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>jelly
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mesh.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mesh
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blender.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blender
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>particlesystem
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mac
+    </a>
+</span>
+<span class="tag-1">
+    <a href="http://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>unity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bluetooth
     </a>
 </span>
 <span class="tag-3">
-    <a href="http://minhhh.github.io/tag/cli.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>cli
+    <a href="http://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>pelican
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/unittest.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>unittest
+    <a href="http://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>texture
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/dither.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>dither
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/adb.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>adb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>multiplayer
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>otp
     </a>
 </span>
 <span class="tag-3">
@@ -695,8 +673,28 @@
     </a>
 </span>
 <span class="tag-4">
-    <a href="http://minhhh.github.io/tag/decorator.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>decorator
+    <a href="http://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>editor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mvc
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>backend
+    </a>
+</span>
+<span class="tag-4">
+    <a href="http://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>osx
+    </a>
+</span>
+<span class="tag-3">
+    <a href="http://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>github
     </a>
 </span>
 </p>

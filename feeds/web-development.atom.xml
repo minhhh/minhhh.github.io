@@ -44,138 +44,136 @@
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="file"&gt;
- &lt;div class="readme blob instapaper_body js-code-block-container" id="readme"&gt;
-  &lt;article class="markdown-body entry-content" itemprop="text"&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#memcache-cheatsheet" id="user-content-memcache-cheatsheet"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    MEMCACHE CHEATSHEET
-   &lt;/h1&gt;
-   &lt;p&gt;
-    Memcached is simple yet powerful. Its simple design promotes quick deployment, ease of development, and solves many problems facing large data caches. Its API is available for most popular languages.
-   &lt;/p&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#viewing-memcache-stats" id="user-content-viewing-memcache-stats"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Viewing memcache stats
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    echo "stats" | nc localhost 11211
+            &lt;div class="Box-body readme blob instapaper_body js-code-block-container" id="readme"&gt;
+ &lt;article class="markdown-body entry-content p-3 p-md-6" itemprop="text"&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#memcache-cheatsheet" id="user-content-memcache-cheatsheet"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   MEMCACHE CHEATSHEET
+  &lt;/h1&gt;
+  &lt;p&gt;
+   Memcached is simple yet powerful. Its simple design promotes quick deployment, ease of development, and solves many problems facing large data caches. Its API is available for most popular languages.
+  &lt;/p&gt;
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#viewing-memcache-stats" id="user-content-viewing-memcache-stats"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Viewing memcache stats
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    echo "stats" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#viewing-memcache-server-stats" id="user-content-viewing-memcache-server-stats"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Viewing memcache server stats
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    memcached -vv
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#viewing-memcache-server-stats" id="user-content-viewing-memcache-server-stats"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Viewing memcache server stats
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    memcached -vv
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#viewing-slab-stats" id="user-content-viewing-slab-stats"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Viewing slab stats
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    echo "stats slabs" | nc localhost 11211
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#viewing-slab-stats" id="user-content-viewing-slab-stats"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Viewing slab stats
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    echo "stats slabs" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#viewing-item-stats" id="user-content-viewing-item-stats"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Viewing item stats
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    echo "stats items" | nc localhost 11211
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#viewing-item-stats" id="user-content-viewing-item-stats"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Viewing item stats
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    echo "stats items" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#viewing-stats-sizes" id="user-content-viewing-stats-sizes"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Viewing stats sizes
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    echo "stats sizes" | nc localhost 11211
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#viewing-stats-sizes" id="user-content-viewing-stats-sizes"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Viewing stats sizes
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    echo "stats sizes" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#flush-all-cache" id="user-content-flush-all-cache"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Flush all cache
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    echo "flush_all" | nc localhost 11211
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#flush-all-cache" id="user-content-flush-all-cache"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Flush all cache
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    echo "flush_all" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#print-all-items-of-a-slab" id="user-content-print-all-items-of-a-slab"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Print all items of a slab
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    stats cachedump &amp;lt;slabs_id&amp;gt; &amp;lt;limit&amp;gt;
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#print-all-items-of-a-slab" id="user-content-print-all-items-of-a-slab"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Print all items of a slab
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    stats cachedump &amp;lt;slabs_id&amp;gt; &amp;lt;limit&amp;gt;
     echo "stats cachedump 1 0" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h2&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#get-multiple-items" id="user-content-get-multiple-items"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
-    &lt;/a&gt;
-    Get multiple items
-   &lt;/h2&gt;
-   &lt;pre&gt;&lt;code&gt;    echo "get key1 key2" | nc localhost 11211
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#get-multiple-items" id="user-content-get-multiple-items"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Get multiple items
+  &lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;    echo "get key1 key2" | nc localhost 11211
 &lt;/code&gt;&lt;/pre&gt;
-   &lt;h1&gt;
-    &lt;a aria-hidden="true" class="anchor" href="#references" id="user-content-references"&gt;
-     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
-      &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
-      &lt;/path&gt;
-     &lt;/svg&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#references" id="user-content-references"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   REFERENCES
+  &lt;/h1&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;a href="https://code.google.com/p/memcached/wiki/NewStart" rel="nofollow"&gt;
+     Memcache Wiki
     &lt;/a&gt;
-    REFERENCES
-   &lt;/h1&gt;
-   &lt;ul&gt;
-    &lt;li&gt;
-     &lt;a href="https://code.google.com/p/memcached/wiki/NewStart" rel="nofollow"&gt;
-      Memcache Wiki
-     &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-     &lt;a href="http://lzone.de/cheat-sheet/memcached" rel="nofollow"&gt;
-      Memcache Cheatsheet
-     &lt;/a&gt;
-    &lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/article&gt;
- &lt;/div&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://lzone.de/cheat-sheet/memcached" rel="nofollow"&gt;
+     Memcache Cheatsheet
+    &lt;/a&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/article&gt;
 &lt;/div&gt;
 
             &lt;div class="git-meta"&gt;
                 
-                &lt;span&gt;Brought to you by me &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
                 
                 &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/memcache.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
                 &lt;span style="float: right; margin-right: 8px;"&gt;

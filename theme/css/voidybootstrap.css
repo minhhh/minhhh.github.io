@@ -15,12 +15,22 @@ img {
 
 #content {
     padding-right: 50px; 
-    line-height: 26px;
+    line-height: 1.5;
 }
 
 #content p {
-      margin-bottom: 24px;
-  }
+    margin-bottom: 16px;
+}
+
+#content ul {
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+
+#content ul ul {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
 
 p.standfirst {
     font-size: 18px;

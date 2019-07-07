@@ -38,16 +38,16 @@
 &lt;/ul&gt;</summary><category term="unity"></category></entry><entry><title>Loading Sprites dynamically in Unity</title><link href="http://minhhh.github.io/posts/loading-sprites-dynamically-in-unity" rel="alternate"></link><published>2017-08-06T00:00:00-04:00</published><updated>2017-08-06T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2017-08-06:posts/loading-sprites-dynamically-in-unity</id><summary type="html">&lt;p&gt;Loading sprites dynamically from code is one of the most basic tasks that we have to do. However, it seems that there's not a standard way to to this in Unity. This guide will look at several cases of loading sprites dynamically and their solutions&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1. Loading a separate sprite&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Imagine you have 4 attribute icons: fire, water, earth and wind. You will have to load the correct icon for the correct character. The easiest way to do this is to put 4 icon images: fire.png, water.png, earth.png and wind.png inside a folder in &lt;code&gt;Resources&lt;/code&gt;, such as &lt;code&gt;Resources/attribute_icons/&lt;/code&gt;. Then loading a sprite is as simple as this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Sprite sprite = Resources.Load (&amp;quot;attribute_icons/fire&amp;quot;, typeof(Sprite)) as Sprite;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Sprite&lt;/span&gt; &lt;span class="n"&gt;sprite&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;Load&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;attribute_icons/fire&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Sprite&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In reality, we almost never do this. The reason is we need to batch drawcall, so we cannot afford to have separate drawcall for each of these small icon images. But if you put the sprites inside the &lt;code&gt;Resources&lt;/code&gt; folder, you cannot pack them with Unity's Sprite Packer. If you put them outside of the &lt;code&gt;Resources&lt;/code&gt; folder, you cannot load them dynamically with Resources.Load. This leads to the next solutions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2. Packing spritesheet with external tools&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Unity has a Sprite import mode called &lt;code&gt;Multiple&lt;/code&gt;, where you can slice a Sprite atlas or Spritesheet into multiple sprites. The sprites can then be load dynamically like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// suppose the texturesheet is in Resources/attributeicons.png
-Sprite[] sprites = Resources.LoadAll &amp;lt;Sprite&amp;gt; (&amp;quot;attributeicons&amp;quot;);
-// Find the correct sprite to use by Sprite.name
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;suppose&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;texturesheet&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;attributeicons&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
+&lt;span class="n"&gt;Sprite&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;sprites&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LoadAll&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Sprite&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;attributeicons&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Find&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;correct&lt;/span&gt; &lt;span class="n"&gt;sprite&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -96,10 +96,10 @@ Sprite[] sprites = Resources.LoadAll &amp;lt;Sprite&amp;gt; (&amp;quot;attribute
 &lt;h2&gt;Usage&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;TaskRunner&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;First of all, it's quite well-known that 2 main disadvantages of coroutine are: 1) it cannot return value and 2) it cannot handle nested exception. There's a simple way to wrap coroutine so we can support those 2 features, as detailed in &lt;a href="http://www.zingweb.com/blog/2013/02/05/unity-coroutine-wrapper"&gt;this article&lt;/a&gt;. &lt;code&gt;TaskRunner&lt;/code&gt; also supports returning value and catching exceptions using callback style. You use it like so:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UAsync;
-...
-TaskRunner.Instance.Run (task, onComplete);
-// public TaskRoutine Run (IEnumerator task, CallbackDelegate onComplete = null)
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;UAsync&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;TaskRunner&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Run&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;onComplete&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;TaskRoutine&lt;/span&gt; &lt;span class="n"&gt;Run&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IEnumerator&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CallbackDelegate&lt;/span&gt; &lt;span class="n"&gt;onComplete&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -107,33 +107,33 @@ TaskRunner.Instance.Run (task, onComplete);
 &lt;p&gt;&lt;strong&gt;UAsync&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;UAsync&lt;/code&gt; is a port of Node's &lt;code&gt;async&lt;/code&gt; module to Unity environment. It can be used to turn a set of synchronous functions or coroutine to run sequentially or concurrently. Even though you can already run a set of tasks sequentially using coroutine, passing values between these tasks are proven to be difficult. You have to use external variables to hold the return values which creates coupling between functions, and it's not convenient. &lt;code&gt;UAsync&lt;/code&gt; can solve this problem by allowing coroutine to return value, as well as catching exceptions if any.&lt;/p&gt;
 &lt;p&gt;Let's look at an example:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;var series =
-    UAsync.Async.Series (
-        SeriesFunc.FromAction (&amp;quot;one&amp;quot;, SeriesFunc1),
-        SeriesFunc.FromEnumerator (&amp;quot;two&amp;quot;, SeriesFunc2),
-        SeriesFunc.FromAction (&amp;quot;three&amp;quot;, SeriesFunc3),
-        UAsyncFinalFunc.From ((object err, Dictionary&amp;lt;string, object&amp;gt; res) =&amp;gt; {
-            Debug.Log (&amp;quot;Finish &amp;quot; + err);
-            if (err == null) {
-                Debug.Log (&amp;quot;res &amp;quot; + res [&amp;quot;one&amp;quot;] + &amp;quot; &amp;quot; + res [&amp;quot;two&amp;quot;] + &amp;quot; &amp;quot; + res [&amp;quot;three&amp;quot;]);
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;series&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
+    &lt;span class="nv"&gt;UAsync&lt;/span&gt;.&lt;span class="nv"&gt;Async&lt;/span&gt;.&lt;span class="nv"&gt;Series&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+        &lt;span class="nv"&gt;SeriesFunc&lt;/span&gt;.&lt;span class="nv"&gt;FromAction&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;one&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;SeriesFunc1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;,
+        &lt;span class="nv"&gt;SeriesFunc&lt;/span&gt;.&lt;span class="nv"&gt;FromEnumerator&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;two&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;SeriesFunc2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;,
+        &lt;span class="nv"&gt;SeriesFunc&lt;/span&gt;.&lt;span class="nv"&gt;FromAction&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;three&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;SeriesFunc3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;,
+        &lt;span class="nv"&gt;UAsyncFinalFunc&lt;/span&gt;.&lt;span class="nv"&gt;From&lt;/span&gt; &lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;err&lt;/span&gt;, &lt;span class="nv"&gt;Dictionary&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;string&lt;/span&gt;, &lt;span class="nv"&gt;object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+            &lt;span class="nv"&gt;Debug&lt;/span&gt;.&lt;span class="nv"&gt;Log&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Finish &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;err&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="nv"&gt;Debug&lt;/span&gt;.&lt;span class="nv"&gt;Log&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;res &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;one&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;two&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;three&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
-        })
-    );
+        }&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-void SeriesFunc1 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; res)
+&lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;SeriesFunc1&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;CallbackDelegate&lt;/span&gt; &lt;span class="nv"&gt;cb&lt;/span&gt;, &lt;span class="nv"&gt;Dictionary&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;string&lt;/span&gt;, &lt;span class="nv"&gt;object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-    cb (null, 100);
+    &lt;span class="nv"&gt;cb&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;, &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 
-IEnumerator SeriesFunc2 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; res)
+&lt;span class="nv"&gt;IEnumerator&lt;/span&gt; &lt;span class="nv"&gt;SeriesFunc2&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;CallbackDelegate&lt;/span&gt; &lt;span class="nv"&gt;cb&lt;/span&gt;, &lt;span class="nv"&gt;Dictionary&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;string&lt;/span&gt;, &lt;span class="nv"&gt;object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-    yield return new WaitForSeconds (1);
-    cb (null, 200);
+    &lt;span class="nv"&gt;yield&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;WaitForSeconds&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;cb&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;, &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 
-void SeriesFunc3 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; res)
+&lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;SeriesFunc3&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;CallbackDelegate&lt;/span&gt; &lt;span class="nv"&gt;cb&lt;/span&gt;, &lt;span class="nv"&gt;Dictionary&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;string&lt;/span&gt;, &lt;span class="nv"&gt;object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-    cb (null, 300);
+    &lt;span class="nv"&gt;cb&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;, &lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -520,14 +520,14 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; 
 &lt;li&gt;A central system that hosts the states and facilitates their transitions&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai"&gt;Using Interfaces to Make a State Machine for AI&lt;/a&gt; has a simplest implementation of FSM. A state is represented like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public interface IEnemyState
-{
-    void UpdateState();
-    void OnTriggerEnter (Collider other);
-    void ToPatrolState();
-    void ToAlertState();
-    void ToChaseState();
-}
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;IEnemyState&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;UpdateState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;OnTriggerEnter&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Collider&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;ToPatrolState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;ToAlertState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;ToChaseState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -604,10 +604,10 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; 
 &lt;ol&gt;
 &lt;li&gt;Create a base class for all the global game Settings. It will have a static property &lt;code&gt;Instance&lt;/code&gt;, which provides a way to create a singleton instance in a fixed location. This location will be customized on a project basis.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public class Setting&amp;lt;T&amp;gt; : ScriptableObject where T : Setting&amp;lt;T&amp;gt;
-{
-...
-}
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Setting&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ScriptableObject&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Setting&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -631,8 +631,8 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; 
 &lt;li&gt;To swap scene setting, simply load the specific setting in &lt;code&gt;Assets&lt;/code&gt; then assign it to specific field in a &lt;code&gt;MonoBehaviour&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;Implementation&lt;/strong&gt;
-&lt;em&gt; Create multiple settings
-&lt;/em&gt; Define a field in &lt;code&gt;MonoBehaviour&lt;/code&gt; or parent ScriptableObject, referring to the settings ScriptableObject&lt;/p&gt;
+* Create multiple settings
+* Define a field in &lt;code&gt;MonoBehaviour&lt;/code&gt; or parent ScriptableObject, referring to the settings ScriptableObject&lt;/p&gt;
 &lt;h2&gt;Use case 3: Scriptable Objects as MasterData or Item Database&lt;/h2&gt;
 &lt;p&gt;For any sufficiently large game, the game data will be so big that you have to separate them from the code, and they will be referred to as &lt;code&gt;MasterData&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Popular solutions for storing &lt;code&gt;MasterData&lt;/code&gt; include:&lt;/p&gt;
@@ -662,43 +662,43 @@ void SeriesFunc3 (CallbackDelegate cb, Dictionary&amp;lt;string, object&amp;gt; 
 &lt;p&gt;These ScriptableObjects are similar to the ones in Usecase 3, but they have functions which can act arbitrarily on &lt;code&gt;GameObject&lt;/code&gt;, &lt;code&gt;MonoBehaviour&lt;/code&gt; and so on.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117"&gt;Ability System with Scriptable Objects&lt;/a&gt; shows how you implement an Ability System, where &lt;code&gt;Ability&lt;/code&gt; is ScriptableObject with its own behaviour functions.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Ability&lt;/code&gt; class contains data and abstracts methods which act on &lt;code&gt;GameObject&lt;/code&gt; based on those data.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public abstract class Ability : ScriptableObject
-{
-    public string aName = &amp;quot;New Ability&amp;quot;;
-    public Sprite aSprite;
-    public AudioClip aSound;
-    public float aBaseCoolDown = 1f;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Ability&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ScriptableObject&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;aName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;New Ability&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt; &lt;span class="n"&gt;aSprite&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;AudioClip&lt;/span&gt; &lt;span class="n"&gt;aSound&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;aBaseCoolDown&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-    public abstract void Initialize (GameObject obj);
-    public abstract void TriggerAbility ();
-}
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;abstract&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="k"&gt;Initialize&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GameObject&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;abstract&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;TriggerAbility&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;ProjectileAbility&lt;/code&gt; is a concrete &lt;code&gt;Ability&lt;/code&gt; subclass, which modifies the target &lt;code&gt;GameObject&lt;/code&gt; as needed and trigger the projectile action.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UnityEngine;
-using System.Collections;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Collections&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-[CreateAssetMenu (menuName = &amp;quot;Abilities/ProjectileAbility&amp;quot;)]
-public class ProjectileAbility : Ability
-{
-    public float projectileForce = 500f;
-    public Rigidbody projectile;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;CreateAssetMenu&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;menuName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Abilities/ProjectileAbility&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;ProjectileAbility&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Ability&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;projectileForce&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Rigidbody&lt;/span&gt; &lt;span class="n"&gt;projectile&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-    private ProjectileShootTriggerable launcher;
+    &lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="n"&gt;ProjectileShootTriggerable&lt;/span&gt; &lt;span class="n"&gt;launcher&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-    public override void Initialize (GameObject obj)
-    {
-        launcher = obj.GetComponent&amp;lt;ProjectileShootTriggerable&amp;gt; ();
-        launcher.projectileForce = projectileForce;
-        launcher.projectile = projectile;
-    }
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;override&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="k"&gt;Initialize&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GameObject&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;launcher&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ProjectileShootTriggerable&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;launcher&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;projectileForce&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;projectileForce&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;launcher&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;projectile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;projectile&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
 
-    public override void TriggerAbility ()
-    {
-        launcher.Launch ();
-    }
-}
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;override&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;TriggerAbility&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;launcher&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Launch&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -838,12 +838,12 @@ public class ProjectileAbility : Ability
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;                        合計サイズ (MiB) RGBA       16bit 比のサイズ削減率 (%)
-RGBA 16bit              879                         0
-RGBA PVRTC 4bit         229                         74
-RGBA ETC2 8bit          431                         51
-Split Alpha (Android)   249                         72
-Split Alpha (iOS)       272                         69
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;                        &lt;span class="err"&gt;合計サイズ&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MiB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;RGBA&lt;/span&gt;       &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="nb"&gt;bit&lt;/span&gt; &lt;span class="err"&gt;比のサイズ削減率&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;RGBA&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="nb"&gt;bit&lt;/span&gt;              &lt;span class="mi"&gt;879&lt;/span&gt;                         &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;RGBA&lt;/span&gt; &lt;span class="n"&gt;PVRTC&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="nb"&gt;bit&lt;/span&gt;         &lt;span class="mi"&gt;229&lt;/span&gt;                         &lt;span class="mi"&gt;74&lt;/span&gt;
+&lt;span class="n"&gt;RGBA&lt;/span&gt; &lt;span class="n"&gt;ETC2&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="nb"&gt;bit&lt;/span&gt;          &lt;span class="mi"&gt;431&lt;/span&gt;                         &lt;span class="mi"&gt;51&lt;/span&gt;
+&lt;span class="n"&gt;Split&lt;/span&gt; &lt;span class="n"&gt;Alpha&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Android&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;   &lt;span class="mi"&gt;249&lt;/span&gt;                         &lt;span class="mi"&gt;72&lt;/span&gt;
+&lt;span class="n"&gt;Split&lt;/span&gt; &lt;span class="n"&gt;Alpha&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iOS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="mi"&gt;272&lt;/span&gt;                         &lt;span class="mi"&gt;69&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1194,27 +1194,27 @@ Split Alpha (iOS)       272                         69
 &lt;p&gt;Fortunately there're already some solutions written in &lt;a href="http://wiki.unity3d.com"&gt;unity3d&lt;/a&gt; so we can review and improve them as we wish.&lt;/p&gt;
 &lt;h3&gt;AManagerClass&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://wiki.unity3d.com/index.php/AManagerClass"&gt;AManagerClass&lt;/a&gt; is a standard implementation which supports MonoBehavior-based singletons. In the code, we refer to the singleton like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    AManager.instance.Foo ();
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;AManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Foo&lt;/span&gt; &lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;instance&lt;/code&gt; function implementation is as below:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public static AManager instance {
-        get {
-            if (s_Instance == null) {
-                // This is where the magic happens.
-                //  FindObjectOfType(...) returns the first AManager object in the scene.
-                s_Instance =  FindObjectOfType(typeof (AManager)) as AManager;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;AManager&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt; {
+        &lt;span class="nv"&gt;get&lt;/span&gt; {
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;where&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;magic&lt;/span&gt; &lt;span class="nv"&gt;happens&lt;/span&gt;.
+                &lt;span class="o"&gt;//&lt;/span&gt;  &lt;span class="nv"&gt;FindObjectOfType&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;...&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;returns&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;first&lt;/span&gt; &lt;span class="nv"&gt;AManager&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;scene&lt;/span&gt;.
+                &lt;span class="nv"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nv"&gt;FindObjectOfType&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;AManager&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;AManager&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
 
-            // If it is still null, create a new instance
-            if (s_Instance == null) {
-                GameObject obj = new GameObject(&amp;quot;AManager&amp;quot;);
-                s_Instance = obj.AddComponent(typeof (AManager)) as AManager;
-                Debug.Log (&amp;quot;Could not locate an AManager object. \ AManager was Generated Automaticly.&amp;quot;);
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;still&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;, &lt;span class="nv"&gt;create&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="nv"&gt;GameObject&lt;/span&gt; &lt;span class="nv"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;GameObject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;AManager&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;s_Instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;obj&lt;/span&gt;.&lt;span class="nv"&gt;AddComponent&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;AManager&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;AManager&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;Debug&lt;/span&gt;.&lt;span class="nv"&gt;Log&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Could not locate an AManager object. \ AManager was Generated Automaticly.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
 
-            return s_Instance;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;s_Instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 &lt;/pre&gt;&lt;/div&gt;
@@ -1231,56 +1231,56 @@ Split Alpha (iOS)       272                         69
 &lt;li&gt;&lt;a href="http://wiki.unity3d.com/index.php/AutoSingletonManager"&gt;AutoSingletonManager&lt;/a&gt; solves the code duplication problem of &lt;code&gt;AManager&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Here's the main code&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public abstract class AutoSingletonManager : MonoBehaviour { }
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;abstract&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;AutoSingletonManager&lt;/span&gt; : &lt;span class="nv"&gt;MonoBehaviour&lt;/span&gt; { }
 
-public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManager where T : AutoSingletonManager
+&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;abstract&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;AutoSingletonManager&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; : &lt;span class="nv"&gt;AutoSingletonManager&lt;/span&gt; &lt;span class="nv"&gt;where&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; : &lt;span class="nv"&gt;AutoSingletonManager&lt;/span&gt;
 {
-    private static bool Compare&amp;lt;T&amp;gt;(T x, T y) where T : class
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;bool&lt;/span&gt; &lt;span class="nv"&gt;Compare&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt;, &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;where&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; : &lt;span class="nv"&gt;class&lt;/span&gt;
     {
-        return x == y;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
 
-    #region Singleton
+    #&lt;span class="nv"&gt;region&lt;/span&gt; &lt;span class="nv"&gt;Singleton&lt;/span&gt;
 
-    private static T _instance = default(T);
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;default&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-    public static T Instance
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;Instance&lt;/span&gt;
     {
-        get
+        &lt;span class="nv"&gt;get&lt;/span&gt;
         {
-            if (!Compare&amp;lt;T&amp;gt;(default(T), _instance)) return _instance;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;Compare&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;default&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;, &lt;span class="nv"&gt;_instance&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;_instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-            InitInstance(true);
-            return _instance;
+            &lt;span class="nv"&gt;InitInstance&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;_instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 
-    #endregion
+    #&lt;span class="nv"&gt;endregion&lt;/span&gt;
 
-    public void Awake()
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Awake&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        InitInstance(false);
+        &lt;span class="nv"&gt;InitInstance&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
 
-    public static void InitInstance(bool shouldInitManager)
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;InitInstance&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;bool&lt;/span&gt; &lt;span class="nv"&gt;shouldInitManager&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
-        Type thisType = typeof (T);
+        &lt;span class="nv"&gt;Type&lt;/span&gt; &lt;span class="nv"&gt;thisType&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        _instance = FindObjectOfType&amp;lt;T&amp;gt;();
+        &lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;FindObjectOfType&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        if (Compare&amp;lt;T&amp;gt;(default(T), _instance))
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Compare&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;default&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;, &lt;span class="nv"&gt;_instance&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
         {
-            _instance = new GameObject(thisType.Name).AddComponent&amp;lt;T&amp;gt;();
+            &lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;GameObject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;thisType&lt;/span&gt;.&lt;span class="nv"&gt;Name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 
-        //Won&amp;#39;t call InitManager from Awake
-        if (shouldInitManager)
+        &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Won&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;t call InitManager from Awake&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;shouldInitManager&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            (_instance as AutoSingletonManager&amp;lt;T&amp;gt;).InitManager();
+            &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;AutoSingletonManager&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;InitManager&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 
-    public virtual void InitManager() { }
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;InitManager&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; { }
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1304,31 +1304,31 @@ public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManag
 &lt;p&gt;This is quite good but surely we can do better.&lt;/p&gt;
 &lt;h2&gt;Discussions&lt;/h2&gt;
 &lt;p&gt;First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public class MySingleton ...
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;MySingleton&lt;/span&gt; ...
     {
-        static MySingleton _instance = null;
-        static object singletonLock = new object ();
+        &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;MySingleton&lt;/span&gt; &lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;singletonLock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        public static MySingleton Instance
+        &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;MySingleton&lt;/span&gt; &lt;span class="nv"&gt;Instance&lt;/span&gt;
         {
-            get {
-                if (_instance != null) {
-                    return;
+            &lt;span class="nv"&gt;get&lt;/span&gt; {
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                    &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
                 }
 
-                lock (singletonLock) {
-                    if (_instance != null) {
-                        return _instance;
+                &lt;span class="nv"&gt;lock&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;singletonLock&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;_instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
                     }
 
-                    var singletonGameObject = new GameObject (&amp;quot;MySingleton&amp;quot;);
-                    GameObject.DontDestroyOnLoad (singletonGameObject);
-                    _instance = singletonGameObject.AddComponent&amp;lt; MySingleton &amp;gt; ();
+                    &lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;singletonGameObject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;GameObject&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;MySingleton&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                    &lt;span class="nv"&gt;GameObject&lt;/span&gt;.&lt;span class="nv"&gt;DontDestroyOnLoad&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;singletonGameObject&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                    &lt;span class="nv"&gt;_instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;singletonGameObject&lt;/span&gt;.&lt;span class="nv"&gt;AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nv"&gt;MySingleton&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-                    ... other initialization code
+                    ... &lt;span class="nv"&gt;other&lt;/span&gt; &lt;span class="nv"&gt;initialization&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt;
                 }
 
-                return _instance;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;_instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
         }
 &lt;/pre&gt;&lt;/div&gt;
@@ -1337,14 +1337,14 @@ public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManag
 &lt;p&gt;By using a simple double lock pattern, we seemingly solve the "concurrency problem". The question is: Do we need to?. Why you have the concurrency problem with singleton? It's because you want to &lt;code&gt;lazy load&lt;/code&gt; the singleton, i.e. only create it when it is used for the first time. But that's exactly what we want to avoid if we want to achieve smooth gameplay. So what you should do instead is just create the bloody singleton at the beginning and forget about it. Remember, &lt;code&gt;preload&lt;/code&gt; is better than &lt;code&gt;lazy load&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Secondly, I've already mentioned the check for null is redundant if we know we only call the singleton after it's been initialized. In the usecases listed by &lt;code&gt;SecureSingleton&lt;/code&gt;, we see that the singleton is either created by code or already exists in the scene as a &lt;code&gt;GameObject&lt;/code&gt; which is supposed to be configured by designers. In either case, the code to initialize the scene should be a good place for calling the initialization code of the singleton and there's no need for making it sooner.&lt;/p&gt;
 &lt;p&gt;So what will happen if the &lt;code&gt;Instance&lt;/code&gt; property is called before you initialize the singleton? Obviously an exception will be thrown and this is an ideal case for using Unity Assert because you will have a nice message in development mode but you can also turn it off in production build.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    public class GameSingleton&amp;lt;T&amp;gt; : MyBaseBehaviour where T : GameSingleton&amp;lt;T&amp;gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;GameSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; : &lt;span class="nv"&gt;MyBaseBehaviour&lt;/span&gt; &lt;span class="nv"&gt;where&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; : &lt;span class="nv"&gt;GameSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
     {
         ...
-        public static T Instance
+        &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;Instance&lt;/span&gt;
         {
-            get {
-                Assert.IsNotNull (instance);
-                return instance;
+            &lt;span class="nv"&gt;get&lt;/span&gt; {
+                &lt;span class="nv"&gt;Assert&lt;/span&gt;.&lt;span class="nv"&gt;IsNotNull&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
         }
 &lt;/pre&gt;&lt;/div&gt;
@@ -1352,78 +1352,78 @@ public abstract class AutoSingletonManager&amp;lt;T&amp;gt; : AutoSingletonManag
 
 &lt;p&gt;Note that &lt;code&gt;MyBaseBehaviour&lt;/code&gt; class is a class derived from &lt;code&gt;MonoBehaviour&lt;/code&gt; and is customized specifically for our game. For instance, it might have general code for handling &lt;code&gt;Update&lt;/code&gt; or &lt;code&gt;OnDestroy&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;All that is left now is writing a function &lt;code&gt;CreateInstance&lt;/code&gt; for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling &lt;code&gt;CreateInstance&lt;/code&gt; twice should throw an exception. This is better than mindlessly guard the function in the name of "defensive programming". It will look something like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        public static T CreateInstance()
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;CreateInstance&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
         {
-            Assert.IsNull (instance);
+            &lt;span class="nv"&gt;Assert&lt;/span&gt;.&lt;span class="nv"&gt;IsNull&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-            GameObject go = new GameObject(typeof(T).Name);
-            instance = go.AddComponent&amp;lt;T&amp;gt;();
-            instance.OnCreated();
-            DontDestroyOnLoad(go);
+            &lt;span class="nv"&gt;GameObject&lt;/span&gt; &lt;span class="nv"&gt;go&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;GameObject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;Name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;go&lt;/span&gt;.&lt;span class="nv"&gt;AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;instance&lt;/span&gt;.&lt;span class="nv"&gt;OnCreated&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;DontDestroyOnLoad&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;go&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-            return instance;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 
 
-        protected virtual void OnCreated()
+        &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;OnCreated&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
         {
         }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here we have a virtual function &lt;code&gt;OnCreated&lt;/code&gt; waiting to be overriden in subclass. To destroy the singleton, we don't have to use fancy static function &lt;code&gt;DeleteInstance&lt;/code&gt;, instead we can just get the singleton gameobject and destroy it like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    GameObject.Destroy (MySingleton.Instance.gameObject);
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;GameObject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;Destroy&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MySingleton&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gameObject&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;When the &lt;code&gt;OnDestroy&lt;/code&gt; function is called, we will set &lt;code&gt;instance&lt;/code&gt; variable to null then allow subclass to do cleanup themselves. The reason why we don't use &lt;code&gt;DeleteInstance&lt;/code&gt; is because we don't want developers who use the API to think there's anything special about destroying the singleton than just destroying the container object.&lt;/p&gt;
 &lt;p&gt;Finally, we discuss feature &lt;code&gt;destroy if exists in scene&lt;/code&gt;. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that's should not be the main way to deal with game data. We'd better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.&lt;/p&gt;
 &lt;p&gt;If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from &lt;code&gt;SecureUnitySingleton&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    protected virtual void Awake()
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Awake&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        if (InstanceExists &amp;amp;&amp;amp; instance != this)
-            Destroy(gameObject);
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;InstanceExists&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+            &lt;span class="nv"&gt;Destroy&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gameObject&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Implementation&lt;/h2&gt;
 &lt;p&gt;After we've considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using UnityEngine;
-using System;
-using UnityEngine.Assertions;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;UnityEngine&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;UnityEngine&lt;/span&gt;.&lt;span class="nv"&gt;Assertions&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-public class SimpleSingleton&amp;lt;T&amp;gt; : BaseMonoBehaviour where T : SimpleSingleton&amp;lt;T&amp;gt;
+&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;SimpleSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; : &lt;span class="nv"&gt;BaseMonoBehaviour&lt;/span&gt; &lt;span class="nv"&gt;where&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; : &lt;span class="nv"&gt;SimpleSingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 {
-    private static T instance;
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-    public static T Instance {
-        get {
-            Assert.IsNotNull (instance, &amp;quot;Instance is null. Please call CreateInstance first!&amp;quot;);
-            return instance;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;Instance&lt;/span&gt; {
+        &lt;span class="nv"&gt;get&lt;/span&gt; {
+            &lt;span class="nv"&gt;Assert&lt;/span&gt;.&lt;span class="nv"&gt;IsNotNull&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;instance&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Instance is null. Please call CreateInstance first!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 
-    public static T CreateInstance ()
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;T&lt;/span&gt; &lt;span class="nv"&gt;CreateInstance&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        if (instance != null) {
-            Assert.IsNull (instance, &amp;quot;Instance is not null. Please call CreateInstance once only&amp;quot;);
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="nv"&gt;Assert&lt;/span&gt;.&lt;span class="nv"&gt;IsNull&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;instance&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Instance is not null. Please call CreateInstance once only&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 
-        GameObject go = new GameObject (typeof(T).Name);
-        instance = go.AddComponent&amp;lt;T&amp;gt; ();
+        &lt;span class="nv"&gt;GameObject&lt;/span&gt; &lt;span class="nv"&gt;go&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;GameObject&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;Name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;go&lt;/span&gt;.&lt;span class="nv"&gt;AddComponent&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        instance.OnCreated ();
+        &lt;span class="nv"&gt;instance&lt;/span&gt;.&lt;span class="nv"&gt;OnCreated&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        return instance;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;instance&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
 
-    protected virtual void OnDestroy ()
+    &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;OnDestroy&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        instance = null;
+        &lt;span class="nv"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
 
-    protected virtual void OnCreated ()
+    &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;OnCreated&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt;
     {
     }
 
