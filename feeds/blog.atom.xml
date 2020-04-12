@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2016-09-10T00:00:00-04:00</updated><entry><title>Setup Github pages as your blog</title><link href="http://minhhh.github.io/posts/setup-github-pages-as-your-blog" rel="alternate"></link><published>2016-09-10T00:00:00-04:00</published><updated>2016-09-10T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-10:posts/setup-github-pages-as-your-blog</id><summary type="html">&lt;p&gt;How to setup github page as your blog? It's actually very easy, just follow the following guides&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Huy Minh Ha</title><link href="https://minhhh.github.io/" rel="alternate"></link><link href="https://minhhh.github.io/feeds/blog.atom.xml" rel="self"></link><id>https://minhhh.github.io/</id><updated>2016-09-10T00:00:00-04:00</updated><entry><title>Setup Github pages as your blog</title><link href="https://minhhh.github.io/posts/setup-github-pages-as-your-blog" rel="alternate"></link><published>2016-09-10T00:00:00-04:00</published><updated>2016-09-10T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-10:posts/setup-github-pages-as-your-blog</id><summary type="html">&lt;p&gt;How to setup github page as your blog? It's actually very easy, just follow the following guides&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://24ways.org/2013/get-started-with-github-pages/"&gt;Get Started With GitHub Pages (Plus Bonus Jekyll)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/start/new-project/user-page/"&gt;A guide to using Github Pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://knightlab.northwestern.edu/2013/06/13/getting-github-why-journalists-should-know-and-use-the-social-coding-site/"&gt;Getting GitHub: Why journalists should know and use the social coding site&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/csswizardry/csswizardry.github.com"&gt;csswizardry.github.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="blog"></category><category term="github"></category></entry><entry><title>What is Medium</title><link href="http://minhhh.github.io/posts/what-is-medium" rel="alternate"></link><published>2015-12-03T00:00:00-05:00</published><updated>2015-12-03T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</id><summary type="html">&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="blog"></category><category term="github"></category></entry><entry><title>What is Medium</title><link href="https://minhhh.github.io/posts/what-is-medium" rel="alternate"></link><published>2015-12-03T00:00:00-05:00</published><updated>2015-12-03T00:00:00-05:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-12-03:posts/what-is-medium</id><summary type="html">&lt;p&gt;Medium is a web-based service that let anyone publish articles online that was founded in 2012 by 2 founders of Twitter: Ev Williams and Biz Stone. Ev Williams said Medium was "a new place on the Internet where people share ideas and stories that are longer than 140 characters and not just for friends."&lt;/p&gt;
 &lt;p&gt;According to wikipedia, medium is a &lt;a href="https://en.wikipedia.org/wiki/Medium_(publishing_platform)"&gt;blog publishing platform&lt;/a&gt;. While Medium might look like a standard blogging platform, it had been "designed for little stories that make your day better and manifestos that change the world." And yet "it helps you find the right audience for whatever you have to say.". Also, Medium does not show articles in a reverse-chronological index of content like normal blogging platform.&lt;/p&gt;
 &lt;p&gt;Medium seems to do following:&lt;/p&gt;
 &lt;ul&gt;
@@ -33,7 +33,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.theatlantic.com/technology/archive/2013/08/what-is-medium/278965/"&gt;What is medium&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/"&gt;http://time.com/37586/what-is-medium-medium-is-pretty-cool-thats-what/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="medium"></category></entry><entry><title>Embed git file to pelican</title><link href="http://minhhh.github.io/posts/embed-git-file-to-pelican" rel="alternate"></link><published>2014-09-11T00:00:00-04:00</published><updated>2014-09-11T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</id><summary type="html">&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="medium"></category></entry><entry><title>Embed git file to pelican</title><link href="https://minhhh.github.io/posts/embed-git-file-to-pelican" rel="alternate"></link><published>2014-09-11T00:00:00-04:00</published><updated>2014-09-11T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-11:posts/embed-git-file-to-pelican</id><summary type="html">&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it's not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
 &lt;p&gt;I have several solutions for this problem:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I could duplicate the article. But I won't do this.&lt;/li&gt;
@@ -102,8 +102,8 @@ Third&lt;/code&gt;&lt;/pre&gt;
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob instapaper_body js-code-block-container" id="readme"&gt;
- &lt;article class="markdown-body entry-content p-3 p-md-6" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
+ &lt;article class="markdown-body entry-content" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#first-level-title" id="user-content-first-level-title"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -133,11 +133,11 @@ Third&lt;/code&gt;&lt;/pre&gt;
    Quote some code with correct syntax highlight
   &lt;/p&gt;
   &lt;div class="highlight highlight-source-python"&gt;
-   &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; [&lt;span class="pl-c1"&gt;0&lt;/span&gt;, &lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-c1"&gt;2&lt;/span&gt;, &lt;span class="pl-c1"&gt;3&lt;/span&gt;, &lt;span class="pl-c1"&gt;4&lt;/span&gt;, &lt;span class="pl-c1"&gt;5&lt;/span&gt;]:
-    &lt;span class="pl-c1"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;
+   &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-s1"&gt;i&lt;/span&gt; &lt;span class="pl-c1"&gt;in&lt;/span&gt; [&lt;span class="pl-c1"&gt;0&lt;/span&gt;, &lt;span class="pl-c1"&gt;1&lt;/span&gt;, &lt;span class="pl-c1"&gt;2&lt;/span&gt;, &lt;span class="pl-c1"&gt;3&lt;/span&gt;, &lt;span class="pl-c1"&gt;4&lt;/span&gt;, &lt;span class="pl-c1"&gt;5&lt;/span&gt;]:
+    &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;i&lt;/span&gt;&lt;span class="pl-c1"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;
 
-&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-c1"&gt;range&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
-    &lt;span class="pl-c1"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
+&lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-s1"&gt;i&lt;/span&gt; &lt;span class="pl-c1"&gt;in&lt;/span&gt; &lt;span class="pl-en"&gt;range&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;i&lt;/span&gt;&lt;span class="pl-c1"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
   &lt;/div&gt;
   &lt;h3&gt;
    &lt;a aria-hidden="true" class="anchor" href="#third-level-title" id="user-content-third-level-title"&gt;
@@ -149,8 +149,8 @@ Third&lt;/code&gt;&lt;/pre&gt;
    Third level title
   &lt;/h3&gt;
   &lt;div class="highlight highlight-source-python"&gt;
-   &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; i &lt;span class="pl-k"&gt;in&lt;/span&gt; &lt;span class="pl-v"&gt;xrange&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
-    &lt;span class="pl-c1"&gt;print&lt;/span&gt; i&lt;span class="pl-k"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
+   &lt;pre&gt;&lt;span class="pl-k"&gt;for&lt;/span&gt; &lt;span class="pl-s1"&gt;i&lt;/span&gt; &lt;span class="pl-c1"&gt;in&lt;/span&gt; &lt;span class="pl-en"&gt;xrange&lt;/span&gt;(&lt;span class="pl-c1"&gt;6&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;print&lt;/span&gt; &lt;span class="pl-s1"&gt;i&lt;/span&gt;&lt;span class="pl-c1"&gt;**&lt;/span&gt;&lt;span class="pl-c1"&gt;2&lt;/span&gt;&lt;/pre&gt;
   &lt;/div&gt;
   &lt;ul&gt;
    &lt;li&gt;
@@ -173,7 +173,7 @@ Third&lt;/code&gt;&lt;/pre&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="git"></category><category term="pelican"></category><category term="github"></category></entry><entry><title>Creating this blog</title><link href="http://minhhh.github.io/posts/creating-this-blog" rel="alternate"></link><published>2014-06-07T00:00:00-04:00</published><updated>2014-06-07T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</id><summary type="html">&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="git"></category><category term="pelican"></category><category term="github"></category></entry><entry><title>Creating this blog</title><link href="https://minhhh.github.io/posts/creating-this-blog" rel="alternate"></link><published>2014-06-07T00:00:00-04:00</published><updated>2014-06-07T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-06-07:posts/creating-this-blog</id><summary type="html">&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican"&gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;

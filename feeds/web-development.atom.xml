@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ha.Minh's Blog</title><link href="http://minhhh.github.io/" rel="alternate"></link><link href="http://minhhh.github.io/feeds/web-development.atom.xml" rel="self"></link><id>http://minhhh.github.io/</id><updated>2015-10-10T00:00:00-04:00</updated><entry><title>An Introduction to Memcache</title><link href="http://minhhh.github.io/posts/an-introduction-to-memcache" rel="alternate"></link><published>2015-10-10T00:00:00-04:00</published><updated>2015-10-10T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-10-10:posts/an-introduction-to-memcache</id><summary type="html">&lt;p&gt;&lt;div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Huy Minh Ha</title><link href="https://minhhh.github.io/" rel="alternate"></link><link href="https://minhhh.github.io/feeds/web-development.atom.xml" rel="self"></link><id>https://minhhh.github.io/</id><updated>2015-10-10T00:00:00-04:00</updated><entry><title>An Introduction to Memcache</title><link href="https://minhhh.github.io/posts/an-introduction-to-memcache" rel="alternate"></link><published>2015-10-10T00:00:00-04:00</published><updated>2015-10-10T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2015-10-10:posts/an-introduction-to-memcache</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
@@ -44,8 +44,8 @@
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob instapaper_body js-code-block-container" id="readme"&gt;
- &lt;article class="markdown-body entry-content p-3 p-md-6" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
+ &lt;article class="markdown-body entry-content" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#memcache-cheatsheet" id="user-content-memcache-cheatsheet"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
