@@ -3,7 +3,7 @@ Date: 2014-06-06 21:00
 Author: Ha.Minh
 Slug: about
 
-Hi, I’m Ha Minh. I write here for my own entertainment and hopefully yours. This site focuses on all things related to IT/Technology.
+Hi, I’m Huy Minh Ha. I write here for my own entertainment and hopefully yours. This site focuses on all things related to IT/Technology.
 
 I used to use Windows, then I moved to Arch/Ubuntu. Using command line is cool, but at that time I didn't have a decent computer with SSD so they're both slow. Then I bought my first MacBook Pro, plugged in an SSD, and since then I have no intention to go back to Windows or Linux. When I have to use either OS I just fire up my Virtual Box machine by a single Vagrant command.
 

@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Ha.Minh'
-SITENAME = u"Ha.Minh's Blog"
-SITEURL = 'http://minhhh.github.io'
+AUTHOR = u'Huy Minh Ha'
+SITENAME = u"Huy Minh Ha"
+SITEURL = 'https://minhhh.github.io'
 
 TIMEZONE = 'America/New_York'
 
@@ -16,24 +16,14 @@ PLUGINS = [
 ]
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
+FEED_DOMAIN = SITEURL
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
 # Blogroll
 LINKS =  (('Pelican', 'http://getpelican.com/'),
           ('Python.org', 'http://python.org/'),
           )
-
-# Social widget
-# SOCIAL =  (('Pelican', 'http://getpelican.com/'),
-#           ('Python.org', 'http://python.org/'),
-#           )
-
-GITHUB_URL = 'https://github.com/minhhh'
-TWITTER_URL = 'https://twitter.com/utsace'
-FACEBOOK_URL = 'https://www.facebook.com/minh.ha.hanoi'
-GOOGLEPLUS_URL = 'https://plus.google.com/u/0/104727235342101204530/about/p/pub'
 
 # Pages
 DEFAULT_PAGINATION = 10
@@ -72,7 +62,7 @@ RELATIVE_URLS = True
 DELETE_OUTPUT_DIRECTORY = False
 
 # VoidyBootstrap
-SITESUBTITLE ='Software development and other stuff'
+SITESUBTITLE ='Software development, Tech and other stuff'
 
 STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
 
@@ -81,12 +71,14 @@ CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
 
 SIDEBAR = "sidebar.html"
 
-SOCIAL = (('Google+', 'https://plus.google.com/u/0/104727235342101204530/about/p/pub',
-         'fa fa-google-plus-square fa-fw fa-lg'),
+# Social widget
+SOCIAL = (
+        #('Google+', 'https://plus.google.com/u/0/104727235342101204530/about/p/pub',
+        # 'fa fa-google-plus-square fa-fw'),
         ('Twitter', 'https://twitter.com/utsace',
-         'fa fa-twitter-square fa-fw fa-lg'),
+         'fa fa-twitter-square fa-fw'),
         ('Facebook', 'https://www.facebook.com/minh.ha.hanoi',
-         'fa fa-facebook-square fa-fw fa-lg'),
+         'fa fa-facebook-square fa-fw'),
         ('GitHub', 'https://github.com/minhhh',
-         'fa fa-github-square fa-fw fa-lg'),
+         'fa fa-github-square fa-fw'),
         )
