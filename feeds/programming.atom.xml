@@ -83,7 +83,33 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</summary><category term="python"></category><category term="otp"></category></entry><entry><title>Autoformat C# code from command line</title><link href="https://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><published>2016-09-11T00:00:00-04:00</published><updated>2016-09-11T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
+&lt;p&gt;Remember to store your secret safely.&lt;/p&gt;</summary><category term="python"></category><category term="otp"></category></entry><entry><title>Maple.js Deconstructed</title><link href="https://minhhh.github.io/posts/maplejs-deconstructed" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><updated>2016-09-25T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/maplejs-deconstructed</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/BonsaiDen/Maple.js"&gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.&lt;/li&gt;
+&lt;li&gt;The supported functionality includes:&lt;ul&gt;
+&lt;li&gt;Connect/Disconnect&lt;/li&gt;
+&lt;li&gt;Ping server&lt;/li&gt;
+&lt;li&gt;Handle arbitrary message&lt;/li&gt;
+&lt;li&gt;Sync client server update tick on every frame&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The problems with Maple are:&lt;ul&gt;
+&lt;li&gt;Use Websocket, which is slow&lt;/li&gt;
+&lt;li&gt;Require too much sync and only applicable for Round-based games.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="deconstructed"></category><category term="network"></category></entry><entry><title>Osmus Deconstructed</title><link href="https://minhhh.github.io/posts/osmus-deconstructed" rel="alternate"></link><published>2016-09-25T00:00:00-04:00</published><updated>2016-09-25T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-25:posts/osmus-deconstructed</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/borismus/osmus"&gt;Osmus&lt;/a&gt; is a tech demo of a HTML5 multiplayer game inspired by &lt;a href="http://www.osmos-game.com/"&gt;Osmos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Osmus uses node.js for the server and HTML5 Canvas with Javascript on the client side. The simulation code is shared between client and server.&lt;/li&gt;
+&lt;li&gt;Regarding network, Osmus uses &lt;code&gt;socket.io&lt;/code&gt;. &lt;code&gt;Socket.io&lt;/code&gt; is quite stable and performant so this is ok.&lt;/li&gt;
+&lt;li&gt;The multiplayer architecture is Server/Client, with the server being the sole authority. All inputs from any client will be rebroadcast to all clients in the room. There are several problems with this approach&lt;ul&gt;
+&lt;li&gt;Not scalable: Simply rebroadcast all messages will increase the load on the server exponentially so this is totally not acceptable. Some sort of rate limit should be applied, such as only sending messages to viewable entities.&lt;/li&gt;
+&lt;li&gt;Sudden positional jump on client: If the client entities can move around, then client simulation. client prediction and interpolation with server states should be applied to ensure smooth movement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="deconstructed"></category><category term="network"></category></entry><entry><title>Autoformat C# code from command line</title><link href="https://minhhh.github.io/posts/autoformat-c-code-from-command-line" rel="alternate"></link><published>2016-09-11T00:00:00-04:00</published><updated>2016-09-11T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2016-09-11:posts/autoformat-c-code-from-command-line</id><summary type="html">&lt;p&gt;We all need a tool to format code automatically according to project's convention. Using an IDE like Visual Studio, Xamarin or MonoDevelop, we can format code easily. However, it's not always convenient to fireup the IDE just for formatting some code, and also having a tool on the command line makes it easier to integrate with other workflows. Therefore, it's great if we have some tool which runs on the command line to auto format our code.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt;
 * Customizable format options
 * Format whole directory recursively&lt;/p&gt;
@@ -148,8 +174,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#netcat-cheatsheet" id="user-content-netcat-cheatsheet"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -442,8 +468,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#bash" id="user-content-bash"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -764,8 +790,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#a-guide-to-pythons-magic-methods" id="user-content-a-guide-to-pythons-magic-methods"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -3674,8 +3700,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#awk-cheatsheet" id="user-content-awk-cheatsheet"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -4681,8 +4707,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#python-decorator-tutorial" id="user-content-python-decorator-tutorial"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -5154,8 +5180,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#rebase-feature-branch-into-develop-branch" id="user-content-rebase-feature-branch-into-develop-branch"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
@@ -5350,8 +5376,8 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
     &lt;/style&gt;
     &lt;div class="git-content"&gt;
         &lt;div class="git-file"&gt;
-            &lt;div class="Box-body readme blob js-code-block-container px-5" id="readme"&gt;
- &lt;article class="markdown-body entry-content" itemprop="text"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
   &lt;h1&gt;
    &lt;a aria-hidden="true" class="anchor" href="#git-manual" id="user-content-git-manual"&gt;
     &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
