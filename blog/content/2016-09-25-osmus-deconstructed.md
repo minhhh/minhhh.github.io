@@ -1,7 +1,7 @@
 Title: Osmus Deconstructed
 Date: 2016-09-25 00:00
 Author: Ha.Minh
-Category: Deconstructed
+Category: Programming
 Tags: deconstructed, network
 
 [Osmus](https://github.com/borismus/osmus) is a tech demo of a HTML5 multiplayer game inspired by [Osmos](http://www.osmos-game.com/).

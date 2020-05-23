@@ -1,7 +1,7 @@
 Title: Maple.js Deconstructed
 Date: 2016-09-25 00:00
 Author: Ha.Minh
-Category: Deconstructed
+Category: Programming
 Tags: deconstructed, network
 
 [Maple.js](https://github.com/BonsaiDen/Maple.js) is a simple event-based multiplayer framework using Node.js

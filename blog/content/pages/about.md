@@ -1,15 +1,20 @@
 Title: About
-Date: 2014-06-06 21:00
 Author: Ha.Minh
 Slug: about
 
-Hi, I’m Huy Minh Ha. I write here for my own entertainment and hopefully yours. This site focuses on all things related to IT/Technology.
+Hi, I’m <b>Huy Minh Ha</b>, a detail oriented software engineer passionate crafting software products that people love to use.
 
-I used to use Windows, then I moved to Arch/Ubuntu. Using command line is cool, but at that time I didn't have a decent computer with SSD so they're both slow. Then I bought my first MacBook Pro, plugged in an SSD, and since then I have no intention to go back to Windows or Linux. When I have to use either OS I just fire up my Virtual Box machine by a single Vagrant command.
+I have experience in 2D Game Development with Unity 5, Live Ops of social mobile games, backend development with Node.js, Express, MySQL.
 
-For a while, I didn't blog, first because I didn't have anything significant to blog about, and second because all the blogging platform require login, online editor and whatnot, which I found very cumbersome. Recently, I discover the rise of static blog, where you can write blog in Markdown format, which I love, hence this blog.
+I love learning new and better ways to write cleaner, more efficient and effective code. I consider life an never-ending journey of learning and collecting knowledge, and I'm always looking for opportunities to work with those who care about the craft of coding and are willing to share their knowledge.
 
-# About the site
+When I'm not coding, I like reading fantasy books and playing with my kid.
+
+## Contact me
+
+You can contact me via [email](mailto:ha.minh.minhhh@gmail.com) or via the social media links under the **Social** section on the right.
+
+## About the site
 This site is running on [Pelican]. Themes are taken from [Pelican Themes].
 
 [Pelican]: http://pelican.notmyidea.org/en/latest/index.html
