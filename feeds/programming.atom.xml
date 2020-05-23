@@ -5135,7 +5135,192 @@ After we have &lt;code&gt;astyle&lt;/code&gt; available on the command line, app
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="decorator"></category></entry><entry><title>How to rebase in Git</title><link href="https://minhhh.github.io/posts/how-to-rebase-in-git" rel="alternate"></link><published>2014-09-09T00:00:00-04:00</published><updated>2014-09-09T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</id><summary type="html">&lt;p&gt;&lt;div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="decorator"></category></entry><entry><title>Android CLI tool cheatsheet</title><link href="https://minhhh.github.io/posts/android-cli-tool-cheatsheet" rel="alternate"></link><published>2014-10-03T00:00:00-04:00</published><updated>2014-10-03T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-10-03:posts/android-cli-tool-cheatsheet</id><summary type="html">&lt;p&gt;&lt;div&gt;
+    &lt;style type = "text/css" scoped&gt;
+.git-content div {
+    padding: 0;
+    margin: 0;
+}
+
+.git-content .git-file {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 1em;
+}
+
+.git-content .git-file .git-meta {
+    background-color: #EAEAEA;
+    color: #666666;
+    font-size: 85%;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.git-content .git-file .git-meta a {
+    color: #336699;
+}
+
+.git-content .git-file .git-meta a:visited {
+    color: #773377;
+}
+
+.git-content .git-file {
+    background-color: #F8F8FF;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 100%;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.git-content .git-file pre {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    &lt;/style&gt;
+    &lt;div class="git-content"&gt;
+        &lt;div class="git-file"&gt;
+            &lt;div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="readme"&gt;
+ &lt;article class="markdown-body entry-content container-lg" itemprop="text"&gt;
+  &lt;h1&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#android-cli-cheatsheet" id="user-content-android-cli-cheatsheet"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   ANDROID CLI CHEATSHEET
+  &lt;/h1&gt;
+  &lt;h3&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#read-log" id="user-content-read-log"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Read log
+  &lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;    adb logcat
+    adb logcat -v time
+
+    adb logcat *:V # Get all message in verbose mode
+    adb logcat xxxxxxx:V *:S # Get all message starts with xxxxx
+
+    # Log by pid
+    adb logcat | grep `adb shell ps | grep com.example.package | cut -c10-15`
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#list-package" id="user-content-list-package"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   List package
+  &lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;    adb shell pm list package
+    adb shell pm path com.example.someapp
+    adb pull /data/app/com.example.someapp-2.apk
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#run-a-particular-intent" id="user-content-run-a-particular-intent"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Run a particular intent
+  &lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;    # Start by activity name
+    adb shell 'am start -n com.qooapp.qoohelper/.activity.WelcomeActivity'
+
+    # add environment variable
+    adb shell 'am start -a $(MYPACKAGEID).RUN -e server http://$(MYIP):$(MYPORT) -e game $(game) -e nativeLog $(MYNATIVELOG)'
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#install--uninstall" id="user-content-install--uninstall"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Install / Uninstall
+  &lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;    adb install file.apk
+    adb install -r file.apk # replace
+
+    # Install to a specific device
+    adb -s "deviceIDfromlist" install file.apk
+
+    adb shell am start -a android.intent.action.DELETE -d package:&amp;lt;your app package&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#extracting-apk-file" id="user-content-extracting-apk-file"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   Extracting APK file
+  &lt;/h3&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;a href="http://ibotpeaches.github.io/Apktool/" rel="nofollow"&gt;
+     Use
+     &lt;code&gt;
+      apktool
+     &lt;/code&gt;
+    &lt;/a&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;pre&gt;&lt;code&gt;    apktool d /path/to/apk
+    open res/values/strings.xml
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;h2&gt;
+   &lt;a aria-hidden="true" class="anchor" href="#references" id="user-content-references"&gt;
+    &lt;svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"&gt;
+     &lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;
+     &lt;/path&gt;
+    &lt;/svg&gt;
+   &lt;/a&gt;
+   References
+  &lt;/h2&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;a href="http://stackoverflow.com/questions/4191762/how-to-view-androidmanifest-xml-from-apk-file" rel="nofollow"&gt;
+     View android manifset from APK
+    &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device" rel="nofollow"&gt;
+     Get apk from Android device
+    &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://stackoverflow.com/questions/12949609/adb-shell-command-to-make-android-package-uninstall-dialog-appear" rel="nofollow"&gt;
+     Adb shell to uninstall package
+    &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;a href="http://wiki.cyanogenmod.org/w/Doc:_debugging_with_logcat" rel="nofollow"&gt;
+     Debugging with logcat
+    &lt;/a&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/article&gt;
+&lt;/div&gt;
+
+            &lt;div class="git-meta"&gt;
+                
+                &lt;span&gt;Brought to you by &lt;a href="https://github.com/minhhh/pelican_git"&gt;pelican_git&lt;/a&gt;.&lt;/span&gt;
+                
+                &lt;span style="float: right; color: #369;"&gt;&lt;a href="https://github.com/minhhh/wiki/blob/master/android_cli.md"&gt;view original&lt;/a&gt;&lt;/span&gt;
+                &lt;span style="float: right; margin-right: 8px;"&gt;
+                    &lt;a style="color: rgb(102, 102, 102);" href="https://github.com/minhhh/wiki/blob/master/android_cli.md"&gt;android_cli.md&lt;/a&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;</summary><category term="android"></category><category term="mobile"></category></entry><entry><title>How to rebase in Git</title><link href="https://minhhh.github.io/posts/how-to-rebase-in-git" rel="alternate"></link><published>2014-09-09T00:00:00-04:00</published><updated>2014-09-09T00:00:00-04:00</updated><author><name>Ha.Minh</name></author><id>tag:minhhh.github.io,2014-09-09:posts/how-to-rebase-in-git</id><summary type="html">&lt;p&gt;&lt;div&gt;
     &lt;style type = "text/css" scoped&gt;
 .git-content div {
     padding: 0;
