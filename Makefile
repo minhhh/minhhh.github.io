@@ -11,7 +11,7 @@ install: # install
 	pipenv install --dev
 
 run: # run
-	cd blog && pipenv run make devserver PORT=8080 && pipenv run make stopserver
+	cd blog && pipenv run make devserver PORT=8080
 
 stop: # stop
 	cd blog && pipenv run make stopserver
