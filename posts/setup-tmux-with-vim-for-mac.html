@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Huy Minh Ha" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+
+    <title>Setup Tmux with Vim for Mac - Huy Minh Ha</title>
+
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+
+      <link rel="stylesheet" href="https://minhhh.github.io/theme/css/pygment.css" />
+      <link rel="stylesheet" href="https://minhhh.github.io/theme/css/voidybootstrap.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="https://minhhh.github.io/favicon.ico" />
+        <link href="https://minhhh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Huy Minh Ha Atom Feed" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50796592-2', '');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://minhhh.github.io/" rel="home">
+          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
+       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+              <li>
+                <a href="https://minhhh.github.io/pages/about">About</a>
+              </li>
+              <li>
+                <a href="https://minhhh.github.io/pages/projects">Projects</a>
+              </li>
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://minhhh.github.io/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://minhhh.github.io/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://minhhh.github.io/">Huy Minh Ha</a></h1>
+		<p class="lead">Software development, Tech and other stuff</p>
+	  </div>
+	</div>
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  Fri 03 July 2020
+</abbr> <h1>
+  <a href="https://minhhh.github.io/posts/setup-tmux-with-vim-for-mac" rel="bookmark"
+     title="Permalink to Setup Tmux with Vim for Mac">
+    Setup Tmux with Vim for Mac
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://minhhh.github.io/author/haminh.html">Ha.Minh</a>
+    in 
+    <a href="https://minhhh.github.io/category/productivity.html">
+      Productivity</a>
+    &nbsp;&nbsp;
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<h2>Why Tmux</h2>
+<p>When working on the Mac Terminal, I used to create multiple tabs. Then I can switch quickly between tabs using <code>Ctrl + Shift + [</code> and  <code>Ctrl + Shift + ]</code>. While this works smoothly, one annoying problem is all the tabs will lose their content after reboot. So I've been looking for a solution that supports:</p>
+<ul>
+<li>Multiple tabs. Easily switch between tabs</li>
+<li>Able to restore sessions</li>
+</ul>
+<p>From my search, it's quite obvious that <code>tmux</code> is the solution to my problem. Another candidate is <code>screen</code>, which I used for running some scripts on servers, but <code>screen</code> is pretty much a dead project now and its functions are far inferior to <code>tmux</code>.</p>
+<h2>My tmux settings</h2>
+<p>Tmux configuration is stored inside <code>~/.tmux.conf</code>. On startup, <code>tmux</code> will pick up the content on this file and run it. We will put our customization code in this file.</p>
+<p>First, we will remap reload key to <code>r</code> so that we can reload <code>tmux.conf</code> quickly.</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="k">Set</span> <span class="n">reload</span> <span class="k">key</span> <span class="k">to</span> <span class="n">r</span>
+<span class="n">bind</span> <span class="n">r</span> <span class="k">source</span><span class="o">-</span><span class="n">file</span> <span class="o">~/</span><span class="p">.</span><span class="n">tmux</span><span class="p">.</span><span class="n">conf</span>
+</pre></div>
+
+
+<p>Now, when we press <code>&lt;prefix&gt; r</code>, <code>tmux.conf</code> will be reloaded to reflect our new settings. The current <code>&lt;prefix&gt;</code> is still <code>Ctrl B</code>.</p>
+<h3>Remap prefix key</h3>
+<p>Prefix key is one of the most commonly used keys, so it's super important to map it to a single key instead of <code>Ctrl B</code> or <code>Ctrl A</code> as some people might prefer.</p>
+<p>On Mac, one popular solution is to change the prefix to <code>Capslock</code> key because it's rarely used and very well positioned. We have 2 approaches to do this.</p>
+<ul>
+<li>
+<p>Approach 1: Remap <code>Capslock</code> to <code>Esc</code> and remap tmux <code>&lt;prefix&gt;</code> to <code>Esc</code></p>
+<ul>
+<li>Go to System Preferences =&gt; Keyboard =&gt; Modifier keys to remap <code>Capslock</code> to <code>Esc</code></li>
+<li>One annoying problem is now we have to press <code>Esc</code> or <code>Capslock</code> twice in Vim. This is quite unacceptable as I use Vim a lot</li>
+</ul>
+</li>
+<li>
+<p>Approach 2: Remap <code>Capslock</code> to <code>Home</code> and remap tmux <code>&lt;prefix&gt;</code> to <code>Home</code></p>
+<ul>
+<li>Normally you don't have <code>Home</code> in Mac keyboard, but fortunately there is a software called <a href="https://github.com/tekezo/Karabiner-Elements">Karabiner-Elements</a> that allows you to completely customize your Mac keyboard.</li>
+<li>
+<p>After that, remap tmux prefix key to <code>Home</code>:</p>
+<div class="codehilite"><pre><span></span><span class="nv">set</span> <span class="o">-</span><span class="nv">g</span> <span class="nv">prefix</span> <span class="nv">Home</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="nv">Home</span> <span class="k">send</span><span class="o">-</span><span class="nv">prefix</span>
+<span class="nv">unbind</span> <span class="nv">C</span><span class="o">-</span><span class="nv">b</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>I learnt this from <a href="https://blog.guilhermegarnier.com/2017/12/increasing-productivity-in-tmux-with-a-single-prefix-key/">https://blog.guilhermegarnier.com/2017/12/increasing-productivity-in-tmux-with-a-single-prefix-key/</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Fast window switching</h3>
+<p>Windows in <code>tmux</code> are the same concept as tabs in Terminal. I want to be able to switch between windows quickly without having to lift up all fingers.</p>
+<p>Fortunately, there's an easy way to do this by mapping <code>next-window</code> and <code>previous-window</code> commands to <code>Shift Right</code> and <code>Shift Left</code></p>
+<div class="codehilite"><pre><span></span># <span class="nv">Shift</span> <span class="nv">arrow</span> <span class="nv">to</span> <span class="nv">switch</span> <span class="nv">windows</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="o">-</span><span class="nv">r</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">root</span>         <span class="nv">S</span><span class="o">-</span><span class="nv">Left</span>            <span class="nv">previous</span><span class="o">-</span><span class="nv">window</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="o">-</span><span class="nv">r</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">root</span>         <span class="nv">S</span><span class="o">-</span><span class="nv">Right</span>           <span class="k">next</span><span class="o">-</span><span class="nv">window</span>
+</pre></div>
+
+
+<p>You just have to hold Shift and press Left or Right arrows accordingly, which makes switching very fast.</p>
+<p>Next, we also want to be able to move a window to the left and right. We'll do this by mapping <code>&lt;prefix&gt; n</code> and <code>&lt;prefix&gt; p</code> to swapping a window with the one of the left or right</p>
+<div class="codehilite"><pre><span></span># <span class="nv">Prefix</span> <span class="nv">n</span><span class="o">/</span><span class="nv">p</span> <span class="nv">to</span> <span class="nv">move</span> <span class="nv">window</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">left</span> <span class="nv">or</span> <span class="nv">right</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="o">-</span><span class="nv">r</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">prefix</span> <span class="nv">n</span> { <span class="nv">swap</span><span class="o">-</span><span class="nv">window</span> <span class="o">-</span><span class="nv">t</span> <span class="o">+</span><span class="mi">1</span><span class="c1">; next-window }</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="o">-</span><span class="nv">r</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">prefix</span> <span class="nv">p</span> { <span class="nv">swap</span><span class="o">-</span><span class="nv">window</span> <span class="o">-</span><span class="nv">t</span> <span class="o">-</span><span class="mi">1</span><span class="c1">; previous-window }</span>
+</pre></div>
+
+
+<p>In effect, you will press <code>Capslock n</code> or <code>Capslock p</code>. However, unlike <code>Shift Left</code> key combination, you cannot hold <code>Capslock</code>. Instead, you will have to lift all your fingers and press 2 keys <code>Capslock</code> and <code>n</code> at the same time again. This is not a big problem since I'll don't usually move windows around a lot.</p>
+<h3>Restore Tmux and Vim sessions</h3>
+<p>When it comes to restoring <code>tmux</code> environment after system restart, the best solution is no other than <a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>. The installation instruction in their website is rather easy to follow.</p>
+<p>After installing <code>tmux-resurrect</code>, we can use <code>&lt;prefix&gt; Ctrl s</code> to save, and <code>&lt;prefix&gt; Ctrl r</code> to restore tmux sessions.</p>
+<p>Next and equally important, we also need a way to restore Vim session. I found <a href="https://github.com/tpope/vim-obsession">vim-obsession</a> works well with <code>tmux-resurrect</code>.</p>
+<p>The part for tmux-resurrect in my <code>.tmux.conf</code> looks like this:</p>
+<div class="codehilite"><pre><span></span><span class="err">#</span><span class="w"> </span><span class="n">tmux</span><span class="o">-</span><span class="n">resurrect</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="nv">@resurrect</span><span class="o">-</span><span class="n">processes</span><span class="w"> </span><span class="s1">&#39;&quot;~sudo pmset&quot; &quot;~Vim&quot;&#39;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="nv">@resurrect</span><span class="o">-</span><span class="n">capture</span><span class="o">-</span><span class="n">pane</span><span class="o">-</span><span class="n">contents</span><span class="w"> </span><span class="s1">&#39;on&#39;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="nv">@resurrect</span><span class="o">-</span><span class="n">strategy</span><span class="o">-</span><span class="n">vim</span><span class="w"> </span><span class="s1">&#39;session&#39;</span><span class="w"></span>
+</pre></div>
+
+
+<p>Pay attention to the line <code>set -g @resurrect-processes '"~sudo pmset" "~Vim"'</code>. There are a number of default commands such as <code>vi vim nvim emacs man less more tail top htop irssi weechat mutt</code> that <code>tmux-resurrect</code> will automatically restore, but other commands outside of this list will not be restored automatically. So this line tells <code>tmux-resurrect</code> to restores extra commands if the command string match what is specified in the <code>@resurrect-processes</code> variable. In this case, since MacVim uses the command <code>Vim</code> and not <code>vim</code>, we have to specify <code>"~Vim"</code> so <code>tmux-resurrect</code> know that it should restore Vim window. Another command I use is <code>sudo pmset</code>, so I specify <code>"~sudo pmset"</code> here. For more details, read <a href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_programs.md">https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_programs.md</a></p>
+<p>Finally, there are 2 problems when you restore tmux sessions. First, if you create temporary tmux session first, so that you can run the command <code>&lt;prefix&gt; Ctrl r</code> to restore previous sessions, you will have to kill the temporary session manually, which is annoying. Second, the restored windows will not have <code>automatic-rename</code> set to <code>on</code>, so their titles will not be updated automatically, which is equally annoying. To deal with these 2 problem, I use the following bash function:</p>
+<div class="codehilite"><pre><span></span><span class="nv">mux</span><span class="ss">()</span> {
+    <span class="nv">tmux</span> <span class="nv">new</span> <span class="o">-</span><span class="nv">d</span> <span class="o">-</span><span class="nv">s</span> <span class="nv">delete</span><span class="o">-</span><span class="nv">me</span> <span class="o">&amp;&amp;</span> <span class="ss">(</span><span class="nv">tmux</span> <span class="nv">run</span><span class="o">-</span><span class="nv">shell</span> <span class="o">~/</span>.<span class="nv">tmux</span><span class="o">/</span><span class="nv">plugins</span><span class="o">/</span><span class="nv">tmux</span><span class="o">-</span><span class="nv">resurrect</span><span class="o">/</span><span class="nv">scripts</span><span class="o">/</span><span class="nv">restore</span>.<span class="nv">sh</span> <span class="o">&amp;&amp;</span> <span class="nv">tmux</span> <span class="nv">kill</span><span class="o">-</span><span class="nv">session</span> <span class="o">-</span><span class="nv">t</span> <span class="nv">delete</span><span class="o">-</span><span class="nv">me</span><span class="ss">)</span> <span class="o">&amp;&amp;</span>\
+    <span class="ss">(</span><span class="k">for</span> <span class="nv">session_window</span> <span class="nv">in</span> $<span class="ss">(</span><span class="nv">tmux</span> <span class="nv">list</span><span class="o">-</span><span class="nv">windows</span> <span class="o">-</span><span class="nv">a</span> <span class="o">-</span><span class="nv">F</span> <span class="s1">&#39;</span><span class="s">#{session_name}:#{window_index}</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; do</span>
+        <span class="nv">tmux</span> <span class="nv">set</span><span class="o">-</span><span class="nv">window</span><span class="o">-</span><span class="nv">option</span> <span class="o">-</span><span class="nv">t</span> $<span class="nv">session_window</span> <span class="nv">automatic</span><span class="o">-</span><span class="nv">rename</span> <span class="nv">on</span>
+    <span class="nv">done</span><span class="ss">)</span> <span class="o">&amp;&amp;</span>\
+    <span class="nv">tmux</span> <span class="nv">attach</span> <span class="o">||</span> <span class="nv">tmux</span> <span class="nv">attach</span>
+}
+</pre></div>
+
+
+<p>This function is modified from https://gist.github.com/rootulp/93f67511ae97c20c4d32b600a5ab6a8d. To use it, simply type <code>mux</code> in the terminal and it will restore previous session and reattach to it automatically. If there are multiple previous sessions, you can use <code>tmux a -t &lt;name&gt;</code> to attach to the session you want.</p>
+<h3>Vim binding in copy mode</h3>
+<p>Similar to <code>screen</code>, <code>tmux</code> has a copy mode to let you scroll through the content of your window, and copy/paste the parts you like.</p>
+<p>Below is the setting to make this easier</p>
+<div class="codehilite"><pre><span></span># <span class="nv">Use</span> <span class="nv">vim</span> <span class="nv">bindings</span> <span class="nv">in</span> <span class="nv">copy</span> <span class="nv">mode</span> <span class="nv">too</span>
+<span class="nv">set</span> <span class="o">-</span><span class="nv">g</span> <span class="nv">status</span><span class="o">-</span><span class="nv">keys</span>  <span class="nv">vi</span>    # <span class="nv">in</span> <span class="nv">the</span> <span class="nv">status</span><span class="o">/</span><span class="nv">command</span> <span class="nv">prompt</span>
+<span class="nv">setw</span> <span class="o">-</span><span class="nv">g</span> <span class="nv">mode</span><span class="o">-</span><span class="nv">keys</span> <span class="nv">vi</span>
+
+# <span class="nv">Setup</span> <span class="s1">&#39;</span><span class="s">v</span><span class="s1">&#39;</span> <span class="nv">to</span> <span class="nv">begin</span> <span class="nv">selection</span> <span class="nv">as</span> <span class="nv">in</span> <span class="nv">Vim</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">copy</span><span class="o">-</span><span class="nv">mode</span><span class="o">-</span><span class="nv">vi</span> <span class="nv">v</span> <span class="k">send</span><span class="o">-</span><span class="nv">keys</span> <span class="o">-</span><span class="nv">X</span> <span class="nv">begin</span><span class="o">-</span><span class="nv">selection</span>
+<span class="nv">bind</span><span class="o">-</span><span class="nv">key</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">copy</span><span class="o">-</span><span class="nv">mode</span><span class="o">-</span><span class="nv">vi</span> <span class="nv">y</span> <span class="k">send</span><span class="o">-</span><span class="nv">keys</span> <span class="o">-</span><span class="nv">X</span> <span class="nv">copy</span><span class="o">-</span><span class="nv">pipe</span><span class="o">-</span><span class="nv">and</span><span class="o">-</span><span class="nv">cancel</span> <span class="s2">&quot;</span><span class="s">reattach-to-user-namespace pbcopy</span><span class="s2">&quot;</span>
+<span class="nv">unbind</span> <span class="o">-</span><span class="nv">T</span> <span class="nv">copy</span><span class="o">-</span><span class="nv">mode</span><span class="o">-</span><span class="nv">vi</span> <span class="nv">Enter</span> <span class="c1">; bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel &quot;reattach-to-user-namespace pbcopy&quot;</span>
+</pre></div>
+
+
+<p>You can start the copy mode with <code>&lt;prefix&gt; [</code>.
+Then you navigate the window content with Vim-mode keys <code>h j k l</code>. <code>v</code> to start selecting. <code>y</code> or <code>Enter</code> to copy.</p>
+<h3>Customize Status bar</h3>
+<p>The default tmux status bar position is at the top, which is ideal for showing tab-like window titles. I want to maximize the space for showing window title, so I limit the left part and right part of the status bar to very basic information.</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="k">Set</span> <span class="n">Colors</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="k">default</span><span class="o">-</span><span class="n">terminal</span> <span class="ss">&quot;screen-256color&quot;</span>
+<span class="n">setw</span> <span class="o">-</span><span class="k">g</span> <span class="n">window</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">colour254</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">colour102</span>
+<span class="n">setw</span> <span class="o">-</span><span class="k">g</span> <span class="n">window</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="n">format</span> <span class="s1">&#39;#I:#W &#39;</span>
+<span class="n">setw</span> <span class="o">-</span><span class="k">g</span> <span class="n">window</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="k">current</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">colour254</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">colour30</span><span class="p">,</span><span class="n">bright</span>
+<span class="n">setw</span> <span class="o">-</span><span class="k">g</span> <span class="n">window</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="k">current</span><span class="o">-</span><span class="n">format</span> <span class="s1">&#39;#I:#W &#39;</span>
+
+<span class="o">#</span> <span class="k">Set</span> <span class="n">status</span> <span class="n">bar</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="n">bg</span> <span class="n">colour252</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="n">fg</span> <span class="n">black</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="k">length</span> <span class="mi">90</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="k">length</span> <span class="mi">60</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="k">left</span> <span class="ss">&quot;#[fg=green]#S &quot;</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="n">justify</span> <span class="k">left</span>
+<span class="k">set</span> <span class="o">-</span><span class="k">g</span> <span class="n">status</span><span class="o">-</span><span class="k">right</span> <span class="s1">&#39; #[fg=green]%a %d %b %R&#39;</span>
+</pre></div>
+
+
+<p>The left part of status bar, specified by <code>status-left</code>, only shows session title. The right part shows current date and time. Other colors and background colors are customized based on personal preferences.</p>
+<h3>Customize window title</h3>
+<p>For me, one important feature is a good window title, so that I can understand what's in a window just by glancing at the title. One format that works quite well for me has these features:</p>
+<ul>
+<li>Show full path of the current directory if possible. Replace home directory with <code>~</code> for brevity.</li>
+<li>Limit the length of the path to 20 characters so that the title is not too long</li>
+<li>But always try to show at least the full name of the current directory. This will deal with very long directory name that if truncated to 20 characters, will be hard to guess the full name.</li>
+</ul>
+<p>The code to achieve these features is listed below. It uses <code>awk</code> because <code>awk</code> is best for one-liner kinds of programs.</p>
+<div class="codehilite"><pre><span></span># <span class="nv">Set</span> <span class="nv">window</span> <span class="nv">title</span>
+<span class="nv">set</span> <span class="o">-</span><span class="nv">g</span> <span class="nv">automatic</span><span class="o">-</span><span class="nv">rename</span> <span class="nv">on</span>
+<span class="nv">set</span> <span class="o">-</span><span class="nv">g</span> <span class="nv">automatic</span><span class="o">-</span><span class="nv">rename</span><span class="o">-</span><span class="nv">format</span> <span class="s2">&quot;</span><span class="s">#(echo &#39;#{pane_current_path}&#39; | awk &#39;{split($0, a, \</span><span class="s2">&quot;</span><span class="o">/</span>\<span class="s2">&quot;</span><span class="s">);basename=a[length(a)];cmd=\</span><span class="s2">&quot;</span><span class="nv">pwd</span>\<span class="s2">&quot;</span><span class="s">; cmd | getline homepath; close(cmd);baselength=length(basename);i=index($0,homepath);path=$0;if (i==1) { path=\</span><span class="s2">&quot;</span><span class="o">~</span>\<span class="s2">&quot;</span><span class="s">substr(path,length(homepath)+1,length(path)); };maxlength=15; if (length(basename) &gt; maxlength-3) { print \</span><span class="s2">&quot;</span>..<span class="o">/</span>\<span class="s2">&quot;</span><span class="s">basename; } else if (length(path) &gt; maxlength) {print \</span><span class="s2">&quot;</span>..\<span class="s2">&quot;</span><span class="s">substr(path, length(path)-maxlength+3, length(path)) } else print path }&#39;) - #{pane_current_command}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>If you want to customize this code, you can change <code>maxlength=15</code> to whatever you like. If you want to customize further, then you need to get a bit more involved with <code>awk</code></p>
+<p>The result is pretty good as far as I'm concerned. Here are some examples:</p>
+<ul>
+<li><code>~/work</code>: Shorter than 15 characters, so it shows full path</li>
+<li><code>..rk/webarchive</code>: full path is <code>~/work/webarchive</code>, so it truncates to 13 characters and replaces the rest with <code>..</code></li>
+<li><code>../a-very-long-folder-name</code>: The folder name itself is longer than 15 characters, so it's kept in tact and then prefixed with <code>../</code></li>
+</ul>
+<h2>Conclusion</h2>
+<p>Those are my main points of customization of <code>tmux</code>. Granted there are other functions that can be customized such as pane splitting, pane switching, mouse mode, etc, but I don't use those functions much if at all in my every day activities.</p>
+<p>My tmux settings can be found at https://github.com/minhhh/dotfiles/blob/master/tmux/.tmux.conf</p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="https://minhhh.github.io/tag/tmux.html"><i class="fa fa-tag"></i>tmux</a>&nbsp;
+	<a href="https://minhhh.github.io/tag/macos.html"><i class="fa fa-tag"></i>macos</a>&nbsp;
+	<a href="https://minhhh.github.io/tag/vim.html"><i class="fa fa-tag"></i>vim</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="https://minhhh.github.io/posts/setup-tmux-with-vim-for-mac" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
+  <div class="comments">
+	<h2>Comments</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//minhhh.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a href="https://twitter.com/utsace" target="_blank">
+	  <i class="fa fa-twitter-square fa-fw" title="Twitter"></i>
+		Twitter
+	</a></li>
+    <li><a href="https://www.facebook.com/minh.ha.hanoi" target="_blank">
+	  <i class="fa fa-facebook-square fa-fw" title="Facebook"></i>
+		Facebook
+	</a></li>
+    <li><a href="https://github.com/minhhh" target="_blank">
+	  <i class="fa fa-github-square fa-fw" title="GitHub"></i>
+		GitHub
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="https://minhhh.github.io/category/blog.html" >
+    <i class="fa fa-folder-open fa-fw"></i> Blog</a></li>
+  <li><a href="https://minhhh.github.io/category/productivity.html" >
+    <i class="fa fa-folder-open fa-fw"></i> Productivity</a></li>
+  <li><a href="https://minhhh.github.io/category/programming.html" >
+    <i class="fa fa-folder-open fa-fw"></i> Programming</a></li>
+  <li><a href="https://minhhh.github.io/category/technology.html" >
+    <i class="fa fa-folder-open fa-fw"></i> Technology</a></li>
+  <li><a href="https://minhhh.github.io/category/unity.html" >
+    <i class="fa fa-folder-open fa-fw"></i> Unity</a></li>
+  <li><a href="https://minhhh.github.io/category/web-development.html" >
+    <i class="fa fa-folder-open fa-fw"></i> Web Development</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+<h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
+<ul class="list-unstyled links-links">
+  <li><a href=http://getpelican.com/ >
+    <i class="fa fa-fw fa-external-link-square"></i> Pelican</a></li>
+  <li><a href=http://python.org/ >
+    <i class="fa fa-fw fa-external-link-square"></i> Python.org</a></li>
+</ul>
+
+<h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+<span class="tag-1">
+    <a href="https://minhhh.github.io/tag/unity.html">
+        <i class="fa fa-tag fa-fw"></i>unity
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/deconstructed.html">
+        <i class="fa fa-tag fa-fw"></i>deconstructed
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/ios.html">
+        <i class="fa fa-tag fa-fw"></i>ios
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/blender.html">
+        <i class="fa fa-tag fa-fw"></i>blender
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/multiplayer.html">
+        <i class="fa fa-tag fa-fw"></i>multiplayer
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/splitalpha.html">
+        <i class="fa fa-tag fa-fw"></i>splitalpha
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/github.html">
+        <i class="fa fa-tag fa-fw"></i>github
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/optimization.html">
+        <i class="fa fa-tag fa-fw"></i>optimization
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/decorator.html">
+        <i class="fa fa-tag fa-fw"></i>decorator
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/backend.html">
+        <i class="fa fa-tag fa-fw"></i>backend
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/assetbundle.html">
+        <i class="fa fa-tag fa-fw"></i>assetbundle
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/uasync.html">
+        <i class="fa fa-tag fa-fw"></i>uasync
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/singleton.html">
+        <i class="fa fa-tag fa-fw"></i>singleton
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/pool.html">
+        <i class="fa fa-tag fa-fw"></i>pool
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/awk.html">
+        <i class="fa fa-tag fa-fw"></i>awk
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/otp.html">
+        <i class="fa fa-tag fa-fw"></i>otp
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/property.html">
+        <i class="fa fa-tag fa-fw"></i>property
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/game.html">
+        <i class="fa fa-tag fa-fw"></i>game
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/rebase.html">
+        <i class="fa fa-tag fa-fw"></i>rebase
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/nodejs.html">
+        <i class="fa fa-tag fa-fw"></i>nodejs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/bash.html">
+        <i class="fa fa-tag fa-fw"></i>bash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/magic-method.html">
+        <i class="fa fa-tag fa-fw"></i>magic method
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/cli.html">
+        <i class="fa fa-tag fa-fw"></i>cli
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/network.html">
+        <i class="fa fa-tag fa-fw"></i>network
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/coroutine.html">
+        <i class="fa fa-tag fa-fw"></i>coroutine
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/dither.html">
+        <i class="fa fa-tag fa-fw"></i>dither
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/macos.html">
+        <i class="fa fa-tag fa-fw"></i>macos
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/android.html">
+        <i class="fa fa-tag fa-fw"></i>android
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/medium.html">
+        <i class="fa fa-tag fa-fw"></i>medium
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/socialnetwork.html">
+        <i class="fa fa-tag fa-fw"></i>socialnetwork
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/editor.html">
+        <i class="fa fa-tag fa-fw"></i>editor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/c.html">
+        <i class="fa fa-tag fa-fw"></i>c#
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/scriptableobject.html">
+        <i class="fa fa-tag fa-fw"></i>scriptableobject
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/rx.html">
+        <i class="fa fa-tag fa-fw"></i>rx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/blur.html">
+        <i class="fa fa-tag fa-fw"></i>blur
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/gmail.html">
+        <i class="fa fa-tag fa-fw"></i>gmail
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/checklist.html">
+        <i class="fa fa-tag fa-fw"></i>checklist
+    </a>
+</span>
+<span class="tag-2">
+    <a href="https://minhhh.github.io/tag/git.html">
+        <i class="fa fa-tag fa-fw"></i>git
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/osx.html">
+        <i class="fa fa-tag fa-fw"></i>osx
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/tmux.html">
+        <i class="fa fa-tag fa-fw"></i>tmux
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/blog.html">
+        <i class="fa fa-tag fa-fw"></i>blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/particlesystem.html">
+        <i class="fa fa-tag fa-fw"></i>particlesystem
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/nodeenv.html">
+        <i class="fa fa-tag fa-fw"></i>nodeenv
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/netcat.html">
+        <i class="fa fa-tag fa-fw"></i>netcat
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/memcache.html">
+        <i class="fa fa-tag fa-fw"></i>memcache
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/pelican.html">
+        <i class="fa fa-tag fa-fw"></i>pelican
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/vim.html">
+        <i class="fa fa-tag fa-fw"></i>vim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/mobile.html">
+        <i class="fa fa-tag fa-fw"></i>mobile
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/shell.html">
+        <i class="fa fa-tag fa-fw"></i>shell
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/bluetooth.html">
+        <i class="fa fa-tag fa-fw"></i>bluetooth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/python.html">
+        <i class="fa fa-tag fa-fw"></i>python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/prefab.html">
+        <i class="fa fa-tag fa-fw"></i>prefab
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/unittest.html">
+        <i class="fa fa-tag fa-fw"></i>unittest
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/assert.html">
+        <i class="fa fa-tag fa-fw"></i>assert
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/mecanim.html">
+        <i class="fa fa-tag fa-fw"></i>mecanim
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/mesh.html">
+        <i class="fa fa-tag fa-fw"></i>mesh
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/fsm.html">
+        <i class="fa fa-tag fa-fw"></i>fsm
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/mvc.html">
+        <i class="fa fa-tag fa-fw"></i>mvc
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/commandline.html">
+        <i class="fa fa-tag fa-fw"></i>commandline
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/mac.html">
+        <i class="fa fa-tag fa-fw"></i>mac
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/jelly.html">
+        <i class="fa fa-tag fa-fw"></i>jelly
+    </a>
+</span>
+<span class="tag-3">
+    <a href="https://minhhh.github.io/tag/texture.html">
+        <i class="fa fa-tag fa-fw"></i>texture
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/promise.html">
+        <i class="fa fa-tag fa-fw"></i>promise
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/webp.html">
+        <i class="fa fa-tag fa-fw"></i>webp
+    </a>
+</span>
+<span class="tag-4">
+    <a href="https://minhhh.github.io/tag/conda.html">
+        <i class="fa fa-tag fa-fw"></i>conda
+    </a>
+</span>
+</p>
+
+<h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled feed-links">
+    <li><a href="https://minhhh.github.io/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fa fa-rss-square fa-fw"></i> Atom Feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://www.robertiwancz.com/"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+<!-- DISQUS script for displaying comment count -->
+<script type="text/javascript">
+    var disqus_shortname = 'minhhh';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
+</html>
