@@ -1,0 +1,9 @@
+baseURL = "https://minhhh.github.io"
+locale = "en-us"
+title = "Huy Minh Ha"
+defaultContentLanguage = "en"
+hasCJKLanguage = false
+disqusShortname = "minhhh"
+
+[pagination]
+    pagerSize = 10

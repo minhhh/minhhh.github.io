@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Commandline on Huy Minh Ha</title>
+        <link>https://minhhh.github.io/tags/commandline/</link>
+        <description>Recent content in Commandline on Huy Minh Ha</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 02 Feb 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/commandline/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Better Unity workflow with command line</title>
+            <link>https://minhhh.github.io/posts/better-unity-workflow-with-command-line/</link>
+            <pubDate>Thu, 02 Feb 2017 00:00:00 +0700</pubDate>
+            <guid>https://minhhh.github.io/posts/better-unity-workflow-with-command-line/</guid>
+            <description>&lt;p&gt;To do certain tasks for our game workflow, we will need to use other external tools that can only called from the command line. One way to do this is to switch back and forth between Unity and the command line, obviously this is not the best way. Our goal is to use only 1 click, or one action to execute a series of tasks in Unity and in the command line.&lt;/p&gt;&#xA;&lt;p&gt;There are 2 ways to achieve this:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Create an editor script and call the command line, along with other Editor scripts. This is good if you want to stay in Unity all the time.&lt;/li&gt;&#xA;&lt;li&gt;Create a command line script that call other command line scripts and some Unity scripts. This is good for continuous integration.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To launch Unity from the command line, look at these references:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://effectiveunity.com/articles/making-most-of-unitys-command-line.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Making most of Unity&amp;rsquo;s command line&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.unity3d.com/Manual/CommandLineArguments.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Command line arguments&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To run command line scripts from Unity, look at these references:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://web.archive.org/web/20170202150301/https://effectiveunity.com/articles/making-most-of-unitys-command-line.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Running command line action through C# script&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
+        </item></channel>
+</rss>

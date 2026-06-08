@@ -1,0 +1,50 @@
+mainSections = ["post"]
+rssFullContent = true
+favicon = "img/favicon.png"
+SortBy = "default"
+
+[footer]
+    since = 2014
+    customText = "All content is licensed under CC BY-NC-SA 4.0"
+
+[dateFormat]
+    published = ":date_full"
+    lastUpdated = ":date_full"
+
+[sidebar]
+    emoji = "⚡"
+    subtitle = "Software development, Tech and other stuff"
+    avatar = "img/avatar.png"
+
+[article]
+    headingAnchor = false
+    math = false
+    readingTime = true
+    [article.license]
+        enabled = true
+        default = "Licensed under CC BY-NC-SA 4.0"
+
+[widgets]
+    homepage = [
+        { type = "search" },
+        { type = "archives", params = { limit = 10 } },
+        { type = "categories", params = { limit = 10 } },
+        { type = "tag-cloud", params = { limit = 20 } },
+    ]
+    page = [{ type = "toc" }]
+
+[opengraph.twitter]
+    site = "@utsace"
+    card = "summary_large_image"
+
+[colorScheme]
+    toggle = true
+    default = "auto"
+
+[comments]
+    enabled = true
+    provider = "disqus"
+
+[services]
+    [services.googleAnalytics]
+        ID = "G-XXXXXXXX"

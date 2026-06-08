@@ -1,0 +1,10 @@
++++
+title = "Setup OSX"
+date = "2015-10-14T00:00:00+07:00"
+author = "Ha.Minh"
+categories = ["Technology"]
+tags = ["mac", "osx"]
+description = "This is the list of some useful tools I used to setup my OSX."
++++
+
+[minhhh/wiki/mac.md](https://github.com/minhhh/wiki)

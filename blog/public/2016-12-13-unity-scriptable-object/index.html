@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Title: Understanding Unity ScriptableObject Date: 2016-12-15 00:00 Author: Ha.Minh Category: Unity Tags: unity, scriptableobject\nIn the Introduction to Scriptable Objects tutorial, they claim that Scriptable Objects are amazing data containers. However, it&rsquo;s not clear how useful Scriptable Objects really is, and what problems they&rsquo;re trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they&rsquo;re trying to solve, what the original solutions are, and what the pros and cons of each approach are.\n">
+<title>Huy Minh Ha</title>
+
+
+<link rel="canonical" href="https://minhhh.github.io/2016-12-13-unity-scriptable-object/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="Huy Minh Ha">
+<meta property='og:description' content="Title: Understanding Unity ScriptableObject Date: 2016-12-15 00:00 Author: Ha.Minh Category: Unity Tags: unity, scriptableobject\nIn the Introduction to Scriptable Objects tutorial, they claim that Scriptable Objects are amazing data containers. However, it&rsquo;s not clear how useful Scriptable Objects really is, and what problems they&rsquo;re trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they&rsquo;re trying to solve, what the original solutions are, and what the pros and cons of each approach are.\n">
+<meta property='og:url' content='https://minhhh.github.io/2016-12-13-unity-scriptable-object/'>
+<meta property='og:site_name' content='Huy Minh Ha'>
+<meta property='og:type' content='article'><meta property='article:section' content='' />
+<meta name="twitter:site" content="@@utsace">
+    <meta name="twitter:creator" content="@@utsace"><meta name="twitter:title" content="Huy Minh Ha">
+<meta name="twitter:description" content="Title: Understanding Unity ScriptableObject Date: 2016-12-15 00:00 Author: Ha.Minh Category: Unity Tags: unity, scriptableobject\nIn the Introduction to Scriptable Objects tutorial, they claim that Scriptable Objects are amazing data containers. However, it&rsquo;s not clear how useful Scriptable Objects really is, and what problems they&rsquo;re trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they&rsquo;re trying to solve, what the original solutions are, and what the pros and cons of each approach are.\n">
+    <link rel="shortcut icon" href="img/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="img/avatar.png" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">⚡</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Huy Minh Ha</a></h1>
+            <h2 class="site-description">Software development, Tech and other stuff</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='mailto:ha.minh.minhhh@gmail.com'
+                        
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/minhhh'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/huy-minh-ha'
+                        
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M8 11v5" />
+  <path d="M8 8v.01" />
+  <path d="M12 16v-5" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/utsace'
+                        
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.facebook.com/minh.ha.hanoi'
+                        
+                        title="Facebook"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/projects/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16 18 22 12 16 6"></polyline>
+  <polyline points="8 6 2 12 8 18"></polyline>
+</svg>
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
+    <li><a href="#overall">Overall</a></li>
+    <li><a href="#use-case-1-global-game-settings">Use case 1: Global Game Settings</a></li>
+    <li><a href="#use-case-2-swappable-global-game-settings-or-scene-settings">Use case 2: Swappable Global Game Settings or Scene Settings</a></li>
+    <li><a href="#use-case-3-scriptable-objects-as-masterdata-or-item-database">Use case 3: Scriptable Objects as MasterData or Item Database</a></li>
+    <li><a href="#use-case-4-scriptable-objects-as-dynamic-behaviour">Use case 4: Scriptable Objects as Dynamic Behaviour</a></li>
+    <li><a href="#other-notes">Other notes</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2016-12-13-unity-scriptable-object/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        7 minutes read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#overall">Overall</a></li>
+    <li><a href="#use-case-1-global-game-settings">Use case 1: Global Game Settings</a></li>
+    <li><a href="#use-case-2-swappable-global-game-settings-or-scene-settings">Use case 2: Swappable Global Game Settings or Scene Settings</a></li>
+    <li><a href="#use-case-3-scriptable-objects-as-masterdata-or-item-database">Use case 3: Scriptable Objects as MasterData or Item Database</a></li>
+    <li><a href="#use-case-4-scriptable-objects-as-dynamic-behaviour">Use case 4: Scriptable Objects as Dynamic Behaviour</a></li>
+    <li><a href="#other-notes">Other notes</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p>Title: Understanding Unity ScriptableObject
+Date: 2016-12-15 00:00
+Author: Ha.Minh
+Category: Unity
+Tags: unity, scriptableobject</p>
+<p>In the <a class="link" href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects"  target="_blank" rel="noopener"
+    >Introduction to Scriptable Objects</a> tutorial, they claim that <code>Scriptable Objects are amazing data containers</code>. However, it&rsquo;s not clear how useful Scriptable Objects really is, and what problems they&rsquo;re trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they&rsquo;re trying to solve, what the original solutions are, and what the pros and cons of each approach are.</p>
+<h2 id="overall">Overall
+</h2><p><strong>What is a Scriptable Object</strong></p>
+<ul>
+<li>Data Container</li>
+<li>Can NOT be attached to GameObject/Prefab</li>
+<li>Can be serialized and inspected like MonoBehaviour</li>
+<li>Can be put into .asset file</li>
+</ul>
+<br/>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Built into Unity</li>
+<li>Can be saved as assets</li>
+<li>Can save during runtime</li>
+<li>Can be referenced instead of copied like MonoBehaviour</li>
+<li>Internal solution (no files/parsing). Performance is quite fast.</li>
+<li>Add to structure as you go. No need to go through a large file/multiple files to replace schema.</li>
+</ul>
+<br/>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Requires Editor Scripting</li>
+<li>Can&rsquo;t edit outside Unity</li>
+<li>Can&rsquo;t save once deployed</li>
+<li>Cannot optimize loading speed since this is Unity code</li>
+</ul>
+<h2 id="use-case-1-global-game-settings">Use case 1: Global Game Settings
+</h2><p>Every game has global settings for various aspects such as: Sounds, Video, Game play. There are some options to store these settings:</p>
+<ol>
+<li>Scattered throughout the code, or maybe centralized into one source file.
+<ol>
+<li>Pros: Easy to code</li>
+<li>Cons: Designers cannot find these settings easily. Change cannot persist if you quit <code>Play</code> mode</li>
+</ol>
+</li>
+<li>Stored in config files: text/binary.
+<ol>
+<li>Pros: Easy to code. Designers can look at them if they&rsquo;re text files.</li>
+<li>Cons: Cannot change settings while playing. Might be hard for designers to understand and change the settings files since there&rsquo;s no validation method.</li>
+</ol>
+</li>
+<li>Stored in Prefabs
+<ol>
+<li>Pros: Prefab can be stored as assets</li>
+<li>Cons: It might be too heavy for pure data purpose. Duplicate memory if you create instance.</li>
+</ol>
+</li>
+</ol>
+<p>ScriptableObject can be used to store global settings in <code>.asset</code> files.</p>
+<ul>
+<li>Pros
+<ol>
+<li>Easy to find them in Unity</li>
+<li>Easy to change and test</li>
+<li>Can change while playing. Changes persist after quitting play mode</li>
+<li>Can have custom editor so it&rsquo;s easy to note the meaning of each field</li>
+<li>Can be validated using custom editor code.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Implementation</strong></p>
+<ol>
+<li>Create a base class for all the global game Settings. It will have a static property <code>Instance</code>, which provides a way to create a singleton instance in a fixed location. This location will be customized on a project basis.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class Setting&lt;T&gt; : ScriptableObject where T : Setting&lt;T&gt;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Create subclass the <code>Setting</code> class. Provide a MenuItem for accessing it.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[MenuItem (&#34;Settings/TextureSetting&#34;)]
+</span></span><span class="line"><span class="cl">public static void Edit ()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    Selection.activeObject = Instance;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="use-case-2-swappable-global-game-settings-or-scene-settings">Use case 2: Swappable Global Game Settings or Scene Settings
+</h2><p>Sometimes we don&rsquo;t want to have to change some global settings back and forth between a set of parameters since it&rsquo;s very time-consuming. So we might want to store several pre-defined settings and swap between them quickly.</p>
+<p>Another case is scene settings. These settings only affect the scene, not the whole game, and they usually change between scene reload, for instance, game mode settings: Easy, Medium, Difficult.</p>
+<p>ScriptableObject can deal with this situation:</p>
+<ol>
+<li>To be able to swap setting, create a wrapper setting which references the specific setting</li>
+<li>To swap scene setting, simply load the specific setting in <code>Assets</code> then assign it to specific field in a <code>MonoBehaviour</code></li>
+</ol>
+<p><strong>Implementation</strong></p>
+<ul>
+<li>Create multiple settings</li>
+<li>Define a field in <code>MonoBehaviour</code> or parent ScriptableObject, referring to the settings ScriptableObject</li>
+</ul>
+<h2 id="use-case-3-scriptable-objects-as-masterdata-or-item-database">Use case 3: Scriptable Objects as MasterData or Item Database
+</h2><p>For any sufficiently large game, the game data will be so big that you have to separate them from the code, and they will be referred to as <code>MasterData</code>.</p>
+<p>Popular solutions for storing <code>MasterData</code> include:</p>
+<ol>
+<li>Text/Binary files. E.g <a class="link" href="https://www.youtube.com/watch?v=nYWlB7HRNSE"  target="_blank" rel="noopener"
+    >Unity XML Tutorial</a></li>
+<li>Database</li>
+<li>Network</li>
+</ol>
+<p><strong>Cons</strong></p>
+<ol>
+<li>One common disadvantage with these approach is you will need an external viewer to be able to see and modify <code>masterdata</code> conveniently.</li>
+<li>You will have to replicate the schema in code</li>
+</ol>
+<p>ScriptableObject can offer a way to create and edit <code>masterdata</code> inside Unity Editor.</p>
+<p><strong>ScriptableObject Pros</strong></p>
+<ol>
+<li>Can have references to Resources</li>
+<li>View, Add, Delete and Edit entities/items conveniently in Unity Editor</li>
+<li>Use ScriptableObject directly in <code>MonoBehaviour</code> instead of having to create an additional layer of MonoBehaviour</li>
+</ol>
+<p><strong>Implementation</strong></p>
+<p><a class="link" href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects"  target="_blank" rel="noopener"
+    >Introduction to Scriptable Objects</a> shows how you use Scriptable Object to create and edit Inventory Lists.</p>
+<p><a class="link" href="https://www.youtube.com/watch?v=ItZbTYO0Mnw"  target="_blank" rel="noopener"
+    >Saving Data in Unity: ScriptableObjects</a> shows how you can create multiple <code>Enemy</code> ScriptableObject and use them in the <code>EnemyMove</code> MonoBehaviour.</p>
+<h2 id="use-case-4-scriptable-objects-as-dynamic-behaviour">Use case 4: Scriptable Objects as Dynamic Behaviour
+</h2><p>Another usecase of ScriptableObject is using them as game behaviour which has data that can be modified by designer. They have some instance functions, like <code>MonoBehaviour</code>, but unlike <code>MonoBehaviour</code> which cannot be saved independently without prefabs, ScriptableObject can be saved as if they&rsquo;re just pure data. Game programmers can change the code of the behaviour without affecting game designers.</p>
+<p><strong>Implementation</strong></p>
+<p>These ScriptableObjects are similar to the ones in Usecase 3, but they have functions which can act arbitrarily on <code>GameObject</code>, <code>MonoBehaviour</code> and so on.</p>
+<p><a class="link" href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117"  target="_blank" rel="noopener"
+    >Ability System with Scriptable Objects</a> shows how you implement an Ability System, where <code>Ability</code> is ScriptableObject with its own behaviour functions.</p>
+<p>The <code>Ability</code> class contains data and abstracts methods which act on <code>GameObject</code> based on those data.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public abstract class Ability : ScriptableObject
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    public string aName = &#34;New Ability&#34;;
+</span></span><span class="line"><span class="cl">    public Sprite aSprite;
+</span></span><span class="line"><span class="cl">    public AudioClip aSound;
+</span></span><span class="line"><span class="cl">    public float aBaseCoolDown = 1f;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public abstract void Initialize (GameObject obj);
+</span></span><span class="line"><span class="cl">    public abstract void TriggerAbility ();
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>ProjectileAbility</code> is a concrete <code>Ability</code> subclass, which modifies the target <code>GameObject</code> as needed and trigger the projectile action.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using UnityEngine;
+</span></span><span class="line"><span class="cl">using System.Collections;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[CreateAssetMenu (menuName = &#34;Abilities/ProjectileAbility&#34;)]
+</span></span><span class="line"><span class="cl">public class ProjectileAbility : Ability
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    public float projectileForce = 500f;
+</span></span><span class="line"><span class="cl">    public Rigidbody projectile;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    private ProjectileShootTriggerable launcher;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public override void Initialize (GameObject obj)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        launcher = obj.GetComponent&lt;ProjectileShootTriggerable&gt; ();
+</span></span><span class="line"><span class="cl">        launcher.projectileForce = projectileForce;
+</span></span><span class="line"><span class="cl">        launcher.projectile = projectile;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public override void TriggerAbility ()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        launcher.Launch ();
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://bitbucket.org/richardfine/scriptableobjectdemo"  target="_blank" rel="noopener"
+    >ScriptableObjectDemo</a> is a more comprehensive demo.</p>
+<h2 id="other-notes">Other notes
+</h2><ul>
+<li>
+<p>MasterData can include global settings, constants and any kind of game data. This really depends on the developers/designers to choose.</p>
+</li>
+<li>
+<p>ScriptableObjects can help you to load some specific items in an Item Database quickly, if the items are stored as individual assets. Refactoring multiple ScriptableObject assets into a collection is simple.</p>
+</li>
+</ul>
+<p><strong>Other Methods to store data</strong></p>
+<ol>
+<li>From source code
+<ol>
+<li>A lot of code for storing data</li>
+<li>Large binary size</li>
+</ol>
+</li>
+<li>From GameObject
+<ol>
+<li>We can store data in <code>Component</code> inside Prefabs, or in Scene.</li>
+<li>This way is mostly heavier than ScriptableObject</li>
+<li>However, you can pack multiple <code>Component</code> arbitrarily so it might be helpful.</li>
+</ol>
+</li>
+<li>From XML, JSON, CSV, Excel
+<ol>
+<li>Cannot have resources reference</li>
+<li>Might be good to have a workflow to convert into ScriptableObject</li>
+<li>To update data in saved data, text/binary are more suitable than ScriptableObject, which cannot be saved once deployed.</li>
+</ol>
+</li>
+<li>PlayerPrefs
+<ol>
+<li>Can be used to save data</li>
+<li>Not suitable for very large amount of data</li>
+<li>Cannot control the save process easily</li>
+</ol>
+</li>
+<li>From embedded DB
+<ol>
+<li>Cannot have resources reference</li>
+<li>Might be good to have a workflow to convert into ScriptableObject</li>
+<li>To update data in saved data, database is very convenient. But we must care about performance.</li>
+<li>We must be aware of encryption capabilities of the DB.</li>
+</ol>
+</li>
+<li>From Network
+<ol>
+<li>Cannot have resources reference</li>
+<li>Usually used in combination with a text/binary persisted in local storage</li>
+<li>To update data via Network with ScriptableObject, AssetBundle is needed. So the general-purpose text/binary format might be better.</li>
+</ol>
+</li>
+</ol>
+<h2 id="references">References
+</h2><ul>
+<li>
+<p><a class="link" href="https://medium.com/@mormo_music/game-settings-with-scriptable-objects-in-unity3d-6f753fe508fd#.tb9ahxiej"  target="_blank" rel="noopener"
+    >Game Settings with Scriptable Objects in Unity3D</a></p>
+</li>
+<li>
+<p><a class="link" href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects"  target="_blank" rel="noopener"
+    >Introduction to Scriptable Objects</a></p>
+</li>
+<li>
+<p><a class="link" href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117"  target="_blank" rel="noopener"
+    >Ability System with Scriptable Objects</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.youtube.com/watch?v=ItZbTYO0Mnw"  target="_blank" rel="noopener"
+    >Saving Data in Unity: ScriptableObjects</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.youtube.com/watch?v=VBA1QCoEAX4"  target="_blank" rel="noopener"
+    >Overthrowing the MonoBehaviour tyranny in a glorious ScriptableObject revolution</a></p>
+</li>
+<li>
+<p><a class="link" href="http://tsubakit1.hateblo.jp/entry/2014/07/24/030607"  target="_blank" rel="noopener"
+    >Scriptable Object</a></p>
+</li>
+<li>
+<p><a class="link" href="https://bitbucket.org/richardfine/scriptableobjectdemo"  target="_blank" rel="noopener"
+    >ScriptableObjectDemo</a></p>
+</li>
+<li>
+<p><a class="link" href="http://ivanozanchetta.com/gamedev/unity3d/unity-serialization-behind-scriptableobject/"  target="_blank" rel="noopener"
+    >Unity Serialization… behind the mistery of ScriptableObject</a></p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+
+        <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "minhhh" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2014 - 
+        
+        2026 Huy Minh Ha
+    </section>
+    
+    <section class="powerby">
+        
+            All content is licensed under CC BY-NC-SA 4.0 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+
+
+    </body>
+</html>

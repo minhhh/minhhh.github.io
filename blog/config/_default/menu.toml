@@ -1,0 +1,68 @@
+[[main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    [main.params]
+        icon = "home"
+
+[[main]]
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
+    [main.params]
+        icon = "archives"
+
+[[main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    [main.params]
+        icon = "user"
+
+[[main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    [main.params]
+        icon = "code"
+
+[[social]]
+    identifier = "email"
+    name = "Email"
+    url = "mailto:ha.minh.minhhh@gmail.com"
+    weight = 1
+    [social.params]
+        icon = "email"
+
+[[social]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/minhhh"
+    weight = 2
+    [social.params]
+        icon = "brand-github"
+
+[[social]]
+    identifier = "linkedin"
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/huy-minh-ha"
+    weight = 3
+    [social.params]
+        icon = "brand-linkedin"
+
+[[social]]
+    identifier = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/utsace"
+    weight = 4
+    [social.params]
+        icon = "brand-twitter"
+
+[[social]]
+    identifier = "facebook"
+    name = "Facebook"
+    url = "https://www.facebook.com/minh.ha.hanoi"
+    weight = 5
+    [social.params]
+        icon = "brand-facebook"
+

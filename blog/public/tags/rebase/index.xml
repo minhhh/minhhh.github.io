@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Rebase on Huy Minh Ha</title>
+        <link>https://minhhh.github.io/tags/rebase/</link>
+        <description>Recent content in Rebase on Huy Minh Ha</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 09 Sep 2014 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/rebase/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>How to rebase in Git</title>
+            <link>https://minhhh.github.io/posts/how-to-rebase-in-git/</link>
+            <pubDate>Tue, 09 Sep 2014 00:00:00 +0700</pubDate>
+            <guid>https://minhhh.github.io/posts/how-to-rebase-in-git/</guid>
+            <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/git-manual&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;minhhh/git-manual/git_rebase.md&lt;/a&gt;&lt;/p&gt;&#xA;</description>
+        </item></channel>
+</rss>

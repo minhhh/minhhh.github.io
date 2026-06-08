@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:\nHard to reason about code Encourage coupling Potential concurrency issue However, in game development it&rsquo;s super useful to have singleton for many types of global system, including but not limited to:\nSound system Time manager Localization Tutorial Login Global Notifier In this article we will look at some options of Singleton implementation we have in Unity to see what problems they&rsquo;re trying to solve and what assumptions they made.\n">
+<title>Unity singleton</title>
+
+
+<link rel="canonical" href="https://minhhh.github.io/posts/unity-singleton/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="Unity singleton">
+<meta property='og:description' content="First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:\nHard to reason about code Encourage coupling Potential concurrency issue However, in game development it&rsquo;s super useful to have singleton for many types of global system, including but not limited to:\nSound system Time manager Localization Tutorial Login Global Notifier In this article we will look at some options of Singleton implementation we have in Unity to see what problems they&rsquo;re trying to solve and what assumptions they made.\n">
+<meta property='og:url' content='https://minhhh.github.io/posts/unity-singleton/'>
+<meta property='og:site_name' content='Huy Minh Ha'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='unity' /><meta property='article:tag' content='singleton' /><meta property='article:published_time' content='2016-09-29T00:00:00&#43;07:00'/><meta property='article:modified_time' content='2016-09-29T00:00:00&#43;07:00'/>
+<meta name="twitter:site" content="@@utsace">
+    <meta name="twitter:creator" content="@@utsace"><meta name="twitter:title" content="Unity singleton">
+<meta name="twitter:description" content="First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:\nHard to reason about code Encourage coupling Potential concurrency issue However, in game development it&rsquo;s super useful to have singleton for many types of global system, including but not limited to:\nSound system Time manager Localization Tutorial Login Global Notifier In this article we will look at some options of Singleton implementation we have in Unity to see what problems they&rsquo;re trying to solve and what assumptions they made.\n">
+    <link rel="shortcut icon" href="img/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="img/avatar.png" 
+                        width=""
+                        height=""
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">⚡</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Huy Minh Ha</a></h1>
+            <h2 class="site-description">Software development, Tech and other stuff</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='mailto:ha.minh.minhhh@gmail.com'
+                        
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/minhhh'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/huy-minh-ha'
+                        
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M8 11v5" />
+  <path d="M8 8v.01" />
+  <path d="M12 16v-5" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/utsace'
+                        
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.facebook.com/minh.ha.hanoi'
+                        
+                        title="Facebook"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/projects/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16 18 22 12 16 6"></polyline>
+  <polyline points="8 6 2 12 8 18"></polyline>
+</svg>
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#solutions">Solutions</a>
+      <ol>
+        <li><a href="#amanagerclass">AManagerClass</a></li>
+        <li><a href="#autosingletonmanager">AutoSingletonManager</a></li>
+        <li><a href="#secure-unitysingleton">Secure UnitySingleton</a></li>
+      </ol>
+    </li>
+    <li><a href="#discussions">Discussions</a></li>
+    <li><a href="#implementation">Implementation</a></li>
+  </ol>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/unity/" style="background-color: hsl(274, 60%, 84%); color: hsl(274, 60%, 15%);">
+                Unity
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/unity-singleton/">Unity singleton</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2016-09-29T00:00:00&#43;07:00'>Thursday, September 29, 2016</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        10 minutes read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>Table of contents</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#solutions">Solutions</a>
+      <ol>
+        <li><a href="#amanagerclass">AManagerClass</a></li>
+        <li><a href="#autosingletonmanager">AutoSingletonManager</a></li>
+        <li><a href="#secure-unitysingleton">Secure UnitySingleton</a></li>
+      </ol>
+    </li>
+    <li><a href="#discussions">Discussions</a></li>
+    <li><a href="#implementation">Implementation</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p>First of all, please remember that Singletons are generally not recommended due to various obvious disadvantages:</p>
+<ul>
+<li>Hard to reason about code</li>
+<li>Encourage coupling</li>
+<li>Potential concurrency issue</li>
+</ul>
+<p>However, in game development it&rsquo;s super useful to have singleton for many types of global system, including but not limited to:</p>
+<ul>
+<li>Sound system</li>
+<li>Time manager</li>
+<li>Localization</li>
+<li>Tutorial</li>
+<li>Login</li>
+<li>Global Notifier</li>
+</ul>
+<p>In this article we will look at some options of Singleton implementation we have in Unity to see what problems they&rsquo;re trying to solve and what assumptions they made.</p>
+<h2 id="requirements">Requirements
+</h2><p>Let&rsquo;s first review some requirements for a useful singleton system in Unity.</p>
+<p><strong>Singleton class types</strong></p>
+<ul>
+<li>MonoBehavior based: These types of singletons extends MonoBehavior and shows themselves in the scene hierarchy so that you can look at their exposed members. Another reason is you want them to have an <code>Update</code> function to do something useful in it.</li>
+<li>Non MonoBehavior based: Traditional singletons in any OO languages. These singletons don&rsquo;t need to be inspected in the scene nor do they need <code>Update</code>. We will not focus on these types of singletons.</li>
+</ul>
+<p><strong>Singleton lifecycle types</strong></p>
+<ul>
+<li>Has dependencies: These singletons depend on other system or singletons to exist before they can start</li>
+<li>No dependencies: These singletons can be created anytime without waiting for any other entities.</li>
+</ul>
+<p><strong>Singleton configurability types</strong></p>
+<ul>
+<li>Has customized parameters: This is a bit overlap with <code>Has dependencies</code> singletons. These singletons might: 1. Depend on parameters provided by another system, such as the FileSystem to load certian parameters from disk. OR 2. Need customized parameters or linked prefab. They might be in a prefab themselves such as a LevelManager.</li>
+<li>No customized parameters: These singletons behave the same all the time.</li>
+</ul>
+<h2 id="solutions">Solutions
+</h2><p>Fortunately there&rsquo;re already some solutions written in <a class="link" href="http://wiki.unity3d.com"  target="_blank" rel="noopener"
+    >unity3d</a> so we can review and improve them as we wish.</p>
+<h3 id="amanagerclass">AManagerClass
+</h3><p><a class="link" href="http://wiki.unity3d.com/index.php/AManagerClass"  target="_blank" rel="noopener"
+    >AManagerClass</a> is a standard implementation which supports MonoBehavior-based singletons. In the code, we refer to the singleton like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    AManager.instance.Foo ();
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>instance</code> function implementation is as below:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public static AManager instance {
+</span></span><span class="line"><span class="cl">        get {
+</span></span><span class="line"><span class="cl">            if (s_Instance == null) {
+</span></span><span class="line"><span class="cl">                // This is where the magic happens.
+</span></span><span class="line"><span class="cl">                //  FindObjectOfType(...) returns the first AManager object in the scene.
+</span></span><span class="line"><span class="cl">                s_Instance =  FindObjectOfType(typeof (AManager)) as AManager;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // If it is still null, create a new instance
+</span></span><span class="line"><span class="cl">            if (s_Instance == null) {
+</span></span><span class="line"><span class="cl">                GameObject obj = new GameObject(&#34;AManager&#34;);
+</span></span><span class="line"><span class="cl">                s_Instance = obj.AddComponent(typeof (AManager)) as AManager;
+</span></span><span class="line"><span class="cl">                Debug.Log (&#34;Could not locate an AManager object. \ AManager was Generated Automaticly.&#34;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            return s_Instance;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There are several problems with <code>AManager</code>:</p>
+<ul>
+<li>We have to duplicate it for all singleton class</li>
+<li>It&rsquo;s slow due to the 2 checks</li>
+</ul>
+<p>Surely we can do better!</p>
+<h3 id="autosingletonmanager">AutoSingletonManager
+</h3><ul>
+<li><a class="link" href="http://wiki.unity3d.com/index.php/AutoSingletonManager"  target="_blank" rel="noopener"
+    >AutoSingletonManager</a> solves the code duplication problem of <code>AManager</code></li>
+</ul>
+<p>Here&rsquo;s the main code</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public abstract class AutoSingletonManager : MonoBehaviour { }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public abstract class AutoSingletonManager&lt;T&gt; : AutoSingletonManager where T : AutoSingletonManager
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    private static bool Compare&lt;T&gt;(T x, T y) where T : class
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        return x == y;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    #region Singleton
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    private static T _instance = default(T);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public static T Instance
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        get
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            if (!Compare&lt;T&gt;(default(T), _instance)) return _instance;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            InitInstance(true);
+</span></span><span class="line"><span class="cl">            return _instance;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    #endregion
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public void Awake()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        InitInstance(false);
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public static void InitInstance(bool shouldInitManager)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        Type thisType = typeof (T);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        _instance = FindObjectOfType&lt;T&gt;();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if (Compare&lt;T&gt;(default(T), _instance))
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            _instance = new GameObject(thisType.Name).AddComponent&lt;T&gt;();
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //Won&#39;t call InitManager from Awake
+</span></span><span class="line"><span class="cl">        if (shouldInitManager)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            (_instance as AutoSingletonManager&lt;T&gt;).InitManager();
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public virtual void InitManager() { }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The code uses recursive generic definition. This allow us to reuse code by inheriting from the singleton class as well as from <code>MonoBehaviour</code>. Note that we don&rsquo;t have to make <code>AutoSingletonManager&lt;T&gt;</code> inherits from <code> AutoSingletonManager</code>, instead we can make it inherit from our own class which in turn inherits from MonoBehavior.</p>
+<p>It supports initializing the instance from <code>Awake</code> so maybe it can be used by adding directly it to an object in the scene. However, <code>InitManager</code> is not called in <code>Awake</code> so if you call <code>AutoSingletonManager.Instance</code> after it already awakes then InitManager will never be called.</p>
+<p>Another more subtle draw back is it uses an unnecessary comparison <code>if (!Compare&lt;T&gt;(default(T), _instance)) return _instance;</code> in the <code>Instance</code> property, so it&rsquo;s not optimal if you call <code>Instance</code> in a <code>Update</code> loop or something similar.</p>
+<p>Surely we can do better than this.</p>
+<h3 id="secure-unitysingleton">Secure UnitySingleton
+</h3><p><a class="link" href="http://wiki.unity3d.com/index.php/Secure_UnitySingleton"  target="_blank" rel="noopener"
+    >SecureUnitySingleton</a> is the last one of the three singleton implementation in <a class="link" href="http://wiki.unity3d.com"  target="_blank" rel="noopener"
+    >unity3d</a>. It has a very clear idea about the usecases of singletons. There are 3 main supported usecases:</p>
+<ul>
+<li>Exists In Scene: Searches the current scene for an object with the singleton component attached to it.</li>
+<li>Loaded From Resources: This type creates an instance of a prefab with the singleton component attached to it from a Resources folder.</li>
+<li>Create on New GameObject: This type creates a new GameObject and attaches a new instance of the singleton component to it.</li>
+</ul>
+<p>There are several issues with approach:</p>
+<ul>
+<li>Even though the code is quite functional, it still suffers the performance penalty from checking too many things in the <code>Instance</code> property.</li>
+<li>Lack of lifecyle methods. Even though it provides a static <code>DeleteInstance</code> method, there&rsquo;s no other methods to execute when the instance is created. You might think that <code>Awake</code> can be used for that purpose, but it not explicit enough that <code>Awake</code> is called immediately after <code>Instance</code> is called. Another possible issue is <code>Awake</code> will not be called when the prefab is disabled, which should never be desirable but can happen due to a mistake from the developers.</li>
+</ul>
+<p>This is quite good but surely we can do better.</p>
+<h2 id="discussions">Discussions
+</h2><p>First of all, we realize that non of the above methods take into account concurrency issue. If we care about concurrency we can do something like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">    <span class="n">public</span> <span class="k">class</span> <span class="n">MySingleton</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="n">MySingleton</span> <span class="n">_instance</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="n">object</span> <span class="n">singletonLock</span> <span class="o">=</span> <span class="n">new</span> <span class="n">object</span> <span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">public</span> <span class="k">static</span> <span class="n">MySingleton</span> <span class="n">Instance</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">get</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">_instance</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">lock</span> <span class="p">(</span><span class="n">singletonLock</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">_instance</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="k">var</span> <span class="n">singletonGameObject</span> <span class="o">=</span> <span class="n">new</span> <span class="n">GameObject</span> <span class="p">(</span><span class="s2">&#34;MySingleton&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">GameObject</span><span class="o">.</span><span class="n">DontDestroyOnLoad</span> <span class="p">(</span><span class="n">singletonGameObject</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">_instance</span> <span class="o">=</span> <span class="n">singletonGameObject</span><span class="o">.</span><span class="n">AddComponent</span><span class="o">&lt;</span> <span class="n">MySingleton</span> <span class="o">&gt;</span> <span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="o">...</span> <span class="n">other</span> <span class="n">initialization</span> <span class="n">code</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By using a simple double lock pattern, we seemingly solve the &ldquo;concurrency problem&rdquo;. The question is: Do we need to?. Why you have the concurrency problem with singleton? It&rsquo;s because you want to <code>lazy load</code> the singleton, i.e. only create it when it is used for the first time. But that&rsquo;s exactly what we want to avoid if we want to achieve smooth gameplay. So what you should do instead is just create the bloody singleton at the beginning and forget about it. Remember, <code>preload</code> is better than <code>lazy load</code>.</p>
+<p>Secondly, I&rsquo;ve already mentioned the check for null is redundant if we know we only call the singleton after it&rsquo;s been initialized. In the usecases listed by <code>SecureSingleton</code>, we see that the singleton is either created by code or already exists in the scene as a <code>GameObject</code> which is supposed to be configured by designers. In either case, the code to initialize the scene should be a good place for calling the initialization code of the singleton and there&rsquo;s no need for making it sooner.</p>
+<p>So what will happen if the <code>Instance</code> property is called before you initialize the singleton? Obviously an exception will be thrown and this is an ideal case for using Unity Assert because you will have a nice message in development mode but you can also turn it off in production build.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	public class GameSingleton&lt;T&gt; : MyBaseBehaviour where T : GameSingleton&lt;T&gt;
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        ...
+</span></span><span class="line"><span class="cl">        public static T Instance
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            get {
+</span></span><span class="line"><span class="cl">                Assert.IsNotNull (instance);
+</span></span><span class="line"><span class="cl">                return instance;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Note that <code>MyBaseBehaviour</code> class is a class derived from <code>MonoBehaviour</code> and is customized specifically for our game. For instance, it might have general code for handling <code>Update</code> or <code>OnDestroy</code>.</p>
+<p>All that is left now is writing a function <code>CreateInstance</code> for creating the singleton. This function should be called once only at the exact place where you want it. This means we should design it in such a way to discourage it from being called multiple times randomly by some careless developers. Calling <code>CreateInstance</code> twice should throw an exception. This is better than mindlessly guard the function in the name of &ldquo;defensive programming&rdquo;. It will look something like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">		public static T CreateInstance()
+</span></span><span class="line"><span class="cl">		{
+</span></span><span class="line"><span class="cl">            Assert.IsNull (instance);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			GameObject go = new GameObject(typeof(T).Name);
+</span></span><span class="line"><span class="cl">			instance = go.AddComponent&lt;T&gt;();
+</span></span><span class="line"><span class="cl">			instance.OnCreated();
+</span></span><span class="line"><span class="cl">			DontDestroyOnLoad(go);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			return instance;
+</span></span><span class="line"><span class="cl">		}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		protected virtual void OnCreated()
+</span></span><span class="line"><span class="cl">		{
+</span></span><span class="line"><span class="cl">		}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here we have a virtual function <code>OnCreated</code> waiting to be overriden in subclass. To destroy the singleton, we don&rsquo;t have to use fancy static function <code>DeleteInstance</code>, instead we can just get the singleton gameobject and destroy it like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    GameObject.Destroy (MySingleton.Instance.gameObject);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>When the <code>OnDestroy</code> function is called, we will set <code>instance</code> variable to null then allow subclass to do cleanup themselves. The reason why we don&rsquo;t use <code>DeleteInstance</code> is because we don&rsquo;t want developers who use the API to think there&rsquo;s anything special about destroying the singleton than just destroying the container object.</p>
+<p>Finally, we discuss feature <code>destroy if exists in scene</code>. In my opinion, this feature accounts for a very small proportion of our usecases. Most of the time we have a singleton already exists in scene, or in some prefab is because we want to use Unity to store game data. But that&rsquo;s should not be the main way to deal with game data. We&rsquo;d better use off-unity format to store game data, like text or database. If we need to store linked resources we can use Scriptable Object. The point is to not rely too much on data stored in prefab or scene just because you want designers to change them easily, they can also change text file or database much more easily than firing up Unity. Also, merging prefab is harder than merging text data.</p>
+<p>If you really want to use avoid duplicate singleton in scene, we can simply use this piece of code from <code>SecureUnitySingleton</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	protected virtual void Awake()
+</span></span><span class="line"><span class="cl">	{
+</span></span><span class="line"><span class="cl">		if (InstanceExists &amp;&amp; instance != this)
+</span></span><span class="line"><span class="cl">			Destroy(gameObject);
+</span></span><span class="line"><span class="cl">	}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="implementation">Implementation
+</h2><p>After we&rsquo;ve considered different aspect of singletons and what our real usecases are, we finalize our own version Unity singleton as follows</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using UnityEngine;
+</span></span><span class="line"><span class="cl">using System;
+</span></span><span class="line"><span class="cl">using UnityEngine.Assertions;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public class SimpleSingleton&lt;T&gt; : BaseMonoBehaviour where T : SimpleSingleton&lt;T&gt;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    private static T instance;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public static T Instance {
+</span></span><span class="line"><span class="cl">        get {
+</span></span><span class="line"><span class="cl">            Assert.IsNotNull (instance, &#34;Instance is null. Please call CreateInstance first!&#34;);
+</span></span><span class="line"><span class="cl">            return instance;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public static T CreateInstance ()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        if (instance != null) {
+</span></span><span class="line"><span class="cl">            Assert.IsNull (instance, &#34;Instance is not null. Please call CreateInstance once only&#34;);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        GameObject go = new GameObject (typeof(T).Name);
+</span></span><span class="line"><span class="cl">        instance = go.AddComponent&lt;T&gt; ();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        instance.OnCreated ();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        return instance;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    protected virtual void OnDestroy ()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        instance = null;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    protected virtual void OnCreated ()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then remember to call <code>CreateInstance</code> when necessary and in appropriate order.</p>
+<p>The code with a sample scene is available on github at <a class="link" href="https://github.com/minhhh/unity-singleton"  target="_blank" rel="noopener"
+    >https://github.com/minhhh/unity-singleton</a></p>
+<p>Regarding the <code>Has Customized Parameters</code> singletons, there are some implementations of this type using Prefab to set the parameters. This method is not recommended. Instead, we can use ScriptableObject to store the parameter and let the Singleton read from these ScriptableObject. This method will make all the settings centralized in a single location.</p>
+<p>TODO: Create SceneSingleton</p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/unity/">Unity</a>
+        
+            <a href="/tags/singleton/">Singleton</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+
+        <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "minhhh" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2014 - 
+        
+        2026 Huy Minh Ha
+    </section>
+    
+    <section class="powerby">
+        
+            All content is licensed under CC BY-NC-SA 4.0 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+
+
+    </body>
+</html>
