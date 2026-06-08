@@ -32,7 +32,7 @@ python scripts/convert_pelican_to_hugo.py blog/content/pages/*.md
 python scripts/convert_pelican_to_hugo.py blog/content/*.md --dry-run
 ```
 
-Output goes to `blog/content/post/` (articles) and `blog/content/page/` (pages).
+Output goes to `blog/content/post/` (articles) and `blog/content/page/` (pages as leaf bundles, e.g. `blog/content/page/about/index.md` and `blog/content/page/projects/index.md`).
 
 ## Social
 
