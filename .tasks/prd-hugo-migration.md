@@ -22,7 +22,7 @@ Migrate the existing Pelican 3.4 blog at `minhhh.github.io` (frozen since July 2
 
 ## 2. Active Dashboard
 
-- [/] **task-05**: Create pages (About, Projects)
+- [x] **task-05**: Create pages (About, Projects)
 - [ ] **task-06**: Rearrange left menu in order: Home, About, Projects, Archives
 - [ ] **task-07**: Configure site params (social, analytics, Disqus, sidebar, widgets, footer)
 - [ ] **task-08**: Configure Hugo deployment & branch workflow
@@ -39,12 +39,12 @@ Migrate the existing Pelican 3.4 blog at `minhhh.github.io` (frozen since July 2
 - **Objective**: Convert the two pages (About, Projects) to Hugo format and place them under `blog/content/page/`.
 
 - **Checklist**:
-  - [ ] Convert `pages/about.md` → `blog/content/page/about/index.md`
-  - [ ] Convert `pages/projects.md` → `blog/content/page/projects/index.md`
-  - [ ] Verify `blood-brothers.jpg` is placed at `blog/content/page/projects/images/` or `blog/static/img/`
-  - [ ] Verify pages render at `/about/` and `/projects/`
-  - [ ] Verify permalinks.toml `page = "/:slug/"` works
-  - [ ] Update README.md with pages info
+  - [x] Convert `pages/about.md` → `blog/content/page/about/index.md`
+  - [x] Convert `pages/projects.md` → `blog/content/page/projects/index.md`
+  - [x] Verify `blood-brothers.jpg` is placed at `blog/content/page/projects/images/` or `blog/static/img/`
+  - [x] Verify pages render at `/about/` and `/projects/`
+  - [x] Verify permalinks.toml `page = "/:slug/"` works
+  - [x] Update README.md with pages info
 
 - **Dependencies**: task-03 (script)
 
