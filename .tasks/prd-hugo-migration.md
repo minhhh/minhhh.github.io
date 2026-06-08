@@ -22,34 +22,17 @@ Migrate the existing Pelican 3.4 blog at `minhhh.github.io` (frozen since July 2
 
 ## 2. Active Dashboard
 
-- [x] **task-04**: Convert all 62 articles (frontmatter + content cleanup)
-- [ ] **task-05**: Create pages (About, Projects)
-- [ ] **task-06**: Configure site params (social, analytics, Disqus, sidebar, widgets, footer)
-- [ ] **task-07**: Configure Hugo deployment & branch workflow
-- [ ] **task-08**: Handle images, static assets, and external image references
-- [ ] **task-09**: Build & verify site locally; fix rendering issues
-- [ ] **task-10**: Clean up Pelican tooling from source branch, update README
+- [/] **task-05**: Create pages (About, Projects)
+- [ ] **task-06**: Rearrange left menu in order: Home, About, Projects, Archives
+- [ ] **task-07**: Configure site params (social, analytics, Disqus, sidebar, widgets, footer)
+- [ ] **task-08**: Configure Hugo deployment & branch workflow
+- [ ] **task-09**: Handle images, static assets, and external image references
+- [ ] **task-10**: Build & verify site locally; fix rendering issues
+- [ ] **task-11**: Clean up Pelican tooling from source branch, update README
 
 ---
 
 ## 3. Active Task Details
-
-### task-04: Convert all 62 articles (frontmatter + content cleanup)
-
-- **Objective**: Batch-convert all 62 Pelican articles to Hugo format using the script from task-03.
-
-- **Checklist**:
-  - [x] Run conversion on all `blog/content/*.md` (65 files converted)
-  - [x] Verify frontmatter correctness on 5+ random articles
-  - [x] Verify `{filename}` and `[git:]` shortcodes cleaned from body
-  - [x] Spot-check code blocks render with syntax highlighting (64 articles with code blocks, 0 errors)
-  - [x] Check all categories and tags are preserved (6 categories, 65 tags — all match)
-  - [x] Confirm article slug/URL matches old Pelican URL scheme (`/posts/{slug}/` — all 64 slugs verified)
-  - [ ] Commit converted files to `source` branch
-
-- **Dependencies**: task-03
-
----
 
 ### task-05: Create pages (About, Projects)
 
@@ -67,7 +50,19 @@ Migrate the existing Pelican 3.4 blog at `minhhh.github.io` (frozen since July 2
 
 ---
 
-### task-06: Configure site params (social, analytics, Disqus, sidebar, widgets, footer)
+### task-06: Rearrange left menu in order: Home, About, Projects, Archives
+
+- **Objective**: Rearrange the left navigation menu items so they appear in the specified order (Home, About, Projects, Archives).
+
+- **Checklist**:
+  - [ ] Add `weight` parameters to `[[main]]` menu items in `blog/config/_default/menu.toml` to enforce the order: Home (1), About (2), Projects (3), Archives (4)
+  - [ ] Verify the menu displays in the correct order in local development
+
+- **Dependencies**: task-02
+
+---
+
+### task-07: Configure site params (social, analytics, Disqus, sidebar, widgets, footer)
 
 - **Objective**: Finalize all remaining Stack theme configuration for production.
 
@@ -88,7 +83,7 @@ Migrate the existing Pelican 3.4 blog at `minhhh.github.io` (frozen since July 2
 
 ---
 
-### task-07: Configure Hugo deployment & branch workflow
+### task-08: Configure Hugo deployment & branch workflow
 
 - **Objective**: Define the new git workflow and deployment mechanism. The Pelican flow used `source → make publish → gh-pages → merge master`. The Hugo flow should be simpler.
 
@@ -149,7 +144,7 @@ jobs:
 
 ---
 
-### task-08: Handle images, static assets, and external image references
+### task-09: Handle images, static assets, and external image references
 
 - **Objective**: Migrate local images and ensure external images still work. Handle the Pelican `{filename}` macro in article bodies.
 
@@ -166,7 +161,7 @@ jobs:
 
 ---
 
-### task-09: Build & verify site locally; fix rendering issues
+### task-10: Build & verify site locally; fix rendering issues
 
 - **Objective**: Run `hugo serve`, click through every page, and fix any rendering problems.
 
@@ -186,33 +181,33 @@ jobs:
   - [ ] Run `hugo --minify` — no errors
   - [ ] Update README.md with verification results
 
-- **Dependencies**: task-04, task-05, task-06, task-08
+- **Dependencies**: task-04, task-05, task-06, task-07, task-09
 
 ---
 
-### task-10: Clean up Pelican tooling from source branch, update README
+### task-11: Clean up Pelican tooling from source branch, update README
 
 - **Objective**: Remove old Pelican files from the `source` branch (the backup branch preserves them). Update README with the new Hugo workflow.
 
 - **Checklist**:
   - [ ] Delete or move aside: `blog/Makefile` (Pelican), `blog/fabfile.py`, `blog/develop_server.sh`, `blog/pelicanconf.py`, `blog/publishconf.py`, `blog/pelican-themes/`
   - [ ] Remove root `Pipfile`, `Pipfile.lock`
-  - [ ] Update root `Makefile` (already done in task-07)
+  - [ ] Update root `Makefile` (already done in task-08)
   - [ ] Write `blog/README.md` explaining the Hugo workflow
   - [ ] Update root `README.md` with new tech stack and how-to-publish instructions
 
-- **Dependencies**: task-07
+- **Dependencies**: task-08
 
 ---
 
 ## 4. Future Roadmap & Backlog
 
-- [ ] **task-11**: Migrate Google Analytics from UA-50796592-2 to GA4 (generate new GA4 property, update params.toml)
-- [ ] **task-12**: Add custom domain verification / CNAME if needed
-- [ ] **task-13**: Add RSS link in sidebar or menu
-- [ ] **task-14**: Custom homepage (not just post list) — Stack supports custom homepage
-- [ ] **task-15**: Add table of contents to posts by default
-- [ ] **task-16**: Add a sitemap for SEO
+- [ ] **task-12**: Migrate Google Analytics from UA-50796592-2 to GA4 (generate new GA4 property, update params.toml)
+- [ ] **task-13**: Add custom domain verification / CNAME if needed
+- [ ] **task-14**: Add RSS link in sidebar or menu
+- [ ] **task-15**: Custom homepage (not just post list) — Stack supports custom homepage
+- [ ] **task-16**: Add table of contents to posts by default
+- [ ] **task-17**: Add a sitemap for SEO
 
 ---
 
@@ -264,5 +259,20 @@ jobs:
   - [x] Script outputs to `blog/content/post/` (articles) or `blog/content/page/` (pages, as `index.md` in slug directories)
   - [x] Tested on all 65 files — 290 pages, 0 errors
   - [x] Update README.md with conversion script usage
+
+---
+
+### task-04: Convert all 62 articles (frontmatter + content cleanup)
+
+- **Objective**: Batch-convert all 62 Pelican articles to Hugo format using the script from task-03.
+
+- **Checklist**:
+  - [x] Run conversion on all `blog/content/*.md` (65 files converted)
+  - [x] Verify frontmatter correctness on 5+ random articles
+  - [x] Verify `{filename}` and `[git:]` shortcodes cleaned from body
+  - [x] Spot-check code blocks render with syntax highlighting (64 articles with code blocks, 0 errors)
+  - [x] Check all categories and tags are preserved (6 categories, 65 tags — all match)
+  - [x] Confirm article slug/URL matches old Pelican URL scheme (`/posts/{slug}/` — all 64 slugs verified)
+  - [x] Commit converted files to `source` branch
 
 
