@@ -79,8 +79,13 @@
 }
 
 /* Social icon brand colors */
+.menu-social {
+    padding-left: 4px;
+}
+
 .menu-social li a svg {
     stroke-width: 2;
+    width: 1.8rem;
 }
 .menu-social li a[title="GitHub"] svg { stroke: #333; }
 .menu-social li a[title="LinkedIn"] svg { stroke: #0077B5; }
@@ -100,9 +105,16 @@
 
 /* Author name and tagline */
 .site-name {
-    font-size: 2rem !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.6rem !important;
     font-weight: 800 !important;
     letter-spacing: -0.02em;
+}
+
+
+
+.site-name a {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .site-description {
@@ -110,3 +122,78 @@
     font-weight: 600 !important;
     color: var(--card-text-color-secondary) !important;
 }
+
+/* Larger, bolder nav text */
+#main-menu {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* Left-align nav items */
+@media (min-width: 768px) {
+    #main-menu {
+        align-items: flex-start;
+    }
+}
+
+/* Tighter nav spacing */
+#main-menu {
+    gap: var(--spacing-sm);
+}
+
+/* Hover micro-interaction */
+#main-menu {
+    overflow: visible;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+#main-menu li a {
+    display: flex;
+    gap: 12px;
+    transition: all 0.2s ease;
+    padding: 8px 8px;
+    border-radius: 8px;
+    margin-left: -8px;
+
+    &:hover {
+        background: color-mix(in srgb, var(--accent-color) 8%, transparent);
+        transform: translateX(6px);
+    }
+}
+
+/* Active-page indicator bar */
+#main-menu li.current a {
+    position: relative;
+    font-weight: 700;
+    transform: translateX(6px);
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -2px;
+        top: 4px;
+        bottom: 4px;
+        width: 3px;
+        border-radius: 2px;
+        background: var(--accent-color);
+    }
+}
+
+/* Active item text matches icon color */
+#main-menu li.current a[href="/"] { color: #4A90D9; }
+#main-menu li.current a[href="/about/"] { color: #50C878; }
+#main-menu li.current a[href="/projects/"] { color: #9B59B6; }
+#main-menu li.current a[href="/archives/"] { color: #E67E22; }
+
+/* Separator above bottom section */
+#main-menu li.menu-bottom-section {
+    border-top: 1px solid var(--card-separator-color);
+    padding-top: var(--spacing-lg);
+}
+
+
