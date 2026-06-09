@@ -1,6 +1,5 @@
 +++
 title = "Projects"
-date = "2014-06-07T21:00:00+07:00"
 author = "Ha.Minh"
 slug = "projects"
 +++

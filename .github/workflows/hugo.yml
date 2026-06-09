@@ -21,6 +21,7 @@ jobs:
           hugo-version: latest
           extended: true
       - run: cd blog && hugo --minify
+      - run: cd blog && npx pagefind --site public
       - uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453
         with:
           publish_dir: ./blog/public

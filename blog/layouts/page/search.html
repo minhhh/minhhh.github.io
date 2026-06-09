@@ -1,0 +1,37 @@
+{{ define "body-class" }}template-search{{ end }}
+{{ define "main" }}
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+<div id="search"></div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const keyword = params.get('keyword') || '';
+
+        new PagefindUI({
+            element: "#search",
+            showSubResults: true,
+            showImages: false,
+        });
+
+        const input = document.querySelector('#search input');
+        if (input) {
+            if (keyword) {
+                input.value = keyword;
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+
+            input.addEventListener('input', () => {
+                const url = new URL(window.location);
+                if (input.value) {
+                    url.searchParams.set('keyword', input.value);
+                } else {
+                    url.searchParams.delete('keyword');
+                }
+                window.history.replaceState({}, '', url);
+            });
+        }
+    });
+</script>
+{{ partialCached "footer/footer" . }}
+{{ end }}

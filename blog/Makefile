@@ -3,6 +3,4 @@ dev:
 
 build:
 	hugo --minify
-
-publish: build
-	ghp-import -p -b master public/
+	npx pagefind --site public
