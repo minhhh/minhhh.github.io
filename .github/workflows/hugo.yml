@@ -24,4 +24,4 @@ jobs:
           publish_dir: ./blog/public
           publish_branch: main
           cname: minhhh.github.io
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
