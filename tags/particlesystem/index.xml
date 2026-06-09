@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Particlesystem on Huy Minh Ha</title><link>https://minhhh.github.io/tags/particlesystem/</link><description>Recent content in Particlesystem on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 29 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/particlesystem/index.xml" rel="self" type="application/rss+xml"/><item><title>Scale Shuriken Particle System</title><link>https://minhhh.github.io/posts/scale-shuriken-particle-system/</link><pubDate>Tue, 29 Nov 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/scale-shuriken-particle-system/</guid><description>&lt;p&gt;Unity does not provide a way to scale Shuriken particle system in Editor. The process to scale each particle system manually is very inconvenient.&lt;/p&gt;
+&lt;p&gt;There are some plugins on the Asset Store which can help you with this tasks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.assetstore.unity3d.com/en/#!/content/9703" target="_blank" rel="noopener"
+ &gt;Simple Particle Scaler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.assetstore.unity3d.com/en/#!/content/4400" target="_blank" rel="noopener"
+ &gt;Particle Scaler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;ve also written a tool to scale Shuriken Particles in the Editor: &lt;a class="link" href="https://github.com/minhhh/unity-particle-scaler" target="_blank" rel="noopener"
+ &gt;unity-particle-scaler&lt;/a&gt;. It&amp;rsquo;s very convenient and simple to use.&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Promise on Huy Minh Ha</title><link>https://minhhh.github.io/tags/promise/</link><description>Recent content in Promise on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 Oct 2016 00:02:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/promise/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding Promises</title><link>https://minhhh.github.io/posts/understanding-promises/</link><pubDate>Wed, 26 Oct 2016 00:02:00 +0700</pubDate><guid>https://minhhh.github.io/posts/understanding-promises/</guid><description>&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="https://www.promisejs.org/" target="_blank" rel="noopener"
+ &gt;Understand promise vs callback&lt;/a&gt;&lt;/strong&gt; The ABCs of promises&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="https://promise-nuggets.github.io/" target="_blank" rel="noopener"
+ &gt;Promise nuggets&lt;/a&gt;&lt;/strong&gt; More examples of promises&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="https://spion.github.io/posts/why-i-am-switching-to-promises.html" target="_blank" rel="noopener"
+ &gt;Why I am switching to promises&lt;/a&gt;&lt;/strong&gt; A guy switches from callbacks to promises.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" target="_blank" rel="noopener"
+ &gt;We have a problem with promises&lt;/a&gt;&lt;/strong&gt; Promises are not so easy to use if you don&amp;rsquo;t know exactly how to use them properly. Try to avoid the mistakes of using something without fully understanding it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="https://gist.github.com/briancavalier/842626" target="_blank" rel="noopener"
+ &gt;Retry patterns&lt;/a&gt;&lt;/strong&gt; Several patterns of retry in promises&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="https://github.com/icodeforlove/promise-retryer" target="_blank" rel="noopener"
+ &gt;promise-retryer&lt;/a&gt;&lt;/strong&gt; Another way to do retry with promise which supports
+* custom delays based on attempts
+* maxRetries
+* promise result validation (if it fails then keep trying)&lt;/p&gt;</description></item></channel></rss>

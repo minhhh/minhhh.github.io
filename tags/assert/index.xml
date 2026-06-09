@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Assert on Huy Minh Ha</title><link>https://minhhh.github.io/tags/assert/</link><description>Recent content in Assert on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 Apr 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/assert/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Unity Assert</title><link>https://minhhh.github.io/posts/using-unity-assert/</link><pubDate>Tue, 25 Apr 2017 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/using-unity-assert/</guid><description>&lt;p&gt;Even though Unity&amp;rsquo;s &lt;a class="link" href="http://blog.theknightsofunity.com/unity-5-1-assertion-library/" target="_blank" rel="noopener"
+ &gt;UnityEngine.Assertions&lt;/a&gt; is great, it has two major disadvantages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We cannot extend it&lt;/li&gt;
+&lt;li&gt;It does not have the concept of error code. Using error code, we can force developers to explicitly think about how they will categorize the error so it&amp;rsquo;s easier to analyze the error when the game crashes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Therefore I put together a simple script to do assertion here: &lt;a class="link" href="https://github.com/minhhh/UBootstrap.Assert" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/UBootstrap.Assert&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Our &lt;code&gt;CUSTOM_ASSERT&lt;/code&gt; class provides the almost the same interface as &lt;code&gt;UnityEngine.Assertions.Assert&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;IsTrue (bool condition, int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Asserts that the condition is true.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IsFalse (bool condition, int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Assert that condition is false&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IsNull (object value, int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Assert that value is null.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IsNotNull (object value, int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Assert that value is not null.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AreEqual&amp;lt;T&amp;gt; (T expected, T actual, int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Assert that the values are equal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AreNotEqual&amp;lt;T&amp;gt; (T expected, T actual, int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Assert that the values are not equal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AreApproximatelyEqual (float expected, float actual, int errorCode, float tolerance, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Asserts that the values are approximately equal. An absolute error check is used for approximate equality check (|a-b| &amp;lt; tolerance). Default tolerance is 0.00001f.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AreNotApproximatelyEqual (float expected, float actual, int errorCode, float tolerance, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Asserts that the values are approximately not equal. An absolute error check is used for approximate equality check (|a-b| &amp;lt; tolerance). Default tolerance is 0.00001f.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Fail (int errorCode, string message = &amp;quot;&amp;quot;, params object[] args)&lt;/code&gt; - Just fail the assertion.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The reason it&amp;rsquo;s named &lt;code&gt;CUSTOM_ASSERT&lt;/code&gt; is to make it look like a macro definition. In fact, you have to define a macro named &lt;code&gt;CUSTOM_ASSERT&lt;/code&gt; to include it in your build, similarly to the macro &lt;code&gt;UNITY_ASSERTIONS&lt;/code&gt; from Unity.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CUSTOM_ASSERT&lt;/code&gt; class is defined as a partial class. It is expected that you define your part of the partial class, so that you can provide some default error code for common functions. You can find an example in &lt;code&gt;Assets/MY_ASSERT.cs&lt;/code&gt;. It is also recommended that you define your own sets of error codes.&lt;/p&gt;
+&lt;p&gt;There is no way to include the assertion without throwing exception, because it does not make sense to assert something that does not crash the build if its not true. Those set of errors belong to a logger, not an assert utility.&lt;/p&gt;</description></item></channel></rss>

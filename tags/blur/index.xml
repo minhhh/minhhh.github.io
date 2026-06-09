@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blur on Huy Minh Ha</title><link>https://minhhh.github.io/tags/blur/</link><description>Recent content in Blur on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 24 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/blur/index.xml" rel="self" type="application/rss+xml"/><item><title>How to do blur effect in Unity</title><link>https://minhhh.github.io/posts/how-to-do-blur-effect-in-unity/</link><pubDate>Thu, 24 Nov 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/how-to-do-blur-effect-in-unity/</guid><description>&lt;p&gt;&lt;strong&gt;Image Blur&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;can use a camera which render to a rendered texture&lt;/li&gt;
+&lt;li&gt;add the images to be rendered to a second canvas, which uses the new camera with screenspace-camera&lt;/li&gt;
+&lt;li&gt;Add blur shader to the Camera, or a parent object which contains all images&lt;/li&gt;
+&lt;li&gt;Add the rendered texture to anywhere you like in the first camera&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Dynamic Background Blur&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://answers.unity3d.com/questions/21699/unity-blur-behind-window.html" target="_blank" rel="noopener"
+ &gt;Blur Behind Window&lt;/a&gt; Use Camera post effect&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://forum.unity3d.com/threads/solved-dynamic-blurred-background-on-ui.345083/" target="_blank" rel="noopener"
+ &gt;Dynamic Blurred Background on UI&lt;/a&gt; Use Grabpass&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://blog.ivank.net/fastest-gaussian-blur.html" target="_blank" rel="noopener"
+ &gt;http://blog.ivank.net/fastest-gaussian-blur.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

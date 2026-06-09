@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dither on Huy Minh Ha</title><link>https://minhhh.github.io/tags/dither/</link><description>Recent content in Dither on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/dither/index.xml" rel="self" type="application/rss+xml"/><item><title>Dither Unity textures to save memory</title><link>https://minhhh.github.io/posts/dither-unity-textures-to-save-memory/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/dither-unity-textures-to-save-memory/</guid><description>&lt;p&gt;The project code is here: &lt;a class="link" href="https://github.com/minhhh/unity-texture-dither" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-texture-dither&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In many cases, we want to dither textures so that we can use more compact texture import format to save memory. This project aims to provide a workflow for dithering imported texture automatically, based on settings that can be swapped easily. Note that this has nothing to do with using dithering to achieve some artistic goal or the real time dithering effect to solve color banding problem.&lt;/p&gt;
+&lt;p&gt;The algorithms are explained in a &lt;a class="link" href="http://www.tannerhelland.com/4660/dithering-eleven-algorithms-source-code/" target="_blank" rel="noopener"
+ &gt;blog post&lt;/a&gt; by Tanner Helland and the reference implementations are taken from &lt;a class="link" href="https://github.com/mcraiha/Dithering-Unity3d" target="_blank" rel="noopener"
+ &gt;https://github.com/mcraiha/Dithering-Unity3d&lt;/a&gt; with some slight modification.&lt;/p&gt;
+&lt;h2 id="usage"&gt;Usage
+&lt;/h2&gt;&lt;p&gt;To dither images, put them in a folder whose name ended with &lt;code&gt;Dither&lt;/code&gt;. Then click on the folder and &lt;code&gt;Reimport&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The dither setting, i.e. algorithm and output color space is defined in ScriptableObjects &lt;code&gt;DitheringAlgorithmSetting&lt;/code&gt;. You can find them in the &lt;code&gt;Assets&lt;/code&gt; folder. To change dither setting, select &lt;code&gt;Settings &amp;gt; TextureDitherSetting&lt;/code&gt; and change the field &lt;code&gt;Dither Algorithm Setting&lt;/code&gt; accordingly.&lt;/p&gt;
+&lt;p&gt;Supported algorithms are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Atkinson&lt;/li&gt;
+&lt;li&gt;Burkes&lt;/li&gt;
+&lt;li&gt;FloydSteinberg&lt;/li&gt;
+&lt;li&gt;JarvisJudiceNinke&lt;/li&gt;
+&lt;li&gt;Sierra&lt;/li&gt;
+&lt;li&gt;SierraLite&lt;/li&gt;
+&lt;li&gt;SierraTwoRow&lt;/li&gt;
+&lt;li&gt;Stucki&lt;/li&gt;
+&lt;li&gt;No Dithering (for testing purpose)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Supported color spaces are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RGBA4444&lt;/li&gt;
+&lt;li&gt;Websafe&lt;/li&gt;
+&lt;li&gt;TrueColor (for testing purpose)&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Multiplayer on Huy Minh Ha</title><link>https://minhhh.github.io/tags/multiplayer/</link><description>Recent content in Multiplayer on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 21 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/multiplayer/index.xml" rel="self" type="application/rss+xml"/><item><title>Unity local network multiplayer</title><link>https://minhhh.github.io/posts/unity-local-network-multiplayer/</link><pubDate>Mon, 21 Nov 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/unity-local-network-multiplayer/</guid><description>&lt;p&gt;iOS device can connect to iOS device via Bluetooth using:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.assetstore.unity3d.com/en/#!/content/2739" target="_blank" rel="noopener"
+ &gt;MultiPeer Local Multiplayer Plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://prime31.com/docs#iosGCMP" target="_blank" rel="noopener"
+ &gt;GameCenter Multiplayer plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;U3DXT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Android device can connect to Android device via Bluetooth using:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Android Bluetooth Multiplayer (Pro)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/DarkRay/Unity3D-bluetooth" target="_blank" rel="noopener"
+ &gt;https://github.com/DarkRay/Unity3D-bluetooth&lt;/a&gt; A low level bluetooth library.&lt;/p&gt;
+&lt;p&gt;Android and iOS cannot connect to each other via iOS as mentioned &lt;a class="link" href="http://stackoverflow.com/questions/18884705/transfer-data-between-ios-and-android-via-bluetooth" target="_blank" rel="noopener"
+ &gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="http://stackoverflow.com/questions/13032540/unity3d-for-ios-and-android-multiplayer-bluetooth-connection" target="_blank" rel="noopener"
+ &gt;Unity3D for iOS and Android: Multiplayer&lt;/a&gt;. Options for multiplayer game&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;via Bluetooth (using Prime31 plugin)
+&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via LAN (using Unity RPC) The players can start combats in a Local Area Network with any of above devices: iOS vs iOS, iOS vs Android, Android vs Mac, and so on.
+&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;li&gt;Android&lt;/li&gt;
+&lt;li&gt;Mac&lt;/li&gt;
+&lt;li&gt;Web (Kongregate)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via Game Center (using Prime31 plugin): Uses the Game Center multiplayer to match combats.
+&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;via Global Server (an in-house solution): The players can start combats around the world with any of above devices: iOS vs iOS, iOS vs Android, Android vs Mac, and so on.
+&lt;ul&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;li&gt;Android&lt;/li&gt;
+&lt;li&gt;Mac&lt;/li&gt;
+&lt;li&gt;Web (Kongregate)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="link" href="https://docs.unity3d.com/Manual/UNetOverview.html" target="_blank" rel="noopener"
+ &gt;UNET&lt;/a&gt; the new Unity Networking library.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://forum.unity3d.com/threads/unet-sample-projects.331978/" target="_blank" rel="noopener"
+ &gt;Unet sample projects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/multiplayer-networking/introduction-simple-multiplayer-example?playlist=29690" target="_blank" rel="noopener"
+ &gt;Multiplayer Networking Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://forum.unity3d.com/threads/unity-5-unet-multiplayer-tutorials-making-a-basic-survival-co-op.325692/" target="_blank" rel="noopener"
+ &gt;Unity 5 UNET Multiplayer Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="link" href="http://www.tasharen.com/?page_id=4518" target="_blank" rel="noopener"
+ &gt;TNET&lt;/a&gt; Another option which uses UDP for multiplayer game.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://allseenalliance.org/framework" target="_blank" rel="noopener"
+ &gt;Alljoyn&lt;/a&gt; makes it easy for devices to communicate. Unfortunately it does not support Unity.&lt;/p&gt;</description></item></channel></rss>

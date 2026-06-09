@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fsm on Huy Minh Ha</title><link>https://minhhh.github.io/tags/fsm/</link><description>Recent content in Fsm on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 28 Dec 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/fsm/index.xml" rel="self" type="application/rss+xml"/><item><title>Finite state machine for Unity</title><link>https://minhhh.github.io/posts/finite-state-machine-for-unity/</link><pubDate>Wed, 28 Dec 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/finite-state-machine-for-unity/</guid><description>&lt;p&gt;Finite State Machine (FSM) is an important technique in game programming. Most games that have some sort of battle will have to design an FSM for its entities. FSM can be applied in UI as well. For example, instead of using flags to enable/disable certain UI elements, we can use a full FSM for all possible states of the targetted UI and its interactions with user inputs.&lt;/p&gt;
+&lt;p&gt;The main elements of a FSM include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A representation of a state&lt;/li&gt;
+&lt;li&gt;A representation of a transition between 2 state&lt;/li&gt;
+&lt;li&gt;A central system that hosts the states and facilitates their transitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai" target="_blank" rel="noopener"
+ &gt;Using Interfaces to Make a State Machine for AI&lt;/a&gt; has a simplest implementation of FSM. A state is represented like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;public interface IEnemyState
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; void UpdateState();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; void OnTriggerEnter (Collider other);
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; void ToPatrolState();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; void ToAlertState();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; void ToChaseState();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;This implementation hardcodes all state transitions in the interface, thus it&amp;rsquo;s a bad example and should not be used in a serious game.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="http://www.voidinspace.com/2013/05/a-simple-finite-state-machine-with-c-delegates-in-unity/" target="_blank" rel="noopener"
+ &gt;A simple finite state machine with C# delegates in Unity&lt;/a&gt; provides a slightly better implementation. Instead of hardcoding, it calls a single delegate function when making a transition. Still, it does not separate actions to be executed upon entering and exiting states, so it&amp;rsquo;s not very useful for serious purpose.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="http://wiki.unity3d.com/index.php?title=Finite_State_Machine" target="_blank" rel="noopener"
+ &gt;Finite State Machine&lt;/a&gt; by Unity Wiki does provide overridable functions to be executed when entering and exiting states. However, we also need to perform actions in &lt;code&gt;Update&lt;/code&gt;, &lt;code&gt;FixedUpdate&lt;/code&gt; and similar functions for entities that have time-based changes such as a player, enemies, NPC and so on. So this implementation is not sufficient.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/thefuntastic/Unity3d-Finite-State-Machine" target="_blank" rel="noopener"
+ &gt;Unity3D Finite State Machine&lt;/a&gt; satisfies functionality requirements. It provides on enter/exit functions as well as &lt;code&gt;Update&lt;/code&gt;, &lt;code&gt;FixedUpdate&lt;/code&gt;, &lt;code&gt;LateUpdate&lt;/code&gt;. It does not use separate &lt;code&gt;State&lt;/code&gt; class, instead, it uses reflection to call the correct function in the main Component for each state. Therefore, all functions of all states must be defined in the main Component, for instance, &lt;code&gt;Play_Enter&lt;/code&gt;, &lt;code&gt;Play_Exit&lt;/code&gt;, &lt;code&gt;Init_Enter&lt;/code&gt;, &lt;code&gt;Init_Exit&lt;/code&gt;, &lt;code&gt;Move_Enter&lt;/code&gt;, &lt;code&gt;Move_Exit&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;My own implementation of &lt;a class="link" href="https://github.com/minhhh/unity-fsm" target="_blank" rel="noopener"
+ &gt;Finite State Machine&lt;/a&gt; is similar to the above method, except that I don&amp;rsquo;t want to use generics, since it will make it harder to refer to the &lt;code&gt;FSM&lt;/code&gt; using code.&lt;/p&gt;
+&lt;p&gt;Another way to implement FSM is to make each state a separate MonoBehaviour. In this way, you can separate the functions for each state in its own file. In addition, you can examine the states in the Editor easily, like other MonoBehaviour. One issue which needs to be solved is how to access the members of the main Component. So you have to pass in the main Component to the state via constructor and make the members public. An alternative way is to write generic singletons which can be accessed from anywhere.&lt;/p&gt;
+&lt;h2 id="references"&gt;References
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/thefuntastic/Unity3d-Finite-State-Machine" target="_blank" rel="noopener"
+ &gt;Unity3D Finite State Machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://wiki.unity3d.com/index.php?title=Finite_State_Machine" target="_blank" rel="noopener"
+ &gt;Finite State Machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.voidinspace.com/2013/05/a-simple-finite-state-machine-with-c-delegates-in-unity/" target="_blank" rel="noopener"
+ &gt;A simple finite state machine with C# delegates in Unity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/scripting/using-interfaces-make-state-machine-ai" target="_blank" rel="noopener"
+ &gt;Using Interfaces to Make a State Machine for AI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

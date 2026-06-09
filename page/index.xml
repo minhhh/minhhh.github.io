@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Huy Minh Ha</title><link>https://minhhh.github.io/page/</link><description>Recent content in Pages on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Jun 2014 21:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Projects</title><link>https://minhhh.github.io/projects/</link><pubDate>Sat, 07 Jun 2014 21:00:00 +0700</pubDate><guid>https://minhhh.github.io/projects/</guid><description>&lt;p&gt;Here&amp;rsquo;s a list of projects that I worked on as part of a job or as personal projects.&lt;/p&gt;
+&lt;h2 id="projects-i-participated-in-at-work"&gt;Projects I participated in at work
+&lt;/h2&gt;&lt;h3 id="bloodbrothers"&gt;BloodBrothers
+&lt;/h3&gt;&lt;p&gt;&lt;img alt="Blood Brothers" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://minhhh.github.io/img/blood-brothers.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size:2rem;font-style:bold"&gt;Role: Game Engineer | Project Manager&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size:2rem;font-style:bold"&gt;Responsibilities:&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Plan and releases new clients on iOS and Android&lt;/li&gt;
+&lt;li&gt;Create schedule for Engineering and partly QA team&lt;/li&gt;
+&lt;li&gt;Manage Engineering team&lt;/li&gt;
+&lt;li&gt;Implement features: New character skills, new event system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="link" href="https://bloodbrothersgame.fandom.com/wiki/Blood_Brothers_Wiki" target="_blank" rel="noopener"
+ &gt;Blood Brothers&lt;/a&gt; is a massive online mobile game published by DeNA Japan, later run by DeNA Hanoi studio. I was one of the Game Engineers sent to Japan to take over the game operations from DeNA Japan. Later, I was promoted to Project Manager of the team in DeNA Hanoi Studio.&lt;/p&gt;
+&lt;p&gt;My daily tasks mostly covered reviewing work from other Game Engineers and QA. Communicating with the designer teams about planning resources for new events and features. I also implemented new character skills and guided new engineers about the skill system.&lt;/p&gt;
+&lt;h2 id="unity3d-5"&gt;Unity3D 5
+&lt;/h2&gt;&lt;h3 id="usplitalpha"&gt;USplitAlpha
+&lt;/h3&gt;&lt;p&gt;A library in Unity3D for incorporating Split Alpha channel for Android and iOS. URL: &lt;a class="link" href="https://github.com/minhhh/USplitAlpha" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/USplitAlpha&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="open-source-projects"&gt;Open-source projects
+&lt;/h2&gt;&lt;h3 id="texture-packer"&gt;Texture packer
+&lt;/h3&gt;&lt;p&gt;A jython command line implementation of the popular TexturePacker. URL: &lt;a class="link" href="https://github.com/minhhh/texture-packer" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/texture-packer&lt;/a&gt;&lt;/p&gt;</description></item><item><title>About</title><link>https://minhhh.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/about/</guid><description>&lt;p&gt;Hi, I’m &lt;b&gt;Huy Minh Ha&lt;/b&gt;, a detail oriented software engineer passionate crafting software products that people love to use.&lt;/p&gt;
+&lt;p&gt;I have experience in 2D Game Development with Unity 5, Live Ops of social mobile games, backend development with Node.js, Express, MySQL.&lt;/p&gt;
+&lt;p&gt;I love learning new and better ways to write cleaner, more efficient and effective code. I consider life an never-ending journey of learning and collecting knowledge, and I&amp;rsquo;m always looking for opportunities to work with those who care about the craft of coding and are willing to share their knowledge.&lt;/p&gt;
+&lt;p&gt;When I&amp;rsquo;m not coding, I like reading fantasy books and playing with my kid.&lt;/p&gt;
+&lt;h2 id="contact-me"&gt;Contact me
+&lt;/h2&gt;&lt;p&gt;You can contact me via &lt;a class="link" href="mailto:ha.minh.minhhh@gmail.com" &gt;email&lt;/a&gt; or via the social media links under the &lt;strong&gt;Social&lt;/strong&gt; section on the right.&lt;/p&gt;
+&lt;h2 id="about-the-site"&gt;About the site
+&lt;/h2&gt;&lt;p&gt;This site is running on &lt;a class="link" href="http://pelican.notmyidea.org/en/latest/index.html" target="_blank" rel="noopener"
+ &gt;Pelican&lt;/a&gt;. Themes are taken from &lt;a class="link" href="https://github.com/getpelican/pelican-themes" target="_blank" rel="noopener"
+ &gt;Pelican Themes&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Archives</title><link>https://minhhh.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/archives/</guid><description/></item><item><title>Search</title><link>https://minhhh.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/search/</guid><description/></item></channel></rss>

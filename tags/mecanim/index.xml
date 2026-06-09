@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mecanim on Huy Minh Ha</title><link>https://minhhh.github.io/tags/mecanim/</link><description>Recent content in Mecanim on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 02 Jan 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/mecanim/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Unity Mecanim animation system</title><link>https://minhhh.github.io/posts/using-unity-mecanim-animation-system/</link><pubDate>Mon, 02 Jan 2017 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/using-unity-mecanim-animation-system/</guid><description>&lt;p&gt;See &lt;a class="link" href="https://github.com/minhhh/unity-mecanim.git" target="_blank" rel="noopener"
+ &gt;unity-mecanim&lt;/a&gt; for sample code of this article&lt;/p&gt;
+&lt;h2 id="mechanim-basics"&gt;Mechanim basics
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=wdOk5QXYC6Y" target="_blank" rel="noopener"
+ &gt;Unity 5 Tutorial - Animation Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=7-OUZecgXv0" target="_blank" rel="noopener"
+ &gt;Unity Third Person Control: Mecanim Nodes - Tutorial 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://community.mixamo.com/hc/en-us/articles/203879268" target="_blank" rel="noopener"
+ &gt;Unity: Mecanim Animation Basics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://docs.unity3d.com/Manual/animeditor-UsingAnimationEditor.html" target="_blank" rel="noopener"
+ &gt;Animation Editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://docs.unity3d.com/Manual/AnimationSoloMute.html" target="_blank" rel="noopener"
+ &gt;Solo and mute&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="animation-parameters"&gt;&lt;a class="link" href="http://docs.unity3d.com/Manual/AnimationParameters.html" target="_blank" rel="noopener"
+ &gt;animation parameters&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Animation Parameters are variables that are defined within an Animator Controller that can be accessed and assigned values from scripts. This is how a script can control or affect the flow of the state machine.&lt;/li&gt;
+&lt;li&gt;Parameters can be assigned values from a script using functions in the Animator class: SetFloat, SetInt, SetBool, SetTrigger and ResetTrigger&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://answers.unity3d.com/questions/600268/mecanim-animation-parameter-types-boolean-vs-trigg.html" target="_blank" rel="noopener"
+ &gt;Mecanim Animation Parameter Types: Boolean vs. Trigger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Parameters can also be controlled in animation using Curve and read in script
+&lt;ul&gt;
+&lt;li&gt;You cannot control an Animation parameter from both Curve and Script, so you have to structure your code correspondingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="root-motion-blend-tree"&gt;Root motion, Blend Tree
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=k12w-rEbuXI&amp;amp;index=1&amp;amp;list=PL_eGgISVYZkeD-q83hLtPESTB-lPKnfjH" target="_blank" rel="noopener"
+ &gt;RPG Character Controller 001 - Unity 5 Root Motion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="layer-layer-mask"&gt;Layer, Layer Mask
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Layer Usages (&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/animation/animator-controller-layers" target="_blank" rel="noopener"
+ &gt;Animator Controller Layers&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;Additional layer for handling different body parts while the base layer handles the base movement, such as: wave hand while moving&lt;/li&gt;
+&lt;li&gt;Blending mode can be: Override or Additive. Normally &lt;code&gt;Override&lt;/code&gt; will be used because using &lt;code&gt;Additive&lt;/code&gt; can be highly unpredictable unless you&amp;rsquo;re an advanced animator. (&lt;a class="link" href="https://community.mixamo.com/hc/en-us/articles/204581427-Unity-Mecanim-Advanced-Animation" target="_blank" rel="noopener"
+ &gt;advanced animation&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Blend additional movement based on character state such as: heavy breathing when tired&lt;/li&gt;
+&lt;li&gt;Sync layer when you have a set of animation for when the character state changes such as: wounded animations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Avatar Mask(&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/animation/avatar-masks" target="_blank" rel="noopener"
+ &gt;Avatar Masks&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;Could be set in animation to see the effect of Masking only part of the body&lt;/li&gt;
+&lt;li&gt;Normally apply to layer which controls part of the body (&lt;a class="link" href="https://community.mixamo.com/hc/en-us/articles/204581427-Unity-Mecanim-Advanced-Animation" target="_blank" rel="noopener"
+ &gt;advanced animation&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="equip-weapon"&gt;Equip weapon
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Equip immediately without animation
+&lt;ul&gt;
+&lt;li&gt;For models created in Unity
+&lt;ul&gt;
+&lt;li&gt;Create weapon holder node&lt;/li&gt;
+&lt;li&gt;Attach the weapons to it&lt;/li&gt;
+&lt;li&gt;Hide/Unhide the correct weapon when switching weapon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For models created outside Unity
+&lt;ul&gt;
+&lt;li&gt;Find the correct node in the model OR create a weapon holder node like before&lt;/li&gt;
+&lt;li&gt;Attach the weapons to it&lt;/li&gt;
+&lt;li&gt;Hide/Unhide the correct weapon when switching weapon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Equip with equip/unequip animations. All weapons are treated the same when equipped (&lt;a class="link" href="https://www.youtube.com/watch?v=7gsl43thTsk" target="_blank" rel="noopener"
+ &gt;Sword equipping&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;Create equip/unequip animation for each weapons&lt;/li&gt;
+&lt;li&gt;Using layer/layer mask to blend the equip/unequip animations, masking only the necessary parts of the body, such as the arm movement&lt;/li&gt;
+&lt;li&gt;Using Animation Event to set value to flags such as: sword_equipped, sword_unequipped&lt;/li&gt;
+&lt;li&gt;Attach the corresponding weapon using Animation Event calling functions and/or flags&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Weapons affect whole animation when equiped (&lt;a class="link" href="https://www.youtube.com/watch?v=Is9C4i4XyXk" target="_blank" rel="noopener"
+ &gt;Applied Mecanim : Character Animation and Combat State Machines&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="using-mechanim-as-state-machine"&gt;Using mechanim as state machine
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://forum.unity3d.com/threads/mecanim-as-generic-state-machine.311201/" target="_blank" rel="noopener"
+ &gt;Mecanim as generic state machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://pekalicious.com/blog/unity3d-reusing-animator-controllers-with-animatoroverridecontroller/" target="_blank" rel="noopener"
+ &gt;Reusing animator controllers with AnimatorOverrideController&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=Is9C4i4XyXk" target="_blank" rel="noopener"
+ &gt;Applied Mecanim : Character Animation and Combat State Machines&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;A character with
+&lt;ul&gt;
+&lt;li&gt;8 weapon types
+&lt;ul&gt;
+&lt;li&gt;9-12 ground attacks&lt;/li&gt;
+&lt;li&gt;5 aerial attacks&lt;/li&gt;
+&lt;li&gt;3 defensive maneuvers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;4 throwable items&lt;/li&gt;
+&lt;li&gt;6 classes of magic each with 3-6 abilities&lt;/li&gt;
+&lt;li&gt;Basic locomotion, jump, hit react, death&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One way is to use SubStateMachine, with several depth layers&lt;/li&gt;
+&lt;li&gt;An alternative organization is to use BaseLayer with Overrides Layer and Additive Layer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=HOURak6BpSo" target="_blank" rel="noopener"
+ &gt;Leveraging Unity 5.2&amp;rsquo;s Advanced Animation Features&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;You can manage all transitions between attacks manually&lt;/li&gt;
+&lt;li&gt;Or you can use a blend tree. This is slightly better. One problem is if you change the Blend parameter while playing animation, it will change the animation immediately.&lt;/li&gt;
+&lt;li&gt;Solution in Unity 5: StateMachineBehaviour on a State. This way you can have code that run at the Start or End of your blendtree.&lt;/li&gt;
+&lt;li&gt;You could also have StateMachineBehaviour on a StateMachine. Then you can override &lt;code&gt;OnStateMachineEnter&lt;/code&gt; and &lt;code&gt;OnStateMachineExit&lt;/code&gt; functions&lt;/li&gt;
+&lt;li&gt;When the SubStateMachine is a sequence of animations, you can have code on &lt;code&gt;OnStateMachineEnter&lt;/code&gt; to equip weapon&lt;/li&gt;
+&lt;li&gt;Can also check for Input in &lt;code&gt;StateMachineBehaviour&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="best-practices"&gt;Best Practices
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="http://answers.unity3d.com/questions/806949/animation-events-not-firing.html" target="_blank" rel="noopener"
+ &gt;Animation events not firing&lt;/a&gt; when the event is near the endframe, so either use a third party event dispatcher, or use &lt;code&gt;StateMachineBehaviour&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use custom class to cache animation event&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You might catch animation events using a general event handler function such as &lt;code&gt;OnAnimationEvent (AnimationEvent)&lt;/code&gt;, however this might not be the best solution since you will have to do a switch case in your main logic class. This will make the main logic class (e.g. Enemy, Player) knows too much about the flow to handle animation event. Also you might not be able to reuse common code.&lt;/li&gt;
+&lt;li&gt;A better way is to have a generic custom class to handle animation event, e.g. &lt;code&gt;AnimatorHandler&lt;/code&gt;. This class will have most common function such as &lt;code&gt;OnAnimationStart&lt;/code&gt;, &lt;code&gt;OnAnimationEnd&lt;/code&gt;, &lt;code&gt;OnAnimationUpdate&lt;/code&gt;. You can pass custom handle functions in as callback if you need to. This class also has common utility function such as getting current state name, check if any animation is playing etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When importing animations, make sure to &lt;code&gt;Bake into pose&lt;/code&gt; the part where you don&amp;rsquo;t want to move by Root motion. Also use &lt;code&gt;Offset&lt;/code&gt; to fix Average velocity not zero problems, e.g. walking animation that has a X speed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change the animation speed of specific layer&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There&amp;rsquo;s no way to change the animation speed of specific layer. The current best way is to Use blend tree to control the speed of a particular layer based on parameter. See &lt;a class="link" href="http://forum.unity3d.com/threads/mecanim-change-animation-speed-of-specific-animation-or-layers.160395/" target="_blank" rel="noopener"
+ &gt;Mecanim - Change animation speed of specific animation or layers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;You can also change the speed of particular state in Editor and via script&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use int parameter instead of boolean or trigger. This way you can use AnyState to transition using condition such as &lt;code&gt;skill=1&lt;/code&gt;, then when entering the mecanim state we set it to another number immediately &lt;a class="link" href="https://www.youtube.com/watch?v=Is9C4i4XyXk" target="_blank" rel="noopener"
+ &gt;Applied Mecanim : Character Animation and Combat State Machines&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use substate to simplify your state machine. However, becareful when constructing AnyState transition to deeper substate, since AnyState is global. In this way, we can ignore the immediate substate and only care about the final subtate. We use the most specific condition, such as &lt;code&gt;skill=1 and subskill=2&lt;/code&gt; to trigger the final substate from AnyState. This way we don&amp;rsquo;t have to configure transition to immediate substate and only care about the final state&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use SMB: &lt;a class="link" href="https://www.youtube.com/watch?v=Is9C4i4XyXk" target="_blank" rel="noopener"
+ &gt;Applied Mecanim : Character Animation and Combat State Machines&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SMB&lt;/code&gt; makes sure that &lt;code&gt;OnStateMachineExit&lt;/code&gt; is called when exiting a state. Putting a animation event at the end of an animation cannot ensure that for 2 reasons: The animation might be forced to switch in the middle or the animation event might not fire because the animation is played too quickly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="http://answers.unity3d.com/questions/685968/running-an-animation-completely-before-transitioni.html" target="_blank" rel="noopener"
+ &gt;Running an animation completely before transitioning back&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure Exit time is 1.00, with FixedDuration unchecked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How to Run the death animation then destroy GameObject&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use a timer. This is quite a robust solution but maybe not visually correct in some cases, i.e. the animation might be stopped too soon.&lt;/li&gt;
+&lt;li&gt;Use animation event. Add an Exit event to the animation at the last frame. This is not very robust, since Unity might skip Animation event&lt;/li&gt;
+&lt;li&gt;Use auto transition to a fake after death state. Then use StateMachineBehaviour to detect when we exit the Death state. This is also a robust solution, but requires you to modify the structure of the Animator.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How to transition out of a substate machine (&lt;a class="link" href="https://www.youtube.com/watch?v=lpekqN4_4xg" target="_blank" rel="noopener"
+ &gt;Using substate machine&lt;/a&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using Up node: Transition to state or StateMachine&lt;/li&gt;
+&lt;li&gt;Using Entry/Exit nodes: Transition to/from StateMachine. This facilitates better reusability&lt;/li&gt;
+&lt;li&gt;Try to only use one way&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Deconstructed on Huy Minh Ha</title><link>https://minhhh.github.io/tags/deconstructed/</link><description>Recent content in Deconstructed on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Sep 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/deconstructed/index.xml" rel="self" type="application/rss+xml"/><item><title>Maple.js Deconstructed</title><link>https://minhhh.github.io/posts/maple.js-deconstructed/</link><pubDate>Sun, 25 Sep 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/maple.js-deconstructed/</guid><description>&lt;p&gt;&lt;a class="link" href="https://github.com/BonsaiDen/Maple.js" target="_blank" rel="noopener"
+ &gt;Maple.js&lt;/a&gt; is a simple event-based multiplayer framework using Node.js&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maple provides a base class for &lt;code&gt;Client&lt;/code&gt; and &lt;code&gt;Server&lt;/code&gt;. Your specific game code should inherit these base classes.&lt;/li&gt;
+&lt;li&gt;The supported functionality includes:
+&lt;ul&gt;
+&lt;li&gt;Connect/Disconnect&lt;/li&gt;
+&lt;li&gt;Ping server&lt;/li&gt;
+&lt;li&gt;Handle arbitrary message&lt;/li&gt;
+&lt;li&gt;Sync client server update tick on every frame&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The problems with Maple are:
+&lt;ul&gt;
+&lt;li&gt;Use Websocket, which is slow&lt;/li&gt;
+&lt;li&gt;Require too much sync and only applicable for Round-based games.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Osmus Deconstructed</title><link>https://minhhh.github.io/posts/osmus-deconstructed/</link><pubDate>Sun, 25 Sep 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/osmus-deconstructed/</guid><description>&lt;p&gt;&lt;a class="link" href="https://github.com/borismus/osmus" target="_blank" rel="noopener"
+ &gt;Osmus&lt;/a&gt; is a tech demo of a HTML5 multiplayer game inspired by &lt;a class="link" href="http://www.osmos-game.com/" target="_blank" rel="noopener"
+ &gt;Osmos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deconstruction&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Osmus uses node.js for the server and HTML5 Canvas with Javascript on the client side. The simulation code is shared between client and server.&lt;/li&gt;
+&lt;li&gt;Regarding network, Osmus uses &lt;code&gt;socket.io&lt;/code&gt;. &lt;code&gt;Socket.io&lt;/code&gt; is quite stable and performant so this is ok.&lt;/li&gt;
+&lt;li&gt;The multiplayer architecture is Server/Client, with the server being the sole authority. All inputs from any client will be rebroadcast to all clients in the room. There are several problems with this approach
+&lt;ul&gt;
+&lt;li&gt;Not scalable: Simply rebroadcast all messages will increase the load on the server exponentially so this is totally not acceptable. Some sort of rate limit should be applied, such as only sending messages to viewable entities.&lt;/li&gt;
+&lt;li&gt;Sudden positional jump on client: If the client entities can move around, then client simulation. client prediction and interpolation with server states should be applied to ensure smooth movement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

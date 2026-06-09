@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scriptableobject on Huy Minh Ha</title><link>https://minhhh.github.io/tags/scriptableobject/</link><description>Recent content in Scriptableobject on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 15 Dec 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/scriptableobject/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding Unity ScriptableObject</title><link>https://minhhh.github.io/posts/understanding-unity-scriptableobject/</link><pubDate>Thu, 15 Dec 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/understanding-unity-scriptableobject/</guid><description>&lt;p&gt;In the &lt;a class="link" href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects" target="_blank" rel="noopener"
+ &gt;Introduction to Scriptable Objects&lt;/a&gt; tutorial, they claim that &lt;code&gt;Scriptable Objects are amazing data containers&lt;/code&gt;. However, it&amp;rsquo;s not clear how useful Scriptable Objects really is, and what problems they&amp;rsquo;re trying to solve. In this article we will look at all usecases of Scriptable Objects, what issues they&amp;rsquo;re trying to solve, what the original solutions are, and what the pros and cons of each approach are.&lt;/p&gt;
+&lt;h2 id="overall"&gt;Overall
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;What is a Scriptable Object&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Container&lt;/li&gt;
+&lt;li&gt;Can NOT be attached to GameObject/Prefab&lt;/li&gt;
+&lt;li&gt;Can be serialized and inspected like MonoBehaviour&lt;/li&gt;
+&lt;li&gt;Can be put into .asset file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Built into Unity&lt;/li&gt;
+&lt;li&gt;Can be saved as assets&lt;/li&gt;
+&lt;li&gt;Can save during runtime&lt;/li&gt;
+&lt;li&gt;Can be referenced instead of copied like MonoBehaviour&lt;/li&gt;
+&lt;li&gt;Internal solution (no files/parsing). Performance is quite fast.&lt;/li&gt;
+&lt;li&gt;Add to structure as you go. No need to go through a large file/multiple files to replace schema.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Requires Editor Scripting&lt;/li&gt;
+&lt;li&gt;Can&amp;rsquo;t edit outside Unity&lt;/li&gt;
+&lt;li&gt;Can&amp;rsquo;t save once deployed&lt;/li&gt;
+&lt;li&gt;Cannot optimize loading speed since this is Unity code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="use-case-1-global-game-settings"&gt;Use case 1: Global Game Settings
+&lt;/h2&gt;&lt;p&gt;Every game has global settings for various aspects such as: Sounds, Video, Game play. There are some options to store these settings:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Scattered throughout the code, or maybe centralized into one source file.
+&lt;ol&gt;
+&lt;li&gt;Pros: Easy to code&lt;/li&gt;
+&lt;li&gt;Cons: Designers cannot find these settings easily. Change cannot persist if you quit &lt;code&gt;Play&lt;/code&gt; mode&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Stored in config files: text/binary.
+&lt;ol&gt;
+&lt;li&gt;Pros: Easy to code. Designers can look at them if they&amp;rsquo;re text files.&lt;/li&gt;
+&lt;li&gt;Cons: Cannot change settings while playing. Might be hard for designers to understand and change the settings files since there&amp;rsquo;s no validation method.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Stored in Prefabs
+&lt;ol&gt;
+&lt;li&gt;Pros: Prefab can be stored as assets&lt;/li&gt;
+&lt;li&gt;Cons: It might be too heavy for pure data purpose. Duplicate memory if you create instance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ScriptableObject can be used to store global settings in &lt;code&gt;.asset&lt;/code&gt; files.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pros
+&lt;ol&gt;
+&lt;li&gt;Easy to find them in Unity&lt;/li&gt;
+&lt;li&gt;Easy to change and test&lt;/li&gt;
+&lt;li&gt;Can change while playing. Changes persist after quitting play mode&lt;/li&gt;
+&lt;li&gt;Can have custom editor so it&amp;rsquo;s easy to note the meaning of each field&lt;/li&gt;
+&lt;li&gt;Can be validated using custom editor code.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a base class for all the global game Settings. It will have a static property &lt;code&gt;Instance&lt;/code&gt;, which provides a way to create a singleton instance in a fixed location. This location will be customized on a project basis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;public class Setting&amp;lt;T&amp;gt; : ScriptableObject where T : Setting&amp;lt;T&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;Create subclass the &lt;code&gt;Setting&lt;/code&gt; class. Provide a MenuItem for accessing it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[MenuItem (&amp;#34;Settings/TextureSetting&amp;#34;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;public static void Edit ()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Selection.activeObject = Instance;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="use-case-2-swappable-global-game-settings-or-scene-settings"&gt;Use case 2: Swappable Global Game Settings or Scene Settings
+&lt;/h2&gt;&lt;p&gt;Sometimes we don&amp;rsquo;t want to have to change some global settings back and forth between a set of parameters since it&amp;rsquo;s very time-consuming. So we might want to store several pre-defined settings and swap between them quickly.&lt;/p&gt;
+&lt;p&gt;Another case is scene settings. These settings only affect the scene, not the whole game, and they usually change between scene reload, for instance, game mode settings: Easy, Medium, Difficult.&lt;/p&gt;
+&lt;p&gt;ScriptableObject can deal with this situation:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To be able to swap setting, create a wrapper setting which references the specific setting&lt;/li&gt;
+&lt;li&gt;To swap scene setting, simply load the specific setting in &lt;code&gt;Assets&lt;/code&gt; then assign it to specific field in a &lt;code&gt;MonoBehaviour&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create multiple settings&lt;/li&gt;
+&lt;li&gt;Define a field in &lt;code&gt;MonoBehaviour&lt;/code&gt; or parent ScriptableObject, referring to the settings ScriptableObject&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="use-case-3-scriptable-objects-as-masterdata-or-item-database"&gt;Use case 3: Scriptable Objects as MasterData or Item Database
+&lt;/h2&gt;&lt;p&gt;For any sufficiently large game, the game data will be so big that you have to separate them from the code, and they will be referred to as &lt;code&gt;MasterData&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Popular solutions for storing &lt;code&gt;MasterData&lt;/code&gt; include:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Text/Binary files. E.g &lt;a class="link" href="https://www.youtube.com/watch?v=nYWlB7HRNSE" target="_blank" rel="noopener"
+ &gt;Unity XML Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Database&lt;/li&gt;
+&lt;li&gt;Network&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;One common disadvantage with these approach is you will need an external viewer to be able to see and modify &lt;code&gt;masterdata&lt;/code&gt; conveniently.&lt;/li&gt;
+&lt;li&gt;You will have to replicate the schema in code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ScriptableObject can offer a way to create and edit &lt;code&gt;masterdata&lt;/code&gt; inside Unity Editor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ScriptableObject Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Can have references to Resources&lt;/li&gt;
+&lt;li&gt;View, Add, Delete and Edit entities/items conveniently in Unity Editor&lt;/li&gt;
+&lt;li&gt;Use ScriptableObject directly in &lt;code&gt;MonoBehaviour&lt;/code&gt; instead of having to create an additional layer of MonoBehaviour&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects" target="_blank" rel="noopener"
+ &gt;Introduction to Scriptable Objects&lt;/a&gt; shows how you use Scriptable Object to create and edit Inventory Lists.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=ItZbTYO0Mnw" target="_blank" rel="noopener"
+ &gt;Saving Data in Unity: ScriptableObjects&lt;/a&gt; shows how you can create multiple &lt;code&gt;Enemy&lt;/code&gt; ScriptableObject and use them in the &lt;code&gt;EnemyMove&lt;/code&gt; MonoBehaviour.&lt;/p&gt;
+&lt;h2 id="use-case-4-scriptable-objects-as-dynamic-behaviour"&gt;Use case 4: Scriptable Objects as Dynamic Behaviour
+&lt;/h2&gt;&lt;p&gt;Another usecase of ScriptableObject is using them as game behaviour which has data that can be modified by designer. They have some instance functions, like &lt;code&gt;MonoBehaviour&lt;/code&gt;, but unlike &lt;code&gt;MonoBehaviour&lt;/code&gt; which cannot be saved independently without prefabs, ScriptableObject can be saved as if they&amp;rsquo;re just pure data. Game programmers can change the code of the behaviour without affecting game designers.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;These ScriptableObjects are similar to the ones in Usecase 3, but they have functions which can act arbitrarily on &lt;code&gt;GameObject&lt;/code&gt;, &lt;code&gt;MonoBehaviour&lt;/code&gt; and so on.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117" target="_blank" rel="noopener"
+ &gt;Ability System with Scriptable Objects&lt;/a&gt; shows how you implement an Ability System, where &lt;code&gt;Ability&lt;/code&gt; is ScriptableObject with its own behaviour functions.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Ability&lt;/code&gt; class contains data and abstracts methods which act on &lt;code&gt;GameObject&lt;/code&gt; based on those data.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;public abstract class Ability : ScriptableObject
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public string aName = &amp;#34;New Ability&amp;#34;;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public Sprite aSprite;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public AudioClip aSound;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public float aBaseCoolDown = 1f;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public abstract void Initialize (GameObject obj);
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public abstract void TriggerAbility ();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The &lt;code&gt;ProjectileAbility&lt;/code&gt; is a concrete &lt;code&gt;Ability&lt;/code&gt; subclass, which modifies the target &lt;code&gt;GameObject&lt;/code&gt; as needed and trigger the projectile action.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;using UnityEngine;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;using System.Collections;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[CreateAssetMenu (menuName = &amp;#34;Abilities/ProjectileAbility&amp;#34;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;public class ProjectileAbility : Ability
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public float projectileForce = 500f;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public Rigidbody projectile;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; private ProjectileShootTriggerable launcher;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public override void Initialize (GameObject obj)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; launcher = obj.GetComponent&amp;lt;ProjectileShootTriggerable&amp;gt; ();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; launcher.projectileForce = projectileForce;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; launcher.projectile = projectile;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; public override void TriggerAbility ()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; launcher.Launch ();
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class="link" href="https://bitbucket.org/richardfine/scriptableobjectdemo" target="_blank" rel="noopener"
+ &gt;ScriptableObjectDemo&lt;/a&gt; is a more comprehensive demo.&lt;/p&gt;
+&lt;h2 id="other-notes"&gt;Other notes
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;MasterData can include global settings, constants and any kind of game data. This really depends on the developers/designers to choose.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ScriptableObjects can help you to load some specific items in an Item Database quickly, if the items are stored as individual assets. Refactoring multiple ScriptableObject assets into a collection is simple.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Other Methods to store data&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;From source code
+&lt;ol&gt;
+&lt;li&gt;A lot of code for storing data&lt;/li&gt;
+&lt;li&gt;Large binary size&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;From GameObject
+&lt;ol&gt;
+&lt;li&gt;We can store data in &lt;code&gt;Component&lt;/code&gt; inside Prefabs, or in Scene.&lt;/li&gt;
+&lt;li&gt;This way is mostly heavier than ScriptableObject&lt;/li&gt;
+&lt;li&gt;However, you can pack multiple &lt;code&gt;Component&lt;/code&gt; arbitrarily so it might be helpful.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;From XML, JSON, CSV, Excel
+&lt;ol&gt;
+&lt;li&gt;Cannot have resources reference&lt;/li&gt;
+&lt;li&gt;Might be good to have a workflow to convert into ScriptableObject&lt;/li&gt;
+&lt;li&gt;To update data in saved data, text/binary are more suitable than ScriptableObject, which cannot be saved once deployed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;PlayerPrefs
+&lt;ol&gt;
+&lt;li&gt;Can be used to save data&lt;/li&gt;
+&lt;li&gt;Not suitable for very large amount of data&lt;/li&gt;
+&lt;li&gt;Cannot control the save process easily&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;From embedded DB
+&lt;ol&gt;
+&lt;li&gt;Cannot have resources reference&lt;/li&gt;
+&lt;li&gt;Might be good to have a workflow to convert into ScriptableObject&lt;/li&gt;
+&lt;li&gt;To update data in saved data, database is very convenient. But we must care about performance.&lt;/li&gt;
+&lt;li&gt;We must be aware of encryption capabilities of the DB.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;From Network
+&lt;ol&gt;
+&lt;li&gt;Cannot have resources reference&lt;/li&gt;
+&lt;li&gt;Usually used in combination with a text/binary persisted in local storage&lt;/li&gt;
+&lt;li&gt;To update data via Network with ScriptableObject, AssetBundle is needed. So the general-purpose text/binary format might be better.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://medium.com/@mormo_music/game-settings-with-scriptable-objects-in-unity3d-6f753fe508fd#.tb9ahxiej" target="_blank" rel="noopener"
+ &gt;Game Settings with Scriptable Objects in Unity3D&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects" target="_blank" rel="noopener"
+ &gt;Introduction to Scriptable Objects&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://unity3d.com/learn/tutorials/topics/scripting/ability-system-scriptable-objects?playlist=17117" target="_blank" rel="noopener"
+ &gt;Ability System with Scriptable Objects&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=ItZbTYO0Mnw" target="_blank" rel="noopener"
+ &gt;Saving Data in Unity: ScriptableObjects&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.youtube.com/watch?v=VBA1QCoEAX4" target="_blank" rel="noopener"
+ &gt;Overthrowing the MonoBehaviour tyranny in a glorious ScriptableObject revolution&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="http://tsubakit1.hateblo.jp/entry/2014/07/24/030607" target="_blank" rel="noopener"
+ &gt;Scriptable Object&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://bitbucket.org/richardfine/scriptableobjectdemo" target="_blank" rel="noopener"
+ &gt;ScriptableObjectDemo&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="http://ivanozanchetta.com/gamedev/unity3d/unity-serialization-behind-scriptableobject/" target="_blank" rel="noopener"
+ &gt;Unity Serialization… behind the mistery of ScriptableObject&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

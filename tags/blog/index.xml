@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on Huy Minh Ha</title><link>https://minhhh.github.io/tags/blog/</link><description>Recent content in Blog on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 10 Sep 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Setup Github pages as your blog</title><link>https://minhhh.github.io/posts/setup-github-pages-as-your-blog/</link><pubDate>Sat, 10 Sep 2016 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/setup-github-pages-as-your-blog/</guid><description>&lt;p&gt;How to setup github page as your blog? It&amp;rsquo;s actually very easy, just follow the following guides&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://24ways.org/2013/get-started-with-github-pages/" target="_blank" rel="noopener"
+ &gt;Get Started With GitHub Pages (Plus Bonus Jekyll)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/start/new-project/user-page/" target="_blank" rel="noopener"
+ &gt;A guide to using Github Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://knightlab.northwestern.edu/2013/06/13/getting-github-why-journalists-should-know-and-use-the-social-coding-site/" target="_blank" rel="noopener"
+ &gt;Getting GitHub: Why journalists should know and use the social coding site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/csswizardry/csswizardry.github.com" target="_blank" rel="noopener"
+ &gt;csswizardry.github.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Creating this blog</title><link>https://minhhh.github.io/posts/creating-this-blog/</link><pubDate>Sat, 07 Jun 2014 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/creating-this-blog/</guid><description>&lt;p&gt;When creating this blog, I used the following references:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://ntanjerome.org/blog/how-to-setup-github-user-page-with-pelican" target="_blank" rel="noopener"
+ &gt;Setup github page with pelican&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://mathamy.com/migrating-to-github-pages-using-pelican.html" target="_blank" rel="noopener"
+ &gt;Migrating to github pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.macdrifter.com/2012/08/pelican-guide-moving-from-wordpress-and-initial-setup.html" target="_blank" rel="noopener"
+ &gt;Pelican Guide initial setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.macdrifter.com/2012/08/moving-to-pelican-design-planning.html" target="_blank" rel="noopener"
+ &gt;Moving to Pelican planning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/streeter/pelican-gist" target="_blank" rel="noopener"
+ &gt;pelican-gist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/minhhh/gist-it" target="_blank" rel="noopener"
+ &gt;gist-it&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

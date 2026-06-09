@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unittest on Huy Minh Ha</title><link>https://minhhh.github.io/tags/unittest/</link><description>Recent content in Unittest on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 21 Feb 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/unittest/index.xml" rel="self" type="application/rss+xml"/><item><title>Unity Unit testing</title><link>https://minhhh.github.io/posts/unity-unit-testing/</link><pubDate>Tue, 21 Feb 2017 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/unity-unit-testing/</guid><description>&lt;p&gt;&lt;a class="link" href="https://bitbucket.org/Unity-Technologies/unitytesttools/wiki/IntegrationTestsRunner" target="_blank" rel="noopener"
+ &gt;How to use the Integration Test Framework&lt;/a&gt; is the guide from offical repo&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;a class="link" href="http://ilkinulas.github.io/programming/unity/2016/03/12/integration-tests-unity3d.html" target="_blank" rel="noopener"
+ &gt;Writing Integration Tests For Unity3D Projects&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Suggests writing dynamic integration test on real game scene. This might be hard to maintain if you don&amp;rsquo;t have discipline.&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
