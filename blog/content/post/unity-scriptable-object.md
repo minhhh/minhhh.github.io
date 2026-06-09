@@ -2,7 +2,7 @@
 title = "Understanding Unity ScriptableObject"
 date = "2016-12-15T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "scriptableobject"]
 +++
 

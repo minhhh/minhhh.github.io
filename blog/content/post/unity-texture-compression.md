@@ -2,7 +2,7 @@
 title = "Unity Texture compression and optimization"
 date = "2016-12-03T00:01:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "texture", "splitalpha", "optimization"]
 +++
 

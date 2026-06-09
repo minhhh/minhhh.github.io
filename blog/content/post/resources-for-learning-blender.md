@@ -2,7 +2,7 @@
 title = "Resources for learning Blender"
 date = "2017-03-21T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["blender"]
 +++
 

@@ -2,7 +2,7 @@
 title = "Using Webp texture format in Unity"
 date = "2017-01-18T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "texture", "webp"]
 +++
 

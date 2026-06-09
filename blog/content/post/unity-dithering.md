@@ -2,7 +2,7 @@
 title = "Dither Unity textures to save memory"
 date = "2017-01-05T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "dither"]
 +++
 

@@ -2,7 +2,7 @@
 title = "When to use Script Execution Order"
 date = "2016-10-28T00:01:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity"]
 +++
 

@@ -2,7 +2,7 @@
 title = "Colored Project Folder"
 date = "2017-11-27T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity"]
 +++
 

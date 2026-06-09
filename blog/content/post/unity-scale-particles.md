@@ -2,7 +2,7 @@
 title = "Scale Shuriken Particle System"
 date = "2016-11-29T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "particlesystem"]
 +++
 

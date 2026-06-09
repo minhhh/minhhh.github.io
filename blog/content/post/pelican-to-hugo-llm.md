@@ -1,6 +1,6 @@
 +++
 title = "Migrating Pelican to Hugo with an LLM"
-date = "2025-06-08T00:00:00+07:00"
+date = "2026-06-08T00:00:00+07:00"
 author = "Ha.Minh"
 description = "How I used an LLM to migrate this blog from Pelican 3.4 to Hugo with the Stack theme."
 categories = ["Programming"]

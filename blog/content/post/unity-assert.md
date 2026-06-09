@@ -2,8 +2,8 @@
 title = "Using Unity Assert"
 date = "2017-04-25T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
-tags = ["unity", "assert"]
+categories = ["Programming"]
+tags = ["unity"]
 +++
 
 Even though Unity's [UnityEngine.Assertions](http://blog.theknightsofunity.com/unity-5-1-assertion-library/) is great, it has two major disadvantages

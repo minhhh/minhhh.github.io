@@ -2,7 +2,7 @@
 title = "Unity geometry distortion on child object"
 date = "2016-12-03T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity"]
 +++
 

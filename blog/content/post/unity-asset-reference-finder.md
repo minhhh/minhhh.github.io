@@ -2,7 +2,7 @@
 title = "Unity Asset Reference Finder and Missing Script Finder"
 date = "2017-07-10T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity"]
 +++
 

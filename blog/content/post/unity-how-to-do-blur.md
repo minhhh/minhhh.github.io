@@ -2,7 +2,7 @@
 title = "How to do blur effect in Unity"
 date = "2016-11-24T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "blur"]
 +++
 

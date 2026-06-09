@@ -2,7 +2,7 @@
 title = "Introducing UAsync"
 date = "2017-05-08T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "uasync", "coroutine"]
 +++
 

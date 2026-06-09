@@ -2,7 +2,7 @@
 title = "Unity Prefab Best Practices"
 date = "2017-07-06T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "prefab"]
 +++
 

@@ -2,7 +2,7 @@
 title = "Unity local network multiplayer"
 date = "2016-11-21T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Unity"]
+categories = ["Programming"]
 tags = ["unity", "bluetooth", "multiplayer"]
 +++
 
