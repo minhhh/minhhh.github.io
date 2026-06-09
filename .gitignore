@@ -1,9 +1,4 @@
 .DS_Store
-*.pyc
-*.pid
-venv
-output
-cache
 
 # Hugo
 blog/public/
