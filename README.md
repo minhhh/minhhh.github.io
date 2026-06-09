@@ -5,34 +5,28 @@ Personal blog built with [Hugo](https://gohugo.io/) and the [Stack](https://gith
 ## Quick start
 
 ```bash
-# Dev server (with drafts)
-cd blog && hugo serve --buildDrafts --disableFastRender
-
-# Production build
-cd blog && hugo --minify
+cd blog && hugo serve --buildDrafts --disableFastRender  # dev server
+cd blog && hugo --minify                                   # production build
 ```
 
-Open http://localhost:1313/ in the browser.
+Open http://localhost:1313/.
 
-## Content conversion
+## Deployment
 
-To convert Pelican-format articles to Hugo:
+Push to `source` — GitHub Actions builds and deploys to `main`.
 
-```bash
-# Convert a single article
-python scripts/convert_pelican_to_hugo.py blog/content/2014-06-07-creating-this-blog.md
+## Configuration
 
-# Convert all articles
-python scripts/convert_pelican_to_hugo.py blog/content/*.md
+Key site config lives in `blog/config/_default/`:
 
-# Convert pages
-python scripts/convert_pelican_to_hugo.py blog/content/pages/*.md
-
-# Dry run (preview only)
-python scripts/convert_pelican_to_hugo.py blog/content/*.md --dry-run
-```
-
-Output goes to `blog/content/post/` (articles) and `blog/content/page/` (pages as leaf bundles, e.g. `blog/content/page/about/index.md` and `blog/content/page/projects/index.md`).
+| File | Purpose |
+|---|---|
+| `config.toml` | Base URL, title, locale, Disqus, pagination |
+| `params.toml` | Sidebar, footer, widgets, GA, Open Graph, color scheme |
+| `menu.toml` | Navigation & social menu items |
+| `permalinks.toml` | URL scheme |
+| `markup.toml` | Syntax highlighting |
+| `module.toml` | Hugo module imports (Stack theme) |
 
 ## Social
 

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Blur on Huy Minh Ha</title>
-        <link>https://minhhh.github.io/tags/blur/</link>
+        <link>http://localhost:1313/tags/blur/</link>
         <description>Recent content in Blur on Huy Minh Ha</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 24 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/blur/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 24 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="http://localhost:1313/tags/blur/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>How to do blur effect in Unity</title>
-            <link>https://minhhh.github.io/posts/how-to-do-blur-effect-in-unity/</link>
+            <link>http://localhost:1313/posts/how-to-do-blur-effect-in-unity/</link>
             <pubDate>Thu, 24 Nov 2016 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/how-to-do-blur-effect-in-unity/</guid>
+            <guid>http://localhost:1313/posts/how-to-do-blur-effect-in-unity/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Image Blur&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;can use a camera which render to a rendered texture&lt;/li&gt;&#xA;&lt;li&gt;add the images to be rendered to a second canvas, which uses the new camera with screenspace-camera&lt;/li&gt;&#xA;&lt;li&gt;Add blur shader to the Camera, or a parent object which contains all images&lt;/li&gt;&#xA;&lt;li&gt;Add the rendered texture to anywhere you like in the first camera&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Dynamic Background Blur&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://answers.unity3d.com/questions/21699/unity-blur-behind-window.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Blur Behind Window&lt;/a&gt; Use Camera post effect&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://forum.unity3d.com/threads/solved-dynamic-blurred-background-on-ui.345083/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Dynamic Blurred Background on UI&lt;/a&gt; Use Grabpass&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://blog.ivank.net/fastest-gaussian-blur.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;http://blog.ivank.net/fastest-gaussian-blur.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
         </item></channel>
 </rss>

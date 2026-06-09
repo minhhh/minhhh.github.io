@@ -12,9 +12,9 @@ SortBy = "default"
     lastUpdated = ":date_full"
 
 [sidebar]
-    emoji = "⚡"
+    emoji = ""
     subtitle = "Software development, Tech and other stuff"
-    avatar = "img/avatar.png"
+    avatar = "img/avatar.jpg"
 
 [article]
     headingAnchor = false
@@ -47,4 +47,4 @@ SortBy = "default"
 
 [services]
     [services.googleAnalytics]
-        ID = "G-XXXXXXXX"
+        ID = "UA-50796592-2"

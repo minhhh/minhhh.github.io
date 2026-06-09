@@ -2,6 +2,7 @@
 title = "Setup Tmux with Vim for Mac"
 date = "2020-07-03T00:00:00+07:00"
 author = "Ha.Minh"
+description = "A practical guide to setting up tmux on macOS: customizing the status bar, enabling Vim key bindings, setting up session restore with tmux-resurrect, and more."
 categories = ["Productivity"]
 tags = ["tmux", "macos", "vim"]
 +++

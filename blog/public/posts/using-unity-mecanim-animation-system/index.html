@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="See unity-mecanim for sample code of this article\nMechanim basics Unity 5 Tutorial - Animation Control Unity Third Person Control: Mecanim Nodes - Tutorial 5 Unity: Mecanim Animation Basics Animation Editor Solo and mute animation parameters Animation Parameters are variables that are defined within an Animator Controller that can be accessed and assigned values from scripts. This is how a script can control or affect the flow of the state machine. Parameters can be assigned values from a script using functions in the Animator class: SetFloat, SetInt, SetBool, SetTrigger and ResetTrigger Mecanim Animation Parameter Types: Boolean vs. Trigger Parameters can also be controlled in animation using Curve and read in script You cannot control an Animation parameter from both Curve and Script, so you have to structure your code correspondingly. Root motion, Blend Tree RPG Character Controller 001 - Unity 5 Root Motion Layer, Layer Mask Layer Usages (Animator Controller Layers) Additional layer for handling different body parts while the base layer handles the base movement, such as: wave hand while moving Blending mode can be: Override or Additive. Normally Override will be used because using Additive can be highly unpredictable unless you&rsquo;re an advanced animator. (advanced animation) Blend additional movement based on character state such as: heavy breathing when tired Sync layer when you have a set of animation for when the character state changes such as: wounded animations Avatar Mask(Avatar Masks) Could be set in animation to see the effect of Masking only part of the body Normally apply to layer which controls part of the body (advanced animation) Equip weapon Equip immediately without animation For models created in Unity Create weapon holder node Attach the weapons to it Hide/Unhide the correct weapon when switching weapon For models created outside Unity Find the correct node in the model OR create a weapon holder node like before Attach the weapons to it Hide/Unhide the correct weapon when switching weapon Equip with equip/unequip animations. All weapons are treated the same when equipped (Sword equipping) Create equip/unequip animation for each weapons Using layer/layer mask to blend the equip/unequip animations, masking only the necessary parts of the body, such as the arm movement Using Animation Event to set value to flags such as: sword_equipped, sword_unequipped Attach the corresponding weapon using Animation Event calling functions and/or flags Weapons affect whole animation when equiped (Applied Mecanim : Character Animation and Combat State Machines) Using mechanim as state machine Mecanim as generic state machine Reusing animator controllers with AnimatorOverrideController Applied Mecanim : Character Animation and Combat State Machines A character with 8 weapon types 9-12 ground attacks 5 aerial attacks 3 defensive maneuvers 4 throwable items 6 classes of magic each with 3-6 abilities Basic locomotion, jump, hit react, death One way is to use SubStateMachine, with several depth layers An alternative organization is to use BaseLayer with Overrides Layer and Additive Layer Leveraging Unity 5.2&rsquo;s Advanced Animation Features You can manage all transitions between attacks manually Or you can use a blend tree. This is slightly better. One problem is if you change the Blend parameter while playing animation, it will change the animation immediately. Solution in Unity 5: StateMachineBehaviour on a State. This way you can have code that run at the Start or End of your blendtree. You could also have StateMachineBehaviour on a StateMachine. Then you can override OnStateMachineEnter and OnStateMachineExit functions When the SubStateMachine is a sequence of animations, you can have code on OnStateMachineEnter to equip weapon Can also check for Input in StateMachineBehaviour Best Practices Animation events not firing when the event is near the endframe, so either use a third party event dispatcher, or use StateMachineBehaviour.\n">
 <title>Using Unity Mecanim animation system</title>
 
 
-<link rel="canonical" href="https://minhhh.github.io/posts/using-unity-mecanim-animation-system/">
+<link rel="canonical" href="http://localhost:1313/posts/using-unity-mecanim-animation-system/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="Using Unity Mecanim animation system">
 <meta property='og:description' content="See unity-mecanim for sample code of this article\nMechanim basics Unity 5 Tutorial - Animation Control Unity Third Person Control: Mecanim Nodes - Tutorial 5 Unity: Mecanim Animation Basics Animation Editor Solo and mute animation parameters Animation Parameters are variables that are defined within an Animator Controller that can be accessed and assigned values from scripts. This is how a script can control or affect the flow of the state machine. Parameters can be assigned values from a script using functions in the Animator class: SetFloat, SetInt, SetBool, SetTrigger and ResetTrigger Mecanim Animation Parameter Types: Boolean vs. Trigger Parameters can also be controlled in animation using Curve and read in script You cannot control an Animation parameter from both Curve and Script, so you have to structure your code correspondingly. Root motion, Blend Tree RPG Character Controller 001 - Unity 5 Root Motion Layer, Layer Mask Layer Usages (Animator Controller Layers) Additional layer for handling different body parts while the base layer handles the base movement, such as: wave hand while moving Blending mode can be: Override or Additive. Normally Override will be used because using Additive can be highly unpredictable unless you&rsquo;re an advanced animator. (advanced animation) Blend additional movement based on character state such as: heavy breathing when tired Sync layer when you have a set of animation for when the character state changes such as: wounded animations Avatar Mask(Avatar Masks) Could be set in animation to see the effect of Masking only part of the body Normally apply to layer which controls part of the body (advanced animation) Equip weapon Equip immediately without animation For models created in Unity Create weapon holder node Attach the weapons to it Hide/Unhide the correct weapon when switching weapon For models created outside Unity Find the correct node in the model OR create a weapon holder node like before Attach the weapons to it Hide/Unhide the correct weapon when switching weapon Equip with equip/unequip animations. All weapons are treated the same when equipped (Sword equipping) Create equip/unequip animation for each weapons Using layer/layer mask to blend the equip/unequip animations, masking only the necessary parts of the body, such as the arm movement Using Animation Event to set value to flags such as: sword_equipped, sword_unequipped Attach the corresponding weapon using Animation Event calling functions and/or flags Weapons affect whole animation when equiped (Applied Mecanim : Character Animation and Combat State Machines) Using mechanim as state machine Mecanim as generic state machine Reusing animator controllers with AnimatorOverrideController Applied Mecanim : Character Animation and Combat State Machines A character with 8 weapon types 9-12 ground attacks 5 aerial attacks 3 defensive maneuvers 4 throwable items 6 classes of magic each with 3-6 abilities Basic locomotion, jump, hit react, death One way is to use SubStateMachine, with several depth layers An alternative organization is to use BaseLayer with Overrides Layer and Additive Layer Leveraging Unity 5.2&rsquo;s Advanced Animation Features You can manage all transitions between attacks manually Or you can use a blend tree. This is slightly better. One problem is if you change the Blend parameter while playing animation, it will change the animation immediately. Solution in Unity 5: StateMachineBehaviour on a State. This way you can have code that run at the Start or End of your blendtree. You could also have StateMachineBehaviour on a StateMachine. Then you can override OnStateMachineEnter and OnStateMachineExit functions When the SubStateMachine is a sequence of animations, you can have code on OnStateMachineEnter to equip weapon Can also check for Input in StateMachineBehaviour Best Practices Animation events not firing when the event is near the endframe, so either use a third party event dispatcher, or use StateMachineBehaviour.\n">
-<meta property='og:url' content='https://minhhh.github.io/posts/using-unity-mecanim-animation-system/'>
+<meta property='og:url' content='http://localhost:1313/posts/using-unity-mecanim-animation-system/'>
 <meta property='og:site_name' content='Huy Minh Ha'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='unity' /><meta property='article:tag' content='mecanim' /><meta property='article:published_time' content='2017-01-02T00:00:00&#43;07:00'/><meta property='article:modified_time' content='2017-01-02T00:00:00&#43;07:00'/>
 <meta name="twitter:site" content="@@utsace">
@@ -58,15 +58,13 @@
     <header>
         <figure class="site-avatar">
                 <a href="/">
-                    <img src="img/avatar.png" 
+                    <img src="img/avatar.jpg" 
                         width=""
                         height=""
                         class="site-logo"
                         loading="lazy"
                         alt="Avatar">
                 </a>
-                
-                    <span class="emoji">⚡</span>
                 
             </figure>
         
@@ -175,43 +173,30 @@
                     </a>
                 </li>
             
+                <li>
+                    <a 
+                        href='/index.xml'
+                        
+                        title="RSS"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
         </ol><ol class="menu" id="main-menu">
         
-        
-        
-        <li >
-            <a href='/about/' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
-
-
-
-                
-                <span>About</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/archives/' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>Archives</span>
-            </a>
-        </li>
         
         
         <li >
@@ -233,6 +218,23 @@
         
         
         <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
             <a href='/projects/' >
                 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -242,6 +244,24 @@
 
                 
                 <span>Projects</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
             </a>
         </li>
         
@@ -815,7 +835,7 @@
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+<script type="text/javascript" src="/ts/main.81f7c7b009c3e48fd83b7e4b4502a6e78c5b49846504b4daea83abf34cb0415a.js" defer></script>
 
 
     </body>

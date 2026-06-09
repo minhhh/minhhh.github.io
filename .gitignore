@@ -4,3 +4,8 @@
 venv
 output
 cache
+
+# Hugo
+blog/public/
+blog/resources/
+.hugo_build.lock

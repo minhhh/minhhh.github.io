@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Shell on Huy Minh Ha</title>
-        <link>https://minhhh.github.io/tags/shell/</link>
+        <link>http://localhost:1313/tags/shell/</link>
         <description>Recent content in Shell on Huy Minh Ha</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 01 Jan 2015 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 01 Jan 2015 00:00:00 +0700</lastBuildDate><atom:link href="http://localhost:1313/tags/shell/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>A netcat cheatsheet</title>
-            <link>https://minhhh.github.io/posts/a-netcat-cheatsheet/</link>
+            <link>http://localhost:1313/posts/a-netcat-cheatsheet/</link>
             <pubDate>Thu, 01 Jan 2015 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/a-netcat-cheatsheet/</guid>
+            <guid>http://localhost:1313/posts/a-netcat-cheatsheet/</guid>
             <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/wiki&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;minhhh/wiki/netcat.md&lt;/a&gt;&lt;/p&gt;&#xA;</description>
         </item><item>
             <title>An Introduction to Bash</title>
-            <link>https://minhhh.github.io/posts/an-introduction-to-bash/</link>
+            <link>http://localhost:1313/posts/an-introduction-to-bash/</link>
             <pubDate>Sun, 23 Nov 2014 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/an-introduction-to-bash/</guid>
+            <guid>http://localhost:1313/posts/an-introduction-to-bash/</guid>
             <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/wiki&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;minhhh/wiki/bash.md&lt;/a&gt;&lt;/p&gt;&#xA;</description>
         </item></channel>
 </rss>

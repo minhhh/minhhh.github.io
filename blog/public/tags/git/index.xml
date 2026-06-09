@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Git on Huy Minh Ha</title>
-        <link>https://minhhh.github.io/tags/git/</link>
+        <link>http://localhost:1313/tags/git/</link>
         <description>Recent content in Git on Huy Minh Ha</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 09 Jan 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Jan 2017 00:00:00 +0700</lastBuildDate><atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>Git branching strategy</title>
-            <link>https://minhhh.github.io/posts/git-branching-strategy/</link>
+            <link>http://localhost:1313/posts/git-branching-strategy/</link>
             <pubDate>Mon, 09 Jan 2017 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/git-branching-strategy/</guid>
+            <guid>http://localhost:1313/posts/git-branching-strategy/</guid>
             <description>&lt;p&gt;Branching strategy is an important part of using git correctly. Without a proper branching strategy, even with a few people in the project, you will create a mess in no time. Below is a simple branching strategy that can be applied to various situation. It is also available on github &lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/git-manual/blob/master/branching_strategy.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;branch-description&#34;&gt;Branch Description&#xA;&lt;/h2&gt;&lt;h3 id=&#34;master&#34;&gt;master&#xA;&lt;/h3&gt;&lt;p&gt;Master branch represents what&amp;rsquo;s in live. It should not be modified directly.&lt;/p&gt;&#xA;&lt;p&gt;When it is deployed, it will be tagged so that we can revert to a certain deployment later.&lt;/p&gt;&#xA;&lt;p&gt;Lifetime: forever&lt;/p&gt;&#xA;&lt;h3 id=&#34;releasexxx&#34;&gt;release/xxx&#xA;&lt;/h3&gt;&lt;p&gt;After finishing a feature, make a release branch off the develop branch, merge all the necessary feature branches and do final test. Bugs found in this final QA phases can also be hotfixed in the same branch. After everything is complete, we will rebase this branch over &lt;code&gt;develop&lt;/code&gt; branch, then the rebase branch will be merged into the &lt;code&gt;master&lt;/code&gt; branch for release in Live environment.&lt;/p&gt;&#xA;&lt;p&gt;Lifetime: Feature Finish ~ Release in Live&lt;/p&gt;&#xA;&lt;h3 id=&#34;hotfixxxx&#34;&gt;hotfix/xxx&#xA;&lt;/h3&gt;&lt;p&gt;If a bug is found in production, we wil branch hotfix branch off master.&lt;/p&gt;&#xA;&lt;p&gt;Lifetime: Bugfix ~ Release in Live&lt;/p&gt;&#xA;&lt;h3 id=&#34;develop&#34;&gt;develop&#xA;&lt;/h3&gt;&lt;p&gt;This is the main branch where feature branches should be branched off. Trivial changes can be directly applied to develop if you are sure it should go into the next version. Major feature/bugfix branches have to go through PR process to be merged into develop.&lt;/p&gt;&#xA;&lt;p&gt;Lifetime: forever&lt;/p&gt;&#xA;&lt;h3 id=&#34;featurexxx&#34;&gt;feature/xxx&#xA;&lt;/h3&gt;&lt;p&gt;Feature branch should be branched off develop. While working on feature branches, developers can choose to merge develop into it. Once QA is completed on the feature branch, developers can send PR.&lt;/p&gt;&#xA;&lt;p&gt;Lifetime: Feature development ~ PR merge&lt;/p&gt;&#xA;&lt;h3 id=&#34;art&#34;&gt;art&#xA;&lt;/h3&gt;&lt;p&gt;Art branch lives forever. Artists only need to deal with this branch.&lt;/p&gt;&#xA;&lt;p&gt;Lifetime: forever&lt;/p&gt;&#xA;&lt;h2 id=&#34;role-descriptions&#34;&gt;Role Descriptions&#xA;&lt;/h2&gt;&lt;h3 id=&#34;engineer--uidesigner&#34;&gt;Engineer / UIDesigner&#xA;&lt;/h3&gt;&lt;ul&gt;&#xA;&lt;li&gt;develop -&amp;gt; feature&lt;/li&gt;&#xA;&lt;li&gt;feature -&amp;gt; develop (PR)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;artist&#34;&gt;Artist&#xA;&lt;/h3&gt;&lt;ul&gt;&#xA;&lt;li&gt;art -&amp;gt; art&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;lead-engineer&#34;&gt;Lead Engineer&#xA;&lt;/h3&gt;&lt;ul&gt;&#xA;&lt;li&gt;develop -&amp;gt; release&lt;/li&gt;&#xA;&lt;li&gt;release -&amp;gt; develop&lt;/li&gt;&#xA;&lt;li&gt;master -&amp;gt; hotfix&lt;/li&gt;&#xA;&lt;li&gt;hotfix -&amp;gt; master&lt;/li&gt;&#xA;&lt;li&gt;hotfix -&amp;gt; develop&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
         </item><item>
             <title>Embed git file to pelican</title>
-            <link>https://minhhh.github.io/posts/embed-git-file-to-pelican/</link>
+            <link>http://localhost:1313/posts/embed-git-file-to-pelican/</link>
             <pubDate>Thu, 11 Sep 2014 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/embed-git-file-to-pelican/</guid>
+            <guid>http://localhost:1313/posts/embed-git-file-to-pelican/</guid>
             <description>&lt;p&gt;Writing articles in github pages is nice, because you have github repository with all the nice features for document management, however sometimes it&amp;rsquo;s not where I want my articles to reside. For instance, I want the articles about git to be in a separate &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;&#xA;&lt;p&gt;I have several solutions for this problem:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I could duplicate the article. But I won&amp;rsquo;t do this.&lt;/li&gt;&#xA;&lt;li&gt;I could store the articles as &lt;code&gt;gist&lt;/code&gt; like this:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;[gist:id=dc8b7c536d0fe9c7003f]&lt;/p&gt;&#xA;&lt;p&gt;But I can&amp;rsquo;t store a lot of related things in gist because that&amp;rsquo;s the role of a real git repo.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I could store the articles in the normal &lt;code&gt;git&lt;/code&gt; repo, and embed it into the article in github page. I chose this approach for long articles. Like this:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!-- &lt;script src=&#34;http://gistit-minhhh.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js&#34;&gt;&lt;/script&gt; --&gt;&#xA;&lt;p&gt;There&amp;rsquo;s already a nice tool to do this: &lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/gist-it&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;gist-it&lt;/a&gt;. Using it is really simple, just clone the repo and deploy it to an AppEngine instance. The downside of this is it does not generate &lt;code&gt;html&lt;/code&gt; code for &lt;code&gt;Markdown&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The best solution for me is to use a plugin for embedding git file into &lt;code&gt;pelican&lt;/code&gt; like this:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/wiki&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;minhhh/wiki/sample.md&lt;/a&gt;&lt;/p&gt;&#xA;</description>
         </item><item>
             <title>How to rebase in Git</title>
-            <link>https://minhhh.github.io/posts/how-to-rebase-in-git/</link>
+            <link>http://localhost:1313/posts/how-to-rebase-in-git/</link>
             <pubDate>Tue, 09 Sep 2014 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/how-to-rebase-in-git/</guid>
+            <guid>http://localhost:1313/posts/how-to-rebase-in-git/</guid>
             <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/git-manual&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;minhhh/git-manual/git_rebase.md&lt;/a&gt;&lt;/p&gt;&#xA;</description>
         </item><item>
             <title>Git cheat sheet</title>
-            <link>https://minhhh.github.io/posts/git-cheat-sheet/</link>
+            <link>http://localhost:1313/posts/git-cheat-sheet/</link>
             <pubDate>Fri, 05 Sep 2014 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/git-cheat-sheet/</guid>
+            <guid>http://localhost:1313/posts/git-cheat-sheet/</guid>
             <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/minhhh/git-manual&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;minhhh/git-manual/README.md&lt;/a&gt;&lt;/p&gt;&#xA;</description>
         </item></channel>
 </rss>

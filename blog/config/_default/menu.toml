@@ -2,20 +2,15 @@
     identifier = "home"
     name = "Home"
     url = "/"
+    weight = 1
     [main.params]
         icon = "home"
-
-[[main]]
-    identifier = "archives"
-    name = "Archives"
-    url = "/archives/"
-    [main.params]
-        icon = "archives"
 
 [[main]]
     identifier = "about"
     name = "About"
     url = "/about/"
+    weight = 2
     [main.params]
         icon = "user"
 
@@ -23,8 +18,17 @@
     identifier = "projects"
     name = "Projects"
     url = "/projects/"
+    weight = 3
     [main.params]
         icon = "code"
+
+[[main]]
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
+    weight = 4
+    [main.params]
+        icon = "archives"
 
 [[social]]
     identifier = "email"
@@ -65,4 +69,12 @@
     weight = 5
     [social.params]
         icon = "brand-facebook"
+
+[[social]]
+    identifier = "rss"
+    name = "RSS"
+    url = "/index.xml"
+    weight = 6
+    [social.params]
+        icon = "rss"
 

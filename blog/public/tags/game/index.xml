@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Game on Huy Minh Ha</title>
-        <link>https://minhhh.github.io/tags/game/</link>
+        <link>http://localhost:1313/tags/game/</link>
         <description>Recent content in Game on Huy Minh Ha</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 25 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 25 Nov 2016 00:00:00 +0700</lastBuildDate><atom:link href="http://localhost:1313/tags/game/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>Game backends</title>
-            <link>https://minhhh.github.io/posts/game-backends/</link>
+            <link>http://localhost:1313/posts/game-backends/</link>
             <pubDate>Fri, 25 Nov 2016 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/game-backends/</guid>
+            <guid>http://localhost:1313/posts/game-backends/</guid>
             <description>&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://blog.soom.la/2016/02/top-10-parse-alternatives-game-backend.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Top 10 Parse Alternatives For Your Game Backend&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GameSparks&lt;/li&gt;&#xA;&lt;li&gt;PlayFab&lt;/li&gt;&#xA;&lt;li&gt;HeroicLabs&lt;/li&gt;&#xA;&lt;li&gt;Gamedonia&lt;/li&gt;&#xA;&lt;li&gt;Kii&lt;/li&gt;&#xA;&lt;li&gt;Kinvey&lt;/li&gt;&#xA;&lt;li&gt;BrainCloud&lt;/li&gt;&#xA;&lt;li&gt;GamuaFlox&lt;/li&gt;&#xA;&lt;li&gt;App42&lt;/li&gt;&#xA;&lt;li&gt;Photon&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.pocketgamer.biz/feature/59149/12-reasons-to-use-gamesparks/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Why should you use GameSparks&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GameSparks vs PlayFab vs Firebase&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/gamedev/comments/4otyeb/gamesparks_vs_playfab/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Gamesparks vs PlayFab?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://spaceteamadmirals.club/blog/spaceteam-is-coming-to-your-library/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Spaceteam&lt;/a&gt; uses GameSparks&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://forum.unity3d.com/threads/firebase-vs-playfab-vs-gamesparks.451840/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Firebase vs Playfab vs Gamesparks?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
         </item></channel>
 </rss>

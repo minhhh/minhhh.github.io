@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Unittest on Huy Minh Ha</title>
-        <link>https://minhhh.github.io/tags/unittest/</link>
+        <link>http://localhost:1313/tags/unittest/</link>
         <description>Recent content in Unittest on Huy Minh Ha</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 21 Feb 2017 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/unittest/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Feb 2017 00:00:00 +0700</lastBuildDate><atom:link href="http://localhost:1313/tags/unittest/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>Unity Unit testing</title>
-            <link>https://minhhh.github.io/posts/unity-unit-testing/</link>
+            <link>http://localhost:1313/posts/unity-unit-testing/</link>
             <pubDate>Tue, 21 Feb 2017 00:00:00 +0700</pubDate>
-            <guid>https://minhhh.github.io/posts/unity-unit-testing/</guid>
+            <guid>http://localhost:1313/posts/unity-unit-testing/</guid>
             <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://bitbucket.org/Unity-Technologies/unitytesttools/wiki/IntegrationTestsRunner&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;How to use the Integration Test Framework&lt;/a&gt; is the guide from offical repo&lt;/p&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://ilkinulas.github.io/programming/unity/2016/03/12/integration-tests-unity3d.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Writing Integration Tests For Unity3D Projects&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Suggests writing dynamic integration test on real game scene. This might be hard to maintain if you don&amp;rsquo;t have discipline.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
         </item></channel>
 </rss>

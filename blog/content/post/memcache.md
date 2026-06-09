@@ -2,7 +2,7 @@
 title = "An Introduction to Memcache"
 date = "2015-10-10T00:00:00+07:00"
 author = "Ha.Minh"
-categories = ["Web Development"]
+categories = ["Programming"]
 tags = ["memcache"]
 description = "This is intended to be an introduction to memcache."
 +++
