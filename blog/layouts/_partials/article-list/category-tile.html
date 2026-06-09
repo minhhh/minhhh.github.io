@@ -1,0 +1,11 @@
+{{ $color := partial "helper/color-from-str" .Title }}
+<article class="category-tile">
+    <div class="tile-bar" style="background: linear-gradient(90deg, {{ $color.BackgroundColor | safeCSS }}, hsl({{ $color.Hue }}, 60%, 78%));"></div>
+    <a href="{{ .RelPermalink }}">
+        <div class="article-details">
+            <h2 class="article-title">
+                {{- .Title -}}
+            </h2>
+        </div>
+    </a>
+</article>

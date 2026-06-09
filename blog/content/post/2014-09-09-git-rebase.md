@@ -5,7 +5,7 @@ author = "Ha.Minh"
 slug = "git-rebase"
 categories = ["Programming"]
 tags = ["git", "rebase"]
-description = "How to rebase in git"
+description = "How to rebase in git 10-long long long long long long long long long long long long long long long long long long long long long  long  long  long  long  long  long  long  long  long   "
 +++
 
 [minhhh/git-manual/git_rebase.md](https://github.com/minhhh/git-manual)

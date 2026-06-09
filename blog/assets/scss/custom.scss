@@ -12,7 +12,7 @@
         justify-content: center;
         padding: var(--spacing-xs) 0 var(--spacing-md) 0;
 
-        article {
+        article.category-tile {
             border: 1px solid var(--card-separator-color);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
@@ -52,3 +52,61 @@
     }
 }
 
+/* Related content tiles */
+.subsection-list .article-list--tile article:not(.category-tile) {
+    width: var(--article-tile-width);
+    height: var(--article-tile-height);
+
+    .article-details {
+        justify-content: flex-start;
+        padding: 16px;
+        overflow: hidden;
+    }
+
+    .article-title {
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+    }
+
+    .article-description {
+        font-size: 1.3rem;
+        color: var(--card-text-color-secondary);
+        margin: 0;
+        line-height: 1.4;
+        overflow: hidden;
+    }
+}
+
+/* Social icon brand colors */
+.menu-social li a svg {
+    stroke-width: 2;
+}
+.menu-social li a[title="GitHub"] svg { stroke: #333; }
+.menu-social li a[title="LinkedIn"] svg { stroke: #0077B5; }
+.menu-social li a[title="Twitter"] svg { stroke: #1DA1F2; }
+.menu-social li a[title="Facebook"] svg { stroke: #1877F2; }
+.menu-social li a[title="Email"] svg { stroke: #EA4335; }
+.menu-social li a[title="RSS"] svg { stroke: #EE802F; }
+
+/* Main nav icon colors and stroke */
+#main-menu li a svg {
+    stroke-width: 2;
+}
+#main-menu li a[href="/"] svg { stroke: #4A90D9; }
+#main-menu li a[href="/about/"] svg { stroke: #50C878; }
+#main-menu li a[href="/projects/"] svg { stroke: #9B59B6; }
+#main-menu li a[href="/archives/"] svg { stroke: #E67E22; }
+
+/* Author name and tagline */
+.site-name {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+}
+
+.site-description {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: var(--card-text-color-secondary) !important;
+}

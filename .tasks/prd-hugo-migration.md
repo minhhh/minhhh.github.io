@@ -99,10 +99,8 @@ Migrate the existing Pelican 3.4 blog at `minhhh.github.io` (frozen since July 2
 ## 4. Future Roadmap & Backlog
 
 - [ ] **task-13**: Migrate Google Analytics from UA-50796592-2 to GA4 (generate new GA4 property, update params.toml)
-- [ ] **task-13**: Migrate Google Analytics from UA-50796592-2 to GA4 (generate new GA4 property, update params.toml)
 - [ ] **task-14**: Add custom domain verification / CNAME if needed
 - [ ] **task-15**: Custom homepage (not just post list) — Stack supports custom homepage
-- [ ] **task-16**: Add table of contents to posts by default
 
 ---
 

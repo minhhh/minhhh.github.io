@@ -30,10 +30,18 @@
     </h2>
 
     <div class="tagCloud-tags">
-        {{ range first $limit $taxonomyPage.Pages.ByTitle }}
-            {{ $color := partial "helper/color-from-str" .Title }}
-            <a href="{{ .RelPermalink }}" style="background: linear-gradient(135deg, {{ $color.BackgroundColor | safeCSS }}, hsl({{ $color.Hue }}, 60%, 78%)); color: {{ $color.TextColor | safeCSS }};">
-                {{ .Title }}
+        {{ $sorted := $taxonomyPage.Pages.ByTitle }}
+        {{ if eq .Params.taxonomy "tags" }}
+            {{ $sorted = $taxonomy.ByCount }}
+        {{ end }}
+        {{ range first $limit $sorted }}
+            {{ $item := . }}
+            {{ if eq $.Params.taxonomy "tags" }}
+                {{ $item = .Page }}
+            {{ end }}
+            {{ $color := partial "helper/color-from-str" $item.Title }}
+            <a href="{{ $item.RelPermalink }}" style="background: linear-gradient(135deg, {{ $color.BackgroundColor | safeCSS }}, hsl({{ $color.Hue }}, 60%, 78%)); color: {{ $color.TextColor | safeCSS }};">
+                {{ $item.Title }}
             </a>
         {{ end }}
     </div>
