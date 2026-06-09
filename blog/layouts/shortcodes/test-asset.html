@@ -1,0 +1,6 @@
+{{ $img := resources.Get "img/avatar.jpg" }}
+{{ if $img }}
+FOUND: {{ $img.RelPermalink }}
+{{ else }}
+NOT FOUND
+{{ end }}

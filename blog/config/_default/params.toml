@@ -14,7 +14,7 @@ SortBy = "default"
 [sidebar]
     emoji = ""
     subtitle = "Software development, Tech and other stuff"
-    avatar = "/img/avatar.jpg"
+    avatar = "img/avatar.jpg"
 
 [article]
     headingAnchor = false
