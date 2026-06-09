@@ -31,7 +31,8 @@
 
     <div class="tagCloud-tags">
         {{ range first $limit $taxonomyPage.Pages.ByTitle }}
-            <a href="{{ .RelPermalink }}">
+            {{ $color := partial "helper/color-from-str" .Title }}
+            <a href="{{ .RelPermalink }}" style="background: linear-gradient(135deg, {{ $color.BackgroundColor | safeCSS }}, hsl({{ $color.Hue }}, 60%, 78%)); color: {{ $color.TextColor | safeCSS }};">
                 {{ .Title }}
             </a>
         {{ end }}
