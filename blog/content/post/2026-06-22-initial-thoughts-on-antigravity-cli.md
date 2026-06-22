@@ -17,13 +17,15 @@ I recently transitioned to using the new **Antigravity CLI** (`agy`), which has 
 * **Sub-agents**: Spawning sub-agents to handle background research or run A/B tests (like comparing two different implementations) is extremely easy and doesn't interrupt the main thread.
 
 
-## Context Bloat & The Missing `/compress` Command
+## Context Bloat & other issues
 
-In sequential coding workflows, context windows bloat rapidly as tool execution outputs and file reads are appended to history, causing latency and token waste. A big multi-file refactoring session can run out of tokens quickly because of the lack of a compression command. The older Gemini CLI resolved this with the `/compress` command, which replaced the chat context with a high-level summary of the conversation. Similar developer interfaces (like OpenCode with `/compact`) implement a matching pattern to keep reasoning loops tight.
+* In sequential coding workflows, context windows bloat rapidly as tool execution outputs and file reads are appended to history, causing latency and token waste. A big multi-file refactoring session can run out of tokens quickly because of the lack of a compression command. The older Gemini CLI resolved this with the `/compress` command, which replaced the chat context with a high-level summary of the conversation. Similar developer interfaces (like OpenCode with `/compact`) implement a matching pattern to keep reasoning loops tight.
 
-Another problem is that `agy` can often mess up the application of moderate-to-large diffs; it sometimes removes more lines than expected, or adds extra lines that result in syntax errors.
+* Another problem is that `agy` can often mess up the application of moderate-to-large diffs; it sometimes removes more lines than expected, or adds extra lines that result in syntax errors.
 
-### The Current Workaround in `agy`
+* The request-review mode for tool permission is not "smart enough". Many times I have commands that I don't want to apply globally, but at least in a session I might want to have it allowed. Antigravity often suggest 2 options, one is to allow the exact command, and another to add the exact command to settings, but it doesn't have the option to allow the command general pattern, such as "cp *" in this particular session and that can become annoying as I have to approve the command again and again for slightly different parameters
+
+### Workaround for context bloat
 
 Currently, `agy` supports `/rewind` (to undo the session to a previous checkpoint) but has no native `/compact` or `/compress` command. The current workaround requires manually managing state:
 
