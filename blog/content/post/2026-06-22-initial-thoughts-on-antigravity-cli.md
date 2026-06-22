@@ -1,8 +1,8 @@
 +++
-title = "Initial Thoughts on My Experience with Antigravity CLI"
+title = "Initial thoughts on my experience with Antigravity CLI"
 date = "2026-06-22T00:00:00+07:00"
 author = "Ha.Minh"
-description = "Some initial thoughts about my experience with using the Antigravity CLI, comparing it to the older Gemini CLI, and highlighting the missing context compaction features."
+description = "Some initial thoughts about my experience with using the Antigravity CLI, comparing it to the older Gemini CLI"
 slug = "initial-thoughts-on-antigravity-cli"
 categories = ["Programming"]
 tags = ["antigravity", "cli", "gemini-cli", "developer-experience", "AI", "productivity"]
