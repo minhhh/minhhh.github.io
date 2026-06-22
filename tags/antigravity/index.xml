@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Antigravity on Huy Minh Ha</title><link>https://minhhh.github.io/tags/antigravity/</link><description>Recent content in Antigravity on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/tags/antigravity/index.xml" rel="self" type="application/rss+xml"/><item><title>Initial Thoughts on My Experience with Antigravity CLI</title><link>https://minhhh.github.io/posts/initial-thoughts-on-antigravity-cli/</link><pubDate>Mon, 22 Jun 2026 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/initial-thoughts-on-antigravity-cli/</guid><description>&lt;p&gt;I recently transitioned to using the new &lt;strong&gt;Antigravity CLI&lt;/strong&gt; (&lt;code&gt;agy&lt;/code&gt;), which has officially replaced the older &lt;strong&gt;Gemini CLI&lt;/strong&gt; as the main terminal interface for agentic coding workflows. Here are some of my initial thoughts on my experience using it.&lt;/p&gt;
+&lt;h2 id="the-good-bits"&gt;The Good Bits
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: It&amp;rsquo;s generally faster and much more responsive than the old Gemini CLI. Command execution and responses feel near-instant.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Context breakdown&lt;/strong&gt;: The &lt;code&gt;/context&lt;/code&gt; command displays a clean breakdown of loaded files and symbols, making it easy to track what is currently in the agent&amp;rsquo;s context window.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conversation resets&lt;/strong&gt;: The &lt;code&gt;/clear&lt;/code&gt; (or &lt;code&gt;/new&lt;/code&gt;) command resets the conversation history without requiring you to quit and restart the CLI session.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sub-agents&lt;/strong&gt;: Spawning sub-agents to handle background research or run A/B tests (like comparing two different implementations) is extremely easy and doesn&amp;rsquo;t interrupt the main thread.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="context-bloat--the-missing-compress-command"&gt;Context Bloat &amp;amp; The Missing &lt;code&gt;/compress&lt;/code&gt; Command
+&lt;/h2&gt;&lt;p&gt;In sequential coding workflows, context windows bloat rapidly as tool execution outputs and file reads are appended to history, causing latency and token waste. A big multi-file refactoring session can run out of tokens quickly because of the lack of a compression command. The older Gemini CLI resolved this with the &lt;code&gt;/compress&lt;/code&gt; command, which replaced the chat context with a high-level summary of the conversation. Similar developer interfaces (like OpenCode with &lt;code&gt;/compact&lt;/code&gt;) implement a matching pattern to keep reasoning loops tight.&lt;/p&gt;
+&lt;p&gt;Another problem is that &lt;code&gt;agy&lt;/code&gt; can often mess up the application of moderate-to-large diffs; it sometimes removes more lines than expected, or adds extra lines that result in syntax errors.&lt;/p&gt;
+&lt;h3 id="the-current-workaround-in-agy"&gt;The Current Workaround in &lt;code&gt;agy&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;Currently, &lt;code&gt;agy&lt;/code&gt; supports &lt;code&gt;/rewind&lt;/code&gt; (to undo the session to a previous checkpoint) but has no native &lt;code&gt;/compact&lt;/code&gt; or &lt;code&gt;/compress&lt;/code&gt; command. The current workaround requires manually managing state:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Keeping a tracking file like &lt;code&gt;todo.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Having the agent update it after each task.&lt;/li&gt;
+&lt;li&gt;Clearing the session history via &lt;code&gt;/new&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Reading &lt;code&gt;todo.md&lt;/code&gt; in the new session to resume.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This workaround works, but having to manually cycle through session restarts feels unnecessarily clunky. Context hygiene should be a native feature of the harness.&lt;/p&gt;</description></item></channel></rss>
