@@ -17,6 +17,9 @@
 &lt;li&gt;
 &lt;p&gt;The request-review mode for tool permission is not &amp;ldquo;smart enough&amp;rdquo;. Many times I have commands that I don&amp;rsquo;t want to apply globally, but at least in a session I might want to have it allowed. Antigravity often suggest 2 options, one is to allow the exact command, and another to add the exact command to settings, but it doesn&amp;rsquo;t have the option to allow the command general pattern, such as &amp;ldquo;cp *&amp;rdquo; in this particular session and that can become annoying as I have to approve the command again and again for slightly different parameters&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Another issue related to the request-review mode is that the list of choice can be messed up if the choice is &lt;code&gt;python3 run -c ....&lt;/code&gt;. Here, the LLM is using a python script as a string literal on the command line, so the choice is a huge block of text and therefore I can only see the last 2 choice and I can&amp;rsquo;t even scroll up to see what the first choices are&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="workaround-for-context-bloat"&gt;Workaround for context bloat
 &lt;/h3&gt;&lt;p&gt;Currently, &lt;code&gt;agy&lt;/code&gt; supports &lt;code&gt;/rewind&lt;/code&gt; (to undo the session to a previous checkpoint) but has no native &lt;code&gt;/compact&lt;/code&gt; or &lt;code&gt;/compress&lt;/code&gt; command. The current workaround requires manually managing state:&lt;/p&gt;

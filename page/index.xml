@@ -7,6 +7,84 @@
 &lt;/h2&gt;&lt;p&gt;This site is built with &lt;a class="link" href="https://gohugo.io" target="_blank" rel="noopener"
  &gt;Hugo&lt;/a&gt; using the &lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
  &gt;Stack&lt;/a&gt; theme.&lt;/p&gt;</description></item><item><title>Archives</title><link>https://minhhh.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/archives/</guid><description/></item><item><title>Projects</title><link>https://minhhh.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/projects/</guid><description>&lt;p&gt;Here&amp;rsquo;s a list of projects that I worked on as part of a job or as personal projects.&lt;/p&gt;
+&lt;h2 id="general-utilities"&gt;General Utilities
+&lt;/h2&gt;&lt;h3 id="cli-cookbook"&gt;cli-cookbook
+&lt;/h3&gt;&lt;p&gt;Command line recipes and cheat sheets.
+URL: &lt;a class="link" href="https://github.com/minhhh/cli-cookbook" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/cli-cookbook&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="archive-web"&gt;archive-web
+&lt;/h3&gt;&lt;p&gt;Download a webpage for archiving purpose.
+URL: &lt;a class="link" href="https://github.com/minhhh/archive-web" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/archive-web&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="general-log-parser"&gt;general-log-parser
+&lt;/h3&gt;&lt;p&gt;General log parser written in Python.
+URL: &lt;a class="link" href="https://github.com/minhhh/general-log-parser" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/general-log-parser&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="sprite-extractor"&gt;sprite-extractor
+&lt;/h3&gt;&lt;p&gt;Tool for extracting sprites from TexturePacker Spritesheets.
+URL: &lt;a class="link" href="https://github.com/minhhh/sprite-extractor" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/sprite-extractor&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="texture-packer"&gt;Texture packer
+&lt;/h3&gt;&lt;p&gt;A jython command line implementation of the popular TexturePacker.
+URL: &lt;a class="link" href="https://github.com/minhhh/texture-packer" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/texture-packer&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="unity3d--game-development"&gt;Unity3D &amp;amp; Game Development
+&lt;/h2&gt;&lt;h3 id="unity-camera-follow-2d"&gt;unity-camera-follow-2d
+&lt;/h3&gt;&lt;p&gt;Script to make 2d camera follow players in an interesting way.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-camera-follow-2d" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-camera-follow-2d&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="usplitalpha"&gt;USplitAlpha
+&lt;/h3&gt;&lt;p&gt;A library in Unity3D for incorporating Split Alpha channel for Android and iOS.
+URL: &lt;a class="link" href="https://github.com/minhhh/USplitAlpha" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/USplitAlpha&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-editorextension-manual"&gt;unity-editorextension-manual
+&lt;/h3&gt;&lt;p&gt;A manual for various usecases of the Unity Editor extensions.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-editorextension-manual" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-editorextension-manual&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-texture-dither"&gt;unity-texture-dither
+&lt;/h3&gt;&lt;p&gt;A workflow for dithering imported textures automatically in Unity to save memory.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-texture-dither" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-texture-dither&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="ubootstrapwebp"&gt;UBootstrap.Webp
+&lt;/h3&gt;&lt;p&gt;Integrate Webp images into your Unity3D projects.
+URL: &lt;a class="link" href="https://github.com/minhhh/UBootstrap.Webp" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/UBootstrap.Webp&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-particle-scaler"&gt;unity-particle-scaler
+&lt;/h3&gt;&lt;p&gt;Convenient Editor Window to scale Unity&amp;rsquo;s Shuriken Particle System.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-particle-scaler" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-particle-scaler&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-sortinglayer-setter"&gt;unity-sortinglayer-setter
+&lt;/h3&gt;&lt;p&gt;Set the sorting layer of any object using code or from the Editor.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-sortinglayer-setter" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-sortinglayer-setter&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-scriptableobject-manual"&gt;unity-scriptableobject-manual
+&lt;/h3&gt;&lt;p&gt;A manual of major use cases of ScriptableObject in Unity.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-scriptableobject-manual" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-scriptableobject-manual&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="leantouch"&gt;LeanTouch
+&lt;/h3&gt;&lt;p&gt;LeanTouch is an input library that makes handling gestures (e.g. Pinch, Twist) incredibly easy across all devices and resolutions.
+URL: &lt;a class="link" href="https://github.com/minhhh/LeanTouch" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/LeanTouch&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-mecanim"&gt;unity-mecanim
+&lt;/h3&gt;&lt;p&gt;Guide for using Unity Mecanim system effectively.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-mecanim" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-mecanim&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-tips"&gt;unity-tips
+&lt;/h3&gt;&lt;p&gt;Tips, tricks, and best practices for working with Unity.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-tips" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-tips&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="ubootstrapspritecollection"&gt;UBootstrap.SpriteCollection
+&lt;/h3&gt;&lt;p&gt;SpriteCollection is a convenient way to load sprites dynamically in Unity.
+URL: &lt;a class="link" href="https://github.com/minhhh/UBootstrap.SpriteCollection" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/UBootstrap.SpriteCollection&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-leanpool"&gt;unity-leanpool
+&lt;/h3&gt;&lt;p&gt;Lean Pool is a GameObject pooling library that allows you to easily increase the performance of your games.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-leanpool" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-leanpool&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="unity-parallax-2d"&gt;unity-parallax-2d
+&lt;/h3&gt;&lt;p&gt;Script for creating 2d parallax layer in Unity.
+URL: &lt;a class="link" href="https://github.com/minhhh/unity-parallax-2d" target="_blank" rel="noopener"
+ &gt;https://github.com/minhhh/unity-parallax-2d&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="projects-i-participated-in-at-work"&gt;Projects I participated in at work
 &lt;/h2&gt;&lt;h3 id="bloodbrothers"&gt;BloodBrothers
 &lt;/h3&gt;&lt;p&gt;&lt;img alt="Blood Brothers" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://minhhh.github.io/img/blood-brothers.jpg"&gt;&lt;/p&gt;
@@ -20,12 +98,4 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;a class="link" href="https://bloodbrothersgame.fandom.com/wiki/Blood_Brothers_Wiki" target="_blank" rel="noopener"
  &gt;Blood Brothers&lt;/a&gt; is a massive online mobile game published by DeNA Japan, later run by DeNA Hanoi studio. I was one of the Game Engineers sent to Japan to take over the game operations from DeNA Japan. Later, I was promoted to Project Manager of the team in DeNA Hanoi Studio.&lt;/p&gt;
-&lt;p&gt;My daily tasks mostly covered reviewing work from other Game Engineers and QA. Communicating with the designer teams about planning resources for new events and features. I also implemented new character skills and guided new engineers about the skill system.&lt;/p&gt;
-&lt;h2 id="unity3d-5"&gt;Unity3D 5
-&lt;/h2&gt;&lt;h3 id="usplitalpha"&gt;USplitAlpha
-&lt;/h3&gt;&lt;p&gt;A library in Unity3D for incorporating Split Alpha channel for Android and iOS. URL: &lt;a class="link" href="https://github.com/minhhh/USplitAlpha" target="_blank" rel="noopener"
- &gt;https://github.com/minhhh/USplitAlpha&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="open-source-projects"&gt;Open-source projects
-&lt;/h2&gt;&lt;h3 id="texture-packer"&gt;Texture packer
-&lt;/h3&gt;&lt;p&gt;A jython command line implementation of the popular TexturePacker. URL: &lt;a class="link" href="https://github.com/minhhh/texture-packer" target="_blank" rel="noopener"
- &gt;https://github.com/minhhh/texture-packer&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Search</title><link>https://minhhh.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/search/</guid><description/></item></channel></rss>
+&lt;p&gt;My daily tasks mostly covered reviewing work from other Game Engineers and QA. Communicating with the designer teams about planning resources for new events and features. I also implemented new character skills and guided new engineers about the skill system.&lt;/p&gt;</description></item><item><title>Search</title><link>https://minhhh.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://minhhh.github.io/search/</guid><description/></item></channel></rss>
