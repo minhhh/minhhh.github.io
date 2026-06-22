@@ -25,6 +25,8 @@ I recently transitioned to using the new **Antigravity CLI** (`agy`), which has 
 
 * The request-review mode for tool permission is not "smart enough". Many times I have commands that I don't want to apply globally, but at least in a session I might want to have it allowed. Antigravity often suggest 2 options, one is to allow the exact command, and another to add the exact command to settings, but it doesn't have the option to allow the command general pattern, such as "cp *" in this particular session and that can become annoying as I have to approve the command again and again for slightly different parameters
 
+* Another issue related to the request-review mode is that the list of choice can be messed up if the choice is `python3 run -c ....`. Here, the LLM is using a python script as a string literal on the command line, so the choice is a huge block of text and therefore I can only see the last 2 choice and I can't even scroll up to see what the first choices are
+
 ### Workaround for context bloat
 
 Currently, `agy` supports `/rewind` (to undo the session to a previous checkpoint) but has no native `/compact` or `/compress` command. The current workaround requires manually managing state:
