@@ -6,10 +6,19 @@
 &lt;li&gt;&lt;strong&gt;Conversation resets&lt;/strong&gt;: The &lt;code&gt;/clear&lt;/code&gt; (or &lt;code&gt;/new&lt;/code&gt;) command resets the conversation history without requiring you to quit and restart the CLI session.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Sub-agents&lt;/strong&gt;: Spawning sub-agents to handle background research or run A/B tests (like comparing two different implementations) is extremely easy and doesn&amp;rsquo;t interrupt the main thread.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="context-bloat--the-missing-compress-command"&gt;Context Bloat &amp;amp; The Missing &lt;code&gt;/compress&lt;/code&gt; Command
-&lt;/h2&gt;&lt;p&gt;In sequential coding workflows, context windows bloat rapidly as tool execution outputs and file reads are appended to history, causing latency and token waste. A big multi-file refactoring session can run out of tokens quickly because of the lack of a compression command. The older Gemini CLI resolved this with the &lt;code&gt;/compress&lt;/code&gt; command, which replaced the chat context with a high-level summary of the conversation. Similar developer interfaces (like OpenCode with &lt;code&gt;/compact&lt;/code&gt;) implement a matching pattern to keep reasoning loops tight.&lt;/p&gt;
+&lt;h2 id="context-bloat--other-issues"&gt;Context Bloat &amp;amp; other issues
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In sequential coding workflows, context windows bloat rapidly as tool execution outputs and file reads are appended to history, causing latency and token waste. A big multi-file refactoring session can run out of tokens quickly because of the lack of a compression command. The older Gemini CLI resolved this with the &lt;code&gt;/compress&lt;/code&gt; command, which replaced the chat context with a high-level summary of the conversation. Similar developer interfaces (like OpenCode with &lt;code&gt;/compact&lt;/code&gt;) implement a matching pattern to keep reasoning loops tight.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;Another problem is that &lt;code&gt;agy&lt;/code&gt; can often mess up the application of moderate-to-large diffs; it sometimes removes more lines than expected, or adds extra lines that result in syntax errors.&lt;/p&gt;
-&lt;h3 id="the-current-workaround-in-agy"&gt;The Current Workaround in &lt;code&gt;agy&lt;/code&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The request-review mode for tool permission is not &amp;ldquo;smart enough&amp;rdquo;. Many times I have commands that I don&amp;rsquo;t want to apply globally, but at least in a session I might want to have it allowed. Antigravity often suggest 2 options, one is to allow the exact command, and another to add the exact command to settings, but it doesn&amp;rsquo;t have the option to allow the command general pattern, such as &amp;ldquo;cp *&amp;rdquo; in this particular session and that can become annoying as I have to approve the command again and again for slightly different parameters&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="workaround-for-context-bloat"&gt;Workaround for context bloat
 &lt;/h3&gt;&lt;p&gt;Currently, &lt;code&gt;agy&lt;/code&gt; supports &lt;code&gt;/rewind&lt;/code&gt; (to undo the session to a previous checkpoint) but has no native &lt;code&gt;/compact&lt;/code&gt; or &lt;code&gt;/compress&lt;/code&gt; command. The current workaround requires manually managing state:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Keeping a tracking file like &lt;code&gt;todo.md&lt;/code&gt;.&lt;/li&gt;
