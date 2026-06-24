@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Huy Minh Ha</title><link>https://minhhh.github.io/</link><description>Recent content on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Initial thoughts on my experience with Antigravity CLI</title><link>https://minhhh.github.io/posts/initial-thoughts-on-antigravity-cli/</link><pubDate>Mon, 22 Jun 2026 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/initial-thoughts-on-antigravity-cli/</guid><description>&lt;p&gt;I recently transitioned to using the new &lt;strong&gt;Antigravity CLI&lt;/strong&gt; (&lt;code&gt;agy&lt;/code&gt;), which has officially replaced the older &lt;strong&gt;Gemini CLI&lt;/strong&gt; as the main terminal interface for agentic coding workflows. Here are some of my initial thoughts on my experience using it.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Huy Minh Ha</title><link>https://minhhh.github.io/</link><description>Recent content on Huy Minh Ha</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0700</lastBuildDate><atom:link href="https://minhhh.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>cpulimitd</title><link>https://minhhh.github.io/posts/cpulimitd/</link><pubDate>Wed, 24 Jun 2026 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/cpulimitd/</guid><description>&lt;p&gt;Recently Firefox, Chrome, and Edge use too much CPU and it&amp;rsquo;s annoying that my fan is going full speed for an extended period. After looking around I found that &lt;code&gt;cpulimit&lt;/code&gt; exists on macOS and Linux to clamp a process to a given CPU percentage, but it works per-PID and doesn&amp;rsquo;t track respawns.&lt;/p&gt;
+&lt;p&gt;So naturally I wrote &lt;code&gt;cpulimitd&lt;/code&gt; to wrap it. Give it a TOML config:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-toml" data-lang="toml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;processes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;firefox&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;limit&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;40&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;include-children&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;It scans running processes every N seconds, matches names against patterns, spawns &lt;code&gt;cpulimit&lt;/code&gt; for each PID, and re-limits if a process dies and respawns. Config reloads every cycle — no restart needed.&lt;/p&gt;
+&lt;p&gt;It has two commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cpulimitd&lt;/code&gt; — daemon mode. Runs until killed.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cpulimitd list 10&lt;/code&gt; — shows top N CPU processes. The &lt;code&gt;NAME&lt;/code&gt; column is what you put in config.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Code: &lt;a class="link" href="https://github.com/minhhh/cpulimitd" target="_blank" rel="noopener"
+ &gt;github.com/minhhh/cpulimitd&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Initial thoughts on my experience with Antigravity CLI</title><link>https://minhhh.github.io/posts/initial-thoughts-on-antigravity-cli/</link><pubDate>Mon, 22 Jun 2026 00:00:00 +0700</pubDate><guid>https://minhhh.github.io/posts/initial-thoughts-on-antigravity-cli/</guid><description>&lt;p&gt;I recently transitioned to using the new &lt;strong&gt;Antigravity CLI&lt;/strong&gt; (&lt;code&gt;agy&lt;/code&gt;), which has officially replaced the older &lt;strong&gt;Gemini CLI&lt;/strong&gt; as the main terminal interface for agentic coding workflows. Here are some of my initial thoughts on my experience using it.&lt;/p&gt;
 &lt;h2 id="the-good-bits"&gt;The Good Bits
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: It&amp;rsquo;s generally faster and much more responsive than the old Gemini CLI. Command execution and responses feel near-instant.&lt;/li&gt;
